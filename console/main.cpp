@@ -22,9 +22,9 @@
 #include "config.h"
 #include "output.h"
 #include "mode.h"
+#include "loop.h"
 
-#include <caca.h>
-
+#include <QX11Info>
 #include <QtCore/QDebug>
 
 int main (int argc, char *argv[])
@@ -33,50 +33,7 @@ int main (int argc, char *argv[])
 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
 
-    KScreen *screen = KScreen::self();
-    qDebug() << "Backend: " << screen->backend();
-
-    Config *config = screen->config();
-
-    OutputList outputs = config->outputs();
-    OutputList outputEnabled;
-    Q_FOREACH(Output *output, outputs) {
-        qDebug() << "Id: " << output->id();
-        qDebug() << "Name: " << output->name();
-        qDebug() << "Type: " << output->type();
-        qDebug() << "Connected: " << output->isConnected();
-        qDebug() << "Enabled: " << output->isEnabled();
-        qDebug() << "Primary: " << output->isPrimary();
-        qDebug() << "Pos: " << output->pos();
-        if (output->currentMode()) {
-            qDebug() << "Size: " << output->mode(output->currentMode())->size();
-        }
-        qDebug() << "Clones: " << output->clones().isEmpty();
-        qDebug() << "Mode: " << output->currentMode();
-        qDebug() << "Modes: ";
-
-        ModeList modes = output->modes();
-        Q_FOREACH(Mode* mode, modes) {
-            qDebug() << "\t" << mode->id() << "  " << mode->name() << " " << mode->size() << " " << mode->refreshRate();
-        }
-
-        if (output->isEnabled()) {
-            outputEnabled.insert(output->id(), output);
-        }
-        qDebug() << "\n==================================================\n";
-    }
-
-//     config->outputs()[65]->setEnabled(false);
-//     config->outputs()[65]->setPos(QPoint(0,0));
-//     config->outputs()[65]->setPrimary(false);
-
-//     config->outputs()[65]->setEnabled(true);
-//     config->outputs()[65]->setCurrentMode(70);
-//     config->outputs()[65]->setPos(QPoint(0,0));
-//     config->outputs()[68]->setEnabled(true);
-//     config->outputs()[68]->setCurrentMode(70);
-//     config->outputs()[68]->setPos(QPoint(1920, 0));
-//     config->outputs()[68]->setPrimary(true);
-
-//     screen->setConfig(config);
+    Loop *loop = new Loop(0);
+    loop->printConfig();
+    app.exec();
 }
