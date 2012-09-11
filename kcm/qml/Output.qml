@@ -30,8 +30,9 @@ QMLOutput {
 	signal moved();
 	signal clicked();
 
-	width: ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * scaleTransformation.xScale;
-	height: ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * scaleTransformation.yScale;
+	/* +1 because of the border */
+	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * scaleTransformation.xScale;
+	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * scaleTransformation.yScale;
 
 	Rectangle {
 		id: monitor;

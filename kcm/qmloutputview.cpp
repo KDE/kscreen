@@ -96,7 +96,6 @@ void QMLOutputView::outputMoved()
 {
 	QMLOutput *output = dynamic_cast<QMLOutput*>(sender());
 
-	/* FIXME: output->{x,y}() change even when window is snapped. This must be fixed */
 	int x = output->x();
 	int y = output->y();
 	int width =  output->width();
@@ -112,89 +111,74 @@ void QMLOutputView::outputMoved()
 		int height2 = otherOutput->height();
 		int width2 = otherOutput->width();
 
-		kDebug() << x + width << x2;
-
-		/* @output is snapped to @otherOutput on left and their
-		 * upper sides are aligned */
-		if ((x + width == x2) && (y < y2 + 15) && (y > y2 - 15)) {
-			output->setY(y2);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on left and their
-		 * bottom sides are aligned */
-		if ((x + width == x2) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 - 15)) {
-			output->setY(y2 + height2 - height);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on right and their
-		 * upper sides are aligned */
-		if ((x == x2 + width) && (y < y2 + 15) && (y > y2 - 15)) {
-			output->setY(y2);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on right and their
-		 * bottom sides are aligned */
-		if ((x == x2 + width) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 -15)) {
-			output->setY(y2 + height2 - height);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on top and their
-		 * left sides are aligned */
-		if ((y + height == y2) && (x < x2 + 15) && (x > x2 - 15)) {
-			output->setX(x2);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on top and their
-		 * right sides are aligned */
-		if ((y + height == y2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
-			output->setX(x2 + width2 - width);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on bottom and their
-		 * left sides are aligned */
-		if ((y == y2 + height2) && (x < x2 + 15) && (x > x2 - 15)) {
-			output->setX(x2);
-			return;
-		}
-
-		/* @output is snapped to @otherOutput on bottom and their
-		 * right sides are aligned */
-		if ((y == y2 + height2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
-			output->setX(x2 + width2 - width);
-			return;
-		}
-
-
-
 		/* @output is left of @otherOutput */
 		if ((x + width > x2 - 30) && (x + width < x2 + 30) &&
 		    (y + height > y2) && (y < y2 + height2)) {
 
 			output->setX(x2 - width);
-			return;
+			x = output->x();
+
+			/* @output is snapped to @otherOutput on left and their
+			* upper sides are aligned */
+			if ((x + width == x2) && (y < y2 + 15) && (y > y2 - 15)) {
+				output->setY(y2);
+				return;
+			}
+
+			/* @output is snapped to @otherOutput on left and their
+			* bottom sides are aligned */
+			if ((x + width == x2) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 - 15)) {
+				output->setY(y2 + height2 - height);
+				return;
+			}
 		}
+
 
 		/* @output is right of @otherOutput */
 		if ((x > x2 + width2 - 30) && (x < x2 + width2 + 30) &&
 		    (y + height > y2) && (y < y2 + height2)) {
 
 			output->setX(x2 + width2);
-			return;
+			x = output->x();
+
+			/* @output is snapped to @otherOutput on right and their
+			* upper sides are aligned */
+			if ((x == x2 + width2) && (y < y2 + 15) && (y > y2 - 15)) {
+				output->setY(y2);
+				return;
+			}
+
+			/* @output is snapped to @otherOutput on right and their
+			* bottom sides are aligned */
+			if ((x == x2 + width2) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 -15)) {
+				output->setY(y2 + height2 - height);
+				return;
+			}
 		}
+
 
 		/* @output is above @otherOutput */
 		if ((y + height > y2 - 30) && (y + height < y2 + 30) &&
 		    (x + width > x2) && (x < x2 + width2)) {
 
 			output->setY(y2 - height);
-			return;
+			y = output->y();
+
+			/* @output is snapped to @otherOutput on top and their
+			* left sides are aligned */
+			if ((y + height == y2) && (x < x2 + 15) && (x > x2 - 15)) {
+				output->setX(x2);
+				return;
+			}
+
+			/* @output is snapped to @otherOutput on top and their
+			* right sides are aligned */
+			if ((y + height == y2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
+				output->setX(x2 + width2 - width);
+				return;
+			}
 		}
+
 
 		/* @output is below @otherOutput */
 		if ((y > y2 + height2 - 30) && (y < y2 + height2 + 30) &&
@@ -202,8 +186,23 @@ void QMLOutputView::outputMoved()
 
 
 			output->setY(y2 + height2);
-			return;
+			y = output->y();;
+
+			/* @output is snapped to @otherOutput on bottom and their
+			* left sides are aligned */
+			if ((y == y2 + height2) && (x < x2 + 15) && (x > x2 - 15)) {
+				output->setX(x2);
+				return;
+			}
+
+			/* @output is snapped to @otherOutput on bottom and their
+			* right sides are aligned */
+			if ((y == y2 + height2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
+				output->setX(x2 + width2 - width);
+				return;
+			}
 		}
+
 
 		/* @output is centered with @otherOutput */
 		int centerX = x + (width / 2);
