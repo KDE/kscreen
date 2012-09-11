@@ -153,7 +153,6 @@ QMLOutput {
 			}
 		]
 
-		/* This must be created before stateButton */
 		MouseArea {
 			id: monitorMouseArea;
 			anchors.fill: parent;
@@ -180,7 +179,7 @@ QMLOutput {
 			onPositionChanged: root.moved();
 
 			/* When button is pressed, emit clicked() signal
-			 * which is caught by FocusGroup */
+			 * which is cought by QMLOutputView */
 			onPressed: {
 				mouse.accepted = true;
 				root.clicked();
