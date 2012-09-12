@@ -197,7 +197,7 @@ QMLOutput {
 
 			OutputControls {
 				id: controls;
-				output: root.output;
+				parentItem: root;
 			}
 
 			Rectangle {

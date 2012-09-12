@@ -22,6 +22,7 @@
 #define QMLOUTPUT_H
 
 #include <QDeclarativeItem>
+#include <kscreen/mode.h>
 
 class /*KScreen::*/Output;
 
@@ -30,6 +31,7 @@ class QMLOutput : public QDeclarativeItem
     Q_OBJECT
 
     Q_PROPERTY(/*KScreen::*/Output* output READ output WRITE setOutput NOTIFY outputChanged);
+    Q_PROPERTY(QDeclarativeListProperty</*KScreen::*/Mode> modes READ modes CONSTANT);
 public:
     QMLOutput();
     virtual ~QMLOutput();
@@ -37,11 +39,14 @@ public:
     void setOutput(/*KScreen::*/Output* output);
     /*KScreen::*/Output* output() const;
 
+    QDeclarativeListProperty</*KScreen::*/Mode> modes();
+
 Q_SIGNALS:
     void outputChanged();
 
 private:
     /*KScreen::*/Output* m_output;
+    QList<Mode*> m_modes;
 };
 
 #endif // QMLOUTPUT_H

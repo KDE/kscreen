@@ -36,6 +36,7 @@ QMLOutput::~QMLOutput()
 void QMLOutput::setOutput(/*KScreen::*/Output* output)
 {
     m_output = output;
+    m_modes = m_output->modes().values();
 
     Q_EMIT outputChanged();
 }
@@ -43,4 +44,9 @@ void QMLOutput::setOutput(/*KScreen::*/Output* output)
 /*KScreen::*/Output* QMLOutput::output() const
 {
     return m_output;
+}
+
+QDeclarativeListProperty</*KScreen::*/Mode> QMLOutput::modes()
+{
+	return QDeclarativeListProperty</*KScreen::*/Mode>(this, m_modes);
 }

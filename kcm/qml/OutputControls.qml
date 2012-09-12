@@ -16,16 +16,16 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-import QtQuick 1.0
-import org.kde.plasma.components 0.1
-import org.kde.plasma.core 0.1 as PlasmaCore
+import QtQuick 1.1
 import org.kde.qtextracomponents 0.1
+import org.kde.plasma.components 0.1 as PlasmaComponents;
+import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
 Item {
 	id: controls;
 	property int rotationDirection;
-	property Output output;
+	property Item parentItem;
 	property string stateIcon: "dialog-ok-apply";
 
 	anchors {
@@ -220,6 +220,42 @@ Item {
 					}
 				}
 			}
+		}
+	}
+
+	QIconItem {
+		id: showModePopupButton;
+		icon: "arrow-down";
+
+		anchors {
+			right: parent.right;
+			bottom: parent.bottom;
+			margins: 10;
+		}
+
+		width: 20;
+		height: 20;
+
+		MouseArea {
+			anchors.fill: parent;
+
+			onClicked: {
+				modesPopup.open(parent.x, parent.y);
+			}
+		}
+	}
+
+	PlasmaComponents.ContextMenu {
+		id: modesPopup;
+		visualParent: showModePopupButton;
+	}
+
+	onParentItemChanged: {
+		for (var i = 0; i < parentItem.modes.length; i++) {
+			modesPopup.addMenuItem(
+				parentItem.modes[i].name + " ("
+				+ Math.round(parentItem.modes[i].refreshRate)
+				+ "Hz)");
 		}
 	}
 }

@@ -73,7 +73,6 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterInterface<Mode*>("OutputMode");
 	qmlRegisterType<Output>("KScreen", 1, 0, "Output");
 	qmlRegisterType<Mode>("KScreen", 1, 0, "OutputMode");
-	//qmlRegisterType<QMLOutputList>("KScreen", 1, 0, "OutputList");
 
         m_declarativeView = new QDeclarativeView(this);
 	m_declarativeView->engine()->addImportPath(importPath);
