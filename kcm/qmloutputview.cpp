@@ -34,7 +34,8 @@
 Q_DECLARE_METATYPE(QMLOutput*);
 
 QMLOutputView::QMLOutputView():
-	QDeclarativeItem()
+	QDeclarativeItem(),
+	m_activeOutput(0)
 {
 }
 
@@ -46,6 +47,12 @@ QList<QMLOutput*> QMLOutputView::outputs() const
 {
 	return m_outputs;
 }
+
+QMLOutput* QMLOutputView::activeOutput() const
+{
+	return m_activeOutput;
+}
+
 
 void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* output)
 {
@@ -84,6 +91,9 @@ void QMLOutputView::outputClicked()
 			}
 			output->setProperty("z", m_outputs.length());
 			output->setProperty("focus", true);
+			m_activeOutput = output;
+			emit activeOutputChanged();
+
 			break;
 		}
 

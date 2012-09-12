@@ -33,6 +33,7 @@ class QMLOutputView : public QDeclarativeItem
     Q_OBJECT
 
     Q_PROPERTY(QList<QMLOutput*> outputs READ outputs NOTIFY outputsChanged);
+    Q_PROPERTY(QMLOutput* activeOutput READ activeOutput NOTIFY activeOutputChanged);
 public:
     QMLOutputView();
     virtual ~QMLOutputView();
@@ -40,9 +41,11 @@ public:
     void addOutput(QDeclarativeEngine* engine, /*KScreen::*/Output* output);
 
     QList<QMLOutput*> outputs() const;
+    QMLOutput * activeOutput() const;
 
 Q_SIGNALS:
     void outputsChanged();
+    void activeOutputChanged();
 
 private Q_SLOTS:
     void outputMoved();
@@ -52,6 +55,7 @@ private:
     QDeclarativeContext * context() const;
 
     QList<QMLOutput*> m_outputs;
+    QMLOutput *m_activeOutput;
 
 };
 

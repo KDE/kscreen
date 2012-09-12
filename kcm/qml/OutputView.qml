@@ -22,5 +22,8 @@ import KScreen 1.0
 QMLOutputView {
 	property Item root;
 
-	anchors.fill: parent;
+	Rectangle {
+		anchors.fill: parent;
+		color: palette.base;
+	}
 }

@@ -31,7 +31,7 @@ class QMLOutput : public QDeclarativeItem
     Q_OBJECT
 
     Q_PROPERTY(/*KScreen::*/Output* output READ output WRITE setOutput NOTIFY outputChanged);
-    Q_PROPERTY(QDeclarativeListProperty</*KScreen::*/Mode> modes READ modes CONSTANT);
+    Q_PROPERTY(QDeclarativeListProperty</*KScreen::*/Mode> modes READ modes NOTIFY outputChanged);
 public:
     QMLOutput();
     virtual ~QMLOutput();
@@ -41,6 +41,11 @@ public:
 
     QDeclarativeListProperty</*KScreen::*/Mode> modes();
 
+    Q_INVOKABLE QStringList getResolutions() const;
+    /* Can't use QList<float>, see QTBUG-20826 */
+    Q_INVOKABLE QList<QVariant> getRefreshRatesForResolution(const QString &res);
+
+    Q_INVOKABLE void setMode(const QString &resolution, const float &refreshRate);
 Q_SIGNALS:
     void outputChanged();
 
@@ -50,3 +55,4 @@ private:
 };
 
 #endif // QMLOUTPUT_H
+

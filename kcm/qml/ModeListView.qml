@@ -17,56 +17,43 @@
 */
 
 import QtQuick 1.1
+import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
+import KScreen 1.0
 
-Item {
-	id: root;
-	objectName: "root";
+Rectangle {
+	property alias model: listview.model;
+	property alias currentItem: listview.currentItem;
+
+	color: palette.base;
 	focus: true;
 
-	SystemPalette {
-		id: palette;
-	}
-	/* Don't use colors from theme, we want to be consistent with KCM, not
-	 * with Plasma here. Font sizes are the same though */
-	PlasmaCore.Theme {
-		id: theme;
-	}
+	ListView {
+		focus: true;
+		id: listview;
+		highlightFollowsCurrentItem: true;
+		clip: true;
+		anchors.fill: parent;
 
-	FocusScope {
-		id: outputViewFocusScope;
-		anchors {
-			left: parent.left;
-			right: parent.right;
-			top: parent.top;
-		}
+		delegate:
+			PlasmaComponents.ListItem {
+				property variant modelData: model;
 
-		height: root.height / 2;
+				enabled: true;
+				width: 150;
 
-		OutputView {
-			id: outputView;
-			objectName: "outputView";
-			root: parent;
+				Text {
+					text: label;
+					color: theme.textColor;
+					font {
+						family: theme.defaultFont.family;
+						pointSize: theme.defaultFont.pointSize;
+					}
+				}
 
-			anchors.fill: parent;
-		}
-	}
-
-	FocusScope {
-		anchors {
-			top: outputViewFocusScope.bottom;
-			left: parent.left;
-			right: parent.right;
-			bottom: parent.bottom;
-			margins: 20;
-		}
-
-		OutputSettings {
-			id: settings;
-			focus: true;
-			anchors.fill: parent;
-			output: outputView.activeOutput;
-		}
+				checked: (index == listview.currentIndex);
+				onClicked: listview.currentIndex = index;
+			}
 	}
 }
+

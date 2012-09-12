@@ -160,7 +160,8 @@ Item {
 	Text {
 		id: resolutionLabel;
 		text: monitor.connected ?
-			output.mode(output.currentMode).name :
+			output.mode(output.currentMode).name + "@" +
+				Math.round(output.mode(output.currentMode).refreshRate, 1) + " Hz" :
 			"";
 
 		color: "black";
@@ -220,42 +221,6 @@ Item {
 					}
 				}
 			}
-		}
-	}
-
-	QIconItem {
-		id: showModePopupButton;
-		icon: "arrow-down";
-
-		anchors {
-			right: parent.right;
-			bottom: parent.bottom;
-			margins: 10;
-		}
-
-		width: 20;
-		height: 20;
-
-		MouseArea {
-			anchors.fill: parent;
-
-			onClicked: {
-				modesPopup.open(parent.x, parent.y);
-			}
-		}
-	}
-
-	PlasmaComponents.ContextMenu {
-		id: modesPopup;
-		visualParent: showModePopupButton;
-	}
-
-	onParentItemChanged: {
-		for (var i = 0; i < parentItem.modes.length; i++) {
-			modesPopup.addMenuItem(
-				parentItem.modes[i].name + " ("
-				+ Math.round(parentItem.modes[i].refreshRate)
-				+ "Hz)");
 		}
 	}
 }

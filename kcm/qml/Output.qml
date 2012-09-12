@@ -30,12 +30,13 @@ QMLOutput {
 	/* +1 because of the border */
 	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * scaleTransformation.xScale;
 	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * scaleTransformation.yScale;
-
+	
 	Rectangle {
 		id: monitor;
 
 		property bool enabled: output.enabled;
 		property bool connected: output.connected;
+		property bool primary: output.primary;
 		property int currentModeId: output.currentMode;
 		property int rotationDirection;
 
@@ -66,7 +67,7 @@ QMLOutput {
 		anchors.centerIn: parent;
 		visible: output.connected;
 
-		   /* Some nifty animation when changing backround color */
+		/* Some nifty animation when changing backround color */
 		Behavior on color {
 			PropertyAnimation {
 				duration: 150;
@@ -104,19 +105,15 @@ QMLOutput {
 
 		/* FIXME: We need a much better math */
 		onCurrentModeIdChanged: {
-			monitor.width = output.mode(output.currentMode).size.width / 5;
-			monitor.height = output.mode(output.currentMode).size.height / 5;
+			monitor.width = output.mode(output.currentMode).size.width / 8;
+			monitor.height = output.mode(output.currentMode).size.height / 8;
 		}
 
-		/* Don't use bindings, would cause binding loop */
-		Component.onCompleted:
-			monitor.state = output.primary ?
-				"primary" :
-				(output.enabled ? "enabled" : "disabled");
 
 		states: [
 			State {
 				name: "primary";
+				when: enabled && primary;
 				PropertyChanges {
 					target: controls;
 					stateIcon: "bookmarks";
@@ -128,6 +125,7 @@ QMLOutput {
 			},
 			State {
 				name: "enabled";
+				when: enabled && !primary;
 				PropertyChanges {
 					target: controls;
 					stateIcon: "dialog-ok-apply";
@@ -139,6 +137,7 @@ QMLOutput {
 			},
 			State {
 				name: "disabled";
+				when : !enabled;
 				PropertyChanges {
 					target: controls;
 					stateIcon: "edit-delete";

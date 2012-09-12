@@ -78,11 +78,8 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	m_declarativeView->engine()->addImportPath(importPath);
         m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
 	m_declarativeView->setSource(qmlPath);
+	m_declarativeView->setStyleSheet("background: transparent");
         mainLayout->addWidget(m_declarativeView, 0, 0);
-
-	QDeclarativeComponent outputViewComponent(m_declarativeView->engine());
-	qmlPath = KStandardDirs::locate("data", QLatin1String(QML_PATH "OutputView.qml"));
-	outputViewComponent.loadUrl(QUrl::fromLocalFile(qmlPath));
 
   	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
 	if (!rootObj) {
@@ -90,14 +87,11 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 		return;
 	}
 
-	QMLOutputView *outputView = dynamic_cast<QMLOutputView*>(outputViewComponent.create());
-	outputView->setParentItem(rootObj);
-	outputView->setProperty("root", QVariant::fromValue(rootObj));
+	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
 	if (!outputView) {
-		kWarning() << outputViewComponent.errorString();
+		kWarning() << "Failed to obtain output view";
 		return;
 	}
-
 	Q_FOREACH (Output *output, screen->config()->outputs().values()) {
 		outputView->addOutput(m_declarativeView->engine(), output);
 	}

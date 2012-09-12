@@ -23,9 +23,11 @@ set(kcm_displayconfiguration_SRCS
 
 set(QML_FILES
 	qml/main.qml
+	qml/ModeListView.qml
 	qml/OutputView.qml
     	qml/Output.qml
-	qml/OutputControls.qml)
+	qml/OutputControls.qml
+	qml/OutputSettings.qml)
 
 qt4_automoc(${kcm_displayconfiguration_SRCS})
 

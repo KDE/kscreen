@@ -21,6 +21,7 @@
 #include "qmloutput.h"
 
 #include<kscreen/output.h>
+#include <KDebug>
 
 QMLOutput::QMLOutput():
     QDeclarativeItem(),
@@ -33,10 +34,25 @@ QMLOutput::~QMLOutput()
 
 }
 
+bool modeSizeLessThan(const /*KScreen::*/Mode *mode1, const /*KScreen::*/Mode *mode2)
+{
+	if (mode1->size().width() < mode2->size().width()) {
+		return true;
+	}
+
+	if (mode1->size().width() == mode2->size().width()) {
+		return mode1->size().height() < mode2->size().height();
+	}
+
+	return false;
+}
+
 void QMLOutput::setOutput(/*KScreen::*/Output* output)
 {
     m_output = output;
     m_modes = m_output->modes().values();
+
+    qSort(m_modes.begin(), m_modes.end(), modeSizeLessThan);
 
     Q_EMIT outputChanged();
 }
@@ -49,4 +65,67 @@ void QMLOutput::setOutput(/*KScreen::*/Output* output)
 QDeclarativeListProperty</*KScreen::*/Mode> QMLOutput::modes()
 {
 	return QDeclarativeListProperty</*KScreen::*/Mode>(this, m_modes);
+}
+
+QList<QVariant> QMLOutput::getRefreshRatesForResolution(const QString& res)
+{
+	QList<float> rates;
+
+	Q_FOREACH(/*KScreen::*/Mode *mode, m_modes) {
+		if (mode->name() == res) {
+			rates << mode->refreshRate();
+		}
+	}
+	qSort(rates.begin(), rates.end(), qGreater<float>());
+
+	QList<QVariant> result;
+	Q_FOREACH(float rate, rates) {
+		result << rate;
+	}
+	return result;
+}
+
+
+QStringList QMLOutput::getResolutions() const
+{
+	QStringList resolutions;
+
+	Q_FOREACH (/*KScreen::*/Mode *mode, m_modes) {
+		/* The list is sorted ascendingly */
+		resolutions.prepend(mode->name());
+	}
+
+	resolutions.removeDuplicates();
+
+	return resolutions;
+}
+
+void QMLOutput::setMode(const QString& resolution, const float& refreshRate)
+{
+	float rr = refreshRate;
+
+	if (refreshRate == 0.0f) {
+		/* Don't use getRefreshRatesForResolution(), we need it unsorted */
+		Q_FOREACH(/*KScreen::*/Mode *mode, m_output->modes()) {
+			if (mode->name() == resolution) {
+				rr = mode->refreshRate();
+				break;
+			}
+		}
+	}
+
+	ModeList modes = m_output->modes();
+	QHashIterator<int, Mode*> iter(m_output->modes());
+	while (iter.hasNext()) {
+		iter.next();
+
+		if (iter.value()->name() != resolution) {
+			continue;
+		}
+
+		if (iter.value()->refreshRate() == rr) {
+			m_output->setCurrentMode(iter.key());
+			return;
+		}
+	}
 }
