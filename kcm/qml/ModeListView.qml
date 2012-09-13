@@ -24,6 +24,7 @@ import KScreen 1.0
 Rectangle {
 	property alias model: listview.model;
 	property alias currentItem: listview.currentItem;
+	property alias currentIndex: listview.currentIndex;
 
 	color: palette.base;
 	focus: true;

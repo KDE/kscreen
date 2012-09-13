@@ -51,6 +51,7 @@ FocusScope {
 
 		PlasmaComponents.Switch {
 			id: outputSwitch;
+			checked: false;
 
 			anchors {
 				verticalCenter: outputName.verticalCenter;
@@ -90,7 +91,7 @@ FocusScope {
 
 				var res = resolutionListView.currentItem.modelData.label;
 				var rates = output.getRefreshRatesForResolution(res);
-
+				var currentRate = output.output.mode(output.output.currentMode).refreshRate;
 				refreshRatesModel.append({
 					"label": i18n("Auto"),
 					"rate": 0
@@ -100,6 +101,10 @@ FocusScope {
 						"label" : Math.round(rates[i], 1) + " Hz",
 						"rate": rates[i]
 					});
+
+					if (rates[i] == currentRate) {
+						refreshRatesListView.currentIndex = i + 1;
+					}
 				}
 
 				output.setMode(res, 0);
@@ -135,13 +140,22 @@ FocusScope {
 			return;
 		}
 
+		output.output.isEnabledChanged.connect(function() {
+			outputSwitch.checked = output.output.enabled;
+		});
+
 		outputName.text = output.output.name;
 		outputSwitch.checked = output.output.enabled;
 
 		resolutionModel.clear();
 		var resolutions = output.getResolutions();
+		var currentResolution = output.output.mode(output.output.currentMode).name;
 		for (var i = 0; i < resolutions.length; i++) {
 			resolutionModel.append({ "label": resolutions[i] });
+
+			if (resolutions[i] == currentResolution) {
+				resolutionListView.currentIndex = i;
+			}
 		}
 	}
 }
