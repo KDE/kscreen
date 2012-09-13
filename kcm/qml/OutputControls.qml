@@ -44,6 +44,12 @@ Item {
 				width: parent.width - 20;
 				height: parent.height - 20;
 			}
+			AnchorChanges {
+				target: monitorName;
+				anchors {
+					top: parent.top;
+				}
+			}
 		},
 		State {
 			name: "left";
@@ -53,6 +59,12 @@ Item {
 				rotation: 270;
 				width: parent.height - 20;
 				height: parent.width - 20;
+			}
+			AnchorChanges {
+				target: monitorName;
+				anchors {
+					top: rotateButton.bottom;
+				}
 			}
 		},
 		State {
@@ -64,6 +76,12 @@ Item {
 				width: parent.width - 20;
 				height: parent.height - 20;
 			}
+			AnchorChanges {
+				target: monitorName;
+				anchors {
+					top: parent.top;
+				}
+			}
 		},
 		State {
 			name: "right";
@@ -74,40 +92,24 @@ Item {
 				width: parent.height - 20;
 				height: parent.width - 20;
 			}
-		}
-	]
-
-	/* FIXME The Output widget is not animated atm, so don't animate the
-	 * controls either
-	transitions: [
-		Transition {
-			RotationAnimation {
-				direction:
-					monitor.rotationDirection == RotationAnimation.Clockwise ?
-						RotationAnimation.Counterclockwise :
-						RotationAnimation.Clockwise;
-				duration: 250;
-				easing.type: "OutCubic";
-			}
-			PropertyAnimation {
-				target: controls;
-				properties: "width,height";
-				duration: 250;
-				easing.type: "OutCubic";
+			AnchorChanges {
+				target: monitorName;
+				anchors {
+					top: rotateButton.bottom;
+				}
 			}
 		}
 	]
-	*/
 
 	Text {
 		id: monitorName;
 		text: output.name;
 		color: "black";
 		font.pointSize: 15;
+		width: parent.width;
 
 		anchors {
 			top: parent.top;
-			horizontalCenter: parent.horizontalCenter;
 			margins: 10;
 		}
 
@@ -117,7 +119,7 @@ Item {
 	QIconItem {
 		id: stateButton;
 
-		icon: stateIcon;
+		icon: output.enabled ? "dialog-ok-apply" : "edit-delete"
 
 		/* Keep the button always big */
 		scale: 1 / monitor.scale;
@@ -127,45 +129,28 @@ Item {
 			verticalCenter: parent.verticalCenter;
 		}
 
-		width: 30;
-		height: 30;
+		width: 22;
+		height: 22;
 
 		MouseArea {
 			id: buttonMouseArea;
 			anchors.fill: parent;
-			acceptedButtons: Qt.LeftButton | Qt.RightButton;
 
-			onClicked: {
-				if (mouse.button == Qt.LeftButton) {
-					if (monitor.state == "enabled") {
-						monitor.state = "primary";
-					} else if (monitor.state == "primary") {
-						monitor.state = "disabled";
-					} else if (monitor.state == "disabled") {
-						monitor.state = "enabled";
-					}
-				} else if (mouse.button == Qt.RightButton) {
-					if (monitor.state == "enabled") {
-						monitor.state = "disabled";
-					} else if (monitor.state == "disabled") {
-						monitor.state = "primary";
-					} else if (monitor.state == "primary") {
-						monitor.state = "enabled";
-					}
-				}
-			}
+			onClicked: output.enabled = !output.enabled;
 		}
 	}
 
 	Text {
 		id: resolutionLabel;
 		text: monitor.connected ?
-			output.mode(output.currentMode).name + "@" +
-				Math.round(output.mode(output.currentMode).refreshRate, 1) + " Hz" :
+			output.mode(output.currentMode).name + " @ " +
+				Math.round(output.mode(output.currentMode).refreshRate, 1) + "Hz" :
 			"";
 
+		wrapMode: Text.Wrap;
 		color: "black";
 		font.pointSize: 10;
+		width: parent.width - 20;
 
 		anchors {
 			bottom: parent.bottom;
@@ -185,11 +170,11 @@ Item {
 		anchors {
 			right: parent.right;
 			top: parent.top;
-			margins: 10;
+			margins: 5;
 		}
 
-		width: 30;
-		height: 30;
+		width: 22;
+		height: 22;
 
 		MouseArea {
 			id: rotateButtonMouseArea;
@@ -223,4 +208,33 @@ Item {
 			}
 		}
 	}
+
+	MouseArea {
+		id: primaryButton;
+
+		anchors {
+			left: parent.left;
+			top: parent.top;
+			margins: 5;
+		}
+
+		width: 22;
+		height: 22;
+
+		QIconItem {
+			id: primaryButtonIcon;
+
+			icon: "bookmarks";
+			state: QIconItem.DisabledState;
+			enabled: (output.enabled && output.primary);
+			anchors.fill: parent;
+		}
+
+		onClicked: {
+			if (output.enabled) {
+				output.primary = !output.primary
+			}
+		}
+	}
+
 }

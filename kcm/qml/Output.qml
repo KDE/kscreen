@@ -28,9 +28,9 @@ QMLOutput {
 	signal clicked();
 
 	/* +1 because of the border */
-	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * scaleTransformation.xScale;
-	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * scaleTransformation.yScale;
-	
+	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * monitor.scale;
+	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * monitor.scale;
+
 	Rectangle {
 		id: monitor;
 
@@ -45,15 +45,9 @@ QMLOutput {
 		border.width: 1;
 		border.color: "black";
 		color: output.enabled ? "#B6D7A8" : "#E7EAEE";
+		scale: (output.enabled) ? 1.0 : 0.6;
 
 		transform: [
-			Scale {
-				id: scaleTransformation;
-				origin.x: monitor.width / 2;
-				origin.y: monitor.height / 2;
-				xScale: output.enabled ? 1.0 : 0.6;
-				yScale: output.enabled ? 1.0 : 0.6;
-			},
 			Rotation {
 				id: rotationTransformation;
 				origin.x: monitor.width / 2;
@@ -63,6 +57,7 @@ QMLOutput {
 					(output.rotation == Output.Inverted) ? 180 : 270;
 			}
 		]
+
 
 		anchors.centerIn: parent;
 		visible: output.connected;
@@ -109,46 +104,6 @@ QMLOutput {
 			monitor.height = output.mode(output.currentMode).size.height / 8;
 		}
 
-
-		states: [
-			State {
-				name: "primary";
-				when: enabled && primary;
-				PropertyChanges {
-					target: controls;
-					stateIcon: "bookmarks";
-				}
-				PropertyChanges {
-					target: output;
-					primary: true;
-				}
-			},
-			State {
-				name: "enabled";
-				when: enabled && !primary;
-				PropertyChanges {
-					target: controls;
-					stateIcon: "dialog-ok-apply";
-				}
-				PropertyChanges {
-					target: output;
-					enabled: true;
-				}
-			},
-			State {
-				name: "disabled";
-				when : !enabled;
-				PropertyChanges {
-					target: controls;
-					stateIcon: "edit-delete";
-				}
-				PropertyChanges {
-					target: output;
-					enabled: false;
-				}
-			}
-		]
-
 		MouseArea {
 			id: monitorMouseArea;
 			anchors.fill: parent;
@@ -172,7 +127,12 @@ QMLOutput {
 				dragActiveChangedAnimation.running = true;
 			}
 
-			onPositionChanged: root.moved();
+			onPositionChanged: {
+				/* Don't snap the outputs when holding Ctrl */
+				if (!(mouse.modifiers & Qt.ControlModifier)) {
+					root.moved();
+				}
+			}
 
 			/* When button is pressed, emit clicked() signal
 			 * which is cought by QMLOutputView */
