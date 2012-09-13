@@ -111,6 +111,9 @@ void QMLOutputView::outputMoved()
 	int width =  output->width();
 	int height = output->height();
 
+	/* FIXME: The size of the active snapping area should depend on size of
+	 * the output */
+
 	Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
 		if (otherOutput == output) {
 			continue;
@@ -120,6 +123,10 @@ void QMLOutputView::outputMoved()
 		int y2 = otherOutput->y();
 		int height2 = otherOutput->height();
 		int width2 = otherOutput->width();
+		int centerX = x + (width / 2);
+		int centerY = y + (height / 2);
+		int centerX2 = x2 + (width2 / 2);
+		int centerY2 = y2 + (height2 / 2);
 
 		/* @output is left of @otherOutput */
 		if ((x + width > x2 - 30) && (x + width < x2 + 30) &&
@@ -127,17 +134,25 @@ void QMLOutputView::outputMoved()
 
 			output->setX(x2 - width);
 			x = output->x();
+			centerX = x + (width / 2);
 
 			/* @output is snapped to @otherOutput on left and their
-			* upper sides are aligned */
-			if ((x + width == x2) && (y < y2 + 15) && (y > y2 - 15)) {
+			 * upper sides are aligned */
+			if ((x + width == x2) && (y < y2 + 5) && (y > y2 - 5)) {
 				output->setY(y2);
 				return;
 			}
 
+			/* @output is snapped to @otherOutput on left and they
+			 * are centered */
+			if ((x + width == x2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
+				output->setY(centerY2 - (height / 2));
+				return;
+			}
+
 			/* @output is snapped to @otherOutput on left and their
-			* bottom sides are aligned */
-			if ((x + width == x2) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 - 15)) {
+			 * bottom sides are aligned */
+			if ((x + width == x2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 - 5)) {
 				output->setY(y2 + height2 - height);
 				return;
 			}
@@ -150,17 +165,25 @@ void QMLOutputView::outputMoved()
 
 			output->setX(x2 + width2);
 			x = output->x();
+			centerX = x + (width / 2);
 
 			/* @output is snapped to @otherOutput on right and their
-			* upper sides are aligned */
-			if ((x == x2 + width2) && (y < y2 + 15) && (y > y2 - 15)) {
+			 * upper sides are aligned */
+			if ((x == x2 + width2) && (y < y2 + 5) && (y > y2 - 5)) {
 				output->setY(y2);
 				return;
 			}
 
+			/* @output is snapped to @otherOutput on right and they
+			 * are centered */
+			if ((x == x2 + width2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
+				output->setY(centerY2 - (height / 2));
+				return;
+			}
+
 			/* @output is snapped to @otherOutput on right and their
-			* bottom sides are aligned */
-			if ((x == x2 + width2) && (y + height < y2 + height2 + 15) && (y + height > y2 + height2 -15)) {
+			 * bottom sides are aligned */
+			if ((x == x2 + width2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 -5)) {
 				output->setY(y2 + height2 - height);
 				return;
 			}
@@ -173,17 +196,25 @@ void QMLOutputView::outputMoved()
 
 			output->setY(y2 - height);
 			y = output->y();
+			centerY = y + (height / 2);
 
 			/* @output is snapped to @otherOutput on top and their
-			* left sides are aligned */
-			if ((y + height == y2) && (x < x2 + 15) && (x > x2 - 15)) {
+			 * left sides are aligned */
+			if ((y + height == y2) && (x < x2 + 5) && (x > x2 - 5)) {
 				output->setX(x2);
 				return;
 			}
 
+			/* @output is snapped to @otherOutput on top and they
+			 * are centered */
+			if ((y + height == y2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
+				output->setX(centerX2 - (width / 2));
+				return;
+			}
+
 			/* @output is snapped to @otherOutput on top and their
-			* right sides are aligned */
-			if ((y + height == y2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
+			 * right sides are aligned */
+			if ((y + height == y2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
 				output->setX(x2 + width2 - width);
 				return;
 			}
@@ -199,15 +230,22 @@ void QMLOutputView::outputMoved()
 			y = output->y();;
 
 			/* @output is snapped to @otherOutput on bottom and their
-			* left sides are aligned */
-			if ((y == y2 + height2) && (x < x2 + 15) && (x > x2 - 15)) {
+			 * left sides are aligned */
+			if ((y == y2 + height2) && (x < x2 + 5) && (x > x2 - 5)) {
 				output->setX(x2);
 				return;
 			}
 
+			/* @output is snapped to @otherOutput on bottom and they
+			 * are centered */
+			if ((y == y2 + height2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
+				output->setX(centerX2 - (width / 2));
+				return;
+			}
+
 			/* @output is snapped to @otherOutput on bottom and their
-			* right sides are aligned */
-			if ((y == y2 + height2) && (x + width < x2 + width2 + 15) && (x + width > x2 + width2 - 15)) {
+			 * right sides are aligned */
+			if ((y == y2 + height2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
 				output->setX(x2 + width2 - width);
 				return;
 			}
@@ -215,10 +253,6 @@ void QMLOutputView::outputMoved()
 
 
 		/* @output is centered with @otherOutput */
-		int centerX = x + (width / 2);
-		int centerY = y + (height / 2);
-		int centerX2 = x2 + (width2 / 2);
-		int centerY2 = y2 + (height2 / 2);
 		if ((centerX > centerX2 - 30) && (centerX < centerX2 + 30) &&
 		    (centerY > centerY2 - 30) && (centerY < centerY2 + 30)) {
 
