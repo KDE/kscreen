@@ -24,7 +24,7 @@ QMLOutput {
 
 	property Item viewport;
 
-	signal moved();
+	signal moved(bool snap);
 	signal clicked();
 
 	/* +1 because of the border */
@@ -143,9 +143,7 @@ QMLOutput {
 
 			onPositionChanged: {
 				/* Don't snap the outputs when holding Ctrl */
-				if (!(mouse.modifiers & Qt.ControlModifier)) {
-					root.moved();
-				}
+				root.moved(!(mouse.modifiers & Qt.ControlModifier));
 			}
 
 			/* When button is pressed, emit clicked() signal

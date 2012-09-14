@@ -68,7 +68,7 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* o
 
 	/* Root refers to the root object. We need it in order to set drag range */
 	instance->setProperty("viewport", this->property("root"));
-	connect(instance, SIGNAL(moved()), this, SLOT(outputMoved()));
+	connect(instance, SIGNAL(moved(bool)), this, SLOT(outputMoved(bool)));
 	connect(instance, SIGNAL(clicked()), this, SLOT(outputClicked()));
 	connect(instance, SIGNAL(changed()), this, SIGNAL(changed()));
 	connect(output, SIGNAL(isPrimaryChanged()), SLOT(primaryOutputChanged()));
@@ -115,7 +115,7 @@ void QMLOutputView::outputClicked()
 }
 
 
-void QMLOutputView::outputMoved()
+void QMLOutputView::outputMoved(bool snap)
 {
 	QMLOutput *output = dynamic_cast<QMLOutput*>(sender());
 
@@ -127,153 +127,254 @@ void QMLOutputView::outputMoved()
 	/* FIXME: The size of the active snapping area should depend on size of
 	 * the output */
 
+	if (snap) {
+		Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
+			if (otherOutput == output) {
+				continue;
+			}
+
+			if (!otherOutput->output()->isConnected() || !otherOutput->output()->isEnabled()) {
+				continue;
+			}
+
+			int x2 = otherOutput->x();
+			int y2 = otherOutput->y();
+			int height2 = otherOutput->height();
+			int width2 = otherOutput->width();
+			int centerX = x + (width / 2);
+			int centerY = y + (height / 2);
+			int centerX2 = x2 + (width2 / 2);
+			int centerY2 = y2 + (height2 / 2);
+
+			/* @output is left of @otherOutput */
+			if ((x + width > x2 - 30) && (x + width < x2 + 30) &&
+			(y + height > y2) && (y < y2 + height2)) {
+
+				output->setX(x2 - width);
+				x = output->x();
+				centerX = x + (width / 2);
+
+				/* @output is snapped to @otherOutput on left and their
+				* upper sides are aligned */
+				if ((x + width == x2) && (y < y2 + 5) && (y > y2 - 5)) {
+					output->setY(y2);
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on left and they
+				* are centered */
+				if ((x + width == x2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
+					output->setY(centerY2 - (height / 2));
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on left and their
+				* bottom sides are aligned */
+				if ((x + width == x2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 - 5)) {
+					output->setY(y2 + height2 - height);
+					break;
+				}
+			}
+
+
+			/* @output is right of @otherOutput */
+			if ((x > x2 + width2 - 30) && (x < x2 + width2 + 30) &&
+			(y + height > y2) && (y < y2 + height2)) {
+
+				output->setX(x2 + width2);
+				x = output->x();
+				centerX = x + (width / 2);
+
+				/* @output is snapped to @otherOutput on right and their
+				* upper sides are aligned */
+				if ((x == x2 + width2) && (y < y2 + 5) && (y > y2 - 5)) {
+					output->setY(y2);
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on right and they
+				* are centered */
+				if ((x == x2 + width2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
+					output->setY(centerY2 - (height / 2));
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on right and their
+				* bottom sides are aligned */
+				if ((x == x2 + width2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 -5)) {
+					output->setY(y2 + height2 - height);
+					break;
+				}
+			}
+
+
+			/* @output is above @otherOutput */
+			if ((y + height > y2 - 30) && (y + height < y2 + 30) &&
+			(x + width > x2) && (x < x2 + width2)) {
+
+				output->setY(y2 - height);
+				y = output->y();
+				centerY = y + (height / 2);
+
+				/* @output is snapped to @otherOutput on top and their
+				* left sides are aligned */
+				if ((y + height == y2) && (x < x2 + 5) && (x > x2 - 5)) {
+					output->setX(x2);
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on top and they
+				* are centered */
+				if ((y + height == y2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
+					output->setX(centerX2 - (width / 2));
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on top and their
+				* right sides are aligned */
+				if ((y + height == y2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
+					output->setX(x2 + width2 - width);
+					break;
+				}
+			}
+
+
+			/* @output is below @otherOutput */
+			if ((y > y2 + height2 - 30) && (y < y2 + height2 + 30) &&
+			(x + width > x2) && (x < x2 + width2)) {
+
+
+				output->setY(y2 + height2);
+				y = output->y();;
+
+				/* @output is snapped to @otherOutput on bottom and their
+				* left sides are aligned */
+				if ((y == y2 + height2) && (x < x2 + 5) && (x > x2 - 5)) {
+					output->setX(x2);
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on bottom and they
+				* are centered */
+				if ((y == y2 + height2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
+					output->setX(centerX2 - (width / 2));
+					break;
+				}
+
+				/* @output is snapped to @otherOutput on bottom and their
+				* right sides are aligned */
+				if ((y == y2 + height2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
+					output->setX(x2 + width2 - width);
+					break;
+				}
+			}
+
+
+			/* @output is centered with @otherOutput */
+			if ((centerX > centerX2 - 30) && (centerX < centerX2 + 30) &&
+			(centerY > centerY2 - 30) && (centerY < centerY2 + 30)) {
+
+				output->setY(centerY2 - (height / 2));
+				output->setX(centerX2 - (width / 2));
+				break;
+			}
+		}
+	}
+
+	/* Left-most and top-most outputs. Other outputs are positioned
+	 *relatively to these */
+	QMLOutput *topMostOutput = 0;
+	QMLOutput *leftMostOutput = 0;
+
 	Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
-		if (otherOutput == output) {
+		if (!otherOutput->output()->isConnected() || !otherOutput->output()->isEnabled()) {
 			continue;
 		}
 
-		int x2 = otherOutput->x();
-		int y2 = otherOutput->y();
-		int height2 = otherOutput->height();
-		int width2 = otherOutput->width();
-		int centerX = x + (width / 2);
-		int centerY = y + (height / 2);
-		int centerX2 = x2 + (width2 / 2);
-		int centerY2 = y2 + (height2 / 2);
-
-		/* @output is left of @otherOutput */
-		if ((x + width > x2 - 30) && (x + width < x2 + 30) &&
-		    (y + height > y2) && (y < y2 + height2)) {
-
-			output->setX(x2 - width);
-			x = output->x();
-			centerX = x + (width / 2);
-
-			/* @output is snapped to @otherOutput on left and their
-			 * upper sides are aligned */
-			if ((x + width == x2) && (y < y2 + 5) && (y > y2 - 5)) {
-				output->setY(y2);
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on left and they
-			 * are centered */
-			if ((x + width == x2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
-				output->setY(centerY2 - (height / 2));
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on left and their
-			 * bottom sides are aligned */
-			if ((x + width == x2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 - 5)) {
-				output->setY(y2 + height2 - height);
-				return;
-			}
+		if (!leftMostOutput || (otherOutput->x() < leftMostOutput->x())) {
+			leftMostOutput = otherOutput;
 		}
 
-
-		/* @output is right of @otherOutput */
-		if ((x > x2 + width2 - 30) && (x < x2 + width2 + 30) &&
-		    (y + height > y2) && (y < y2 + height2)) {
-
-			output->setX(x2 + width2);
-			x = output->x();
-			centerX = x + (width / 2);
-
-			/* @output is snapped to @otherOutput on right and their
-			 * upper sides are aligned */
-			if ((x == x2 + width2) && (y < y2 + 5) && (y > y2 - 5)) {
-				output->setY(y2);
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on right and they
-			 * are centered */
-			if ((x == x2 + width2) && (centerY < centerY2 + 5) && (centerY > centerY2 - 5)) {
-				output->setY(centerY2 - (height / 2));
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on right and their
-			 * bottom sides are aligned */
-			if ((x == x2 + width2) && (y + height < y2 + height2 + 5) && (y + height > y2 + height2 -5)) {
-				output->setY(y2 + height2 - height);
-				return;
-			}
-		}
-
-
-		/* @output is above @otherOutput */
-		if ((y + height > y2 - 30) && (y + height < y2 + 30) &&
-		    (x + width > x2) && (x < x2 + width2)) {
-
-			output->setY(y2 - height);
-			y = output->y();
-			centerY = y + (height / 2);
-
-			/* @output is snapped to @otherOutput on top and their
-			 * left sides are aligned */
-			if ((y + height == y2) && (x < x2 + 5) && (x > x2 - 5)) {
-				output->setX(x2);
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on top and they
-			 * are centered */
-			if ((y + height == y2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
-				output->setX(centerX2 - (width / 2));
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on top and their
-			 * right sides are aligned */
-			if ((y + height == y2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
-				output->setX(x2 + width2 - width);
-				return;
-			}
-		}
-
-
-		/* @output is below @otherOutput */
-		if ((y > y2 + height2 - 30) && (y < y2 + height2 + 30) &&
-		    (x + width > x2) && (x < x2 + width2)) {
-
-
-			output->setY(y2 + height2);
-			y = output->y();;
-
-			/* @output is snapped to @otherOutput on bottom and their
-			 * left sides are aligned */
-			if ((y == y2 + height2) && (x < x2 + 5) && (x > x2 - 5)) {
-				output->setX(x2);
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on bottom and they
-			 * are centered */
-			if ((y == y2 + height2) && (centerX < centerX2 + 5) && (centerX > centerX2 - 5)) {
-				output->setX(centerX2 - (width / 2));
-				return;
-			}
-
-			/* @output is snapped to @otherOutput on bottom and their
-			 * right sides are aligned */
-			if ((y == y2 + height2) && (x + width < x2 + width2 + 5) && (x + width > x2 + width2 - 5)) {
-				output->setX(x2 + width2 - width);
-				return;
-			}
-		}
-
-
-		/* @output is centered with @otherOutput */
-		if ((centerX > centerX2 - 30) && (centerX < centerX2 + 30) &&
-		    (centerY > centerY2 - 30) && (centerY < centerY2 + 30)) {
-
-			output->setY(centerY2 - (height / 2));
- 			output->setX(centerX2 - (width / 2));
-			return;
+	    	if (!topMostOutput || (otherOutput->y() < topMostOutput->y())) {
+			topMostOutput = otherOutput;
 		}
 	}
+
+	QPoint pos = leftMostOutput->output()->pos();
+	pos.setX(0);
+	leftMostOutput->output()->setPos(pos);
+
+	pos = topMostOutput->output()->pos();
+	pos.setY(0);
+	topMostOutput->output()->setPos(pos);
+
+	if (output == leftMostOutput) {
+		Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
+			if (otherOutput == leftMostOutput) {
+				continue;
+			}
+
+			if (!otherOutput->output()->isConnected() ||
+			    !otherOutput->output()->isEnabled()) {
+				continue;
+			}
+
+			int x = otherOutput->x() - leftMostOutput->x();
+
+			/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs,
+			 * but this does not really works! */
+			QPoint pos = otherOutput->output()->pos();
+			pos.setX((x - 1) * 8);
+			otherOutput->output()->setPos(pos);
+		}
+	} else {
+		int x = output->x() - leftMostOutput->x();
+
+		/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs,
+		 * but this does not really works! */
+		QPoint pos = output->output()->pos();
+		pos.setX((x - 1) * 8);
+		output->output()->setPos(pos);
+	}
+
+	if (output == topMostOutput) {
+		Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
+			if (otherOutput == topMostOutput) {
+				continue;
+			}
+
+			if (!otherOutput->output()->isConnected() ||
+			    !otherOutput->output()->isEnabled()) {
+				continue;
+			}
+
+			int y = otherOutput->y() - topMostOutput->y();
+
+			QPoint pos = otherOutput->output()->pos();
+			pos.setY(y * 8);
+			otherOutput->output()->setPos(pos);
+		}
+	} else {
+		int y = output->y() - topMostOutput->y();
+
+		QPoint pos = output->output()->pos();
+		pos.setY(y * 8);
+		output->output()->setPos(pos);
+	}
+
+	/*
+	kDebug() << "Left most:" << leftMostOutput->output()->name()
+		 << "Top most:" << topMostOutput->output()->name();
+	Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
+		if (!otherOutput->output()->isConnected() ||
+		    !otherOutput->output()->isEnabled()) {
+			continue;
+		}
+
+		kDebug() << otherOutput->output()->name() << otherOutput->output()->pos();
+	}
+	*/
+
 }
 
 void QMLOutputView::primaryOutputChanged()

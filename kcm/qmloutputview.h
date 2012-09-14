@@ -53,7 +53,7 @@ Q_SIGNALS:
     void activeOutputChanged();
 
 private Q_SLOTS:
-    void outputMoved();
+    void outputMoved(bool snap);
     void outputClicked();
     void primaryOutputChanged();
 

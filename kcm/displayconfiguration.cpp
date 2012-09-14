@@ -140,14 +140,13 @@ void DisplayConfiguration::save()
 
 	Q_FOREACH(/*KScreen::*/Output *output, m_config->outputs()) {
 		/*KScreen::*/Mode *mode = output->mode(output->currentMode());
-		/*
 		kDebug() << output->name() << "\n"
 			 << "	Connected:" << output->isConnected() << "\n"
 			 << "	Enabled:" << output->isEnabled() << "\n"
 			 << "	Primary:" << output->isPrimary() << "\n"
 			 << "	Rotation:" << output->rotation() << "\n"
-			 << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz";
-		*/
+			 << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
+			 << "   Position:" << output->pos().x() << "x" << output->pos().y();
 	}
 
 	/* Store the current config, apply settings */
