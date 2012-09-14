@@ -153,6 +153,7 @@ void QMLOutputView::outputMoved(bool snap)
 				output->setX(x2 - width);
 				x = output->x();
 				centerX = x + (width / 2);
+				output->setCloneOf(0);
 
 				/* @output is snapped to @otherOutput on left and their
 				* upper sides are aligned */
@@ -184,6 +185,7 @@ void QMLOutputView::outputMoved(bool snap)
 				output->setX(x2 + width2);
 				x = output->x();
 				centerX = x + (width / 2);
+				output->setCloneOf(0);
 
 				/* @output is snapped to @otherOutput on right and their
 				* upper sides are aligned */
@@ -215,6 +217,7 @@ void QMLOutputView::outputMoved(bool snap)
 				output->setY(y2 - height);
 				y = output->y();
 				centerY = y + (height / 2);
+				output->setCloneOf(0);
 
 				/* @output is snapped to @otherOutput on top and their
 				* left sides are aligned */
@@ -245,7 +248,9 @@ void QMLOutputView::outputMoved(bool snap)
 
 
 				output->setY(y2 + height2);
-				y = output->y();;
+				y = output->y();
+				centerY = y + (height / 2);
+				output->setCloneOf(0);
 
 				/* @output is snapped to @otherOutput on bottom and their
 				* left sides are aligned */
@@ -270,15 +275,51 @@ void QMLOutputView::outputMoved(bool snap)
 			}
 
 
-			/* @output is centered with @otherOutput */
-			if ((centerX > centerX2 - 30) && (centerX < centerX2 + 30) &&
-			(centerY > centerY2 - 30) && (centerY < centerY2 + 30)) {
+			/* @output is to be clone of @otherOutput (left top corners
+			 * are aligned */
+			if ((x > x2) && (x < x2 + 10) &&
+			    (y > y2) && (y < y2 + 10)) {
 
-				output->setY(centerY2 - (height / 2));
-				output->setX(centerX2 - (width / 2));
+				output->setY(y2);
+				output->setX(x2);
+
+				/* Find the most common cloned output and set this
+				 * monitor to be clone of it as well */
+				QMLOutput *cloned = otherOutput->cloneOf();
+				if (cloned == 0) {
+					output->setCloneOf(otherOutput);
+				} else {
+					while (cloned) {
+						if (!cloned->cloneOf() && (cloned != output)) {
+							output->setCloneOf(cloned);
+							break;
+						}
+
+						cloned = cloned->cloneOf();
+					}
+				}
+
 				break;
 			}
+
+			/* If the item did not match any of the conditions
+			 * above then it's not a clone either :) */
+			output->setCloneOf(0);
 		}
+	}
+
+	if (output->cloneOf() != 0) {
+		QList<int> clones = output->cloneOf()->output()->clones();
+		if (!clones.contains(output->output()->id())) {
+			clones << output->output()->id();
+		}
+
+		/* Reset position of the cloned screen and current screen and
+		 * don't care about any further positioning */
+		output->output()->setPos(QPoint(0, 0));
+		output->cloneOf()->output()->setPos(QPoint(0, 0));
+
+		return;
 	}
 
 	/* Left-most and top-most outputs. Other outputs are positioned
@@ -308,6 +349,9 @@ void QMLOutputView::outputMoved(bool snap)
 	pos.setY(0);
 	topMostOutput->output()->setPos(pos);
 
+	/* If the leftmost output is currently being moved, then reposition
+	 * all output relatively to it, otherwise reposition the current output
+	 * relatively to the leftmost output */
 	if (output == leftMostOutput) {
 		Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
 			if (otherOutput == leftMostOutput) {
@@ -321,22 +365,23 @@ void QMLOutputView::outputMoved(bool snap)
 
 			int x = otherOutput->x() - leftMostOutput->x();
 
-			/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs,
-			 * but this does not really works! */
 			QPoint pos = otherOutput->output()->pos();
+			/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
 			pos.setX((x - 1) * 8);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int x = output->x() - leftMostOutput->x();
 
-		/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs,
-		 * but this does not really works! */
 		QPoint pos = output->output()->pos();
+		/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
 		pos.setX((x - 1) * 8);
 		output->output()->setPos(pos);
 	}
 
+	/* If the topmost output is currently being moved, then reposition
+	 * all outputs relatively to it, otherwise reposition the current output
+	 * relatively to the topmost output */
 	if (output == topMostOutput) {
 		Q_FOREACH (QMLOutput *otherOutput, m_outputs) {
 			if (otherOutput == topMostOutput) {

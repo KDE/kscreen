@@ -25,7 +25,8 @@
 
 QMLOutput::QMLOutput():
     QDeclarativeItem(),
-    m_output(0)
+    m_output(0),
+    m_cloneOf(0)
 {
 }
 
@@ -34,17 +35,17 @@ QMLOutput::~QMLOutput()
 
 }
 
-bool modeSizeLessThan(const /*KScreen::*/Mode *mode1, const /*KScreen::*/Mode *mode2)
+bool modeSizeLessThan(const /*KScreen::*/Mode* mode1, const /*KScreen::*/Mode* mode2)
 {
-	if (mode1->size().width() < mode2->size().width()) {
-		return true;
-	}
+    if (mode1->size().width() < mode2->size().width()) {
+        return true;
+    }
 
-	if (mode1->size().width() == mode2->size().width()) {
-		return mode1->size().height() < mode2->size().height();
-	}
+    if (mode1->size().width() == mode2->size().width()) {
+        return mode1->size().height() < mode2->size().height();
+    }
 
-	return false;
+    return false;
 }
 
 void QMLOutput::setOutput(/*KScreen::*/Output* output)
@@ -70,70 +71,82 @@ void QMLOutput::setOutput(/*KScreen::*/Output* output)
     return m_output;
 }
 
-QDeclarativeListProperty</*KScreen::*/Mode> QMLOutput::modes()
+void QMLOutput::setCloneOf(QMLOutput* other)
 {
-	return QDeclarativeListProperty</*KScreen::*/Mode>(this, m_modes);
+    m_cloneOf = other;
+
+    Q_EMIT cloneOfChanged();
+}
+
+QMLOutput* QMLOutput::cloneOf() const
+{
+    return m_cloneOf;
+}
+
+QDeclarativeListProperty </*KScreen::*/Mode > QMLOutput::modes()
+{
+    return QDeclarativeListProperty </*KScreen::*/Mode > (this, m_modes);
 }
 
 QList<QVariant> QMLOutput::getRefreshRatesForResolution(const QString& res)
 {
-	QList<float> rates;
+    QList<float> rates;
 
-	Q_FOREACH(/*KScreen::*/Mode *mode, m_modes) {
-		if (mode->name() == res) {
-			rates << mode->refreshRate();
-		}
-	}
-	qSort(rates.begin(), rates.end(), qGreater<float>());
+    Q_FOREACH(/*KScreen::*/Mode * mode, m_modes) {
+        if (mode->name() == res) {
+            rates << mode->refreshRate();
+        }
+    }
+    qSort(rates.begin(), rates.end(), qGreater<float>());
 
-	QList<QVariant> result;
-	Q_FOREACH(float rate, rates) {
-		result << rate;
-	}
-	return result;
+    QList<QVariant> result;
+    Q_FOREACH(float rate, rates) {
+        result << rate;
+    }
+    return result;
 }
 
 
 QStringList QMLOutput::getResolutions() const
 {
-	QStringList resolutions;
+    QStringList resolutions;
 
-	Q_FOREACH (/*KScreen::*/Mode *mode, m_modes) {
-		/* The list is sorted ascendingly */
-		resolutions.prepend(mode->name());
-	}
+    Q_FOREACH (/*KScreen::*/Mode * mode, m_modes) {
+        /* The list is sorted ascendingly */
+        resolutions.prepend(mode->name());
+    }
 
-	resolutions.removeDuplicates();
+    resolutions.removeDuplicates();
 
-	return resolutions;
+    return resolutions;
 }
 
 void QMLOutput::setMode(const QString& resolution, const float& refreshRate)
 {
-	float rr = refreshRate;
+    float rr = refreshRate;
 
-	if (refreshRate == 0.0f) {
-		/* Don't use getRefreshRatesForResolution(), we need it unsorted */
-		Q_FOREACH(/*KScreen::*/Mode *mode, m_output->modes()) {
-			if (mode->name() == resolution) {
-				rr = mode->refreshRate();
-				break;
-			}
-		}
-	}
+    if (refreshRate == 0.0f) {
+        /* Don't use getRefreshRatesForResolution(), we need it unsorted */
+        Q_FOREACH(/*KScreen::*/Mode * mode, m_output->modes()) {
+            if (mode->name() == resolution) {
+                rr = mode->refreshRate();
+                break;
+            }
+        }
+    }
 
-	ModeList modes = m_output->modes();
-	QHashIterator<int, Mode*> iter(m_output->modes());
-	while (iter.hasNext()) {
-		iter.next();
+    ModeList modes = m_output->modes();
+    QHashIterator<int, Mode*> iter(m_output->modes());
+    while (iter.hasNext()) {
+        iter.next();
 
-		if (iter.value()->name() != resolution) {
-			continue;
-		}
+        if (iter.value()->name() != resolution) {
+            continue;
+        }
 
-		if (iter.value()->refreshRate() == rr) {
-			m_output->setCurrentMode(iter.key());
-			return;
-		}
-	}
+        if (iter.value()->refreshRate() == rr) {
+            m_output->setCurrentMode(iter.key());
+            return;
+        }
+    }
 }
