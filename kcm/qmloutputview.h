@@ -43,13 +43,19 @@ public:
     QList<QMLOutput*> outputs() const;
     QMLOutput * activeOutput() const;
 
+    Q_INVOKABLE QMLOutput* getPrimaryOutput() const;
+
 Q_SIGNALS:
+    void changed();
+
+    /* Property notifications */
     void outputsChanged();
     void activeOutputChanged();
 
 private Q_SLOTS:
     void outputMoved();
     void outputClicked();
+    void primaryOutputChanged();
 
 private:
     QDeclarativeContext * context() const;

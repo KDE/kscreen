@@ -60,8 +60,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
     KScreen* screen = KScreen::self();
-    if (screen && screen->config()) {
-	QString qmlPath = KStandardDirs::locate("data", QLatin1String(QML_PATH "main.qml"));
+    if (screen && screen->isValid()) {
 	QString importPath = KStandardDirs::installPath("lib") +
 		QDir::separator() + "kde4" + QDir::separator() + "imports";
 
@@ -77,24 +76,10 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         m_declarativeView = new QDeclarativeView(this);
 	m_declarativeView->engine()->addImportPath(importPath);
         m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-	m_declarativeView->setSource(qmlPath);
 	m_declarativeView->setStyleSheet("background: transparent");
         mainLayout->addWidget(m_declarativeView, 0, 0);
 
-  	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
-	if (!rootObj) {
-		kWarning() << "Failed to obtain root item";
-		return;
-	}
-
-	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
-	if (!outputView) {
-		kWarning() << "Failed to obtain output view";
-		return;
-	}
-	Q_FOREACH (Output *output, screen->config()->outputs().values()) {
-		outputView->addOutput(m_declarativeView->engine(), output);
-	}
+	/* Declarative view will be initialized from load() */
 
     } else {
         QLabel* label = new QLabel(this);
@@ -117,4 +102,71 @@ bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
 
 	/* Propagate the event */
 	return false;
+}
+
+void DisplayConfiguration::load()
+{
+	kDebug() << "Loading...";
+
+	KScreen *screen = KScreen::self();
+	if (!screen || !screen->isValid()) {
+		return;
+	}
+
+	QString qmlPath = KStandardDirs::locate("data", QLatin1String(QML_PATH "main.qml"));
+	m_declarativeView->setSource(qmlPath);
+
+	QMLOutputView *outputView = getOutputView();
+	if (!outputView) {
+		return;
+	}
+
+	m_config = screen->config();
+	Q_FOREACH (Output *output, m_config->outputs().values()) {
+		outputView->addOutput(m_declarativeView->engine(), output);
+	}
+
+	connect(outputView, SIGNAL(changed()), SLOT(changed()));
+}
+
+void DisplayConfiguration::save()
+{
+	kDebug() << "Saving";
+
+	/*KScreen::*/KScreen *screen = /*KScreen::*/KScreen::self();
+	if (!screen || !screen->isValid()) {
+		return;
+	}
+
+	Q_FOREACH(/*KScreen::*/Output *output, m_config->outputs()) {
+		/*KScreen::*/Mode *mode = output->mode(output->currentMode());
+		/*
+		kDebug() << output->name() << "\n"
+			 << "	Connected:" << output->isConnected() << "\n"
+			 << "	Enabled:" << output->isEnabled() << "\n"
+			 << "	Primary:" << output->isPrimary() << "\n"
+			 << "	Rotation:" << output->rotation() << "\n"
+			 << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz";
+		*/
+	}
+
+	/* Store the current config, apply settings */
+	screen->setConfig(m_config);
+}
+
+QMLOutputView* DisplayConfiguration::getOutputView() const
+{
+	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
+	if (!rootObj) {
+		kWarning() << "Failed to obtain root item";
+		return 0;
+	}
+
+	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
+	if (!outputView) {
+		kWarning() << "Failed to obtain output view";
+		return 0;
+	}
+
+	return outputView;
 }

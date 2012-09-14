@@ -47,6 +47,9 @@ public:
 
     Q_INVOKABLE void setMode(const QString &resolution, const float &refreshRate);
 Q_SIGNALS:
+    void changed();
+
+    /* Property notifications */
     void outputChanged();
 
 private:

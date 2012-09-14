@@ -142,7 +142,7 @@ Item {
 
 	Text {
 		id: resolutionLabel;
-		text: monitor.connected ?
+		text: output.connected && output.enabled ?
 			output.mode(output.currentMode).name + " @ " +
 				Math.round(output.mode(output.currentMode).refreshRate, 1) + "Hz" :
 			"";

@@ -24,6 +24,8 @@
 
 class QDeclarativeView;
 class QMLOutput;
+class QMLOutputView;
+class /*KScreen::*/Config;
 
 class DisplayConfiguration : public KCModule
 {
@@ -32,12 +34,17 @@ public:
     DisplayConfiguration (QWidget* parent = 0, const QVariantList& args = QVariantList());
     virtual ~DisplayConfiguration();
 
-    static bool x11EventFilter(void *message, long int *result);
+public Q_SLOTS:
+    virtual void load();
+    virtual void save();
+
+    static bool x11EventFilter(void* message, long int* result);
 
 private:
-    void initMonitorView();
+    QMLOutputView* getOutputView() const;
+    /*KScreen::*/Config *m_config;
 
-    QDeclarativeView *m_declarativeView;
+    QDeclarativeView* m_declarativeView;
     QList<QMLOutput*> m_monitors;
 };
 

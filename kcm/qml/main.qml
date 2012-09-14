@@ -51,7 +51,6 @@ Item {
 
 			anchors.fill: parent;
 
-
 			Text {
 				id: tip;
 				anchors {

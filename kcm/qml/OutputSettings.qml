@@ -69,7 +69,7 @@ FocusScope {
 			left: parent.left;
 			topMargin: 20;
 		}
-			
+
 		spacing: 20;
 
 		ModeListView {
@@ -91,7 +91,8 @@ FocusScope {
 
 				var res = resolutionListView.currentItem.modelData.label;
 				var rates = output.getRefreshRatesForResolution(res);
-				var currentRate = output.output.mode(output.output.currentMode).refreshRate;
+				var currentMode = output.output.mode(output.output.currentMode);
+				var currentRate = (currentMode == null) ? -1 : currentMode.refreshRate;
 				refreshRatesModel.append({
 					"label": i18n("Auto"),
 					"rate": 0
@@ -149,7 +150,8 @@ FocusScope {
 
 		resolutionModel.clear();
 		var resolutions = output.getResolutions();
-		var currentResolution = output.output.mode(output.output.currentMode).name;
+		var currentMode = output.output.mode(output.output.currentMode);
+		var currentResolution = (currentMode == null) ? -1 : currentMode.name;
 		for (var i = 0; i < resolutions.length; i++) {
 			resolutionModel.append({ "label": resolutions[i] });
 

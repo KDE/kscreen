@@ -43,7 +43,7 @@ QMLOutput {
 		x: 0;
 		y: 0;
 		border.width: 1;
-		border.color: "black";
+		border.color: parent.focus ? "white" : "black";
 		color: output.enabled ? "#B6D7A8" : "#E7EAEE";
 		scale: (output.enabled) ? 1.0 : 0.6;
 
@@ -81,12 +81,16 @@ QMLOutput {
 		Behavior on width {
 			PropertyAnimation {
 				property: "width";
+				easing.type: "OutElastic";
+				duration: 350;
 			}
 		}
 
 		Behavior on height {
 			PropertyAnimation {
 				property: "height";
+				easing.type: "OutElastic";
+				duration: 350;
 			}
 		}
 
@@ -98,10 +102,20 @@ QMLOutput {
 			}
 		}
 
+		/* Default size */
+		width: 1000 / 8;
+		height: 1000 / 8;
+
 		/* FIXME: We need a much better math */
 		onCurrentModeIdChanged: {
-			monitor.width = output.mode(output.currentMode).size.width / 8;
-			monitor.height = output.mode(output.currentMode).size.height / 8;
+			var mode = output.mode(output.currentMode);
+			if (mode == null) {
+				monitor.width = 1000 / 8;
+				monitor.height = 1000 / 8;
+			} else {
+				monitor.width = mode.size.width / 8;
+				monitor.height = mode.size.height / 8;
+			}
 		}
 
 		MouseArea {
