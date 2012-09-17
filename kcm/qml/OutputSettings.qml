@@ -138,6 +138,9 @@ FocusScope {
 
 	onOutputChanged: {
 		if (output == null) {
+			resolutionModel.clear();
+			refreshRatesModel.clear();
+			outputName.text = "";
 			return;
 		}
 

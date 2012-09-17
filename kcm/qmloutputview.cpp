@@ -37,6 +37,8 @@ QMLOutputView::QMLOutputView():
 	QDeclarativeItem(),
 	m_activeOutput(0)
 {
+	connect(this, SIGNAL(heightChanged()), SLOT(viewSizeChanged()));
+	connect(this, SIGNAL(widthChanged()), SLOT(viewSizeChanged()));
 }
 
 QMLOutputView::~QMLOutputView()
@@ -80,7 +82,14 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* o
 		return;
 	}
 
-	/* Now make a rectangle around all the outputs, center it and then adjust
+	viewSizeChanged();
+
+	Q_EMIT outputsChanged();
+}
+
+void QMLOutputView::viewSizeChanged()
+{
+	/* Make a rectangle around all the outputs, center it and then adjust
 	 * position of all the outputs to be in the middle of the view */
 	QRect rect;
 	Q_FOREACH (QMLOutput *qmloutput, m_outputs) {
@@ -108,8 +117,6 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* o
 		}
 	}
 
-	kDebug() << rect;
-
 	int offsetX = rect.left() + ((width() - rect.width()) / 2);
 	int offsetY = rect.top() + ((height() - rect.height()) / 2);
 
@@ -118,9 +125,8 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* o
 		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 8));
 		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 8));
 	}
-
-	Q_EMIT outputsChanged();
 }
+
 
 QMLOutput* QMLOutputView::getPrimaryOutput() const
 {

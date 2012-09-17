@@ -40,9 +40,8 @@ Item {
 			left: parent.left;
 			right: parent.right;
 			top: parent.top;
+			bottom: settingsScope.top;
 		}
-
-		height: root.height / 2;
 
 		OutputView {
 			id: outputView;
@@ -65,19 +64,30 @@ Item {
 	}
 
 	FocusScope {
+		id: settingsScope;
+		height: (outputView.activeOutput == null) ? 0 : root.height / 2;
+
 		anchors {
-			top: outputViewFocusScope.bottom;
 			left: parent.left;
 			right: parent.right;
 			bottom: parent.bottom;
-			margins: 20;
 		}
 
 		OutputSettings {
 			id: settings;
 			focus: true;
-			anchors.fill: parent;
+			anchors {
+				fill: parent;
+				margins: 20;
+			}
 			output: outputView.activeOutput;
+		}
+
+		Behavior on height {
+			PropertyAnimation {
+				duration: 150;
+				easing.type: "OutCubic";
+			}
 		}
 	}
 }
