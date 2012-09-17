@@ -40,7 +40,7 @@ FocusScope {
 
 		Text {
 			id: outputName;
-			text: "LVDS1";
+			text: "";
 			color: palette.text;
 			font {
 				family: theme.defaultFont.family;
