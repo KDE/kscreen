@@ -26,12 +26,29 @@ Item {
 	id: controls;
 	property int rotationDirection;
 	property Item parentItem;
-	property string stateIcon: "dialog-ok-apply";
+	property int iconSize: 22;
 
 	anchors {
 		verticalCenter: parent.verticalCenter;
 		horizontalCenter: parent.horizontalCenter;
 	}
+
+	onWidthChanged: {
+		setSmallMode(width < 100);
+		monitorName.font.pointSize = (width < 80 || height < 50) ? 8 : (width < 100 || height < 80) ? 10 : 15;
+	}
+
+	onHeightChanged: {
+		setSmallMode(height < 80);
+		monitorName.font.pointSize = (width < 80 || height < 50) ? 6 : (width < 100 || height < 80) ? 10 : 15;
+	}
+
+	function setSmallMode(smallMode)
+	{
+		iconSize = (smallMode) ? 16 : 22;
+		resolutionLabel.visible = !smallMode;
+	}
+
 
 	state: "normal";
 	states: [
@@ -106,39 +123,21 @@ Item {
 		text: output.name;
 		color: "black";
 		font.pointSize: 15;
-		width: parent.width;
+		width: controls.width;
 
 		anchors {
 			top: parent.top;
-			margins: 10;
 		}
 
 		horizontalAlignment: Text.AlignHCenter;
-	}
 
-	QIconItem {
-		id: stateButton;
-
-		icon: output.enabled ? "dialog-ok-apply" : "edit-delete"
-
-		/* Keep the button always big */
-		scale: 1 / monitor.scale;
-
-		anchors {
-			horizontalCenter: parent.horizontalCenter;
-			verticalCenter: parent.verticalCenter;
-		}
-
-		width: 22;
-		height: 22;
-
-		MouseArea {
-			id: buttonMouseArea;
-			anchors.fill: parent;
-
-			onClicked: output.enabled = !output.enabled;
+		Behavior on font.pointSize {
+			PropertyAnimation {
+				duration: 100;
+			}
 		}
 	}
+
 
 	Text {
 		id: resolutionLabel;
@@ -150,7 +149,7 @@ Item {
 		wrapMode: Text.Wrap;
 		color: "black";
 		font.pointSize: 10;
-		width: parent.width - 20;
+		width: controls.width - 10;
 
 		anchors {
 			bottom: parent.bottom;
@@ -162,72 +161,66 @@ Item {
 		horizontalAlignment: Text.AlignHCenter;
 	}
 
-	QIconItem {
-		id: rotateButton;
+	OutputActionButton {
+		id: enabledButton;
+		iconSize: parent.iconSize;
+		enabledIcon: output.enabled ? "dialog-ok-apply" : "edit-delete";
 
-		icon: "object-rotate-left";
+		anchors {
+			horizontalCenter: parent.horizontalCenter;
+			verticalCenter: parent.verticalCenter;
+		}
+
+		onClicked: output.enabled = !output.enabled;
+	}
+
+	OutputActionButton {
+		id: rotateButton;
+		iconSize: parent.iconSize;
+		enabledIcon: "object-rotate-left";
 
 		anchors {
 			right: parent.right;
 			top: parent.top;
-			margins: 5;
 		}
 
-		width: 22;
-		height: 22;
-
-		MouseArea {
-			id: rotateButtonMouseArea;
-			anchors.fill: parent;
-			acceptedButtons: Qt.LeftButton | Qt.RightButton;
-
-			onClicked: {
-				if (mouse.button == Qt.LeftButton) {
-					monitor.rotationDirection = RotationAnimation.Counterclockwise;
-					if (output.rotation == Output.None) {
-						output.rotation = Output.Right;
-					} else if (output.rotation == Output.Right) {
-						output.rotation = Output.Inverted;
-					} else if (output.rotation == Output.Inverted) {
-						output.rotation = Output.Left;
-					} else if (output.rotation == Output.Left) {
-						output.rotation = Output.None;
-					}
-				} else {
-					monitor.rotationDirection = RotationAnimation.Clockwise;
-					if (output.rotation == Output.None) {
-						output.rotation = Output.Left;
-					} else if (output.rotation == Output.Left) {
-						output.rotation = Output.Inverted;
-					} else if (output.rotation == Output.Inverted) {
-						output.rotation = Output.Right;
-					} else if (output.rotation == Output.Right) {
-						output.rotation = Output.None;
-					}
+		acceptedButtons: Qt.LeftButton | Qt.RightButton;
+		onClicked: {
+			if (mouse.button == Qt.LeftButton) {
+				monitor.rotationDirection = RotationAnimation.Counterclockwise;
+				if (output.rotation == Output.None) {
+					output.rotation = Output.Right;
+				} else if (output.rotation == Output.Right) {
+					output.rotation = Output.Inverted;
+				} else if (output.rotation == Output.Inverted) {
+					output.rotation = Output.Left;
+				} else if (output.rotation == Output.Left) {
+					output.rotation = Output.None;
+				}
+			} else {
+				monitor.rotationDirection = RotationAnimation.Clockwise;
+				if (output.rotation == Output.None) {
+					output.rotation = Output.Left;
+				} else if (output.rotation == Output.Left) {
+					output.rotation = Output.Inverted;
+				} else if (output.rotation == Output.Inverted) {
+					output.rotation = Output.Right;
+				} else if (output.rotation == Output.Right) {
+					output.rotation = Output.None;
 				}
 			}
 		}
 	}
 
-	MouseArea {
+	OutputActionButton {
 		id: primaryButton;
+		iconSize: parent.iconSize;
+		enabledIcon: "bookmarks";
+		enabled: (output.enabled && output.primary);
 
 		anchors {
 			left: parent.left;
 			top: parent.top;
-			margins: 5;
-		}
-
-		width: 22;
-		height: 22;
-
-		QIconItem {
-			id: primaryButtonIcon;
-
-			icon: "bookmarks";
-			state: QIconItem.DisabledState;
-			enabled: (output.enabled && output.primary);
-			anchors.fill: parent;
 		}
 
 		onClicked: {

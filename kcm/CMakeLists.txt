@@ -26,6 +26,7 @@ set(QML_FILES
 	qml/ModeListView.qml
 	qml/OutputView.qml
     	qml/Output.qml
+    	qml/OutputActionButton.qml
 	qml/OutputControls.qml
 	qml/OutputSettings.qml)
 

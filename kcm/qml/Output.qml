@@ -129,16 +129,16 @@ QMLOutput {
 			Behavior on width {
 				PropertyAnimation {
 					property: "width";
-					easing.type: "OutElastic";
-					duration: 350;
+					easing.type: "OutCubic";
+					duration: 150;
 				}
 			}
 
 			Behavior on height {
 				PropertyAnimation {
 					property: "height";
-					easing.type: "OutElastic";
-					duration: 350;
+					easing.type: "OutCubic";
+					duration: 150;
 				}
 			}
 
@@ -175,7 +175,6 @@ QMLOutput {
 			Rectangle {
 				id: rotationBar;
 
-				width: parent.width - 20;
 				height: 2;
 				color: "black";
 
