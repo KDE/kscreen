@@ -31,6 +31,8 @@ QMLOutput {
 	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * monitor.scale;
 	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * monitor.scale;
 
+	visible: output.connected;
+
 	MouseArea {
 		id: monitorMouseArea;
 
@@ -108,7 +110,6 @@ QMLOutput {
 
 
 			anchors.centerIn: parent;
-			visible: output.connected;
 
 			/* Some nifty animation when changing backround color */
 			Behavior on color {
@@ -150,22 +151,9 @@ QMLOutput {
 				}
 			}
 
-			/* Default size */
-			width: 1000 / 8;
-			height: 1000 / 8;
-
 			/* FIXME: We need a much better math */
-			onCurrentModeIdChanged: {
-				var mode = output.mode(output.currentMode);
-				if (mode == null) {
-					monitor.width = 1000 / 8;
-					monitor.height = 1000 / 8;
-				} else {
-					monitor.width = mode.size.width / 8;
-					monitor.height = mode.size.height / 8;
-				}
-			}
-
+			width: (output.mode(output.currentMode) == null) ? 1000 / 8 : output.mode(output.currentMode).size.width / 8;
+			height: (output.mode(output.currentMode) == null) ? 1000 / 8 : output.mode(output.currentMode).size.height / 8;
 
 			OutputControls {
 				id: controls;
