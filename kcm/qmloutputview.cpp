@@ -148,10 +148,12 @@ void QMLOutputView::outputClicked()
 
 		/* Find clicked child and move it above all it's siblings */
 		if (output == sender()) {
-			for (int j = i + 1; j < m_outputs.count(); j++) {
-				int z = m_outputs.at(j)->property("z").toInt();
-				m_outputs.at(j)->setProperty("z", z - 1);
-				m_outputs.at(j)->setProperty("focus", false);
+			int z = output->property("z").toInt();
+			for (int j = 0; j < m_outputs.count(); j++) {
+				int otherZ = m_outputs.at(j)->property("z").toInt();
+				if (otherZ > z) {
+					m_outputs.at(j)->setProperty("z", otherZ - 1);
+				}
 			}
 			output->setProperty("z", m_outputs.length());
 			output->setProperty("focus", true);
@@ -160,8 +162,6 @@ void QMLOutputView::outputClicked()
 
 			break;
 		}
-
-		output->setProperty("focus", false);
 	}
 }
 
