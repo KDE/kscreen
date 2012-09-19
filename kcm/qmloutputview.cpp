@@ -94,6 +94,8 @@ void QMLOutputView::viewSizeChanged()
 	QRect rect;
 	Q_FOREACH (QMLOutput *qmloutput, m_outputs) {
 		if (!qmloutput->output()->isConnected()) {
+			qmloutput->setX(0);
+			qmloutput->setY(0);
 			continue;
 		}
 
