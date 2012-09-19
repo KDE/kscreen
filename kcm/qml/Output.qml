@@ -100,8 +100,10 @@ QMLOutput {
 			x: 0;
 			y: 0;
 			border.width: 1;
-			border.color: root.focus ? "white" : "black";
-			color: output.enabled ? "#B6D7A8" : "#E7EAEE";
+			border.color: "#000000";
+			color: output.enabled ?
+					(root.focus ? "#87D56B" : "#B6D7A8") :
+					(root.focus ? "#ABADB0" : "#E7EAEE");
 			scale: (output.enabled) ? 1.0 : 0.6;
 
 			transformOrigin: Item.Center;
