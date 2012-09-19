@@ -28,11 +28,6 @@ Item {
 	property Item parentItem;
 	property int iconSize: 22;
 
-	anchors {
-		verticalCenter: parent.verticalCenter;
-		horizontalCenter: parent.horizontalCenter;
-	}
-
 	onWidthChanged: {
 		setSmallMode(width < 100);
 		monitorName.font.pointSize = (width < 80 || height < 50) ? 8 : (width < 100 || height < 80) ? 10 : 15;
@@ -47,6 +42,15 @@ Item {
 	{
 		iconSize = (smallMode) ? 16 : 22;
 		resolutionLabel.visible = !smallMode;
+	}
+
+	Behavior on rotation {
+		RotationAnimation {
+			easing.type: "OutCubic"
+			duration: 250;
+			direction: (rotationDirection == RotationAnimation.Clockwise) ?
+				RotationAnimation.Counterclockwise : RotationAnimation.Clockwise;
+		}
 	}
 
 
@@ -118,6 +122,7 @@ Item {
 		}
 	]
 
+	/* Output name */
 	Text {
 		id: monitorName;
 		text: output.name;
@@ -138,7 +143,7 @@ Item {
 		}
 	}
 
-
+	/* Resolution label */
 	Text {
 		id: resolutionLabel;
 		text: output.connected && output.enabled ?
@@ -154,13 +159,12 @@ Item {
 		anchors {
 			bottom: parent.bottom;
 			horizontalCenter: parent.horizontalCenter;
-			margins: 10;
-			bottomMargin: 15;
 		}
 
 		horizontalAlignment: Text.AlignHCenter;
 	}
 
+	/* Enable/Disable output */
 	OutputActionButton {
 		id: enabledButton;
 		iconSize: parent.iconSize;
@@ -174,6 +178,7 @@ Item {
 		onClicked: output.enabled = !output.enabled;
 	}
 
+	/* Rotation */
 	OutputActionButton {
 		id: rotateButton;
 		iconSize: parent.iconSize;
@@ -212,6 +217,7 @@ Item {
 		}
 	}
 
+	/* Primary toggle */
 	OutputActionButton {
 		id: primaryButton;
 		iconSize: parent.iconSize;

@@ -28,8 +28,8 @@ QMLOutput {
 	signal clicked();
 
 	/* +1 because of the border */
-	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * monitor.scale;
-	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * monitor.scale;
+	width: 1 + ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.height : monitor.width) * monitor.scale;
+	height: 1 + ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.width : monitor.height) * monitor.scale;
 
 	visible: (opacity > 0);
 	opacity: output.connected ? 1.0 : 0.0;
@@ -104,17 +104,10 @@ QMLOutput {
 			color: output.enabled ? "#B6D7A8" : "#E7EAEE";
 			scale: (output.enabled) ? 1.0 : 0.6;
 
-			transform: [
-				Rotation {
-					id: rotationTransformation;
-					origin.x: monitor.width / 2;
-					origin.y : monitor.height / 2;
-					angle: (output.rotation == Output.None) ? 0 :
-						(output.rotation == Output.Left) ? 90 :
-						(output.rotation == Output.Inverted) ? 180 : 270;
-				}
-			]
-
+			transformOrigin: Item.Center;
+			rotation: (output.rotation == Output.None) ? 0 :
+					(output.rotation == Output.Left) ? 90 :
+					(output.rotation == Output.Inverted) ? 180 : 270;
 
 			anchors.centerIn: parent;
 
@@ -165,19 +158,25 @@ QMLOutput {
 			OutputControls {
 				id: controls;
 				parentItem: root;
+				rotationDirection: parent.rotationDirection;
+
+				anchors {
+					verticalCenter: parent.verticalCenter;
+					horizontalCenter: parent.horizontalCenter;
+				}
 			}
 
 			Rectangle {
 				id: rotationBar;
 
 				height: 2;
+				width: parent.width - 20;
 				color: "black";
 
 				anchors {
-					left: parent.left;
-					right: parent.right;
+					horizontalCenter: parent.horizontalCenter;
 					bottom: parent.bottom;
-					margins: 10;
+					margins: 5;
 				}
 			}
 		}
