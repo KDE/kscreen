@@ -31,7 +31,14 @@ QMLOutput {
 	width: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.height : monitor.width) * monitor.scale;
 	height: 1 + ((rotationTransformation.angle == 90 || rotationTransformation.angle == 270) ? monitor.width : monitor.height) * monitor.scale;
 
-	visible: output.connected;
+	visible: (opacity > 0);
+	opacity: output.connected ? 1.0 : 0.0;
+	Behavior on opacity {
+		PropertyAnimation {
+			duration: 200;
+			easing.type: "OutCubic";
+		}
+	}
 
 	MouseArea {
 		id: monitorMouseArea;
