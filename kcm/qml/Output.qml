@@ -27,9 +27,8 @@ QMLOutput {
 	signal moved(bool snap);
 	signal clicked();
 
-	/* +1 because of the border */
-	width: 1 + ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.height : monitor.width) * monitor.scale;
-	height: 1 + ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.width : monitor.height) * monitor.scale;
+	width: ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.height : monitor.width) * monitor.scale;
+	height: ((monitor.rotation == 90 || monitor.rotation == 270) ? monitor.width : monitor.height) * monitor.scale;
 
 	visible: (opacity > 0);
 	opacity: output.connected ? 1.0 : 0.0;

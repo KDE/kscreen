@@ -418,7 +418,7 @@ void QMLOutputView::outputMoved(bool snap)
 
 			QPoint pos = otherOutput->output()->pos();
 			/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
-			pos.setX((x - 1) * 8);
+			pos.setX(x * 8);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
@@ -426,7 +426,7 @@ void QMLOutputView::outputMoved(bool snap)
 
 		QPoint pos = output->output()->pos();
 		/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
-		pos.setX((x - 1) * 8);
+		pos.setX(x * 8);
 		output->output()->setPos(pos);
 	}
 
