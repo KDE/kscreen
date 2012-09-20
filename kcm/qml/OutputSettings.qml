@@ -46,9 +46,7 @@ FocusScope {
 			width: 22;
 			height: 22;
 
-			anchors {
-				verticalCenter: parent.verticalCenter;
-			}
+			anchors.verticalCenter: parent.verticalCenter;
 
 			QIconItem {
 				id: button;
@@ -75,15 +73,15 @@ FocusScope {
 				pointSize: 18;
 				bold: true;
 			}
+
+			anchors.verticalCenter: parent.verticalCenter;
 		}
 
 		PlasmaComponents.Switch {
 			id: outputSwitch;
 			checked: false;
 
-			anchors {
-				verticalCenter: outputName.verticalCenter;
-			}
+			anchors.verticalCenter: parent.verticalCenter;
 
 			onCheckedChanged: output.output.enabled = checked;
 		}
