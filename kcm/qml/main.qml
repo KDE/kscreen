@@ -58,7 +58,7 @@ Item {
 					margins: 5;
 				}
 				color: palette.text;
-				text: i18n("Tip: Hold Ctrl while dragging the displays to disable snapping");
+				text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
 			}
 		}
 	}
