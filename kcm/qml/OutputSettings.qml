@@ -176,6 +176,8 @@ FocusScope {
 			outputSwitch.checked = output.output.enabled;
 		});
 
+		output.output.currentModeChanged.connect(selectCurrentMode);
+
 		outputName.text = output.output.name;
 		outputSwitch.checked = output.output.enabled;
 
@@ -186,6 +188,18 @@ FocusScope {
 		for (var i = 0; i < resolutions.length; i++) {
 			resolutionModel.append({ "label": resolutions[i] });
 
+			if (resolutions[i] == currentResolution) {
+				resolutionListView.currentIndex = i;
+			}
+		}
+	}
+
+	function selectCurrentMode()
+	{
+		var currentMode = output.output.mode(output.output.currentMode);
+		var resolutions = output.getResolutions();
+		var currentResolution = (currentMode == null) ? -1 : currentMode.name;
+		for (var i = 0; i < resolutions.length; i++) {
 			if (resolutions[i] == currentResolution) {
 				resolutionListView.currentIndex = i;
 			}
