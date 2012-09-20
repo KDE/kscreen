@@ -17,6 +17,7 @@
 */
 
 import QtQuick 1.1
+import org.kde.qtextracomponents 0.1
 import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
@@ -37,6 +38,33 @@ FocusScope {
 	Row {
 		id: titleRow;
 		spacing: 20;
+
+
+		MouseArea {
+			id: primaryToggleMouseArea;
+
+			width: 22;
+			height: 22;
+
+			anchors {
+				verticalCenter: parent.verticalCenter;
+			}
+
+			QIconItem {
+				id: button;
+				icon: "bookmarks";
+				enabled: (output != null && output.output.primary);
+				anchors.fill: parent;
+			}
+
+			onClicked: {
+				if (output == null) {
+					return;
+				}
+
+				output.output.primary = !output.output.primary;
+			}
+		}
 
 		Text {
 			id: outputName;
