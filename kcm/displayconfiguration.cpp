@@ -182,8 +182,9 @@ void DisplayConfiguration::identifyOutputs()
 	m_outputTimer->stop();
 	clearOutputIdentifiers();
 
-	QHash< QPoint, QStringList > ids;
-	OutputList outputs = m_config->outputs();
+	/* Obtain the current active configuration from KScreen */
+	KScreen *screen = KScreen::self();
+	OutputList outputs = screen->config()->outputs();
 	Q_FOREACH (/*KScreen::*/Output *output, outputs) {
 		if (!output->isConnected() || output->currentMode() == 0) {
 			continue;
