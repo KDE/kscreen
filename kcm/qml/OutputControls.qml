@@ -165,7 +165,7 @@ Item {
 	}
 
 	/* Enable/Disable output */
-	OutputActionButton {
+	IconButton {
 		id: enabledButton;
 		iconSize: parent.iconSize;
 		enabledIcon: output.enabled ? "dialog-ok-apply" : "edit-delete";
@@ -179,7 +179,7 @@ Item {
 	}
 
 	/* Rotation */
-	OutputActionButton {
+	IconButton {
 		id: rotateButton;
 		iconSize: parent.iconSize;
 		enabledIcon: "object-rotate-left";
@@ -218,7 +218,7 @@ Item {
 	}
 
 	/* Primary toggle */
-	OutputActionButton {
+	IconButton {
 		id: primaryButton;
 		iconSize: parent.iconSize;
 		enabledIcon: "bookmarks";

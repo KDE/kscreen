@@ -40,20 +40,11 @@ FocusScope {
 		spacing: 20;
 
 
-		MouseArea {
-			id: primaryToggleMouseArea;
-
-			width: 22;
-			height: 22;
-
+		IconButton {
+			id: primaryButton;
+			enabledIcon: "bookmarks";
+			enabled: (output != null && output.output.primary);
 			anchors.verticalCenter: parent.verticalCenter;
-
-			QIconItem {
-				id: button;
-				icon: "bookmarks";
-				enabled: (output != null && output.output.primary);
-				anchors.fill: parent;
-			}
 
 			onClicked: {
 				if (output == null) {

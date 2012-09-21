@@ -23,9 +23,8 @@
 #include <QDeclarativeListProperty>
 
 class QDeclarativeView;
-class QMLOutput;
-class QMLOutputView;
 class /*KScreen::*/Config;
+class QTimer;
 
 class DisplayConfiguration : public KCModule
 {
@@ -40,12 +39,17 @@ public Q_SLOTS:
 
     static bool x11EventFilter(void* message, long int* result);
 
+private Q_SLOTS:
+    void identifyOutputs();
+    void clearOutputIdentifiers();
+
 private:
-    QMLOutputView* getOutputView() const;
-    /*KScreen::*/Config *m_config;
+    /*KScreen::*/Config* m_config;
 
     QDeclarativeView* m_declarativeView;
-    QList<QMLOutput*> m_monitors;
+
+    QList<QWidget*> m_outputIdentifiers;
+    QTimer* m_outputTimer;
 };
 
 #endif // DisplayConfiguration_H

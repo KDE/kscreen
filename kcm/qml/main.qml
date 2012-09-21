@@ -21,6 +21,9 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 
 Item {
+	signal identifyOutputsRequested();
+
+
 	id: root;
 	objectName: "root";
 	focus: true;
@@ -59,6 +62,20 @@ Item {
 				}
 				color: palette.text;
 				text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+			}
+
+			IconButton {
+				id: identifyButton;
+				anchors {
+					right: parent.right;
+					bottom: parent.bottom;
+					margins: 5;
+				}
+
+				enabledIcon: "documentinfo"
+				iconSize: 44;
+
+				onClicked: root.identifyOutputsRequested();
 			}
 		}
 	}

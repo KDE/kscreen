@@ -23,10 +23,11 @@ set(kcm_displayconfiguration_SRCS
 
 set(QML_FILES
 	qml/main.qml
+	qml/IconButton.qml
 	qml/ModeListView.qml
 	qml/OutputView.qml
     	qml/Output.qml
-    	qml/OutputActionButton.qml
+	qml/OutputIdentifier.qml
 	qml/OutputControls.qml
 	qml/OutputSettings.qml)
 

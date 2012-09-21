@@ -53,6 +53,9 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     about->addAuthor(ki18n("Dan Vrátil"), ki18n("Maintainer") , "dvratil@redhat.com");
     setAboutData(about);
 
+    m_outputTimer = new QTimer(this);
+    connect(m_outputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
+
     /* FIXME: Workaround to prevent KScreen::QRandr eating our X11 events */
     qApp->setEventFilter(DisplayConfiguration::x11EventFilter);
 
@@ -113,11 +116,21 @@ void DisplayConfiguration::load()
 		return;
 	}
 
-	QString qmlPath = KStandardDirs::locate("data", QLatin1String(QML_PATH "main.qml"));
+	const QString qmlPath = KStandardDirs::locate(
+		"data", QLatin1String(QML_PATH "main.qml"));
 	m_declarativeView->setSource(qmlPath);
 
-	QMLOutputView *outputView = getOutputView();
+	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
+	if (!rootObj) {
+		kWarning() << "Failed to obtain root item";
+		return;
+	}
+
+	connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
+
+	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
 	if (!outputView) {
+		kWarning() << "Failed to obtain output view";
 		return;
 	}
 
@@ -153,19 +166,54 @@ void DisplayConfiguration::save()
 	screen->setConfig(m_config);
 }
 
-QMLOutputView* DisplayConfiguration::getOutputView() const
+void DisplayConfiguration::clearOutputIdentifiers()
 {
-	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
-	if (!rootObj) {
-		kWarning() << "Failed to obtain root item";
-		return 0;
+	m_outputTimer->stop();
+	qDeleteAll(m_outputIdentifiers);
+	m_outputIdentifiers.clear();
+}
+
+
+void DisplayConfiguration::identifyOutputs()
+{
+	const QString qmlPath = KStandardDirs::locate(
+		"data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
+
+	m_outputTimer->stop();
+	clearOutputIdentifiers();
+
+	QHash< QPoint, QStringList > ids;
+	OutputList outputs = m_config->outputs();
+	Q_FOREACH (/*KScreen::*/Output *output, outputs) {
+		if (!output->isConnected() || output->currentMode() == 0) {
+			continue;
+		}
+
+		Mode *mode = output->mode(output->currentMode());
+
+		QDeclarativeView *view = new QDeclarativeView();
+		view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+		view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
+		view->setSource(QUrl::fromLocalFile(qmlPath));
+
+		QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
+		if (!rootObj) {
+			kWarning() << "Failed to obtain root item";
+			continue;
+		}
+		rootObj->setProperty("outputName", output->name());
+		rootObj->setProperty("modeName", mode->name());
+
+		QRect outputRect(output->pos(), mode->size());
+		QRect geometry(QPoint(0, 0), view->sizeHint());
+		geometry.moveCenter(outputRect.center());
+		view->setGeometry(geometry);
+
+		m_outputIdentifiers << view;
 	}
 
-	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
-	if (!outputView) {
-		kWarning() << "Failed to obtain output view";
-		return 0;
+	Q_FOREACH (QWidget *widget, m_outputIdentifiers) {
+		widget->show();
 	}
-
-	return outputView;
+	m_outputTimer->start(2500);
 }
