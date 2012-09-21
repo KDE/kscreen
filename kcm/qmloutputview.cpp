@@ -56,7 +56,7 @@ QMLOutput* QMLOutputView::activeOutput() const
 }
 
 
-void QMLOutputView::addOutput(QDeclarativeEngine *engine, /*KScreen::*/Output* output)
+void QMLOutputView::addOutput(QDeclarativeEngine *engine, KScreen::Output* output)
 {
 	QMLOutputComponent outputComponent(engine);
 
@@ -475,7 +475,7 @@ void QMLOutputView::outputMoved(bool snap)
 
 void QMLOutputView::primaryOutputChanged()
 {
-	/*KScreen::*/Output *newPrimary = dynamic_cast</*KScreen::*/Output*>(sender());
+	KScreen::Output *newPrimary = dynamic_cast<KScreen::Output*>(sender());
 
 	/* Unset primary flag on all other outputs */
 	Q_FOREACH(QMLOutput *qmlOutput, m_outputs) {

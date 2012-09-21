@@ -23,8 +23,11 @@
 #include <QDeclarativeListProperty>
 
 class QDeclarativeView;
-class /*KScreen::*/Config;
 class QTimer;
+
+namespace KScreen {
+class Config;
+}
 
 class DisplayConfiguration : public KCModule
 {
@@ -44,7 +47,7 @@ private Q_SLOTS:
     void clearOutputIdentifiers();
 
 private:
-    /*KScreen::*/Config* m_config;
+    KScreen::Config* m_config;
 
     QDeclarativeView* m_declarativeView;
 

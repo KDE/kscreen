@@ -32,14 +32,17 @@
 #include <QDeclarativeView>
 #include <QDeclarativeContext>
 
-#include <kscreen/kscreen.h>
+#include <kscreen/provider.h>
 #include <kscreen/config.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>();)
 K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
                 "kcm_displayconfiguration" /* catalog name */))
 
-Q_DECLARE_METATYPE(Output*);
+using namespace KScreen;
+
+Q_DECLARE_METATYPE(KScreen::Output*);
+
 
 DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfiguraionFactory::componentData(), parent, args)
@@ -61,8 +64,9 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 
     QGridLayout* mainLayout = new QGridLayout(this);
 
+    //setenv("KSCREEN_BACKEND", "Fake", 1);
     setenv("KSCREEN_BACKEND", "XRandR", 1);
-    KScreen* screen = KScreen::self();
+    Provider* screen = Provider::self();
     if (screen && screen->isValid()) {
 	QString importPath = KStandardDirs::installPath("lib") +
 		QDir::separator() + "kde4" + QDir::separator() + "imports";
@@ -71,15 +75,16 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
 
 	/* FIXME Clear up this */
-	qmlRegisterInterface<Output*>("Output");
-	qmlRegisterInterface<Mode*>("OutputMode");
-	qmlRegisterType<Output>("KScreen", 1, 0, "Output");
-	qmlRegisterType<Mode>("KScreen", 1, 0, "OutputMode");
+	qmlRegisterInterface<KScreen::Output*>("Output");
+	qmlRegisterInterface<KScreen::Mode*>("OutputMode");
+	qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
+	qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
 
         m_declarativeView = new QDeclarativeView(this);
 	m_declarativeView->engine()->addImportPath(importPath);
         m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
 	m_declarativeView->setStyleSheet("background: transparent");
+	m_declarativeView->setMinimumHeight(500);
         mainLayout->addWidget(m_declarativeView, 0, 0);
 
 	/* Declarative view will be initialized from load() */
@@ -111,8 +116,8 @@ void DisplayConfiguration::load()
 {
 	kDebug() << "Loading...";
 
-	KScreen *screen = KScreen::self();
-	if (!screen || !screen->isValid()) {
+	KScreen::Provider *provider = KScreen::Provider::self();
+	if (!provider || !provider->isValid()) {
 		return;
 	}
 
@@ -134,8 +139,8 @@ void DisplayConfiguration::load()
 		return;
 	}
 
-	m_config = screen->config();
-	Q_FOREACH (Output *output, m_config->outputs().values()) {
+	m_config = provider->config();
+	Q_FOREACH (KScreen::Output *output, m_config->outputs().values()) {
 		outputView->addOutput(m_declarativeView->engine(), output);
 	}
 
@@ -146,13 +151,13 @@ void DisplayConfiguration::save()
 {
 	kDebug() << "Saving";
 
-	/*KScreen::*/KScreen *screen = /*KScreen::*/KScreen::self();
-	if (!screen || !screen->isValid()) {
+	KScreen::Provider *provider = KScreen::Provider::self();
+	if (!provider || !provider->isValid()) {
 		return;
 	}
 
-	Q_FOREACH(/*KScreen::*/Output *output, m_config->outputs()) {
-		/*KScreen::*/Mode *mode = output->mode(output->currentMode());
+	Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
+		KScreen::Mode *mode = output->mode(output->currentMode());
 		kDebug() << output->name() << "\n"
 			 << "	Connected:" << output->isConnected() << "\n"
 			 << "	Enabled:" << output->isEnabled() << "\n"
@@ -163,7 +168,7 @@ void DisplayConfiguration::save()
 	}
 
 	/* Store the current config, apply settings */
-	screen->setConfig(m_config);
+	provider->setConfig(m_config);
 }
 
 void DisplayConfiguration::clearOutputIdentifiers()
@@ -183,9 +188,9 @@ void DisplayConfiguration::identifyOutputs()
 	clearOutputIdentifiers();
 
 	/* Obtain the current active configuration from KScreen */
-	KScreen *screen = KScreen::self();
+	Provider *screen = Provider::self();
 	OutputList outputs = screen->config()->outputs();
-	Q_FOREACH (/*KScreen::*/Output *output, outputs) {
+	Q_FOREACH (KScreen::Output *output, outputs) {
 		if (!output->isConnected() || output->currentMode() == 0) {
 			continue;
 		}

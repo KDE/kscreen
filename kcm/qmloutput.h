@@ -24,27 +24,29 @@
 #include <QDeclarativeItem>
 #include <kscreen/mode.h>
 
-class /*KScreen::*/Output;
+namespace KScreen {
+class Output;
+}
 
 class QMLOutput : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(/*KScreen::*/Output* output READ output WRITE setOutput NOTIFY outputChanged);
-    Q_PROPERTY(QDeclarativeListProperty</*KScreen::*/Mode> modes READ modes NOTIFY outputChanged);
+    Q_PROPERTY(KScreen::Output* output READ output WRITE setOutput NOTIFY outputChanged);
+    Q_PROPERTY(QDeclarativeListProperty<KScreen::Mode> modes READ modes NOTIFY outputChanged);
     Q_PROPERTY(QMLOutput* cloneOf READ cloneOf WRITE setCloneOf NOTIFY cloneOfChanged);
 public:
     QMLOutput();
     virtual ~QMLOutput();
 
-    void setOutput(/*KScreen::*/Output* output);
-    /*KScreen::*/Output* output() const;
+    void setOutput(KScreen::Output* output);
+    KScreen::Output* output() const;
 
     void setCloneOf(QMLOutput *other);
     QMLOutput* cloneOf() const;
 
 
-    QDeclarativeListProperty</*KScreen::*/Mode> modes();
+    QDeclarativeListProperty<KScreen::Mode> modes();
 
     Q_INVOKABLE QStringList getResolutions() const;
     /* Can't use QList<float>, see QTBUG-20826 */
@@ -59,9 +61,9 @@ Q_SIGNALS:
     void cloneOfChanged();
 
 private:
-    /*KScreen::*/Output* m_output;
+    KScreen::Output* m_output;
     QMLOutput *m_cloneOf;
-    QList<Mode*> m_modes;
+    QList<KScreen::Mode*> m_modes;
 };
 
 #endif // QMLOUTPUT_H

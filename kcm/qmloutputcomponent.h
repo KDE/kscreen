@@ -24,8 +24,11 @@
 
 class QDeclarativeContext;
 class QDeclarativeEngine;
-class /*KScreen::*/Output;
 class QMLOutput;
+
+namespace KScreen {
+class Output;
+}
 
 class QMLOutputComponent : public QDeclarativeComponent
 {
@@ -35,7 +38,7 @@ public:
     QMLOutputComponent(QDeclarativeEngine* engine, QObject* parent = 0);
     virtual ~QMLOutputComponent();
 
-    QMLOutput* createForOutput(/*KScreen::*/Output* output);
+    QMLOutput* createForOutput(KScreen::Output* output);
 
 private:
     QDeclarativeEngine* m_engine;

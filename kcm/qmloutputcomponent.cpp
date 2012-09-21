@@ -30,7 +30,7 @@
 
 #include <kscreen/output.h>
 
-Q_DECLARE_METATYPE(/*KScreen::*/Output*);
+Q_DECLARE_METATYPE(KScreen::Output*);
 
 QMLOutputComponent::QMLOutputComponent(QDeclarativeEngine *engine, QObject *parent):
 	QDeclarativeComponent(engine, parent),
@@ -46,7 +46,7 @@ QMLOutputComponent::~QMLOutputComponent()
 {
 }
 
-QMLOutput* QMLOutputComponent::createForOutput(/*KScreen::*/Output* output)
+QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output* output)
 {
 	QObject *instance;
 

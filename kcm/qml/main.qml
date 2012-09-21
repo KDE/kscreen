@@ -82,7 +82,7 @@ Item {
 
 	FocusScope {
 		id: settingsScope;
-		height: (outputView.activeOutput == null) ? 0 : root.height / 2;
+		height: (outputView.activeOutput == null) ? 0 : 240;
 
 		anchors {
 			left: parent.left;

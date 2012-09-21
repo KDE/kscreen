@@ -24,7 +24,9 @@
 
 #define QML_PATH "kcm_displayconfiguration/qml/"
 
-class /*KScreen::*/Output;
+namespace KScreen {
+class Output;
+}
 class QMLOutput;
 class QDeclarativeContext;
 
@@ -38,7 +40,7 @@ public:
     QMLOutputView();
     virtual ~QMLOutputView();
 
-    void addOutput(QDeclarativeEngine* engine, /*KScreen::*/Output* output);
+    void addOutput(QDeclarativeEngine* engine, KScreen::Output* output);
 
     QList<QMLOutput*> outputs() const;
     QMLOutput * activeOutput() const;
