@@ -59,6 +59,7 @@ private Q_SLOTS:
     void outputClicked();
     void primaryOutputChanged();
     void viewSizeChanged();
+    void viewSizeChanged(bool initialPlacement);
 
 private:
     QDeclarativeContext * context() const;

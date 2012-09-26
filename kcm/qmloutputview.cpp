@@ -82,19 +82,37 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, KScreen::Output* outpu
 		return;
 	}
 
-	viewSizeChanged();
+	viewSizeChanged(true);
 
 	Q_EMIT outputsChanged();
 }
 
 void QMLOutputView::viewSizeChanged()
 {
+	viewSizeChanged(false);
+}
+
+
+void QMLOutputView::viewSizeChanged(bool initialPlacement)
+{
+	int disabledOffset = width();
+
 	/* Make a rectangle around all the outputs, center it and then adjust
 	 * position of all the outputs to be in the middle of the view */
 	QRect rect;
+	QList< QMLOutput * > positionedOutputs;
+
 	Q_FOREACH (QMLOutput *qmloutput, m_outputs) {
 		if (!qmloutput->output()->isConnected()) {
 			qmloutput->setX(0);
+			qmloutput->setY(0);
+			continue;
+		}
+
+		if ((initialPlacement && !qmloutput->output()->isEnabled()) ||
+		    (!qmloutput->output()->isEnabled() && !qmloutput->property("moved").isValid())){
+			disabledOffset -= qmloutput->width();
+			qmloutput->setX(disabledOffset);
 			qmloutput->setY(0);
 			continue;
 		}
@@ -117,13 +135,15 @@ void QMLOutputView::viewSizeChanged()
 		if (qmloutput->y() + qmloutput->height() > rect.bottom()) {
 			rect.setHeight(qmloutput->y() + qmloutput->height());
 		}
+
+		positionedOutputs << qmloutput;
 	}
 
 	int offsetX = rect.left() + ((width() - rect.width()) / 2);
 	int offsetY = rect.top() + ((height() - rect.height()) / 2);
 
 
-	Q_FOREACH (QMLOutput *qmloutput, m_outputs) {
+	Q_FOREACH (QMLOutput *qmloutput, positionedOutputs) {
 		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 8));
 		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 8));
 	}
@@ -169,6 +189,7 @@ void QMLOutputView::outputClicked()
 void QMLOutputView::outputMoved(bool snap)
 {
 	QMLOutput *output = dynamic_cast<QMLOutput*>(sender());
+	output->setProperty("moved", true);
 
 	int x = output->x();
 	int y = output->y();
