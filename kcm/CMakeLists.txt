@@ -13,7 +13,9 @@ include(KDE4Defaults)
 include_directories(
 	${QT_INCLUDES}
 	${KDE4_INCLUDES}
-	${CMAKE_CURRENT_BINARY_DIR})
+	${CMAKE_CURRENT_BINARY_DIR}
+	${KSCREEN_INCLUDE_DIR}
+)
 
 set(kcm_displayconfiguration_SRCS
   	qmloutputcomponent.cpp
