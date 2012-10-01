@@ -17,38 +17,7 @@ include_directories(
 	${KSCREEN_INCLUDE_DIR}
 )
 
-set(kcm_displayconfiguration_SRCS
-	qmloutputcomponent.cpp
-	qmloutputview.cpp
-	qmloutput.cpp
-	controlpanel.cpp
-	displayconfiguration.cpp
-	modesproxymodel.cpp
-	resolutionsortmodel.cpp
-)
-
-set(QML_FILES
-	qml/main.qml
-	qml/IconButton.qml
-	qml/ModeListView.qml
-	qml/OutputView.qml
-	qml/Output.qml
-	qml/OutputIdentifier.qml
-	qml/OutputControls.qml
-)
-
-qt4_automoc(${kcm_displayconfiguration_SRCS})
-
-
-kde4_add_plugin(kcm_displayconfiguration
-	${kcm_displayconfiguration_SRCS})
-
-target_link_libraries(kcm_displayconfiguration
-	${QT_QTDECLARATIVE_LIBRARY}
-	${KDE4_KDEUI_LIBS}
-	${KSCREEN_LIBRARY})
-
-install(TARGETS kcm_displayconfiguration DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES displayconfiguration.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
-install(FILES ${QML_FILES} DESTINATION ${DATA_INSTALL_DIR}/kcm_displayconfiguration/qml)
+add_subdirectory(src)
+add_subdirectory(qml)
