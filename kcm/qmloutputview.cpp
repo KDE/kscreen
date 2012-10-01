@@ -178,7 +178,7 @@ void QMLOutputView::outputClicked()
 			output->setProperty("z", m_outputs.length());
 			output->setProperty("focus", true);
 			m_activeOutput = output;
-			emit activeOutputChanged();
+			emit activeOutputChanged(m_activeOutput);
 
 			break;
 		}

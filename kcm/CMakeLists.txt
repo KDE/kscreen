@@ -18,20 +18,24 @@ include_directories(
 )
 
 set(kcm_displayconfiguration_SRCS
-  	qmloutputcomponent.cpp
-   	qmloutputview.cpp
-  	qmloutput.cpp
-	displayconfiguration.cpp)
+	qmloutputcomponent.cpp
+	qmloutputview.cpp
+	qmloutput.cpp
+	controlpanel.cpp
+	displayconfiguration.cpp
+	modesproxymodel.cpp
+	resolutionsortmodel.cpp
+)
 
 set(QML_FILES
 	qml/main.qml
 	qml/IconButton.qml
 	qml/ModeListView.qml
 	qml/OutputView.qml
-    	qml/Output.qml
+	qml/Output.qml
 	qml/OutputIdentifier.qml
 	qml/OutputControls.qml
-	qml/OutputSettings.qml)
+)
 
 qt4_automoc(${kcm_displayconfiguration_SRCS})
 

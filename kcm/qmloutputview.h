@@ -52,7 +52,7 @@ Q_SIGNALS:
 
     /* Property notifications */
     void outputsChanged();
-    void activeOutputChanged();
+    void activeOutputChanged(QMLOutput *output);
 
 private Q_SLOTS:
     void outputMoved(bool snap);

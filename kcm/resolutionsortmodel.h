@@ -16,45 +16,22 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef DisplayConfiguration_H
-#define DisplayConfiguration_H
 
-#include <KCModule>
-#include <QDeclarativeListProperty>
+#ifndef RESOLUTIONSORTPROXYMODEL_H
+#define RESOLUTIONSORTPROXYMODEL_H
 
-class QDeclarativeView;
-class QTimer;
-class ControlPanel;
+#include <QSortFilterProxyModel>
 
-namespace KScreen {
-class Config;
-}
 
-class DisplayConfiguration : public KCModule
+class ResolutionSortModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+
 public:
-    DisplayConfiguration (QWidget* parent = 0, const QVariantList& args = QVariantList());
-    virtual ~DisplayConfiguration();
+    ResolutionSortModel(QObject* parent = 0);
+    virtual ~ResolutionSortModel();
 
-public Q_SLOTS:
-    virtual void load();
-    virtual void save();
-
-    static bool x11EventFilter(void* message, long int* result);
-
-private Q_SLOTS:
-    void identifyOutputs();
-    void clearOutputIdentifiers();
-
-private:
-    KScreen::Config* m_config;
-
-    QDeclarativeView* m_declarativeView;
-    ControlPanel *m_controlPanel;
-
-    QList<QWidget*> m_outputIdentifiers;
-    QTimer* m_outputTimer;
+    virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const;
 };
 
-#endif // DisplayConfiguration_H
+#endif // RESOLUTIONSORTPROXYMODEL_H

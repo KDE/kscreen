@@ -39,12 +39,7 @@ Item {
 
 	FocusScope {
 		id: outputViewFocusScope;
-		anchors {
-			left: parent.left;
-			right: parent.right;
-			top: parent.top;
-			bottom: settingsScope.top;
-		}
+		anchors.fill: parent;
 
 		OutputView {
 			id: outputView;
@@ -76,34 +71,6 @@ Item {
 				iconSize: 44;
 
 				onClicked: root.identifyOutputsRequested();
-			}
-		}
-	}
-
-	FocusScope {
-		id: settingsScope;
-		height: (outputView.activeOutput == null) ? 0 : 240;
-
-		anchors {
-			left: parent.left;
-			right: parent.right;
-			bottom: parent.bottom;
-		}
-
-		OutputSettings {
-			id: settings;
-			focus: true;
-			anchors {
-				fill: parent;
-				margins: 20;
-			}
-			output: outputView.activeOutput;
-		}
-
-		Behavior on height {
-			PropertyAnimation {
-				duration: 150;
-				easing.type: "OutCubic";
 			}
 		}
 	}

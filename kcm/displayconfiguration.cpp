@@ -18,6 +18,7 @@
 
 
 #include "displayconfiguration.h"
+#include "controlpanel.h"
 #include "qmloutputview.h"
 #include "qmloutput.h"
 
@@ -86,9 +87,10 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	m_declarativeView->setStyleSheet("background: transparent");
 	m_declarativeView->setMinimumHeight(500);
         mainLayout->addWidget(m_declarativeView, 0, 0);
-
 	/* Declarative view will be initialized from load() */
 
+	m_controlPanel = new ControlPanel(this);
+	mainLayout->addWidget(m_controlPanel, 1, 0);
     } else {
         QLabel* label = new QLabel(this);
         label->setText(i18n("No supported X Window System extension found"));
@@ -145,6 +147,7 @@ void DisplayConfiguration::load()
 	}
 
 	connect(outputView, SIGNAL(changed()), SLOT(changed()));
+	connect(outputView, SIGNAL(activeOutputChanged(QMLOutput*)), m_controlPanel, SLOT(setOutput(QMLOutput*)));
 }
 
 void DisplayConfiguration::save()

@@ -24,6 +24,10 @@
 #include <QDeclarativeItem>
 #include <kscreen/mode.h>
 
+class QStandardItemModel;
+class QAbstractItemModel;
+
+class ModesProxyModel;
 namespace KScreen {
 class Output;
 }
@@ -33,9 +37,15 @@ class QMLOutput : public QDeclarativeItem
     Q_OBJECT
 
     Q_PROPERTY(KScreen::Output* output READ output WRITE setOutput NOTIFY outputChanged);
-    Q_PROPERTY(QDeclarativeListProperty<KScreen::Mode> modes READ modes NOTIFY outputChanged);
     Q_PROPERTY(QMLOutput* cloneOf READ cloneOf WRITE setCloneOf NOTIFY cloneOfChanged);
 public:
+    enum {
+      ModeRole = Qt::UserRole,
+      ModeIdRole,
+      SizeRole,
+      RefreshRateRole,
+    };
+
     QMLOutput();
     virtual ~QMLOutput();
 
@@ -45,14 +55,8 @@ public:
     void setCloneOf(QMLOutput *other);
     QMLOutput* cloneOf() const;
 
+    Q_INVOKABLE QAbstractItemModel* modesModel();
 
-    QDeclarativeListProperty<KScreen::Mode> modes();
-
-    Q_INVOKABLE QStringList getResolutions() const;
-    /* Can't use QList<float>, see QTBUG-20826 */
-    Q_INVOKABLE QList<QVariant> getRefreshRatesForResolution(const QString &res);
-
-    Q_INVOKABLE void setMode(const QString &resolution, const float &refreshRate);
 Q_SIGNALS:
     void changed();
 
@@ -63,7 +67,8 @@ Q_SIGNALS:
 private:
     KScreen::Output* m_output;
     QMLOutput *m_cloneOf;
-    QList<KScreen::Mode*> m_modes;
+
+    QStandardItemModel *m_modesModel;
 };
 
 #endif // QMLOUTPUT_H
