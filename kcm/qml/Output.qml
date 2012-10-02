@@ -98,8 +98,9 @@ QMLOutput {
 
 			x: 0;
 			y: 0;
-			border.width: 1;
-			border.color: "#000000";
+			radius: 5;
+			border.width: 2;
+			border.color: (root.focus ? "#FFFFFF" : "#B6D7A8");
 			color: output.enabled ?
 					(root.focus ? "#87D56B" : "#B6D7A8") :
 					(root.focus ? "#ABADB0" : "#E7EAEE");
