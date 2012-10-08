@@ -59,6 +59,16 @@ Item {
 				text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
 			}
 
+			VirtualScreen {
+				id: virtualScreen;
+				objectName: "virtualScreen";
+
+				viewWidth: parent.width;
+				viewHeight: parent.height;
+
+				anchors.centerIn: parent;
+			}
+
 			IconButton {
 				id: identifyButton;
 				anchors {

@@ -126,7 +126,7 @@ Item {
 	Text {
 		id: monitorName;
 		text: output.name;
-		color: "black";
+		color: "white";
 		font.pointSize: 15;
 		width: controls.width;
 
@@ -152,7 +152,7 @@ Item {
 			"";
 
 		wrapMode: Text.Wrap;
-		color: "black";
+		color: "white";
 		font.pointSize: 10;
 		width: controls.width - 10;
 
@@ -165,18 +165,25 @@ Item {
 	}
 
 	/* Enable/Disable output */
-	IconButton {
+	PlasmaComponents.Switch {
 		id: enabledButton;
-		iconSize: parent.iconSize;
-		enabledIcon: output.enabled ? "dialog-ok-apply" : "edit-delete";
+
 
 		anchors {
 			horizontalCenter: parent.horizontalCenter;
 			verticalCenter: parent.verticalCenter;
 		}
 
-		onClicked: output.enabled = !output.enabled;
-	}
+
+		checked: output.enabled;
+		onCheckedChanged: {
+			/* FIXME: This should be in KScreen */
+			if (output.enabled != enabledButton.checked) {
+			  output.enabled = enabledButton.checked;
+			}
+		}
+	  }
+
 
 	/* Rotation */
 	IconButton {
@@ -184,10 +191,8 @@ Item {
 		iconSize: parent.iconSize;
 		enabledIcon: "object-rotate-left";
 
-		anchors {
-			right: parent.right;
-			top: parent.top;
-		}
+		y: 5;
+		x: parent.width - rotateButton.width - 10;
 
 		acceptedButtons: Qt.LeftButton | Qt.RightButton;
 		onClicked: {
@@ -224,10 +229,8 @@ Item {
 		enabledIcon: "bookmarks";
 		enabled: (output.enabled && output.primary);
 
-		anchors {
-			left: parent.left;
-			top: parent.top;
-		}
+		x: 10;
+		y: 5;
 
 		onClicked: {
 			if (output.enabled) {

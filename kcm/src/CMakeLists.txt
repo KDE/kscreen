@@ -2,7 +2,7 @@ set(kcm_displayconfiguration_SRCS
 	qmloutputcomponent.cpp
 	qmloutputview.cpp
 	qmloutput.cpp
-	controlpanel.cpp
+	qmlvirtualscreen.cpp
 	displayconfiguration.cpp
 	modesproxymodel.cpp
 	resolutionsortmodel.cpp

@@ -18,9 +18,9 @@
 
 
 #include "displayconfiguration.h"
-#include "controlpanel.h"
 #include "qmloutputview.h"
 #include "qmloutput.h"
+#include "qmlvirtualscreen.h"
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -43,7 +43,6 @@ K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm
 using namespace KScreen;
 
 Q_DECLARE_METATYPE(KScreen::Output*);
-
 
 DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfiguraionFactory::componentData(), parent, args)
@@ -74,6 +73,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 
 	qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
 	qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
+	qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
 
 	/* FIXME Clear up this */
 	qmlRegisterInterface<KScreen::Output*>("Output");
@@ -81,16 +81,15 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
 	qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
 
+
         m_declarativeView = new QDeclarativeView(this);
+	m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
 	m_declarativeView->engine()->addImportPath(importPath);
         m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
 	m_declarativeView->setStyleSheet("background: transparent");
-	m_declarativeView->setMinimumHeight(500);
+	m_declarativeView->setMinimumHeight(440);
         mainLayout->addWidget(m_declarativeView, 0, 0);
 	/* Declarative view will be initialized from load() */
-
-	m_controlPanel = new ControlPanel(this);
-	mainLayout->addWidget(m_controlPanel, 1, 0);
     } else {
         QLabel* label = new QLabel(this);
         label->setText(i18n("No supported X Window System extension found"));
@@ -122,6 +121,7 @@ void DisplayConfiguration::load()
 	if (!provider || !provider->isValid()) {
 		return;
 	}
+	m_config = provider->config();
 
 	const QString qmlPath = KStandardDirs::locate(
 		"data", QLatin1String(QML_PATH "main.qml"));
@@ -135,19 +135,17 @@ void DisplayConfiguration::load()
 
 	connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
 
-	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>("outputView");
+	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>(QLatin1String("outputView"));
 	if (!outputView) {
 		kWarning() << "Failed to obtain output view";
 		return;
 	}
 
-	m_config = provider->config();
 	Q_FOREACH (KScreen::Output *output, m_config->outputs().values()) {
 		outputView->addOutput(m_declarativeView->engine(), output);
 	}
 
 	connect(outputView, SIGNAL(changed()), SLOT(changed()));
-	connect(outputView, SIGNAL(activeOutputChanged(QMLOutput*)), m_controlPanel, SLOT(setOutput(QMLOutput*)));
 }
 
 void DisplayConfiguration::save()
@@ -226,3 +224,4 @@ void DisplayConfiguration::identifyOutputs()
 	}
 	m_outputTimer->start(2500);
 }
+
