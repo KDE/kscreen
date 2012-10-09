@@ -65,12 +65,6 @@ Item {
 				width: parent.width - 20;
 				height: parent.height - 20;
 			}
-			AnchorChanges {
-				target: monitorName;
-				anchors {
-					top: parent.top;
-				}
-			}
 		},
 		State {
 			name: "left";
@@ -80,12 +74,6 @@ Item {
 				rotation: 270;
 				width: parent.height - 20;
 				height: parent.width - 20;
-			}
-			AnchorChanges {
-				target: monitorName;
-				anchors {
-					top: rotateButton.bottom;
-				}
 			}
 		},
 		State {
@@ -97,12 +85,6 @@ Item {
 				width: parent.width - 20;
 				height: parent.height - 20;
 			}
-			AnchorChanges {
-				target: monitorName;
-				anchors {
-					top: parent.top;
-				}
-			}
 		},
 		State {
 			name: "right";
@@ -113,12 +95,6 @@ Item {
 				width: parent.height - 20;
 				height: parent.width - 20;
 			}
-			AnchorChanges {
-				target: monitorName;
-				anchors {
-					top: rotateButton.bottom;
-				}
-			}
 		}
 	]
 
@@ -128,10 +104,11 @@ Item {
 		text: output.name;
 		color: "white";
 		font.pointSize: 15;
-		width: controls.width;
 
 		anchors {
-			top: parent.top;
+			top: controls.top;
+			horizontalCenter: parent.horizontalCenter;
+			topMargin: 5;
 		}
 
 		horizontalAlignment: Text.AlignHCenter;
@@ -154,10 +131,9 @@ Item {
 		wrapMode: Text.Wrap;
 		color: "white";
 		font.pointSize: 10;
-		width: controls.width - 10;
 
 		anchors {
-			bottom: parent.bottom;
+			bottom: controls.bottom;
 			horizontalCenter: parent.horizontalCenter;
 		}
 

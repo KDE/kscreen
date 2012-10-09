@@ -117,8 +117,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 			continue;
 		}
 
-		qmloutput->setX(qmloutput->output()->pos().x() / 8);
-		qmloutput->setY(qmloutput->output()->pos().y() / 8);
+		qmloutput->setX(qmloutput->output()->pos().x() / 7);
+		qmloutput->setY(qmloutput->output()->pos().y() / 7);
 
 		if (qmloutput->x() < rect.left()) {
 			rect.setX(qmloutput->x());
@@ -144,8 +144,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 
 
 	Q_FOREACH (QMLOutput *qmloutput, positionedOutputs) {
-		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 8));
-		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 8));
+		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 7));
+		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 7));
 	}
 }
 
@@ -193,7 +193,7 @@ void QMLOutputView::outputMoved(bool snap)
 
 	int x = output->x();
 	int y = output->y();
-	int width =  output->width();
+	int width = output->width();
 	int height = output->height();
 
 	/* FIXME: The size of the active snapping area should depend on size of
@@ -438,16 +438,16 @@ void QMLOutputView::outputMoved(bool snap)
 			int x = otherOutput->x() - leftMostOutput->x();
 
 			QPoint pos = otherOutput->output()->pos();
-			/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
-			pos.setX(x * 8);
+			/* FIXME FIXME FIXME: We use 1/7th scale to display the outputs */
+			pos.setX(x * 7);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int x = output->x() - leftMostOutput->x();
 
 		QPoint pos = output->output()->pos();
-		/* FIXME FIXME FIXME: We use 1/8th scale to display the outputs */
-		pos.setX(x * 8);
+		/* FIXME FIXME FIXME: We use 1/7th scale to display the outputs */
+		pos.setX(x * 7);
 		output->output()->setPos(pos);
 	}
 
@@ -468,14 +468,14 @@ void QMLOutputView::outputMoved(bool snap)
 			int y = otherOutput->y() - topMostOutput->y();
 
 			QPoint pos = otherOutput->output()->pos();
-			pos.setY(y * 8);
+			pos.setY(y * 7);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int y = output->y() - topMostOutput->y();
 
 		QPoint pos = output->output()->pos();
-		pos.setY(y * 8);
+		pos.setY(y * 7);
 		output->output()->setPos(pos);
 	}
 

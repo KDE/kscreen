@@ -28,41 +28,8 @@ QMLOutput {
 	signal moved(bool snap);
 	signal clicked();
 
-	/* FIXME: We need a much better math regarding scale of the outputs */
-	width: (output.mode(output.currentMode) == null) ?
-		    (1000 / 8) :
-		    (output.mode(output.currentMode).size.width / 8);
-	Behavior on width {
-		PropertyAnimation {
-			property: "width";
-			easing.type: "OutCubic";
-			duration: 150;
-		}
-	}
-
-	height: (output.mode(output.currentMode) == null) ?
-		    (1000 / 8) :
-		    (output.mode(output.currentMode).size.height / 8);
-	Behavior on height {
-		PropertyAnimation {
-			property: "height";
-			easing.type: "OutCubic";
-			duration: 150;
-		}
-	}
-
-	transformOrigin: Item.Center;
-	rotation: (output.rotation == Output.None) ? 0 :
-			(output.rotation == Output.Left) ? 90 :
-			(output.rotation == Output.Inverted) ? 180 : 270;
-
-	Behavior on rotation {
-		RotationAnimation {
-			easing.type: "OutCubic"
-			duration: 250;
-			direction: monitor.rotationDirection;
-		}
-	}
+	width: monitorMouseArea.width;
+	height:  monitorMouseArea.height;
 
 	visible: (opacity > 0);
 	opacity: output.connected ? 1.0 : 0.0;
@@ -79,8 +46,7 @@ QMLOutput {
 		onClicked: root.clicked();
 
 		anchors {
-		  fill: parent;
-		  margins: 2; /* visual margin */
+			centerIn: parent;
 		}
 
 		drag {
@@ -90,7 +56,7 @@ QMLOutput {
 			maximumX: viewport.width - root.width;
 			minimumY: 0;
 			maximumY: viewport.height - root.height;
-			filterChildren: true;
+			filterChildren: false;
 		}
 
 		drag.onActiveChanged: {
@@ -104,8 +70,9 @@ QMLOutput {
 		}
 
 		onPositionChanged: {
-			/* Don't snap the outputs when holding Ctrl */
-			root.moved(!(mouse.modifiers & Qt.ControlModifier));
+			/* Don't snap the outputs when holding Ctrl or when
+			 * they are disabled */
+			root.moved(!(mouse.modifiers & Qt.ControlModifier) && output.enabled);
 		}
 
 		/* When button is pressed, emit clicked() signal
@@ -125,6 +92,51 @@ QMLOutput {
 			easing.type: "OutCubic";
 		}
 
+
+		scale: (output.enabled) ? 1.0 : 0.6;
+		Behavior on scale {
+			PropertyAnimation {
+				property: "scale";
+				easing.type: "OutElastic";
+				duration: 350;
+			}
+		}
+
+		transformOrigin: Item.Center;
+		rotation: (output.rotation == Output.None) ? 0 :
+				(output.rotation == Output.Left) ? 90 :
+				(output.rotation == Output.Inverted) ? 180 : 270;
+		Behavior on rotation {
+			RotationAnimation {
+				easing.type: "OutCubic"
+				duration: 250;
+				direction: monitor.rotationDirection;
+			}
+		}
+		onRotationChanged: updateRootProperties();
+
+		width: (output.mode(output.currentMode) == null)
+			? (1000 / 7)
+			: (output.mode(output.currentMode).size.width / 7);
+		Behavior on width {
+			PropertyAnimation {
+				property: "width";
+				easing.type: "OutCubic";
+				duration: 150;
+			}
+		}
+
+		height: (output.mode(output.currentMode) == null)
+			  ? (1000 / 7)
+			  : (output.mode(output.currentMode).size.height / 7);
+		Behavior on height {
+			PropertyAnimation {
+				property: "height";
+				easing.type: "OutCubic";
+				duration: 150;
+			}
+		}
+
 		FrameSvgItem {
 			id: monitor;
 
@@ -136,17 +148,12 @@ QMLOutput {
 			property int currentModeId: output.currentMode;
 			property int rotationDirection;
 
-			scale: (output.enabled) ? 1.0 : 0.6;
+			x: 2;
+			y: 2;
+			width: parent.width - 4;
+			height: parent.height - 4;
 
-			anchors.fill: parent;
 
-			Behavior on scale {
-				PropertyAnimation {
-					property: "scale";
-					easing.type: "OutElastic";
-					duration: 350;
-				}
-			}
 			OutputControls {
 				id: controls;
 				parentItem: root;
@@ -161,5 +168,35 @@ QMLOutput {
 				}
 			}
 		}
+	}
+
+
+	/* Transormation of an item (rotation of the MouseArea) is only visual.
+	 * The coordinates and dimensions are still the same (when you rotated
+	 * 100x500 rectangle by 90 deg, it will still be 100x500, although
+	 * visually it will be 500x100).
+	 *
+	 * This method calculates the real-visual coordinates and dimentions of
+	 * the MouseArea and updates root item to match them. This makes snapping
+	 * works correctly ragrdless on visual rotation of the output */
+	function updateRootProperties()
+	{
+	      var transformedX, transformedY, transformedWidth, transformedHeight;
+
+	      if ((output.rotation == Output.Left) || (output.rotation == Output.Right)) {
+		    transformedWidth = monitorMouseArea.height;
+		    transformedHeight = monitorMouseArea.width;
+	      } else {
+		    transformedWidth = monitorMouseArea.width;
+		    transformedHeight = monitorMouseArea.height;
+	      }
+
+	      transformedX = root.x + (root.width / 2) - (transformedWidth / 2);
+	      transformedY = root.y + (root.height / 2) - (transformedHeight / 2);
+
+	      root.x = transformedX;
+	      root.y = transformedY;
+	      root.width = transformedWidth;
+	      root.height = transformedHeight;
 	}
 }
