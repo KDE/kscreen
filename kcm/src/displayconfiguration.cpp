@@ -35,6 +35,7 @@
 
 #include <kscreen/provider.h>
 #include <kscreen/config.h>
+#include <kscreen/edid.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>();)
 K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
@@ -78,8 +79,10 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	/* FIXME Clear up this */
 	qmlRegisterInterface<KScreen::Output*>("Output");
 	qmlRegisterInterface<KScreen::Mode*>("OutputMode");
+	qmlRegisterInterface<KScreen::Edid*>("EDID");
 	qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
 	qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
+	qmlRegisterType<KScreen::Edid>("KScreen", 1, 0, "EDID");
 
         m_declarativeView = new QDeclarativeView(this);
 	m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);

@@ -160,11 +160,7 @@ QMLOutput {
 				rotationDirection: parent.rotationDirection;
 
 				anchors {
-				  fill: parent;
-				  leftMargin: 17; /* position the controls within the "screen" of the monitor */
-				  rightMargin: 17;
-				  topMargin: 10;
-				  bottomMargin: 10;
+					centerIn: parent;
 				}
 			}
 		}
