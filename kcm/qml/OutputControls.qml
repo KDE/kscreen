@@ -224,6 +224,6 @@ Item {
 			bottomMargin: 3;
 		}
 
-		visible: (output.connected && output.enabled);
+		opacity: (output.connected && output.enabled) ? 1.0 : 0.0;
 	}
 }
