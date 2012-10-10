@@ -81,7 +81,6 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
 	qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
 
-
         m_declarativeView = new QDeclarativeView(this);
 	m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
 	m_declarativeView->engine()->addImportPath(importPath);

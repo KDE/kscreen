@@ -116,8 +116,8 @@ QMLOutput {
 		onRotationChanged: updateRootProperties();
 
 		width: (output.mode(output.currentMode) == null)
-			? (1000 / 7)
-			: (output.mode(output.currentMode).size.width / 7);
+			? (1000 / 6)
+			: (output.mode(output.currentMode).size.width / 6);
 		Behavior on width {
 			PropertyAnimation {
 				property: "width";
@@ -127,8 +127,8 @@ QMLOutput {
 		}
 
 		height: (output.mode(output.currentMode) == null)
-			  ? (1000 / 7)
-			  : (output.mode(output.currentMode).size.height / 7);
+			  ? (1000 / 6)
+			  : (output.mode(output.currentMode).size.height / 6);
 		Behavior on height {
 			PropertyAnimation {
 				property: "height";

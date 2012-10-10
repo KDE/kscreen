@@ -41,7 +41,7 @@ Item {
 	function setSmallMode(smallMode)
 	{
 		iconSize = (smallMode) ? 16 : 22;
-		resolutionLabel.visible = !smallMode;
+		resolutionButton.visible = !smallMode;
 	}
 
 	Behavior on rotation {
@@ -98,12 +98,23 @@ Item {
 		}
 	]
 
+
+	Column {
+	  anchors {
+	    top: parent.top;
+	    bottom: parent.bottom;
+	    left: parent.left;
+	    right: parent.right;
+	  }
+	}
+
 	/* Output name */
 	Text {
 		id: monitorName;
 		text: output.name;
 		color: "white";
-		font.pointSize: 15;
+		font.pointSize: 14;
+		font.family: theme.desktopFont.family;
 
 		anchors {
 			top: controls.top;
@@ -120,26 +131,6 @@ Item {
 		}
 	}
 
-	/* Resolution label */
-	Text {
-		id: resolutionLabel;
-		text: output.connected && output.enabled ?
-			output.mode(output.currentMode).name + " @ " +
-				Math.round(output.mode(output.currentMode).refreshRate, 1) + "Hz" :
-			"";
-
-		wrapMode: Text.Wrap;
-		color: "white";
-		font.pointSize: 10;
-
-		anchors {
-			bottom: controls.bottom;
-			horizontalCenter: parent.horizontalCenter;
-		}
-
-		horizontalAlignment: Text.AlignHCenter;
-	}
-
 	/* Enable/Disable output */
 	PlasmaComponents.Switch {
 		id: enabledButton;
@@ -150,6 +141,7 @@ Item {
 			verticalCenter: parent.verticalCenter;
 		}
 
+		scale: 0.8;
 
 		checked: output.enabled;
 		onCheckedChanged: {
@@ -162,6 +154,7 @@ Item {
 
 
 	/* Rotation */
+	/*
 	IconButton {
 		id: rotateButton;
 		iconSize: parent.iconSize;
@@ -197,6 +190,7 @@ Item {
 			}
 		}
 	}
+	*/
 
 	/* Primary toggle */
 	IconButton {
@@ -215,4 +209,21 @@ Item {
 		}
 	}
 
+
+	PlasmaComponents.Button {
+		id: resolutionButton;
+		text: output.connected && output.enabled
+			? output.mode(output.currentMode).name+  " @ " +
+			    Math.round(output.mode(output.currentMode).refreshRate, 1) + "Hz"
+			: "";
+		scale: 0.8;
+
+		anchors {
+			bottom: parent.bottom;
+			horizontalCenter: parent.horizontalCenter;
+			bottomMargin: 3;
+		}
+
+		visible: (output.connected && output.enabled);
+	}
 }

@@ -117,8 +117,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 			continue;
 		}
 
-		qmloutput->setX(qmloutput->output()->pos().x() / 7);
-		qmloutput->setY(qmloutput->output()->pos().y() / 7);
+		qmloutput->setX(qmloutput->output()->pos().x() / 6);
+		qmloutput->setY(qmloutput->output()->pos().y() / 6);
 
 		if (qmloutput->x() < rect.left()) {
 			rect.setX(qmloutput->x());
@@ -144,8 +144,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 
 
 	Q_FOREACH (QMLOutput *qmloutput, positionedOutputs) {
-		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 7));
-		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 7));
+		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 6));
+		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 6));
 	}
 }
 

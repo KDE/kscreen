@@ -36,8 +36,8 @@ QMLVirtualScreen {
 			color: "red";
 		}
 
-		width: screen.maxSize.width / 7;
-		height: screen.maxSize.height / 7;
+		width: screen.maxSize.width / 6;
+		height: screen.maxSize.height / 6;
 	}
 
 	Component.onCompleted: {
