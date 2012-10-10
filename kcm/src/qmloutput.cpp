@@ -55,16 +55,12 @@ void QMLOutput::setOutput(KScreen::Output* output)
 
 	  m_modesModel->appendRow(item);
 	  items << item;
-
-	  kDebug() << "Added size " << mode->name();
 	}
 
 	QStandardItem *modeItem = new QStandardItem(QString::number(mode->refreshRate(), 'f', 1) % QLatin1String("Hz"));
 	modeItem->setData(mode->refreshRate(), QMLOutput::RefreshRateRole);
 	modeItem->setData(mode->id(), QMLOutput::ModeIdRole);
 	modeItem->setData(QVariant::fromValue(mode), QMLOutput::ModeRole);
-
-	kDebug() << "Added mode" << mode->refreshRate() << "to" << mode->name();
 
 	QStandardItem *item = items.first();
 	item->appendRow(modeItem);
