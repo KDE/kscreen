@@ -23,24 +23,44 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
 Item {
-	id: controls;
+	id: root;
 	property int rotationDirection;
 	property Item parentItem;
 	property int iconSize: 22;
+	property int fontSize: 12;
 
 	onWidthChanged: {
-		setSmallMode(width < 100);
-		monitorName.font.pointSize = (width < 80 || height < 50) ? 8 : (width < 100 || height < 80) ? 10 : 12;
+		adaptToSizeChange();
 	}
 
 	onHeightChanged: {
-		setSmallMode(height < 80);
-		monitorName.font.pointSize = (width < 80 || height < 50) ? 6 : (width < 100 || height < 80) ? 10 : 12;
+		adaptToSizeChange();
 	}
 
-	function setSmallMode(smallMode)
+	function adaptToSizeChange()
 	{
-		iconSize = (smallMode) ? 16 : 22;
+		if ((width < 100) || (height < 80)) {
+		      monitorName.visible = false;
+		      outputNameAndSize.anchors.top = root.top;
+		      enabledButton.scale = 0.4;
+		      enabledButton.anchors.topMargin = 0;
+		      root.fontSize = 10;
+		      root.iconSize = 12;
+		} else if ((width < 120) || (height < 100)) {
+		      monitorName.visible = true;
+		      outputNameAndSize.anchors.top = monitorName.bottom;
+		      enabledButton.scale = 0.6;
+		      enabledButton.anchors.topMargin = 2;
+		      root.fontSize = 10;
+		      root.iconSize = 16;
+		} else {
+		      monitorName.visible = true;
+		      outputNameAndSize.anchors.top = monitorName.bottom;
+		      enabledButton.scale = 0.8
+		      enabledButton.anchors.topMargin = 4;
+		      root.fontSize = 12;
+		      root.iconSize = 22;
+		}
 	}
 
 	Behavior on rotation {
@@ -73,7 +93,7 @@ Item {
 			name: "normal";
 			when: output.rotation == Output.None;
 			PropertyChanges {
-				target: controls;
+				target: root;
 				rotation: 0;
 				width: parent.width - 36;
 				height: parent.height - 20;
@@ -83,7 +103,7 @@ Item {
 			name: "left";
 			when: output.rotation == Output.Left;
 			PropertyChanges {
-				target: controls;
+				target: root;
 				rotation: 270;
 				width: parent.height - 20;
 				height: parent.width - 36;
@@ -93,7 +113,7 @@ Item {
 			name: "inverted";
 			when: output.rotation == Output.Inverted;
 			PropertyChanges {
-				target: controls;
+				target: root;
 				rotation: 180;
 				width: parent.width - 36;
 				height: parent.height - 20;
@@ -103,7 +123,7 @@ Item {
 			name: "right";
 			when: output.rotation == Output.Right;
 			PropertyChanges {
-				target: controls;
+				target: root;
 				rotation: 90;
 				width: parent.height - 20;
 				height: parent.width - 36;
@@ -117,12 +137,11 @@ Item {
 		text: output.edid.vendor;
 		color: "white";
 		font.family: theme.desktopFont.family;
-		font.pointSize: 12;
-		wrapMode: Text.WordWrap;
+		font.pointSize: root.fontSize;
+		elide: Text.ElideRight;
 
 		anchors {
-			top: controls.top;
-			//horizontalCenter: parent.horizontalCenter;
+			top: root.top;
 			topMargin: 5;
 		}
 		width: parent.width;
@@ -138,11 +157,10 @@ Item {
 
 	Text {
 	      id: outputNameAndSize;
-	      text: "(" + output.name + ")";
+	      text: output.name;
 	      color: "white";
 	      font.family: theme.desktopFont.family;
-	      font.pointSize: 10;
-	      wrapMode: Text.WordWrap;
+	      font.pointSize: root.fontSize - 2;
 	      width: parent.width;
 
 	      anchors {
@@ -191,7 +209,7 @@ Item {
 		/* Rotation */
 		IconButton {
 			id: rotateButton;
-			iconSize: controls.iconSize;
+			iconSize: root.iconSize;
 			enabledIcon: "object-rotate-left";
 
 			acceptedButtons: Qt.LeftButton | Qt.RightButton;
@@ -225,7 +243,7 @@ Item {
 		/* Primary toggle */
 		IconButton {
 			id: primaryButton;
-			iconSize: controls.iconSize;
+			iconSize: root.iconSize;
 			enabledIcon: "bookmarks";
 			enabled: (output.enabled && output.primary);
 
@@ -239,7 +257,7 @@ Item {
 
 		IconButton {
 			id: resizeButton;
-			iconSize: controls.iconSize;
+			iconSize: root.iconSize;
 			enabledIcon: "view-restore"
 
 			onClicked: selectionDialog.open();
