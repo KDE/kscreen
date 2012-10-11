@@ -438,16 +438,16 @@ void QMLOutputView::outputMoved(bool snap)
 			int x = otherOutput->x() - leftMostOutput->x();
 
 			QPoint pos = otherOutput->output()->pos();
-			/* FIXME FIXME FIXME: We use 1/7th scale to display the outputs */
-			pos.setX(x * 7);
+			/* FIXME FIXME FIXME: We use 1/6th scale to display the outputs */
+			pos.setX(x * 6);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int x = output->x() - leftMostOutput->x();
 
 		QPoint pos = output->output()->pos();
-		/* FIXME FIXME FIXME: We use 1/7th scale to display the outputs */
-		pos.setX(x * 7);
+		/* FIXME FIXME FIXME: We use 1/6th scale to display the outputs */
+		pos.setX(x * 6);
 		output->output()->setPos(pos);
 	}
 
@@ -468,14 +468,14 @@ void QMLOutputView::outputMoved(bool snap)
 			int y = otherOutput->y() - topMostOutput->y();
 
 			QPoint pos = otherOutput->output()->pos();
-			pos.setY(y * 7);
+			pos.setY(y * 6);
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int y = output->y() - topMostOutput->y();
 
 		QPoint pos = output->output()->pos();
-		pos.setY(y * 7);
+		pos.setY(y * 6);
 		output->output()->setPos(pos);
 	}
 
@@ -491,7 +491,6 @@ void QMLOutputView::outputMoved(bool snap)
 		kDebug() << otherOutput->output()->name() << otherOutput->output()->pos();
 	}
 	*/
-
 }
 
 void QMLOutputView::primaryOutputChanged()

@@ -79,7 +79,6 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
 	qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
-	/* FIXME Clear up this */
 	qmlRegisterInterface<KScreen::Output*>("Output");
 	qmlRegisterInterface<KScreen::Mode*>("OutputMode");
 	qmlRegisterInterface<KScreen::Edid*>("EDID");
