@@ -21,6 +21,7 @@
 #include "qmloutputview.h"
 #include "qmloutput.h"
 #include "qmlvirtualscreen.h"
+#include "modeselectionwidget.h"
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -28,6 +29,7 @@
 #include <QLabel>
 #include <KDebug>
 #include <KStandardDirs>
+#include <Plasma/TreeView>
 
 #include <QtDeclarative>
 #include <QDeclarativeView>
@@ -75,6 +77,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 	qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
 	qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
 	qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
+	qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
 	/* FIXME Clear up this */
 	qmlRegisterInterface<KScreen::Output*>("Output");

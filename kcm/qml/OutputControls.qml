@@ -241,6 +241,15 @@ Item {
 			id: resizeButton;
 			iconSize: controls.iconSize;
 			enabledIcon: "view-restore"
+
+			onClicked: selectionDialog.open();
 		}
+	}
+
+
+	ModeSelectionDialog {
+		id: selectionDialog;
+		parentItem: parent.parentItem;
+		visualParent: resizeButton;
 	}
 }
