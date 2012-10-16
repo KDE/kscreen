@@ -26,32 +26,32 @@ Loop::~Loop()
 void Loop::start()
 {
     qDebug() << "START";
-    KScreen* screen = KScreen::self();
-    Config* config = screen->config();
-        Time time;
-        {
-            XRRScreenResources* r = XRRGetScreenResources(QX11Info::display(), XRootWindow(QX11Info::display(), 0));
-            qDebug() << "RTime: " << r->timestamp;
-        }
-    qDebug() << "Time: " << XRRTimes(QX11Info::display(), 0, &time);
-    qDebug() << "Time: " << time;
-//     config->outputs()[65]->setEnabled(true);
-//     config->outputs()[65]->setPos(QPoint(0,0));
-//     config->outputs()[65]->setPrimary(false);
-
-//     config->outputs()[65]->setCurrentMode(70);
-
-//     config->outputs()[68]->setEnabled(true);
-//     config->outputs()[68]->setCurrentMode(70);
-    config->outputs()[68]->setPos(QPoint(1920, 0));
-//     config->outputs()[68]->setPrimary(true);
-    qDebug() << "Setting config";
-    screen->setConfig(config);
-    qDebug() << "setted";
-    XRRScreenResources* r = XRRGetScreenResources(QX11Info::display(), XRootWindow(QX11Info::display(), 0));
-    qDebug() << "RTime: " << r->timestamp;
-    qDebug() << "Time: " << XRRTimes(QX11Info::display(), 0, &time);
-    qDebug() << "Time: " << time;
+//     /*KScreen* screen = KScreen::self();
+//     Config* config = screen->config();
+//         Time time;
+//         {
+//             XRRScreenResources* r = XRRGetScreenResources(QX11Info::display(), XRootWindow(QX11Info::display(), 0));
+//             qDebug() << "RTime: " << r->timestamp;
+//         }
+//     qDebug() << "Time: " << XRRTimes(QX11Info::display(), 0, &time);
+//     qDebug() << "Time: " << time;
+// //     config->outputs()[65]->setEnabled(true);
+// //     config->outputs()[65]->setPos(QPoint(0,0));
+// //     config->outputs()[65]->setPrimary(false);
+//
+// //     config->outputs()[65]->setCurrentMode(70);
+//
+// //     config->outputs()[68]->setEnabled(true);
+// //     config->outputs()[68]->setCurrentMode(70);
+//     config->outputs()[68]->setPos(QPoint(1920, 0));
+// //     config->outputs()[68]->setPrimary(true);
+//     qDebug() << "Setting config";
+//     screen->setConfig(config);
+//     qDebug() << "setted";
+//     XRRScreenResources* r = XRRGetScreenResources(QX11Info::display(), XRootWindow(QX11Info::display(), 0));
+//     qDebug() << "RTime: " << r->timestamp;
+//     qDebug() << "Time: " << XRRTimes(QX11Info::display(), 0, &time);
+//     qDebug() << "Time: " << time;*/
 
     printConfig();
 }
