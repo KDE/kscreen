@@ -57,7 +57,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void outputMoved(bool snap);
     void outputClicked();
-    void primaryOutputChanged();
+    void primaryTriggered();
     void viewSizeChanged();
     void viewSizeChanged(bool initialPlacement);
 

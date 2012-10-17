@@ -73,7 +73,7 @@ void QMLOutputView::addOutput(QDeclarativeEngine *engine, KScreen::Output* outpu
 	connect(instance, SIGNAL(moved(bool)), this, SLOT(outputMoved(bool)));
 	connect(instance, SIGNAL(clicked()), this, SLOT(outputClicked()));
 	connect(instance, SIGNAL(changed()), this, SIGNAL(changed()));
-	connect(output, SIGNAL(isPrimaryChanged()), SLOT(primaryOutputChanged()));
+	connect(instance, SIGNAL(primaryTriggered()), SLOT(primaryTriggered()));
 
 	m_outputs << instance;
 	instance->setProperty("z", m_outputs.count());
@@ -493,22 +493,14 @@ void QMLOutputView::outputMoved(bool snap)
 	*/
 }
 
-void QMLOutputView::primaryOutputChanged()
+void QMLOutputView::primaryTriggered()
 {
-	KScreen::Output *newPrimary = dynamic_cast<KScreen::Output*>(sender());
+	QMLOutput *newPrimary = dynamic_cast<QMLOutput*>(sender());
 
 	/* Unset primary flag on all other outputs */
 	Q_FOREACH(QMLOutput *qmlOutput, m_outputs) {
-		if (qmlOutput->output() != newPrimary) {
-			/* Prevent endless recursion, disconnect this handler before
-			 * changing the primary flag */
-			disconnect(qmlOutput->output(), SIGNAL(isPrimaryChanged()),
-				   this, SLOT(primaryOutputChanged()));
-
+		if (qmlOutput != newPrimary) {
 			qmlOutput->output()->setPrimary(false);
-
-			connect(qmlOutput->output(), SIGNAL(isPrimaryChanged()),
-				this, SLOT(primaryOutputChanged()));
 		}
 	}
 }

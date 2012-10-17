@@ -39,7 +39,7 @@
 #include <kscreen/config.h>
 #include <kscreen/edid.h>
 
-K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>();)
+K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>(););
 K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
                 "kcm_displayconfiguration" /* catalog name */))
 
@@ -102,7 +102,6 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         mainLayout->addWidget(label, 0, 0);
     }
 }
-
 
 DisplayConfiguration::~DisplayConfiguration()
 {

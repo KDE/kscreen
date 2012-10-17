@@ -27,6 +27,7 @@ QMLOutput {
 
 	signal moved(bool snap);
 	signal clicked();
+	signal primaryTriggered();
 
 	width: monitorMouseArea.width;
 	height:  monitorMouseArea.height;
@@ -162,6 +163,8 @@ QMLOutput {
 				anchors {
 					centerIn: parent;
 				}
+
+				onPrimaryTriggered: root.primaryTriggered();
 			}
 		}
 	}
