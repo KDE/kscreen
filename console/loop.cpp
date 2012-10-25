@@ -41,6 +41,10 @@ void Loop::printConfig()
     qDebug() << "Backend: " << screen->backend();
 
     Config *config = screen->config();
+    qDebug() << "Screen:";
+    qDebug() << "maxSize:" << config->screen()->maxSize();
+    qDebug() << "minSize:" << config->screen()->minSize();
+    qDebug() << "currentSize:" << config->screen()->currentSize();
 
     OutputList outputs = config->outputs();
     OutputList outputEnabled;
