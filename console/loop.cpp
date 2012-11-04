@@ -12,6 +12,8 @@
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
 
+using namespace KScreen;
+
 Loop::Loop(QObject* parent): QObject(parent)
 {
     QMetaObject::invokeMethod(this, "start");
