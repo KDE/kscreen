@@ -1,7 +1,6 @@
 
 #include "loop.h"
 
-#include "kscreen.h"
 #include "config.h"
 #include "output.h"
 #include "mode.h"
@@ -26,21 +25,20 @@ Loop::~Loop()
 void Loop::start()
 {
     qDebug() << "START";
-    KScreen* screen = KScreen::self();
-    Config* config = screen->config();
+    Config* config = Config::current();
     config->outputs()[65]->setCurrentMode(70);
     qDebug() << "Setting config";
-    screen->setConfig(config);
+    Config::setConfig(config);
     qDebug() << "setted";
     printConfig();
 }
 
 void Loop::printConfig()
 {
-    KScreen *screen = KScreen::self();
-    qDebug() << "Backend: " << screen->backend();
+//     KScreen *screen = KScreen::self();
+//     qDebug() << "Backend: " << screen->backend();
 
-    Config *config = screen->config();
+    Config *config = Config::current();
     qDebug() << "Screen:";
     qDebug() << "maxSize:" << config->screen()->maxSize();
     qDebug() << "minSize:" << config->screen()->minSize();
