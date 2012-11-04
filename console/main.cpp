@@ -18,14 +18,7 @@
 
 #include <QtGui/QApplication>
 
-#include "kscreen.h"
-#include "config.h"
-#include "output.h"
-#include "mode.h"
 #include "loop.h"
-
-#include <QX11Info>
-#include <QtCore/QDebug>
 
 int main (int argc, char *argv[])
 {
