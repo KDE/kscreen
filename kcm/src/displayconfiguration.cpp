@@ -35,7 +35,6 @@
 #include <QDeclarativeView>
 #include <QDeclarativeContext>
 
-#include <kscreen/provider.h>
 #include <kscreen/config.h>
 #include <kscreen/edid.h>
 
@@ -48,7 +47,9 @@ using namespace KScreen;
 Q_DECLARE_METATYPE(KScreen::Output*);
 
 DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
-    KCModule(KCMDisplayConfiguraionFactory::componentData(), parent, args)
+    KCModule(KCMDisplayConfiguraionFactory::componentData(), parent, args),
+    m_config(0),
+    m_declarativeView(0)
 {
     KAboutData* about =
         new KAboutData("displayconfiguration", "displayconfiguration",
@@ -69,8 +70,8 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 
     //setenv("KSCREEN_BACKEND", "Fake", 1);
     setenv("KSCREEN_BACKEND", "XRandR", 1);
-    Provider* screen = Provider::self();
-    if (screen && screen->isValid()) {
+    m_config = Config::current();
+    if (m_config) {
 	QString importPath = KStandardDirs::installPath("lib") +
 		QDir::separator() + "kde4" + QDir::separator() + "imports";
 
@@ -120,11 +121,11 @@ void DisplayConfiguration::load()
 {
 	kDebug() << "Loading...";
 
-	KScreen::Provider *provider = KScreen::Provider::self();
-	if (!provider || !provider->isValid()) {
-		return;
+	if (!m_declarativeView) {
+	    return;
 	}
-	m_config = provider->config();
+
+	m_config = Config::current();
 
 	const QString qmlPath = KStandardDirs::locate(
 		"data", QLatin1String(QML_PATH "main.qml"));
@@ -155,11 +156,6 @@ void DisplayConfiguration::save()
 {
 	kDebug() << "Saving";
 
-	KScreen::Provider *provider = KScreen::Provider::self();
-	if (!provider || !provider->isValid()) {
-		return;
-	}
-
 	Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
 		KScreen::Mode *mode = output->mode(output->currentMode());
 		kDebug() << output->name() << "\n"
@@ -172,7 +168,7 @@ void DisplayConfiguration::save()
 	}
 
 	/* Store the current config, apply settings */
-	provider->setConfig(m_config);
+	m_config->setConfig(m_config);
 }
 
 void DisplayConfiguration::clearOutputIdentifiers()
@@ -192,8 +188,7 @@ void DisplayConfiguration::identifyOutputs()
 	clearOutputIdentifiers();
 
 	/* Obtain the current active configuration from KScreen */
-	Provider *screen = Provider::self();
-	OutputList outputs = screen->config()->outputs();
+	OutputList outputs = m_config->outputs();
 	Q_FOREACH (KScreen::Output *output, outputs) {
 		if (!output->isConnected() || output->currentMode() == 0) {
 			continue;

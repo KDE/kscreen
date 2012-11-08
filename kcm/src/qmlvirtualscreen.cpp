@@ -18,17 +18,17 @@
 
 #include "qmlvirtualscreen.h"
 
-#include <kscreen/provider.h>
 #include <kscreen/config.h>
 #include <kscreen/screen.h>
 
 QMLVirtualScreen::QMLVirtualScreen(QDeclarativeItem *parent):
-    QDeclarativeItem(parent)
+    QDeclarativeItem(parent),
+    m_screen(0)
 {
-    KScreen::Provider *provider = KScreen::Provider::self();
-    KScreen::Config *config = provider->config();
-
-    m_screen = config->screen();
+    KScreen::Config *config = KScreen::Config::current();
+    if (config) {
+	m_screen = config->screen();
+    }
 }
 
 QMLVirtualScreen::~QMLVirtualScreen()
