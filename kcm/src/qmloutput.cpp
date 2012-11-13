@@ -66,8 +66,10 @@ void QMLOutput::setOutput(KScreen::Output* output)
 	item->appendRow(modeItem);
     }
 
+    kDebug() << m_output->modes();
+
     connect(output, SIGNAL(clonesChanged()), SIGNAL(changed()));
-    connect(output, SIGNAL(currentModeChanged()), SIGNAL(changed()));
+    connect(output, SIGNAL(currentModeChanged()), SIGNAL(currentOutputSizeChanged()));
     connect(output, SIGNAL(isEnabledChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(isPrimaryChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(outputChanged()), SIGNAL(changed()));
@@ -97,4 +99,32 @@ QMLOutput* QMLOutput::cloneOf() const
 QAbstractItemModel* QMLOutput::modesModel()
 {
     return m_modesModel;
+}
+
+int QMLOutput::currentOutputHeight() const
+{
+    if (!m_output) {
+	return 0;
+    }
+
+    KScreen::Mode *mode = m_output->mode(m_output->currentMode());
+    if (!mode) {
+	return 1000;
+    }
+
+    return mode->size().height();
+}
+
+int QMLOutput::currentOutputWidth() const
+{
+        if (!m_output) {
+	return 0;
+    }
+
+    KScreen::Mode *mode = m_output->mode(m_output->currentMode());
+    if (!mode) {
+	return 1000;
+    }
+
+    return mode->size().width();
 }

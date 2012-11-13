@@ -38,6 +38,9 @@ class QMLOutput : public QDeclarativeItem
 
     Q_PROPERTY(KScreen::Output* output READ output WRITE setOutput NOTIFY outputChanged);
     Q_PROPERTY(QMLOutput* cloneOf READ cloneOf WRITE setCloneOf NOTIFY cloneOfChanged);
+
+    Q_PROPERTY(int currentOutputHeight READ currentOutputHeight NOTIFY currentOutputSizeChanged);
+    Q_PROPERTY(int currentOutputWidth READ currentOutputWidth NOTIFY currentOutputSizeChanged);
 public:
     enum {
       ModeRole = Qt::UserRole,
@@ -55,6 +58,9 @@ public:
     void setCloneOf(QMLOutput *other);
     QMLOutput* cloneOf() const;
 
+    int currentOutputHeight() const;
+    int currentOutputWidth() const;
+
     Q_INVOKABLE QAbstractItemModel* modesModel();
 
 Q_SIGNALS:
@@ -63,6 +69,7 @@ Q_SIGNALS:
     /* Property notifications */
     void outputChanged();
     void cloneOfChanged();
+    void currentOutputSizeChanged();
 
 private:
     KScreen::Output* m_output;

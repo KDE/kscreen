@@ -30,7 +30,7 @@ QMLOutput {
 	signal primaryTriggered();
 
 	width: monitorMouseArea.width;
-	height:  monitorMouseArea.height;
+	height: monitorMouseArea.height;
 
 	visible: (opacity > 0);
 	opacity: output.connected ? 1.0 : 0.0;
@@ -64,7 +64,7 @@ QMLOutput {
 			/* If the drag is shorter then the animation then make sure
 			* we won't end up in an inconsistent state */
 			if (dragActiveChangedAnimation.running) {
-			dragActiveChangedAnimation.complete();
+				dragActiveChangedAnimation.complete();
 			}
 
 			dragActiveChangedAnimation.running = true;
@@ -116,9 +116,7 @@ QMLOutput {
 		}
 		onRotationChanged: updateRootProperties();
 
-		width: (output.mode(output.currentMode) == null)
-			? (1000 / 6)
-			: (output.mode(output.currentMode).size.width / 6);
+		width: root.currentOutputWidth / 6;
 		Behavior on width {
 			PropertyAnimation {
 				property: "width";
@@ -127,9 +125,7 @@ QMLOutput {
 			}
 		}
 
-		height: (output.mode(output.currentMode) == null)
-			  ? (1000 / 6)
-			  : (output.mode(output.currentMode).size.height / 6);
+		height: root.currentOutputHeight / 6;
 		Behavior on height {
 			PropertyAnimation {
 				property: "height";
