@@ -6,7 +6,7 @@ find_package(PkgConfig)
 pkg_check_modules(PC_LIBKSCREEN QUIET kscreen)
 set(KSCREEN_DEFINITIONS ${PC_KSCREEN_CFLAGS_OTHER})
 
-find_path(KSCREEN_INCLUDE_DIR kscreen/provider.h
+find_path(KSCREEN_INCLUDE_DIR kscreen/kscreen_export.h
           HINTS ${PC_KSCREEN_INCLUDEDIR} ${PC_KSCREEN_INCLUDE_DIRS}
           PATH_SUFFIXES kscreen )
 
