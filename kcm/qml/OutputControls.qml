@@ -136,7 +136,7 @@ Item {
 	/* Output name */
 	Text {
 		id: monitorName;
-		text: output.edid.vendor;
+		text: output.connected ? output.edid.vendor : "";
 		color: "white";
 		font.family: theme.desktopFont.family;
 		font.pointSize: root.fontSize;
