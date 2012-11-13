@@ -2,11 +2,9 @@ project(kscreen)
 
 cmake_minimum_required(VERSION 2.6)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
-
 find_package(Qt4 REQUIRED)
 find_package(KDE4 REQUIRED)
-find_package(KScreen REQUIRED)
+find_package(LibKScreen REQUIRED)
 
 include(MacroLibrary)
 include(KDE4Defaults)
@@ -17,6 +15,5 @@ include_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
 	${KSCREEN_INCLUDE_DIR}
 )
-				
+
 add_subdirectory(kcm)
-				
