@@ -10,6 +10,8 @@ X-KDE-System-Settings-Parent-Category=display
 X-KDE-Weight=50
 
 Name=Display Configuration
+Name[et]=Ekraani seadistamine
+Name[hu]=Megjelenítési beállítások
 Name[nl]=Instellingen van het scherm
 Name[pt]=Configuração do Ecrã
 Name[pt_BR]=Configuração da tela
@@ -17,6 +19,8 @@ Name[sk]=Nastavenie obrazovky
 Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
 Comment=Manage and configure monitors and displays
+Comment[et]=Monitoride ja ekraanide haldamine ja seadistamine
+Comment[hu]=Monitorok és kijelzők kezelése és beállítása
 Comment[nl]=Monitoren en schermen beheren en instellen
 Comment[pt]=Faz a gestão e configuração dos monitores e ecrãs
 Comment[pt_BR]=Gerencia e configura monitores e telas
