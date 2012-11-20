@@ -117,8 +117,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 			continue;
 		}
 
-		qmloutput->setX(qmloutput->output()->pos().x() / 6);
-		qmloutput->setY(qmloutput->output()->pos().y() / 6);
+		qmloutput->setX(qmloutput->output()->pos().x() * qmloutput->displayScale());
+		qmloutput->setY(qmloutput->output()->pos().y() * qmloutput->displayScale());
 
 		if (qmloutput->x() < rect.left()) {
 			rect.setX(qmloutput->x());
@@ -144,8 +144,8 @@ void QMLOutputView::viewSizeChanged(bool initialPlacement)
 
 
 	Q_FOREACH (QMLOutput *qmloutput, positionedOutputs) {
-		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() / 6));
-		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() / 6));
+		qmloutput->setX(offsetX + (qmloutput->output()->pos().x() * qmloutput->displayScale()));
+		qmloutput->setY(offsetY + (qmloutput->output()->pos().y() * qmloutput->displayScale()));
 	}
 }
 
@@ -438,16 +438,14 @@ void QMLOutputView::outputMoved(bool snap)
 			int x = otherOutput->x() - leftMostOutput->x();
 
 			QPoint pos = otherOutput->output()->pos();
-			/* FIXME FIXME FIXME: We use 1/6th scale to display the outputs */
-			pos.setX(x * 6);
+			pos.setX(x / otherOutput->displayScale());
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int x = output->x() - leftMostOutput->x();
 
 		QPoint pos = output->output()->pos();
-		/* FIXME FIXME FIXME: We use 1/6th scale to display the outputs */
-		pos.setX(x * 6);
+		pos.setX(x / output->displayScale());
 		output->output()->setPos(pos);
 	}
 
@@ -468,14 +466,14 @@ void QMLOutputView::outputMoved(bool snap)
 			int y = otherOutput->y() - topMostOutput->y();
 
 			QPoint pos = otherOutput->output()->pos();
-			pos.setY(y * 6);
+			pos.setY(y / otherOutput->displayScale());
 			otherOutput->output()->setPos(pos);
 		}
 	} else {
 		int y = output->y() - topMostOutput->y();
 
 		QPoint pos = output->output()->pos();
-		pos.setY(y * 6);
+		pos.setY(y / output->displayScale());
 		output->output()->setPos(pos);
 	}
 

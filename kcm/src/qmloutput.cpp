@@ -128,3 +128,8 @@ int QMLOutput::currentOutputWidth() const
 
     return mode->size().width();
 }
+
+float QMLOutput::displayScale() const
+{
+    return (1.0 / 6.0);
+}
