@@ -28,6 +28,11 @@
 
 Q_DECLARE_METATYPE(KScreen::Mode*);
 
+bool operator>(const QSize &sizeA, const QSize &sizeB)
+{
+    return ((sizeA.width() > sizeB.width()) && (sizeA.height() > sizeB.height()));
+}
+
 QMLOutput::QMLOutput():
     QDeclarativeItem(),
     m_output(0),
@@ -109,7 +114,12 @@ int QMLOutput::currentOutputHeight() const
 
     KScreen::Mode *mode = m_output->mode(m_output->currentMode());
     if (!mode) {
-	return 1000;
+	if (m_output->isConnected()) {
+	    mode = bestMode();
+	    m_output->setCurrentMode(mode->id());
+	} else {
+	    return 1000;
+	}
     }
 
     return mode->size().height();
@@ -117,13 +127,18 @@ int QMLOutput::currentOutputHeight() const
 
 int QMLOutput::currentOutputWidth() const
 {
-        if (!m_output) {
+    if (!m_output) {
 	return 0;
     }
 
     KScreen::Mode *mode = m_output->mode(m_output->currentMode());
     if (!mode) {
-	return 1000;
+	if (m_output->isConnected()) {
+	    mode = bestMode();
+	    m_output->setCurrentMode(mode->id());
+	} else {
+	    return 1000;
+	}
     }
 
     return mode->size().width();
@@ -132,4 +147,21 @@ int QMLOutput::currentOutputWidth() const
 float QMLOutput::displayScale() const
 {
     return (1.0 / 6.0);
+}
+
+KScreen::Mode* QMLOutput::bestMode() const
+{
+    if (!m_output) {
+	return 0;
+    }
+
+    KScreen::ModeList modes = m_output->modes();
+    KScreen::Mode *bestMode = 0;
+    Q_FOREACH (KScreen::Mode *mode, modes) {
+	if (!bestMode || (mode->size() > bestMode->size())) {
+	    bestMode = mode;
+	}
+    }
+
+    return bestMode;
 }

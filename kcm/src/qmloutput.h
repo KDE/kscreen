@@ -81,6 +81,11 @@ Q_SIGNALS:
     void currentOutputSizeChanged();
 
 private:
+    /**
+     * Returns the biggest resolution available assuming it's the preferred one
+     */
+    KScreen::Mode* bestMode() const;
+
     KScreen::Output* m_output;
     QMLOutput *m_cloneOf;
 
