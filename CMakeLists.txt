@@ -13,7 +13,7 @@ include_directories(
 	${QT_INCLUDES}
 	${KDE4_INCLUDES}
 	${CMAKE_CURRENT_BINARY_DIR}
-	${KSCREEN_INCLUDE_DIR}
+	${LibKScreen_INCLUDE_DIR}
 )
 
 add_subdirectory(kcm)
