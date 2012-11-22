@@ -34,7 +34,7 @@ class DisplayConfiguration : public KCModule
 {
     Q_OBJECT
 public:
-    DisplayConfiguration (QWidget* parent = 0, const QVariantList& args = QVariantList());
+    explicit DisplayConfiguration (QWidget* parent = 0, const QVariantList& args = QVariantList());
     virtual ~DisplayConfiguration();
 
 public Q_SLOTS:

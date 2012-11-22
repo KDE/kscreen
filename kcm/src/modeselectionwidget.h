@@ -32,7 +32,7 @@ class ModeSelectionWidget : public QGraphicsProxyWidget
     Q_OBJECT
     Q_PROPERTY(QMLOutput *output READ output WRITE setOutput);
 public:
-    ModeSelectionWidget(QGraphicsItem *parent = 0, Qt::WindowFlags wFlags = 0);
+    explicit ModeSelectionWidget(QGraphicsItem *parent = 0, Qt::WindowFlags wFlags = 0);
     virtual ~ModeSelectionWidget();
 
     void setOutput(QMLOutput *output);

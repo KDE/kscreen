@@ -16,12 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
-#ifndef RESOLUTIONSORTPROXYMODEL_H
-#define RESOLUTIONSORTPROXYMODEL_H
+#ifndef RESOLUTIONSORTMODEL_H
+#define RESOLUTIONSORTMODEL_H
 
 #include <QSortFilterProxyModel>
-
 
 class ResolutionSortModel : public QSortFilterProxyModel
 {
@@ -34,4 +32,4 @@ public:
     virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const;
 };
 
-#endif // RESOLUTIONSORTPROXYMODEL_H
+#endif // RESOLUTIONSORTMODEL_H

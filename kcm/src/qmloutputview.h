@@ -17,8 +17,8 @@
 */
 
 
-#ifndef MONITORVIEW_H
-#define MONITORVIEW_H
+#ifndef QMLOUTPUTVIEW_H
+#define QMLOUTPUTVIEW_H
 
 #include <QDeclarativeItem>
 
@@ -69,4 +69,4 @@ private:
 
 };
 
-#endif // MONITORVIEW_H
+#endif // QMLOUTPUTVIEW_H

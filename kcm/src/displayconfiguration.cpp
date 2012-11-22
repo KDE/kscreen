@@ -25,11 +25,13 @@
 
 #include <KPluginFactory>
 #include <KAboutData>
+#include <KStandardDirs>
+#include <KUrl>
+#include <KDebug>
+#include <Plasma/TreeView>
+
 #include <QGridLayout>
 #include <QLabel>
-#include <KDebug>
-#include <KStandardDirs>
-#include <Plasma/TreeView>
 
 #include <QtDeclarative>
 #include <QDeclarativeView>
@@ -145,7 +147,8 @@ void DisplayConfiguration::load()
 		return;
 	}
 
-	Q_FOREACH (KScreen::Output *output, m_config->outputs().values()) {
+	const QList<KScreen::Output*> outputs = m_config->outputs().values();
+	Q_FOREACH (KScreen::Output *output, outputs) {
 		outputView->addOutput(m_declarativeView->engine(), output);
 	}
 
@@ -199,7 +202,7 @@ void DisplayConfiguration::identifyOutputs()
 		QDeclarativeView *view = new QDeclarativeView();
 		view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
 		view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
-		view->setSource(QUrl::fromLocalFile(qmlPath));
+		view->setSource(KUrl::fromPath(qmlPath));
 
 		QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
 		if (!rootObj) {

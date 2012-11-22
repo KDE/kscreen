@@ -17,8 +17,8 @@
 */
 
 
-#ifndef MONITOR_H
-#define MONITOR_H
+#ifndef QMLOUTPUTCOMPONENT_H
+#define QMLOUTPUTCOMPONENT_H
 
 #include <QDeclarativeComponent>
 
@@ -35,7 +35,7 @@ class QMLOutputComponent : public QDeclarativeComponent
     Q_OBJECT
 
 public:
-    QMLOutputComponent(QDeclarativeEngine* engine, QObject* parent = 0);
+    explicit QMLOutputComponent(QDeclarativeEngine* engine, QObject* parent = 0);
     virtual ~QMLOutputComponent();
 
     QMLOutput* createForOutput(KScreen::Output* output);
@@ -45,4 +45,4 @@ private:
 
 };
 
-#endif // MONITOR_H
+#endif // QMLOUTPUTCOMPONENT_H

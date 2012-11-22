@@ -26,7 +26,7 @@
 #include <QDeclarativeItem>
 #include <KStandardDirs>
 #include <KDebug>
-#include <QUrl>
+#include <KUrl>
 
 #include <kscreen/output.h>
 
@@ -39,7 +39,7 @@ QMLOutputComponent::QMLOutputComponent(QDeclarativeEngine *engine, QObject *pare
 	QString qmlPath = KStandardDirs::locate (
 		"data", QLatin1String("kcm_displayconfiguration/qml/Output.qml"));
 
-	loadUrl(QUrl::fromLocalFile(qmlPath));
+	loadUrl(KUrl::fromPath(qmlPath));
 }
 
 QMLOutputComponent::~QMLOutputComponent()
