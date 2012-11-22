@@ -413,13 +413,17 @@ void QMLOutputView::outputMoved(bool snap)
 		}
 	}
 
-	QPoint pos = leftMostOutput->output()->pos();
-	pos.setX(0);
-	leftMostOutput->output()->setPos(pos);
+	if (leftMostOutput != 0) {
+	    QPoint pos = leftMostOutput->output()->pos();
+	    pos.setX(0);
+	    leftMostOutput->output()->setPos(pos);
+	}
 
-	pos = topMostOutput->output()->pos();
-	pos.setY(0);
-	topMostOutput->output()->setPos(pos);
+	if (topMostOutput != 0) {
+	    QPoint pos = topMostOutput->output()->pos();
+	    pos.setY(0);
+	    topMostOutput->output()->setPos(pos);
+	}
 
 	/* If the leftmost output is currently being moved, then reposition
 	 * all output relatively to it, otherwise reposition the current output
@@ -441,7 +445,7 @@ void QMLOutputView::outputMoved(bool snap)
 			pos.setX(x / otherOutput->displayScale());
 			otherOutput->output()->setPos(pos);
 		}
-	} else {
+	} else if (leftMostOutput != 0) {
 		int x = output->x() - leftMostOutput->x();
 
 		QPoint pos = output->output()->pos();
@@ -469,7 +473,7 @@ void QMLOutputView::outputMoved(bool snap)
 			pos.setY(y / otherOutput->displayScale());
 			otherOutput->output()->setPos(pos);
 		}
-	} else {
+	} else if (topMostOutput != 0) {
 		int y = output->y() - topMostOutput->y();
 
 		QPoint pos = output->output()->pos();
