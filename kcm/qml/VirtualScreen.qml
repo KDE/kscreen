@@ -39,9 +39,4 @@ QMLVirtualScreen {
 		width: screen.maxSize.width / 6;
 		height: screen.maxSize.height / 6;
 	}
-
-	Component.onCompleted: {
- 	  console.log(screen.maxSize.width + "x" + screen.maxSize.height);
-	  console.log(screen.minSize.width + "x" + screen.minSize.height);
-	}
 }
