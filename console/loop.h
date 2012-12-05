@@ -3,6 +3,11 @@
 #define LOOP2
 
 #include <QObject>
+
+namespace KScreen
+{
+class Config;
+}
 class Loop : public QObject
 {
     Q_OBJECT
@@ -13,6 +18,9 @@ class Loop : public QObject
     public Q_SLOTS:
         void start();
         void printConfig();
+
+    private:
+        KScreen::Config *m_config;
 };
 
 #endif

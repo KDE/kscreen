@@ -4,7 +4,8 @@
 #include "config.h"
 #include "output.h"
 #include "mode.h"
-#include <edid.h>
+#include "configmonitor.h"
+#include "edid.h"
 
 #include <QX11Info>
 #include <QtCore/QDebug>
@@ -28,12 +29,12 @@ Loop::~Loop()
 void Loop::start()
 {
     qDebug() << "START";
-    Config* config = Config::current();
-    config->outputs()[65]->setCurrentMode(70);
-    qDebug() << "Setting config";
-    Config::setConfig(config);
-    qDebug() << "setted";
-    printConfig();
+    m_config = Config::current();
+    ConfigMonitor::instance()->addConfig(m_config);
+    connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
+
+    //config->outputs()[65]->setCurrentMode(70);
+    //Config::setConfig(config);
 }
 
 void Loop::printConfig()
@@ -41,13 +42,16 @@ void Loop::printConfig()
 //     KScreen *screen = KScreen::self();
 //     qDebug() << "Backend: " << screen->backend();
 
-    Config *config = Config::current();
-    qDebug() << "Screen:";
-    qDebug() << "maxSize:" << config->screen()->maxSize();
-    qDebug() << "minSize:" << config->screen()->minSize();
-    qDebug() << "currentSize:" << config->screen()->currentSize();
+    qDebug() << "\n============================================================\n"
+                "============================================================\n"
+                "============================================================\n";
 
-    OutputList outputs = config->outputs();
+    qDebug() << "Screen:";
+    qDebug() << "maxSize:" << m_config->screen()->maxSize();
+    qDebug() << "minSize:" << m_config->screen()->minSize();
+    qDebug() << "currentSize:" << m_config->screen()->currentSize();
+
+    OutputList outputs = m_config->outputs();
     OutputList outputEnabled;
     Q_FOREACH(Output *output, outputs) {
         qDebug() << "Id: " << output->id();
@@ -56,6 +60,7 @@ void Loop::printConfig()
         qDebug() << "Connected: " << output->isConnected();
         qDebug() << "Enabled: " << output->isEnabled();
         qDebug() << "Primary: " << output->isPrimary();
+        qDebug() << "Rotation: " << output->rotation();
         qDebug() << "Pos: " << output->pos();
         if (output->currentMode()) {
             qDebug() << "Size: " << output->mode(output->currentMode())->size();
@@ -92,7 +97,7 @@ void Loop::printConfig()
         if (output->isEnabled()) {
             outputEnabled.insert(output->id(), output);
         }
-        qDebug() << "\n==================================================\n";
+        qDebug() << "\n-----------------------------------------------------\n";
     }
 }
 #include <loop.moc>
