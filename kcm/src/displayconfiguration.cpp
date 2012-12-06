@@ -40,6 +40,7 @@
 
 #include <kscreen/config.h>
 #include <kscreen/edid.h>
+#include <kscreen/configmonitor.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>(););
 K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
@@ -128,7 +129,11 @@ void DisplayConfiguration::load()
 	    return;
 	}
 
+	if (m_config) {
+            KScreen::ConfigMonitor::instance()->removeConfig(m_config);
+	}
 	m_config = Config::current();
+        KScreen::ConfigMonitor::instance()->addConfig(m_config);
 
 	const QString qmlPath = KStandardDirs::locate(
 		"data", QLatin1String(QML_PATH "main.qml"));
