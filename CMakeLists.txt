@@ -17,3 +17,4 @@ include_directories(
 )
 
 add_subdirectory(kcm)
+add_subdirectory(plasma)
