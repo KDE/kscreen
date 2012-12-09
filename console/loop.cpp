@@ -9,6 +9,7 @@
 
 #include <QX11Info>
 #include <QtCore/QDebug>
+#include <QtCore/QDateTime>
 
 #include <X11/X.h>
 #include <X11/Xlib.h>
@@ -18,7 +19,7 @@ using namespace KScreen;
 
 Loop::Loop(QObject* parent): QObject(parent)
 {
-    QMetaObject::invokeMethod(this, "start");
+    start();
 }
 
 Loop::~Loop()
@@ -29,7 +30,9 @@ Loop::~Loop()
 void Loop::start()
 {
     qDebug() << "START";
+    QDateTime date = QDateTime::currentDateTime();
     m_config = Config::current();
+    qDebug() << "Took: " << date.secsTo(QDateTime::currentDateTime());
     ConfigMonitor::instance()->addConfig(m_config);
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 
