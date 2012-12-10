@@ -41,6 +41,10 @@ QMLOutput {
 		}
 	}
 
+        SystemPalette {
+                id: palette;
+        }
+
 	MouseArea {
 		id: monitorMouseArea;
 
@@ -134,10 +138,8 @@ QMLOutput {
 			}
 		}
 
-		FrameSvgItem {
+		Rectangle {
 			id: monitor;
-
-			imagePath: "widgets/monitor";
 
 			property bool enabled: output.enabled;
 			property bool connected: output.connected;
@@ -145,10 +147,16 @@ QMLOutput {
 			property int currentModeId: output.currentMode;
 			property int rotationDirection;
 
+                        radius: 4;
+                        color: palette.mid;
 			x: 2;
 			y: 2;
 			width: parent.width - 4;
 			height: parent.height - 4;
+                        border {
+                            color: palette.shadow;
+                            width: 1;
+                        }
 
 
 			OutputControls {
@@ -161,6 +169,16 @@ QMLOutput {
 				}
 
 				onPrimaryTriggered: root.primaryTriggered();
+			}
+			
+			Rectangle {
+                                color: palette.shadow;
+                                anchors {
+                                        left: parent.left;
+                                        right: parent.right;
+                                        bottom: parent.bottom;
+                                }
+                                height: 10;
 			}
 		}
 	}
