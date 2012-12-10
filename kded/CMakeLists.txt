@@ -17,6 +17,7 @@ set(daemon_testapp_SRCS
     main.cpp
     testapp.cpp
     serializer.cpp
+    generator.cpp
 )
 
 kde4_add_executable(kscreen_daemon_testapp ${daemon_testapp_SRCS})
