@@ -37,7 +37,7 @@ Item {
 		color: palette.base;
 		border {
 			width: 2;
-			color: "white";
+			color: palette.shadow;
 		}
 
 		Column {
@@ -49,7 +49,7 @@ Item {
 				id: nameLabel;
 				text: root.outputName;
 				font.pointSize: 50;
-				color: "white";
+				color: palette.text;
 				horizontalAlignment: Text.AlignHCenter;
 				anchors.horizontalCenter: parent.horizontalCenter;
 			}
@@ -58,7 +58,7 @@ Item {
 				id: modeLabel;
 				text: root.modeName;
 				font.pointSize: 12;
-				color: "white";
+				color: palette.text;
 				horizontalAlignment: Text.AlignHCenter;
 				anchors.horizontalCenter: parent.horizontalCenter;
 			}
