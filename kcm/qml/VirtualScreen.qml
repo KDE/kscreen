@@ -20,23 +20,25 @@ import QtQuick 1.0
 import KScreen 1.0
 
 QMLVirtualScreen {
-  	id: screen;
 
-	/* Dimensions of parent view */
-	property int viewHeight;
-	property int viewWidth;
+    id: screen;
 
-	width: childrenRect.width;
-	height: childrenRect.height;
+    /* Dimensions of parent view */
+    property int viewHeight;
+    property int viewWidth;
 
-	Rectangle {
-		color: "transparent";
-		border {
-			width: 2;
-			color: "red";
-		}
+    width: childrenRect.width;
+    height: childrenRect.height;
 
-		width: screen.maxSize.width / 6;
-		height: screen.maxSize.height / 6;
-	}
+    Rectangle {
+
+        color: "transparent";
+        border {
+            width: 2;
+            color: "red";
+        }
+
+        width: screen.maxSize.width / 6;
+        height: screen.maxSize.height / 6;
+    }
 }

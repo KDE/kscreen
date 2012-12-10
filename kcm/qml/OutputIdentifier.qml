@@ -19,49 +19,57 @@
 import QtQuick 1.1
 
 Item {
-	property string outputName;
-	property string modeName;
+    id: root;
 
-	SystemPalette {
-		id: palette;
-	}
+    property string outputName;
+    property string modeName;
 
-	id: root;
+    width: childrenRect.width;
+    height: childrenRect.height;
 
-	width: childrenRect.width;
-	height: childrenRect.height;
+    SystemPalette {
+        id: palette;
+    }
 
-	Rectangle {
-		width: column.width + 80;
-		height: column.height + 40;
-		color: palette.base;
-		border {
-			width: 2;
-			color: palette.shadow;
-		}
+    Rectangle {
+        width: column.width + 80;
+        height: column.height + 40;
+        color: palette.base;
+        border {
+                width: 2;
+                color: palette.shadow;
+        }
 
-		Column {
-			id: column;
-			anchors.centerIn: parent;
-			spacing: 10;
+        Column {
 
-			Text {
-				id: nameLabel;
-				text: root.outputName;
-				font.pointSize: 50;
-				color: palette.text;
-				horizontalAlignment: Text.AlignHCenter;
-				anchors.horizontalCenter: parent.horizontalCenter;
-			}
+            id: column;
 
-			Text {
-				id: modeLabel;
-				text: root.modeName;
-				font.pointSize: 12;
-				color: palette.text;
-				horizontalAlignment: Text.AlignHCenter;
-				anchors.horizontalCenter: parent.horizontalCenter;
-			}
-		}
-	}
+            anchors.centerIn: parent;
+            spacing: 10;
+
+            Text {
+
+                id: nameLabel;
+
+                anchors.horizontalCenter: parent.horizontalCenter;
+
+                text: root.outputName;
+                font.pointSize: 50;
+                color: palette.text;
+                horizontalAlignment: Text.AlignHCenter;
+            }
+
+            Text {
+
+                id: modeLabel;
+
+                anchors.horizontalCenter: parent.horizontalCenter;
+
+                text: root.modeName;
+                font.pointSize: 12;
+                color: palette.text;
+                horizontalAlignment: Text.AlignHCenter;
+            }
+        }
+    }
 }

@@ -20,37 +20,45 @@ import QtQuick 1.1
 import org.kde.qtextracomponents 0.1
 
 MouseArea {
-	id: mouseArea;
 
-	property int iconSize: 22;
-	property bool enabled: true;
-	property string enabledIcon;
-	property string disabledIcon;
+    id: mouseArea;
 
-	width: iconSize;
-	height: iconSize;
+    property int iconSize: 22;
+    property bool enabled: true;
+    property string enabledIcon;
+    property string disabledIcon;
 
-	QIconItem {
-		id: button;
-		icon: parent.enabled ?
-			parent.enabledIcon :
-			(parent.disabledIcon == "") ?
-				parent.enabledIcon :
-				parent.disabledIcon;
+    width: iconSize;
+    height: iconSize;
 
-		enabled: parent.enabled;
-		anchors.fill: parent;
-	}
+    QIconItem {
 
-	Behavior on width {
-		PropertyAnimation {
-			duration: 100;
-		}
-	}
+        id: button;
 
-	Behavior on height {
-		PropertyAnimation {
-			duration: 100;
-		}
-	}
+        anchors.fill: parent;
+
+        icon: {
+            if (parent.enabled) {
+                return parent.enabledIcon;
+            } else if (parent.disabledIcon == "") {
+                return parent.enabledIcon;
+            } else {
+                return parent.disabledIcon;
+            }
+        }
+
+        enabled: parent.enabled;
+    }
+
+    Behavior on width {
+        PropertyAnimation {
+            duration: 100;
+        }
+    }
+
+    Behavior on height {
+        PropertyAnimation {
+            duration: 100;
+        }
+    }
 }

@@ -20,10 +20,12 @@ import QtQuick 1.0
 import KScreen 1.0
 
 QMLOutputView {
-	property Item root;
 
-	Rectangle {
-		anchors.fill: parent;
-		color: palette.base;
-	}
+    property Item root;
+
+    Rectangle {
+
+        anchors.fill: parent;
+        color: palette.base;
+    }
 }
