@@ -21,48 +21,42 @@ import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
+PlasmaCore.Dialog {
+        id: dialog;
 
-Item {
-	id: root
+        property Item parentItem;
+        property Item visualParent;
+        property int status: PlasmaComponents.DialogStatus.Closed;
 
-	property Item parentItem;
-	property Item visualParent;
-	property int status: PlasmaComponents.DialogStatus.Closed;
+        function open()
+        {
+                var parent = dialog.visualParent ? dialog.visualParent : dialog.parent;
+                var pos = dialog.popupPosition(parent, Qt.alignCenter);
+                dialog.x = pos.x;
+                dialog.y = pos.y;
 
-	function open()
-	{
-		var parent = root.visualParent ? root.visualParent : root.parent;
-		var pos = dialog.popupPosition(parent, Qt.alignCenter);
-		dialog.x = pos.x;
-		dialog.y = pos.y;
+                dialog.visible = true;
+                dialog.activateWindow();
+        }
 
-		dialog.visible = true;
-		dialog.activateWindow();
-	}
+        function close()
+        {
+                dialog.visible = false;
+        }
 
-	function close()
-	{
-		dialog.visible = false;
-	}
+        visible: false;
+        windowFlags: Qt.Popup;
+        onVisibleChanged: {
+            if (visible) {
+                status = PlasmaComponents.DialogStatus.Open;
+            } else {
+                status = PlasmaComponents.DialogStatus.Closed;
+            }
+        }
 
-	visible: false
-
-	PlasmaCore.Dialog {
-		id: dialog;
-		visible: false;
-		windowFlags: Qt.Popup;
-		onVisibleChanged: {
-		    if (visible) {
-			status = PlasmaComponents.DialogStatus.Open;
-		    } else {
-			status = PlasmaComponents.DialogStatus.Closed;
-		    }
-		}
-
-		mainItem: ModeSelectionWidget {
-			id: contentItem;
-			output: parentItem;
-			width: 300;
-		}
-	}
+        mainItem: ModeSelectionWidget {
+                id: contentItem;
+                output: parentItem;
+                width: 300;
+        }
 }
