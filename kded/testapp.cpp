@@ -17,41 +17,18 @@
  *************************************************************************************/
 
 #include "testapp.h"
+#include "serializer.h"
 
 #include <QtCore/QDebug>
-#include <QtCore/QStringList>
-#include <QtCore/QCryptographicHash>
-
-#include <kscreen/config.h>
-#include <kscreen/output.h>
-#include <kscreen/edid.h>
 
 TestApp::TestApp(QObject* parent): QObject(parent)
 {
     setenv("KSCREEN_BACKEND", "Fake", 1);
 
-    QString currentId = currentId();
-    qDebug() << "CurrentId: " << currentId;
+    qDebug() << "CurrentId: " << Serializer::currentId();
 }
 
 TestApp::~TestApp()
 {
 
 }
-
-QString TestApp::currentId()
-{
-    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
-
-    QStringList hashList;
-    Q_FOREACH(const KScreen::Output* output, outputs) {
-        hashList.insert(0, output->edid()->hash());
-    }
-
-    qSort(hashList.begin(), hashList.end());
-
-    QCryptographicHash hash(QCryptographicHash::Md5);
-    hash.addData(hashList.join(QString()).toAscii());
-    return hash.result().toHex();
-}
-

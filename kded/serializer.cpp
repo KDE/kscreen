@@ -16,17 +16,47 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#ifndef TESTAPP_H
-#define TESTAPP_H
+#include "serializer.h"
 
-#include <QtCore/QObject>
+#include <QtCore/QStringList>
+#include <QtCore/QCryptographicHash>
 
-class TestApp : public QObject
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/edid.h>
+
+QString Serializer::currentId()
 {
-    Q_OBJECT
-    public:
-        explicit TestApp(QObject* parent = 0);
-        virtual ~TestApp();
-};
+    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
 
-#endif //TESTAPP_H
+    QStringList hashList;
+    Q_FOREACH(const KScreen::Output* output, outputs) {
+        hashList.insert(0, output->edid()->hash());
+    }
+
+    qSort(hashList.begin(), hashList.end());
+
+    QCryptographicHash hash(QCryptographicHash::Md5);
+    hash.addData(hashList.join(QString()).toAscii());
+    return hash.result().toHex();
+}
+
+bool Serializer::configExists()
+{
+    return Serializer::configExists(Serializer::currentId());
+}
+
+bool Serializer::configExists(const QString& id)
+{
+    return false;
+}
+
+KScreen::Config* Serializer::config(const QString& id)
+{
+    return new KScreen::Config();
+}
+
+bool Serializer::saveConfig(KScreen::Config* config)
+{
+    return false;
+}

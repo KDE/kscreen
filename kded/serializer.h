@@ -16,17 +16,23 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#ifndef TESTAPP_H
-#define TESTAPP_H
+#ifndef KDED_SERIALIZER_H
+#define KDED_SERIALIZER_H
 
 #include <QtCore/QObject>
 
-class TestApp : public QObject
+namespace KScreen
 {
-    Q_OBJECT
+    class Config;
+}
+class Serializer
+{
     public:
-        explicit TestApp(QObject* parent = 0);
-        virtual ~TestApp();
+        static QString currentId();
+        static bool configExists();
+        static bool configExists(const QString& id);
+        static KScreen::Config* config(const QString& id);
+        static bool saveConfig(KScreen::Config* config);
 };
 
-#endif //TESTAPP_H
+#endif //KDED_SERIALIZER_H

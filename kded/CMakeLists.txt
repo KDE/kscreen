@@ -16,6 +16,7 @@ install(FILES kscreen.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 set(daemon_testapp_SRCS
     main.cpp
     testapp.cpp
+    serializer.cpp
 )
 
 kde4_add_executable(kscreen_daemon_testapp ${daemon_testapp_SRCS})
