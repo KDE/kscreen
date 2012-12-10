@@ -23,7 +23,9 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.kscreen 1.0
 
 Item {
+
     id: root;
+
     property int minimumWidth: 290
     property int minimumHeight: 340
     property string displayName;
@@ -32,36 +34,48 @@ Item {
     signal applyAction(int config);
 
     PlasmaComponents.Label {
+
         id: header
-        text: i18n("A new display %1 has been detected", root.displayName);
+
         anchors {
             top: parent.top;
             topMargin: 3;
             left: parent.left;
             right: parent.right
         }
+
+        text: i18n("A new display %1 has been detected", root.displayName);
         horizontalAlignment: Text.AlignHCenter
     }
 
     PlasmaCore.Svg {
+
         id: lineSvg
+
         imagePath: "widgets/line"
     }
+
     PlasmaCore.SvgItem {
+
         id: headerSeparator
-        svg: lineSvg
-        elementId: "horizontal-line"
+
         anchors {
             top: header.bottom
             left: parent.left
             right: parent.right
             topMargin: 3
         }
+
         height: lineSvg.elementSize("horizontal-line").height
+
+        svg: lineSvg
+        elementId: "horizontal-line"
     }
 
     Column {
+
         id: actionsColumn;
+
         anchors {
             top: headerSeparator.bottom;
             left: parent.left;
@@ -69,7 +83,9 @@ Item {
         }
 
         ActionIcon {
+
             id: extendRight;
+
             icon: "video-display";
             label: qsTr("Extend Right");
 
@@ -77,7 +93,9 @@ Item {
         }
 
         ActionIcon {
+
             id: extendLeft;
+
             icon: "video-display";
             label: qsTr("Extend Left");
 
@@ -85,7 +103,9 @@ Item {
         }
 
         ActionIcon {
+
             id: clone;
+
             icon: "video-display";
             label: qsTr("Clone");
 
@@ -93,7 +113,9 @@ Item {
         }
 
         ActionIcon {
+
             id: noAction;
+
             icon: "video-display";
             label: qsTr("No Action");
 
@@ -101,7 +123,9 @@ Item {
         }
 
         ActionIcon {
+
             id: runKCM;
+
             icon: "preferences-system";
             label: qsTr("Advanced Configuration");
 

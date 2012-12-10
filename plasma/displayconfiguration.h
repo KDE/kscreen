@@ -41,7 +41,7 @@ class DisplayConfiguration : public Plasma::PopupApplet
     Q_OBJECT
     Q_ENUMS(DisplayAction)
 
-  public:
+public:
     enum DisplayAction {
         ActionNone = 0,
         ActionExtendRight,
@@ -56,15 +56,15 @@ class DisplayConfiguration : public Plasma::PopupApplet
     virtual void init();
     virtual QGraphicsWidget *graphicsWidget();
 
-  private Q_SLOTS:
+private Q_SLOTS:
     void slotUnknownDisplayConnected(const QString &output);
     void slotRunKCM();
     void slotApplyAction(int actionId);
 
-  protected:
+protected:
     virtual void popupEvent(bool show);
 
-  private:
+private:
     void initDeclarativeWidget();
     KScreen::Output* outputForName(const QString &name);
 

@@ -35,10 +35,10 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
-DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &args)
-    : Plasma::PopupApplet(parent, args)
-    , m_declarativeWidget(0)
-    , m_hasNewOutput(false)
+DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &args):
+    Plasma::PopupApplet(parent, args),
+    m_declarativeWidget(0),
+    m_hasNewOutput(false)
 {
     qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
     setPopupIcon(QLatin1String("video-display"));

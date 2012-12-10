@@ -38,25 +38,80 @@ Item {
     height: 40;
 
     PlasmaCore.FrameSvgItem {
+
         id: stateNormal;
+
         anchors.fill: parent;
+
         opacity: 1.0;
         imagePath: "widgets/tasks";
         prefix: "normal";
     }
+
     PlasmaCore.FrameSvgItem {
+
         id: stateHover;
+
         anchors.fill: parent;
+
         opacity: 0.0;
         imagePath: "widgets/tasks";
         prefix: "hover";
     }
+
     PlasmaCore.FrameSvgItem {
+
         id: statePressed;
+
         anchors.fill: parent;
+
         opacity: 0.0;
         imagePath: "widgets/tasks";
         prefix: "focus";
+    }
+
+    MouseArea {
+
+        id: mouseArea;
+
+        anchors.fill: parent;
+
+        hoverEnabled: true;
+
+        onEntered: button.state = "hover";
+        onExited: button.state = "normal";
+        onPressed: button.state = "pressed";
+        onReleased: button.state = "hover";
+        onClicked: button.clicked();
+    }
+
+    QIconItem {
+
+        id: actionIcon;
+
+        anchors {
+            left: parent.left;
+            top: parent.top;
+            bottom: parent.bottom;
+            margins: 10;
+        }
+
+        width: 30;
+
+        smooth: true;
+    }
+
+    PlasmaComponents.Label {
+
+        id: actionLabel;
+
+        anchors {
+            top: parent.top;
+            left: actionIcon.right;
+            bottom: parent.bottom;
+            right: parent.right;
+            margins: 10;
+        }
     }
 
     states: [
@@ -115,43 +170,4 @@ Item {
              duration: 200;
         }
      }
-
-    MouseArea {
-        id: mouseArea;
-        hoverEnabled: true;
-
-        anchors.fill: parent;
-
-        onEntered: button.state = "hover";
-        onExited: button.state = "normal";
-        onPressed: button.state = "pressed";
-        onReleased: button.state = "hover";
-        onClicked: button.clicked();
-    }
-
-    QIconItem {
-        id: actionIcon;
-        width: 30;
-
-        anchors {
-            left: parent.left;
-            top: parent.top;
-            bottom: parent.bottom;
-            margins: 10;
-        }
-
-        smooth: true;
-    }
-
-    PlasmaComponents.Label {
-        id: actionLabel;
-
-        anchors {
-            top: parent.top;
-            left: actionIcon.right;
-            bottom: parent.bottom;
-            right: parent.right;
-            margins: 10;
-        }
-    }
 }
