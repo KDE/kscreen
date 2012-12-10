@@ -6,12 +6,8 @@ In case not known configuration is saved, a new one will be created following so
 This daemon also handles the laptop keys for managing screens.
 
 -Configuration format:
-    Each configuration will represent a set of connected and enabled outputs, the unique id will be
-    created using the following format:NXYZ
-    N = Number of Outputs
-    X,Y,Z = individual output Id's extracted from EDID
-    The individual ids (X,Y;Z) will be ordened from greater to minor.
-
+    Each configuration will represent a set of connected outputs, atm we are using the hash of their
+    EDID sorted alphabetically to identify a unique set of outputs
 -Config generator for unknown set of outputs.
 
     Laptop:
