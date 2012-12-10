@@ -94,7 +94,7 @@ QModelIndex ModesProxyModel::mapToSource(const QModelIndex& proxyIndex) const
     QModelIndex realParentIndex = sourceModel()->index(m_currentSourceRow, 0);
 
     if (proxyIndex.row() == 0) {
-      return realParentIndex.child(proxyIndex.row(), 0);
+        return realParentIndex.child(proxyIndex.row(), 0);
     }
 
     return realParentIndex.child(proxyIndex.row() - 1, 0);

@@ -41,7 +41,7 @@ public:
     QMLOutput* createForOutput(KScreen::Output* output);
 
 private:
-    QDeclarativeEngine* m_engine;
+    QDeclarativeEngine *m_engine;
 
 };
 

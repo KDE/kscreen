@@ -44,7 +44,7 @@
 
 K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>(););
 K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
-                "kcm_displayconfiguration" /* catalog name */))
+                                               "kcm_displayconfiguration" /* catalog name */))
 
 using namespace KScreen;
 
@@ -57,9 +57,9 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
 {
     KAboutData* about =
         new KAboutData("displayconfiguration", "displayconfiguration",
-                       ki18n("Monitor display Configuration"),
-                       "", ki18n("Configuration for displays"),
-                       KAboutData::License_GPL_V2, ki18n("(c), 2012 Dan Vrátil"));
+                    ki18n("Monitor display Configuration"),
+                    "", ki18n("Configuration for displays"),
+                    KAboutData::License_GPL_V2, ki18n("(c), 2012 Dan Vrátil"));
 
     about->addAuthor(ki18n("Dan Vrátil"), ki18n("Maintainer") , "dvratil@redhat.com");
     setAboutData(about);
@@ -76,29 +76,29 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
     m_config = Config::current();
     if (m_config) {
-	QString importPath = KStandardDirs::installPath("lib") +
-		QDir::separator() + "kde4" + QDir::separator() + "imports";
+        QString importPath = KStandardDirs::installPath("lib") +
+                QDir::separator() + "kde4" + QDir::separator() + "imports";
 
-	qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
-	qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
-	qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
-	qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
+        qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
+        qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
+        qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
+        qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
-	qmlRegisterInterface<KScreen::Output*>("Output");
-	qmlRegisterInterface<KScreen::Mode*>("OutputMode");
-	qmlRegisterInterface<KScreen::Edid*>("EDID");
-	qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
-	qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
-	qmlRegisterType<KScreen::Edid>("KScreen", 1, 0, "EDID");
+        qmlRegisterInterface<KScreen::Output*>("Output");
+        qmlRegisterInterface<KScreen::Mode*>("OutputMode");
+        qmlRegisterInterface<KScreen::Edid*>("EDID");
+        qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
+        qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
+        qmlRegisterType<KScreen::Edid>("KScreen", 1, 0, "EDID");
 
         m_declarativeView = new QDeclarativeView(this);
-	m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
-	m_declarativeView->engine()->addImportPath(importPath);
+        m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
+        m_declarativeView->engine()->addImportPath(importPath);
         m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-	m_declarativeView->setStyleSheet("background: transparent");
-	m_declarativeView->setMinimumHeight(440);
+        m_declarativeView->setStyleSheet("background: transparent");
+        m_declarativeView->setMinimumHeight(440);
         mainLayout->addWidget(m_declarativeView, 0, 0);
-	/* Declarative view will be initialized from load() */
+        /* Declarative view will be initialized from load() */
     } else {
         QLabel* label = new QLabel(this);
         label->setText(i18n("No supported X Window System extension found"));
@@ -114,137 +114,138 @@ DisplayConfiguration::~DisplayConfiguration()
 
 bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
 {
-	Q_UNUSED(message);
-	Q_UNUSED(result);
+    Q_UNUSED(message);
+    Q_UNUSED(result);
 
-	/* Propagate the event */
-	return false;
+    /* Propagate the event */
+    return false;
 }
 
 void DisplayConfiguration::load()
 {
-	kDebug() << "Loading...";
+    kDebug() << "Loading...";
 
-	if (!m_declarativeView) {
-	    return;
-	}
+    if (!m_declarativeView) {
+        return;
+    }
 
-	if (m_config) {
-            KScreen::ConfigMonitor::instance()->removeConfig(m_config);
-	}
-	m_config = Config::current();
-        KScreen::ConfigMonitor::instance()->addConfig(m_config);
+    if (m_config) {
+        KScreen::ConfigMonitor::instance()->removeConfig(m_config);
+    }
+    m_config = Config::current();
+    KScreen::ConfigMonitor::instance()->addConfig(m_config);
 
-	const QString qmlPath = KStandardDirs::locate(
-		"data", QLatin1String(QML_PATH "main.qml"));
-	m_declarativeView->setSource(qmlPath);
+    const QString qmlPath = KStandardDirs::locate(
+            "data", QLatin1String(QML_PATH "main.qml"));
+    m_declarativeView->setSource(qmlPath);
 
-	QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
-	if (!rootObj) {
-		kWarning() << "Failed to obtain root item";
-		return;
-	}
+    QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
+    if (!rootObj) {
+        kWarning() << "Failed to obtain root item";
+        return;
+    }
 
-	connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
+    connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
 
-	QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>(QLatin1String("outputView"));
-	if (!outputView) {
-		kWarning() << "Failed to obtain output view";
-		return;
-	}
+    QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>(QLatin1String("outputView"));
+    if (!outputView) {
+        kWarning() << "Failed to obtain output view";
+        return;
+    }
 
-	const QList<KScreen::Output*> outputs = m_config->outputs().values();
-	Q_FOREACH (KScreen::Output *output, outputs) {
-		outputView->addOutput(m_declarativeView->engine(), output);
-	}
+    const QList<KScreen::Output*> outputs = m_config->outputs().values();
+    Q_FOREACH (KScreen::Output *output, outputs) {
+        outputView->addOutput(m_declarativeView->engine(), output);
+    }
 
-	connect(outputView, SIGNAL(changed()), SLOT(changed()));
+    connect(outputView, SIGNAL(changed()), SLOT(changed()));
 }
 
 void DisplayConfiguration::save()
 {
-	kDebug() << "Saving";
+    kDebug() << "Saving";
 
-	bool atLeastOneEnabledOutput = false;
-	Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
-		KScreen::Mode *mode = output->mode(output->currentMode());
+    bool atLeastOneEnabledOutput = false;
+    Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
+        KScreen::Mode *mode = output->mode(output->currentMode());
 
-		if (output->isEnabled()) {
-		    atLeastOneEnabledOutput = true;
-		}
+        if (output->isEnabled()) {
+            atLeastOneEnabledOutput = true;
+        }
 
-		kDebug() << output->name() << "\n"
-			 << "	Connected:" << output->isConnected() << "\n"
-			 << "	Enabled:" << output->isEnabled() << "\n"
-			 << "	Primary:" << output->isPrimary() << "\n"
-			 << "	Rotation:" << output->rotation() << "\n"
-			 << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
-			 << "   Position:" << output->pos().x() << "x" << output->pos().y();
-	}
+        kDebug() << output->name() << "\n"
+                << "	Connected:" << output->isConnected() << "\n"
+                << "	Enabled:" << output->isEnabled() << "\n"
+                << "	Primary:" << output->isPrimary() << "\n"
+                << "	Rotation:" << output->rotation() << "\n"
+                << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
+                << "    Position:" << output->pos().x() << "x" << output->pos().y();
+    }
 
-	if (!atLeastOneEnabledOutput) {
-	    if (KMessageBox::questionYesNo(this, i18n("Are you sure you want to disable all outputs?"),
-		  i18n("Disable all outputs?"),
-		  KGuiItem(i18n("Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
-		  KGuiItem(i18n("Cancel"), KIcon(QLatin1String("dialog-cancel")))) == KMessageBox::No)
-	    {
-		return;
-	    }
-	}
+    if (!atLeastOneEnabledOutput) {
+        if (KMessageBox::questionYesNo(this, i18n("Are you sure you want to disable all outputs?"),
+            i18n("Disable all outputs?"),
+            KGuiItem(i18n("Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
+            KGuiItem(i18n("Cancel"), KIcon(QLatin1String("dialog-cancel")))) == KMessageBox::No)
+        {
+            return;
+        }
+    }
 
-	/* Store the current config, apply settings */
-	m_config->setConfig(m_config);
+    /* Store the current config, apply settings */
+    m_config->setConfig(m_config);
 }
 
 void DisplayConfiguration::clearOutputIdentifiers()
 {
-	m_outputTimer->stop();
-	qDeleteAll(m_outputIdentifiers);
-	m_outputIdentifiers.clear();
+    m_outputTimer->stop();
+    qDeleteAll(m_outputIdentifiers);
+    m_outputIdentifiers.clear();
 }
 
 
 void DisplayConfiguration::identifyOutputs()
 {
-	const QString qmlPath = KStandardDirs::locate(
-		"data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
+    const QString qmlPath = KStandardDirs::locate(
+            "data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
 
-	m_outputTimer->stop();
-	clearOutputIdentifiers();
+    m_outputTimer->stop();
+    clearOutputIdentifiers();
 
-	/* Obtain the current active configuration from KScreen */
-	OutputList outputs = m_config->outputs();
-	Q_FOREACH (KScreen::Output *output, outputs) {
-		if (!output->isConnected() || output->currentMode() == 0) {
-			continue;
-		}
+    /* Obtain the current active configuration from KScreen */
+    OutputList outputs = m_config->outputs();
+    Q_FOREACH (KScreen::Output *output, outputs) {
+        if (!output->isConnected() || output->currentMode() == 0) {
+            continue;
+        }
 
-		Mode *mode = output->mode(output->currentMode());
+        Mode *mode = output->mode(output->currentMode());
 
-		QDeclarativeView *view = new QDeclarativeView();
-		view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-		view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
-		view->setSource(KUrl::fromPath(qmlPath));
+        QDeclarativeView *view = new QDeclarativeView();
+        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+        view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
+        view->setSource(KUrl::fromPath(qmlPath));
 
-		QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
-		if (!rootObj) {
-			kWarning() << "Failed to obtain root item";
-			continue;
-		}
-		rootObj->setProperty("outputName", output->name());
-		rootObj->setProperty("modeName", mode->name());
+        QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
+        if (!rootObj) {
+            kWarning() << "Failed to obtain root item";
+            continue;
+        }
+        rootObj->setProperty("outputName", output->name());
+        rootObj->setProperty("modeName", mode->name());
 
-		QRect outputRect(output->pos(), mode->size());
-		QRect geometry(QPoint(0, 0), view->sizeHint());
-		geometry.moveCenter(outputRect.center());
-		view->setGeometry(geometry);
+        QRect outputRect(output->pos(), mode->size());
+        QRect geometry(QPoint(0, 0), view->sizeHint());
+        geometry.moveCenter(outputRect.center());
+        view->setGeometry(geometry);
 
-		m_outputIdentifiers << view;
-	}
+        m_outputIdentifiers << view;
+    }
 
-	Q_FOREACH (QWidget *widget, m_outputIdentifiers) {
-		widget->show();
-	}
-	m_outputTimer->start(2500);
+    Q_FOREACH (QWidget *widget, m_outputIdentifiers) {
+        widget->show();
+    }
+
+    m_outputTimer->start(2500);
 }
 

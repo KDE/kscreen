@@ -36,7 +36,7 @@ public:
     virtual ~ModeSelectionWidget();
 
     void setOutput(QMLOutput *output);
-    QMLOutput *output() const;
+    QMLOutput* output() const;
 
 private Q_SLOTS:
     void resolutionChanged(const QModelIndex &index);

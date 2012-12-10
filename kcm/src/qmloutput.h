@@ -85,7 +85,7 @@ private:
      */
     KScreen::Mode* bestMode() const;
 
-    KScreen::Output* m_output;
+    KScreen::Output *m_output;
     QMLOutput *m_cloneOf;
 
     QStandardItemModel *m_modesModel;

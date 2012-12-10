@@ -32,13 +32,13 @@
 Q_DECLARE_METATYPE(KScreen::Output*);
 
 QMLOutputComponent::QMLOutputComponent(QDeclarativeEngine *engine, QObject *parent):
-	QDeclarativeComponent(engine, parent),
-	m_engine(engine)
+    QDeclarativeComponent(engine, parent),
+    m_engine(engine)
 {
-	QString qmlPath = KStandardDirs::locate (
-		"data", QLatin1String("kcm_displayconfiguration/qml/Output.qml"));
+    QString qmlPath = KStandardDirs::locate (
+            "data", QLatin1String("kcm_displayconfiguration/qml/Output.qml"));
 
-	loadUrl(KUrl::fromPath(qmlPath));
+    loadUrl(KUrl::fromPath(qmlPath));
 }
 
 QMLOutputComponent::~QMLOutputComponent()
@@ -47,20 +47,20 @@ QMLOutputComponent::~QMLOutputComponent()
 
 QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output* output)
 {
-	QObject *instance;
+    QObject *instance;
 
-	/* Create object hierarchy */
-	instance = beginCreate(m_engine->rootContext());
-	if (!instance) {
-		kWarning() << errorString();
-		return 0;
-	}
+    /* Create object hierarchy */
+    instance = beginCreate(m_engine->rootContext());
+    if (!instance) {
+        kWarning() << errorString();
+        return 0;
+    }
 
-	/* Assign the output object before property bindings are made */
-	instance->setProperty("output", QVariant::fromValue(output));
+    /* Assign the output object before property bindings are made */
+    instance->setProperty("output", QVariant::fromValue(output));
 
-	/* Create property bindings */
-	completeCreate();
+    /* Create property bindings */
+    completeCreate();
 
-	return dynamic_cast<QMLOutput*>(instance);
+    return dynamic_cast<QMLOutput*>(instance);
 }

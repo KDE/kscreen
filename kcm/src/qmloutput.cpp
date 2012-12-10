@@ -52,22 +52,22 @@ void QMLOutput::setOutput(KScreen::Output* output)
 
     QList<KScreen::Mode*> modes = m_output->modes().values();
     Q_FOREACH (KScreen::Mode *mode, modes) {
-	QList<QStandardItem*> items = m_modesModel->findItems(mode->name(), Qt::MatchExactly, 0);
-	if (items.isEmpty()) {
-	  QStandardItem *item = new QStandardItem(mode->name());
-	  item->setData(mode->size(), QMLOutput::SizeRole);
+        QList<QStandardItem*> items = m_modesModel->findItems(mode->name(), Qt::MatchExactly, 0);
+        if (items.isEmpty()) {
+            QStandardItem *item = new QStandardItem(mode->name());
+            item->setData(mode->size(), QMLOutput::SizeRole);
 
-	  m_modesModel->appendRow(item);
-	  items << item;
-	}
+            m_modesModel->appendRow(item);
+            items << item;
+        }
 
-	QStandardItem *modeItem = new QStandardItem(QString::number(mode->refreshRate(), 'f', 1) % QLatin1String("Hz"));
-	modeItem->setData(mode->refreshRate(), QMLOutput::RefreshRateRole);
-	modeItem->setData(mode->id(), QMLOutput::ModeIdRole);
-	modeItem->setData(QVariant::fromValue(mode), QMLOutput::ModeRole);
+        QStandardItem *modeItem = new QStandardItem(QString::number(mode->refreshRate(), 'f', 1) % QLatin1String("Hz"));
+        modeItem->setData(mode->refreshRate(), QMLOutput::RefreshRateRole);
+        modeItem->setData(mode->id(), QMLOutput::ModeIdRole);
+        modeItem->setData(QVariant::fromValue(mode), QMLOutput::ModeRole);
 
-	QStandardItem *item = items.first();
-	item->appendRow(modeItem);
+        QStandardItem *item = items.first();
+        item->appendRow(modeItem);
     }
 
     kDebug() << m_output->modes();
@@ -109,17 +109,17 @@ QAbstractItemModel* QMLOutput::modesModel()
 int QMLOutput::currentOutputHeight() const
 {
     if (!m_output) {
-	return 0;
+        return 0;
     }
 
     KScreen::Mode *mode = m_output->mode(m_output->currentMode());
     if (!mode) {
-	if (m_output->isConnected()) {
-	    mode = bestMode();
-	    m_output->setCurrentMode(mode->id());
-	} else {
-	    return 1000;
-	}
+        if (m_output->isConnected()) {
+            mode = bestMode();
+            m_output->setCurrentMode(mode->id());
+        } else {
+            return 1000;
+        }
     }
 
     return mode->size().height();
@@ -128,17 +128,17 @@ int QMLOutput::currentOutputHeight() const
 int QMLOutput::currentOutputWidth() const
 {
     if (!m_output) {
-	return 0;
+        return 0;
     }
 
     KScreen::Mode *mode = m_output->mode(m_output->currentMode());
     if (!mode) {
-	if (m_output->isConnected()) {
-	    mode = bestMode();
-	    m_output->setCurrentMode(mode->id());
-	} else {
-	    return 1000;
-	}
+        if (m_output->isConnected()) {
+            mode = bestMode();
+            m_output->setCurrentMode(mode->id());
+        } else {
+            return 1000;
+        }
     }
 
     return mode->size().width();
@@ -152,15 +152,15 @@ float QMLOutput::displayScale() const
 KScreen::Mode* QMLOutput::bestMode() const
 {
     if (!m_output) {
-	return 0;
+        return 0;
     }
 
     KScreen::ModeList modes = m_output->modes();
     KScreen::Mode *bestMode = 0;
     Q_FOREACH (KScreen::Mode *mode, modes) {
-	if (!bestMode || (mode->size() > bestMode->size())) {
-	    bestMode = mode;
-	}
+        if (!bestMode || (mode->size() > bestMode->size())) {
+            bestMode = mode;
+        }
     }
 
     return bestMode;

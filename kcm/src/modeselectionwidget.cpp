@@ -58,13 +58,12 @@ ModeSelectionWidget::~ModeSelectionWidget()
 
 }
 
-
 void ModeSelectionWidget::setOutput(QMLOutput *output)
 {
     m_output = output;
 
     if (!output) {
-	  return;
+        return;
     }
 
     m_resolutionsModel->setSourceModel(output->modesModel());
@@ -78,14 +77,14 @@ void ModeSelectionWidget::setOutput(QMLOutput *output)
     }
 
     for (int i = 0; i < m_resolutionsModel->rowCount(); i++) {
-	  QSize size = m_resolutionsModel->index(i, 0).data(QMLOutput::SizeRole).toSize();
+        QSize size = m_resolutionsModel->index(i, 0).data(QMLOutput::SizeRole).toSize();
 
-	  if (size == currentMode->size()) {
-	    QModelIndex index = m_resolutionsModel->index(i, 0);
-	    m_resolutionsView->setCurrentIndex(index);
-	    resolutionChanged(index);
-	    break;
-	  }
+        if (size == currentMode->size()) {
+            QModelIndex index = m_resolutionsModel->index(i, 0);
+            m_resolutionsView->setCurrentIndex(index);
+            resolutionChanged(index);
+            break;
+        }
     }
 }
 
@@ -99,9 +98,9 @@ void ModeSelectionWidget::resolutionChanged(const QModelIndex &index)
     m_refreshRatesModel->setSourceModelCurrentRow(index.row());
 
     if (!m_refreshRatesView->currentIndex().isValid()) {
-	m_refreshRatesView->setCurrentIndex(m_refreshRatesModel->index(0, 0));
+        m_refreshRatesView->setCurrentIndex(m_refreshRatesModel->index(0, 0));
     } else {
-	refreshRateChanged();
+        refreshRateChanged();
     }
 }
 
