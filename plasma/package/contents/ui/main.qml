@@ -93,22 +93,6 @@ Item {
         }
 
         ActionIcon {
-            id: extendAbove;
-            icon: "video-display";
-            label: qsTr("Extend Above");
-
-            onClicked: root.applyAction(DisplayConfiguration.ActionExtendAbove);
-        }
-
-        ActionIcon {
-            id: extendBelow;
-            icon: "video-display"
-            label: qsTr("Extend Below");
-
-            onClicked: root.applyAction(DisplayConfiguration.ActionExtendBelow);
-        }
-
-        ActionIcon {
             id: noAction;
             icon: "video-display";
             label: qsTr("No Action");

@@ -30,12 +30,18 @@
 #include <Plasma/DeclarativeWidget>
 #include <KToolInvocation>
 
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/edid.h>
+
 DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &args)
     : Plasma::PopupApplet(parent, args)
     , m_declarativeWidget(0)
     , m_hasNewOutput(true) /* FIXME RELEASE - this will be FALSE by default! */
 {
     qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
+    
+    setenv("KSCREEN_BACKEND", "XRandR", false);
 }
 
 DisplayConfiguration::DisplayConfiguration():
@@ -97,12 +103,22 @@ QGraphicsWidget *DisplayConfiguration::graphicsWidget()
     return m_declarativeWidget;
 }
 
-void DisplayConfiguration::slotUnknownDisplayConnected(const QString &output)
+void DisplayConfiguration::slotUnknownDisplayConnected(const QString &outputName)
 {
-    kDebug() << "New display connected to output" << output;
+    kDebug() << "New display connected to output" << outputName;
+    m_newOutputName = outputName;
+
+    QString displayName;
+    KScreen::Output *newOutput = outputForName(outputName);
+    KScreen::Edid *edid = newOutput->edid();
+    if (!edid) {
+        displayName = outputName;
+    } else {
+        displayName = edid->name();
+    }
 
     QDeclarativeItem *rootObject = qobject_cast<QDeclarativeItem*>(m_declarativeWidget->rootObject());
-    rootObject->setProperty("displayName", output);
+    rootObject->setProperty("displayName", displayName);
 
     m_hasNewOutput = true;
     showPopup();
@@ -111,9 +127,76 @@ void DisplayConfiguration::slotUnknownDisplayConnected(const QString &output)
 void DisplayConfiguration::slotApplyAction(int actionId)
 {
     DisplayAction action = (DisplayAction) actionId;
-
     kDebug() << "Applying changes" << action;
 
+    if (action == ActionNone) {
+        m_hasNewOutput = false;
+        m_newOutputName.clear();
+        hidePopup();
+        return;
+    }
+
+    KScreen::Output *newOutput = outputForName(m_newOutputName);
+
+    if (newOutput == 0) {
+        m_hasNewOutput = false;
+        m_newOutputName.clear();
+        hidePopup();
+        return;
+    }
+
+    newOutput->setEnabled(true);
+    newOutput->setCurrentMode(newOutput->preferredMode());
+    KScreen::Mode *newMode = newOutput->mode(newOutput->currentMode());
+
+    KScreen::Config *config = KScreen::Config::current();
+    KScreen::OutputList outputs = config->outputs();
+    KScreen::OutputList::Iterator iter;
+    if (action == ActionClone) {
+        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
+            KScreen::Output *output = iter.value();
+            if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
+                continue;
+            }
+
+            /* Set the new output as a clone of the first connected output in the list */
+            QList<int> clones = output->clones();
+            clones << newOutput->id();
+            output->setClones(clones);
+            break;
+        }
+
+    } else if (action == ActionExtendLeft) {
+        newOutput->setPos(QPoint(0, 0));
+        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
+            KScreen::Output *output = iter.value();
+            if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
+                continue;
+            }
+
+            QPoint pos = output->pos();
+            pos.setX(pos.x() + newMode->size().width());
+            output->setPos(pos);
+        }
+
+    } else if (action == ActionExtendRight) {
+        int offset = 0;
+        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
+            KScreen::Output *output = iter.value();
+            if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
+                continue;
+            }
+
+            offset += output->mode(output->currentMode())->size().width();
+        }
+        newOutput->setPos(QPoint(offset, 0));
+    }
+
+    /* Update the settings */
+    KScreen::Config::setConfig(config);
+
+    m_hasNewOutput = false;
+    m_newOutputName.clear();
     hidePopup();
 }
 
@@ -125,6 +208,23 @@ void DisplayConfiguration::slotRunKCM()
 
     hidePopup();
 }
+
+KScreen::Output *DisplayConfiguration::outputForName(const QString &name)
+{
+    KScreen::Config *config = KScreen::Config::current();
+    KScreen::OutputList outputs = config->outputs();
+    KScreen::OutputList::Iterator iter;
+    for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
+        KScreen::Output *output = iter.value();
+
+        if (output->name() == name) {
+            return output;
+        }
+    }
+
+    return 0;
+}
+
 
 
 #include "displayconfiguration.moc"

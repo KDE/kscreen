@@ -24,6 +24,11 @@
 
 #include <Plasma/PopupApplet>
 
+namespace KScreen
+{
+class Output;
+}
+
 namespace Plasma
 {
 class DeclarativeWidget;
@@ -41,8 +46,6 @@ class DisplayConfiguration : public Plasma::PopupApplet
         ActionNone = 0,
         ActionExtendRight,
         ActionExtendLeft,
-        ActionExtendAbove,
-        ActionExtendBelow,
         ActionClone,
     };
 
@@ -60,9 +63,11 @@ class DisplayConfiguration : public Plasma::PopupApplet
 
   private:
     void initDeclarativeWidget();
+    KScreen::Output* outputForName(const QString &name);
 
     Plasma::DeclarativeWidget *m_declarativeWidget;
     bool m_hasNewOutput;
+    QString m_newOutputName;
 
 };
 
