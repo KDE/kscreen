@@ -21,67 +21,73 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 
 Item {
-	signal identifyOutputsRequested();
+    id: root;
 
+    signal identifyOutputsRequested();
 
-	id: root;
-	objectName: "root";
-	focus: true;
+    objectName: "root";
+    focus: true;
 
-	SystemPalette {
-		id: palette;
-	}
-	/* Don't use colors from theme, we want to be consistent with KCM, not
-	 * with Plasma here. Font sizes are the same though */
-	PlasmaCore.Theme {
-		id: theme;
-	}
+    SystemPalette {
+        id: palette;
+    }
 
-	FocusScope {
-		id: outputViewFocusScope;
-		anchors.fill: parent;
+    /* Don't use colors from theme, we want to be consistent with KCM, not
+    * with Plasma here. Font sizes are the same though */
+    PlasmaCore.Theme {
+        id: theme;
+    }
 
-		OutputView {
-			id: outputView;
-			objectName: "outputView";
-			root: parent;
+    FocusScope {
+        id: outputViewFocusScope;
 
-			anchors.fill: parent;
+        anchors.fill: parent;
 
-			Text {
-				id: tip;
-				anchors {
-					left: parent.left;
-					bottom: parent.bottom;
-					margins: 5;
-				}
-				color: palette.text;
-				text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
-			}
+        OutputView {
+            id: outputView;
 
-			VirtualScreen {
-				id: virtualScreen;
-				objectName: "virtualScreen";
+            anchors.fill: parent;
 
-				viewWidth: parent.width;
-				viewHeight: parent.height;
+            objectName: "outputView";
+            root: parent;
 
-				anchors.centerIn: parent;
-			}
+            Text {
+                id: tip;
 
-			IconButton {
-				id: identifyButton;
-				anchors {
-					right: parent.right;
-					bottom: parent.bottom;
-					margins: 5;
-				}
+                anchors {
+                    left: parent.left;
+                    bottom: parent.bottom;
+                    margins: 5;
+                }
 
-				enabledIcon: "documentinfo"
-				iconSize: 44;
+                color: palette.text;
+                text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+            }
 
-				onClicked: root.identifyOutputsRequested();
-			}
-		}
-	}
+            VirtualScreen {
+                id: virtualScreen;
+                objectName: "virtualScreen";
+
+                anchors.centerIn: parent;
+
+                viewWidth: parent.width;
+                viewHeight: parent.height;
+            }
+
+            IconButton {
+                id: identifyButton;
+
+                anchors {
+                    right: parent.right;
+                    bottom: parent.bottom;
+                    margins: 5;
+                }
+
+                enabledIcon: "documentinfo"
+                iconSize: 44;
+
+                onClicked: root.identifyOutputsRequested();
+            }
+        }
+    }
 }

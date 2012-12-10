@@ -1,5 +1,4 @@
 /*
-    <one line to give the library's name and an idea of what it does.>
     Copyright (C) 2012  Dan Vratil <dvratil@redhat.com>
 
     This library is free software; you can redistribute it and/or
@@ -86,7 +85,7 @@ private:
      */
     KScreen::Mode* bestMode() const;
 
-    KScreen::Output* m_output;
+    KScreen::Output *m_output;
     QMLOutput *m_cloneOf;
 
     QStandardItemModel *m_modesModel;

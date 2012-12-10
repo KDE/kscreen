@@ -21,48 +21,41 @@ import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
+PlasmaCore.Dialog {
 
-Item {
-	id: root
+    id: dialog;
 
-	property Item parentItem;
-	property Item visualParent;
-	property int status: PlasmaComponents.DialogStatus.Closed;
+    property Item parentItem;
+    property Item visualParent;
+    property int status: PlasmaComponents.DialogStatus.Closed;
 
-	function open()
-	{
-		var parent = root.visualParent ? root.visualParent : root.parent;
-		var pos = dialog.popupPosition(parent, Qt.alignCenter);
-		dialog.x = pos.x;
-		dialog.y = pos.y;
+    visible: false;
+    windowFlags: Qt.Popup;
+    onVisibleChanged: {
+        if (visible) {
+            status = PlasmaComponents.DialogStatus.Open;
+        } else {
+            status = PlasmaComponents.DialogStatus.Closed;
+        }
+    }
 
-		dialog.visible = true;
-		dialog.activateWindow();
-	}
+    mainItem: ModeSelectionWidget {
+        id: contentItem;
+        output: parentItem;
+        width: 300;
+    }
 
-	function close()
-	{
-		dialog.visible = false;
-	}
+    function open() {
+        var parent = dialog.visualParent ? dialog.visualParent : dialog.parent;
+        var pos = dialog.popupPosition(parent, Qt.alignCenter);
+        dialog.x = pos.x;
+        dialog.y = pos.y;
 
-	visible: false
+        dialog.visible = true;
+        dialog.activateWindow();
+    }
 
-	PlasmaCore.Dialog {
-		id: dialog;
-		visible: false;
-		windowFlags: Qt.Popup;
-		onVisibleChanged: {
-		    if (visible) {
-			status = PlasmaComponents.DialogStatus.Open;
-		    } else {
-			status = PlasmaComponents.DialogStatus.Closed;
-		    }
-		}
-
-		mainItem: ModeSelectionWidget {
-			id: contentItem;
-			output: parentItem;
-			width: 300;
-		}
-	}
+    function close() {
+        dialog.visible = false;
+    }
 }

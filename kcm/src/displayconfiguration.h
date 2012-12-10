@@ -48,13 +48,13 @@ private Q_SLOTS:
     void clearOutputIdentifiers();
 
 private:
-    KScreen::Config* m_config;
+    KScreen::Config *m_config;
 
-    QDeclarativeView* m_declarativeView;
+    QDeclarativeView *m_declarativeView;
     ControlPanel *m_controlPanel;
 
     QList<QWidget*> m_outputIdentifiers;
-    QTimer* m_outputTimer;
+    QTimer *m_outputTimer;
 };
 
 #endif // DisplayConfiguration_H

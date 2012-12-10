@@ -36,6 +36,7 @@ class QMLOutputView : public QDeclarativeItem
 
     Q_PROPERTY(QList<QMLOutput*> outputs READ outputs NOTIFY outputsChanged);
     Q_PROPERTY(QMLOutput* activeOutput READ activeOutput NOTIFY activeOutputChanged);
+
 public:
     QMLOutputView();
     virtual ~QMLOutputView();
@@ -43,7 +44,7 @@ public:
     void addOutput(QDeclarativeEngine* engine, KScreen::Output* output);
 
     QList<QMLOutput*> outputs() const;
-    QMLOutput * activeOutput() const;
+    QMLOutput* activeOutput() const;
 
     Q_INVOKABLE QMLOutput* getPrimaryOutput() const;
 
@@ -62,7 +63,7 @@ private Q_SLOTS:
     void viewSizeChanged(bool initialPlacement);
 
 private:
-    QDeclarativeContext * context() const;
+    QDeclarativeContext* context() const;
 
     QList<QMLOutput*> m_outputs;
     QMLOutput *m_activeOutput;
