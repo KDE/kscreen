@@ -13,3 +13,10 @@ target_link_libraries(kded_kscreen
 install(TARGETS kded_kscreen DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kscreen.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 
+set(daemon_testapp_SRCS
+    main.cpp
+    testapp.cpp
+)
+
+kde4_add_executable(kscreen_daemon_testapp ${daemon_testapp_SRCS})
+target_link_libraries(kscreen_daemon_testapp ${QT_QTCORE_LIBRARIES} ${KDE4_KDECORE_LIBS} ${LibKScreen_LIBRARY})
