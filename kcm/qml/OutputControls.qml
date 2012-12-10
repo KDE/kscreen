@@ -251,9 +251,7 @@ Item {
 
 			onClicked: {
 				if (output.enabled) {
-					console.log(output.primary);
 					output.primary = !output.primary
-					console.log(output.primary);
 
 					if (output.primary) {
 					    root.primaryTriggered();
