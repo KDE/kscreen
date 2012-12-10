@@ -35,7 +35,15 @@ DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &
     , m_declarativeWidget(0)
     , m_hasNewOutput(true) /* FIXME RELEASE - this will be FALSE by default! */
 {
+    qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
 }
+
+DisplayConfiguration::DisplayConfiguration():
+    PopupApplet(0, QVariantList())
+{
+
+}
+
 
 DisplayConfiguration::~DisplayConfiguration()
 {
@@ -72,7 +80,7 @@ void DisplayConfiguration::initDeclarativeWidget()
     }
 
     connect(rootObject, SIGNAL(runKCM()), SLOT(slotRunKCM()));
-    connect(rootObject, SIGNAL(applyAction(DisplayAction)), SLOT(slotApplyAction(DisplayAction)));
+    connect(rootObject, SIGNAL(applyAction(int)), SLOT(slotApplyAction(int)));
 }
 
 
@@ -93,13 +101,18 @@ void DisplayConfiguration::slotUnknownDisplayConnected(const QString &output)
 {
     kDebug() << "New display connected to output" << output;
 
+    QDeclarativeItem *rootObject = qobject_cast<QDeclarativeItem*>(m_declarativeWidget->rootObject());
+    rootObject->setProperty("displayName", output);
+
     m_hasNewOutput = true;
     showPopup();
 }
 
-void DisplayConfiguration::slotApplyAction(DisplayConfiguration::DisplayAction action)
+void DisplayConfiguration::slotApplyAction(int actionId)
 {
-    kDebug() << "Applying changes";
+    DisplayAction action = (DisplayAction) actionId;
+
+    kDebug() << "Applying changes" << action;
 
     hidePopup();
 }

@@ -22,28 +22,136 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.qtextracomponents 0.1
 
-PlasmaComponents.ToolButton {
+Item {
     id: button;
 
     property alias icon: actionIcon.icon;
     property alias label: actionLabel.text;
+
+    signal clicked();
 
     anchors {
         left: parent.left;
         right: parent.right;
     }
 
-    flat: true;
-    checkable: true;
+    height: 40;
 
-    Row {
-        QIconItem {
-            id: actionIcon;
-            smooth: true;
+    PlasmaCore.FrameSvgItem {
+        id: stateNormal;
+        anchors.fill: parent;
+        opacity: 1.0;
+        imagePath: "widgets/tasks";
+        prefix: "normal";
+    }
+    PlasmaCore.FrameSvgItem {
+        id: stateHover;
+        anchors.fill: parent;
+        opacity: 0.0;
+        imagePath: "widgets/tasks";
+        prefix: "hover";
+    }
+    PlasmaCore.FrameSvgItem {
+        id: statePressed;
+        anchors.fill: parent;
+        opacity: 0.0;
+        imagePath: "widgets/tasks";
+        prefix: "focus";
+    }
+
+    states: [
+        State {
+            name: "normal";
+            PropertyChanges {
+                target: stateHover;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: statePressed;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: stateNormal;
+                opacity: 1.0;
+            }
+        },
+
+        State {
+            name: "hover";
+            PropertyChanges {
+                target: stateNormal;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: statePressed;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: stateHover;
+                opacity: 1.0;
+            }
+        },
+
+        State {
+            name: "pressed";
+            PropertyChanges {
+                target: stateHover;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: stateNormal;
+                opacity: 0.0;
+            }
+            PropertyChanges {
+                target: statePressed;
+                opacity: 1.0;
+            }
+        }
+    ]
+
+    transitions: Transition {
+         PropertyAnimation {
+             properties: "opacity";
+             duration: 200;
+        }
+     }
+
+    MouseArea {
+        id: mouseArea;
+        hoverEnabled: true;
+
+        anchors.fill: parent;
+
+        onEntered: button.state = "hover";
+        onExited: button.state = "normal";
+        onPressed: button.state = "pressed";
+        onReleased: button.state = "hover";
+        onClicked: button.clicked();
+    }
+
+    QIconItem {
+        id: actionIcon;
+        width: 30;
+
+        anchors {
+            left: parent.left;
+            top: parent.top;
+            bottom: parent.bottom;
+            margins: 10;
         }
 
-        PlasmaComponents.Label {
-            id: actionLabel;
+        smooth: true;
+    }
+
+    PlasmaComponents.Label {
+        id: actionLabel;
+
+        anchors {
+            top: parent.top;
+            left: actionIcon.right;
+            bottom: parent.bottom;
+            right: parent.right;
+            margins: 10;
         }
     }
 }

@@ -38,14 +38,15 @@ class DisplayConfiguration : public Plasma::PopupApplet
 
   public:
     enum DisplayAction {
+        ActionNone = 0,
         ActionExtendRight,
         ActionExtendLeft,
         ActionExtendAbove,
         ActionExtendBelow,
         ActionClone,
-        ActionNone
     };
 
+    DisplayConfiguration();
     DisplayConfiguration(QObject *parent, const QVariantList &args);
     virtual ~DisplayConfiguration();
 
@@ -55,7 +56,7 @@ class DisplayConfiguration : public Plasma::PopupApplet
   private Q_SLOTS:
     void slotUnknownDisplayConnected(const QString &output);
     void slotRunKCM();
-    void slotApplyAction(DisplayAction action);
+    void slotApplyAction(int actionId);
 
   private:
     void initDeclarativeWidget();

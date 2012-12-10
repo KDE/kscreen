@@ -20,18 +20,20 @@
 import QtQuick 1.0
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
+import org.kde.kscreen 1.0
 
 Item {
-    id: displayconfiguration
+    id: root;
     property int minimumWidth: 290
     property int minimumHeight: 340
+    property string displayName;
 
     signal runKCM();
-//     signal applyAction(DisplayAction config);
+    signal applyAction(int config);
 
     PlasmaComponents.Label {
         id: header
-        text: i18n("A new display has been detected");
+        text: i18n("A new display %1 has been detected", root.displayName);
         anchors {
             top: parent.top;
             topMargin: 3;
@@ -68,68 +70,58 @@ Item {
 
         ActionIcon {
             id: extendRight;
-            icon: "extend-right";
+            icon: "video-display";
             label: qsTr("Extend Right");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionExtendRight);
+            onClicked: root.applyAction(DisplayConfiguration.ActionExtendRight);
         }
 
         ActionIcon {
             id: extendLeft;
-            icon: "extend-left";
+            icon: "video-display";
             label: qsTr("Extend Left");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionExtendLeft);
+            onClicked: root.applyAction(DisplayConfiguration.ActionExtendLeft);
         }
 
         ActionIcon {
             id: clone;
-            icon: "clone";
+            icon: "video-display";
             label: qsTr("Clone");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionClone);
+            onClicked: root.applyAction(DisplayConfiguration.ActionClone);
         }
 
         ActionIcon {
             id: extendAbove;
-            icon: "extend-above";
+            icon: "video-display";
             label: qsTr("Extend Above");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionExtendAbove);
+            onClicked: root.applyAction(DisplayConfiguration.ActionExtendAbove);
         }
 
         ActionIcon {
             id: extendBelow;
-            icon: "extend-below";
+            icon: "video-display"
             label: qsTr("Extend Below");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionExtendBelow);
+            onClicked: root.applyAction(DisplayConfiguration.ActionExtendBelow);
         }
 
         ActionIcon {
             id: noAction;
-            icon: "no-action";
+            icon: "video-display";
             label: qsTr("No Action");
 
-//             onClicked: displayconfiguration.applyAction(Handler.ActionNoAction);
-        }
-    }
-
-    Row {
-        anchors {
-            top: actionsColumn.bottom;
-            right: parent.right;
-            left: parent.left;
-            bottom: parent.bottom;
+            onClicked: root.applyAction(DisplayConfiguration.ActionNoAction);
         }
 
-        PlasmaComponents.Button {
-            id: kcmButton;
+        ActionIcon {
+            id: runKCM;
+            icon: "preferences-system";
+            label: qsTr("Advanced Configuration");
 
-            text: qsTr("Advanced Configuration");
-            iconSource: "preferences-system";
-
-            onClicked: displayconfiguration.runKCM();
+            onClicked: root.runKCM();
         }
     }
 }
