@@ -1,18 +1,6 @@
 [Desktop Entry]
-Name=Quick Display Configuration
-Name[x-test]=xxQuick Display Configurationxx
-Comment=Quick configuration of a new display
-Comment[x-test]=xxQuick configuration of a new displayxx
-
-Icon=preferences-desktop-display-randr
-Type=Service
-X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
-
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
-X-Plasma-DefaultSize=290,340
-X-Plasma-NotificationArea=true
-X-Plasma-ConfigPlugins=displayconfiguration
 
 X-KDE-PluginInfo-Author=Dan Vrátil
 X-KDE-PluginInfo-Email=dvratil@redhat.com

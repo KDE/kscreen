@@ -40,7 +40,8 @@ DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &
     , m_hasNewOutput(true) /* FIXME RELEASE - this will be FALSE by default! */
 {
     qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
-    
+    setPopupIcon(QLatin1String("video-display"));
+
     setenv("KSCREEN_BACKEND", "XRandR", false);
 }
 
