@@ -137,7 +137,7 @@ Item {
 	Text {
 		id: monitorName;
 		text: output.connected ? output.edid.vendor : "";
-		color: "white";
+		color: palette.text;
 		font.family: theme.desktopFont.family;
 		font.pointSize: root.fontSize;
 		elide: Text.ElideRight;
@@ -160,7 +160,7 @@ Item {
 	Text {
 	      id: outputNameAndSize;
 	      text: output.name;
-	      color: "white";
+	      color: palette.text;
 	      font.family: theme.desktopFont.family;
 	      font.pointSize: root.fontSize - 2;
 	      width: parent.width;
