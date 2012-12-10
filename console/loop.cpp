@@ -70,6 +70,7 @@ void Loop::printConfig()
         }
         qDebug() << "Clones: " << output->clones().isEmpty();
         qDebug() << "Mode: " << output->currentMode();
+        qDebug() << "Preferred mode: " << output->preferredMode();
         qDebug() << "Modes: ";
 
         ModeList modes = output->modes();
