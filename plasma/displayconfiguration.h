@@ -61,6 +61,9 @@ class DisplayConfiguration : public Plasma::PopupApplet
     void slotRunKCM();
     void slotApplyAction(int actionId);
 
+  protected:
+    virtual void popupEvent(bool show);
+
   private:
     void initDeclarativeWidget();
     KScreen::Output* outputForName(const QString &name);

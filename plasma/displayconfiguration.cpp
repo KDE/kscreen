@@ -22,6 +22,7 @@
 #include "displayconfiguration.h"
 
 #include <QDeclarativeItem>
+#include <QGraphicsSceneMouseEvent>
 
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -37,7 +38,7 @@
 DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &args)
     : Plasma::PopupApplet(parent, args)
     , m_declarativeWidget(0)
-    , m_hasNewOutput(true) /* FIXME RELEASE - this will be FALSE by default! */
+    , m_hasNewOutput(false)
 {
     qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
     setPopupIcon(QLatin1String("video-display"));
@@ -93,7 +94,7 @@ void DisplayConfiguration::initDeclarativeWidget()
 
 QGraphicsWidget *DisplayConfiguration::graphicsWidget()
 {
-    if (hasFailedToLaunch() || !m_hasNewOutput) {
+    if (hasFailedToLaunch()) {
         return 0;
     }
 
@@ -209,6 +210,18 @@ void DisplayConfiguration::slotRunKCM()
 
     hidePopup();
 }
+
+void DisplayConfiguration::popupEvent(bool show)
+{
+    if (show && !m_hasNewOutput) {
+        slotRunKCM();
+        return;
+    }
+
+    Plasma::PopupApplet::popupEvent(show);
+}
+
+
 
 KScreen::Output *DisplayConfiguration::outputForName(const QString &name)
 {
