@@ -1,5 +1,4 @@
 /*
-    <one line to give the library's name and an idea of what it does.>
     Copyright (C) 2012  Dan Vratil <dvratil@redhat.com>
 
     This library is free software; you can redistribute it and/or
