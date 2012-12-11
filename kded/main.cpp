@@ -16,13 +16,14 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#include <QtCore/QCoreApplication>
+#include <QtGui/QApplication>
 
 #include "testapp.h"
 
 int main (int argc, char *argv[])
 {
-    QCoreApplication app(argc, argv);
+    setenv("KSCREEN_BACKEND", "XRandR", 1);
+    QApplication app(argc, argv);
 
     TestApp *test = new TestApp(0);
 
