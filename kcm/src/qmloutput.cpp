@@ -25,7 +25,7 @@
 #include <QStandardItemModel>
 #include <QStringBuilder>
 
-Q_DECLARE_METATYPE(KScreen::Mode*);
+Q_DECLARE_METATYPE(KScreen::Mode*)
 
 bool operator>(const QSize &sizeA, const QSize &sizeB)
 {

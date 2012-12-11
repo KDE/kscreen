@@ -185,11 +185,9 @@ QMLOutput {
             property int rotationDirection;
 
             radius: 4;
-            color: palette.mid;
-            x: 2;
-            y: 2;
-            width: parent.width - 4;
-            height: parent.height - 4;
+            color: palette.window;
+            width: parent.width;
+            height: parent.height;
             border {
                 color: palette.shadow;
                 width: 1;
