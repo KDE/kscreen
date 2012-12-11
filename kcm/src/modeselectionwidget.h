@@ -30,7 +30,7 @@ class ResolutionSortModel;
 class ModeSelectionWidget : public QGraphicsProxyWidget
 {
     Q_OBJECT
-    Q_PROPERTY(QMLOutput *output READ output WRITE setOutput);
+    Q_PROPERTY(QMLOutput *output READ output WRITE setOutput)
 public:
     explicit ModeSelectionWidget(QGraphicsItem *parent = 0, Qt::WindowFlags wFlags = 0);
     virtual ~ModeSelectionWidget();

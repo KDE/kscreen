@@ -32,8 +32,8 @@ class QMLVirtualScreen : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QSize minSize READ minSize CONSTANT);
-    Q_PROPERTY(QSize maxSize READ maxSize CONSTANT);
+    Q_PROPERTY(QSize minSize READ minSize CONSTANT)
+    Q_PROPERTY(QSize maxSize READ maxSize CONSTANT)
 
 public:
     QMLVirtualScreen(QDeclarativeItem *parent = 0);
