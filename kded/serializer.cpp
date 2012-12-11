@@ -98,6 +98,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
         info["hash"] = output->edid()->hash();
         info["mode"] = output->currentMode();
         info["primary"] = output->isPrimary();
+        info["enabled"] = output->isEnabled();
         QVariantMap pos;
         pos["x"] = output->pos().x();
         pos["y"] = output->pos().y();
@@ -140,6 +141,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         output->setPos(point);
         output->setCurrentMode(info["mode"].toInt());
         output->setPrimary(info["primary"].toBool());
+        output->setEnabled(info["enabled"].toBool());
 
         return output;
     }
