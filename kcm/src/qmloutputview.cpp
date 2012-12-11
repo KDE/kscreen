@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include <kscreen/output.h>
 
-Q_DECLARE_METATYPE(QMLOutput*);
+Q_DECLARE_METATYPE(QMLOutput*)
 
 QMLOutputView::QMLOutputView():
     QDeclarativeItem(),

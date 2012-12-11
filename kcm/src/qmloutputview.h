@@ -34,8 +34,8 @@ class QMLOutputView : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QList<QMLOutput*> outputs READ outputs NOTIFY outputsChanged);
-    Q_PROPERTY(QMLOutput* activeOutput READ activeOutput NOTIFY activeOutputChanged);
+    Q_PROPERTY(QList<QMLOutput*> outputs READ outputs NOTIFY outputsChanged)
+    Q_PROPERTY(QMLOutput* activeOutput READ activeOutput NOTIFY activeOutputChanged)
 
 public:
     QMLOutputView();

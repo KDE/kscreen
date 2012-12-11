@@ -42,21 +42,21 @@
 #include <kscreen/edid.h>
 #include <kscreen/configmonitor.h>
 
-K_PLUGIN_FACTORY(KCMDisplayConfiguraionFactory, registerPlugin<DisplayConfiguration>(););
-K_EXPORT_PLUGIN(KCMDisplayConfiguraionFactory ("kcm_displayconfiguration" /* kcm name */,
+K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<DisplayConfiguration>();)
+K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_displayconfiguration" /* kcm name */,
                                                "kcm_displayconfiguration" /* catalog name */))
 
 using namespace KScreen;
 
-Q_DECLARE_METATYPE(KScreen::Output*);
+Q_DECLARE_METATYPE(KScreen::Output*)
 
 DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
-    KCModule(KCMDisplayConfiguraionFactory::componentData(), parent, args),
+    KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args),
     m_config(0),
     m_declarativeView(0)
 {
     KAboutData* about =
-        new KAboutData("displayconfiguration", "displayconfiguration",
+        new KAboutData("displayconfiguration", "kcm_displayconfiguration",
                     ki18n("Monitor display Configuration"),
                     "", ki18n("Configuration for displays"),
                     KAboutData::License_GPL_V2, ki18n("(c), 2012 Dan Vrátil"));
