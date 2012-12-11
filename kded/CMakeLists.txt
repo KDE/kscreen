@@ -21,4 +21,4 @@ set(daemon_testapp_SRCS
 )
 
 kde4_add_executable(kscreen_daemon_testapp ${daemon_testapp_SRCS})
-target_link_libraries(kscreen_daemon_testapp ${QT_QTCORE_LIBRARIES} ${KDE4_KDECORE_LIBS} ${LibKScreen_LIBRARY})
+target_link_libraries(kscreen_daemon_testapp ${QT_QTCORE_LIBRARIES} ${QT_QTGUI_LIBRARIES} ${KDE4_KDECORE_LIBS} ${LibKScreen_LIBRARY} ${QJSON_LIBRARIES} qjson)

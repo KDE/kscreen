@@ -20,10 +20,12 @@
 #define KDED_SERIALIZER_H
 
 #include <QtCore/QObject>
+#include <QtCore/QVariantMap>
 
 namespace KScreen
 {
     class Config;
+    class Output;
 }
 class Serializer
 {
@@ -33,6 +35,8 @@ class Serializer
         static bool configExists(const QString& id);
         static KScreen::Config* config(const QString& id);
         static bool saveConfig(KScreen::Config* config);
+
+        static KScreen::Output* findOutput(const QVariantMap &info);
 };
 
 #endif //KDED_SERIALIZER_H
