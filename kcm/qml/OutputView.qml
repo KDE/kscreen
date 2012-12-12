@@ -26,7 +26,9 @@ Flickable {
     signal outputsChanged();
     signal outputChanged();
 
-    //property Item root;
+    property int maxContentHeight;
+    property int maxContentWidth;
+
     property Item activeOutput;
     //property alias outputs: contentItem.children;
 
@@ -39,8 +41,7 @@ Flickable {
             console.log("Error creating output '" + output.name + "': " + component.errorString());
             return;
         }
-        var qmlOutput = component.createObject(root.contentItem, { "output": output });
-        qmlOutput.viewport = root.contentItem
+        var qmlOutput = component.createObject(root.contentItem, { "output": output, "viewport": root.contentItem });
         qmlOutput.z = root.children.length;
 
         qmlOutput.moved.connect(outputMoved);
@@ -344,6 +345,8 @@ Flickable {
         *relatively to these */
         var topMostOutput = null;
         var leftMostOutput = null;
+        var rightMostOutput = null;
+        var bottomMostOutput = null;
 
         for (var ii = 0; ii < root.contentItem.children.length; ii++) {
             var otherOutput = root.contentItem.children[ii];
@@ -359,6 +362,16 @@ Flickable {
             if ((topMostOutput == null) || (otherOutput.y < topMostOutput.y)) {
                 topMostOutput = otherOutput;
             }
+
+            if ((rightMostOutput == null) ||
+                (otherOutput.x + otherOutput.width > rightMostOutput.x + rightMostOutput.width)) {
+                rightMostOutput = otherOutput;
+            }
+
+            if ((bottomMostOutput == null) ||
+                (otherOutput.y + otherOutput.height > bottomMostOutput.y + bottomMostOutput.height)) {
+                bottomMostOutput = otherOutput;
+            }
         }
 
         if (leftMostOutput != null) {
@@ -367,6 +380,14 @@ Flickable {
 
         if (topMostOutput != null) {
             topMostOutput.outputY = 0;
+        }
+
+        if (rightMostOutput != null) {
+            root.contentWidth = rightMostOutput.x + rightMostOutput.width + 100;
+        }
+
+        if (bottomMostOutput != null) {
+            root.contentHeight = bottomMostOutput.y + bottomMostOutput.height + 100;
         }
 
         /* If the leftmost output is currently being moved, then reposition

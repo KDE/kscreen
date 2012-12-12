@@ -66,10 +66,10 @@ Item {
 
                 objectName: "outputView";
 
-                contentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
-                contentHeight: virtualScreen ? virtualScreen.maxSize.height : root.height;
-                contentX: (contentWidth - width) / 2;
-                contentY: (contentHeight - height) / 2;
+                maxContentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
+                maxContentHeight: virtualScreen ? virtualScreen.maxSize.height : root.height;
+                contentWidth: root.width;
+                contentHeight: root.height;
             }
         }
 
