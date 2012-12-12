@@ -99,6 +99,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
         info["mode"] = output->currentMode();
         info["primary"] = output->isPrimary();
         info["enabled"] = output->isEnabled();
+        info["rotation"] = output->rotation();
         QVariantMap pos;
         pos["x"] = output->pos().x();
         pos["y"] = output->pos().y();
@@ -142,6 +143,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         output->setCurrentMode(info["mode"].toInt());
         output->setPrimary(info["primary"].toBool());
         output->setEnabled(info["enabled"].toBool());
+        output->setRotation(static_cast<KScreen::Output::Rotation>(info["rotation"].toInt()));
 
         return output;
     }
