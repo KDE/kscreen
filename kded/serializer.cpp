@@ -101,14 +101,25 @@ bool Serializer::saveConfig(KScreen::Config* config)
 
         QVariantMap info;
         info["hash"] = output->edid()->hash();
-        info["mode"] = output->currentMode();
         info["primary"] = output->isPrimary();
         info["enabled"] = output->isEnabled();
         info["rotation"] = output->rotation();
+
         QVariantMap pos;
         pos["x"] = output->pos().x();
         pos["y"] = output->pos().y();
         info["pos"] = pos;
+
+        QVariantMap modeInfo;
+        KScreen::Mode *mode = output->mode(output->currentMode());
+        modeInfo["refresh"] = mode->refreshRate();
+
+        QVariantMap modeSize;
+        modeSize["width"] = mode->size().width();
+        modeSize["height"] = mode->size().height();
+        modeInfo["size"] = modeSize;
+
+        info["mode"] = modeInfo;
 
         outputList.append(info);
     }
@@ -145,11 +156,32 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         QVariantMap posInfo = info["pos"].toMap();
         QPoint point(posInfo["x"].toInt(), posInfo["y"].toInt());
         output->setPos(point);
-        output->setCurrentMode(info["mode"].toInt());
         output->setPrimary(info["primary"].toBool());
         output->setEnabled(info["enabled"].toBool());
         output->setRotation(static_cast<KScreen::Output::Rotation>(info["rotation"].toInt()));
 
+        QVariantMap modeInfo = info["mode"].toMap();
+        QVariantMap modeSize = modeInfo["size"].toMap();
+        QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
+
+        qDebug() << "Finding a mode with: ";
+        qDebug() << size;
+        qDebug() << modeInfo["refresh"].toString();
+
+        KScreen::ModeList modes = output->modes();
+        Q_FOREACH(KScreen::Mode* mode, modes) {
+            qDebug() << mode->size() << mode->refreshRate();
+            if (mode->size() != size) {
+                continue;
+            }
+            if (QString::number(mode->refreshRate()) != modeInfo["refresh"].toString()) {
+                continue;
+            }
+
+            qDebug() << "Found: " << mode->id() << " " << mode->name();
+            output->setCurrentMode(mode->id());
+            break;
+        }
         return output;
     }
 
