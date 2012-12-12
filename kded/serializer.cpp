@@ -73,12 +73,17 @@ KScreen::Config* Serializer::config(const QString& id)
     file.open(QIODevice::ReadOnly);
 
     QVariantList outputs = parser.parse(file.readAll()).toList();
+    Q_FOREACH(KScreen::Output* output, outputList) {
+        if (!output->isConnected() && output->isEnabled()) {
+            output->setEnabled(false);
+        }
+    }
+
     Q_FOREACH(const QVariant &info, outputs) {
         KScreen::Output* output = Serializer::findOutput(info.toMap());
         delete outputList.take(output->id());
         outputList.insert(output->id(), output);
     }
-
     config->setOutputs(outputList);
 
     return config;
