@@ -1,8 +1,6 @@
 set(kcm_displayconfiguration_SRCS
 	qmloutputcomponent.cpp
-	qmloutputview.cpp
 	qmloutput.cpp
-	qmlvirtualscreen.cpp
 	displayconfiguration.cpp
 	modesproxymodel.cpp
 	modeselectionwidget.cpp

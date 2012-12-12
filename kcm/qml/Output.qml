@@ -16,7 +16,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-import QtQuick 1.0
+import QtQuick 1.1
 import KScreen 1.0
 import org.kde.plasma.core 0.1
 
@@ -24,9 +24,9 @@ QMLOutput {
 
     id: root;
 
-    signal moved(bool snap);
-    signal clicked();
-    signal primaryTriggered();
+    signal moved(string self, bool snap);
+    signal clicked(string self);
+    signal primaryTriggered(string self);
 
     property Item viewport;
 
@@ -114,16 +114,16 @@ QMLOutput {
             dragActiveChangedAnimation.running = true;
         }
 
-        onClicked: root.clicked();
+        onClicked: root.clicked(root.output.name);
         onPositionChanged: {
             /* Don't snap the outputs when holding Ctrl or when
              * they are disabled */
-            root.moved(!(mouse.modifiers & Qt.ControlModifier) && output.enabled);
+            root.moved(root.output.name, !(mouse.modifiers & Qt.ControlModifier) && output.enabled);
         }
 
         /* When button is pressed, emit clicked() signal
         * which is cought by QMLOutputView */
-        onPressed: root.clicked();
+        onPressed: root.clicked(root.output.name);
 
         onRotationChanged: updateRootProperties();
 
@@ -204,7 +204,7 @@ QMLOutput {
                 parentItem: root;
                 rotationDirection: parent.rotationDirection;
 
-                onPrimaryTriggered: root.primaryTriggered();
+                onPrimaryTriggered: root.primaryTriggered(root.output.name);
             }
 
             Rectangle {

@@ -18,9 +18,7 @@
 
 
 #include "displayconfiguration.h"
-#include "qmloutputview.h"
 #include "qmloutput.h"
-#include "qmlvirtualscreen.h"
 #include "modeselectionwidget.h"
 
 #include <KPluginFactory>
@@ -46,9 +44,12 @@ K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<DisplayConfigura
 K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_displayconfiguration" /* kcm name */,
                                                "kcm_displayconfiguration" /* catalog name */))
 
+#define QML_PATH "kcm_displayconfiguration/qml/"
+
 using namespace KScreen;
 
 Q_DECLARE_METATYPE(KScreen::Output*)
+Q_DECLARE_METATYPE(KScreen::Screen*)
 
 DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args),
@@ -79,17 +80,17 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         QString importPath = KStandardDirs::installPath("lib") +
                 QDir::separator() + "kde4" + QDir::separator() + "imports";
 
-        qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
         qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
-        qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
         qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
         qmlRegisterInterface<KScreen::Output*>("Output");
         qmlRegisterInterface<KScreen::Mode*>("OutputMode");
         qmlRegisterInterface<KScreen::Edid*>("EDID");
+        qmlRegisterInterface<KScreen::Screen*>("Screen");
         qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
         qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
         qmlRegisterType<KScreen::Edid>("KScreen", 1, 0, "EDID");
+        qmlRegisterType<KScreen::Screen>("KScreen", 1, 0, "Screen");
 
         m_declarativeView = new QDeclarativeView(this);
         m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
@@ -145,9 +146,10 @@ void DisplayConfiguration::load()
         return;
     }
 
+    rootObj->setProperty("virtualScreen", QVariant::fromValue(m_config->screen()));
     connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
 
-    QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>(QLatin1String("outputView"));
+    QDeclarativeItem *outputView = rootObj->findChild<QDeclarativeItem*>(QLatin1String("outputView"));
     if (!outputView) {
         kWarning() << "Failed to obtain output view";
         return;
@@ -155,10 +157,12 @@ void DisplayConfiguration::load()
 
     const QList<KScreen::Output*> outputs = m_config->outputs().values();
     Q_FOREACH (KScreen::Output *output, outputs) {
-        outputView->addOutput(m_declarativeView->engine(), output);
+        QMetaObject::invokeMethod(outputView, "addOutput", Q_ARG(QVariant, QVariant::fromValue(output)));
+        //outputView->addOutput(m_declarativeView->engine(), output);
     }
+    QMetaObject::invokeMethod(outputView, "reorderOutputs", Q_ARG(QVariant, true));
 
-    connect(outputView, SIGNAL(changed()), SLOT(changed()));
+    connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
 }
 
 void DisplayConfiguration::save()

@@ -70,8 +70,6 @@ void QMLOutput::setOutput(KScreen::Output* output)
         item->appendRow(modeItem);
     }
 
-    kDebug() << m_output->modes();
-
     connect(output, SIGNAL(clonesChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(currentModeChanged()), SIGNAL(currentOutputSizeChanged()));
     connect(output, SIGNAL(currentModeChanged()), SIGNAL(changed()));
@@ -143,6 +141,31 @@ int QMLOutput::currentOutputWidth() const
 
     return mode->size().width();
 }
+
+int QMLOutput::outputX() const
+{
+    return m_output->pos().x();
+}
+
+void QMLOutput::setOutputX(int x)
+{
+    QPoint pos = m_output->pos();
+    pos.setX(x);
+    m_output->setPos(pos);
+}
+
+int QMLOutput::outputY() const
+{
+    return m_output->pos().y();
+}
+
+void QMLOutput::setOutputY(int y)
+{
+    QPoint pos = m_output->pos();
+    pos.setY(y);
+    m_output->setPos(pos);
+}
+
 
 float QMLOutput::displayScale() const
 {
