@@ -67,9 +67,7 @@ Item {
                 objectName: "outputView";
 
                 maxContentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
-                maxContentHeight: virtualScreen ? virtualScreen.maxSize.height : root.height;
-                contentWidth: root.width;
-                contentHeight: root.height;
+                maxContentHeight: virtualScreen ? virtualScreen.maxSize.width : root.width;
             }
         }
 

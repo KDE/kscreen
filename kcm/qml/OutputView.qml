@@ -25,15 +25,112 @@ Flickable {
 
     signal outputsChanged();
     signal outputChanged();
+    signal moveMouse(int x, int y);
 
-    property int maxContentHeight;
     property int maxContentWidth;
+    property int maxContentHeight;
 
     property Item activeOutput;
+    property variant outputsRect: Qt.rect(0, 0, root.width, root.height);
     //property alias outputs: contentItem.children;
+
+    property int _autoScrollStep: 0;
+
+    onOutputsRectChanged: {
+        var cX = contentX;
+        var cY = contentY;
+
+        contentWidth = outputsRect.x + outputsRect.width;
+        contentHeight = outputsRect.y + outputsRect.height;
+        contentX = cX;
+        contentY = cY;
+    }
 
     onWidthChanged: reorderOutputs(false);
     onHeightChanged: reorderOutputs(false);
+
+    Timer {
+        id: autoScrollTimer;
+
+        interval: 50;
+        running: false;
+        repeat: true;
+        onTriggered: doAutoScroll();
+    }
+
+    Timer {
+        id: autoResizeTimer;
+
+        interval: 50;
+        running: (activeOutput && activeOutput.isDragged) ? true : false;
+        repeat: true;
+        onTriggered: doAutoResize();
+    }
+
+    function doAutoResize() {
+        var rightMost = null, bottomMost = null;
+        for (var ii = 0; ii < root.contentItem.children.length; ii++) {
+            var qmlOutput = root.contentItem.children[ii];
+            if (!qmlOutput.output.conntected) {
+                continue;
+            }
+
+            if ((rightMost == null) || (qmlOutput.x + qmlOutput.width > rightMost.x + rightMost.width)) {
+                rightMost = qmlOutput;
+            }
+
+            if ((bottomMost == null) || (qmlOutput.y + qmlOutput.height > bottomMost.y + bottomMost.height)) {
+                bottomMost = qmlOutput;
+            }
+        }
+
+        if ((rightMost != null) && (bottoMost != null)) {
+            outputsRect = Qt.rect(0, 0, rightMost.x + rightMost.width, bottomMost.y + bottomMost.height);
+        }
+    }
+
+    function doAutoScroll() {
+        var verticalPos = root.contentY;
+        var horizontalPos = root.contentX;
+
+        var mouseX = _cursor.x;
+        var mouseY = _cursor.y
+
+        if (root._autoScrollStep < Math.max(root.width, root.height)) {
+            root._autoScrollStep++;
+        }
+
+        if (activeOutput.isDragged) {
+            if (mouseX < 50) {
+                /* Apparently content{X,Y} can be set outside the boundaries of the contentItem,
+                * so limit it to <0, root.contentWidth> and <0, root.contentHeight> */
+                root.contentX = Math.max(0, horizontalPos - root._autoScrollStep);
+                //activeOutput.x = Math.max(0, activeOutput.x - root._autoScrollStep);
+                activeOutput.x = root.contentX + Math.max(0, mouseX) - (activeOutput.width / 2);
+            } else if (mouseX > root.width - 50) {
+                root.contentX = Math.min(root.contentWidth, horizontalPos + root._autoScrollStep);
+                //activeOutput.x = Math.min(root.contentWidth - activeOutput.width, activeOutput.x + root._autoScrollStep);
+                activeOutput.x = root.contentX + Math.min(root.width, mouseX) - (activeOutput.width / 2);
+            }
+
+            if (mouseY < 50) {
+                root.contentY = Math.max(0, verticalPos - root._autoScrollStep);
+                //activeOutput.y = Math.max(0, activeOutput.y - root._autoScrollStep);
+                activeOutput.y = root.contentY + Math.max(0, mouseY) - (activeOutput.height / 2);
+            } else if (mouseY > root.height - 50) {
+                root.contentY = Math.min(root.contentHeight, verticalPos + root._autoScrollStep);
+                //activeOutput.y = Math.max(root.contentHeight - activeOutput.height, activeOutput.y + root._autoScrollStep);
+                activeOutput.y = root.contentY + Math.min(root.height, mouseY) - (activeOutput.height / 2);
+            }
+        }
+
+        if (!activeOutput.isDragged ||
+            (verticalPos == root.contentY) && (horizontalPos == root.contentX)) {
+
+            autoScrollTimer.stop();
+            root._autoScrollStep = 0;
+        }
+    }
 
     function addOutput(output) {
         var component = Qt.createComponent("Output.qml");
@@ -41,7 +138,7 @@ Flickable {
             console.log("Error creating output '" + output.name + "': " + component.errorString());
             return;
         }
-        var qmlOutput = component.createObject(root.contentItem, { "output": output, "viewport": root.contentItem });
+        var qmlOutput = component.createObject(root.contentItem, { "output": output, "outputView": root });
         qmlOutput.z = root.children.length;
 
         qmlOutput.moved.connect(outputMoved);
@@ -105,6 +202,8 @@ Flickable {
             positionedOutput.x = offsetX + (positionedOutput.output.pos.x * positionedOutput.displayScale);
             positionedOutput.y = offsetY + (positionedOutput.output.pos.y * positionedOutput.displayScale);
         }
+
+        root.outputsRect = Qt.rect(rectX, rectY, rectWidth, rectHeight);
     }
 
     function getPrimaryOutput() {
@@ -382,13 +481,21 @@ Flickable {
             topMostOutput.outputY = 0;
         }
 
-        if (rightMostOutput != null) {
-            root.contentWidth = rightMostOutput.x + rightMostOutput.width + 100;
+        if ((output.x < root.contentX + 50) || /* left */
+            (output.x > root.contentX + root.width - 50) || /* right */
+            (output.y < root.contentY + 50) || /* top */
+            (output.y > root.contentY + root.height - 50)) { /* bottom */
+
+            if (!autoScrollTimer.running) {
+                root._autoScrollStep = 0;
+                autoScrollTimer.start();
+            }
         }
 
-        if (bottomMostOutput != null) {
-            root.contentHeight = bottomMostOutput.y + bottomMostOutput.height + 100;
-        }
+        root.outputsRect = Qt.rect(leftMostOutput.x,
+                                   topMostOutput.y,
+                                   (rightMostOutput.x + rightMostOutput.width) - leftMostOutput.x,
+                                   (bottomMostOutput.y + bottomMostOutput.height) - topMostOutput.y);
 
         /* If the leftmost output is currently being moved, then reposition
         * all output relatively to it, otherwise reposition the current output

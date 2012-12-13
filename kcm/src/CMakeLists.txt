@@ -1,4 +1,5 @@
 set(kcm_displayconfiguration_SRCS
+        qmlcursor.cpp
 	qmloutputcomponent.cpp
 	qmloutput.cpp
 	displayconfiguration.cpp

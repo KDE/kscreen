@@ -16,46 +16,37 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef DisplayConfiguration_H
-#define DisplayConfiguration_H
+#ifndef QMLCURSOR_H
+#define QMLCURSOR_H
 
-#include <KCModule>
-#include <QDeclarativeListProperty>
+#include <QObject>
+#include <QMetaType>
 
 class QDeclarativeView;
-class QTimer;
-class ControlPanel;
 
-namespace KScreen {
-class Config;
-}
-
-class DisplayConfiguration : public KCModule
+/**
+ * Wrapper around QCursor that allows to expose current cursor position
+ * in QML without using MouseArea
+ */
+class QMLCursor : public QObject
 {
     Q_OBJECT
-public:
-    explicit DisplayConfiguration (QWidget* parent = 0, const QVariantList& args = QVariantList());
-    virtual ~DisplayConfiguration();
 
-public Q_SLOTS:
-    virtual void load();
-    virtual void save();
+    Q_PROPERTY(int x READ x WRITE setX)
+    Q_PROPERTY(int y READ y WRITE setY)
 
-    static bool x11EventFilter(void* message, long int* result);
+  public:
+    QMLCursor(QDeclarativeView *parent = 0);
+    virtual ~QMLCursor();
 
-private Q_SLOTS:
-    void identifyOutputs();
-    void clearOutputIdentifiers();
-    void moveMouse(int dX, int dY);
+    int x() const;
+    void setX(int x);
 
-private:
-    KScreen::Config *m_config;
+    int y() const;
+    void setY(int y);
 
-    QDeclarativeView *m_declarativeView;
-    ControlPanel *m_controlPanel;
-
-    QList<QWidget*> m_outputIdentifiers;
-    QTimer *m_outputTimer;
 };
 
-#endif // DisplayConfiguration_H
+Q_DECLARE_METATYPE(QMLCursor*)
+
+#endif // QMLCURSOR_H

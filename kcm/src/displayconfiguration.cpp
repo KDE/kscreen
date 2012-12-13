@@ -19,6 +19,7 @@
 
 #include "displayconfiguration.h"
 #include "qmloutput.h"
+#include "qmlcursor.h"
 #include "modeselectionwidget.h"
 
 #include <KPluginFactory>
@@ -81,7 +82,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
                 QDir::separator() + "kde4" + QDir::separator() + "imports";
 
         qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
-        qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
+        qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");\
 
         qmlRegisterInterface<KScreen::Output*>("Output");
         qmlRegisterInterface<KScreen::Mode*>("OutputMode");
@@ -99,6 +100,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         m_declarativeView->setStyleSheet("background: transparent");
         m_declarativeView->setMinimumHeight(440);
         mainLayout->addWidget(m_declarativeView, 0, 0);
+
         /* Declarative view will be initialized from load() */
     } else {
         QLabel* label = new QLabel(this);
@@ -140,6 +142,9 @@ void DisplayConfiguration::load()
             "data", QLatin1String(QML_PATH "main.qml"));
     m_declarativeView->setSource(qmlPath);
 
+    QMLCursor *cursor = new QMLCursor(m_declarativeView);
+    m_declarativeView->rootContext()->setContextProperty(QLatin1String("_cursor"), cursor);
+
     QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
     if (!rootObj) {
         kWarning() << "Failed to obtain root item";
@@ -163,6 +168,7 @@ void DisplayConfiguration::load()
     QMetaObject::invokeMethod(outputView, "reorderOutputs", Q_ARG(QVariant, true));
 
     connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
+    connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
 }
 
 void DisplayConfiguration::save()
@@ -206,7 +212,6 @@ void DisplayConfiguration::clearOutputIdentifiers()
     qDeleteAll(m_outputIdentifiers);
     m_outputIdentifiers.clear();
 }
-
 
 void DisplayConfiguration::identifyOutputs()
 {
@@ -253,3 +258,11 @@ void DisplayConfiguration::identifyOutputs()
     m_outputTimer->start(2500);
 }
 
+void DisplayConfiguration::moveMouse(int dX, int dY)
+{
+    QPoint pos = QCursor::pos();
+    pos.rx() += dX;
+    pos.ry() += dY;
+
+    QCursor::setPos(pos);
+}

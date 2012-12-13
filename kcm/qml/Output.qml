@@ -28,7 +28,8 @@ QMLOutput {
     signal clicked(string self);
     signal primaryTriggered(string self);
 
-    property Item viewport;
+    property Item outputView;
+    property bool isDragged: monitorMouseArea.drag.active;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
@@ -94,13 +95,14 @@ QMLOutput {
             }
         }
 
+        preventStealing: true;
         drag {
             target: root;
             axis: Drag.XandYAxis;
             minimumX: 0;
-            maximumX: viewport.width - root.width;
+            maximumX: outputView.maxContentWidth - root.width;
             minimumY: 0;
-            maximumY: viewport.height - root.height;
+            maximumY: outputView.maxContentHeight - root.height;
             filterChildren: false;
         }
 
