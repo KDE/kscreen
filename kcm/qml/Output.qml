@@ -121,6 +121,16 @@ QMLOutput {
             /* Don't snap the outputs when holding Ctrl or when
              * they are disabled */
             root.moved(root.output.name, !(mouse.modifiers & Qt.ControlModifier) && output.enabled);
+
+            if (x < 0) {
+                x = 0;
+            } else if (x > outputView.maxContentWidth - width) {
+                x = outputView.maxContentWidth - width;
+            } else if (y < 0) {
+                y = 0;
+            } else if (y > outputView.maxContentHeight - height) {
+                y = outputView.maxContentHeight - height;
+            }
         }
 
         /* When button is pressed, emit clicked() signal

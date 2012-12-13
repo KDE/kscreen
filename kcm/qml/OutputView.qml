@@ -31,20 +31,12 @@ Flickable {
     property int maxContentHeight;
 
     property Item activeOutput;
-    property variant outputsRect: Qt.rect(0, 0, root.width, root.height);
-    //property alias outputs: contentItem.children;
+//     //property alias outputs: contentItem.children;
 
     property int _autoScrollStep: 0;
 
-    onOutputsRectChanged: {
-        var cX = contentX;
-        var cY = contentY;
-
-        contentWidth = outputsRect.x + outputsRect.width;
-        contentHeight = outputsRect.y + outputsRect.height;
-        contentX = cX;
-        contentY = cY;
-    }
+    contentWidth: width;
+    contentHeight: height;
 
     onWidthChanged: reorderOutputs(false);
     onHeightChanged: reorderOutputs(false);
@@ -62,16 +54,18 @@ Flickable {
         id: autoResizeTimer;
 
         interval: 50;
-        running: (activeOutput && activeOutput.isDragged) ? true : false;
+        running: true;
         repeat: true;
         onTriggered: doAutoResize();
     }
 
     function doAutoResize() {
+        var cX = root.contentX, cY = root.contentY;
+        var cW = root.contentWidth, cH = root.contentHeight;
         var rightMost = null, bottomMost = null;
         for (var ii = 0; ii < root.contentItem.children.length; ii++) {
             var qmlOutput = root.contentItem.children[ii];
-            if (!qmlOutput.output.conntected) {
+            if (qmlOutput.output.conntected == false) {
                 continue;
             }
 
@@ -84,8 +78,11 @@ Flickable {
             }
         }
 
-        if ((rightMost != null) && (bottoMost != null)) {
-            outputsRect = Qt.rect(0, 0, rightMost.x + rightMost.width, bottomMost.y + bottomMost.height);
+        if ((rightMost != null) && (bottomMost != null)) {
+            var ncW = rightMost.x + rightMost.width;
+            var ncH = bottomMost.y + bottomMost.height;
+
+            root.resizeContent(ncW, ncH, Qt.point(0, 0));
         }
     }
 
@@ -105,22 +102,18 @@ Flickable {
                 /* Apparently content{X,Y} can be set outside the boundaries of the contentItem,
                 * so limit it to <0, root.contentWidth> and <0, root.contentHeight> */
                 root.contentX = Math.max(0, horizontalPos - root._autoScrollStep);
-                //activeOutput.x = Math.max(0, activeOutput.x - root._autoScrollStep);
-                activeOutput.x = root.contentX + Math.max(0, mouseX) - (activeOutput.width / 2);
+                activeOutput.x = root.contentX + Math.max(0, mouseX) - activeOutput.width;
             } else if (mouseX > root.width - 50) {
                 root.contentX = Math.min(root.contentWidth, horizontalPos + root._autoScrollStep);
-                //activeOutput.x = Math.min(root.contentWidth - activeOutput.width, activeOutput.x + root._autoScrollStep);
-                activeOutput.x = root.contentX + Math.min(root.width, mouseX) - (activeOutput.width / 2);
+                activeOutput.x = root.contentX + Math.min(root.width, mouseX) - activeOutput.width;
             }
 
             if (mouseY < 50) {
                 root.contentY = Math.max(0, verticalPos - root._autoScrollStep);
-                //activeOutput.y = Math.max(0, activeOutput.y - root._autoScrollStep);
-                activeOutput.y = root.contentY + Math.max(0, mouseY) - (activeOutput.height / 2);
+                activeOutput.y = root.contentY + Math.max(0, mouseY) - activeOutput.height;
             } else if (mouseY > root.height - 50) {
                 root.contentY = Math.min(root.contentHeight, verticalPos + root._autoScrollStep);
-                //activeOutput.y = Math.max(root.contentHeight - activeOutput.height, activeOutput.y + root._autoScrollStep);
-                activeOutput.y = root.contentY + Math.min(root.height, mouseY) - (activeOutput.height / 2);
+                activeOutput.y = root.contentY + Math.min(root.height, mouseY) - activeOutput.height;
             }
         }
 
@@ -130,6 +123,8 @@ Flickable {
             autoScrollTimer.stop();
             root._autoScrollStep = 0;
         }
+
+        doAutoResize();
     }
 
     function addOutput(output) {
@@ -202,8 +197,6 @@ Flickable {
             positionedOutput.x = offsetX + (positionedOutput.output.pos.x * positionedOutput.displayScale);
             positionedOutput.y = offsetY + (positionedOutput.output.pos.y * positionedOutput.displayScale);
         }
-
-        root.outputsRect = Qt.rect(rectX, rectY, rectWidth, rectHeight);
     }
 
     function getPrimaryOutput() {
@@ -492,14 +485,9 @@ Flickable {
             }
         }
 
-        root.outputsRect = Qt.rect(leftMostOutput.x,
-                                   topMostOutput.y,
-                                   (rightMostOutput.x + rightMostOutput.width) - leftMostOutput.x,
-                                   (bottomMostOutput.y + bottomMostOutput.height) - topMostOutput.y);
-
         /* If the leftmost output is currently being moved, then reposition
-        * all output relatively to it, otherwise reposition the current output
-        * relatively to the leftmost output */
+         * all output relatively to it, otherwise reposition the current output
+         * relatively to the leftmost output */
         if (output == leftMostOutput) {
             for (var ii = 0; ii < root.contentItem.children.length; ii++) {
                 var otherOutput = root.contentItem.children[ii];

@@ -75,11 +75,9 @@ Item {
 
             id: horizontalScrollbar;
 
-            anchors {
-                right: verticalScrollbar.left;
-                left: outputViewFocusScope.left;
-                bottom: outputViewFocusScope.bottom;
-            }
+            /* The scrollbars seem to have broken anchoring? */
+            y: background.height - height;
+            width: background.width - verticalScrollbar.width;
 
             orientation: Qt.Horizontal;
             flickableItem: outputView;
@@ -89,11 +87,8 @@ Item {
 
             id: verticalScrollbar;
 
-            anchors {
-                right: outputViewFocusScope.right;
-                top: outputViewFocusScope.top;
-                bottom: horizontalScrollbar.top;
-            }
+            x: background.width - width;
+            height: background.height - horizontalScrollbar.height;
 
             orientation: Qt.Vertical;
             flickableItem: outputView;
