@@ -16,45 +16,51 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#include "generator.h"
+#include "../kded/generator.h"
+
+#include <QtTest>
+#include <QtCore/QObject>
 
 #include <kscreen/config.h>
 
-KScreen::Config* Generator::idealConfig()
+using namespace KScreen;
+
+class testScreenConfig : public QObject
 {
-    KScreen::Config* config = KScreen::Config::current();
-    KScreen::OutputList outputs = config->outputs();
-    KScreen::OutputList connectedOutputs;
+    Q_OBJECT
 
-    Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!output->isConnected()) {
-            continue;
-        }
+private Q_SLOTS:
+    void initTestCase();
+    void singleOutput();
+    void laptopLidOpenAndExternal();
+};
 
-        connectedOutputs.insert(output->id(), output);
-    }
-
-    if (connectedOutputs.count() == 1) {
-        KScreen::Output* output = connectedOutputs.take(connectedOutputs.keys().first());
-        output->setCurrentMode(output->preferredMode());
-
-        return config;
-    }
-
-    return new KScreen::Config();
+void testScreenConfig::initTestCase()
+{
+    setenv("KSCREEN_BACKEND", "Fake", 1);
 }
 
-KScreen::Config* Generator::laptop()
+void testScreenConfig::singleOutput()
 {
-    return new KScreen::Config();
+    //json file for the fake backend
+    QByteArray path(TEST_DATA);
+    path.append("/singleOutput.json");
+    setenv("TEST_DATA", path, 1);
+
+    Output* output = Generator::idealConfig()->outputs().value(1);
+
+    QCOMPARE(output->currentMode(), 3);
+
 }
 
-KScreen::Config* Generator::dockedLaptop()
+void testScreenConfig::laptopLidOpenAndExternal()
 {
-    return new KScreen::Config();
+    QByteArray path(TEST_DATA);
+    path.append("/laptopLidOpenAndExternal.json");
+    setenv("TEST_DATA", path, 1);
+
 }
 
-KScreen::Config* Generator::desktop()
-{
-    return new KScreen::Config();
-}
+QTEST_MAIN(testScreenConfig)
+
+#include "testscreenconfig.moc"
