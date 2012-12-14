@@ -49,6 +49,7 @@ Item {
         id: background;
 
         anchors.fill: parent;
+        focus: true;
 
         color: palette.base;
 
@@ -57,12 +58,14 @@ Item {
             id: outputViewFocusScope;
 
             anchors.fill: parent;
+            focus: true;
 
             OutputView {
 
                 id: outputView;
 
                 anchors.fill: parent;
+                clip: true;
 
                 objectName: "outputView";
 

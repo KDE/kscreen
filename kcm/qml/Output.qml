@@ -24,9 +24,9 @@ QMLOutput {
 
     id: root;
 
-    signal moved(string self, bool snap);
     signal clicked(string self);
     signal primaryTriggered(string self);
+    signal moved(string self);
 
     property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
@@ -38,13 +38,13 @@ QMLOutput {
     opacity: output.connected ? 1.0 : 0.0;
 
     /* Transormation of an item (rotation of the MouseArea) is only visual.
-    * The coordinates and dimensions are still the same (when you rotated
-    * 100x500 rectangle by 90 deg, it will still be 100x500, although
-    * visually it will be 500x100).
-    *
-    * This method calculates the real-visual coordinates and dimentions of
-    * the MouseArea and updates root item to match them. This makes snapping
-    * works correctly ragrdless on visual rotation of the output */
+     * The coordinates and dimensions are still the same (when you rotated
+     * 100x500 rectangle by 90 deg, it will still be 100x500, although
+     * visually it will be 500x100).
+     *
+     * This method calculates the real-visual coordinates and dimentions of
+     * the MouseArea and updates root item to match them. This makes snapping
+     * works correctly ragrdless on visual rotation of the output */
     function updateRootProperties() {
         var transformedX, transformedY, transformedWidth, transformedHeight;
 
@@ -118,9 +118,8 @@ QMLOutput {
 
         onClicked: root.clicked(root.output.name);
         onPositionChanged: {
-            /* Don't snap the outputs when holding Ctrl or when
-             * they are disabled */
-            root.moved(root.output.name, !(mouse.modifiers & Qt.ControlModifier) && output.enabled);
+
+            root.moved(root.output.name);
 
             if (x < 0) {
                 x = 0;
@@ -134,7 +133,7 @@ QMLOutput {
         }
 
         /* When button is pressed, emit clicked() signal
-        * which is cought by QMLOutputView */
+         * which is cought by QMLOutputView */
         onPressed: root.clicked(root.output.name);
 
         onRotationChanged: updateRootProperties();

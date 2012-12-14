@@ -6,6 +6,8 @@ set(QML_FILES
 	Output.qml
 	OutputIdentifier.qml
 	OutputControls.qml
+
+	OutputView.js
 )
 
 install(FILES ${QML_FILES} DESTINATION ${DATA_INSTALL_DIR}/kcm_displayconfiguration/qml)
