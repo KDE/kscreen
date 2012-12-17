@@ -59,6 +59,30 @@ KScreen::Config* Generator::idealConfig()
         return Generator::laptop();
     }
 
+    //Check if the prefered mode has the same size in all
+    bool sameSize = false;
+    QSize last;
+    Q_FOREACH(KScreen::Output* output, connectedOutputs) {
+        if (last.isEmpty()) {
+            last = output->mode(output->preferredMode())->size();
+            continue;
+        }
+        if (last != output->mode(output->preferredMode())->size()) {
+            break;
+        }
+        sameSize = true;
+    }
+
+    if (sameSize) {
+        Q_FOREACH(KScreen::Output* output, connectedOutputs) {
+            output->setCurrentMode(output->preferredMode());
+            output->setEnabled(true);
+            output->setPos(QPoint(0,0));
+        }
+
+        return config;
+    }
+
     qDebug() << "No ideal config found";
     return new KScreen::Config();
 }

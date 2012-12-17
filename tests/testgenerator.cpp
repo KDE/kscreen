@@ -36,6 +36,7 @@ private Q_SLOTS:
     void laptopLidClosedAndExternal();
     void laptopDockedLidOpenAndExternal();
     void laptopDockedLidClosedAndExternal();
+    void workstationWithTwoOutputsSameSize();
 };
 
 void testScreenConfig::initTestCase()
@@ -139,6 +140,23 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     QCOMPARE(external->pos(), QPoint(0, 0));
 }
 
+void testScreenConfig::workstationWithTwoOutputsSameSize()
+{
+    QByteArray path(TEST_DATA);
+    path.append("/workstaionTwoExternalSameSize.json");
+    setenv("TEST_DATA", path, 1);
+
+    Generator::forceLaptop = false;
+
+    Output* external1 = Generator::idealConfig()->outputs().value(1);
+    Output* external2 = Generator::idealConfig()->outputs().value(2);
+
+    QCOMPARE(external1->currentMode(), 3);
+    QCOMPARE(external1->isEnabled(), true);
+
+    QCOMPARE(external2->currentMode(), 3);
+    QCOMPARE(external2->isEnabled(), true);
+}
 QTEST_MAIN(testScreenConfig)
 
 #include "testscreenconfig.moc"
