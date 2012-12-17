@@ -59,7 +59,7 @@ void testScreenConfig::singleOutput()
 void testScreenConfig::laptopLidOpenAndExternal()
 {
     QByteArray path(TEST_DATA);
-    path.append("/laptopLidOpenAndExternal.json");
+    path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
     Generator::forceLaptop = true;
@@ -80,7 +80,7 @@ void testScreenConfig::laptopLidOpenAndExternal()
 void testScreenConfig::laptopLidClosedAndExternal()
 {
     QByteArray path(TEST_DATA);
-    path.append("/laptopLidOpenAndExternal.json");
+    path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
     Generator::forceLaptop = true;
@@ -99,7 +99,7 @@ void testScreenConfig::laptopLidClosedAndExternal()
 void testScreenConfig::laptopDockedLidOpenAndExternal()
 {
     QByteArray path(TEST_DATA);
-    path.append("/laptopLidOpenAndExternal.json");
+    path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
     Generator::forceLaptop = true;
@@ -122,7 +122,7 @@ void testScreenConfig::laptopDockedLidOpenAndExternal()
 void testScreenConfig::laptopDockedLidClosedAndExternal()
 {
     QByteArray path(TEST_DATA);
-    path.append("/laptopLidOpenAndExternal.json");
+    path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
     Generator::forceLaptop = true;
