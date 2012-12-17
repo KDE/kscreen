@@ -18,7 +18,15 @@
 
 #include "generator.h"
 
+#include <QtCore/QDebug>
+
+#include <QDBusReply>
+#include <QDBusMessage>
+#include <QDBusConnection>
+
 #include <kscreen/config.h>
+
+bool Generator::forceLaptop = false;
 
 KScreen::Config* Generator::idealConfig()
 {
@@ -34,6 +42,7 @@ KScreen::Config* Generator::idealConfig()
         connectedOutputs.insert(output->id(), output);
     }
 
+    //If we only have one screen, just select the preferred mode
     if (connectedOutputs.count() == 1) {
         KScreen::Output* output = connectedOutputs.take(connectedOutputs.keys().first());
         output->setCurrentMode(output->preferredMode());
@@ -41,12 +50,80 @@ KScreen::Config* Generator::idealConfig()
         return config;
     }
 
+    //If we are a laptop, go into laptop mode
+    if (Generator::isLaptop()) {
+        return Generator::laptop();
+    }
+
     return new KScreen::Config();
+}
+
+bool Generator::isLaptop()
+{
+    if (Generator::forceLaptop) {
+        return true;
+    }
+
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.UPower",
+                                   "/org/freedesktop/UPower",
+                                   "org.freedesktop.DBus.Properties",
+                                   "Get");
+    QVariantList args;
+    args << "org.freedesktop.UPower";
+    args << "LidIsPresent";
+    msg.setArguments(args);
+
+    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value();
 }
 
 KScreen::Config* Generator::laptop()
 {
-    return new KScreen::Config();
+    KScreen::Config* config = KScreen::Config::current();
+    KScreen::OutputList outputs = config->outputs();
+
+    KScreen::Output* embedded;
+    KScreen::Output* external;
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        if (!output->isConnected()) {
+            continue;
+        }
+        if (Generator::isEmbedded(output->name())) {
+            embedded = output;
+            continue;
+        }
+        external = output;
+    }
+
+    embedded->setPos(QPoint(0,0));
+    embedded->setCurrentMode(embedded->preferredMode());
+    embedded->setPrimary(true);
+    embedded->setEnabled(true);
+
+    QSize size = embedded->mode(embedded->preferredMode())->size();
+    external->setPos(QPoint(size.width(), 0));
+    external->setEnabled(true);
+    external->setCurrentMode(external->preferredMode());
+    external->setPrimary(false);
+
+    return config;
+}
+
+bool Generator::isEmbedded(const QString& name)
+{
+    QStringList embedded;
+    embedded << "LVDS";
+    embedded << "IDP";
+    embedded << "EDP";
+
+    Q_FOREACH(const QString &pre, embedded) {
+        if (name.toUpper().startsWith(pre)) {
+            qDebug() << "This is embedded: " << name;
+            return true;
+        }
+    }
+
+    return false;
 }
 
 KScreen::Config* Generator::dockedLaptop()

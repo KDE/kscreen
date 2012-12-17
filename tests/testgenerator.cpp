@@ -59,6 +59,19 @@ void testScreenConfig::laptopLidOpenAndExternal()
     path.append("/laptopLidOpenAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
+    Generator::forceLaptop = true;
+    Output* laptop = Generator::idealConfig()->outputs().value(1);
+    Output* external = Generator::idealConfig()->outputs().value(2);
+
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+
+    QCOMPARE(external->currentMode(), 4);
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(1280, 0));
 }
 
 QTEST_MAIN(testScreenConfig)

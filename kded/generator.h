@@ -19,6 +19,8 @@
 #ifndef KDED_GENERATOR_H
 #define KDED_GENERATOR_H
 
+#include <QtCore/QString>
+
 namespace KScreen
 {
     class Config;
@@ -26,12 +28,16 @@ namespace KScreen
 class Generator
 {
     public:
+        static bool forceLaptop;
         static KScreen::Config* idealConfig();
 
     private:
         static KScreen::Config* laptop();
         static KScreen::Config* dockedLaptop();
         static KScreen::Config* desktop();
+
+        static bool isLaptop();
+        static bool isEmbedded(const QString &name);
 };
 
 #endif //KDED_GENERATOR_H
