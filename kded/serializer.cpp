@@ -170,7 +170,6 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
 
         KScreen::ModeList modes = output->modes();
         Q_FOREACH(KScreen::Mode* mode, modes) {
-            qDebug() << mode->size() << mode->refreshRate();
             if (mode->size() != size) {
                 continue;
             }
