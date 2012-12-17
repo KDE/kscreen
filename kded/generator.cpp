@@ -27,6 +27,7 @@
 #include <kscreen/config.h>
 
 bool Generator::forceLaptop = false;
+bool Generator::forceLidClosed = false;
 
 KScreen::Config* Generator::idealConfig()
 {
@@ -95,6 +96,15 @@ KScreen::Config* Generator::laptop()
         external = output;
     }
 
+    if (Generator::isLidClosed()) {
+        embedded->setEnabled(false);
+        external->setEnabled(true);
+        external->setCurrentMode(external->preferredMode());
+        external->setPrimary(true);
+
+        return config;
+    }
+
     embedded->setPos(QPoint(0,0));
     embedded->setCurrentMode(embedded->preferredMode());
     embedded->setPrimary(true);
@@ -124,6 +134,25 @@ bool Generator::isEmbedded(const QString& name)
     }
 
     return false;
+}
+
+bool Generator::isLidClosed()
+{
+    if (Generator::forceLidClosed) {
+        return true;
+    }
+
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.UPower",
+                                                      "/org/freedesktop/UPower",
+                                                      "org.freedesktop.DBus.Properties",
+                                                      "Get");
+    QVariantList args;
+    args << "org.freedesktop.UPower";
+    args << "LidIsClosed";
+    msg.setArguments(args);
+
+    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value();
 }
 
 KScreen::Config* Generator::dockedLaptop()

@@ -33,6 +33,7 @@ private Q_SLOTS:
     void initTestCase();
     void singleOutput();
     void laptopLidOpenAndExternal();
+    void laptopLidClosedAndExternal();
 };
 
 void testScreenConfig::initTestCase()
@@ -72,6 +73,25 @@ void testScreenConfig::laptopLidOpenAndExternal()
     QCOMPARE(external->isPrimary(), false);
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(1280, 0));
+}
+
+void testScreenConfig::laptopLidClosedAndExternal()
+{
+    QByteArray path(TEST_DATA);
+    path.append("/laptopLidOpenAndExternal.json");
+    setenv("TEST_DATA", path, 1);
+
+    Generator::forceLaptop = true;
+    Generator::forceLidClosed = true;
+    Output* laptop = Generator::idealConfig()->outputs().value(1);
+    Output* external = Generator::idealConfig()->outputs().value(2);
+
+    QCOMPARE(laptop->isEnabled(), false);
+
+    QCOMPARE(external->currentMode(), 4);
+    QCOMPARE(external->isPrimary(), true);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
 }
 
 QTEST_MAIN(testScreenConfig)
