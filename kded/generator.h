@@ -30,6 +30,7 @@ class Generator
     public:
         static bool forceLaptop;
         static bool forceLidClosed;
+        static bool forceDocked;
         static KScreen::Config* idealConfig();
 
     private:
@@ -40,6 +41,7 @@ class Generator
         static bool isLaptop();
         static bool isEmbedded(const QString &name);
         static bool isLidClosed();
+        static bool isDocked();
 };
 
 #endif //KDED_GENERATOR_H

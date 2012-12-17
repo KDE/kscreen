@@ -28,6 +28,7 @@
 
 bool Generator::forceLaptop = false;
 bool Generator::forceLidClosed = false;
+bool Generator::forceDocked = false;
 
 KScreen::Config* Generator::idealConfig()
 {
@@ -116,6 +117,11 @@ KScreen::Config* Generator::laptop()
     external->setCurrentMode(external->preferredMode());
     external->setPrimary(false);
 
+    if (Generator::isDocked()) {
+        embedded->setPrimary(false);
+        external->setPrimary(true);
+    }
+
     return config;
 }
 
@@ -149,6 +155,25 @@ bool Generator::isLidClosed()
     QVariantList args;
     args << "org.freedesktop.UPower";
     args << "LidIsClosed";
+    msg.setArguments(args);
+
+    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value();
+}
+
+bool Generator::isDocked()
+{
+    if (Generator::forceDocked) {
+        return true;
+    }
+
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.UPower",
+                                                      "/org/freedesktop/UPower",
+                                                      "org.freedesktop.DBus.Properties",
+                                                      "Get");
+    QVariantList args;
+    args << "org.freedesktop.UPower";
+    args << "IsDocked";
     msg.setArguments(args);
 
     QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);

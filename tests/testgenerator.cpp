@@ -34,6 +34,8 @@ private Q_SLOTS:
     void singleOutput();
     void laptopLidOpenAndExternal();
     void laptopLidClosedAndExternal();
+    void laptopDockedLidOpenAndExternal();
+    void laptopDockedLidClosedAndExternal();
 };
 
 void testScreenConfig::initTestCase()
@@ -83,6 +85,49 @@ void testScreenConfig::laptopLidClosedAndExternal()
 
     Generator::forceLaptop = true;
     Generator::forceLidClosed = true;
+    Output* laptop = Generator::idealConfig()->outputs().value(1);
+    Output* external = Generator::idealConfig()->outputs().value(2);
+
+    QCOMPARE(laptop->isEnabled(), false);
+
+    QCOMPARE(external->currentMode(), 4);
+    QCOMPARE(external->isPrimary(), true);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+}
+
+void testScreenConfig::laptopDockedLidOpenAndExternal()
+{
+    QByteArray path(TEST_DATA);
+    path.append("/laptopLidOpenAndExternal.json");
+    setenv("TEST_DATA", path, 1);
+
+    Generator::forceLaptop = true;
+    Generator::forceLidClosed = false;
+    Generator::forceDocked = true;
+    Output* laptop = Generator::idealConfig()->outputs().value(1);
+    Output* external = Generator::idealConfig()->outputs().value(2);
+
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), false);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+
+    QCOMPARE(external->currentMode(), 4);
+    QCOMPARE(external->isPrimary(), true);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(1280, 0));
+}
+
+void testScreenConfig::laptopDockedLidClosedAndExternal()
+{
+    QByteArray path(TEST_DATA);
+    path.append("/laptopLidOpenAndExternal.json");
+    setenv("TEST_DATA", path, 1);
+
+    Generator::forceLaptop = true;
+    Generator::forceLidClosed = true;
+    Generator::forceDocked = true;
     Output* laptop = Generator::idealConfig()->outputs().value(1);
     Output* external = Generator::idealConfig()->outputs().value(2);
 
