@@ -77,8 +77,8 @@ bool Generator::isLaptop()
     args << "LidIsPresent";
     msg.setArguments(args);
 
-    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
-    return reply.value();
+    QDBusReply<QVariant> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value().toBool();
 }
 
 KScreen::Config* Generator::laptop()
@@ -162,8 +162,8 @@ bool Generator::isLidClosed()
     args << "LidIsClosed";
     msg.setArguments(args);
 
-    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
-    return reply.value();
+    QDBusReply<QVariant> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value().toBool();
 }
 
 bool Generator::isDocked()
@@ -181,8 +181,8 @@ bool Generator::isDocked()
     args << "IsDocked";
     msg.setArguments(args);
 
-    QDBusReply<bool> reply = QDBusConnection::systemBus().call(msg);
-    return reply.value();
+    QDBusReply<QVariant> reply = QDBusConnection::systemBus().call(msg);
+    return reply.value().toBool();
 }
 
 KScreen::Config* Generator::dockedLaptop()
