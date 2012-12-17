@@ -46,6 +46,7 @@ KScreen::Config* Generator::idealConfig()
 
     //If we only have one screen, just select the preferred mode
     if (connectedOutputs.count() == 1) {
+        qDebug() << "Config for one output";
         KScreen::Output* output = connectedOutputs.take(connectedOutputs.keys().first());
         output->setCurrentMode(output->preferredMode());
 
@@ -81,6 +82,7 @@ bool Generator::isLaptop()
 
 KScreen::Config* Generator::laptop()
 {
+    qDebug() << "Config for a laptop";
     KScreen::Config* config = KScreen::Config::current();
     KScreen::OutputList outputs = config->outputs();
 
@@ -98,6 +100,7 @@ KScreen::Config* Generator::laptop()
     }
 
     if (Generator::isLidClosed()) {
+        qDebug() << "With lid closed";
         embedded->setEnabled(false);
         external->setEnabled(true);
         external->setCurrentMode(external->preferredMode());
@@ -118,6 +121,7 @@ KScreen::Config* Generator::laptop()
     external->setPrimary(false);
 
     if (Generator::isDocked()) {
+        qDebug() << "Docked";
         embedded->setPrimary(false);
         external->setPrimary(true);
     }
