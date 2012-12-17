@@ -58,6 +58,7 @@ KScreen::Config* Generator::idealConfig()
         return Generator::laptop();
     }
 
+    qDebug() << "No ideal config found";
     return new KScreen::Config();
 }
 
