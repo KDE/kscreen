@@ -38,6 +38,7 @@ KScreen::Config* Generator::idealConfig()
 
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (!output->isConnected()) {
+            output->setEnabled(false);
             continue;
         }
 
