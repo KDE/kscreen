@@ -26,9 +26,18 @@
 
 #include <kscreen/config.h>
 
-bool Generator::forceLaptop = false;
-bool Generator::forceLidClosed = false;
-bool Generator::forceDocked = false;
+Generator::Generator(QObject* parent)
+ : QObject(parent)
+ , m_forceLaptop(false)
+ , m_forceLidClosed(false)
+ , m_forceDocked(false)
+{
+
+}
+Generator::~Generator()
+{
+
+}
 
 KScreen::Config* Generator::idealConfig()
 {
@@ -55,8 +64,8 @@ KScreen::Config* Generator::idealConfig()
     }
 
     //If we are a laptop, go into laptop mode
-    if (Generator::isLaptop()) {
-        return Generator::laptop();
+    if (isLaptop()) {
+        return laptop();
     }
 
     //Check if the prefered mode has the same size in all
@@ -89,7 +98,7 @@ KScreen::Config* Generator::idealConfig()
 
 bool Generator::isLaptop()
 {
-    if (Generator::forceLaptop) {
+    if (m_forceLaptop) {
         return true;
     }
 
@@ -118,14 +127,14 @@ KScreen::Config* Generator::laptop()
         if (!output->isConnected()) {
             continue;
         }
-        if (Generator::isEmbedded(output->name())) {
+        if (isEmbedded(output->name())) {
             embedded = output;
             continue;
         }
         external = output;
     }
 
-    if (Generator::isLidClosed()) {
+    if (isLidClosed()) {
         qDebug() << "With lid closed";
         embedded->setEnabled(false);
         external->setEnabled(true);
@@ -146,7 +155,7 @@ KScreen::Config* Generator::laptop()
     external->setCurrentMode(external->preferredMode());
     external->setPrimary(false);
 
-    if (Generator::isDocked()) {
+    if (isDocked()) {
         qDebug() << "Docked";
         embedded->setPrimary(false);
         external->setPrimary(true);
@@ -174,7 +183,7 @@ bool Generator::isEmbedded(const QString& name)
 
 bool Generator::isLidClosed()
 {
-    if (Generator::forceLidClosed) {
+    if (m_forceLidClosed) {
         return true;
     }
 
@@ -193,7 +202,7 @@ bool Generator::isLidClosed()
 
 bool Generator::isDocked()
 {
-    if (Generator::forceDocked) {
+    if (m_forceDocked) {
         return true;
     }
 
@@ -208,4 +217,19 @@ KScreen::Config* Generator::dockedLaptop()
 KScreen::Config* Generator::desktop()
 {
     return new KScreen::Config();
+}
+
+void Generator::setForceLaptop(bool force)
+{
+    m_forceLaptop = force;
+}
+
+void Generator::setForceLidClosed(bool force)
+{
+    m_forceLidClosed = force;
+}
+
+void Generator::setForceDocked(bool force)
+{
+    m_forceDocked = force;
 }

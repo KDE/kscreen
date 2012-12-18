@@ -19,29 +19,38 @@
 #ifndef KDED_GENERATOR_H
 #define KDED_GENERATOR_H
 
+#include <QtCore/QObject>
 #include <QtCore/QString>
 
 namespace KScreen
 {
     class Config;
 }
-class Generator
+class Generator : public QObject
 {
     public:
-        static bool forceLaptop;
-        static bool forceLidClosed;
-        static bool forceDocked;
-        static KScreen::Config* idealConfig();
+        explicit Generator(QObject* parent = 0);
+        virtual ~Generator();
+
+        KScreen::Config* idealConfig();
+
+        void setForceLaptop(bool force);
+        void setForceLidClosed(bool force);
+        void setForceDocked(bool force);
 
     private:
-        static KScreen::Config* laptop();
-        static KScreen::Config* dockedLaptop();
-        static KScreen::Config* desktop();
+        KScreen::Config* laptop();
+        KScreen::Config* dockedLaptop();
+        KScreen::Config* desktop();
 
-        static bool isLaptop();
-        static bool isEmbedded(const QString &name);
-        static bool isLidClosed();
-        static bool isDocked();
+        bool isLaptop();
+        bool isEmbedded(const QString &name);
+        bool isLidClosed();
+        bool isDocked();
+
+        bool m_forceLaptop;
+        bool m_forceLidClosed;
+        bool m_forceDocked;
 };
 
 #endif //KDED_GENERATOR_H
