@@ -49,7 +49,7 @@ class Generator : public QObject
         explicit Generator();
         virtual ~Generator();
 
-        KScreen::Config* laptop();
+        KScreen::Config* laptop(KScreen::Config* config, const KScreen::OutputList &outputs);
         KScreen::Config* dockedLaptop();
         KScreen::Config* desktop();
 

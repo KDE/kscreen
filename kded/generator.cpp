@@ -76,7 +76,7 @@ KScreen::Config* Generator::idealConfig()
 
     //If we are a laptop, go into laptop mode
     if (isLaptop()) {
-        return laptop();
+        return laptop(config, connectedOutputs);
     }
 
     //Check if the prefered mode has the same size in all
@@ -116,18 +116,13 @@ bool Generator::isLaptop()
     return m_device->isLaptop();
 }
 
-KScreen::Config* Generator::laptop()
+KScreen::Config* Generator::laptop(KScreen::Config* config, const KScreen::OutputList& outputs)
 {
     qDebug() << "Config for a laptop";
-    KScreen::Config* config = KScreen::Config::current();
-    KScreen::OutputList outputs = config->outputs();
 
     KScreen::Output* embedded = 0;
     KScreen::Output* external = 0;
     Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!output->isConnected()) {
-            continue;
-        }
         if (isEmbedded(output->name())) {
             embedded = output;
             continue;
