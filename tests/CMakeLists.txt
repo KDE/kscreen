@@ -9,6 +9,10 @@ set(testgenerator_SRCS
     ../kded/generator.cpp
     ../kded/device.cpp)
 
+qt4_add_dbus_interface(testgenerator_SRCS
+    ../kded/org.freedesktop.UPower.xml
+    upower_interface)
+
 kde4_add_unit_test(testgenerator ${testgenerator_SRCS})
 
 target_link_libraries(testgenerator ${QT_QTTEST_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} kscreen)

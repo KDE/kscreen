@@ -1,3 +1,5 @@
+include_directories(${CMAKE_BUILD_DIR}/kded)
+
 set(kscreen_daemon_SRCS
     daemon.cpp
 )

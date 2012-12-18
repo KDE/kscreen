@@ -22,12 +22,14 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
+class Device;
 namespace KScreen
 {
     class Config;
 }
 class Generator : public QObject
 {
+    Q_OBJECT
     public:
         static Generator* self();
         static void destroy();
@@ -37,6 +39,9 @@ class Generator : public QObject
         void setForceLaptop(bool force);
         void setForceLidClosed(bool force);
         void setForceDocked(bool force);
+
+    Q_SIGNALS:
+        void ready();
 
     private:
         explicit Generator();
@@ -51,6 +56,8 @@ class Generator : public QObject
         bool isLidClosed();
         bool isDocked();
 
+        Device* m_device;
+        bool m_isReady;
         bool m_forceLaptop;
         bool m_forceLidClosed;
         bool m_forceDocked;

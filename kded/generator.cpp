@@ -17,6 +17,7 @@
  *************************************************************************************/
 
 #include "generator.h"
+#include "device.h"
 
 #include <QtCore/QDebug>
 
@@ -38,11 +39,13 @@ Generator* Generator::self()
 
 Generator::Generator()
  : QObject()
+ , m_device(new Device(this))
+ , m_isReady(false)
  , m_forceLaptop(false)
  , m_forceLidClosed(false)
  , m_forceDocked(false)
 {
-
+    connect(m_device, SIGNAL(ready()), SIGNAL(ready()));
 }
 
 void Generator::destroy()
@@ -52,7 +55,7 @@ void Generator::destroy()
 
 Generator::~Generator()
 {
-
+    delete m_device;
 }
 
 KScreen::Config* Generator::idealConfig()
@@ -118,17 +121,7 @@ bool Generator::isLaptop()
         return true;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.UPower",
-                                   "/org/freedesktop/UPower",
-                                   "org.freedesktop.DBus.Properties",
-                                   "Get");
-    QVariantList args;
-    args << "org.freedesktop.UPower";
-    args << "LidIsPresent";
-    msg.setArguments(args);
-
-    QDBusReply<QVariant> reply = QDBusConnection::systemBus().call(msg);
-    return reply.value().toBool();
+    return m_device->isLaptop();
 }
 
 KScreen::Config* Generator::laptop()
@@ -208,17 +201,7 @@ bool Generator::isLidClosed()
         return true;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.UPower",
-                                                      "/org/freedesktop/UPower",
-                                                      "org.freedesktop.DBus.Properties",
-                                                      "Get");
-    QVariantList args;
-    args << "org.freedesktop.UPower";
-    args << "LidIsClosed";
-    msg.setArguments(args);
-
-    QDBusReply<QVariant> reply = QDBusConnection::systemBus().call(msg);
-    return reply.value().toBool();
+    return m_device->isLidClosed();
 }
 
 bool Generator::isDocked()
@@ -227,7 +210,7 @@ bool Generator::isDocked()
         return true;
     }
 
-    return false;
+    return m_device->isDocked();
 }
 
 KScreen::Config* Generator::dockedLaptop()
