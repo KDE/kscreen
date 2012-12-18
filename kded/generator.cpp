@@ -61,19 +61,11 @@ Generator::~Generator()
 KScreen::Config* Generator::idealConfig()
 {
     KScreen::Config* config = KScreen::Config::current();
-    KScreen::OutputList outputs = config->outputs();
-    KScreen::OutputList connectedOutputs;
 
-    Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!output->isConnected()) {
-            output->setEnabled(false);
-            continue;
-        }
+    disableAllDisconnectedOutputs(config->outputs());
 
-        connectedOutputs.insert(output->id(), output);
-    }
+    KScreen::OutputList connectedOutputs = config->connectedOutputs();
 
-    //If we only have one screen, just select the preferred mode
     if (connectedOutputs.count() == 1) {
         qDebug() << "Config for one output";
         KScreen::Output* output = connectedOutputs.take(connectedOutputs.keys().first());
@@ -176,6 +168,15 @@ KScreen::Config* Generator::laptop()
     }
 
     return config;
+}
+
+void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs)
+{
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        if (!output->isConnected()) {
+            output->setEnabled(false);
+        }
+    }
 }
 
 bool Generator::isEmbedded(const QString& name)

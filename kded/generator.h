@@ -22,6 +22,8 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
+#include <kscreen/output.h>
+
 class Device;
 namespace KScreen
 {
@@ -50,6 +52,8 @@ class Generator : public QObject
         KScreen::Config* laptop();
         KScreen::Config* dockedLaptop();
         KScreen::Config* desktop();
+
+        void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
 
         bool isLaptop();
         bool isEmbedded(const QString &name);
