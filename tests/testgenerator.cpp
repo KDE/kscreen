@@ -51,7 +51,7 @@ void testScreenConfig::singleOutput()
     path.append("/singleOutput.json");
     setenv("TEST_DATA", path, 1);
 
-    Output* output = Generator().idealConfig()->outputs().value(1);
+    Output* output = Generator::self()->idealConfig()->outputs().value(1);
 
     QCOMPARE(output->currentMode(), 3);
 
@@ -63,11 +63,11 @@ void testScreenConfig::laptopLidOpenAndExternal()
     path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
-    Generator generator;
-    generator.setForceLaptop(true);
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
 
-    Output* laptop = generator.idealConfig()->outputs().value(1);
-    Output* external = generator.idealConfig()->outputs().value(2);
+    Output* laptop = generator->idealConfig()->outputs().value(1);
+    Output* external = generator->idealConfig()->outputs().value(2);
 
     QCOMPARE(laptop->currentMode(), 3);
     QCOMPARE(laptop->isPrimary(), true);
@@ -86,11 +86,11 @@ void testScreenConfig::laptopLidClosedAndExternal()
     path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
-    Generator generator;
-    generator.setForceLaptop(true);
-    generator.setForceLidClosed(true);
-    Output* laptop = generator.idealConfig()->outputs().value(1);
-    Output* external = generator.idealConfig()->outputs().value(2);
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
+    generator->setForceLidClosed(true);
+    Output* laptop = generator->idealConfig()->outputs().value(1);
+    Output* external = generator->idealConfig()->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
 
@@ -106,13 +106,13 @@ void testScreenConfig::laptopDockedLidOpenAndExternal()
     path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
-    Generator generator;
-    generator.setForceLaptop(true);
-    generator.setForceLidClosed(true);
-    generator.setForceDocked(true);
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
+    generator->setForceLidClosed(false);
+    generator->setForceDocked(true);
 
-    Output* laptop = generator.idealConfig()->outputs().value(1);
-    Output* external = generator.idealConfig()->outputs().value(2);
+    Output* laptop = generator->idealConfig()->outputs().value(1);
+    Output* external = generator->idealConfig()->outputs().value(2);
 
     QCOMPARE(laptop->currentMode(), 3);
     QCOMPARE(laptop->isPrimary(), false);
@@ -131,12 +131,12 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     path.append("/laptopAndExternal.json");
     setenv("TEST_DATA", path, 1);
 
-    Generator generator;
-    generator.setForceLaptop(true);
-    generator.setForceLidClosed(true);
-    generator.setForceDocked(true);
-    Output* laptop = Generator().idealConfig()->outputs().value(1);
-    Output* external = Generator().idealConfig()->outputs().value(2);
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
+    generator->setForceLidClosed(true);
+    generator->setForceDocked(true);
+    Output* laptop = generator->idealConfig()->outputs().value(1);
+    Output* external = generator->idealConfig()->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
 
@@ -152,10 +152,11 @@ void testScreenConfig::workstationWithTwoOutputsSameSize()
     path.append("/workstaionTwoExternalSameSize.json");
     setenv("TEST_DATA", path, 1);
 
-    Generator generator;
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(false);
 
-    Output* external1 = generator.idealConfig()->outputs().value(1);
-    Output* external2 = generator.idealConfig()->outputs().value(2);
+    Output* external1 = generator->idealConfig()->outputs().value(1);
+    Output* external2 = generator->idealConfig()->outputs().value(2);
 
     QCOMPARE(external1->currentMode(), 3);
     QCOMPARE(external1->isEnabled(), true);

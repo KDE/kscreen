@@ -26,14 +26,30 @@
 
 #include <kscreen/config.h>
 
-Generator::Generator(QObject* parent)
- : QObject(parent)
+Generator* Generator::instance = 0;
+
+Generator* Generator::self()
+{
+    if (!Generator::instance) {
+        Generator::instance = new Generator();
+    }
+    return Generator::instance;
+}
+
+Generator::Generator()
+ : QObject()
  , m_forceLaptop(false)
  , m_forceLidClosed(false)
  , m_forceDocked(false)
 {
 
 }
+
+void Generator::destroy()
+{
+    delete Generator::instance;
+}
+
 Generator::~Generator()
 {
 

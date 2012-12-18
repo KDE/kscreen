@@ -29,8 +29,8 @@ namespace KScreen
 class Generator : public QObject
 {
     public:
-        explicit Generator(QObject* parent = 0);
-        virtual ~Generator();
+        static Generator* self();
+        static void destroy();
 
         KScreen::Config* idealConfig();
 
@@ -39,6 +39,9 @@ class Generator : public QObject
         void setForceDocked(bool force);
 
     private:
+        explicit Generator();
+        virtual ~Generator();
+
         KScreen::Config* laptop();
         KScreen::Config* dockedLaptop();
         KScreen::Config* desktop();
@@ -51,6 +54,8 @@ class Generator : public QObject
         bool m_forceLaptop;
         bool m_forceLidClosed;
         bool m_forceDocked;
+
+        static Generator* instance;
 };
 
 #endif //KDED_GENERATOR_H
