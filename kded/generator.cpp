@@ -137,8 +137,8 @@ KScreen::Config* Generator::laptop()
     KScreen::Config* config = KScreen::Config::current();
     KScreen::OutputList outputs = config->outputs();
 
-    KScreen::Output* embedded;
-    KScreen::Output* external;
+    KScreen::Output* embedded = 0;
+    KScreen::Output* external = 0;
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (!output->isConnected()) {
             continue;
@@ -148,6 +148,11 @@ KScreen::Config* Generator::laptop()
             continue;
         }
         external = output;
+    }
+
+    if (!external || !embedded) {
+        qWarning("Neither external or embedded could be found");
+        return KScreen::Config::current();
     }
 
     if (isLidClosed()) {
