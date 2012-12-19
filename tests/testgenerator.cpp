@@ -29,6 +29,9 @@ class testScreenConfig : public QObject
 {
     Q_OBJECT
 
+    private:
+        void loadConfig(const QByteArray &fileName);
+
 private Q_SLOTS:
     void initTestCase();
     void singleOutput();
@@ -41,6 +44,13 @@ private Q_SLOTS:
     void workstationWithTwoOutputsSameSize();
 };
 
+void testScreenConfig::loadConfig(const QByteArray& fileName)
+{
+    QByteArray path(TEST_DATA);
+    path.append("/" + fileName);
+    setenv("TEST_DATA", path, 1);
+}
+
 void testScreenConfig::initTestCase()
 {
     setenv("KSCREEN_BACKEND", "Fake", 1);
@@ -48,22 +58,16 @@ void testScreenConfig::initTestCase()
 
 void testScreenConfig::singleOutput()
 {
-    //json file for the fake backend
-    QByteArray path(TEST_DATA);
-    path.append("/singleOutput.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("singleOutput.json");
 
     Output* output = Generator::self()->idealConfig()->outputs().value(1);
-
     QCOMPARE(output->currentMode(), 3);
 
 }
 
 void testScreenConfig::laptopLidOpenAndExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopAndExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopAndExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -85,9 +89,7 @@ void testScreenConfig::laptopLidOpenAndExternal()
 
 void testScreenConfig::laptopLidOpenAndTwoExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopLidOpenAndTwoExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopLidOpenAndTwoExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -116,9 +118,7 @@ void testScreenConfig::laptopLidOpenAndTwoExternal()
 
 void testScreenConfig::laptopLidClosedAndExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopAndExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopAndExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -138,9 +138,7 @@ void testScreenConfig::laptopLidClosedAndExternal()
 
 void testScreenConfig::laptopLidClosedAndThreeExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopLidClosedAndThreeExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopLidClosedAndThreeExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -173,9 +171,7 @@ void testScreenConfig::laptopLidClosedAndThreeExternal()
 
 void testScreenConfig::laptopDockedLidOpenAndExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopAndExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopAndExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -199,9 +195,7 @@ void testScreenConfig::laptopDockedLidOpenAndExternal()
 
 void testScreenConfig::laptopDockedLidClosedAndExternal()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/laptopAndExternal.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("laptopAndExternal.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
@@ -222,9 +216,7 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
 
 void testScreenConfig::workstationWithTwoOutputsSameSize()
 {
-    QByteArray path(TEST_DATA);
-    path.append("/workstaionTwoExternalSameSize.json");
-    setenv("TEST_DATA", path, 1);
+    loadConfig("workstaionTwoExternalSameSize.json");
 
     Generator* generator = Generator::self();
     generator->setForceLaptop(false);
