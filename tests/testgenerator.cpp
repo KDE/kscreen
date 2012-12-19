@@ -33,6 +33,7 @@ private Q_SLOTS:
     void initTestCase();
     void singleOutput();
     void laptopLidOpenAndExternal();
+    void laptopLidOpenAndTwoExternal();
     void laptopLidClosedAndExternal();
     void laptopLidClosedAndThreeExternal();
     void laptopDockedLidOpenAndExternal();
@@ -79,6 +80,36 @@ void testScreenConfig::laptopLidOpenAndExternal()
     QCOMPARE(external->isPrimary(), false);
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(1280, 0));
+}
+
+void testScreenConfig::laptopLidOpenAndTwoExternal()
+{
+    QByteArray path(TEST_DATA);
+    path.append("/laptopLidOpenAndTwoExternal.json");
+    setenv("TEST_DATA", path, 1);
+
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
+
+    Output* laptop = generator->idealConfig()->outputs().value(1);
+    Output* hdmi1 = generator->idealConfig()->outputs().value(2);
+    Output* hdmi2 = generator->idealConfig()->outputs().value(3);
+
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+
+    QCOMPARE(hdmi1->currentMode(), 4);
+    QCOMPARE(hdmi1->isPrimary(), false);
+    QCOMPARE(hdmi1->isEnabled(), true);
+    QCOMPARE(hdmi1->pos(), QPoint(hdmi2->pos().x() + hdmi2->mode(hdmi2->currentMode())->size().width(), 0));
+
+    QCOMPARE(hdmi2->currentMode(), 4);
+    QCOMPARE(hdmi2->isPrimary(), false);
+    QCOMPARE(hdmi2->isEnabled(), true);
+    QCOMPARE(hdmi2->pos(), QPoint(1280, 0));
+
 }
 
 void testScreenConfig::laptopLidClosedAndExternal()

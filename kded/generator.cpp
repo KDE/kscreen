@@ -157,36 +157,51 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         biggest->setPrimary(true);
         biggest->setCurrentMode(biggest->preferredMode());
         biggest->setPos(QPoint(0,0));
-        QSize globalSize = biggest->mode(biggest->currentMode())->size();
 
+        QSize size;
+        QSize globalSize = biggest->mode(biggest->currentMode())->size();
         Q_FOREACH(KScreen::Output* output, outputs) {
             output->setEnabled(true);
             output->setCurrentMode(output->preferredMode());
             output->setPos(QPoint(globalSize.width(), 0));
 
-            QSize size = output->mode(output->currentMode())->size();
+            size = output->mode(output->currentMode())->size();
             globalSize += size;
         }
 
         return config;
     }
 
+    //If lid is open, laptop screen shuold be primary
     embedded->setPos(QPoint(0,0));
     embedded->setCurrentMode(embedded->preferredMode());
     embedded->setPrimary(true);
     embedded->setEnabled(true);
 
-    QSize size = embedded->mode(embedded->preferredMode())->size();
-    KScreen::Output* external = outputs.value(outputs.keys().first());
-    external->setPos(QPoint(size.width(), 0));
-    external->setEnabled(true);
-    external->setCurrentMode(external->preferredMode());
-    external->setPrimary(false);
+    QSize globalSize = embedded->mode(embedded->preferredMode())->size();
+    KScreen::Output* biggest = biggestOutput(outputs);
+    outputs.remove(biggest->id());
+
+    biggest->setPos(QPoint(globalSize.width(), 0));
+    biggest->setEnabled(true);
+    biggest->setCurrentMode(biggest->preferredMode());
+    biggest->setPrimary(false);
+
+    QSize size;
+    globalSize += biggest->mode(biggest->currentMode())->size();
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        output->setEnabled(true);
+        output->setCurrentMode(output->preferredMode());
+        output->setPos(QPoint(globalSize.width(), 0));
+
+        size = output->mode(output->currentMode())->size();
+        globalSize += size;
+    }
 
     if (isDocked()) {
         qDebug() << "Docked";
         embedded->setPrimary(false);
-        external->setPrimary(true);
+        biggest->setPrimary(true);
     }
 
     return config;
