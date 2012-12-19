@@ -68,8 +68,9 @@ void testScreenConfig::laptopLidOpenAndExternal()
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
 
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* external = generator->idealConfig()->outputs().value(2);
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->currentMode(), 3);
     QCOMPARE(laptop->isPrimary(), true);
@@ -91,9 +92,10 @@ void testScreenConfig::laptopLidOpenAndTwoExternal()
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
 
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* hdmi1 = generator->idealConfig()->outputs().value(2);
-    Output* hdmi2 = generator->idealConfig()->outputs().value(3);
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* hdmi1 = config->outputs().value(2);
+    Output* hdmi2 = config->outputs().value(3);
 
     QCOMPARE(laptop->currentMode(), 3);
     QCOMPARE(laptop->isPrimary(), true);
@@ -121,8 +123,10 @@ void testScreenConfig::laptopLidClosedAndExternal()
     Generator* generator = Generator::self();
     generator->setForceLaptop(true);
     generator->setForceLidClosed(true);
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* external = generator->idealConfig()->outputs().value(2);
+
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
 
@@ -142,10 +146,11 @@ void testScreenConfig::laptopLidClosedAndThreeExternal()
     generator->setForceLaptop(true);
     generator->setForceLidClosed(true);
 
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* hdmi1 = generator->idealConfig()->outputs().value(2);
-    Output* hdmi2 = generator->idealConfig()->outputs().value(3);
-    Output* primary = generator->idealConfig()->outputs().value(4);
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* hdmi1 = config->outputs().value(2);
+    Output* hdmi2 = config->outputs().value(3);
+    Output* primary = config->outputs().value(4);
 
     QCOMPARE(laptop->isEnabled(), false);
     QCOMPARE(laptop->isPrimary(), false);
@@ -177,8 +182,9 @@ void testScreenConfig::laptopDockedLidOpenAndExternal()
     generator->setForceLidClosed(false);
     generator->setForceDocked(true);
 
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* external = generator->idealConfig()->outputs().value(2);
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->currentMode(), 3);
     QCOMPARE(laptop->isPrimary(), false);
@@ -201,8 +207,10 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     generator->setForceLaptop(true);
     generator->setForceLidClosed(true);
     generator->setForceDocked(true);
-    Output* laptop = generator->idealConfig()->outputs().value(1);
-    Output* external = generator->idealConfig()->outputs().value(2);
+
+    Config* config = generator->idealConfig();
+    Output* laptop = config->outputs().value(1);
+    Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
 
@@ -221,8 +229,9 @@ void testScreenConfig::workstationWithTwoOutputsSameSize()
     Generator* generator = Generator::self();
     generator->setForceLaptop(false);
 
-    Output* external1 = generator->idealConfig()->outputs().value(1);
-    Output* external2 = generator->idealConfig()->outputs().value(2);
+    Config* config = generator->idealConfig();
+    Output* external1 = config->outputs().value(1);
+    Output* external2 = config->outputs().value(2);
 
     QCOMPARE(external1->currentMode(), 3);
     QCOMPARE(external1->isEnabled(), true);
