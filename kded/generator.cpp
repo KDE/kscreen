@@ -121,25 +121,24 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
     qDebug() << "Config for a laptop";
 
     KScreen::Output* embedded = 0;
-    QList<KScreen::Output*> externalOutputs;
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (isEmbedded(output->name())) {
             embedded = output;
+            outputs.remove(embedded->id());
             continue;
         }
-        externalOutputs.append(output);
     }
 
-    if (externalOutputs.isEmpty() || !embedded) {
+    if (outputs.isEmpty() || !embedded) {
         qWarning("Neither external outputs or embedded could be found");
         return KScreen::Config::current();
     }
 
-    if (isLidClosed() && externalOutputs.count() == 1) {
+    if (isLidClosed() && outputs.count() == 1) {
         qDebug() << "With lid closed";
         embedded->setEnabled(false);
 
-        KScreen::Output* external = externalOutputs.first();
+        KScreen::Output* external = outputs.value(outputs.keys().first());
         external->setEnabled(true);
         external->setCurrentMode(external->preferredMode());
         external->setPrimary(true);
@@ -147,12 +146,12 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         return config;
     }
 
-    if (isLidClosed() && externalOutputs.count() > 1) {
+    if (isLidClosed() && outputs.count() > 1) {
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
-        KScreen::Output* biggest = biggestOutput(externalOutputs);
-        externalOutputs.removeAll(biggest);
+        KScreen::Output* biggest = biggestOutput(outputs);
+        outputs.remove(biggest->id());
 
         biggest->setEnabled(true);
         biggest->setPrimary(true);
@@ -160,7 +159,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         biggest->setPos(QPoint(0,0));
         QSize globalSize = biggest->mode(biggest->currentMode())->size();
 
-        Q_FOREACH(KScreen::Output* output, externalOutputs) {
+        Q_FOREACH(KScreen::Output* output, outputs) {
             output->setEnabled(true);
             output->setCurrentMode(output->preferredMode());
             output->setPos(QPoint(globalSize.width(), 0));
@@ -178,7 +177,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
     embedded->setEnabled(true);
 
     QSize size = embedded->mode(embedded->preferredMode())->size();
-    KScreen::Output* external = externalOutputs.first();
+    KScreen::Output* external = outputs.value(outputs.keys().first());
     external->setPos(QPoint(size.width(), 0));
     external->setEnabled(true);
     external->setCurrentMode(external->preferredMode());
@@ -210,7 +209,7 @@ KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)
     return biggest;
 }
 
-KScreen::Output* Generator::biggestOutput(const QList< KScreen::Output* >& outputs)
+KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
 {
     int area, total = 0;
     KScreen::Output* biggest = 0;

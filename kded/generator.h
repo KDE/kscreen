@@ -55,7 +55,7 @@ class Generator : public QObject
         KScreen::Config* desktop();
 
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
-        KScreen::Output* biggestOutput(const QList<KScreen::Output*> &outputs);
+        KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
 
         bool isLaptop();
