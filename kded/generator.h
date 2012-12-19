@@ -23,6 +23,7 @@
 #include <QtCore/QString>
 
 #include <kscreen/output.h>
+#include <kscreen/mode.h>
 
 class Device;
 namespace KScreen
@@ -49,10 +50,12 @@ class Generator : public QObject
         explicit Generator();
         virtual ~Generator();
 
-        KScreen::Config* laptop(KScreen::Config* config, const KScreen::OutputList &outputs);
+        KScreen::Config* laptop(KScreen::Config* config, KScreen::OutputList& outputs);
         KScreen::Config* dockedLaptop();
         KScreen::Config* desktop();
 
+        KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
+        KScreen::Output* biggestOutput(const QList<KScreen::Output*> &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
 
         bool isLaptop();
