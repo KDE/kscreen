@@ -107,15 +107,6 @@ KScreen::Config* Generator::idealConfig()
     return new KScreen::Config();
 }
 
-bool Generator::isLaptop()
-{
-    if (m_forceLaptop) {
-        return true;
-    }
-
-    return m_device->isLaptop();
-}
-
 KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList& outputs)
 {
     qDebug() << "Config for a laptop";
@@ -266,6 +257,15 @@ bool Generator::isEmbedded(const QString& name)
     }
 
     return false;
+}
+
+bool Generator::isLaptop()
+{
+    if (m_forceLaptop) {
+        return true;
+    }
+
+    return m_device->isLaptop();
 }
 
 bool Generator::isLidClosed()

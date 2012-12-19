@@ -57,9 +57,9 @@ class Generator : public QObject
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
         KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
+        bool isEmbedded(const QString &name);
 
         bool isLaptop();
-        bool isEmbedded(const QString &name);
         bool isLidClosed();
         bool isDocked();
 
