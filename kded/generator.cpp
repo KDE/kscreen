@@ -61,14 +61,13 @@ Generator::~Generator()
 KScreen::Config* Generator::idealConfig()
 {
     KScreen::Config* config = KScreen::Config::current();
-
     disableAllDisconnectedOutputs(config->outputs());
 
-    KScreen::OutputList connectedOutputs = config->connectedOutputs();
+    KScreen::OutputList outputs = config->connectedOutputs();
 
-    if (connectedOutputs.count() == 1) {
+    if (outputs.count() == 1) {
         qDebug() << "Config for one output";
-        KScreen::Output* output = connectedOutputs.take(connectedOutputs.keys().first());
+        KScreen::Output* output = outputs.take(outputs.keys().first());
         output->setCurrentMode(output->preferredMode());
 
         return config;
@@ -76,10 +75,10 @@ KScreen::Config* Generator::idealConfig()
 
     //If we are a laptop, go into laptop mode
     if (isLaptop()) {
-        return laptop(config, connectedOutputs);
+        return laptop(config, outputs);
     }
 
-    extendToRight(connectedOutputs);
+    extendToRight(outputs);
 
     return config;
 }
