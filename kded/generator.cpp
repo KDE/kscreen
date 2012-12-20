@@ -91,14 +91,8 @@ void Generator::laptop(KScreen::OutputList& outputs)
 {
     qDebug() << "Config for a laptop";
 
-    KScreen::Output* embedded = 0;
-    Q_FOREACH(KScreen::Output* output, outputs) {
-        if (isEmbedded(output->name())) {
-            embedded = output;
-            outputs.remove(embedded->id());
-            continue;
-        }
-    }
+    KScreen::Output* embedded = embeddedOutput(outputs);
+    outputs.remove(embedded->id());
 
     if (outputs.isEmpty() || !embedded) {
         qWarning("Neither external outputs or embedded could be found");
@@ -226,6 +220,19 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs
             output->setEnabled(false);
         }
     }
+}
+
+KScreen::Output* Generator::embeddedOutput(const KScreen::OutputList& outputs)
+{
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        if (!isEmbedded(output->name())) {
+            continue;
+        }
+
+        return output;
+    }
+
+    return 0;
 }
 
 bool Generator::isEmbedded(const QString& name)
