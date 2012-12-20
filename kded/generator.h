@@ -51,8 +51,6 @@ class Generator : public QObject
         virtual ~Generator();
 
         KScreen::Config* laptop(KScreen::Config* config, KScreen::OutputList& outputs);
-        KScreen::Config* dockedLaptop();
-        KScreen::Config* desktop();
 
         void extendToRight(KScreen::OutputList& outputs);
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);

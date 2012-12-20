@@ -269,16 +269,6 @@ bool Generator::isDocked()
     return m_device->isDocked();
 }
 
-KScreen::Config* Generator::dockedLaptop()
-{
-    return new KScreen::Config();
-}
-
-KScreen::Config* Generator::desktop()
-{
-    return new KScreen::Config();
-}
-
 void Generator::setForceLaptop(bool force)
 {
     m_forceLaptop = force;
