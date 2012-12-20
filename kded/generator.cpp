@@ -79,25 +79,7 @@ KScreen::Config* Generator::idealConfig()
         return laptop(config, connectedOutputs);
     }
 
-    KScreen::Output* biggest = biggestOutput(connectedOutputs);
-    connectedOutputs.remove(biggest->id());
-
-    biggest->setEnabled(true);
-    biggest->setPrimary(true);
-    biggest->setCurrentMode(biggest->preferredMode());
-    biggest->setPos(QPoint(0,0));
-
-    QSize size;
-    QSize globalSize = biggest->mode(biggest->currentMode())->size();
-    Q_FOREACH(KScreen::Output* output, connectedOutputs) {
-        output->setPrimary(false);
-        output->setEnabled(true);
-        output->setCurrentMode(output->preferredMode());
-        output->setPos(QPoint(globalSize.width(), 0));
-
-        size = output->mode(output->currentMode())->size();
-        globalSize += size;
-    }
+    extendToRight(connectedOutputs);
 
     return config;
 }
@@ -136,24 +118,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
-        KScreen::Output* biggest = biggestOutput(outputs);
-        outputs.remove(biggest->id());
-
-        biggest->setEnabled(true);
-        biggest->setPrimary(true);
-        biggest->setCurrentMode(biggest->preferredMode());
-        biggest->setPos(QPoint(0,0));
-
-        QSize size;
-        QSize globalSize = biggest->mode(biggest->currentMode())->size();
-        Q_FOREACH(KScreen::Output* output, outputs) {
-            output->setEnabled(true);
-            output->setCurrentMode(output->preferredMode());
-            output->setPos(QPoint(globalSize.width(), 0));
-
-            size = output->mode(output->currentMode())->size();
-            globalSize += size;
-        }
+       extendToRight(outputs);
 
         return config;
     }
@@ -191,6 +156,29 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
     }
 
     return config;
+}
+
+void Generator::extendToRight(KScreen::OutputList& outputs)
+{
+    KScreen::Output* biggest = biggestOutput(outputs);
+    outputs.remove(biggest->id());
+
+    biggest->setEnabled(true);
+    biggest->setPrimary(true);
+    biggest->setCurrentMode(biggest->preferredMode());
+    biggest->setPos(QPoint(0,0));
+
+    QSize size;
+    QSize globalSize = biggest->mode(biggest->currentMode())->size();
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        output->setEnabled(true);
+        output->setPrimary(false);
+        output->setCurrentMode(output->preferredMode());
+        output->setPos(QPoint(globalSize.width(), 0));
+
+        size = output->mode(output->currentMode())->size();
+        globalSize += size;
+    }
 }
 
 KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)

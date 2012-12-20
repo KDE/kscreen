@@ -54,6 +54,7 @@ class Generator : public QObject
         KScreen::Config* dockedLaptop();
         KScreen::Config* desktop();
 
+        void extendToRight(KScreen::OutputList& outputs);
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
         KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
