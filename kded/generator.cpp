@@ -118,7 +118,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
-       extendToRight(outputs);
+        extendToRight(outputs);
 
         return config;
     }
