@@ -116,7 +116,6 @@ void Generator::laptop(KScreen::OutputList& outputs)
         embedded->setPrimary(false);
 
         extendToRight(outputs);
-
         return;
     }
 
