@@ -75,7 +75,8 @@ KScreen::Config* Generator::idealConfig()
 
     //If we are a laptop, go into laptop mode
     if (isLaptop()) {
-        return laptop(config, outputs);
+        laptop(outputs);
+        return config;
     }
 
     extendToRight(outputs);
@@ -83,7 +84,7 @@ KScreen::Config* Generator::idealConfig()
     return config;
 }
 
-KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList& outputs)
+void Generator::laptop(KScreen::OutputList& outputs)
 {
     qDebug() << "Config for a laptop";
 
@@ -98,7 +99,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
 
     if (outputs.isEmpty() || !embedded) {
         qWarning("Neither external outputs or embedded could be found");
-        return KScreen::Config::current();
+        return;
     }
 
     if (isLidClosed() && outputs.count() == 1) {
@@ -110,7 +111,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         external->setCurrentMode(external->preferredMode());
         external->setPrimary(true);
 
-        return config;
+        return;
     }
 
     if (isLidClosed() && outputs.count() > 1) {
@@ -119,7 +120,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
 
         extendToRight(outputs);
 
-        return config;
+        return;
     }
 
     //If lid is open, laptop screen shuold be primary
@@ -154,7 +155,7 @@ KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList&
         biggest->setPrimary(true);
     }
 
-    return config;
+    return;
 }
 
 void Generator::extendToRight(KScreen::OutputList& outputs)
