@@ -103,8 +103,27 @@ KScreen::Config* Generator::idealConfig()
         return config;
     }
 
-    qDebug() << "No ideal config found";
-    return new KScreen::Config();
+    KScreen::Output* biggest = biggestOutput(connectedOutputs);
+    connectedOutputs.remove(biggest->id());
+
+    biggest->setEnabled(true);
+    biggest->setPrimary(true);
+    biggest->setCurrentMode(biggest->preferredMode());
+    biggest->setPos(QPoint(0,0));
+
+    QSize size;
+    QSize globalSize = biggest->mode(biggest->currentMode())->size();
+    Q_FOREACH(KScreen::Output* output, connectedOutputs) {
+        output->setPrimary(false);
+        output->setEnabled(true);
+        output->setCurrentMode(output->preferredMode());
+        output->setPos(QPoint(globalSize.width(), 0));
+
+        size = output->mode(output->currentMode())->size();
+        globalSize += size;
+    }
+
+    return config;
 }
 
 KScreen::Config* Generator::laptop(KScreen::Config* config, KScreen::OutputList& outputs)
