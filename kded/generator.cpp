@@ -66,14 +66,10 @@ KScreen::Config* Generator::idealConfig()
     KScreen::OutputList outputs = config->connectedOutputs();
 
     if (outputs.count() == 1) {
-        qDebug() << "Config for one output";
-        KScreen::Output* output = outputs.take(outputs.keys().first());
-        output->setCurrentMode(output->preferredMode());
-
+        singleOutput(outputs);
         return config;
     }
 
-    //If we are a laptop, go into laptop mode
     if (isLaptop()) {
         laptop(outputs);
         return config;
@@ -82,6 +78,13 @@ KScreen::Config* Generator::idealConfig()
     extendToRight(outputs);
 
     return config;
+}
+
+void Generator::singleOutput(KScreen::OutputList& outputs)
+{
+    qDebug() << "Config for one output";
+    KScreen::Output* output = outputs.take(outputs.keys().first());
+    output->setCurrentMode(output->preferredMode());
 }
 
 void Generator::laptop(KScreen::OutputList& outputs)

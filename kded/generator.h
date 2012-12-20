@@ -52,6 +52,7 @@ class Generator : public QObject
 
         void laptop(KScreen::OutputList& outputs);
 
+        void singleOutput(KScreen::OutputList& outputs);
         void extendToRight(KScreen::OutputList& outputs);
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
         KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
