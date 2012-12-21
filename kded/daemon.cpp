@@ -31,13 +31,18 @@ K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& ) : KDEDModule(parent)
 {
-//     applyConfig();
-//     monitorForChanges();
+    connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
 
 KScreenDaemon::~KScreenDaemon()
 {
     Generator::destroy();
+}
+
+void KScreenDaemon::init()
+{
+    applyConfig();
+    monitorForChanges();
 }
 
 void KScreenDaemon::applyConfig()

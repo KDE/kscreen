@@ -33,6 +33,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         virtual ~KScreenDaemon();
 
     public Q_SLOTS:
+        void init();
         void applyConfig();
 
     private:
