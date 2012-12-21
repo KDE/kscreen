@@ -110,7 +110,7 @@ void Device::fetchLidIsClosed()
 {
     QDBusPendingReply<QVariant> res = m_freedesktop->Get("org.freedesktop.UPower", "LidIsClosed");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(res);
-    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(isLaptopFetched(QDBusPendingCallWatcher*)));
+    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(isLidClosedFetched(QDBusPendingCallWatcher*)));
 }
 
 void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
