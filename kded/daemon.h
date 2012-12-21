@@ -35,9 +35,13 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
     public Q_SLOTS:
         void init();
         void applyConfig();
+        void configChanged();
+        void saveCurrentConfig();
 
     private:
         void monitorForChanges();
+
+        bool m_pendingSave;
 };
 
 #endif /*KSCREN_DAEMON_H*/
