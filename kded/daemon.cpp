@@ -31,6 +31,7 @@ K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& ) : KDEDModule(parent)
 {
+    setenv("KSCREEN_BACKEND", "XRandR", 1);
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
 
