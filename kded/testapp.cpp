@@ -18,21 +18,15 @@
 
 #include "testapp.h"
 #include "serializer.h"
+#include "daemon.h"
 
 #include <QtCore/QDebug>
 #include <kscreen/config.h>
 
 TestApp::TestApp(QObject* parent): QObject(parent)
 {
-    qDebug() << KScreen::Config::current();
-    qDebug() << "CurrentId: " << Serializer::currentId();
-    qDebug() << "Config exists: " << Serializer::configExists();
-    if (!Serializer::configExists()) {
-        Serializer::saveConfig(KScreen::Config::current());
-    } else {
-        KScreen::Config* config = Serializer::config(Serializer::currentId());
-        KScreen::Config::setConfig(config);
-    }
+    QVariantList list;
+    new KScreenDaemon(this, list);
 }
 
 TestApp::~TestApp()

@@ -17,19 +17,48 @@
  *************************************************************************************/
 
 #include "daemon.h"
+#include "serializer.h"
+#include "generator.h"
 
 #include <kdemacros.h>
 #include <KPluginFactory>
+
+#include <kscreen/config.h>
+#include <kscreen/configmonitor.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& ) : KDEDModule(parent)
 {
-
+//     applyConfig();
+//     monitorForChanges();
 }
 
 KScreenDaemon::~KScreenDaemon()
 {
+    Generator::destroy();
+}
 
+void KScreenDaemon::applyConfig()
+{
+    KScreen::Config* config = 0;
+    if (Serializer::configExists()) {
+        config = Serializer::config(Serializer::currentId());
+    } else {
+        config = Generator::self()->idealConfig();
+    }
+
+    KScreen::Config::setConfig(config);
+}
+
+void KScreenDaemon::monitorForChanges()
+{
+    KScreen::Config* config = KScreen::Config::current();
+    KScreen::ConfigMonitor::instance()->addConfig(config);
+
+    KScreen::OutputList outputs = config->outputs();
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
+    }
 }

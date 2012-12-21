@@ -31,6 +31,12 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
     public:
         KScreenDaemon(QObject *parent, const QList<QVariant>&);
         virtual ~KScreenDaemon();
+
+    public Q_SLOTS:
+        void applyConfig();
+
+    private:
+        void monitorForChanges();
 };
 
 #endif /*KSCREN_DAEMON_H*/
