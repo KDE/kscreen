@@ -52,6 +52,7 @@ void KScreenDaemon::init()
 
 void KScreenDaemon::applyConfig()
 {
+    qDebug() << "Applying config";
     KScreen::Config* config = 0;
     if (Serializer::configExists()) {
         config = Serializer::config(Serializer::currentId());
