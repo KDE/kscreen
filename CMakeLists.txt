@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 2.6)
 find_package(Qt4 REQUIRED)
 find_package(KDE4 REQUIRED)
 find_package(LibKScreen REQUIRED)
+find_package(QJSON REQUIRED)
 
 include(MacroLibrary)
 include(KDE4Defaults)
@@ -17,3 +18,5 @@ include_directories(
 )
 
 add_subdirectory(kcm)
+add_subdirectory(kded)
+add_subdirectory(tests)
