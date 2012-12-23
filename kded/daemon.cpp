@@ -29,7 +29,7 @@
 #include <KPluginFactory>
 
 #include <kscreen/config.h>
-#include <kscreen/configmonitor.h
+#include <kscreen/configmonitor.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
