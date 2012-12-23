@@ -94,7 +94,7 @@ void KScreenDaemon::displayButton()
         m_iteration = 1;
     }
 
-    Generator::displaySwitch(m_iteration);
+    Generator::self()->displaySwitch(m_iteration);
 }
 
 void KScreenDaemon::monitorForChanges()
