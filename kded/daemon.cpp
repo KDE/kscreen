@@ -23,11 +23,13 @@
 #include <QtCore/QDebug>
 
 #include <kdemacros.h>
+#include <kaction.h>
+#include <KLocalizedString>
+#include <KActionCollection>
 #include <KPluginFactory>
 
 #include <kscreen/config.h>
-#include <kscreen/configmonitor.h>
-#include <kaction.h>
+#include <kscreen/configmonitor.h
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
@@ -38,7 +40,9 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_pendingSave(false)
 {
     setenv("KSCREEN_BACKEND", "XRandR", 1);
-    KAction* action = new KAction(this);
+    KActionCollection *coll = new KActionCollection(this);
+    KAction* action = coll->addAction("display");
+    action->setText(i18n("Switch Display" ));
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
 
     connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
