@@ -27,15 +27,21 @@
 
 #include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
+#include <kaction.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
+ , m_iteration(0)
  , m_pendingSave(false)
 {
     setenv("KSCREEN_BACKEND", "XRandR", 1);
+    KAction* action = new KAction(this);
+    action->setGlobalShortcut(KShortcut(Qt::Key_Display));
+
+    connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
 
@@ -80,6 +86,15 @@ void KScreenDaemon::saveCurrentConfig()
     qDebug() << "Saving current config";
     m_pendingSave = false;
     Serializer::saveConfig(KScreen::Config::current());
+}
+
+void KScreenDaemon::displayButton()
+{
+    if (m_iteration > 5) {
+        m_iteration = 1;
+    }
+
+    Generator::displaySwitch(m_iteration);
 }
 
 void KScreenDaemon::monitorForChanges()

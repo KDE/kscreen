@@ -37,10 +37,12 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void applyConfig();
         void configChanged();
         void saveCurrentConfig();
+        void displayButton();
 
     private:
         void monitorForChanges();
 
+        quint8 m_iteration;
         bool m_pendingSave;
 };
 
