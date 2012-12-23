@@ -48,8 +48,9 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
 
     m_timer->setInterval(300);
-    connect(m_timer, SIGNAL(timeout()), SLOT(displayButton()));
-    connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
+    m_timer->setSingleShot(true);
+    connect(m_timer, SIGNAL(timeout()), SLOT(timmerOut()));
+    connect(action, SIGNAL(triggered(bool)), SLOT(displayBtn()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
 
@@ -96,18 +97,30 @@ void KScreenDaemon::saveCurrentConfig()
     Serializer::saveConfig(KScreen::Config::current());
 }
 
-void KScreenDaemon::displayButton()
+void KScreenDaemon::timmerOut()
 {
+    displayBtn();
+}
+
+void KScreenDaemon::displayBtn()
+{
+    qDebug() << "displayBtn triggered";
     if (m_timer->isActive()) {
+        qDebug() << "Too fast cowboy";
         return;
     }
 
+    m_timer->start();
+}
+
+void KScreenDaemon::displayButton()
+{
     if (m_iteration == 5) {
         m_iteration = 0;
     }
 
-    m_timer->start();
     m_iteration++;
+    qDebug() << "displayButton: " << m_iteration;
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
