@@ -94,10 +94,11 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
-    if (m_iteration > 5) {
-        m_iteration = 1;
+    if (m_iteration == 5) {
+        m_iteration = 0;
     }
 
+    m_iteration++;
     Generator::self()->displaySwitch(m_iteration);
 }
 
