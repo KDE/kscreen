@@ -42,6 +42,8 @@ private Q_SLOTS:
     void laptopDockedLidOpenAndExternal();
     void laptopDockedLidClosedAndExternal();
     void workstationTwoExternalDiferentSize();
+
+    void switchDisplayTwoScreens();
 };
 
 void testScreenConfig::loadConfig(const QByteArray& fileName)
@@ -234,6 +236,75 @@ void testScreenConfig::workstationTwoExternalDiferentSize()
     QCOMPARE(external2->isPrimary(), true);
     QCOMPARE(external2->isEnabled(), true);
     QCOMPARE(external2->currentMode(), 4);
+}
+
+void testScreenConfig::switchDisplayTwoScreens()
+{
+    loadConfig("switchDisplayTwoScreens.json");
+
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(true);
+    generator->setForceDocked(false);
+    generator->setForceLidClosed(false);
+
+    //Clone all
+    Config* config = generator->displaySwitch(1);
+    Output* laptop = config->outputs().value(1);
+    Output* external = config->outputs().value(2);
+    QCOMPARE(laptop->currentMode(), 2);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+    QCOMPARE(external->currentMode(), 3);
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+
+    //Extend to left
+    config = generator->displaySwitch(2);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(1920, 0));
+    QCOMPARE(external->currentMode(), 5);
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+
+    //Disable embedded,. enable external
+    config = generator->displaySwitch(3);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);;
+    QCOMPARE(laptop->isEnabled(), false);
+    QCOMPARE(external->currentMode(), 5);
+    QCOMPARE(external->isPrimary(), true);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+
+    //Enable embedded, disable external
+    config = generator->displaySwitch(4);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);;
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));;
+    QCOMPARE(external->isEnabled(), false);
+
+    //Extend to right
+    config = generator->displaySwitch(5);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);
+    QCOMPARE(laptop->currentMode(), 3);
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+    QCOMPARE(external->currentMode(), 5);
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(1280, 0));
 }
 
 QTEST_MAIN(testScreenConfig)

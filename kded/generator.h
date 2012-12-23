@@ -38,6 +38,7 @@ class Generator : public QObject
         static void destroy();
 
         KScreen::Config* idealConfig();
+        KScreen::Config* displaySwitch(int iteration);
 
         void setForceLaptop(bool force);
         void setForceLidClosed(bool force);

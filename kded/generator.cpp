@@ -80,6 +80,116 @@ KScreen::Config* Generator::idealConfig()
     return config;
 }
 
+KScreen::Config* Generator::displaySwitch(int iteration)
+{
+    KScreen::Config* config = KScreen::Config::current();
+    KScreen::OutputList outputs = config->connectedOutputs();
+
+    if (outputs.count() < 2) {
+        singleOutput(outputs);
+        return config;
+    }
+
+    if (outputs.count() > 2) {
+        extendToRight(outputs);
+        return config;
+    }
+
+    KScreen::Output* embedded, *external;
+    embedded = embeddedOutput(outputs);
+    outputs.remove(embedded->id());
+    external = outputs.value(outputs.keys().first());
+
+    //Clone
+    if (iteration == 1) {
+        KScreen::ModeList modes = embedded->modes();
+        QMap<int, QSize> embeddedModeSize;
+        Q_FOREACH(KScreen::Mode* mode, modes) {
+            embeddedModeSize.insert(mode->id(), mode->size());
+        }
+
+        QList<int> embeddedKeys;
+        KScreen::ModeList externalCommon;
+        KScreen::ModeList externalModes = external->modes();
+        Q_FOREACH(KScreen::Mode* mode, externalModes) {
+            if (!embeddedModeSize.keys(mode->size()).isEmpty()) {
+                externalCommon.insert(mode->id(), mode);
+                embeddedKeys.append(embeddedModeSize.keys(mode->size()));
+            }
+        }
+
+        KScreen::ModeList embeddedCommon;
+        Q_FOREACH(int key, embeddedKeys) {
+            embeddedCommon.insert(key, modes[key]);
+        }
+
+        KScreen::Mode* biggestEmbedded = biggestMode(embeddedCommon);
+        KScreen::Mode* biggestExternal = biggestMode(externalCommon);
+
+        embedded->setEnabled(true);
+        embedded->setPos(QPoint(0,0));
+        embedded->setCurrentMode(biggestEmbedded->id());
+        external->setEnabled(true);
+        external->setPos(QPoint(0,0));
+        external->setCurrentMode(biggestExternal->id());
+
+        return config;
+    }
+
+    //Extend left
+    if (iteration == 2) {
+        external->setEnabled(true);
+        external->setCurrentMode(external->preferredMode());
+
+        QSize size = external->mode(external->currentMode())->size();
+        embedded->setPos(QPoint(size.width(), 0));
+        embedded->setEnabled(true);
+        embedded->setCurrentMode(embedded->preferredMode());
+        embedded->setPrimary(true);
+        return config;
+    }
+
+    //Turn of embedded
+    if (iteration == 3) {
+        embedded->setEnabled(false);
+        embedded->setPrimary(false);
+
+        external->setEnabled(true);
+        external->setPrimary(true);
+        external->setCurrentMode(external->preferredMode());
+        return config;
+    }
+
+    //Turn off external
+    if (iteration == 4) {
+        embedded->setEnabled(true);
+        embedded->setPrimary(true);
+        embedded->setCurrentMode(embedded->preferredMode());
+
+        external->setEnabled(false);
+        external->setPrimary(false);
+        return config;
+    }
+
+    //Extend right
+    if (iteration == 5) {
+        embedded->setPos(QPoint(0,0));
+        embedded->setCurrentMode(embedded->preferredMode());
+        embedded->setPrimary(true);
+        embedded->setEnabled(true);
+
+        QSize size = embedded->mode(embedded->currentMode())->size();
+        external->setPos(QPoint(size.width(), 0));
+        external->setEnabled(true);
+        external->setCurrentMode(external->preferredMode());
+        external->setPrimary(false);
+
+        return config;
+    }
+
+    return config;
+}
+
 void Generator::singleOutput(KScreen::OutputList& outputs)
 {
     qDebug() << "Config for one output";
