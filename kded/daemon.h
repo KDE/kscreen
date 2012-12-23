@@ -23,6 +23,7 @@
 
 #include <kdedmodule.h>
 
+class QTimer;
 class KDE_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
@@ -44,6 +45,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
 
         quint8 m_iteration;
         bool m_pendingSave;
+        QTimer* m_timer;
 };
 
 #endif /*KSCREN_DAEMON_H*/

@@ -20,6 +20,7 @@
 #include "serializer.h"
 #include "generator.h"
 
+#include <QtCore/QTimer>
 #include <QtCore/QDebug>
 
 #include <kdemacros.h>
@@ -38,6 +39,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
  , m_iteration(0)
  , m_pendingSave(false)
+ , m_timer(new QTimer())
 {
     setenv("KSCREEN_BACKEND", "XRandR", 1);
     KActionCollection *coll = new KActionCollection(this);
@@ -45,6 +47,8 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     action->setText(i18n("Switch Display" ));
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
 
+    m_timer->setInterval(300);
+    connect(m_timer, SIGNAL(timeout()), SLOT(displayButton()));
     connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
@@ -94,10 +98,15 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
+    if (m_timer->isActive()) {
+        return;
+    }
+
     if (m_iteration == 5) {
         m_iteration = 0;
     }
 
+    m_timer->start();
     m_iteration++;
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
 }
