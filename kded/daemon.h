@@ -41,6 +41,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void timmerOut();
         void displayBtn();
         void displayButton();
+        void lidClosedChanged();
 
     private:
         void monitorForChanges();

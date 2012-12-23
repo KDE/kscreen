@@ -19,6 +19,7 @@
 #include "daemon.h"
 #include "serializer.h"
 #include "generator.h"
+#include "device.h"
 
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
@@ -46,6 +47,9 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     KAction* action = coll->addAction("display");
     action->setText(i18n("Switch Display" ));
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
+
+    Device* device = new Device(this);
+    connect(device, SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged()));
 
     m_timer->setInterval(300);
     m_timer->setSingleShot(true);
@@ -122,6 +126,11 @@ void KScreenDaemon::displayButton()
     m_iteration++;
     qDebug() << "displayButton: " << m_iteration;
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
+}
+
+void KScreenDaemon::lidClosedChanged()
+{
+    KScreen::Config::setConfig(Generator::self()->idealConfig());
 }
 
 void KScreenDaemon::monitorForChanges()
