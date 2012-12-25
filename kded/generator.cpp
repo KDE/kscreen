@@ -39,13 +39,12 @@ Generator* Generator::self()
 
 Generator::Generator()
  : QObject()
- , m_device(new Device(this))
  , m_isReady(false)
  , m_forceLaptop(false)
  , m_forceLidClosed(false)
  , m_forceDocked(false)
 {
-    connect(m_device, SIGNAL(ready()), SIGNAL(ready()));
+    connect(Device::self(), SIGNAL(ready()), SIGNAL(ready()));
 }
 
 void Generator::destroy()
@@ -55,7 +54,6 @@ void Generator::destroy()
 
 Generator::~Generator()
 {
-    delete m_device;
 }
 
 KScreen::Config* Generator::idealConfig()
@@ -371,7 +369,7 @@ bool Generator::isLaptop()
         return true;
     }
 
-    return m_device->isLaptop();
+    return Device::self()->isLaptop();
 }
 
 bool Generator::isLidClosed()
@@ -380,7 +378,7 @@ bool Generator::isLidClosed()
         return true;
     }
 
-    return m_device->isLidClosed();
+    return Device::self()->isLidClosed();
 }
 
 bool Generator::isDocked()
@@ -389,7 +387,7 @@ bool Generator::isDocked()
         return true;
     }
 
-    return m_device->isDocked();
+    return Device::self()->isDocked();
 }
 
 void Generator::setForceLaptop(bool force)

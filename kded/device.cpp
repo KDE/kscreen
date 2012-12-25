@@ -19,6 +19,23 @@
 #include "device.h"
 #include "upower_interface.h"
 
+Device* Device::m_instance = 0;
+
+Device* Device::self()
+{
+    if (!Device::m_instance) {
+        m_instance = new Device();
+    }
+
+    return m_instance;
+}
+
+void Device::destroy()
+{
+    delete m_instance;
+    m_instance = 0;
+}
+
 Device::Device(QObject* parent) 
  : QObject(parent)
  , m_isReady(false)

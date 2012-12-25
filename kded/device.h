@@ -28,8 +28,8 @@ class Device : public QObject
 {
     Q_OBJECT
     public:
-        explicit Device(QObject* parent = 0);
-        virtual ~Device();
+        static Device* self();
+        static void destroy();
 
         bool isReady();
         bool isLaptop();
@@ -47,6 +47,9 @@ class Device : public QObject
         void lidIsClosedChanged(bool after, bool before);
 
     private:
+        explicit Device(QObject* parent = 0);
+        virtual ~Device();
+
         void setReady();
         void fetchIsLaptop();
         void fetchLidIsClosed();
@@ -56,6 +59,8 @@ class Device : public QObject
         bool m_isLaptop;
         bool m_isLidClosed;
         bool m_isDocked;
+
+        static Device* m_instance;
 
         OrgFreedesktopUPowerInterface* m_upower;
         OrgFreedesktopDBusPropertiesInterface* m_freedesktop;
