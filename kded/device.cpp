@@ -17,7 +17,7 @@
  *************************************************************************************/
 
 #include "device.h"
-#include "upower_interface.h"
+#include "kded/freedesktop_interface.h"
 
 Device* Device::m_instance = 0;
 
@@ -47,17 +47,14 @@ Device::Device(QObject* parent)
                                                               "/org/freedesktop/UPower",
                                                               QDBusConnection::systemBus());
 
-    m_upower = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower",
-                                                 "/org/freedesktop/UPower",
-                                                 QDBusConnection::systemBus());
+    QDBusConnection::systemBus().connect("org.freedesktop.UPower", "/org/freedesktop/UPower", 
+                                         "org.freedesktop.UPower", "Changed", this, SLOT(changed()));
 
-    connect(m_upower, SIGNAL(Changed()), SLOT(changed()));
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
 Device::~Device()
 {
-    delete m_upower;
     delete m_freedesktop;
 }
 

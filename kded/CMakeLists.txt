@@ -1,4 +1,4 @@
-include_directories(${CMAKE_BUILD_DIR}/kded)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(kscreen_daemon_SRCS
     daemon.cpp
@@ -10,8 +10,8 @@ set(kscreen_daemon_SRCS
 )
 
 qt4_add_dbus_interface(kscreen_daemon_SRCS
-    org.freedesktop.UPower.xml
-    upower_interface)
+    org.freedesktop.DBus.Properties.xml
+    freedesktop_interface)
 
 kde4_add_plugin(kded_kscreen
     ${kscreen_daemon_SRCS}
@@ -36,8 +36,8 @@ set(daemon_testapp_SRCS
 )
 
 qt4_add_dbus_interface(daemon_testapp_SRCS
-    org.freedesktop.UPower.xml
-    upower_interface)
+    org.freedesktop.DBus.Properties.xml
+    freedesktop_interface)
 
 kde4_add_executable(kscreen_daemon_testapp ${daemon_testapp_SRCS})
 target_link_libraries(kscreen_daemon_testapp ${QT_QTCORE_LIBRARIES} ${QT_QTGUI_LIBRARIES} ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${LibKScreen_LIBRARY} ${QJSON_LIBRARIES} qjson)

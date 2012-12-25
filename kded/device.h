@@ -62,7 +62,6 @@ class Device : public QObject
 
         static Device* m_instance;
 
-        OrgFreedesktopUPowerInterface* m_upower;
         OrgFreedesktopDBusPropertiesInterface* m_freedesktop;
 };
 
