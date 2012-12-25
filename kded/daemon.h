@@ -38,9 +38,8 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void applyConfig();
         void configChanged();
         void saveCurrentConfig();
-        void timmerOut();
-        void displayBtn();
         void displayButton();
+        void applyGenericConfig();
         void lidClosedChanged();
 
     private:

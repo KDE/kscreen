@@ -53,8 +53,8 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
 
     m_timer->setInterval(300);
     m_timer->setSingleShot(true);
-    connect(m_timer, SIGNAL(timeout()), SLOT(timmerOut()));
-    connect(action, SIGNAL(triggered(bool)), SLOT(displayBtn()));
+    connect(m_timer, SIGNAL(timeout()), SLOT(applyGenericConfig()));
+    connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
 }
 
@@ -101,12 +101,7 @@ void KScreenDaemon::saveCurrentConfig()
     Serializer::saveConfig(KScreen::Config::current());
 }
 
-void KScreenDaemon::timmerOut()
-{
-    displayBtn();
-}
-
-void KScreenDaemon::displayBtn()
+void KScreenDaemon::displayButton()
 {
     qDebug() << "displayBtn triggered";
     if (m_timer->isActive()) {
@@ -117,7 +112,7 @@ void KScreenDaemon::displayBtn()
     m_timer->start();
 }
 
-void KScreenDaemon::displayButton()
+void KScreenDaemon::applyGenericConfig()
 {
     if (m_iteration == 5) {
         m_iteration = 0;
