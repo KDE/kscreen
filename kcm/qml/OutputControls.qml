@@ -172,6 +172,7 @@ Item {
 
             iconSize: root.iconSize;
             enabledIcon: "object-rotate-left";
+            tooltipText: i18n("Rotate output 90° counterclockwise");
 
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             onClicked: {
@@ -209,6 +210,7 @@ Item {
             iconSize: root.iconSize;
             enabledIcon: "bookmarks";
             enabled: (output.enabled && output.primary);
+            tooltipText: i18n("Toggle primary output");
 
             onClicked: {
                 if (output.enabled) {
@@ -228,6 +230,7 @@ Item {
 
             iconSize: root.iconSize;
             enabledIcon: "view-restore"
+            tooltipText: i18n("Show list of available display resolutions");
 
             onClicked: selectionDialog.open();
         }

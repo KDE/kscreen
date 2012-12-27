@@ -123,6 +123,7 @@ Item {
 
             enabledIcon: "documentinfo"
             iconSize: 44;
+            tooltipText: i18n("Identify outputs");
 
             onClicked: root.identifyOutputsRequested();
         }

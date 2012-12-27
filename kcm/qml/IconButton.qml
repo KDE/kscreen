@@ -18,6 +18,7 @@
 
 import QtQuick 1.1
 import org.kde.qtextracomponents 0.1
+import org.kde.plasma.core 0.1 as PlasmaCore
 
 MouseArea {
 
@@ -27,9 +28,26 @@ MouseArea {
     property bool enabled: true;
     property string enabledIcon;
     property string disabledIcon;
+    property alias tooltipText: tooltipLabel.text;
 
     width: iconSize;
     height: iconSize;
+
+    hoverEnabled: true;
+
+    SystemPalette {
+
+        id: palette;
+    }
+
+    Timer {
+
+        id: tooltipTimer;
+        interval: 600;
+        running: false;
+
+        onTriggered: tooltip.show();
+    }
 
     QIconItem {
 
@@ -59,6 +77,45 @@ MouseArea {
     Behavior on height {
         PropertyAnimation {
             duration: 100;
+        }
+    }
+
+    onEntered: {
+        tooltipTimer.start();
+    }
+
+    onExited: {
+        tooltip.hide();
+    }
+
+
+    PlasmaCore.Dialog {
+
+        id: tooltip;
+
+        windowFlags: Qt.ToolTip;
+
+        mainItem: Text {
+
+            id: tooltipLabel;
+
+            color: palette.text;
+        }
+
+        function show() {
+            var pos = popupPosition(mouseArea, Qt.AlignLeft);
+            x = pos.x + mouseArea.mouseX;
+            y = pos.y + mouseArea.mouseY + 5;
+
+            visible = true;
+        }
+
+        function hide() {
+            if (tooltipTimer.running) {
+                tooltipTimer.stop();
+            }
+
+            visible = false;
         }
     }
 }
