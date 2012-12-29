@@ -11,6 +11,7 @@ X-KDE-Weight=50
 
 Name=Display Configuration
 Name[cs]=Nastavení zobrazení
+Name[da]=Konfiguration af skærme
 Name[et]=Ekraani seadistamine
 Name[ga]=Cumraíocht an Scáileáin
 Name[hu]=Megjelenítési beállítások
@@ -24,6 +25,7 @@ Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
 Comment=Manage and configure monitors and displays
 Comment[cs]=Spravovat a nastavit monitory a zobrazení
+Comment[da]=Håndtér og indstil monitorer og skærme
 Comment[et]=Monitoride ja ekraanide haldamine ja seadistamine
 Comment[ga]=Bainistigh agus cumraigh monatóirí agus scáileáin
 Comment[hu]=Monitorok és kijelzők kezelése és beállítása
