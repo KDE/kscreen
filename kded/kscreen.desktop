@@ -6,6 +6,7 @@ Name[hu]=KScreen 2
 Name[nl]=KScreen 2
 Name[pt]=KScreen 2
 Name[pt_BR]=KScreen 2
+Name[sv]=Kscreen 2
 Name[uk]=KScreen 2
 Name[x-test]=xxKScreen 2xx
 Comment=Screen management
@@ -15,6 +16,7 @@ Comment[hu]=Képernyőkezelés
 Comment[nl]=Schermbeheer
 Comment[pt]=Gestão do ecrã
 Comment[pt_BR]=Gerenciamento de telas
+Comment[sv]=Skärmhantering
 Comment[uk]=Керування екраном
 Comment[x-test]=xxScreen managementxx
 
