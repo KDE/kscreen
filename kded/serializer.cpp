@@ -110,16 +110,19 @@ bool Serializer::saveConfig(KScreen::Config* config)
         pos["y"] = output->pos().y();
         info["pos"] = pos;
 
-        QVariantMap modeInfo;
-        KScreen::Mode *mode = output->mode(output->currentMode());
-        modeInfo["refresh"] = mode->refreshRate();
+        if (output->isEnabled()) {
+            KScreen::Mode *mode = output->mode(output->currentMode());
 
-        QVariantMap modeSize;
-        modeSize["width"] = mode->size().width();
-        modeSize["height"] = mode->size().height();
-        modeInfo["size"] = modeSize;
+            QVariantMap modeInfo;
+            modeInfo["refresh"] = mode->refreshRate();
 
-        info["mode"] = modeInfo;
+            QVariantMap modeSize;
+            modeSize["width"] = mode->size().width();
+            modeSize["height"] = mode->size().height();
+            modeInfo["size"] = modeSize;
+
+            info["mode"] = modeInfo;
+        }
 
         outputList.append(info);
     }
