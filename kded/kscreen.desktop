@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KScreen 2
+Name[da]=KScreen 2
 Name[et]=KScreen 2
 Name[ga]=KScreen 2
 Name[hu]=KScreen 2
@@ -10,6 +11,7 @@ Name[sv]=Kscreen 2
 Name[uk]=KScreen 2
 Name[x-test]=xxKScreen 2xx
 Comment=Screen management
+Comment[da]=Håndtering af skærme
 Comment[et]=Ekraanihaldur
 Comment[ga]=Bainisteoireacht an Scáileáin
 Comment[hu]=Képernyőkezelés
