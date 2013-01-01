@@ -233,24 +233,38 @@ void Generator::laptop(KScreen::OutputList& outputs)
     embedded->setPrimary(true);
     embedded->setEnabled(true);
 
-    QSize globalSize = embedded->mode(embedded->preferredMode())->size();
+    int globalWidth;
+    if ((embedded->rotation() == KScreen::Output::None) ||
+        (embedded->rotation() == KScreen::Output::Inverted)) {
+        globalWidth = embedded->mode(embedded->preferredMode())->size().width();
+    } else {
+        globalWidth = embedded->mode(embedded->preferredMode())->size().height();
+    }
     KScreen::Output* biggest = biggestOutput(outputs);
     outputs.remove(biggest->id());
 
-    biggest->setPos(QPoint(globalSize.width(), 0));
+    biggest->setPos(QPoint(globalWidth, 0));
     biggest->setEnabled(true);
     biggest->setCurrentMode(biggest->preferredMode());
     biggest->setPrimary(false);
 
-    QSize size;
-    globalSize += biggest->mode(biggest->currentMode())->size();
+    if ((biggest->rotation() == KScreen::Output::None) ||
+        (biggest->rotation() == KScreen::Output::Inverted)) {
+        globalWidth += biggest->mode(biggest->currentMode())->size().width();
+    } else {
+        globalWidth += biggest->mode(biggest->currentMode())->size().height();
+    }
     Q_FOREACH(KScreen::Output* output, outputs) {
         output->setEnabled(true);
         output->setCurrentMode(output->preferredMode());
-        output->setPos(QPoint(globalSize.width(), 0));
+        output->setPos(QPoint(globalWidth, 0));
 
-        size = output->mode(output->currentMode())->size();
-        globalSize += size;
+        if ((output->rotation() == KScreen::Output::None) ||
+            (output->rotation() == KScreen::Output::Inverted)) {
+            globalWidth += output->mode(output->currentMode())->size().width();
+        } else {
+            globalWidth += output->mode(output->currentMode())->size().height();
+        }
     }
 
     if (isDocked()) {
@@ -272,16 +286,26 @@ void Generator::extendToRight(KScreen::OutputList& outputs)
     biggest->setCurrentMode(biggest->preferredMode());
     biggest->setPos(QPoint(0,0));
 
-    QSize size;
-    QSize globalSize = biggest->mode(biggest->currentMode())->size();
+    int globalWidth;
+    if ((biggest->rotation() == KScreen::Output::None) ||
+        (biggest->rotation() == KScreen::Output::Inverted)) {
+        globalWidth = biggest->mode(biggest->currentMode())->size().width();
+    } else {
+        globalWidth = biggest->mode(biggest->currentMode())->size().height();
+    }
+
     Q_FOREACH(KScreen::Output* output, outputs) {
         output->setEnabled(true);
         output->setPrimary(false);
         output->setCurrentMode(output->preferredMode());
-        output->setPos(QPoint(globalSize.width(), 0));
+        output->setPos(QPoint(globalWidth, 0));
 
-        size = output->mode(output->currentMode())->size();
-        globalSize += size;
+        if ((output->rotation() == KScreen::Output::None) ||
+            (output->rotation() == KScreen::Output::Inverted)) {
+            globalWidth += output->mode(output->currentMode())->size().width();
+        } else {
+            globalWidth += output->mode(output->currentMode())->size().height();
+        }
     }
 }
 
