@@ -24,6 +24,11 @@
 #include <kdedmodule.h>
 
 class QTimer;
+class KScreen
+{
+    class Config;
+    class Output;
+};
 class KDE_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
@@ -36,6 +41,8 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
     public Q_SLOTS:
         void init();
         void applyConfig();
+        void applyKnownConfig();
+        void applyIdealConfig();
         void configChanged();
         void saveCurrentConfig();
         void displayButton();
@@ -43,10 +50,14 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void lidClosedChanged();
 
     private:
-        void monitorForChanges();
+        void setMonitorForChanges(bool enabled);
+        void enableMonitor(KScreen::Output *output);
+        void disableMonitor(KScreen::Output *output);
 
+        KScreen::Config* m_monitoredConfig;
         quint8 m_iteration;
         bool m_pendingSave;
+        bool m_monitoring;
         QTimer* m_timer;
 };
 
