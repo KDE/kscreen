@@ -193,6 +193,8 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
     qDebug() << "Config for one output";
     KScreen::Output* output = outputs.take(outputs.keys().first());
     output->setCurrentMode(output->preferredMode());
+    output->setEnabled(true);
+    output->setPrimary(true);
 }
 
 void Generator::laptop(KScreen::OutputList& outputs)
@@ -210,6 +212,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
     if (isLidClosed() && outputs.count() == 1) {
         qDebug() << "With lid closed";
         embedded->setEnabled(false);
+        embedded->setPrimary(false);
 
         KScreen::Output* external = outputs.value(outputs.keys().first());
         external->setEnabled(true);
@@ -353,6 +356,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (!output->isConnected()) {
             output->setEnabled(false);
+            output->setPrimary(false);
         }
     }
 }

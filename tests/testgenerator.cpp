@@ -64,6 +64,8 @@ void testScreenConfig::singleOutput()
 
     Output* output = Generator::self()->idealConfig()->outputs().value(1);
     QCOMPARE(output->currentMode(), 3);
+    QCOMPARE(output->isEnabled(), true);
+    QCOMPARE(output->isPrimary(), true);
 
 }
 
@@ -131,6 +133,7 @@ void testScreenConfig::laptopLidClosedAndExternal()
     Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
+    QCOMPARE(laptop->isPrimary(), false);
 
     QCOMPARE(external->currentMode(), 4);
     QCOMPARE(external->isPrimary(), true);
@@ -209,6 +212,7 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     Output* external = config->outputs().value(2);
 
     QCOMPARE(laptop->isEnabled(), false);
+    QCOMPARE(laptop->isPrimary(), false);
 
     QCOMPARE(external->currentMode(), 4);
     QCOMPARE(external->isPrimary(), true);
