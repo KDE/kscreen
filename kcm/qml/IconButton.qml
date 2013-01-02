@@ -40,6 +40,11 @@ MouseArea {
         id: palette;
     }
 
+    PlasmaCore.Theme {
+
+        id: theme;
+    }
+
     Timer {
 
         id: tooltipTimer;
@@ -88,7 +93,9 @@ MouseArea {
         tooltip.hide();
     }
 
-
+    /* FIXME: We should not mix Plasma and QWidgets, but until there's proper
+     * implementation of dialogs in QtQuick, we have no choice (and I'm not
+     * going to write the dialog myself) - dan */
     PlasmaCore.Dialog {
 
         id: tooltip;
@@ -99,7 +106,7 @@ MouseArea {
 
             id: tooltipLabel;
 
-            color: palette.text;
+            color: theme.textColor;
         }
 
         function show() {
