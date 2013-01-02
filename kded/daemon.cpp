@@ -137,7 +137,7 @@ void KScreenDaemon::applyGenericConfig()
 
 void KScreenDaemon::lidClosedChanged()
 {
-    KScreen::Config::setConfig(Generator::self()->idealConfig());
+    applyIdealConfig();
 }
 
 void KScreenDaemon::setMonitorForChanges(bool enabled)
