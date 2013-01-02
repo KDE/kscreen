@@ -23,12 +23,8 @@
 
 #include <kdedmodule.h>
 
+#include <kscreen/config.h>
 class QTimer;
-class KScreen
-{
-    class Config;
-    class Output;
-};
 class KDE_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
