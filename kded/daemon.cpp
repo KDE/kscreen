@@ -130,6 +130,7 @@ void KScreenDaemon::applyGenericConfig()
         m_iteration = 0;
     }
 
+    setMonitorForChanges(true);
     m_iteration++;
     qDebug() << "displayButton: " << m_iteration;
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
