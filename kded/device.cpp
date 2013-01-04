@@ -131,11 +131,11 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
 {
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
-        qDebug() << "Couldn't get if the device is a laptop: " << reply.error().message();
+        qDebug() << "Couldn't get if the laptop has the lid closed: " << reply.error().message();
         return;
     }
 
-    bool oldValue = m_isLidClosed;;
+    bool oldValue = m_isLidClosed;
     m_isLidClosed = reply.value().toBool();
     watcher->deleteLater();
 
