@@ -46,6 +46,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void lidClosedChanged();
 
     private:
+        void monitorConnectedChange();
         void setMonitorForChanges(bool enabled);
         void enableMonitor(KScreen::Output *output);
         void disableMonitor(KScreen::Output *output);

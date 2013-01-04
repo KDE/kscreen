@@ -57,6 +57,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     connect(m_timer, SIGNAL(timeout()), SLOT(applyGenericConfig()));
     connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
+    monitorConnectedChange();
 }
 
 KScreenDaemon::~KScreenDaemon()
@@ -141,6 +142,19 @@ void KScreenDaemon::lidClosedChanged()
     applyIdealConfig();
 }
 
+void KScreenDaemon::monitorConnectedChange()
+{
+    if (!m_monitoredConfig) {
+        m_monitoredConfig = KScreen::Config::current();
+        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+    }
+
+    KScreen::OutputList outputs = m_monitoredConfig->outputs();
+    Q_FOREACH(KScreen::Output* output, outputs) {
+        connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
+    }
+}
+
 void KScreenDaemon::setMonitorForChanges(bool enabled)
 {
     if (m_monitoring == enabled) {
@@ -165,8 +179,6 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
 
 void KScreenDaemon::enableMonitor(KScreen::Output* output)
 {
-    connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
-
     connect(output, SIGNAL(currentModeChanged()), SLOT(configChanged()));
     connect(output, SIGNAL(isEnabledChanged()), SLOT(configChanged()));
     connect(output, SIGNAL(isPrimaryChanged()), SLOT(configChanged()));
