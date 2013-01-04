@@ -86,7 +86,7 @@ void KScreenDaemon::applyKnownConfig()
 {
     setMonitorForChanges(false);
     KScreen::Config::setConfig(Serializer::config(Serializer::currentId()));
-    setMonitorForChanges(true);
+    QMetaObject::invokeMethod(this, "setMonitorForChanges", Qt::QueuedConnection, Q_ARG(bool, true));
 }
 
 void KScreenDaemon::applyIdealConfig()
