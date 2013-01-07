@@ -6,6 +6,10 @@ set(kcm_displayconfiguration_SRCS
 	modesproxymodel.cpp
 	modeselectionwidget.cpp
 	resolutionsortmodel.cpp
+
+	# Copied from kde-runtime/plasma/declarativeimports/plasmaextracomponents
+	# as a dependency of qml/plasmacomponents/private/InlineDialog.qml
+	fallbackcomponent.cpp
 )
 
 qt4_automoc(${kcm_displayconfiguration_SRCS})

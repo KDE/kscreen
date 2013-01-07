@@ -21,6 +21,7 @@
 #include "qmloutput.h"
 #include "qmlcursor.h"
 #include "modeselectionwidget.h"
+#include "fallbackcomponent.h"
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -81,8 +82,10 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         QString importPath = KStandardDirs::installPath("lib") +
                 QDir::separator() + "kde4" + QDir::separator() + "imports";
 
+        qmlRegisterType<FallbackComponent>("org.kde.plasma.extras410", 0, 1, "FallbackComponent");
+
         qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
-        qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");\
+        qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
         qmlRegisterInterface<KScreen::Output*>("Output");
         qmlRegisterInterface<KScreen::Mode*>("OutputMode");

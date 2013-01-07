@@ -19,8 +19,11 @@
 
 import QtQuick 1.1
 import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.extras 0.1 as PlasmaExtras
 import org.kde.plasma.components 0.1 as PlasmaComponents
+
+/* Our internal package that contains FallbackComponent imported from
+ * KDE 4.10. */
+import org.kde.plasma.extras410 0.1 as PlasmaExtras
 
 Item {
     id: root
