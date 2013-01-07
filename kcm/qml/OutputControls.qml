@@ -280,11 +280,20 @@ Item {
             }
     ]
 
-    ModeSelectionDialog {
+    PlasmaComponents.Dialog {
 
-            id: selectionDialog;
+        id: selectionDialog;
 
-            parentItem: parent.parentItem;
-            visualParent: resizeButton;
+        visualParent: resizeButton;
+
+        content: [
+                ModeSelectionWidget {
+                    id: contentItem;
+                    output: root.parentItem;
+
+                    onAccepted: selectionDialog.close();
+                }
+        ]
+
     }
 }

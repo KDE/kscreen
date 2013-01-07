@@ -1,7 +1,6 @@
 set(QML_FILES
 	main.qml
 	IconButton.qml
-	ModeSelectionDialog.qml
 	OutputView.qml
 	Output.qml
 	OutputIdentifier.qml
