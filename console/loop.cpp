@@ -32,7 +32,7 @@ void Loop::start()
     qDebug() << "START";
     QDateTime date = QDateTime::currentDateTime();
     m_config = Config::current();
-    qDebug() << "Took: " << date.secsTo(QDateTime::currentDateTime());
+    qDebug() << "Config::current() took" << date.msecsTo(QDateTime::currentDateTime()) << "milliseconds";
     ConfigMonitor::instance()->addConfig(m_config);
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 
@@ -57,6 +57,7 @@ void Loop::printConfig()
     OutputList outputs = m_config->outputs();
     OutputList outputEnabled;
     Q_FOREACH(Output *output, outputs) {
+        qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
         qDebug() << "Name: " << output->name();
         qDebug() << "Type: " << output->type();
@@ -79,29 +80,28 @@ void Loop::printConfig()
         }
 
         Edid* edid = output->edid();
-    qDebug() << "EDID Info: ";
-    if (edid != 0) {
-        qDebug() << "\tDevice ID: " << edid->deviceId();
-        qDebug() << "\tName: " << edid->name();
-        qDebug() << "\tVendor: " << edid->vendor();
-        qDebug() << "\tSerial: " << edid->serial();
-        qDebug() << "\tEISA ID: " << edid->eisaId();
-        qDebug() << "\tHash: " << edid->hash();
-        qDebug() << "\tWidth: " << edid->width();
-        qDebug() << "\tHeight: " << edid->height();
-        qDebug() << "\tGamma: " << edid->gamma();
-        qDebug() << "\tRed: " << edid->red();
-        qDebug() << "\tGreen: " << edid->green();
-        qDebug() << "\tBlue: " << edid->blue();
-        qDebug() << "\tWhite: " << edid->white();
-    } else {
-        qDebug() << "\tUnavailable";
-    }
+        qDebug() << "EDID Info: ";
+        if (edid != 0) {
+            qDebug() << "\tDevice ID: " << edid->deviceId();
+            qDebug() << "\tName: " << edid->name();
+            qDebug() << "\tVendor: " << edid->vendor();
+            qDebug() << "\tSerial: " << edid->serial();
+            qDebug() << "\tEISA ID: " << edid->eisaId();
+            qDebug() << "\tHash: " << edid->hash();
+            qDebug() << "\tWidth: " << edid->width();
+            qDebug() << "\tHeight: " << edid->height();
+            qDebug() << "\tGamma: " << edid->gamma();
+            qDebug() << "\tRed: " << edid->red();
+            qDebug() << "\tGreen: " << edid->green();
+            qDebug() << "\tBlue: " << edid->blue();
+            qDebug() << "\tWhite: " << edid->white();
+        } else {
+            qDebug() << "\tUnavailable";
+        }
 
         if (output->isEnabled()) {
             outputEnabled.insert(output->id(), output);
         }
-        qDebug() << "\n-----------------------------------------------------\n";
     }
 }
 #include <loop.moc>
