@@ -146,6 +146,10 @@ void KScreenDaemon::monitorConnectedChange()
 {
     if (!m_monitoredConfig) {
         m_monitoredConfig = KScreen::Config::current();
+        if (!m_monitoredConfig) {
+            return;
+        }
+
         KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
     }
 
@@ -162,6 +166,9 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     }
     if (!m_monitoredConfig) {
         m_monitoredConfig = KScreen::Config::current();
+        if (!m_monitoredConfig) {
+            return;
+        }
         KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
     }
 

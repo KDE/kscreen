@@ -178,6 +178,10 @@ void DisplayConfiguration::save()
 {
     kDebug() << "Saving";
 
+    if (!m_declarativeView) {
+        return;
+    }
+
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
         KScreen::Mode *mode = output->mode(output->currentMode());

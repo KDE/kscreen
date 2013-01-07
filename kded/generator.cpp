@@ -59,6 +59,10 @@ Generator::~Generator()
 KScreen::Config* Generator::idealConfig()
 {
     KScreen::Config* config = KScreen::Config::current();
+    if (!config) {
+        return 0;
+    }
+
     disableAllDisconnectedOutputs(config->outputs());
 
     KScreen::OutputList outputs = config->connectedOutputs();
@@ -81,6 +85,10 @@ KScreen::Config* Generator::idealConfig()
 KScreen::Config* Generator::displaySwitch(int iteration)
 {
     KScreen::Config* config = KScreen::Config::current();
+    if (!config) {
+        return 0;
+    }
+
     KScreen::OutputList outputs = config->connectedOutputs();
 
     if (outputs.count() < 2) {
@@ -192,6 +200,10 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
 {
     qDebug() << "Config for one output";
     KScreen::Output* output = outputs.take(outputs.keys().first());
+    if (!output) {
+        return;
+    }
+
     output->setCurrentMode(output->preferredMode());
     output->setEnabled(true);
     output->setPrimary(true);
@@ -202,6 +214,11 @@ void Generator::laptop(KScreen::OutputList& outputs)
     qDebug() << "Config for a laptop";
 
     KScreen::Output* embedded = embeddedOutput(outputs);
+    if (!embedded) {
+        qWarning() << "No embeded output found!";
+        return;
+    }
+
     outputs.remove(embedded->id());
 
     if (outputs.isEmpty() || !embedded) {

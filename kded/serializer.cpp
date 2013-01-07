@@ -68,6 +68,10 @@ KScreen::Config* Serializer::config(const QString& id)
 {
     QJson::Parser parser;
     KScreen::Config* config = KScreen::Config::current();
+    if (!config) {
+        return 0;
+    }
+
     KScreen::OutputList outputList = config->outputs();
     QFile file(KStandardDirs::locateLocal("data", "kscreen/"+id));
     file.open(QIODevice::ReadOnly);
@@ -81,6 +85,10 @@ KScreen::Config* Serializer::config(const QString& id)
 
     Q_FOREACH(const QVariant &info, outputs) {
         KScreen::Output* output = Serializer::findOutput(info.toMap());
+        if (!output) {
+            continue;
+        }
+
         delete outputList.take(output->id());
         outputList.insert(output->id(), output);
     }
@@ -144,7 +152,12 @@ bool Serializer::saveConfig(KScreen::Config* config)
 
 KScreen::Output* Serializer::findOutput(const QVariantMap& info)
 {
-    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
+    KScreen::Config *config = KScreen::Config::current();
+    if (!config) {
+        return 0;
+    }
+
+    KScreen::OutputList outputs = config->outputs();
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (!output->isConnected()) {
             continue;
