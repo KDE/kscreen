@@ -22,6 +22,15 @@ import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
+/* We switched from PlasmaCore.Dialog to PlasmaComponents.Dialog to
+   fix bug #312544. Unfortunatelly the component works correctly only
+   in KDE 4.10, it does not fix the bug in KDE 4.9 and it misbehaves.
+
+   To support KDE 4.9 (and older) and to make the code still working,
+   we ship our own copy of the Dialog.qml and it's dependencies from
+   kde-runtime/plasma/declarativeimports */
+import "plasmacomponents" as PlasmaComponents410
+
 Item {
 
     id: root;
@@ -280,7 +289,7 @@ Item {
             }
     ]
 
-    PlasmaComponents.Dialog {
+    PlasmaComponents410.Dialog {
 
         id: selectionDialog;
 
