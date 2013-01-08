@@ -197,5 +197,11 @@ void KScreenDaemon::enableMonitor(KScreen::Output* output)
 
 void KScreenDaemon::disableMonitor(KScreen::Output* output)
 {
-    output->disconnect();
+    disconnect(output, SIGNAL(currentModeChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(outputChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(clonesChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(posChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(rotationChanged()), this, SLOT(configChanged()));
 }
