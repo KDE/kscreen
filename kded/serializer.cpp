@@ -137,8 +137,6 @@ bool Serializer::saveConfig(KScreen::Config* config)
         outputList.append(info);
     }
 
-    qDebug() << outputList.count();
-    bool ok;
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(outputList);
 
