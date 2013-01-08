@@ -44,10 +44,10 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void displayButton();
         void applyGenericConfig();
         void lidClosedChanged();
+        void setMonitorForChanges(bool enabled);
 
     private:
         void monitorConnectedChange();
-        void setMonitorForChanges(bool enabled);
         void enableMonitor(KScreen::Output *output);
         void disableMonitor(KScreen::Output *output);
 
