@@ -381,7 +381,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs
 KScreen::Output* Generator::embeddedOutput(const KScreen::OutputList& outputs)
 {
     Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!isEmbedded(output->name())) {
+        if (!output->isEmbedded()) {
             continue;
         }
 
@@ -389,23 +389,6 @@ KScreen::Output* Generator::embeddedOutput(const KScreen::OutputList& outputs)
     }
 
     return 0;
-}
-
-bool Generator::isEmbedded(const QString& name)
-{
-    QStringList embedded;
-    embedded << "LVDS";
-    embedded << "IDP";
-    embedded << "EDP";
-
-    Q_FOREACH(const QString &pre, embedded) {
-        if (name.toUpper().startsWith(pre)) {
-            qDebug() << "This is embedded: " << name;
-            return true;
-        }
-    }
-
-    return false;
 }
 
 bool Generator::isLaptop()
