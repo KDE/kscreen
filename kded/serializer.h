@@ -37,6 +37,7 @@ class Serializer
         static bool saveConfig(KScreen::Config* config);
 
         static KScreen::Output* findOutput(const QVariantMap &info);
+        static QString outputId(const KScreen::Output* output);
 };
 
 #endif //KDED_SERIALIZER_H

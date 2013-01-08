@@ -43,12 +43,8 @@ QString Serializer::currentId()
         if (!output->isConnected()) {
             continue;
         }
-        if (output->edid()) {
-            hashList.insert(0, output->edid()->hash());
-            continue;
-        }
 
-        hashList.insert(0, output->name());
+        hashList.insert(0, Serializer::outputId(output));
     }
 
     qSort(hashList.begin(), hashList.end());
@@ -113,7 +109,8 @@ bool Serializer::saveConfig(KScreen::Config* config)
         }
 
         QVariantMap info;
-        info["hash"] = output->edid()->hash();
+
+        info["id"] = Serializer::outputId(output);
         info["primary"] = output->isPrimary();
         info["enabled"] = output->isEnabled();
         info["rotation"] = output->rotation();
@@ -167,10 +164,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         if (!output->isConnected()) {
             continue;
         }
-        if (!output->edid()->isValid()) {
-            continue;
-        }
-        if (output->edid()->hash() != info["hash"].toString()) {
+        if (Serializer::outputId(output) != info["id"].toString()) {
             continue;
         }
 
@@ -206,4 +200,13 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
     }
 
     return 0;
+}
+
+QString Serializer::outputId(const KScreen::Output* output)
+{
+    if (output->edid()) {
+        return output->edid()->hash();
+    }
+
+    return output->name();
 }
