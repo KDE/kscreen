@@ -145,6 +145,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     //Extend left
     if (iteration == 2) {
         external->setEnabled(true);
+        external->setPos(QPoint(0,0));
         external->setCurrentMode(external->preferredMode());
 
         QSize size = external->mode(external->currentMode())->size();
@@ -170,6 +171,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     if (iteration == 4) {
         embedded->setEnabled(true);
         embedded->setPrimary(true);
+        embedded->setPos(QPoint(0,0));
         embedded->setCurrentMode(embedded->preferredMode());
 
         external->setEnabled(false);
