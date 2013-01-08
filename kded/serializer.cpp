@@ -43,7 +43,12 @@ QString Serializer::currentId()
         if (!output->isConnected()) {
             continue;
         }
-        hashList.insert(0, output->edid()->hash());
+        if (output->edid()) {
+            hashList.insert(0, output->edid()->hash());
+            continue;
+        }
+
+        hashList.insert(0, output->name());
     }
 
     qSort(hashList.begin(), hashList.end());
