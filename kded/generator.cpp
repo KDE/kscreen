@@ -295,8 +295,6 @@ void Generator::laptop(KScreen::OutputList& outputs)
         embedded->setPrimary(false);
         biggest->setPrimary(true);
     }
-
-    return;
 }
 
 void Generator::extendToRight(KScreen::OutputList& outputs)
