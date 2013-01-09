@@ -50,6 +50,7 @@ Generator::Generator()
 void Generator::destroy()
 {
     delete Generator::instance;
+    Generator::instance = 0;
 }
 
 Generator::~Generator()
