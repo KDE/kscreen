@@ -123,6 +123,7 @@ Flickable {
                 disabledOffset -= qmlOutput.width;
                 qmlOutput.x = disabledOffset;
                 qmlOutput.y = 0;
+                continue;
             }
 
             qmlOutput.x = qmlOutput.output.pos.x * qmlOutput.displayScale;
