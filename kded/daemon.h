@@ -43,7 +43,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void saveCurrentConfig();
         void displayButton();
         void applyGenericConfig();
-        void lidClosedChanged();
+        void lidClosedChanged(bool lidIsClosed);
         void setMonitorForChanges(bool enabled);
 
     private:

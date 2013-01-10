@@ -137,9 +137,17 @@ void KScreenDaemon::applyGenericConfig()
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
-void KScreenDaemon::lidClosedChanged()
+void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
-    applyIdealConfig();
+    //If the laptop is closed, use ideal config WITHOUT saving it
+    if (lidIsClosed) {
+        setMonitorForChanges(false);
+        KScreen::Config::setConfig(Generator::self()->idealConfig());
+        return;
+    }
+
+    //If the lid is open, restore config (or generate a new one if needed
+    applyConfig();
 }
 
 void KScreenDaemon::monitorConnectedChange()
