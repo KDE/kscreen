@@ -86,7 +86,7 @@ void KScreenDaemon::applyKnownConfig()
 {
     setMonitorForChanges(false);
     KScreen::Config::setConfig(Serializer::config(Serializer::currentId()));
-    QMetaObject::invokeMethod(this, "setMonitorForChanges", Qt::QueuedConnection, Q_ARG(bool, true));
+    QMetaObject::invokeMethod(this, "scheduleMonitorChange", Qt::QueuedConnection);
 }
 
 void KScreenDaemon::applyIdealConfig()
@@ -190,6 +190,11 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
             disableMonitor(output);
         }
     }
+}
+
+void KScreenDaemon::scheduleMonitorChange()
+{
+    QMetaObject::invokeMethod(this, "setMonitorForChanges", Qt::QueuedConnection, Q_ARG(bool, true));
 }
 
 void KScreenDaemon::enableMonitor(KScreen::Output* output)

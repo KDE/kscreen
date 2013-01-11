@@ -45,6 +45,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void applyGenericConfig();
         void lidClosedChanged(bool lidIsClosed);
         void setMonitorForChanges(bool enabled);
+        void scheduleMonitorChange();
 
     private:
         void monitorConnectedChange();
