@@ -382,7 +382,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs
 KScreen::Output* Generator::embeddedOutput(const KScreen::OutputList& outputs)
 {
     Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!output->isEmbedded()) {
+        if (!isEmbedded(output->name())) {
             continue;
         }
 
@@ -417,6 +417,22 @@ bool Generator::isDocked()
     }
 
     return Device::self()->isDocked();
+}
+
+bool Generator::isEmbedded(const QString &name)
+{
+    QStringList embedded;
+    embedded << "LVDS";
+    embedded << "IDP";
+    embedded << "EDP";
+
+    Q_FOREACH(const QString &pre, embedded) {
+        if (name.toUpper().startsWith(pre)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void Generator::setForceLaptop(bool force)

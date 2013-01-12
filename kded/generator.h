@@ -63,6 +63,7 @@ class Generator : public QObject
         bool isLaptop();
         bool isLidClosed();
         bool isDocked();
+        bool isEmbedded(const QString &name);
 
         bool m_isReady;
         bool m_forceLaptop;
