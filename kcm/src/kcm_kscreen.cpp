@@ -17,7 +17,7 @@
 */
 
 
-#include "displayconfiguration.h"
+#include "kcm_kscreen.h"
 #include "qmloutput.h"
 #include "qmlcursor.h"
 #include "modeselectionwidget.h"
@@ -42,25 +42,25 @@
 #include <kscreen/edid.h>
 #include <kscreen/configmonitor.h>
 
-K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<DisplayConfiguration>();)
-K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_displayconfiguration" /* kcm name */,
-                                               "kcm_displayconfiguration" /* catalog name */))
+K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
+K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
+                                                "kcm_kscreen" /* catalog name */))
 
-#define QML_PATH "kcm_displayconfiguration/qml/"
+#define QML_PATH "kcm_kscreen/qml/"
 
 using namespace KScreen;
 
 Q_DECLARE_METATYPE(KScreen::Output*)
 Q_DECLARE_METATYPE(KScreen::Screen*)
 
-DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
+KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args),
     m_config(0),
     m_declarativeView(0)
 {
     KAboutData* about =
-        new KAboutData("displayconfiguration", "kcm_displayconfiguration",
-                    ki18n("Monitor display Configuration"),
+        new KAboutData("kscreen", "kcm_kscren",
+                    ki18n("Display Configuration"),
                     "", ki18n("Configuration for displays"),
                     KAboutData::License_GPL_V2, ki18n("(c), 2012 Dan Vrátil"));
 
@@ -71,7 +71,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     connect(m_outputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
 
     /* FIXME: Workaround to prevent KScreen::QRandr eating our X11 events */
-    qApp->setEventFilter(DisplayConfiguration::x11EventFilter);
+    qApp->setEventFilter(KCMKScreen::x11EventFilter);
 
     QGridLayout* mainLayout = new QGridLayout(this);
 
@@ -114,11 +114,11 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     }
 }
 
-DisplayConfiguration::~DisplayConfiguration()
+KCMKScreen::~KCMKScreen()
 {
 }
 
-bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
+bool KCMKScreen::x11EventFilter(void* message, long int* result)
 {
     Q_UNUSED(message);
     Q_UNUSED(result);
@@ -127,7 +127,7 @@ bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
     return false;
 }
 
-void DisplayConfiguration::load()
+void KCMKScreen::load()
 {
     kDebug() << "Loading...";
 
@@ -174,7 +174,7 @@ void DisplayConfiguration::load()
     connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
 }
 
-void DisplayConfiguration::save()
+void KCMKScreen::save()
 {
     kDebug() << "Saving";
 
@@ -213,14 +213,14 @@ void DisplayConfiguration::save()
     m_config->setConfig(m_config);
 }
 
-void DisplayConfiguration::clearOutputIdentifiers()
+void KCMKScreen::clearOutputIdentifiers()
 {
     m_outputTimer->stop();
     qDeleteAll(m_outputIdentifiers);
     m_outputIdentifiers.clear();
 }
 
-void DisplayConfiguration::identifyOutputs()
+void KCMKScreen::identifyOutputs()
 {
     const QString qmlPath = KStandardDirs::locate(
             "data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
@@ -265,7 +265,7 @@ void DisplayConfiguration::identifyOutputs()
     m_outputTimer->start(2500);
 }
 
-void DisplayConfiguration::moveMouse(int dX, int dY)
+void KCMKScreen::moveMouse(int dX, int dY)
 {
     QPoint pos = QCursor::pos();
     pos.rx() += dX;

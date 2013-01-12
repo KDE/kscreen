@@ -1,9 +1,9 @@
 [Desktop Entry]
-Exec=kcmshell4 displayconfiguration
+Exec=kcmshell4 kcm_kscreen
 Icon=preferences-desktop-display-randr
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-KDE-Library=kcm_displayconfiguration
+X-KDE-Library=kcm_kscreen
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=display
