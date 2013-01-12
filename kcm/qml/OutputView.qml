@@ -261,14 +261,21 @@ Flickable {
             cornerOutputs["top"].outputY = 0;
         }
 
-        if ((output.x < root.contentX + 50) || /* left */
-            (output.x > root.contentX + root.width - 50) || /* right */
-            (output.y < root.contentY + 50) || /* top */
-            (output.y > root.contentY + root.height - 50)) { /* bottom */
+        /* Only run autoscroll timer if there's anywhere to scroll */
+        if ((root.contentX > 0) ||
+            (root.contentY > 0) ||
+            (root.contentWidth > root.width) ||
+            (root.contentHeight > root.height)) {
 
-            if (!autoScrollTimer.running) {
-                JS._autoScrollStep = 0;
-                autoScrollTimer.start();
+            if ((output.x < root.contentX + 50) || /* left */
+                (output.x > root.contentX + root.width - 50) || /* right */
+                (output.y < root.contentY + 50) || /* top */
+                (output.y > root.contentY + root.height - 50)) { /* bottom */
+
+                if (!autoScrollTimer.running) {
+                    JS._autoScrollStep = 0;
+                    autoScrollTimer.start();
+                }
             }
         }
 
