@@ -30,6 +30,7 @@ QMLOutput {
 
     property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
+    property bool isDragEnabled: false;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
@@ -97,7 +98,7 @@ QMLOutput {
 
         preventStealing: true;
         drag {
-            target: root;
+            target: root.isDragEnabled ? root : null;
             axis: Drag.XandYAxis;
             minimumX: 0;
             maximumX: outputView.maxContentWidth - root.width;

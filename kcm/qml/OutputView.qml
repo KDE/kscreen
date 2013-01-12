@@ -90,11 +90,16 @@ Flickable {
         qmlOutput.changed.connect(outputChanged);
         qmlOutput.moved.connect(outputMoved);
         qmlOutput.primaryTriggered.connect(primaryTriggered);
+        qmlOutput.output.isConnectedChanged.connect(outputConnected);
 
         if (!output.connected) {
             return;
         }
 
+        /* Maybe enable dragging of outputs? */
+        root.outputConnected();
+
+        /* Notify outter world */
         root.outputsChanged();
     }
 
@@ -268,5 +273,30 @@ Flickable {
         }
 
         JS.updateVirtualPosition(outputView, output, cornerOutputs);
+    }
+
+    /**
+     * Slot to be called whenever an output is (dis)connected.
+     */
+    function outputConnected()
+    {
+        var connectedCount = 0;
+
+        for (var i = 0; i < root.contentItem.children.length; i++) {
+            var output = root.contentItem.children[i];
+
+            if (output.output.connected) {
+                connectedCount++;
+                if (connectedCount > 1) {
+                    break;
+                }
+            }
+        }
+
+        for (var i = 0; i < root.contentItem.children.length; i++) {
+            var output = root.contentItem.children[i];
+
+            output.isDragEnabled = (connectedCount > 1);
+        }
     }
 }
