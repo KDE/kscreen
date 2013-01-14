@@ -24,10 +24,11 @@
 #include <QtCore/QVariant>
 #include <QtCore/QVariantList>
 #include <QtCore/QVariantMap>
-#include <QtCore/QDebug>
 
 #include <qjson/serializer.h>
 #include <qjson/parser.h>
+
+#include <kdebug.h>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -146,7 +147,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
     file.write(json);
     file.close();
 
-    qDebug() << "Config saved on: " << path;
+    kDebug() << "Config saved on: " << path;
     return true;
 }
 
@@ -177,9 +178,9 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         QVariantMap modeSize = modeInfo["size"].toMap();
         QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
 
-        qDebug() << "Finding a mode with: ";
-        qDebug() << size;
-        qDebug() << modeInfo["refresh"].toString();
+        kDebug() << "Finding a mode with: ";
+        kDebug() << size;
+        kDebug() << modeInfo["refresh"].toString();
 
         KScreen::ModeList modes = output->modes();
         Q_FOREACH(KScreen::Mode* mode, modes) {
@@ -190,7 +191,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
                 continue;
             }
 
-            qDebug() << "Found: " << mode->id() << " " << mode->name();
+            kDebug() << "Found: " << mode->id() << " " << mode->name();
             output->setCurrentMode(mode->id());
             break;
         }

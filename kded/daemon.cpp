@@ -22,8 +22,8 @@
 #include "device.h"
 
 #include <QtCore/QTimer>
-#include <QtCore/QDebug>
 
+#include <kdebug.h>
 #include <kdemacros.h>
 #include <kaction.h>
 #include <KLocalizedString>
@@ -73,7 +73,7 @@ void KScreenDaemon::init()
 
 void KScreenDaemon::applyConfig()
 {
-    qDebug() << "Applying config";
+    kDebug() << "Applying config";
     if (Serializer::configExists()) {
         applyKnownConfig();
         return;
@@ -97,28 +97,28 @@ void KScreenDaemon::applyIdealConfig()
 
 void KScreenDaemon::configChanged()
 {
-    qDebug() << "Change detected";
+    kDebug() << "Change detected";
     if (m_pendingSave) {
         return;
     }
 
-    qDebug() << "Scheduling screen save";
+    kDebug() << "Scheduling screen save";
     m_pendingSave = true;
     QMetaObject::invokeMethod(this, "saveCurrentConfig", Qt::QueuedConnection);
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
-    qDebug() << "Saving current config";
+    kDebug() << "Saving current config";
     m_pendingSave = false;
     Serializer::saveConfig(KScreen::Config::current());
 }
 
 void KScreenDaemon::displayButton()
 {
-    qDebug() << "displayBtn triggered";
+    kDebug() << "displayBtn triggered";
     if (m_timer->isActive()) {
-        qDebug() << "Too fast cowboy";
+        kDebug() << "Too fast cowboy";
         return;
     }
 
@@ -133,12 +133,15 @@ void KScreenDaemon::applyGenericConfig()
 
     setMonitorForChanges(true);
     m_iteration++;
-    qDebug() << "displayButton: " << m_iteration;
+    kDebug() << "displayButton: " << m_iteration;
+    KDebug::Block genericConfig("Applying display switch");
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
+    KDebug::Block genericConfig(" Lid closed");
+    kDebug() << "Lid is closed:" << lidIsClosed;
     //If the laptop is closed, use ideal config WITHOUT saving it
     if (lidIsClosed) {
         setMonitorForChanges(false);
@@ -172,6 +175,7 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     if (m_monitoring == enabled) {
         return;
     }
+    kDebug() << "Monitor for changes: " << enabled;
     if (!m_monitoredConfig) {
         m_monitoredConfig = KScreen::Config::current();
         if (!m_monitoredConfig) {

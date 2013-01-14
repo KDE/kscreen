@@ -19,12 +19,11 @@
 #include "generator.h"
 #include "device.h"
 
-#include <QtCore/QDebug>
-
 #include <QDBusReply>
 #include <QDBusMessage>
 #include <QDBusConnection>
 
+#include <kdebug.h>
 #include <kscreen/config.h>
 
 Generator* Generator::instance = 0;
@@ -59,8 +58,10 @@ Generator::~Generator()
 
 KScreen::Config* Generator::idealConfig()
 {
+    KDebug::Block idealBlock("Ideal Config");
     KScreen::Config* config = KScreen::Config::current();
     if (!config) {
+        kDebug() << "Can't get current config";
         return 0;
     }
 
@@ -68,6 +69,7 @@ KScreen::Config* Generator::idealConfig()
 
     KScreen::OutputList outputs = config->connectedOutputs();
 
+    kDebug() << "Connected outputs: " << outputs.count();
     if (outputs.count() == 1) {
         singleOutput(outputs);
         return config;
@@ -85,8 +87,10 @@ KScreen::Config* Generator::idealConfig()
 
 KScreen::Config* Generator::displaySwitch(int iteration)
 {
+    KDebug::Block switchBlock("Display Switch");
     KScreen::Config* config = KScreen::Config::current();
     if (!config) {
+        kDebug() << "Impossible to get config";
         return 0;
     }
 
@@ -107,8 +111,8 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     outputs.remove(embedded->id());
     external = outputs.value(outputs.keys().first());
 
-    //Clone
     if (iteration == 1) {
+        kDebug() << "Cloning";
         KScreen::ModeList modes = embedded->modes();
         QMap<int, QSize> embeddedModeSize;
         Q_FOREACH(KScreen::Mode* mode, modes) {
@@ -143,8 +147,8 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         return config;
     }
 
-    //Extend left
     if (iteration == 2) {
+        kDebug() << "Extend to left";
         external->setEnabled(true);
         external->setPos(QPoint(0,0));
         external->setCurrentMode(external->preferredMode());
@@ -157,8 +161,8 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         return config;
     }
 
-    //Turn of embedded
     if (iteration == 3) {
+        kDebug() << "Turn of embedded (laptop)";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -168,8 +172,8 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         return config;
     }
 
-    //Turn off external
     if (iteration == 4) {
+        kDebug() << "Turn off external screen";
         embedded->setEnabled(true);
         embedded->setPrimary(true);
         embedded->setPos(QPoint(0,0));
@@ -180,8 +184,8 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         return config;
     }
 
-    //Extend right
     if (iteration == 5) {
+        kDebug() << "Extend to the right";
         embedded->setPos(QPoint(0,0));
         embedded->setCurrentMode(embedded->preferredMode());
         embedded->setPrimary(true);
@@ -201,9 +205,10 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
 void Generator::singleOutput(KScreen::OutputList& outputs)
 {
-    qDebug() << "Config for one output";
+    kDebug() << "Config for one output";
     KScreen::Output* output = outputs.take(outputs.keys().first());
     if (!output) {
+        kWarning() << "Can't get output";
         return;
     }
 
@@ -215,23 +220,23 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
 
 void Generator::laptop(KScreen::OutputList& outputs)
 {
-    qDebug() << "Config for a laptop";
+    KDebug::Block laptopBlock("Laptop config");
 
     KScreen::Output* embedded = embeddedOutput(outputs);
     if (!embedded) {
-        qWarning() << "No embeded output found!";
+        kWarning() << "No embeded output found!";
         return;
     }
 
     outputs.remove(embedded->id());
 
     if (outputs.isEmpty() || !embedded) {
-        qWarning("Neither external outputs or embedded could be found");
+        kWarning() << "Neither external outputs or embedded could be found";
         return;
     }
 
     if (isLidClosed() && outputs.count() == 1) {
-        qDebug() << "With lid closed";
+        kDebug() << "With lid closed";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -244,6 +249,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
     }
 
     if (isLidClosed() && outputs.count() > 1) {
+        kDebug() << "Lid is closed, and more than one output";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -251,6 +257,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
         return;
     }
 
+    kDebug() << "Lid is open";
     //If lid is open, laptop screen shuold be primary
     embedded->setPos(QPoint(0,0));
     embedded->setCurrentMode(embedded->preferredMode());
@@ -292,7 +299,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
     }
 
     if (isDocked()) {
-        qDebug() << "Docked";
+        kDebug() << "Docked";
         embedded->setPrimary(false);
         biggest->setPrimary(true);
     }
@@ -300,6 +307,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
 
 void Generator::extendToRight(KScreen::OutputList& outputs)
 {
+    kDebug() << "Extending to the right";
     KScreen::Output* biggest = biggestOutput(outputs);
     outputs.remove(biggest->id());
 
@@ -372,8 +380,10 @@ KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
 
 void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs)
 {
+    KDebug::Block disableBlock("Disabling disconnected screens");
     Q_FOREACH(KScreen::Output* output, outputs) {
         if (!output->isConnected()) {
+            kDebug() << output->name() << " Disabled";
             output->setEnabled(false);
             output->setPrimary(false);
         }
