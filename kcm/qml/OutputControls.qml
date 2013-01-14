@@ -81,6 +81,7 @@ Item {
         RotationAnimation {
             easing.type: "OutCubic"
             duration: 250;
+            // Opposite of the monitor rotation so the controls stay rightside up.
             direction: (rotationDirection == RotationAnimation.Clockwise) ?
                     RotationAnimation.Counterclockwise : RotationAnimation.Clockwise;
         }
@@ -188,23 +189,23 @@ Item {
                 if (mouse.button == Qt.LeftButton) {
                     monitor.rotationDirection = RotationAnimation.Counterclockwise;
                     if (output.rotation == Output.None) {
-                        output.rotation = Output.Right;
-                    } else if (output.rotation == Output.Right) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
                         output.rotation = Output.Left;
                     } else if (output.rotation == Output.Left) {
+                        output.rotation = Output.Inverted;
+                    } else if (output.rotation == Output.Inverted) {
+                        output.rotation = Output.Right;
+                    } else if (output.rotation == Output.Right) {
                         output.rotation = Output.None;
                     }
                 } else {
                     monitor.rotationDirection = RotationAnimation.Clockwise;
                     if (output.rotation == Output.None) {
-                        output.rotation = Output.Left;
-                    } else if (output.rotation == Output.Left) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
                         output.rotation = Output.Right;
                     } else if (output.rotation == Output.Right) {
+                        output.rotation = Output.Inverted;
+                    } else if (output.rotation == Output.Inverted) {
+                        output.rotation = Output.Left;
+                    } else if (output.rotation == Output.Left) {
                         output.rotation = Output.None;
                     }
                 }
@@ -262,7 +263,7 @@ Item {
                     when: output.rotation == Output.Left;
                     PropertyChanges {
                             target: root;
-                            rotation: 270;
+                            rotation: 90;
                             width: parent.height - 20;
                             height: parent.width - 36;
                     }
@@ -282,7 +283,7 @@ Item {
                     when: output.rotation == Output.Right;
                     PropertyChanges {
                             target: root;
-                            rotation: 90;
+                            rotation: 270;
                             width: parent.height - 20;
                             height: parent.width - 36;
                     }

@@ -88,11 +88,11 @@ QMLOutput {
             if (output.rotation == Output.None) {
                 return 0
             } else if (output.rotation == Output.Left) {
-                return 90
+                return 270
             } else if (output.rotation == Output.Inverted) {
                 return 180;
             } else {
-                return 270;
+                return 90;
             }
         }
 
