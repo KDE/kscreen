@@ -66,6 +66,7 @@ void testScreenConfig::singleOutput()
     QCOMPARE(output->currentMode(), 3);
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->pos(), QPoint(0,0));
 
 }
 

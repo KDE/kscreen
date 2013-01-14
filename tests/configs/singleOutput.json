@@ -52,8 +52,8 @@
                 }
             ],
             "pos" : {
-                "x" : 0,
-                "y" : 0
+                "x" : 30,
+                "y" : 40
             },
             "preferredModes" : [3],
             "rotation" : 1,
