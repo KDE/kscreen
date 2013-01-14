@@ -210,6 +210,7 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
     output->setCurrentMode(output->preferredMode());
     output->setEnabled(true);
     output->setPrimary(true);
+    output->setPos(QPoint(0,0);
 }
 
 void Generator::laptop(KScreen::OutputList& outputs)
