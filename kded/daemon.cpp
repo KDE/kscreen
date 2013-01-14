@@ -125,6 +125,12 @@ void KScreenDaemon::displayButton()
     m_timer->start();
 }
 
+void KScreenDaemon::resetDisplaySwitch()
+{
+    kDebug();
+    m_iteration = 0;
+}
+
 void KScreenDaemon::applyGenericConfig()
 {
     if (m_iteration == 5) {
@@ -167,6 +173,7 @@ void KScreenDaemon::monitorConnectedChange()
     KScreen::OutputList outputs = m_monitoredConfig->outputs();
     Q_FOREACH(KScreen::Output* output, outputs) {
         connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
+        connect(output, SIGNAL(isConnectedChanged()), SLOT(resetDisplaySwitch()));
     }
 }
 
