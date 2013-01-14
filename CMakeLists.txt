@@ -14,6 +14,7 @@ include_directories(
 	${QT_INCLUDES}
 	${KDE4_INCLUDES}
 	${CMAKE_CURRENT_BINARY_DIR}
+	${QJSON_INCLUDE_DIR}
 	${LibKScreen_INCLUDE_DIR}
 )
 
