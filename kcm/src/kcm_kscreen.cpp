@@ -229,7 +229,7 @@ void KCMKScreen::identifyOutputs()
     clearOutputIdentifiers();
 
     /* Obtain the current active configuration from KScreen */
-    OutputList outputs = m_config->outputs();
+    OutputList outputs = KScreen::Config::current()->outputs();
     Q_FOREACH (KScreen::Output *output, outputs) {
         if (!output->isConnected() || output->currentMode() == 0) {
             continue;
