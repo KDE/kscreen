@@ -50,7 +50,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     action->setText(i18n("Switch Display" ));
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
 
-    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged()));
+    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
 
     m_timer->setInterval(300);
     m_timer->setSingleShot(true);
