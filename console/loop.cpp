@@ -121,4 +121,5 @@ void Loop::printConfig()
         }
     }
 }
+
 #include <loop.moc>
