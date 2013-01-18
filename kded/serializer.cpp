@@ -135,6 +135,8 @@ bool Serializer::saveConfig(KScreen::Config* config)
             info["mode"] = modeInfo;
         }
 
+        info["metadata"] = Serializer::metadata(output);
+
         outputList.append(info);
     }
 
@@ -208,4 +210,16 @@ QString Serializer::outputId(const KScreen::Output* output)
     }
 
     return output->name();
+}
+
+QVariantMap Serializer::metadata(const KScreen::Output* output)
+{
+    QVariantMap metadata;
+    metadata["name"] = output->name();
+    if (!output->edid()) {
+        return metadata;
+    }
+
+    metadata["fullname"] = output->edid()->deviceId();
+    return metadata;
 }

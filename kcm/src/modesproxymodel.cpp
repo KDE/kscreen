@@ -38,11 +38,15 @@ ModesProxyModel::~ModesProxyModel()
 
 int ModesProxyModel::columnCount(const QModelIndex& parent) const
 {
+    Q_UNUSED(parent)
+
     return 1;
 }
 
 int ModesProxyModel::rowCount(const QModelIndex& parent) const
 {
+    Q_UNUSED(parent)
+
     if (!sourceModel()) {
         return 0;
     }
@@ -76,11 +80,15 @@ QVariant ModesProxyModel::data(const QModelIndex& index, int role) const
 
 QModelIndex ModesProxyModel::index(int row, int column, const QModelIndex& parent) const
 {
+    Q_UNUSED(parent)
+
     return createIndex(row, column, 0);
 }
 
 QModelIndex ModesProxyModel::parent(const QModelIndex& child) const
 {
+    Q_UNUSED(child)
+
     /* Flatten the model */
     return QModelIndex();
 }

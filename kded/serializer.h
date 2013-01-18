@@ -38,6 +38,7 @@ class Serializer
 
         static KScreen::Output* findOutput(const QVariantMap &info);
         static QString outputId(const KScreen::Output* output);
+        static QVariantMap metadata(const KScreen::Output* output);
 };
 
 #endif //KDED_SERIALIZER_H
