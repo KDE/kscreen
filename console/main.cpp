@@ -30,6 +30,14 @@
 
 using namespace std;
 
+void showCommands()
+{
+    cout << "Commands: " << endl;
+    cout << "    bug \t <Show information needed for a bug report>" << endl;
+    cout << "    config \t <Show kscreen config files>" << endl;
+    cout << "    outputs \t <Show Output information>" << endl;
+    cout << "    monitor \t <Monitors for changes>" << endl;
+}
 int main (int argc, char *argv[])
 {
     KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KScreen Console"),
@@ -47,11 +55,7 @@ int main (int argc, char *argv[])
     KCmdLineArgs::addCmdLineOptions(options);
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->isSet("commands")) {
-        cout << "Commands: " << endl;
-        cout << "    bug \t <Show information needed for a bug report>" << endl;
-        cout << "    config \t <Show kscreen config files>" << endl;
-        cout << "    outputs \t <Show Output information>" << endl;
-        cout << "    monitor \t <Monitors for changes>" << endl;
+        showCommands();
         return 1;
     }
     KApplication app;
@@ -76,5 +80,6 @@ int main (int argc, char *argv[])
         return 1;
     }
 
+    showCommands();
     return -1;
 }
