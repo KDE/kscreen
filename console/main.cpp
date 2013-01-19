@@ -80,6 +80,11 @@ int main (int argc, char *argv[])
         return 1;
     }
 
+    if (command == "config") {
+        loop->printSerializations();
+        return 1;
+    }
+
     showCommands();
     return -1;
 }

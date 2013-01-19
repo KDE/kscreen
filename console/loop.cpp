@@ -27,10 +27,16 @@
 #include <QX11Info>
 #include <QtCore/QDebug>
 #include <QtCore/QDateTime>
+#include <QtCore/QDir>
+#include <QtCore/QTextStream>
 
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
+
+#include <KStandardDirs>
+#include <qjson/parser.h>
+#include <qjson/serializer.h>
 
 using namespace KScreen;
 
@@ -109,6 +115,36 @@ void Loop::printConfig()
         if (output->isEnabled()) {
             outputEnabled.insert(output->id(), output);
         }
+    }
+}
+
+void Loop::printSerializations()
+{
+    QTextStream out(stdout);
+    QString path = KStandardDirs::locateLocal("data", "kscreen/");
+    out << "Configs in: " << path << endl;
+
+    QDir dir(path);
+    QStringList files = dir.entryList(QDir::Files);
+    out << "Number of files: " << files.count() << endl << endl;
+
+    bool ok;
+    QJson::Parser parser;
+    QJson::Serializer serializer;
+    serializer.setIndentMode(QJson::IndentFull);
+    Q_FOREACH(const QString fileName, files) {
+        ok = true;
+        out << fileName << endl;
+        QFile file(path + "/" + fileName);
+        file.open(QFile::ReadOnly);
+        QVariant data = parser.parse(file.readAll(), &ok);
+        if (!ok) {
+            out << "    " << "can't parse file" << endl;
+            out << "    " << parser.errorString() << endl;
+            continue;
+        }
+
+        out << serializer.serialize(data) << endl << endl;
     }
 }
 

@@ -34,6 +34,7 @@ class Loop : public QObject
 
     public Q_SLOTS:
         void printConfig();
+        void printSerializations();
         void monitor();
         void monitorAndPrint();
 
