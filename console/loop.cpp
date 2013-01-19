@@ -18,11 +18,11 @@
 
 #include "loop.h"
 
-#include "config.h"
-#include "output.h"
-#include "mode.h"
-#include "configmonitor.h"
-#include "edid.h"
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/mode.h>
+#include <kscreen/configmonitor.h>
+#include <kscreen/edid.h>
 
 #include <QX11Info>
 #include <QtCore/QDebug>
