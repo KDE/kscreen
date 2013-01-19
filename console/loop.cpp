@@ -55,16 +55,12 @@ Loop::~Loop()
 
 void Loop::printConfig()
 {
-//     KScreen *screen = KScreen::self();
-//     qDebug() << "Backend: " << screen->backend();
-
     qDebug() << "Screen:";
     qDebug() << "maxSize:" << m_config->screen()->maxSize();
     qDebug() << "minSize:" << m_config->screen()->minSize();
     qDebug() << "currentSize:" << m_config->screen()->currentSize();
 
     OutputList outputs = m_config->outputs();
-    OutputList outputEnabled;
     Q_FOREACH(Output *output, outputs) {
         qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
@@ -106,10 +102,6 @@ void Loop::printConfig()
             qDebug() << "\tWhite: " << edid->white();
         } else {
             qDebug() << "\tUnavailable";
-        }
-
-        if (output->isEnabled()) {
-            outputEnabled.insert(output->id(), output);
         }
     }
 }
