@@ -18,13 +18,26 @@
 
 #include <stdlib.h>
 
-#include <QtGui/QApplication>
+#include <KApplication>
+#include <KAboutData>
+#include <KComponentData>
+#include <KCmdLineArgs>
+#include <KApplication>
+#include <KAboutData>
 
 #include "loop.h"
 
 int main (int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KSCreen Console"),
+    KAboutData::License_GPL, ki18n("(c) 2012 KScreen Team"));
+
+    aboutData.addAuthor(ki18n("Alejandro Fiestas Olivares"), ki18n("Maintainer"), "afiestas@kde.org",
+        "http://www.afiestas.org/");
+
+    KCmdLineArgs::init(argc, argv, &aboutData);
+
+    KApplication app;
 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
 
