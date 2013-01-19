@@ -17,6 +17,7 @@
  *************************************************************************************/
 
 #include <stdlib.h>
+#include <iostream>
 
 #include <KApplication>
 #include <KAboutData>
@@ -39,6 +40,19 @@ int main (int argc, char *argv[])
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 
+    KCmdLineOptions options;
+    options.add("commands", ki18n("Show available commands"));
+
+    KCmdLineArgs::addCmdLineOptions(options);
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    if (args->isSet("commands")) {
+        cout << "Commands: " << endl;
+        cout << "    bug \t <Show information needed for a bug report>" << endl;
+        cout << "    config \t <Show kscreen config files>" << endl;
+        cout << "    outputs \t <Show Output information>" << endl;
+        cout << "    monitor \t <Monitors for changes>" << endl;
+        return 1;
+    }
     KApplication app;
 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
