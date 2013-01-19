@@ -120,13 +120,12 @@ void Loop::printConfig()
 
 void Loop::printSerializations()
 {
-    QTextStream out(stdout);
     QString path = KStandardDirs::locateLocal("data", "kscreen/");
-    out << "Configs in: " << path << endl;
+    qDebug() << "Configs in: " << path;
 
     QDir dir(path);
     QStringList files = dir.entryList(QDir::Files);
-    out << "Number of files: " << files.count() << endl << endl;
+    qDebug() << "Number of files: " << files.count() << endl;
 
     bool ok;
     QJson::Parser parser;
@@ -134,17 +133,17 @@ void Loop::printSerializations()
     serializer.setIndentMode(QJson::IndentFull);
     Q_FOREACH(const QString fileName, files) {
         ok = true;
-        out << fileName << endl;
+        qDebug() << fileName;
         QFile file(path + "/" + fileName);
         file.open(QFile::ReadOnly);
         QVariant data = parser.parse(file.readAll(), &ok);
         if (!ok) {
-            out << "    " << "can't parse file" << endl;
-            out << "    " << parser.errorString() << endl;
+            qDebug() << "    " << "can't parse file";
+            qDebug() << "    " << parser.errorString();
             continue;
         }
 
-        out << serializer.serialize(data) << endl << endl;
+        qDebug() << serializer.serialize(data) << endl;
     }
 }
 
