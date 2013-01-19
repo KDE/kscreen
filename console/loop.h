@@ -33,7 +33,6 @@ class Loop : public QObject
         virtual ~Loop();
 
     public Q_SLOTS:
-        void start();
         void printConfig();
 
     private:

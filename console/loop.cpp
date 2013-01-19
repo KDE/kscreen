@@ -36,25 +36,17 @@ using namespace KScreen;
 
 Loop::Loop(QObject* parent): QObject(parent)
 {
-    start();
-}
-
-Loop::~Loop()
-{
-
-}
-
-void Loop::start()
-{
     qDebug() << "START";
     QDateTime date = QDateTime::currentDateTime();
     m_config = Config::current();
     qDebug() << "Config::current() took" << date.msecsTo(QDateTime::currentDateTime()) << "milliseconds";
     ConfigMonitor::instance()->addConfig(m_config);
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
+}
 
-    //config->outputs()[65]->setCurrentMode(70);
-    //Config::setConfig(config);
+Loop::~Loop()
+{
+
 }
 
 void Loop::printConfig()
