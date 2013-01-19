@@ -21,3 +21,4 @@ include_directories(
 add_subdirectory(kcm)
 add_subdirectory(kded)
 add_subdirectory(tests)
+add_subdirectory(console)
