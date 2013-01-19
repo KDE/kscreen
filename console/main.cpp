@@ -42,6 +42,7 @@ int main (int argc, char *argv[])
 
     KCmdLineOptions options;
     options.add("commands", ki18n("Show available commands"));
+    options.add("+[arg(s)]", ki18n("Arguments for command"));
 
     KCmdLineArgs::addCmdLineOptions(options);
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -58,6 +59,22 @@ int main (int argc, char *argv[])
     setenv("KSCREEN_BACKEND", "XRandR", 1);
 
     Loop *loop = new Loop(0);
-    loop->printConfig();
-    app.exec();
+
+    QString command;
+    if (args->count() > 0) {
+        command = args->arg(0);
+    }
+
+    if (command.isEmpty()) {
+        loop->printConfig();
+        loop->monitorAndPrint();
+        return app.exec();
+    }
+
+    if (command == "outputs") {
+        loop->printConfig();
+        return 1;
+    }
+
+    return -1;
 }

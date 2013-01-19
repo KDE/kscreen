@@ -34,6 +34,8 @@ class Loop : public QObject
 
     public Q_SLOTS:
         void printConfig();
+        void monitor();
+        void monitorAndPrint();
 
     private:
         KScreen::Config *m_config;

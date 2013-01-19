@@ -40,8 +40,6 @@ Loop::Loop(QObject* parent): QObject(parent)
     QDateTime date = QDateTime::currentDateTime();
     m_config = Config::current();
     qDebug() << "Config::current() took" << date.msecsTo(QDateTime::currentDateTime()) << "milliseconds";
-    ConfigMonitor::instance()->addConfig(m_config);
-    connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 }
 
 Loop::~Loop()
@@ -112,6 +110,17 @@ void Loop::printConfig()
             outputEnabled.insert(output->id(), output);
         }
     }
+}
+
+void Loop::monitor()
+{
+    ConfigMonitor::instance()->addConfig(m_config);
+}
+
+void Loop::monitorAndPrint()
+{
+    monitor();
+    connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 }
 
 #include <loop.moc>
