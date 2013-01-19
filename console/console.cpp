@@ -16,7 +16,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#include "loop.h"
+#include "console.h"
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -40,7 +40,7 @@
 
 using namespace KScreen;
 
-Loop::Loop(QObject* parent): QObject(parent)
+Console::Console(QObject* parent): QObject(parent)
 {
     qDebug() << "START";
     QDateTime date = QDateTime::currentDateTime();
@@ -48,12 +48,12 @@ Loop::Loop(QObject* parent): QObject(parent)
     qDebug() << "Config::current() took" << date.msecsTo(QDateTime::currentDateTime()) << "milliseconds";
 }
 
-Loop::~Loop()
+Console::~Console()
 {
 
 }
 
-void Loop::printConfig()
+void Console::printConfig()
 {
     qDebug() << "Screen:";
     qDebug() << "maxSize:" << m_config->screen()->maxSize();
@@ -106,7 +106,7 @@ void Loop::printConfig()
     }
 }
 
-void Loop::printSerializations()
+void Console::printSerializations()
 {
     QString path = KStandardDirs::locateLocal("data", "kscreen/");
     qDebug() << "Configs in: " << path;
@@ -135,15 +135,15 @@ void Loop::printSerializations()
     }
 }
 
-void Loop::monitor()
+void Console::monitor()
 {
     ConfigMonitor::instance()->addConfig(m_config);
 }
 
-void Loop::monitorAndPrint()
+void Console::monitorAndPrint()
 {
     monitor();
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 }
 
-#include <loop.moc>
+#include <console.moc>

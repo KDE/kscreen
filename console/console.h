@@ -25,12 +25,12 @@ namespace KScreen
 {
 class Config;
 }
-class Loop : public QObject
+class Console : public QObject
 {
     Q_OBJECT
     public:
-        explicit Loop(QObject* parent = 0);
-        virtual ~Loop();
+        explicit Console(QObject* parent = 0);
+        virtual ~Console();
 
     public Q_SLOTS:
         void printConfig();

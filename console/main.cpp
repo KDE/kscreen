@@ -28,7 +28,7 @@
 #include <KApplication>
 #include <KAboutData>
 
-#include "loop.h"
+#include "console.h"
 
 using namespace std;
 
@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 
     setenv("KSCREEN_BACKEND", "XRandR", 1);
 
-    Loop *loop = new Loop(0);
+    Console *loop = new Console(0);
 
     QString command;
     if (args->count() > 0) {

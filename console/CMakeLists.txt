@@ -2,7 +2,7 @@ include_directories(${QT_INCLUDES} ${CMAKE_SOURCE_DIR}/src ${CMAKE_CURRENT_BINAR
 
 set(console_SRCS
     main.cpp
-    loop.cpp
+    console.cpp
 )
 
 qt4_automoc(${console_SRCS})
