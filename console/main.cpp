@@ -27,9 +27,11 @@
 
 #include "loop.h"
 
+using namespace std;
+
 int main (int argc, char *argv[])
 {
-    KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KSCreen Console"),
+    KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KScreen Console"),
     KAboutData::License_GPL, ki18n("(c) 2012 KScreen Team"));
 
     aboutData.addAuthor(ki18n("Alejandro Fiestas Olivares"), ki18n("Maintainer"), "afiestas@kde.org",
