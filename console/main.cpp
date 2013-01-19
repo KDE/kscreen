@@ -33,11 +33,11 @@ using namespace std;
 
 void showCommands()
 {
-    cout << "Commands: " << endl;
-    cout << "    bug \t <Show information needed for a bug report>" << endl;
-    cout << "    config \t <Show kscreen config files>" << endl;
-    cout << "    outputs \t <Show Output information>" << endl;
-    cout << "    monitor \t <Monitors for changes>" << endl;
+    qDebug() << "Commands: " << endl;
+    qDebug() << "    bug \t <Show information needed for a bug report>" << endl;
+    qDebug() << "    config \t <Show kscreen config files>" << endl;
+    qDebug() << "    outputs \t <Show Output information>" << endl;
+    qDebug() << "    monitor \t <Monitors for changes>" << endl;
 }
 int main (int argc, char *argv[])
 {
