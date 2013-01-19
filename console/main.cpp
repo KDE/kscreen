@@ -16,8 +16,9 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#include <stdlib.h>
-#include <iostream>
+#include <unistd.h>
+
+#include <QtCore/QDebug>
 
 #include <KApplication>
 #include <KAboutData>
@@ -40,6 +41,8 @@ void showCommands()
 }
 int main (int argc, char *argv[])
 {
+    dup2(1, 2);
+
     KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KScreen Console"),
     KAboutData::License_GPL, ki18n("(c) 2012 KScreen Team"));
 
