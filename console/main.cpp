@@ -79,6 +79,11 @@ int main (int argc, char *argv[])
         return app.exec();
     }
 
+    if (command == "monitor") {
+        //Do nothing, enable backend output to see debug
+        return app.exec();
+    }
+
     if (command == "outputs") {
         loop->printConfig();
         return 1;
@@ -101,7 +106,6 @@ int main (int argc, char *argv[])
         loop->printSerializations();
         return 1;
     }
-
     showCommands();
     return -1;
 }
