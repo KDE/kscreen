@@ -18,25 +18,22 @@
 
 #include "console.h"
 
-#include <kscreen/config.h>
-#include <kscreen/output.h>
-#include <kscreen/mode.h>
-#include <kscreen/configmonitor.h>
-#include <kscreen/edid.h>
-
 #include <QX11Info>
 #include <QtCore/QDebug>
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
 
-#include <X11/X.h>
-#include <X11/Xlib.h>
-#include <X11/extensions/Xrandr.h>
-
-#include <KStandardDirs>
 #include <qjson/parser.h>
 #include <qjson/serializer.h>
+
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/mode.h>
+#include <kscreen/configmonitor.h>
+#include <kscreen/edid.h>
+
+#include <KStandardDirs>
 
 using namespace KScreen;
 
