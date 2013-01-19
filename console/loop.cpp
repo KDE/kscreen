@@ -58,10 +58,6 @@ void Loop::printConfig()
 //     KScreen *screen = KScreen::self();
 //     qDebug() << "Backend: " << screen->backend();
 
-    qDebug() << "\n============================================================\n"
-                "============================================================\n"
-                "============================================================\n";
-
     qDebug() << "Screen:";
     qDebug() << "maxSize:" << m_config->screen()->maxSize();
     qDebug() << "minSize:" << m_config->screen()->minSize();

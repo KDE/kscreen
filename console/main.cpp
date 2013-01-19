@@ -19,6 +19,7 @@
 #include <unistd.h>
 
 #include <QtCore/QDebug>
+#include <QtCore/QProcess>
 
 #include <KApplication>
 #include <KAboutData>
@@ -84,6 +85,19 @@ int main (int argc, char *argv[])
     }
 
     if (command == "config") {
+        loop->printSerializations();
+        return 1;
+    }
+    if (command == "bug") {
+        qDebug() << endl << "========================xrandr --verbose==========================" << endl;
+        QProcess proc;
+        proc.setProcessChannelMode(QProcess::MergedChannels);
+        proc.start("xrandr", QStringList("--verbose"));
+        proc.waitForFinished();
+        qDebug() << proc.readAll().data();
+        qDebug() << endl << "========================Outputs===================================" << endl;
+        loop->printConfig();
+        qDebug() << endl << "========================Configurations============================" << endl;
         loop->printSerializations();
         return 1;
     }
