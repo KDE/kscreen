@@ -2,6 +2,7 @@
 Name=KScreen 2
 Name[bs]=KScreen 2
 Name[da]=KScreen 2
+Name[de]=KScreen 2
 Name[el]=KScreen 2
 Name[et]=KScreen 2
 Name[ga]=KScreen 2
@@ -16,6 +17,7 @@ Name[x-test]=xxKScreen 2xx
 Comment=Screen management
 Comment[bs]=Upravljanje ekranom
 Comment[da]=Håndtering af skærme
+Comment[de]=Bildschirm-Verwaltung
 Comment[el]=Διαχείριση οθονών
 Comment[et]=Ekraanihaldur
 Comment[ga]=Bainisteoireacht an Scáileáin
