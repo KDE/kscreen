@@ -200,6 +200,8 @@ QMLOutput {
             color: palette.window;
             width: parent.width;
             height: parent.height;
+            smooth: true;
+
             border {
                 color: palette.shadow;
                 width: 1;
@@ -231,6 +233,7 @@ QMLOutput {
 
                 height: 10;
                 color: palette.shadow;
+                smooth: true;
             }
         }
     }
