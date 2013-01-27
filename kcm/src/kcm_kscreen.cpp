@@ -168,7 +168,7 @@ void KCMKScreen::load()
         QMetaObject::invokeMethod(outputView, "addOutput", Q_ARG(QVariant, QVariant::fromValue(output)));
         //outputView->addOutput(m_declarativeView->engine(), output);
     }
-    QMetaObject::invokeMethod(outputView, "reorderOutputs", Q_ARG(QVariant, true));
+    QMetaObject::invokeMethod(outputView, "reorderOutputs");
 
     connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
     connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));

@@ -31,6 +31,7 @@ QMLOutput {
     property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
     property bool isDragEnabled: false;
+    property bool hasMoved: false;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
@@ -121,6 +122,11 @@ QMLOutput {
         onPositionChanged: {
 
             root.moved(root.output.name);
+
+            if (root.isDragged) {
+                root.hasMoved = true;
+            }
+
 
             if (x < 0) {
                 x = 0;

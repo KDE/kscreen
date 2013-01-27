@@ -38,8 +38,8 @@ Flickable {
     contentHeight: height;
     focus: true;
 
-    onWidthChanged: reorderOutputs(false);
-    onHeightChanged: reorderOutputs(false);
+    onWidthChanged: reorderOutputs();
+    onHeightChanged: reorderOutputs();
 
     Timer {
         id: autoScrollTimer;
@@ -105,12 +105,8 @@ Flickable {
 
     /**
      * Reorders all visible outputs to be in the middle of current view
-     *
-     * @param bool initialPLacement TRUE when this is the initial reordering after
-     *          all outputs were added, FALSE when this is just reordering caused
-     *          for instance by resizing the OutputView
      */
-    function reorderOutputs(initialPlacement) {
+    function reorderOutputs() {
         var disabledOffset = root.width;
 
         var rectX = 0, rectY = 0, rectWidth = 0, rectHeight = 0;
@@ -124,7 +120,13 @@ Flickable {
                 continue;
             }
 
-            if (initialPlacement && !qmlOutput.output.enabled) {
+            /* Don't reposition outputs that user has moved from their default
+             * position */
+            if (qmlOutput.hasMoved) {
+                continue;
+            }
+
+            if (!qmlOutput.output.enabled) {
                 disabledOffset -= qmlOutput.width;
                 qmlOutput.x = disabledOffset;
                 qmlOutput.y = 0;
