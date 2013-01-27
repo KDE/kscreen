@@ -48,6 +48,11 @@ private Q_SLOTS:
     void clearOutputIdentifiers();
     void moveMouse(int dX, int dY);
 
+    void outputMouseEntered();
+    void outputMouseExited();
+    void outputMousePressed();
+    void outputMouseReleased();
+
 private:
     KScreen::Config *m_config;
 

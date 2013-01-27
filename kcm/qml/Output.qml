@@ -27,6 +27,10 @@ QMLOutput {
     signal clicked(string self);
     signal primaryTriggered(string self);
     signal moved(string self);
+    signal mouseEntered();
+    signal mouseExited();
+    signal mousePressed();
+    signal mouseReleased();
 
     property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
@@ -97,6 +101,7 @@ QMLOutput {
             }
         }
 
+        hoverEnabled: true;
         preventStealing: true;
         drag {
             target: root.isDragEnabled ? root : null;
@@ -121,6 +126,10 @@ QMLOutput {
         onClicked: root.clicked(root.output.name);
         onPositionChanged: {
 
+            if ((mouse.buttons == 0) || !root.output.isEnabled) {
+                return;
+            }
+
             root.moved(root.output.name);
 
             if (root.isDragged) {
@@ -141,7 +150,22 @@ QMLOutput {
 
         /* When button is pressed, emit clicked() signal
          * which is cought by QMLOutputView */
-        onPressed: root.clicked(root.output.name);
+        onPressed: {
+            root.clicked(root.output.name);
+            root.mousePressed();
+        }
+
+        onReleased: {
+            root.mouseReleased();
+        }
+
+        onEntered: {
+            root.mouseEntered();
+        }
+
+        onExited: {
+            root.mouseExited();
+        }
 
         onRotationChanged: updateRootProperties();
 
@@ -225,6 +249,14 @@ QMLOutput {
                 rotationDirection: parent.rotationDirection;
 
                 onPrimaryTriggered: root.primaryTriggered(root.output.name);
+                onForceArrowCursorChanged: {
+                    // This is to force arrow cursor when hovering over buttons
+                    if (controls.forceArrowCursor) {
+                        root.mouseExited();
+                    } else {
+                        root.mouseEntered();
+                    }
+                }
             }
 
             Rectangle {

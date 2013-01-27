@@ -166,12 +166,15 @@ void KCMKScreen::load()
     const QList<KScreen::Output*> outputs = m_config->outputs().values();
     Q_FOREACH (KScreen::Output *output, outputs) {
         QMetaObject::invokeMethod(outputView, "addOutput", Q_ARG(QVariant, QVariant::fromValue(output)));
-        //outputView->addOutput(m_declarativeView->engine(), output);
     }
     QMetaObject::invokeMethod(outputView, "reorderOutputs");
 
     connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
     connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
+    connect(outputView, SIGNAL(outputMouseEntered()), SLOT(outputMouseEntered()));
+    connect(outputView, SIGNAL(outputMouseExited()), SLOT(outputMouseExited()));
+    connect(outputView, SIGNAL(outputMousePressed()), SLOT(outputMousePressed()));
+    connect(outputView, SIGNAL(outputMouseReleased()), SLOT(outputMouseReleased()));
 }
 
 void KCMKScreen::save()
@@ -273,4 +276,24 @@ void KCMKScreen::moveMouse(int dX, int dY)
     pos.ry() += dY;
 
     QCursor::setPos(pos);
+}
+
+void KCMKScreen::outputMouseEntered()
+{
+    m_declarativeView->setCursor(Qt::OpenHandCursor);
+}
+
+void KCMKScreen::outputMouseExited()
+{
+    m_declarativeView->setCursor(Qt::ArrowCursor);
+}
+
+void KCMKScreen::outputMousePressed()
+{
+    m_declarativeView->setCursor(Qt::ClosedHandCursor);
+}
+
+void KCMKScreen::outputMouseReleased()
+{
+    m_declarativeView->setCursor(Qt::OpenHandCursor);
 }

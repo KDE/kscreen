@@ -27,6 +27,10 @@ Flickable {
     signal outputsChanged();
     signal outputChanged();
     signal moveMouse(int x, int y);
+    signal outputMouseEntered();
+    signal outputMouseExited();
+    signal outputMousePressed();
+    signal outputMouseReleased();
 
     property int maxContentWidth;
     property int maxContentHeight;
@@ -91,6 +95,10 @@ Flickable {
         qmlOutput.moved.connect(outputMoved);
         qmlOutput.primaryTriggered.connect(primaryTriggered);
         qmlOutput.output.isConnectedChanged.connect(outputConnected);
+        qmlOutput.mouseEntered.connect(outputMouseEntered);
+        qmlOutput.mouseExited.connect(outputMouseExited);
+        qmlOutput.mousePressed.connect(outputMousePressed);
+        qmlOutput.mouseReleased.connect(outputMouseReleased);
 
         if (!output.connected) {
             return;

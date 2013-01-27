@@ -41,7 +41,7 @@ Item {
     property Item parentItem;
     property int iconSize: 22;
     property int fontSize: 12;
-
+    property bool forceArrowCursor: false;
 
     onWidthChanged: {
         adaptToSizeChange();
@@ -163,6 +163,21 @@ Item {
             output.enabled = enabledButton.checked;
             }
         }
+
+        MouseArea {
+
+            anchors.fill: parent;
+            hoverEnabled: true;
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
+            onClicked: {
+                enabledButton.checked = !enabledButton.checked;
+            }
+        }
     }
 
     Row {
@@ -210,6 +225,12 @@ Item {
                     }
                 }
             }
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
         }
 
         /* Primary toggle */
@@ -231,6 +252,12 @@ Item {
                     }
                 }
             }
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
         }
 
 
@@ -243,6 +270,12 @@ Item {
             tooltipText: i18n("Show list of available display resolutions");
 
             onClicked: selectionDialog.open();
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
         }
     }
 
