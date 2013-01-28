@@ -42,6 +42,8 @@ Item {
     property int iconSize: 22;
     property int fontSize: 12;
 
+    width: parent.width - 36;
+    height: parent.height - 20;
 
     onWidthChanged: {
         adaptToSizeChange();
@@ -78,13 +80,14 @@ Item {
     }
 
     Behavior on rotation {
+        /*
         RotationAnimation {
             easing.type: "OutCubic"
             duration: 250;
             // Opposite of the monitor rotation so the controls stay rightside up.
             direction: (rotationDirection == RotationAnimation.Clockwise) ?
                     RotationAnimation.Counterclockwise : RotationAnimation.Clockwise;
-        }
+        }*/
     }
 
     Behavior on width {
@@ -245,50 +248,6 @@ Item {
             onClicked: selectionDialog.open();
         }
     }
-
-    state: "normal";
-    states: [
-            State {
-                    name: "normal";
-                    when: output.rotation == Output.None;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 0;
-                            width: parent.width - 36;
-                            height: parent.height - 20;
-                    }
-            },
-            State {
-                    name: "left";
-                    when: output.rotation == Output.Left;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 90;
-                            width: parent.height - 20;
-                            height: parent.width - 36;
-                    }
-            },
-            State {
-                    name: "inverted";
-                    when: output.rotation == Output.Inverted;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 180;
-                            width: parent.width - 36;
-                            height: parent.height - 20;
-                    }
-            },
-            State {
-                    name: "right";
-                    when: output.rotation == Output.Right;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 270;
-                            width: parent.height - 20;
-                            height: parent.width - 36;
-                    }
-            }
-    ]
 
     PlasmaComponents410.Dialog {
 
