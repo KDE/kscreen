@@ -135,7 +135,11 @@ QMLOutput {
 
         /* When button is pressed, emit clicked() signal
          * which is cought by QMLOutputView */
-        onPressed: root.clicked(root.output.name);
+        onPressed: {
+            root.clicked(root.output.name);
+            tip.visible = true;
+        }
+        onReleased: { tip.visible = false; }
 
         onRotationChanged: updateRootProperties();
 

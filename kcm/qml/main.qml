@@ -98,8 +98,8 @@ Item {
         }
 
         Text {
-
             id: tip;
+            visible: false;
 
             anchors {
                 left: parent.left;
