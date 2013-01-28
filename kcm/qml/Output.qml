@@ -80,7 +80,7 @@ QMLOutput {
             centerIn: parent;
         }
 
-        scale: (output.enabled) ? 1.0 : 0.6;
+        opacity: (output.enabled) ? 1.0 : 0.3;
         width: root.currentOutputWidth * root.displayScale;
         height: root.currentOutputHeight * root.displayScale;
         transformOrigin: Item.Center;
@@ -158,11 +158,11 @@ QMLOutput {
             easing.type: "OutCubic";
         }
 
-        Behavior on scale {
+        Behavior on opacity {
             PropertyAnimation {
-                property: "scale";
-                easing.type: "OutElastic";
-                duration: 350;
+                property: "opacity";
+                easing.type: "OutCubic";
+                duration: 250;
             }
         }
 
