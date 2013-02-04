@@ -227,9 +227,10 @@ void Generator::laptop(KScreen::OutputList& outputs)
 
     outputs.remove(embedded->id());
 
-    if (outputs.isEmpty() || !embedded) {
-        kWarning() << "Neither external outputs or embedded could be found";
-        return;
+    if (outputs.isEmpty()) {
+        kWarning() << "No external outputs found, going for singleOutput()";
+        outputs.insert(embedded->id(), embedded);
+        return singleOutput(outputs);
     }
 
     if (isLidClosed() && outputs.count() == 1) {
@@ -239,8 +240,9 @@ void Generator::laptop(KScreen::OutputList& outputs)
 
         KScreen::Output* external = outputs.value(outputs.keys().first());
         external->setEnabled(true);
-        external->setCurrentMode(external->preferredMode());
         external->setPrimary(true);
+        external->setCurrentMode(external->preferredMode());
+        external->setPos(QPoint(0, 0));
 
         return;
     }
@@ -286,6 +288,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
         output->setEnabled(true);
         output->setCurrentMode(output->preferredMode());
         output->setPos(QPoint(globalWidth, 0));
+        output->setPrimary(false);
 
         if ((output->rotation() == KScreen::Output::None) ||
             (output->rotation() == KScreen::Output::Inverted)) {
