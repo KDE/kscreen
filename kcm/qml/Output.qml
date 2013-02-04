@@ -126,7 +126,7 @@ QMLOutput {
         onClicked: root.clicked(root.output.name);
         onPositionChanged: {
 
-            if ((mouse.buttons == 0) || !root.output.isEnabled) {
+            if ((mouse.buttons == 0) || !root.output.enabled) {
                 return;
             }
 
