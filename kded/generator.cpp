@@ -61,7 +61,7 @@ KScreen::Config* Generator::idealConfig()
     KDebug::Block idealBlock("Ideal Config");
     KScreen::Config* config = KScreen::Config::current();
     if (!config) {
-        kDebug() << "Can't get current config";
+        kDebug() << "Unable get current config";
         return 0;
     }
 
@@ -90,7 +90,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     KDebug::Block switchBlock("Display Switch");
     KScreen::Config* config = KScreen::Config::current();
     if (!config) {
-        kDebug() << "Impossible to get config";
+        kDebug() << "Unable to get current config";
         return 0;
     }
 
@@ -205,12 +205,10 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
 void Generator::singleOutput(KScreen::OutputList& outputs)
 {
-    kDebug() << "Config for one output";
+    Q_ASSERT(!outputs.isEmpty());
+
     KScreen::Output* output = outputs.take(outputs.keys().first());
-    if (!output) {
-        kWarning() << "Can't get output";
-        return;
-    }
+    Q_ASSERT(output);
 
     output->setCurrentMode(output->preferredMode());
     output->setEnabled(true);
@@ -220,13 +218,12 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
 
 void Generator::laptop(KScreen::OutputList& outputs)
 {
+    Q_ASSERT(!outputs.isEmpty());
+
     KDebug::Block laptopBlock("Laptop config");
 
     KScreen::Output* embedded = embeddedOutput(outputs);
-    if (!embedded) {
-        kWarning() << "No embeded output found!";
-        return;
-    }
+    Q_ASSERT(embedded);
 
     outputs.remove(embedded->id());
 
@@ -307,8 +304,12 @@ void Generator::laptop(KScreen::OutputList& outputs)
 
 void Generator::extendToRight(KScreen::OutputList& outputs)
 {
+    Q_ASSERT(!outputs.isEmpty());
+
     kDebug() << "Extending to the right";
     KScreen::Output* biggest = biggestOutput(outputs);
+    Q_ASSERT(biggest);
+
     outputs.remove(biggest->id());
 
     biggest->setEnabled(true);
