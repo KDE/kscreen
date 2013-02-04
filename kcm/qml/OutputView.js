@@ -231,7 +231,7 @@ function snapOutput(outputView, output) {
     var height = output.height;
     var width = output.width;
     var centerX = x + (width / 2);
-    var centerY = y + (width / 2);
+    var centerY = y + (height / 2);
 
     for (var ii = 0; ii < outputView.contentItem.children.length; ii++) {
         var otherOutput = outputView.contentItem.children[ii];
