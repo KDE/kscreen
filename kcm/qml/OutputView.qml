@@ -104,6 +104,8 @@ Flickable {
             return;
         }
 
+        qmlOutput.updateRootProperties();
+
         /* Maybe enable dragging of outputs? */
         root.outputConnected();
 
@@ -148,16 +150,26 @@ Flickable {
                 rectX = qmlOutput.x;
             }
 
-            if (qmlOutput.x + qmlOutput.width > rectWidth) {
-                rectWidth = qmlOutput.x + qmlOutput.width;
+            var visualWidth;
+            var visualHeight;
+            if ((qmlOutput.output.rotation == Output.Normal) ||
+                (qmlOutput.output.rotation == Output.Inverted)) {
+                visualWidth = qmlOutput.width;
+                visualHeight = qmlOutput.height;
+            } else {
+                visualWidth = qmlOutput.height;
+                visualHeight = qmlOutput.width;
+            }
+            if (qmlOutput.x + visualWidth > rectWidth) {
+                rectWidth = qmlOutput.x + visualWidth;
             }
 
             if (qmlOutput.y < rectY) {
                 rectY = qmlOutput.y;
             }
 
-            if (qmlOutput.y + qmlOutput.height > rectHeight) {
-                rectHeight = qmlOutput.y + qmlOutput.height;
+            if (qmlOutput.y + visualHeight > rectHeight) {
+                rectHeight = qmlOutput.y + visualHeight;
             }
 
             positionedOutputs.push(qmlOutput);
