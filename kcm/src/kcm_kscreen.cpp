@@ -187,7 +187,7 @@ void KCMKScreen::save()
 
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
-        KScreen::Mode *mode = output->mode(output->currentMode());
+        KScreen::Mode *mode = output->currentMode();
 
         if (output->isEnabled()) {
             atLeastOneEnabledOutput = true;
@@ -235,11 +235,11 @@ void KCMKScreen::identifyOutputs()
     /* Obtain the current active configuration from KScreen */
     OutputList outputs = KScreen::Config::current()->outputs();
     Q_FOREACH (KScreen::Output *output, outputs) {
-        if (!output->isConnected() || output->currentMode() == 0) {
+        if (!output->isConnected() || !output->currentMode()) {
             continue;
         }
 
-        Mode *mode = output->mode(output->currentMode());
+        Mode *mode = output->currentMode();
 
         QDeclarativeView *view = new QDeclarativeView();
         view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);

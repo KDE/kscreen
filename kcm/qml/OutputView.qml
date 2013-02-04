@@ -152,8 +152,7 @@ Flickable {
 
             var visualWidth;
             var visualHeight;
-            if ((qmlOutput.output.rotation == Output.Normal) ||
-                (qmlOutput.output.rotation == Output.Inverted)) {
+            if (qmlOutput.output.isHorizontal()) {
                 visualWidth = qmlOutput.width;
                 visualHeight = qmlOutput.height;
             } else {

@@ -139,10 +139,10 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
         embedded->setEnabled(true);
         embedded->setPos(QPoint(0,0));
-        embedded->setCurrentMode(biggestEmbedded->id());
+        embedded->setCurrentModeId(biggestEmbedded->id());
         external->setEnabled(true);
         external->setPos(QPoint(0,0));
-        external->setCurrentMode(biggestExternal->id());
+        external->setCurrentModeId(biggestExternal->id());
 
         return config;
     }
@@ -151,12 +151,12 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         kDebug() << "Extend to left";
         external->setEnabled(true);
         external->setPos(QPoint(0,0));
-        external->setCurrentMode(external->preferredMode());
+        external->setCurrentModeId(external->preferredModeId());
 
-        QSize size = external->mode(external->currentMode())->size();
+        QSize size = external->currentMode()->size();
         embedded->setPos(QPoint(size.width(), 0));
         embedded->setEnabled(true);
-        embedded->setCurrentMode(embedded->preferredMode());
+        embedded->setCurrentModeId(embedded->preferredModeId());
         embedded->setPrimary(true);
         return config;
     }
@@ -168,7 +168,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
         external->setEnabled(true);
         external->setPrimary(true);
-        external->setCurrentMode(external->preferredMode());
+        external->setCurrentModeId(external->preferredModeId());
         return config;
     }
 
@@ -177,7 +177,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         embedded->setEnabled(true);
         embedded->setPrimary(true);
         embedded->setPos(QPoint(0,0));
-        embedded->setCurrentMode(embedded->preferredMode());
+        embedded->setCurrentModeId(embedded->preferredModeId());
 
         external->setEnabled(false);
         external->setPrimary(false);
@@ -187,14 +187,14 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     if (iteration == 5) {
         kDebug() << "Extend to the right";
         embedded->setPos(QPoint(0,0));
-        embedded->setCurrentMode(embedded->preferredMode());
+        embedded->setCurrentModeId(embedded->preferredModeId());
         embedded->setPrimary(true);
         embedded->setEnabled(true);
 
-        QSize size = embedded->mode(embedded->currentMode())->size();
+        QSize size = embedded->currentMode()->size();
         external->setPos(QPoint(size.width(), 0));
         external->setEnabled(true);
-        external->setCurrentMode(external->preferredMode());
+        external->setCurrentModeId(external->preferredModeId());
         external->setPrimary(false);
 
         return config;
@@ -210,7 +210,7 @@ void Generator::singleOutput(KScreen::OutputList& outputs)
     KScreen::Output* output = outputs.take(outputs.keys().first());
     Q_ASSERT(output);
 
-    output->setCurrentMode(output->preferredMode());
+    output->setCurrentModeId(output->preferredModeId());
     output->setEnabled(true);
     output->setPrimary(true);
     output->setPos(QPoint(0,0));
@@ -241,7 +241,7 @@ void Generator::laptop(KScreen::OutputList& outputs)
         KScreen::Output* external = outputs.value(outputs.keys().first());
         external->setEnabled(true);
         external->setPrimary(true);
-        external->setCurrentMode(external->preferredMode());
+        external->setCurrentModeId(external->preferredModeId());
         external->setPos(QPoint(0, 0));
 
         return;
@@ -259,42 +259,39 @@ void Generator::laptop(KScreen::OutputList& outputs)
     kDebug() << "Lid is open";
     //If lid is open, laptop screen shuold be primary
     embedded->setPos(QPoint(0,0));
-    embedded->setCurrentMode(embedded->preferredMode());
+    embedded->setCurrentModeId(embedded->preferredModeId());
     embedded->setPrimary(true);
     embedded->setEnabled(true);
 
     int globalWidth;
-    if ((embedded->rotation() == KScreen::Output::None) ||
-        (embedded->rotation() == KScreen::Output::Inverted)) {
-        globalWidth = embedded->mode(embedded->preferredMode())->size().width();
+    if (embedded->isHorizontal()) {
+        globalWidth = embedded->preferredMode()->size().width();
     } else {
-        globalWidth = embedded->mode(embedded->preferredMode())->size().height();
+        globalWidth = embedded->preferredMode()->size().height();
     }
     KScreen::Output* biggest = biggestOutput(outputs);
     outputs.remove(biggest->id());
 
     biggest->setPos(QPoint(globalWidth, 0));
     biggest->setEnabled(true);
-    biggest->setCurrentMode(biggest->preferredMode());
+    biggest->setCurrentModeId(biggest->preferredModeId());
     biggest->setPrimary(false);
 
-    if ((biggest->rotation() == KScreen::Output::None) ||
-        (biggest->rotation() == KScreen::Output::Inverted)) {
-        globalWidth += biggest->mode(biggest->currentMode())->size().width();
+    if (biggest->isHorizontal()) {
+        globalWidth += biggest->currentMode()->size().width();
     } else {
-        globalWidth += biggest->mode(biggest->currentMode())->size().height();
+        globalWidth += biggest->currentMode()->size().height();
     }
     Q_FOREACH(KScreen::Output* output, outputs) {
         output->setEnabled(true);
-        output->setCurrentMode(output->preferredMode());
+        output->setCurrentModeId(output->preferredModeId());
         output->setPos(QPoint(globalWidth, 0));
         output->setPrimary(false);
 
-        if ((output->rotation() == KScreen::Output::None) ||
-            (output->rotation() == KScreen::Output::Inverted)) {
-            globalWidth += output->mode(output->currentMode())->size().width();
+        if (output->isHorizontal()) {
+            globalWidth += output->currentMode()->size().width();
         } else {
-            globalWidth += output->mode(output->currentMode())->size().height();
+            globalWidth += output->currentMode()->size().height();
         }
     }
 
@@ -317,28 +314,26 @@ void Generator::extendToRight(KScreen::OutputList& outputs)
 
     biggest->setEnabled(true);
     biggest->setPrimary(true);
-    biggest->setCurrentMode(biggest->preferredMode());
+    biggest->setCurrentModeId(biggest->preferredModeId());
     biggest->setPos(QPoint(0,0));
 
     int globalWidth;
-    if ((biggest->rotation() == KScreen::Output::None) ||
-        (biggest->rotation() == KScreen::Output::Inverted)) {
-        globalWidth = biggest->mode(biggest->currentMode())->size().width();
+    if (biggest->isHorizontal()) {
+        globalWidth = biggest->currentMode()->size().width();
     } else {
-        globalWidth = biggest->mode(biggest->currentMode())->size().height();
+        globalWidth = biggest->currentMode()->size().height();
     }
 
     Q_FOREACH(KScreen::Output* output, outputs) {
         output->setEnabled(true);
         output->setPrimary(false);
-        output->setCurrentMode(output->preferredMode());
+        output->setCurrentModeId(output->preferredModeId());
         output->setPos(QPoint(globalWidth, 0));
 
-        if ((output->rotation() == KScreen::Output::None) ||
-            (output->rotation() == KScreen::Output::Inverted)) {
-            globalWidth += output->mode(output->currentMode())->size().width();
+        if (output->isHorizontal()) {
+            globalWidth += output->currentMode()->size().width();
         } else {
-            globalWidth += output->mode(output->currentMode())->size().height();
+            globalWidth += output->currentMode()->size().height();
         }
     }
 }
@@ -369,7 +364,7 @@ KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
     int area, total = 0;
     KScreen::Output* biggest = 0;
     Q_FOREACH(KScreen::Output* output, outputs) {
-        KScreen::Mode* mode = output->mode(output->preferredMode());
+        KScreen::Mode* mode = output->preferredMode();
         area = mode->size().width() * mode->size().height();
         if (area < total) {
             continue;

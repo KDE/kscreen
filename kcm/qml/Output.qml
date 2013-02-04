@@ -54,12 +54,12 @@ QMLOutput {
     function updateRootProperties() {
         var transformedX, transformedY, transformedWidth, transformedHeight;
 
-        if ((output.rotation == Output.Left) || (output.rotation == Output.Right)) {
-            transformedWidth = monitorMouseArea.height;
-            transformedHeight = monitorMouseArea.width;
-        } else {
+        if (output.isHorizontal()) {
             transformedWidth = monitorMouseArea.width;
             transformedHeight = monitorMouseArea.height;
+        } else {
+            transformedWidth = monitorMouseArea.height;
+            transformedHeight = monitorMouseArea.width;
         }
 
         transformedX = root.x + (root.width / 2) - (transformedWidth / 2);
@@ -223,7 +223,6 @@ QMLOutput {
             property bool enabled: output.enabled;
             property bool connected: output.connected;
             property bool primary: output.primary;
-            property int currentModeId: output.currentMode;
             property int rotationDirection;
 
             radius: 4;

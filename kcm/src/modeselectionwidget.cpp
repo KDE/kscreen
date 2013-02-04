@@ -87,7 +87,7 @@ void ModeSelectionWidget::setOutput(QMLOutput *output)
 
     m_refreshRatesModel->setSourceModel(m_resolutionsModel);
 
-    KScreen::Mode *currentMode = m_output->output()->mode(m_output->output()->currentMode());
+    KScreen::Mode *currentMode = m_output->output()->currentMode();
     if (!currentMode) {
         return;
     }
@@ -157,7 +157,7 @@ void ModeSelectionWidget::refreshRateChanged()
         return;
     }
 
-    m_output->output()->setCurrentMode(modeId);
+    m_output->output()->setCurrentModeId(modeId);
     m_refreshRatesView->repaint();
 }
 

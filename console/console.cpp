@@ -69,10 +69,10 @@ void Console::printConfig()
         qDebug() << "Rotation: " << output->rotation();
         qDebug() << "Pos: " << output->pos();
         if (output->currentMode()) {
-            qDebug() << "Size: " << output->mode(output->currentMode())->size();
+            qDebug() << "Size: " << output->currentMode()->size();
         }
         qDebug() << "Clones: " << output->clones().isEmpty();
-        qDebug() << "Mode: " << output->currentMode();
+        qDebug() << "Mode: " << output->currentModeId();
         qDebug() << "Preferred modes: " << output->preferredModes();
         qDebug() << "Modes: ";
 

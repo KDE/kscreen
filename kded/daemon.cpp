@@ -210,7 +210,7 @@ void KScreenDaemon::scheduleMonitorChange()
 
 void KScreenDaemon::enableMonitor(KScreen::Output* output)
 {
-    connect(output, SIGNAL(currentModeChanged()), SLOT(configChanged()));
+    connect(output, SIGNAL(currentModeIdChanged()), SLOT(configChanged()));
     connect(output, SIGNAL(isEnabledChanged()), SLOT(configChanged()));
     connect(output, SIGNAL(isPrimaryChanged()), SLOT(configChanged()));
     connect(output, SIGNAL(outputChanged()), SLOT(configChanged()));
@@ -221,7 +221,7 @@ void KScreenDaemon::enableMonitor(KScreen::Output* output)
 
 void KScreenDaemon::disableMonitor(KScreen::Output* output)
 {
-    disconnect(output, SIGNAL(currentModeChanged()), this, SLOT(configChanged()));
+    disconnect(output, SIGNAL(currentModeIdChanged()), this, SLOT(configChanged()));
     disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(configChanged()));
     disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(configChanged()));
     disconnect(output, SIGNAL(outputChanged()), this, SLOT(configChanged()));

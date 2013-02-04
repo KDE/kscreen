@@ -122,7 +122,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
         info["pos"] = pos;
 
         if (output->isEnabled()) {
-            KScreen::Mode *mode = output->mode(output->currentMode());
+            KScreen::Mode *mode = output->currentMode();
 
             QVariantMap modeInfo;
             modeInfo["refresh"] = mode->refreshRate();
@@ -194,7 +194,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
             }
 
             kDebug() << "Found: " << mode->id() << " " << mode->name();
-            output->setCurrentMode(mode->id());
+            output->setCurrentModeId(mode->id());
             break;
         }
         return output;
