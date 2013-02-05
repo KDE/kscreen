@@ -19,7 +19,7 @@
 #ifndef MODESELECTIONWIDGET_H
 #define MODESELECTIONWIDGET_H
 
-#include <QGraphicsProxyWidget>
+#include <QDeclarativeItem>
 #include <QModelIndex>
 
 class QListView;
@@ -27,12 +27,12 @@ class QMLOutput;
 class ModesProxyModel;
 class ResolutionSortModel;
 
-class ModeSelectionWidget : public QGraphicsProxyWidget
+class ModeSelectionWidget : public QDeclarativeItem
 {
     Q_OBJECT
     Q_PROPERTY(QMLOutput *output READ output WRITE setOutput)
 public:
-    explicit ModeSelectionWidget(QGraphicsItem *parent = 0, Qt::WindowFlags wFlags = 0);
+    explicit ModeSelectionWidget(QDeclarativeItem *parent = 0);
     virtual ~ModeSelectionWidget();
 
     void setOutput(QMLOutput *output);
@@ -40,7 +40,11 @@ public:
 
 private Q_SLOTS:
     void resolutionChanged(const QModelIndex &index);
+    void acceptMode(const QModelIndex &index);
     void refreshRateChanged();
+
+Q_SIGNALS:
+    void accepted();
 
 private:
     QMLOutput *m_output;
@@ -49,6 +53,9 @@ private:
     QListView *m_refreshRatesView;
     ModesProxyModel *m_refreshRatesModel;
     ResolutionSortModel *m_resolutionsModel;
+    QWidget *rootWidget;
+
+    QGraphicsProxyWidget *m_proxyWidget;
 
 };
 

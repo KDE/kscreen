@@ -35,19 +35,24 @@ class QMLOutput : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(KScreen::Output* output READ output WRITE setOutput NOTIFY outputChanged);
-    Q_PROPERTY(QMLOutput* cloneOf READ cloneOf WRITE setCloneOf NOTIFY cloneOfChanged);
+    Q_PROPERTY(KScreen::Output* output READ output WRITE setOutput NOTIFY outputChanged)
+    Q_PROPERTY(QMLOutput* cloneOf READ cloneOf WRITE setCloneOf NOTIFY cloneOfChanged)
 
-    Q_PROPERTY(int currentOutputHeight READ currentOutputHeight NOTIFY currentOutputSizeChanged);
-    Q_PROPERTY(int currentOutputWidth READ currentOutputWidth NOTIFY currentOutputSizeChanged);
+    Q_PROPERTY(int currentOutputHeight READ currentOutputHeight NOTIFY currentOutputSizeChanged)
+    Q_PROPERTY(int currentOutputWidth READ currentOutputWidth NOTIFY currentOutputSizeChanged)
 
-    Q_PROPERTY(float displayScale READ displayScale CONSTANT);
+    /* Workaround for possible QML bug when calling output.pos.y = VALUE works,
+     * but output.pos.x = VALUE has no effect */
+    Q_PROPERTY(int outputX READ outputX WRITE setOutputX)
+    Q_PROPERTY(int outputY READ outputY WRITE setOutputY)
+
+    Q_PROPERTY(float displayScale READ displayScale CONSTANT)
 public:
     enum {
       ModeRole = Qt::UserRole,
       ModeIdRole,
       SizeRole,
-      RefreshRateRole,
+      RefreshRateRole
     };
 
     QMLOutput();
@@ -61,6 +66,12 @@ public:
 
     int currentOutputHeight() const;
     int currentOutputWidth() const;
+
+    int outputX() const;
+    void setOutputX(int x);
+
+    int outputY() const;
+    void setOutputY(int y);
 
     /**
      * Returns scale in which the output is drawn on the screen.

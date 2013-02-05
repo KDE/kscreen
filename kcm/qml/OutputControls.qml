@@ -22,6 +22,15 @@ import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import KScreen 1.0
 
+/* We switched from PlasmaCore.Dialog to PlasmaComponents.Dialog to
+   fix bug #312544. Unfortunatelly the component works correctly only
+   in KDE 4.10, it does not fix the bug in KDE 4.9 and it misbehaves.
+
+   To support KDE 4.9 (and older) and to make the code still working,
+   we ship our own copy of the Dialog.qml and it's dependencies from
+   kde-runtime/plasma/declarativeimports */
+import "plasmacomponents" as PlasmaComponents410
+
 Item {
 
     id: root;
@@ -32,7 +41,7 @@ Item {
     property Item parentItem;
     property int iconSize: 22;
     property int fontSize: 12;
-
+    property bool forceArrowCursor: false;
 
     onWidthChanged: {
         adaptToSizeChange();
@@ -72,6 +81,7 @@ Item {
         RotationAnimation {
             easing.type: "OutCubic"
             duration: 250;
+            // Opposite of the monitor rotation so the controls stay rightside up.
             direction: (rotationDirection == RotationAnimation.Clockwise) ?
                     RotationAnimation.Counterclockwise : RotationAnimation.Clockwise;
         }
@@ -153,6 +163,21 @@ Item {
             output.enabled = enabledButton.checked;
             }
         }
+
+        MouseArea {
+
+            anchors.fill: parent;
+            hoverEnabled: true;
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
+            onClicked: {
+                enabledButton.checked = !enabledButton.checked;
+            }
+        }
     }
 
     Row {
@@ -172,32 +197,39 @@ Item {
 
             iconSize: root.iconSize;
             enabledIcon: "object-rotate-left";
+            tooltipText: i18n("Rotate output 90° counterclockwise");
 
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             onClicked: {
                 if (mouse.button == Qt.LeftButton) {
                     monitor.rotationDirection = RotationAnimation.Counterclockwise;
                     if (output.rotation == Output.None) {
-                        output.rotation = Output.Right;
-                    } else if (output.rotation == Output.Right) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
                         output.rotation = Output.Left;
                     } else if (output.rotation == Output.Left) {
+                        output.rotation = Output.Inverted;
+                    } else if (output.rotation == Output.Inverted) {
+                        output.rotation = Output.Right;
+                    } else if (output.rotation == Output.Right) {
                         output.rotation = Output.None;
                     }
                 } else {
                     monitor.rotationDirection = RotationAnimation.Clockwise;
                     if (output.rotation == Output.None) {
-                        output.rotation = Output.Left;
-                    } else if (output.rotation == Output.Left) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
                         output.rotation = Output.Right;
                     } else if (output.rotation == Output.Right) {
+                        output.rotation = Output.Inverted;
+                    } else if (output.rotation == Output.Inverted) {
+                        output.rotation = Output.Left;
+                    } else if (output.rotation == Output.Left) {
                         output.rotation = Output.None;
                     }
                 }
+            }
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
             }
         }
 
@@ -209,6 +241,7 @@ Item {
             iconSize: root.iconSize;
             enabledIcon: "bookmarks";
             enabled: (output.enabled && output.primary);
+            tooltipText: i18n("Toggle primary output");
 
             onClicked: {
                 if (output.enabled) {
@@ -219,6 +252,12 @@ Item {
                     }
                 }
             }
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
         }
 
 
@@ -228,8 +267,15 @@ Item {
 
             iconSize: root.iconSize;
             enabledIcon: "view-restore"
+            tooltipText: i18n("Show list of available display resolutions");
 
             onClicked: selectionDialog.open();
+            onEntered: {
+                root.forceArrowCursor = true;
+            }
+            onExited: {
+                root.forceArrowCursor = false;
+            }
         }
     }
 
@@ -250,7 +296,7 @@ Item {
                     when: output.rotation == Output.Left;
                     PropertyChanges {
                             target: root;
-                            rotation: 270;
+                            rotation: 90;
                             width: parent.height - 20;
                             height: parent.width - 36;
                     }
@@ -270,18 +316,27 @@ Item {
                     when: output.rotation == Output.Right;
                     PropertyChanges {
                             target: root;
-                            rotation: 90;
+                            rotation: 270;
                             width: parent.height - 20;
                             height: parent.width - 36;
                     }
             }
     ]
 
-    ModeSelectionDialog {
+    PlasmaComponents410.Dialog {
 
-            id: selectionDialog;
+        id: selectionDialog;
 
-            parentItem: parent.parentItem;
-            visualParent: resizeButton;
+        visualParent: resizeButton;
+
+        content: [
+                ModeSelectionWidget {
+                    id: contentItem;
+                    output: root.parentItem;
+
+                    onAccepted: selectionDialog.close();
+                }
+        ]
+
     }
 }

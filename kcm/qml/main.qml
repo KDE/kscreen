@@ -19,75 +19,113 @@
 import QtQuick 1.1
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
+import KScreen 1.0 as KScreen;
 
 Item {
+
     id: root;
+
+    property variant virtualScreen: null;
 
     signal identifyOutputsRequested();
 
     objectName: "root";
     focus: true;
 
+    anchors.fill: parent;
+
     SystemPalette {
         id: palette;
     }
 
     /* Don't use colors from theme, we want to be consistent with KCM, not
-    * with Plasma here. Font sizes are the same though */
+     * with Plasma here. Font sizes are the same though */
     PlasmaCore.Theme {
+
         id: theme;
     }
 
-    FocusScope {
-        id: outputViewFocusScope;
+    Rectangle {
+        id: background;
 
         anchors.fill: parent;
+        focus: true;
 
-        OutputView {
-            id: outputView;
+        color: palette.base;
+
+        FocusScope {
+
+            id: outputViewFocusScope;
 
             anchors.fill: parent;
+            focus: true;
 
-            objectName: "outputView";
-            root: parent;
+            OutputView {
 
-            Text {
-                id: tip;
+                id: outputView;
 
-                anchors {
-                    left: parent.left;
-                    bottom: parent.bottom;
-                    margins: 5;
-                }
+                anchors.fill: parent;
+                clip: true;
 
-                color: palette.text;
-                text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+                objectName: "outputView";
+
+                maxContentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
+                maxContentHeight: virtualScreen ? virtualScreen.maxSize.width : root.width;
+            }
+        }
+
+        PlasmaComponents.ScrollBar {
+
+            id: horizontalScrollbar;
+
+            /* The scrollbars seem to have broken anchoring? */
+            y: background.height - height;
+            width: background.width - verticalScrollbar.width;
+
+            orientation: Qt.Horizontal;
+            flickableItem: outputView;
+        }
+
+        PlasmaComponents.ScrollBar {
+
+            id: verticalScrollbar;
+
+            x: background.width - width;
+            height: background.height - horizontalScrollbar.height;
+
+            orientation: Qt.Vertical;
+            flickableItem: outputView;
+        }
+
+        Text {
+
+            id: tip;
+
+            anchors {
+                left: parent.left;
+                bottom: horizontalScrollbar.top;
+                margins: 5;
             }
 
-            VirtualScreen {
-                id: virtualScreen;
-                objectName: "virtualScreen";
+            color: palette.text;
+            text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+        }
 
-                anchors.centerIn: parent;
+        IconButton {
 
-                viewWidth: parent.width;
-                viewHeight: parent.height;
+            id: identifyButton;
+
+            anchors {
+                right: verticalScrollbar.left;
+                bottom: horizontalScrollbar.top;
+                margins: 5;
             }
 
-            IconButton {
-                id: identifyButton;
+            enabledIcon: "documentinfo"
+            iconSize: 44;
+            tooltipText: i18n("Identify outputs");
 
-                anchors {
-                    right: parent.right;
-                    bottom: parent.bottom;
-                    margins: 5;
-                }
-
-                enabledIcon: "documentinfo"
-                iconSize: 44;
-
-                onClicked: root.identifyOutputsRequested();
-            }
+            onClicked: root.identifyOutputsRequested();
         }
     }
 }

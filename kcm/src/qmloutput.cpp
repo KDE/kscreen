@@ -70,11 +70,9 @@ void QMLOutput::setOutput(KScreen::Output* output)
         item->appendRow(modeItem);
     }
 
-    kDebug() << m_output->modes();
-
     connect(output, SIGNAL(clonesChanged()), SIGNAL(changed()));
-    connect(output, SIGNAL(currentModeChanged()), SIGNAL(currentOutputSizeChanged()));
-    connect(output, SIGNAL(currentModeChanged()), SIGNAL(changed()));
+    connect(output, SIGNAL(currentModeIdChanged()), SIGNAL(currentOutputSizeChanged()));
+    connect(output, SIGNAL(currentModeIdChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(isEnabledChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(isPrimaryChanged()), SIGNAL(changed()));
     connect(output, SIGNAL(outputChanged()), SIGNAL(changed()));
@@ -112,11 +110,11 @@ int QMLOutput::currentOutputHeight() const
         return 0;
     }
 
-    KScreen::Mode *mode = m_output->mode(m_output->currentMode());
+    KScreen::Mode *mode = m_output->currentMode();
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
-            m_output->setCurrentMode(mode->id());
+            m_output->setCurrentModeId(mode->id());
         } else {
             return 1000;
         }
@@ -131,11 +129,11 @@ int QMLOutput::currentOutputWidth() const
         return 0;
     }
 
-    KScreen::Mode *mode = m_output->mode(m_output->currentMode());
+    KScreen::Mode *mode = m_output->currentMode();
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
-            m_output->setCurrentMode(mode->id());
+            m_output->setCurrentModeId(mode->id());
         } else {
             return 1000;
         }
@@ -143,6 +141,31 @@ int QMLOutput::currentOutputWidth() const
 
     return mode->size().width();
 }
+
+int QMLOutput::outputX() const
+{
+    return m_output->pos().x();
+}
+
+void QMLOutput::setOutputX(int x)
+{
+    QPoint pos = m_output->pos();
+    pos.setX(x);
+    m_output->setPos(pos);
+}
+
+int QMLOutput::outputY() const
+{
+    return m_output->pos().y();
+}
+
+void QMLOutput::setOutputY(int y)
+{
+    QPoint pos = m_output->pos();
+    pos.setY(y);
+    m_output->setPos(pos);
+}
+
 
 float QMLOutput::displayScale() const
 {

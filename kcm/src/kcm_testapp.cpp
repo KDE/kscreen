@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2012  Dan Vratil <dvratil@redhat.com>
+    Copyright (C) 2013  Dan Vratil <dvratil@redhat.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -16,29 +16,25 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-import QtQuick 1.0
-import KScreen 1.0
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KApplication>
+#include <KCModuleLoader>
 
-QMLVirtualScreen {
+#include <QDeclarativeDebuggingEnabler>
 
-    id: screen;
+int main(int argc, char **argv)
+{
+    QDeclarativeDebuggingEnabler enabler;
 
-    /* Dimensions of parent view */
-    property int viewHeight;
-    property int viewWidth;
+    KAboutData aboutData("kcm_testapp", "kcm_testapp", ki18n("KCM Test App"), "1.0");
+    KCmdLineArgs::init(argc, argv, &aboutData);
 
-    width: childrenRect.width;
-    height: childrenRect.height;
+    KApplication app;
 
-    Rectangle {
+    KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
+    module->resize(800, 600);
+    module->show();
 
-        color: "transparent";
-        border {
-            width: 2;
-            color: "red";
-        }
-
-        width: screen.maxSize.width / 6;
-        height: screen.maxSize.height / 6;
-    }
+    return app.exec();
 }

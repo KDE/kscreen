@@ -16,7 +16,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-import QtQuick 1.0
+import QtQuick 1.1
 import KScreen 1.0
 import org.kde.plasma.core 0.1
 
@@ -24,11 +24,18 @@ QMLOutput {
 
     id: root;
 
-    signal moved(bool snap);
-    signal clicked();
-    signal primaryTriggered();
+    signal clicked(string self);
+    signal primaryTriggered(string self);
+    signal moved(string self);
+    signal mouseEntered();
+    signal mouseExited();
+    signal mousePressed();
+    signal mouseReleased();
 
-    property Item viewport;
+    property Item outputView;
+    property bool isDragged: monitorMouseArea.drag.active;
+    property bool isDragEnabled: false;
+    property bool hasMoved: false;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
@@ -37,22 +44,22 @@ QMLOutput {
     opacity: output.connected ? 1.0 : 0.0;
 
     /* Transormation of an item (rotation of the MouseArea) is only visual.
-    * The coordinates and dimensions are still the same (when you rotated
-    * 100x500 rectangle by 90 deg, it will still be 100x500, although
-    * visually it will be 500x100).
-    *
-    * This method calculates the real-visual coordinates and dimentions of
-    * the MouseArea and updates root item to match them. This makes snapping
-    * works correctly ragrdless on visual rotation of the output */
+     * The coordinates and dimensions are still the same (when you rotated
+     * 100x500 rectangle by 90 deg, it will still be 100x500, although
+     * visually it will be 500x100).
+     *
+     * This method calculates the real-visual coordinates and dimentions of
+     * the MouseArea and updates root item to match them. This makes snapping
+     * works correctly ragrdless on visual rotation of the output */
     function updateRootProperties() {
         var transformedX, transformedY, transformedWidth, transformedHeight;
 
-        if ((output.rotation == Output.Left) || (output.rotation == Output.Right)) {
-            transformedWidth = monitorMouseArea.height;
-            transformedHeight = monitorMouseArea.width;
-        } else {
+        if (output.isHorizontal()) {
             transformedWidth = monitorMouseArea.width;
             transformedHeight = monitorMouseArea.height;
+        } else {
+            transformedWidth = monitorMouseArea.height;
+            transformedHeight = monitorMouseArea.width;
         }
 
         transformedX = root.x + (root.width / 2) - (transformedWidth / 2);
@@ -86,21 +93,23 @@ QMLOutput {
             if (output.rotation == Output.None) {
                 return 0
             } else if (output.rotation == Output.Left) {
-                return 90
+                return 270
             } else if (output.rotation == Output.Inverted) {
                 return 180;
             } else {
-                return 270;
+                return 90;
             }
         }
 
+        hoverEnabled: true;
+        preventStealing: true;
         drag {
-            target: root;
+            target: root.isDragEnabled ? root : null;
             axis: Drag.XandYAxis;
             minimumX: 0;
-            maximumX: viewport.width - root.width;
+            maximumX: outputView.maxContentWidth - root.width;
             minimumY: 0;
-            maximumY: viewport.height - root.height;
+            maximumY: outputView.maxContentHeight - root.height;
             filterChildren: false;
         }
 
@@ -114,16 +123,49 @@ QMLOutput {
             dragActiveChangedAnimation.running = true;
         }
 
-        onClicked: root.clicked();
+        onClicked: root.clicked(root.output.name);
         onPositionChanged: {
-            /* Don't snap the outputs when holding Ctrl or when
-             * they are disabled */
-            root.moved(!(mouse.modifiers & Qt.ControlModifier) && output.enabled);
+
+            if ((mouse.buttons == 0) || !root.output.enabled) {
+                return;
+            }
+
+            root.moved(root.output.name);
+
+            if (root.isDragged) {
+                root.hasMoved = true;
+            }
+
+
+            if (x < 0) {
+                x = 0;
+            } else if (x > outputView.maxContentWidth - width) {
+                x = outputView.maxContentWidth - width;
+            } else if (y < 0) {
+                y = 0;
+            } else if (y > outputView.maxContentHeight - height) {
+                y = outputView.maxContentHeight - height;
+            }
         }
 
         /* When button is pressed, emit clicked() signal
-        * which is cought by QMLOutputView */
-        onPressed: root.clicked();
+         * which is cought by QMLOutputView */
+        onPressed: {
+            root.clicked(root.output.name);
+            root.mousePressed();
+        }
+
+        onReleased: {
+            root.mouseReleased();
+        }
+
+        onEntered: {
+            root.mouseEntered();
+        }
+
+        onExited: {
+            root.mouseExited();
+        }
 
         onRotationChanged: updateRootProperties();
 
@@ -181,13 +223,14 @@ QMLOutput {
             property bool enabled: output.enabled;
             property bool connected: output.connected;
             property bool primary: output.primary;
-            property int currentModeId: output.currentMode;
             property int rotationDirection;
 
             radius: 4;
             color: palette.window;
             width: parent.width;
             height: parent.height;
+            smooth: true;
+
             border {
                 color: palette.shadow;
                 width: 1;
@@ -204,7 +247,15 @@ QMLOutput {
                 parentItem: root;
                 rotationDirection: parent.rotationDirection;
 
-                onPrimaryTriggered: root.primaryTriggered();
+                onPrimaryTriggered: root.primaryTriggered(root.output.name);
+                onForceArrowCursorChanged: {
+                    // This is to force arrow cursor when hovering over buttons
+                    if (controls.forceArrowCursor) {
+                        root.mouseExited();
+                    } else {
+                        root.mouseEntered();
+                    }
+                }
             }
 
             Rectangle {
@@ -219,6 +270,7 @@ QMLOutput {
 
                 height: 10;
                 color: palette.shadow;
+                smooth: true;
             }
         }
     }

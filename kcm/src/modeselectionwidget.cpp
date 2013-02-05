@@ -20,37 +20,53 @@
 
 #include <QListView>
 #include <QGridLayout>
+#include <QPainter>
+#include <QGraphicsProxyWidget>
 #include <kscreen/output.h>
 #include <KDebug>
+#include <QRectF>
+#include <sys/socket.h>
 
 #include "qmloutput.h"
 #include "modesproxymodel.h"
 #include "resolutionsortmodel.h"
 
-ModeSelectionWidget::ModeSelectionWidget(QGraphicsItem *parent, Qt::WindowFlags wFlags):
-    QGraphicsProxyWidget(parent, wFlags),
-    m_output(0)
+ModeSelectionWidget::ModeSelectionWidget(QDeclarativeItem *parent):
+    QDeclarativeItem(parent),
+    m_output(0),
+    m_refreshRatesModel(new ModesProxyModel(this)),
+    m_resolutionsModel(new ResolutionSortModel(this))
 {
-    m_resolutionsModel = new ResolutionSortModel(this);
+    setFlag(QGraphicsItem::ItemHasNoContents, false);
 
-    m_resolutionsView = new QListView();
+    rootWidget = new QWidget();
+
+    m_resolutionsView = new QListView(rootWidget);
     m_resolutionsView->setModel(m_resolutionsModel);
+    m_resolutionsView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     connect(m_resolutionsView, SIGNAL(clicked(QModelIndex)), SLOT(resolutionChanged(QModelIndex)));
+    connect(m_resolutionsView, SIGNAL(doubleClicked(QModelIndex)), SLOT(acceptMode(QModelIndex)));
 
-    m_refreshRatesModel = new ModesProxyModel(this);
-
-    m_refreshRatesView = new QListView();
+    m_refreshRatesView = new QListView(rootWidget);
     m_refreshRatesView->setModel(m_refreshRatesModel);
-    connect(m_resolutionsView, SIGNAL(clicked(QModelIndex)), SLOT(refreshRateChanged()));
-
-    QWidget *rootWidget = new QWidget();
+    m_refreshRatesView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    connect(m_refreshRatesView, SIGNAL(clicked(QModelIndex)), SLOT(refreshRateChanged()));
+    connect(m_refreshRatesView, SIGNAL(doubleClicked(QModelIndex)), SLOT(acceptMode(QModelIndex)));
 
     QGridLayout *mainLayout = new QGridLayout(rootWidget);
     mainLayout->addWidget(m_resolutionsView, 0, 0);
     mainLayout->addWidget(m_refreshRatesView, 0, 1);
     rootWidget->setLayout(mainLayout);
+    rootWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    rootWidget->setMaximumSize(300, 250);
+    rootWidget->setAttribute(Qt::WA_OpaquePaintEvent);
 
-    setWidget(rootWidget);
+    m_proxyWidget = new QGraphicsProxyWidget(this);
+    m_proxyWidget->setWidget(rootWidget);
+
+    /* FIXME: Shouldn't this be automatic? */
+    setWidth(m_proxyWidget->geometry().width());
+    setHeight(m_proxyWidget->geometry().height());
 }
 
 ModeSelectionWidget::~ModeSelectionWidget()
@@ -71,7 +87,7 @@ void ModeSelectionWidget::setOutput(QMLOutput *output)
 
     m_refreshRatesModel->setSourceModel(m_resolutionsModel);
 
-    KScreen::Mode *currentMode = m_output->output()->mode(m_output->output()->currentMode());
+    KScreen::Mode *currentMode = m_output->output()->currentMode();
     if (!currentMode) {
         return;
     }
@@ -104,6 +120,22 @@ void ModeSelectionWidget::resolutionChanged(const QModelIndex &index)
     }
 }
 
+void ModeSelectionWidget::acceptMode(const QModelIndex &index)
+{
+    if (!index.isValid()) {
+        return;
+    }
+
+    if (sender() == m_refreshRatesView) {
+        refreshRateChanged();
+        Q_EMIT accepted();
+    } else if (sender() == m_resolutionsView) {
+        resolutionChanged(index);
+        Q_EMIT accepted();
+    }
+}
+
+
 void ModeSelectionWidget::refreshRateChanged()
 {
     if (!m_output) {
@@ -125,7 +157,7 @@ void ModeSelectionWidget::refreshRateChanged()
         return;
     }
 
-    m_output->output()->setCurrentMode(modeId);
+    m_output->output()->setCurrentModeId(modeId);
     m_refreshRatesView->repaint();
 }
 

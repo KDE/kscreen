@@ -16,34 +16,37 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef QMLVIRTUALSCREEN_H
-#define QMLVIRTUALSCREEN_H
+#ifndef QMLCURSOR_H
+#define QMLCURSOR_H
 
-#include <QDeclarativeItem>
+#include <QObject>
+#include <QMetaType>
 
+class QDeclarativeView;
 
-namespace KScreen
-{
-class Screen;
-}
-
-/* Can't use KScreen::Screen directly in QML because of QTBUG-23214 */
-class QMLVirtualScreen : public QDeclarativeItem
+/**
+ * Wrapper around QCursor that allows to expose current cursor position
+ * in QML without using MouseArea
+ */
+class QMLCursor : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QSize minSize READ minSize CONSTANT)
-    Q_PROPERTY(QSize maxSize READ maxSize CONSTANT)
+    Q_PROPERTY(int x READ x WRITE setX)
+    Q_PROPERTY(int y READ y WRITE setY)
 
-public:
-    QMLVirtualScreen(QDeclarativeItem *parent = 0);
-    virtual ~QMLVirtualScreen();
+  public:
+    QMLCursor(QDeclarativeView *parent = 0);
+    virtual ~QMLCursor();
 
-    QSize minSize() const;
-    QSize maxSize() const;
+    int x() const;
+    void setX(int x);
 
-private:
-    KScreen::Screen *m_screen;
+    int y() const;
+    void setY(int y);
+
 };
 
-#endif // QMLVIRTUALSCREEN_H
+Q_DECLARE_METATYPE(QMLCursor*)
+
+#endif // QMLCURSOR_H

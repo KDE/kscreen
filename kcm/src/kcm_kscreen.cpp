@@ -17,11 +17,11 @@
 */
 
 
-#include "displayconfiguration.h"
-#include "qmloutputview.h"
+#include "kcm_kscreen.h"
 #include "qmloutput.h"
-#include "qmlvirtualscreen.h"
+#include "qmlcursor.h"
 #include "modeselectionwidget.h"
+#include "fallbackcomponent.h"
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -42,22 +42,25 @@
 #include <kscreen/edid.h>
 #include <kscreen/configmonitor.h>
 
-K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<DisplayConfiguration>();)
-K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_displayconfiguration" /* kcm name */,
-                                               "kcm_displayconfiguration" /* catalog name */))
+K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
+K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
+                                                "kcm_kscreen" /* catalog name */))
+
+#define QML_PATH "kcm_kscreen/qml/"
 
 using namespace KScreen;
 
 Q_DECLARE_METATYPE(KScreen::Output*)
+Q_DECLARE_METATYPE(KScreen::Screen*)
 
-DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& args) :
+KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args),
     m_config(0),
     m_declarativeView(0)
 {
     KAboutData* about =
-        new KAboutData("displayconfiguration", "kcm_displayconfiguration",
-                    ki18n("Monitor display Configuration"),
+        new KAboutData("kscreen", "kcm_kscren",
+                    ki18n("Display Configuration"),
                     "", ki18n("Configuration for displays"),
                     KAboutData::License_GPL_V2, ki18n("(c), 2012 Dan Vrátil"));
 
@@ -68,7 +71,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     connect(m_outputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
 
     /* FIXME: Workaround to prevent KScreen::QRandr eating our X11 events */
-    qApp->setEventFilter(DisplayConfiguration::x11EventFilter);
+    qApp->setEventFilter(KCMKScreen::x11EventFilter);
 
     QGridLayout* mainLayout = new QGridLayout(this);
 
@@ -79,17 +82,19 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         QString importPath = KStandardDirs::installPath("lib") +
                 QDir::separator() + "kde4" + QDir::separator() + "imports";
 
-        qmlRegisterType<QMLOutputView>("KScreen", 1, 0, "QMLOutputView");
+        qmlRegisterType<FallbackComponent>("org.kde.plasma.extras410", 0, 1, "FallbackComponent");
+
         qmlRegisterType<QMLOutput>("KScreen", 1, 0, "QMLOutput");
-        qmlRegisterType<QMLVirtualScreen>("KScreen", 1, 0, "QMLVirtualScreen");
         qmlRegisterType<ModeSelectionWidget>("KScreen", 1, 0, "ModeSelectionWidget");
 
         qmlRegisterInterface<KScreen::Output*>("Output");
         qmlRegisterInterface<KScreen::Mode*>("OutputMode");
         qmlRegisterInterface<KScreen::Edid*>("EDID");
+        qmlRegisterInterface<KScreen::Screen*>("Screen");
         qmlRegisterType<KScreen::Output>("KScreen", 1, 0, "Output");
         qmlRegisterType<KScreen::Mode>("KScreen", 1, 0, "OutputMode");
         qmlRegisterType<KScreen::Edid>("KScreen", 1, 0, "EDID");
+        qmlRegisterType<KScreen::Screen>("KScreen", 1, 0, "Screen");
 
         m_declarativeView = new QDeclarativeView(this);
         m_declarativeView->setFrameStyle(QFrame::Panel | QFrame::Raised);
@@ -98,6 +103,7 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
         m_declarativeView->setStyleSheet("background: transparent");
         m_declarativeView->setMinimumHeight(440);
         mainLayout->addWidget(m_declarativeView, 0, 0);
+
         /* Declarative view will be initialized from load() */
     } else {
         QLabel* label = new QLabel(this);
@@ -108,11 +114,11 @@ DisplayConfiguration::DisplayConfiguration(QWidget* parent, const QVariantList& 
     }
 }
 
-DisplayConfiguration::~DisplayConfiguration()
+KCMKScreen::~KCMKScreen()
 {
 }
 
-bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
+bool KCMKScreen::x11EventFilter(void* message, long int* result)
 {
     Q_UNUSED(message);
     Q_UNUSED(result);
@@ -121,7 +127,7 @@ bool DisplayConfiguration::x11EventFilter(void* message, long int* result)
     return false;
 }
 
-void DisplayConfiguration::load()
+void KCMKScreen::load()
 {
     kDebug() << "Loading...";
 
@@ -139,15 +145,19 @@ void DisplayConfiguration::load()
             "data", QLatin1String(QML_PATH "main.qml"));
     m_declarativeView->setSource(qmlPath);
 
+    QMLCursor *cursor = new QMLCursor(m_declarativeView);
+    m_declarativeView->rootContext()->setContextProperty(QLatin1String("_cursor"), cursor);
+
     QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
     if (!rootObj) {
         kWarning() << "Failed to obtain root item";
         return;
     }
 
+    rootObj->setProperty("virtualScreen", QVariant::fromValue(m_config->screen()));
     connect(rootObj, SIGNAL(identifyOutputsRequested()), SLOT(identifyOutputs()));
 
-    QMLOutputView *outputView = rootObj->findChild<QMLOutputView*>(QLatin1String("outputView"));
+    QDeclarativeItem *outputView = rootObj->findChild<QDeclarativeItem*>(QLatin1String("outputView"));
     if (!outputView) {
         kWarning() << "Failed to obtain output view";
         return;
@@ -155,19 +165,29 @@ void DisplayConfiguration::load()
 
     const QList<KScreen::Output*> outputs = m_config->outputs().values();
     Q_FOREACH (KScreen::Output *output, outputs) {
-        outputView->addOutput(m_declarativeView->engine(), output);
+        QMetaObject::invokeMethod(outputView, "addOutput", Q_ARG(QVariant, QVariant::fromValue(output)));
     }
+    QMetaObject::invokeMethod(outputView, "reorderOutputs");
 
-    connect(outputView, SIGNAL(changed()), SLOT(changed()));
+    connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
+    connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
+    connect(outputView, SIGNAL(outputMouseEntered()), SLOT(outputMouseEntered()));
+    connect(outputView, SIGNAL(outputMouseExited()), SLOT(outputMouseExited()));
+    connect(outputView, SIGNAL(outputMousePressed()), SLOT(outputMousePressed()));
+    connect(outputView, SIGNAL(outputMouseReleased()), SLOT(outputMouseReleased()));
 }
 
-void DisplayConfiguration::save()
+void KCMKScreen::save()
 {
     kDebug() << "Saving";
 
+    if (!m_declarativeView) {
+        return;
+    }
+
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH(KScreen::Output *output, m_config->outputs()) {
-        KScreen::Mode *mode = output->mode(output->currentMode());
+        KScreen::Mode *mode = output->currentMode();
 
         if (output->isEnabled()) {
             atLeastOneEnabledOutput = true;
@@ -183,10 +203,11 @@ void DisplayConfiguration::save()
     }
 
     if (!atLeastOneEnabledOutput) {
-        if (KMessageBox::questionYesNo(this, i18n("Are you sure you want to disable all outputs?"),
+        if (KMessageBox::warningYesNo(this, i18n("Are you sure you want to disable all outputs?"),
             i18n("Disable all outputs?"),
             KGuiItem(i18n("Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
-            KGuiItem(i18n("Cancel"), KIcon(QLatin1String("dialog-cancel")))) == KMessageBox::No)
+            KGuiItem(i18n("Cancel"), KIcon(QLatin1String("dialog-cancel"))),
+            QString(), KMessageBox::Dangerous) == KMessageBox::No)
         {
             return;
         }
@@ -196,15 +217,14 @@ void DisplayConfiguration::save()
     m_config->setConfig(m_config);
 }
 
-void DisplayConfiguration::clearOutputIdentifiers()
+void KCMKScreen::clearOutputIdentifiers()
 {
     m_outputTimer->stop();
     qDeleteAll(m_outputIdentifiers);
     m_outputIdentifiers.clear();
 }
 
-
-void DisplayConfiguration::identifyOutputs()
+void KCMKScreen::identifyOutputs()
 {
     const QString qmlPath = KStandardDirs::locate(
             "data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
@@ -213,13 +233,13 @@ void DisplayConfiguration::identifyOutputs()
     clearOutputIdentifiers();
 
     /* Obtain the current active configuration from KScreen */
-    OutputList outputs = m_config->outputs();
+    OutputList outputs = KScreen::Config::current()->outputs();
     Q_FOREACH (KScreen::Output *output, outputs) {
-        if (!output->isConnected() || output->currentMode() == 0) {
+        if (!output->isConnected() || !output->currentMode()) {
             continue;
         }
 
-        Mode *mode = output->mode(output->currentMode());
+        Mode *mode = output->currentMode();
 
         QDeclarativeView *view = new QDeclarativeView();
         view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
@@ -249,3 +269,31 @@ void DisplayConfiguration::identifyOutputs()
     m_outputTimer->start(2500);
 }
 
+void KCMKScreen::moveMouse(int dX, int dY)
+{
+    QPoint pos = QCursor::pos();
+    pos.rx() += dX;
+    pos.ry() += dY;
+
+    QCursor::setPos(pos);
+}
+
+void KCMKScreen::outputMouseEntered()
+{
+    m_declarativeView->setCursor(Qt::OpenHandCursor);
+}
+
+void KCMKScreen::outputMouseExited()
+{
+    m_declarativeView->setCursor(Qt::ArrowCursor);
+}
+
+void KCMKScreen::outputMousePressed()
+{
+    m_declarativeView->setCursor(Qt::ClosedHandCursor);
+}
+
+void KCMKScreen::outputMouseReleased()
+{
+    m_declarativeView->setCursor(Qt::OpenHandCursor);
+}
