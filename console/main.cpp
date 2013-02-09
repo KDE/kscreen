@@ -64,7 +64,7 @@ int main (int argc, char *argv[])
     }
     KApplication app;
 
-    setenv("KSCREEN_BACKEND", "XRandR", 1);
+    setenv("KSCREEN_BACKEND", "XRandR", 0);
 
     Console *loop = new Console(0);
 
