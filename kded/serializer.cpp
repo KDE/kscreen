@@ -205,7 +205,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
 
 QString Serializer::outputId(const KScreen::Output* output)
 {
-    if (output->edid()) {
+    if (output->edid() && output->edid()->isValid()) {
         return output->edid()->hash();
     }
 
@@ -216,7 +216,7 @@ QVariantMap Serializer::metadata(const KScreen::Output* output)
 {
     QVariantMap metadata;
     metadata["name"] = output->name();
-    if (!output->edid()) {
+    if (!output->edid() || !output->edid()->isValid()) {
         return metadata;
     }
 
