@@ -45,6 +45,7 @@ QString Serializer::currentId()
             continue;
         }
 
+        kDebug() << "Part of the Id: " << Serializer::outputId(output);
         hashList.insert(0, Serializer::outputId(output));
     }
 
