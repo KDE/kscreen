@@ -347,6 +347,9 @@ KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)
         if (area < total) {
             continue;
         }
+        if (area == total && mode->refreshRate() < biggest->refreshRate()) {
+            continue;
+        }
         if (area == total && mode->refreshRate() > biggest->refreshRate()) {
             biggest = mode;
             continue;
