@@ -45,6 +45,10 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_timer(new QTimer())
 {
     setenv("KSCREEN_BACKEND", "XRandR", 0);
+    if (!KScreen::Config::loadBackend()) {
+        kWarning() << "Couldn't load backend: " << getenv("KSCREEN_BACKEND");
+        return;
+    }
     KActionCollection *coll = new KActionCollection(this);
     KAction* action = coll->addAction("display");
     action->setText(i18n("Switch Display" ));
