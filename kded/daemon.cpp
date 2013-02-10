@@ -44,7 +44,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_monitoring(false)
  , m_timer(new QTimer())
 {
-    setenv("KSCREEN_BACKEND", "XRandR", 1);
+    setenv("KSCREEN_BACKEND", "XRandR", 0);
     KActionCollection *coll = new KActionCollection(this);
     KAction* action = coll->addAction("display");
     action->setText(i18n("Switch Display" ));
