@@ -10,6 +10,11 @@ set(kscreen_daemon_SRCS
 qt4_add_dbus_interface(kscreen_daemon_SRCS
     org.freedesktop.DBus.Properties.xml
     freedesktop_interface)
+qt4_add_dbus_adaptor(kscreen_daemon_SRCS
+    org.kde.KScreen.xml
+    daemon.h
+    KScreenDaemon
+)
 
 kde4_add_plugin(kded_kscreen
     ${kscreen_daemon_SRCS}

@@ -20,6 +20,7 @@
 #include "serializer.h"
 #include "generator.h"
 #include "device.h"
+#include "kscreenadaptor.h"
 
 #include <QtCore/QTimer>
 
@@ -49,6 +50,8 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     KAction* action = coll->addAction("display");
     action->setText(i18n("Switch Display" ));
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
+
+    new KScreenAdaptor(this);
 
     connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
 
@@ -159,6 +162,19 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
     applyConfig();
 }
 
+void KScreenDaemon::outputConnectedChanged()
+{
+    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
+
+    if (output->isConnected()) {
+        Q_EMIT outputConnected(output->name());
+
+        if (!Serializer::configExists()) {
+            Q_EMIT unknownOutputConnected(output->name());
+        }
+    }
+}
+
 void KScreenDaemon::monitorConnectedChange()
 {
     if (!m_monitoredConfig) {
@@ -174,6 +190,7 @@ void KScreenDaemon::monitorConnectedChange()
     Q_FOREACH(KScreen::Output* output, outputs) {
         connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
         connect(output, SIGNAL(isConnectedChanged()), SLOT(resetDisplaySwitch()));
+        connect(output, SIGNAL(isConnectedChanged()), SLOT(outputConnectedChanged()));
     }
 }
 

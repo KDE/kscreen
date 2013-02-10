@@ -24,7 +24,10 @@
 #include <kdedmodule.h>
 
 #include <kscreen/config.h>
+
+class KScreenAdaptor;
 class QTimer;
+
 class KDE_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
@@ -47,6 +50,11 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void lidClosedChanged(bool lidIsClosed);
         void setMonitorForChanges(bool enabled);
         void scheduleMonitorChange();
+        void outputConnectedChanged();
+
+    Q_SIGNALS:
+        void outputConnected(const QString &outputName);
+        void unknownOutputConnected(const QString &outputName);
 
     private:
         void monitorConnectedChange();
@@ -58,6 +66,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         bool m_pendingSave;
         bool m_monitoring;
         QTimer* m_timer;
+        KScreenAdaptor *m_kscreenAdaptor;
 };
 
 #endif /*KSCREN_DAEMON_H*/
