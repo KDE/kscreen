@@ -1,4 +1,5 @@
 [Desktop Entry]
+Type=Service
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
 

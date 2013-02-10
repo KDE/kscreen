@@ -1,5 +1,5 @@
 set(applet_SRCS
-    displayconfiguration.cpp)
+    kscreenapplet.cpp)
 
 kde4_add_plugin(plasma_applet_kscreen ${applet_SRCS})
 target_link_libraries(plasma_applet_kscreen

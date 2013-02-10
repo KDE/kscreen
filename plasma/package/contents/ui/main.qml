@@ -89,7 +89,7 @@ Item {
             icon: "video-display";
             label: qsTr("Extend Right");
 
-            onClicked: root.applyAction(DisplayConfiguration.ActionExtendRight);
+            onClicked: root.applyAction(KScreenApplet.ActionExtendRight);
         }
 
         ActionIcon {
@@ -99,7 +99,7 @@ Item {
             icon: "video-display";
             label: qsTr("Extend Left");
 
-            onClicked: root.applyAction(DisplayConfiguration.ActionExtendLeft);
+            onClicked: root.applyAction(KScreenApplet.ActionExtendLeft);
         }
 
         ActionIcon {
@@ -109,7 +109,7 @@ Item {
             icon: "video-display";
             label: qsTr("Clone");
 
-            onClicked: root.applyAction(DisplayConfiguration.ActionClone);
+            onClicked: root.applyAction(KScreenApplet.ActionClone);
         }
 
         ActionIcon {
@@ -119,7 +119,7 @@ Item {
             icon: "video-display";
             label: qsTr("No Action");
 
-            onClicked: root.applyAction(DisplayConfiguration.ActionNoAction);
+            onClicked: root.applyAction(KScreenApplet.ActionNoAction);
         }
 
         ActionIcon {

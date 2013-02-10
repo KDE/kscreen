@@ -1,5 +1,5 @@
 /*
- * Copyright 2012  Dan Vratil <dvratil@redhat.com>
+ * Copyright 2013  Dan Vratil <dvratil@redhat.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,7 +19,7 @@
  *
  */
 
-#include "displayconfiguration.h"
+#include "kscreenapplet.h"
 
 #include <QDeclarativeItem>
 #include <QGraphicsSceneMouseEvent>
@@ -35,45 +35,44 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
-DisplayConfiguration::DisplayConfiguration(QObject *parent, const QVariantList &args):
+KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
     Plasma::PopupApplet(parent, args),
     m_declarativeWidget(0),
     m_hasNewOutput(false)
 {
-    qmlRegisterType<DisplayConfiguration>("org.kde.kscreen", 1, 0, "DisplayConfiguration");
+    qmlRegisterType<KScreenApplet>("org.kde.kscreen", 1, 0, "KScreenApplet");
     setPopupIcon(QLatin1String("video-display"));
 
     setenv("KSCREEN_BACKEND", "XRandR", false);
 }
 
-DisplayConfiguration::DisplayConfiguration():
+KScreenApplet::KScreenApplet():
     PopupApplet(0, QVariantList())
 {
 
 }
 
 
-DisplayConfiguration::~DisplayConfiguration()
+KScreenApplet::~KScreenApplet()
 {
 }
 
-void DisplayConfiguration::init()
+void KScreenApplet::init()
 {
-    QDBusConnection connection = QDBusConnection::systemBus();
+    QDBusConnection connection = QDBusConnection::sessionBus();
     bool conn = connection.connect(QLatin1String("org.kde.kded"),
-                                   QLatin1String("modules/kscreen"),
-                                   QLatin1String("org.kde.kscreen"),
-                                   QLatin1String("unkownDisplayConnected"),
+                                   QLatin1String("/modules/kscreen"),
+                                   QLatin1String("org.kde.KScreen"),
+                                   //QLatin1String("unkownOutputConnected"),
+                                   QLatin1String("outputConnected"),
                                    QLatin1String("s"),
                                    this, SLOT(slotUnknownDisplayConnected(QString)));
-    /* FIXME RELEASE
     if (!conn) {
-        setFailedToLaunch(true, i18n("Failed to connect to KScreen KDED daemon"));
+        setFailedToLaunch(true, i18n("Failed to connect to KScreen daemon"));
     }
-    */
 }
 
-void DisplayConfiguration::initDeclarativeWidget()
+void KScreenApplet::initDeclarativeWidget()
 {
     m_declarativeWidget = new Plasma::DeclarativeWidget(this);
 
@@ -92,7 +91,7 @@ void DisplayConfiguration::initDeclarativeWidget()
 }
 
 
-QGraphicsWidget *DisplayConfiguration::graphicsWidget()
+QGraphicsWidget *KScreenApplet::graphicsWidget()
 {
     if (hasFailedToLaunch()) {
         return 0;
@@ -105,7 +104,7 @@ QGraphicsWidget *DisplayConfiguration::graphicsWidget()
     return m_declarativeWidget;
 }
 
-void DisplayConfiguration::slotUnknownDisplayConnected(const QString &outputName)
+void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
 {
     kDebug() << "New display connected to output" << outputName;
     m_newOutputName = outputName;
@@ -116,7 +115,7 @@ void DisplayConfiguration::slotUnknownDisplayConnected(const QString &outputName
     if (!edid) {
         displayName = outputName;
     } else {
-        displayName = edid->name();
+        displayName = edid->vendor() + QLatin1String(" ") + edid->name();
     }
 
     QDeclarativeItem *rootObject = qobject_cast<QDeclarativeItem*>(m_declarativeWidget->rootObject());
@@ -126,7 +125,7 @@ void DisplayConfiguration::slotUnknownDisplayConnected(const QString &outputName
     showPopup();
 }
 
-void DisplayConfiguration::slotApplyAction(int actionId)
+void KScreenApplet::slotApplyAction(int actionId)
 {
     DisplayAction action = (DisplayAction) actionId;
     kDebug() << "Applying changes" << action;
@@ -139,6 +138,7 @@ void DisplayConfiguration::slotApplyAction(int actionId)
     }
 
     KScreen::Output *newOutput = outputForName(m_newOutputName);
+    kDebug() << "Output for" << m_newOutputName << ":" << newOutput;
 
     if (newOutput == 0) {
         m_hasNewOutput = false;
@@ -148,8 +148,9 @@ void DisplayConfiguration::slotApplyAction(int actionId)
     }
 
     newOutput->setEnabled(true);
-    newOutput->setCurrentMode(newOutput->preferredMode());
-    KScreen::Mode *newMode = newOutput->mode(newOutput->currentMode());
+    newOutput->setCurrentModeId(newOutput->preferredModeId());
+    KScreen::Mode *newMode = newOutput->currentMode();
+    kDebug() << "It's mode is" << newMode;
 
     KScreen::Config *config = KScreen::Config::current();
     KScreen::OutputList outputs = config->outputs();
@@ -157,14 +158,15 @@ void DisplayConfiguration::slotApplyAction(int actionId)
     if (action == ActionClone) {
         for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
             KScreen::Output *output = iter.value();
-            if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
+            if (!output->isConnected() || !output->isEnabled() || (output == outputs.values().first())) {
                 continue;
             }
 
             /* Set the new output as a clone of the first connected output in the list */
-            QList<int> clones = output->clones();
+            KScreen::Output *fOutput = outputs.values().first();
+            QList<int> clones = fOutput->clones();
             clones << newOutput->id();
-            output->setClones(clones);
+            fOutput->setClones(clones);
             break;
         }
 
@@ -189,7 +191,7 @@ void DisplayConfiguration::slotApplyAction(int actionId)
                 continue;
             }
 
-            offset += output->mode(output->currentMode())->size().width();
+            offset += output->currentMode()->size().width();
         }
         newOutput->setPos(QPoint(offset, 0));
     }
@@ -197,21 +199,23 @@ void DisplayConfiguration::slotApplyAction(int actionId)
     /* Update the settings */
     KScreen::Config::setConfig(config);
 
+    /*
     m_hasNewOutput = false;
     m_newOutputName.clear();
     hidePopup();
+    */
 }
 
-void DisplayConfiguration::slotRunKCM()
+void KScreenApplet::slotRunKCM()
 {
     KToolInvocation::kdeinitExec(
         QLatin1String("kcmshell4"),
-        QStringList() << QLatin1String("displayconfiguration"));
+        QStringList() << QLatin1String("kscreen"));
 
     hidePopup();
 }
 
-void DisplayConfiguration::popupEvent(bool show)
+void KScreenApplet::popupEvent(bool show)
 {
     if (show && !m_hasNewOutput) {
         slotRunKCM();
@@ -221,9 +225,7 @@ void DisplayConfiguration::popupEvent(bool show)
     Plasma::PopupApplet::popupEvent(show);
 }
 
-
-
-KScreen::Output *DisplayConfiguration::outputForName(const QString &name)
+KScreen::Output *KScreenApplet::outputForName(const QString &name)
 {
     KScreen::Config *config = KScreen::Config::current();
     KScreen::OutputList outputs = config->outputs();
@@ -239,6 +241,4 @@ KScreen::Output *DisplayConfiguration::outputForName(const QString &name)
     return 0;
 }
 
-
-
-#include "displayconfiguration.moc"
+#include "kscreenapplet.moc"

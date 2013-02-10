@@ -1,5 +1,5 @@
 /*
- * Copyright 2012  Dan Vratil <dvratil@redhat.com>
+ * Copyright 2013  Dan Vratil <dvratil@redhat.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef DISPLAYCONFIGURATION_H
-#define DISPLAYCONFIGURATION_H
+#ifndef KSCREENAPPLET_H
+#define KSCREENAPPLET_H
 
 #include <Plasma/PopupApplet>
 
@@ -36,7 +36,7 @@ class DeclarativeWidget;
 
 class QGraphicsWidget;
 
-class DisplayConfiguration : public Plasma::PopupApplet
+class KScreenApplet : public Plasma::PopupApplet
 {
     Q_OBJECT
     Q_ENUMS(DisplayAction)
@@ -49,9 +49,9 @@ public:
         ActionClone,
     };
 
-    DisplayConfiguration();
-    DisplayConfiguration(QObject *parent, const QVariantList &args);
-    virtual ~DisplayConfiguration();
+    KScreenApplet();
+    KScreenApplet(QObject *parent, const QVariantList &args);
+    virtual ~KScreenApplet();
 
     virtual void init();
     virtual QGraphicsWidget *graphicsWidget();
@@ -74,6 +74,6 @@ private:
 
 };
 
-K_EXPORT_PLASMA_APPLET(org.kde.plasma.kscreen, DisplayConfiguration)
+K_EXPORT_PLASMA_APPLET(org.kde.plasma.kscreen, KScreenApplet)
 
-#endif // DISPLAYCONFIGURATION_H
+#endif // KSCREENAPPLET_H
