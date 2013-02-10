@@ -65,9 +65,9 @@ QVariant ModesProxyModel::data(const QModelIndex& index, int role) const
         if (role == Qt::DisplayRole) {
             return i18nc("As in automatic", "Auto");
         } else if (role == QMLOutput::RefreshRateRole) {
-            return -1;
+            return QLatin1String("-1");
         } else if (role == QMLOutput::ModeIdRole) {
-            return -1;
+            return QLatin1String("-1");
         } else {
             return QVariant();
         }

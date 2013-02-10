@@ -146,14 +146,14 @@ void ModeSelectionWidget::refreshRateChanged()
     QModelIndex parentIndex = m_resolutionsModel->mapToSource(proxyModelIndex);
     QModelIndex modelIndex = m_refreshRatesView->model()->index(m_refreshRatesView->currentIndex().row(), 0, parentIndex);
 
-    int modeId = m_refreshRatesView->model()->data(modelIndex, QMLOutput::ModeIdRole).toInt();
-    if (modeId == -1) {
+    QString modeId = m_refreshRatesView->model()->data(modelIndex, QMLOutput::ModeIdRole).toString();
+    if (modeId == QLatin1String("-1")) {
         QModelIndex proxyModelIndex = m_resolutionsModel->index(m_resolutionsView->currentIndex().row(), 0);
         QModelIndex parentIndex = m_resolutionsModel->mapToSource(proxyModelIndex);
-        modeId = m_output->modesModel()->index(0, 0, parentIndex).data(QMLOutput::ModeIdRole).toInt();
+        modeId = m_output->modesModel()->index(0, 0, parentIndex).data(QMLOutput::ModeIdRole).toString();
     }
 
-    if (modeId == 0) {
+    if (modeId == QLatin1String("0")) {
         return;
     }
 
