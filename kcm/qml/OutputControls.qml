@@ -36,6 +36,7 @@ Item {
     id: root;
 
     signal primaryTriggered();
+    signal enabledToggled();
 
     property int rotationDirection;
     property Item parentItem;
@@ -162,6 +163,7 @@ Item {
             if (output.enabled != enabledButton.checked) {
             output.enabled = enabledButton.checked;
             }
+            root.enabledToggled();
         }
 
         MouseArea {
