@@ -45,7 +45,11 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_monitoring(false)
  , m_timer(new QTimer())
 {
-    setenv("KSCREEN_BACKEND", "XRandR", 1);
+    setenv("KSCREEN_BACKEND", "XRandR", 0);
+    if (!KScreen::Config::loadBackend()) {
+        kWarning() << "Couldn't load backend: " << getenv("KSCREEN_BACKEND");
+        return;
+    }
     KActionCollection *coll = new KActionCollection(this);
     KAction* action = coll->addAction("display");
     action->setText(i18n("Switch Display" ));
@@ -87,6 +91,7 @@ void KScreenDaemon::applyConfig()
 
 void KScreenDaemon::applyKnownConfig()
 {
+    kDebug() << "Applying known config";
     setMonitorForChanges(false);
     KScreen::Config::setConfig(Serializer::config(Serializer::currentId()));
     QMetaObject::invokeMethod(this, "scheduleMonitorChange", Qt::QueuedConnection);
@@ -94,6 +99,7 @@ void KScreenDaemon::applyKnownConfig()
 
 void KScreenDaemon::applyIdealConfig()
 {
+    kDebug() << "Applying ideal config";
     setMonitorForChanges(true);
     KScreen::Config::setConfig(Generator::self()->idealConfig());
 }

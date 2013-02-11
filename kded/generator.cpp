@@ -114,12 +114,12 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     if (iteration == 1) {
         kDebug() << "Cloning";
         KScreen::ModeList modes = embedded->modes();
-        QMap<int, QSize> embeddedModeSize;
+        QMap<QString, QSize> embeddedModeSize;
         Q_FOREACH(KScreen::Mode* mode, modes) {
             embeddedModeSize.insert(mode->id(), mode->size());
         }
 
-        QList<int> embeddedKeys;
+        QList<QString> embeddedKeys;
         KScreen::ModeList externalCommon;
         KScreen::ModeList externalModes = external->modes();
         Q_FOREACH(KScreen::Mode* mode, externalModes) {
@@ -130,7 +130,7 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         }
 
         KScreen::ModeList embeddedCommon;
-        Q_FOREACH(int key, embeddedKeys) {
+        Q_FOREACH(const QString& key, embeddedKeys) {
             embeddedCommon.insert(key, modes[key]);
         }
 
@@ -345,6 +345,9 @@ KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)
     Q_FOREACH(KScreen::Mode* mode, modes) {
         area = mode->size().width() * mode->size().height();
         if (area < total) {
+            continue;
+        }
+        if (area == total && mode->refreshRate() < biggest->refreshRate()) {
             continue;
         }
         if (area == total && mode->refreshRate() > biggest->refreshRate()) {

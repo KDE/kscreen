@@ -93,6 +93,7 @@ Flickable {
         qmlOutput.clicked.connect(outputClicked);
         qmlOutput.changed.connect(outputChanged);
         qmlOutput.moved.connect(outputMoved);
+        qmlOutput.enabledToggled.connect(outputEnabledToggled);
         qmlOutput.primaryTriggered.connect(primaryTriggered);
         qmlOutput.output.isConnectedChanged.connect(outputConnected);
         qmlOutput.mouseEntered.connect(outputMouseEntered);
@@ -301,6 +302,18 @@ Flickable {
         }
 
         JS.updateVirtualPosition(outputView, output, cornerOutputs);
+    }
+
+    /**
+     * Slot to be called when an output is enabled or disabled
+     *
+     * @param string outputName NAme of the QMLOutput that has been enabled or disabled
+     */
+    function outputEnabledToggled(outputName)
+    {
+        // Simulate a 'move'. This will recalculate virutal positions of all
+        // outputs. See https://bugs.kde.org/show_bug.cgi?id=313027#c16
+        outputMoved(outputName);
     }
 
     /**

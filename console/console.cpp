@@ -52,6 +52,15 @@ Console::~Console()
 
 void Console::printConfig()
 {
+    if (!m_config) {
+        qDebug() << "Config is invalid, probably backend couldn't load";
+        return;
+    }
+    if (!m_config->screen()) {
+        qDebug() << "No screen in the configuration, broken backend";
+        return;
+    }
+
     qDebug() << "Screen:";
     qDebug() << "maxSize:" << m_config->screen()->maxSize();
     qDebug() << "minSize:" << m_config->screen()->minSize();

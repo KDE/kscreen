@@ -27,6 +27,7 @@ QMLOutput {
     signal clicked(string self);
     signal primaryTriggered(string self);
     signal moved(string self);
+    signal enabledToggled(string self);
     signal mouseEntered();
     signal mouseExited();
     signal mousePressed();
@@ -248,6 +249,7 @@ QMLOutput {
                 rotationDirection: parent.rotationDirection;
 
                 onPrimaryTriggered: root.primaryTriggered(root.output.name);
+                onEnabledToggled: root.enabledToggled(root.output.name);
                 onForceArrowCursorChanged: {
                     // This is to force arrow cursor when hovering over buttons
                     if (controls.forceArrowCursor) {

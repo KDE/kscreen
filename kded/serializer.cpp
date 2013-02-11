@@ -45,6 +45,7 @@ QString Serializer::currentId()
             continue;
         }
 
+        kDebug() << "Part of the Id: " << Serializer::outputId(output);
         hashList.insert(0, Serializer::outputId(output));
     }
 
@@ -205,7 +206,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
 
 QString Serializer::outputId(const KScreen::Output* output)
 {
-    if (output->edid()) {
+    if (output->edid() && output->edid()->isValid()) {
         return output->edid()->hash();
     }
 
@@ -216,7 +217,7 @@ QVariantMap Serializer::metadata(const KScreen::Output* output)
 {
     QVariantMap metadata;
     metadata["name"] = output->name();
-    if (!output->edid()) {
+    if (!output->edid() || !output->edid()->isValid()) {
         return metadata;
     }
 

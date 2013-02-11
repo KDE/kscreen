@@ -75,8 +75,7 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
 
     QGridLayout* mainLayout = new QGridLayout(this);
 
-    //setenv("KSCREEN_BACKEND", "Fake", 1);
-    setenv("KSCREEN_BACKEND", "XRandR", 1);
+    setenv("KSCREEN_BACKEND", "XRandR", 0);
     m_config = Config::current();
     if (m_config) {
         QString importPath = KStandardDirs::installPath("lib") +
