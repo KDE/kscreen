@@ -21,6 +21,7 @@
 
 #include "kscreenapplet.h"
 
+#include <QTimer>
 #include <QDeclarativeItem>
 #include <QGraphicsSceneMouseEvent>
 
@@ -35,6 +36,10 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
+bool leftPos(KScreen::Output* output1, KScreen::Output* output2) {
+    return (output1->pos().x() < output2->pos().x());
+}
+
 KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
     Plasma::PopupApplet(parent, args),
     m_declarativeWidget(0),
@@ -44,6 +49,8 @@ KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
     setPopupIcon(QLatin1String("video-display"));
 
     setenv("KSCREEN_BACKEND", "XRandR", false);
+
+    m_resetTimer = new QTimer(this);
 }
 
 KScreenApplet::KScreenApplet():
@@ -51,7 +58,6 @@ KScreenApplet::KScreenApplet():
 {
 
 }
-
 
 KScreenApplet::~KScreenApplet()
 {
@@ -63,8 +69,8 @@ void KScreenApplet::init()
     bool conn = connection.connect(QLatin1String("org.kde.kded"),
                                    QLatin1String("/modules/kscreen"),
                                    QLatin1String("org.kde.KScreen"),
-                                   //QLatin1String("unkownOutputConnected"),
-                                   QLatin1String("outputConnected"),
+                                   QLatin1String("unkownOutputConnected"),
+                                   //QLatin1String("outputConnected"),
                                    QLatin1String("s"),
                                    this, SLOT(slotUnknownDisplayConnected(QString)));
     if (!conn) {
@@ -110,7 +116,7 @@ void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
     m_newOutputName = outputName;
 
     QString displayName;
-    KScreen::Output *newOutput = outputForName(outputName);
+    KScreen::Output *newOutput = outputForName(outputName, KScreen::Config::current());
     KScreen::Edid *edid = newOutput->edid();
     if (!edid) {
         displayName = outputName;
@@ -123,6 +129,9 @@ void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
 
     m_hasNewOutput = true;
     showPopup();
+
+    // Show the notification for only 20 seconds, should be enough...
+    m_resetTimer->singleShot(20000, this, SLOT(slotResetApplet()));
 }
 
 void KScreenApplet::slotApplyAction(int actionId)
@@ -131,19 +140,24 @@ void KScreenApplet::slotApplyAction(int actionId)
     kDebug() << "Applying changes" << action;
 
     if (action == ActionNone) {
-        m_hasNewOutput = false;
-        m_newOutputName.clear();
-        hidePopup();
+        kDebug() << "Action: None";
+        slotResetApplet();
         return;
     }
 
-    KScreen::Output *newOutput = outputForName(m_newOutputName);
+    KScreen::Config *config = KScreen::Config::current();
+    KScreen::Output *newOutput = outputForName(m_newOutputName, config);
     kDebug() << "Output for" << m_newOutputName << ":" << newOutput;
 
     if (newOutput == 0) {
-        m_hasNewOutput = false;
-        m_newOutputName.clear();
-        hidePopup();
+        slotResetApplet();
+        return;
+    }
+
+    if (action == ActionDisable) {
+        kDebug() << "Action: Disable";
+        newOutput->setEnabled(false);
+        slotResetApplet();
         return;
     }
 
@@ -152,58 +166,77 @@ void KScreenApplet::slotApplyAction(int actionId)
     KScreen::Mode *newMode = newOutput->currentMode();
     kDebug() << "It's mode is" << newMode;
 
-    KScreen::Config *config = KScreen::Config::current();
-    KScreen::OutputList outputs = config->outputs();
+    // Only take enabled outputs, order them from left to right
+    KScreen::OutputList allOutputs = config->outputs();
     KScreen::OutputList::Iterator iter;
-    if (action == ActionClone) {
-        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
-            KScreen::Output *output = iter.value();
-            if (!output->isConnected() || !output->isEnabled() || (output == outputs.values().first())) {
-                continue;
-            }
-
-            /* Set the new output as a clone of the first connected output in the list */
-            KScreen::Output *fOutput = outputs.values().first();
-            QList<int> clones = fOutput->clones();
-            clones << newOutput->id();
-            fOutput->setClones(clones);
-            break;
+    QList<KScreen::Output*> outputs;
+    for (iter = allOutputs.begin(); iter != allOutputs.end(); ++iter) {
+        KScreen::Output *output = iter.value();
+        if (output->isConnected() && output->isEnabled()) {
+            outputs << output;
         }
+    }
+    qSort(outputs.begin(), outputs.end(), &leftPos);
 
+    if (action == ActionClone) {
+        kDebug() << "Action: Clone";
+        /* Set the new output as a clone of the primary output */
+        KScreen::Output *primary = config->primaryOutput();
+        if (!primary || primary == newOutput) {
+            primary = outputs.first();
+            if (primary == newOutput) {
+                primary = outputs.at(1);
+            }
+        }
+        newOutput->setPos(primary->pos());
+        QList<int> clones = primary->clones();
+        clones << newOutput->id();
+        primary->setClones(clones);
     } else if (action == ActionExtendLeft) {
+        kDebug() << "Action: ExtendLeft";
+        int globalWidth = newMode->size().width();
         newOutput->setPos(QPoint(0, 0));
-        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
-            KScreen::Output *output = iter.value();
+        Q_FOREACH(KScreen::Output *output, outputs) {
             if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
                 continue;
             }
 
             QPoint pos = output->pos();
-            pos.setX(pos.x() + newMode->size().width());
+            pos.setX(globalWidth);
             output->setPos(pos);
+            globalWidth += output->currentMode()->size().width();
         }
 
     } else if (action == ActionExtendRight) {
-        int offset = 0;
-        for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
-            KScreen::Output *output = iter.value();
+        kDebug() << "Action: ExtendRight";
+        int globalWidth = 0;
+        Q_FOREACH(KScreen::Output *output, outputs) {
             if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
                 continue;
             }
 
-            offset += output->currentMode()->size().width();
+            QPoint pos = output->pos();
+            pos.setX(globalWidth);
+            output->setPos(pos);
+            globalWidth += output->currentMode()->size().width();
         }
-        newOutput->setPos(QPoint(offset, 0));
+        newOutput->setPos(QPoint(globalWidth, 0));
     }
 
     /* Update the settings */
-    KScreen::Config::setConfig(config);
+    Q_FOREACH(KScreen::Output *output, outputs) {
+        if (!output->isEnabled()) {
+            continue;
+        }
 
-    /*
-    m_hasNewOutput = false;
-    m_newOutputName.clear();
-    hidePopup();
-    */
+        kDebug() << output->name();
+        kDebug() << "\tSize:" << output->currentMode()->size();
+        kDebug() << "\tPos:" << output->pos();
+        kDebug() << "\tClones:" << output->clones();
+    }
+
+    KScreen::Config::setConfig(config);
+    slotResetApplet();
 }
 
 void KScreenApplet::slotRunKCM()
@@ -212,6 +245,13 @@ void KScreenApplet::slotRunKCM()
         QLatin1String("kcmshell4"),
         QStringList() << QLatin1String("kscreen"));
 
+    hidePopup();
+}
+
+void KScreenApplet::slotResetApplet()
+{
+    m_hasNewOutput = false;
+    m_newOutputName.clear();
     hidePopup();
 }
 
@@ -225,9 +265,8 @@ void KScreenApplet::popupEvent(bool show)
     Plasma::PopupApplet::popupEvent(show);
 }
 
-KScreen::Output *KScreenApplet::outputForName(const QString &name)
+KScreen::Output *KScreenApplet::outputForName(const QString &name, KScreen::Config *config)
 {
-    KScreen::Config *config = KScreen::Config::current();
     KScreen::OutputList outputs = config->outputs();
     KScreen::OutputList::Iterator iter;
     for (iter = outputs.begin(); iter != outputs.end(); ++iter) {

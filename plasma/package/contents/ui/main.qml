@@ -26,8 +26,8 @@ Item {
 
     id: root;
 
-    property int minimumWidth: 290
-    property int minimumHeight: 340
+    property int minimumWidth: 290;
+    property int minimumHeight: childrenRect.height;
     property string displayName;
 
     signal runKCM();
@@ -45,6 +45,7 @@ Item {
         }
 
         text: i18n("A new display %1 has been detected", root.displayName);
+        wrapMode: Text.WordWrap;
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -86,8 +87,8 @@ Item {
 
             id: extendRight;
 
-            icon: "video-display";
-            label: qsTr("Extend Right");
+            icon: "go-next";
+            label: qsTr("Extend to Right");
 
             onClicked: root.applyAction(KScreenApplet.ActionExtendRight);
         }
@@ -96,8 +97,8 @@ Item {
 
             id: extendLeft;
 
-            icon: "video-display";
-            label: qsTr("Extend Left");
+            icon: "go-previous";
+            label: qsTr("Extend to Left");
 
             onClicked: root.applyAction(KScreenApplet.ActionExtendLeft);
         }
@@ -106,17 +107,27 @@ Item {
 
             id: clone;
 
-            icon: "video-display";
-            label: qsTr("Clone");
+            icon: "window-duplicate";
+            label: qsTr("Clone Primary Output");
 
             onClicked: root.applyAction(KScreenApplet.ActionClone);
         }
 
         ActionIcon {
 
+            id: disable;
+
+            icon: "window-close";
+            label: qsTr("Disable");
+
+            onClicked: root.applyAction(KScreenApplet.ActionDisable);
+        }
+
+        ActionIcon {
+
             id: noAction;
 
-            icon: "video-display";
+            icon: "dialog-cancel";
             label: qsTr("No Action");
 
             onClicked: root.applyAction(KScreenApplet.ActionNoAction);

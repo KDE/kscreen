@@ -24,9 +24,11 @@
 
 #include <Plasma/PopupApplet>
 
+class QTimer;
 namespace KScreen
 {
 class Output;
+class Config;
 }
 
 namespace Plasma
@@ -47,6 +49,7 @@ public:
         ActionExtendRight,
         ActionExtendLeft,
         ActionClone,
+        ActionDisable,
     };
 
     KScreenApplet();
@@ -60,17 +63,19 @@ private Q_SLOTS:
     void slotUnknownDisplayConnected(const QString &output);
     void slotRunKCM();
     void slotApplyAction(int actionId);
+    void slotResetApplet();
 
 protected:
     virtual void popupEvent(bool show);
 
 private:
     void initDeclarativeWidget();
-    KScreen::Output* outputForName(const QString &name);
+    KScreen::Output* outputForName(const QString &name, KScreen::Config *config);
 
     Plasma::DeclarativeWidget *m_declarativeWidget;
     bool m_hasNewOutput;
     QString m_newOutputName;
+    QTimer *m_resetTimer;
 
 };
 
