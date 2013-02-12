@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=Quick Display Configuration
-Name[x-test]=xxQuick Display Configurationxx
 Comment=Quick configuration of a new display
-Comment[x-test]=xxQuick configuration of a new displayxx
 
 Icon=preferences-desktop-display-randr
 Type=Service
