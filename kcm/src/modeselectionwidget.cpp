@@ -59,7 +59,7 @@ ModeSelectionWidget::ModeSelectionWidget(QDeclarativeItem *parent):
     rootWidget->setLayout(mainLayout);
     rootWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     rootWidget->setMaximumSize(300, 250);
-    rootWidget->setAttribute(Qt::WA_OpaquePaintEvent);
+    rootWidget->setAttribute(Qt::WA_TranslucentBackground);
 
     m_proxyWidget = new QGraphicsProxyWidget(this);
     m_proxyWidget->setWidget(rootWidget);
