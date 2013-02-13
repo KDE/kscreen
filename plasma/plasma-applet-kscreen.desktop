@@ -1,6 +1,12 @@
 [Desktop Entry]
 Name=Quick Display Configuration
+Name[sv]=Snabbinställning av skärm
+Name[uk]=Швидке налаштовування дисплея
+Name[x-test]=xxQuick Display Configurationxx
 Comment=Quick configuration of a new display
+Comment[sv]=Snabbinställning av en ny skärm
+Comment[uk]=Швидке налаштовування нового дисплея
+Comment[x-test]=xxQuick configuration of a new displayxx
 
 Icon=preferences-desktop-display-randr
 Type=Service
