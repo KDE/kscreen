@@ -1,9 +1,15 @@
 [Desktop Entry]
 Name=Quick Display Configuration
+Name[nl]=Snel instellen van scherm
+Name[pt]=Configuração Rápida do Ecrã
+Name[pt_BR]=Configuração rápida da tela
 Name[sv]=Snabbinställning av skärm
 Name[uk]=Швидке налаштовування дисплея
 Name[x-test]=xxQuick Display Configurationxx
 Comment=Quick configuration of a new display
+Comment[nl]=Snel instellen van een nieuwe scherm
+Comment[pt]=Configuração rápida de um novo ecrã
+Comment[pt_BR]=Configuração rápida de uma nova tela
 Comment[sv]=Snabbinställning av en ny skärm
 Comment[uk]=Швидке налаштовування нового дисплея
 Comment[x-test]=xxQuick configuration of a new displayxx
