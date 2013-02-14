@@ -42,7 +42,9 @@ Item {
     property Item parentItem;
     property int iconSize: 22;
     property int fontSize: 12;
-    property bool forceArrowCursor: false;
+
+    width: parent.width - 36;
+    height: parent.height - 20;
 
     onWidthChanged: {
         adaptToSizeChange();
@@ -79,13 +81,14 @@ Item {
     }
 
     Behavior on rotation {
+        /*
         RotationAnimation {
             easing.type: "OutCubic"
             duration: 250;
             // Opposite of the monitor rotation so the controls stay rightside up.
             direction: (rotationDirection == RotationAnimation.Clockwise) ?
                     RotationAnimation.Counterclockwise : RotationAnimation.Clockwise;
-        }
+        }*/
     }
 
     Behavior on width {
@@ -161,7 +164,7 @@ Item {
         onCheckedChanged: {
             /* FIXME: This should be in KScreen */
             if (output.enabled != enabledButton.checked) {
-            output.enabled = enabledButton.checked;
+                output.enabled = enabledButton.checked;
             }
             root.enabledToggled();
         }
@@ -170,12 +173,6 @@ Item {
 
             anchors.fill: parent;
             hoverEnabled: true;
-            onEntered: {
-                root.forceArrowCursor = true;
-            }
-            onExited: {
-                root.forceArrowCursor = false;
-            }
             onClicked: {
                 enabledButton.checked = !enabledButton.checked;
             }
@@ -227,12 +224,6 @@ Item {
                     }
                 }
             }
-            onEntered: {
-                root.forceArrowCursor = true;
-            }
-            onExited: {
-                root.forceArrowCursor = false;
-            }
         }
 
         /* Primary toggle */
@@ -254,12 +245,6 @@ Item {
                     }
                 }
             }
-            onEntered: {
-                root.forceArrowCursor = true;
-            }
-            onExited: {
-                root.forceArrowCursor = false;
-            }
         }
 
 
@@ -272,58 +257,8 @@ Item {
             tooltipText: i18n("Show list of available display resolutions");
 
             onClicked: selectionDialog.open();
-            onEntered: {
-                root.forceArrowCursor = true;
-            }
-            onExited: {
-                root.forceArrowCursor = false;
-            }
         }
     }
-
-    state: "normal";
-    states: [
-            State {
-                    name: "normal";
-                    when: output.rotation == Output.None;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 0;
-                            width: parent.width - 36;
-                            height: parent.height - 20;
-                    }
-            },
-            State {
-                    name: "left";
-                    when: output.rotation == Output.Left;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 90;
-                            width: parent.height - 20;
-                            height: parent.width - 36;
-                    }
-            },
-            State {
-                    name: "inverted";
-                    when: output.rotation == Output.Inverted;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 180;
-                            width: parent.width - 36;
-                            height: parent.height - 20;
-                    }
-            },
-            State {
-                    name: "right";
-                    when: output.rotation == Output.Right;
-                    PropertyChanges {
-                            target: root;
-                            rotation: 270;
-                            width: parent.height - 20;
-                            height: parent.width - 36;
-                    }
-            }
-    ]
 
     PlasmaComponents410.Dialog {
 

@@ -28,8 +28,6 @@ QMLOutput {
     signal primaryTriggered(string self);
     signal moved(string self);
     signal enabledToggled(string self);
-    signal mouseEntered();
-    signal mouseExited();
     signal mousePressed();
     signal mouseReleased();
 
@@ -86,7 +84,7 @@ QMLOutput {
             centerIn: parent;
         }
 
-        scale: (output.enabled) ? 1.0 : 0.6;
+        opacity: (output.enabled) ? 1.0 : 0.3;
         width: root.currentOutputWidth * root.displayScale;
         height: root.currentOutputHeight * root.displayScale;
         transformOrigin: Item.Center;
@@ -153,19 +151,12 @@ QMLOutput {
          * which is cought by QMLOutputView */
         onPressed: {
             root.clicked(root.output.name);
+            tip.visible = true;
             root.mousePressed();
         }
-
         onReleased: {
+            tip.visible = false;
             root.mouseReleased();
-        }
-
-        onEntered: {
-            root.mouseEntered();
-        }
-
-        onExited: {
-            root.mouseExited();
         }
 
         onRotationChanged: updateRootProperties();
@@ -185,11 +176,11 @@ QMLOutput {
             easing.type: "OutCubic";
         }
 
-        Behavior on scale {
+        Behavior on opacity {
             PropertyAnimation {
-                property: "scale";
-                easing.type: "OutElastic";
-                duration: 350;
+                property: "opacity";
+                easing.type: "OutCubic";
+                duration: 250;
             }
         }
 
@@ -250,14 +241,6 @@ QMLOutput {
 
                 onPrimaryTriggered: root.primaryTriggered(root.output.name);
                 onEnabledToggled: root.enabledToggled(root.output.name);
-                onForceArrowCursorChanged: {
-                    // This is to force arrow cursor when hovering over buttons
-                    if (controls.forceArrowCursor) {
-                        root.mouseExited();
-                    } else {
-                        root.mouseEntered();
-                    }
-                }
             }
 
             Rectangle {

@@ -170,8 +170,6 @@ void KCMKScreen::load()
 
     connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
     connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
-    connect(outputView, SIGNAL(outputMouseEntered()), SLOT(outputMouseEntered()));
-    connect(outputView, SIGNAL(outputMouseExited()), SLOT(outputMouseExited()));
     connect(outputView, SIGNAL(outputMousePressed()), SLOT(outputMousePressed()));
     connect(outputView, SIGNAL(outputMouseReleased()), SLOT(outputMouseReleased()));
 }
@@ -277,16 +275,6 @@ void KCMKScreen::moveMouse(int dX, int dY)
     QCursor::setPos(pos);
 }
 
-void KCMKScreen::outputMouseEntered()
-{
-    m_declarativeView->setCursor(Qt::OpenHandCursor);
-}
-
-void KCMKScreen::outputMouseExited()
-{
-    m_declarativeView->setCursor(Qt::ArrowCursor);
-}
-
 void KCMKScreen::outputMousePressed()
 {
     m_declarativeView->setCursor(Qt::ClosedHandCursor);
@@ -294,5 +282,5 @@ void KCMKScreen::outputMousePressed()
 
 void KCMKScreen::outputMouseReleased()
 {
-    m_declarativeView->setCursor(Qt::OpenHandCursor);
+    m_declarativeView->setCursor(Qt::ArrowCursor);
 }
