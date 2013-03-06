@@ -93,7 +93,12 @@ void KScreenDaemon::applyKnownConfig()
 {
     kDebug() << "Applying known config";
     setMonitorForChanges(false);
-    KScreen::Config::setConfig(Serializer::config(Serializer::currentId()));
+    KScreen::Config* config = Serializer::config(Serializer::currentId());
+    if (!KScreen::Config::canBeApplied(config)) {
+        return applyIdealConfig();
+    }
+
+    KScreen::Config::setConfig(config);
     QMetaObject::invokeMethod(this, "scheduleMonitorChange", Qt::QueuedConnection);
 }
 
