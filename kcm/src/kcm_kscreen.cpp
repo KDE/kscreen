@@ -44,7 +44,7 @@
 
 K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
 K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
-                                                "kcm_kscreen" /* catalog name */))
+                                                "kcm_displayconfiguration" /* catalog name */))
 
 #define QML_PATH "kcm_kscreen/qml/"
 
