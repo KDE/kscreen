@@ -85,6 +85,7 @@ void Console::printConfig()
         }
         qDebug() << "Clones: " << output->clones().isEmpty();
         qDebug() << "Mode: " << output->currentModeId();
+        qDebug() << "Preferred Mode: " << output->preferredModeId();
         qDebug() << "Preferred modes: " << output->preferredModes();
         qDebug() << "Modes: ";
 
