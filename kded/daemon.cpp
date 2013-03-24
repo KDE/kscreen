@@ -160,17 +160,17 @@ void KScreenDaemon::applyGenericConfig()
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
-    KDebug::Block genericConfig(" Lid closed");
-    kDebug() << "Lid is closed:" << lidIsClosed;
-    //If the laptop is closed, use ideal config WITHOUT saving it
-    if (lidIsClosed) {
-        setMonitorForChanges(false);
-        KScreen::Config::setConfig(Generator::self()->idealConfig());
-        return;
-    }
-
-    //If the lid is open, restore config (or generate a new one if needed
-    applyConfig();
+//     KDebug::Block genericConfig(" Lid closed");
+//     kDebug() << "Lid is closed:" << lidIsClosed;
+//     //If the laptop is closed, use ideal config WITHOUT saving it
+//     if (lidIsClosed) {
+//         setMonitorForChanges(false);
+//         KScreen::Config::setConfig(Generator::self()->idealConfig());
+//         return;
+//     }
+//
+//     //If the lid is open, restore config (or generate a new one if needed
+//     applyConfig();
 }
 
 void KScreenDaemon::outputConnectedChanged()
