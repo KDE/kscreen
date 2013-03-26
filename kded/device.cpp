@@ -72,6 +72,10 @@ void Device::changed()
 
 void Device::setReady()
 {
+    if (m_isReady) {
+        return;
+    }
+
     m_isReady = true;
     Q_EMIT ready();
 }
