@@ -75,6 +75,7 @@ KScreenDaemon::~KScreenDaemon()
 
 void KScreenDaemon::init()
 {
+    disconnect(Generator::self(), SIGNAL(ready()), this, SLOT(init()));
     applyConfig();
 }
 
