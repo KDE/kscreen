@@ -18,6 +18,7 @@ include_directories(
     ${LibKScreen_INCLUDE_DIR}
 )
 
+add_subdirectory(icons)
 add_subdirectory(kcm)
 add_subdirectory(plasma)
 add_subdirectory(kded)

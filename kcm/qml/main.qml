@@ -121,8 +121,9 @@ Item {
                 margins: 5;
             }
 
-            enabledIcon: "documentinfo"
+            enabledIcon: "kdocumentinfo"
             iconSize: 44;
+            smooth: true
             tooltipText: i18n("Identify outputs");
 
             onClicked: root.identifyOutputsRequested();
