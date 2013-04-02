@@ -2,6 +2,7 @@
 Name=Quick Display Configuration
 Name[cs]=Rychlé nastavení zobrazení
 Name[de]=Schnelle Anzeige-Einrichtung
+Name[es]=Configuración rápida de la pantalla
 Name[fr]=Configuration rapide de l'affichage
 Name[nl]=Snel instellen van scherm
 Name[pt]=Configuração Rápida do Ecrã
@@ -15,6 +16,7 @@ Name[x-test]=xxQuick Display Configurationxx
 Comment=Quick configuration of a new display
 Comment[cs]=Rychlé nastavení nového zobrazení
 Comment[de]=Schnelle Einrichtung einer neuen Anzeige
+Comment[es]=Configuración rápida de una nueva pantalla
 Comment[fr]=Configuration rapide d'un nouvel affichage
 Comment[nl]=Snel instellen van een nieuwe scherm
 Comment[pt]=Configuração rápida de um novo ecrã
