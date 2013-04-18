@@ -151,12 +151,16 @@ QMLOutput {
          * which is cought by QMLOutputView */
         onPressed: {
             root.clicked(root.output.name);
-            tip.visible = true;
-            root.mousePressed();
+            if (root.isDragEnabled) {
+                tip.visible = true;
+                root.mousePressed();
+            }
         }
         onReleased: {
-            tip.visible = false;
-            root.mouseReleased();
+            if (root.isDragEnabled) {
+                tip.visible = false;
+                root.mouseReleased();
+            }
         }
 
         onRotationChanged: updateRootProperties();
