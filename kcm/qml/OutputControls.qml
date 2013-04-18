@@ -38,10 +38,14 @@ Item {
     signal primaryTriggered();
     signal enabledToggled();
 
+    PlasmaCore.Theme {
+        id: theme;
+    }
+
     property int rotationDirection;
     property Item parentItem;
-    property int iconSize: 22;
-    property int fontSize: 12;
+    property int iconSize: theme.iconSizes.toolbar;
+    property int fontSize: theme.defaultFont.pointSize;
 
     width: parent.width - 36;
     height: parent.height - 20;
@@ -61,22 +65,22 @@ Item {
             outputNameAndSize.anchors.top = root.top;
             enabledButton.scale = 0.4;
             enabledButton.anchors.topMargin = 0;
-            root.fontSize = 10;
-            root.iconSize = 12;
+            root.fontSize = theme.smallestFont.pointSize;
+            root.iconSize = theme.iconSizes.small;
         } else if ((width < 120) || (height < 100)) {
             monitorName.visible = true;
             outputNameAndSize.anchors.top = monitorName.bottom;
             enabledButton.scale = 0.6;
             enabledButton.anchors.topMargin = 2;
-            root.fontSize = 10;
-            root.iconSize = 16;
+            root.fontSize = theme.smallestFont.pointSize;
+            root.iconSize = theme.iconSizes.small;
         } else {
             monitorName.visible = true;
             outputNameAndSize.anchors.top = monitorName.bottom;
             enabledButton.scale = 0.8
             enabledButton.anchors.topMargin = 4;
-            root.fontSize = 12;
-            root.iconSize = 22;
+            root.fontSize = theme.defaultFont.pointSize;
+            root.iconSize = theme.iconSizes.toolbar;
         }
     }
 
@@ -117,8 +121,17 @@ Item {
 
         text: output.connected ? output.edid.vendor : "";
         color: palette.text;
-        font.family: theme.desktopFont.family;
-        font.pointSize: root.fontSize;
+        font {
+            family: theme.defaultFont.family;
+            capitalization: theme.defaultFont.capitalization;
+            italic: theme.defaultFont.italic;
+            letterSpacing: theme.defaultFont.letterSpacing;
+            strikeout: theme.defaultFont.strikeout;
+            underline: theme.defaultFont.underline;
+            weight: theme.defaultFont.weight;
+            wordSpacing: theme.defaultFont.wordSpacing;
+            pointSize: root.fontSize;
+        }
         elide: Text.ElideRight;
 
         horizontalAlignment: Text.AlignHCenter;
@@ -141,8 +154,17 @@ Item {
 
         text: output.name;
         color: palette.text;
-        font.family: theme.desktopFont.family;
-        font.pointSize: root.fontSize - 2;
+        font {
+            family: theme.defaultFont.family;
+            capitalization: theme.defaultFont.capitalization;
+            italic: theme.defaultFont.italic;
+            letterSpacing: theme.defaultFont.letterSpacing;
+            strikeout: theme.defaultFont.strikeout;
+            underline: theme.defaultFont.underline;
+            weight: theme.defaultFont.weight;
+            wordSpacing: theme.defaultFont.wordSpacing;
+            pointSize: root.fontSize - 2;
+        }
 
         horizontalAlignment: Text.AlignHCenter;
     }

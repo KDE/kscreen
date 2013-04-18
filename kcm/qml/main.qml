@@ -122,7 +122,7 @@ Item {
             }
 
             enabledIcon: "kdocumentinfo"
-            iconSize: 44;
+            iconSize: theme.largeIconSize;
             smooth: true
             tooltipText: i18n("Identify outputs");
 

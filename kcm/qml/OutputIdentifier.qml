@@ -17,6 +17,7 @@
 */
 
 import QtQuick 1.1
+import org.kde.plasma.core 0.1 as PlasmaCore;
 
 Item {
     id: root;
@@ -29,6 +30,10 @@ Item {
 
     SystemPalette {
         id: palette;
+    }
+
+    PlasmaCore.Theme {
+        id: theme;
     }
 
     Rectangle {
@@ -66,7 +71,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter;
 
                 text: root.modeName;
-                font.pointSize: 12;
+                font.pointSize: theme.defaultFont.pointSize;
                 color: palette.text;
                 horizontalAlignment: Text.AlignHCenter;
             }
