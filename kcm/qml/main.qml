@@ -19,6 +19,7 @@
 import QtQuick 1.1
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
+import org.kde.qtextracomponents 0.1
 import KScreen 1.0 as KScreen;
 
 Item {
@@ -97,18 +98,32 @@ Item {
             flickableItem: outputView;
         }
 
-        Text {
-            id: tip;
-            visible: false;
+        Column {
 
             anchors {
                 left: parent.left;
+                right: identifyButton.left;
                 bottom: horizontalScrollbar.top;
                 margins: 5;
             }
 
-            color: palette.text;
-            text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+            spacing: 5;
+
+            Tip {
+
+                id: dragTip;
+
+                icon: "dialog-information";
+                text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+            }
+
+            Tip {
+
+                id: noActiveOutputsWarning;
+
+                icon: "dialog-warning";
+                text: i18n("Warning: There are no active outputs!");
+            }
         }
 
         IconButton {

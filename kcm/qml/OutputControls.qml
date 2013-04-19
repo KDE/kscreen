@@ -46,6 +46,7 @@ Item {
     property Item parentItem;
     property int iconSize: theme.iconSizes.toolbar;
     property int fontSize: theme.defaultFont.pointSize;
+    property alias isToggleButtonVisible: enabledButton.visible;
 
     width: parent.width - 36;
     height: parent.height - 20;

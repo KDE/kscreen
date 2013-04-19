@@ -310,6 +310,21 @@ Flickable {
         // Simulate a 'move'. This will recalculate virutal positions of all
         // outputs. See https://bugs.kde.org/show_bug.cgi?id=313027#c16
         outputMoved(outputName);
+
+
+        var enabledCount = 0;
+        for (var i = 0; i < root.contentItem.children.length; i++) {
+            var output = root.contentItem.children[i];
+
+            if (output.output.enabled) {
+                enabledCount++;
+                if (enabledCount > 0) {
+                    break;
+                }
+            }
+        }
+
+        noActiveOutputsWarning.opacity = (enabledCount > 0) ? 0.0 : 1.0;
     }
 
     /**
@@ -334,6 +349,7 @@ Flickable {
             var output = root.contentItem.children[i];
 
             output.isDragEnabled = (connectedCount > 1);
+            output.isToggleButtonVisible = (connectedCount > 1);
         }
     }
 }

@@ -34,6 +34,7 @@ QMLOutput {
     property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
     property bool isDragEnabled: false;
+    property alias isToggleButtonVisible: controls.isToggleButtonVisible;
     property bool hasMoved: false;
 
     width: monitorMouseArea.width;
@@ -152,13 +153,13 @@ QMLOutput {
         onPressed: {
             root.clicked(root.output.name);
             if (root.isDragEnabled) {
-                tip.visible = true;
+                dragTip.opacity = 1.0;
                 root.mousePressed();
             }
         }
         onReleased: {
             if (root.isDragEnabled) {
-                tip.visible = false;
+                dragTip.opacity = 0.0;
                 root.mouseReleased();
             }
         }
@@ -242,6 +243,7 @@ QMLOutput {
 
                 parentItem: root;
                 rotationDirection: parent.rotationDirection;
+                isToggleButtonVisible: root.isToggleButtonVisible;
 
                 onPrimaryTriggered: root.primaryTriggered(root.output.name);
                 onEnabledToggled: root.enabledToggled(root.output.name);

@@ -201,8 +201,8 @@ void KCMKScreen::save()
     if (!atLeastOneEnabledOutput) {
         if (KMessageBox::warningYesNo(this, i18n("Are you sure you want to disable all outputs?"),
             i18n("Disable all outputs?"),
-            KGuiItem(i18n("Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
-            KGuiItem(i18n("Cancel"), KIcon(QLatin1String("dialog-cancel"))),
+            KGuiItem(i18n("&Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
+            KGuiItem(i18n("&Reconfigure"), KIcon(QLatin1String("dialog-cancel"))),
             QString(), KMessageBox::Dangerous) == KMessageBox::No)
         {
             return;

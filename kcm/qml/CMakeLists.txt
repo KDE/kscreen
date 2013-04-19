@@ -5,6 +5,7 @@ set(QML_FILES
     Output.qml
     OutputIdentifier.qml
     OutputControls.qml
+    Tip.qml
 
     OutputView.js
 )
