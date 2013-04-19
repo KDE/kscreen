@@ -48,8 +48,6 @@ KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
     qmlRegisterType<KScreenApplet>("org.kde.kscreen", 1, 0, "KScreenApplet");
     setPopupIcon(QLatin1String("video-display"));
 
-    setenv("KSCREEN_BACKEND", "XRandR", false);
-
     m_resetTimer = new QTimer(this);
 }
 
