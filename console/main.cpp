@@ -64,7 +64,7 @@ int main (int argc, char *argv[])
     }
     KApplication app;
 
-    Console *loop = new Console(0);
+    Console *console = new Console(0);
 
     QString command;
     if (args->count() > 0) {
@@ -72,23 +72,26 @@ int main (int argc, char *argv[])
     }
 
     if (command.isEmpty()) {
-        loop->printConfig();
-        loop->monitorAndPrint();
+        console->printConfig();
+        console->monitorAndPrint();
         return app.exec();
     }
 
     if (command == "monitor") {
+        qDebug() << "Remember to enable KSRandR or KSRandR11 in kdebugdialog";
+        //Print config so that we have some pivot data
+        console->printConfig();
         //Do nothing, enable backend output to see debug
         return app.exec();
     }
 
     if (command == "outputs") {
-        loop->printConfig();
+        console->printConfig();
         return 1;
     }
 
     if (command == "config") {
-        loop->printSerializations();
+        console->printSerializations();
         return 1;
     }
     if (command == "bug") {
@@ -99,9 +102,9 @@ int main (int argc, char *argv[])
         proc.waitForFinished();
         qDebug() << proc.readAll().data();
         qDebug() << endl << "========================Outputs===================================" << endl;
-        loop->printConfig();
+        console->printConfig();
         qDebug() << endl << "========================Configurations============================" << endl;
-        loop->printSerializations();
+        console->printSerializations();
         return 1;
     }
     showCommands();
