@@ -240,7 +240,7 @@ function snapOutput(outputView, output) {
             continue;
         }
 
-        if (!otherOutput.output.connected) {
+        if (!otherOutput.output.connected || !otherOutput.output.enabled) {
             continue;
         }
 
