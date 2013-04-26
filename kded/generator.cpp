@@ -223,8 +223,17 @@ void Generator::laptop(KScreen::OutputList& outputs)
     KDebug::Block laptopBlock("Laptop config");
 
     KScreen::Output* embedded = embeddedOutput(outputs);
-    Q_ASSERT(embedded);
-
+    /* Apparently older laptops use "VGA-*" as embedded output ID, so embeddedOutput()
+     * will fail, because it looks only for modern "LVDS", "EDP", etc. If we
+     * fail to detect which output is embedded, just use the one  with the lowest
+     * ID. It's a wild guess, but I think it's highly probable that it will work.
+     * See bug #318907 for further reference. -- dvratil
+     */
+    if (!embedded) {
+        QList<int> keys = outputs.keys();
+        qSort(keys);
+        embedded = outputs.value(keys.first());
+    }
     outputs.remove(embedded->id());
 
     if (outputs.isEmpty()) {
