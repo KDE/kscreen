@@ -43,14 +43,14 @@ QMLOutput {
     visible: (opacity > 0);
     opacity: output.connected ? 1.0 : 0.0;
 
-    /* Transormation of an item (rotation of the MouseArea) is only visual.
+    /* Transformation of an item (rotation of the MouseArea) is only visual.
      * The coordinates and dimensions are still the same (when you rotated
      * 100x500 rectangle by 90 deg, it will still be 100x500, although
      * visually it will be 500x100).
      *
-     * This method calculates the real-visual coordinates and dimentions of
+     * This method calculates the real-visual coordinates and dimensions of
      * the MouseArea and updates root item to match them. This makes snapping
-     * works correctly ragrdless on visual rotation of the output */
+     * works correctly regardless on visual rotation of the output */
     function updateRootProperties() {
         var transformedX, transformedY, transformedWidth, transformedHeight;
 
@@ -100,6 +100,9 @@ QMLOutput {
                 return 90;
             }
         }
+
+        onWidthChanged: updateRootProperties();
+        onHeightChanged: updateRootProperties();
 
         hoverEnabled: true;
         preventStealing: true;
