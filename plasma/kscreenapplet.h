@@ -64,6 +64,7 @@ private Q_SLOTS:
     void slotRunKCM();
     void slotApplyAction(int actionId);
     void slotResetApplet();
+    void slotConfigurationChanged();
 
 protected:
     virtual void popupEvent(bool show);

@@ -35,6 +35,7 @@
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
+#include <kscreen/configmonitor.h>
 
 bool leftPos(KScreen::Output* output1, KScreen::Output* output2) {
     return (output1->pos().x() < output2->pos().x());
@@ -49,6 +50,12 @@ KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
     setPopupIcon(QLatin1String("video-display"));
 
     m_resetTimer = new QTimer(this);
+
+    KScreen::ConfigMonitor *configMonitor = KScreen::ConfigMonitor::instance();
+    connect(configMonitor, SIGNAL(configurationChanged()),
+            this, SLOT(slotConfigurationChanged()));
+
+    slotConfigurationChanged();
 }
 
 KScreenApplet::KScreenApplet():
@@ -251,6 +258,21 @@ void KScreenApplet::slotResetApplet()
     m_hasNewOutput = false;
     m_newOutputName.clear();
     hidePopup();
+}
+
+void KScreenApplet::slotConfigurationChanged()
+{
+    KScreen::Config *config = KScreen::Config::current();
+    if (!config->isValid()) {
+        setStatus(Plasma::PassiveStatus);
+        return;
+    }
+
+    if (config->connectedOutputs().count() > 1) {
+        setStatus(Plasma::ActiveStatus);
+    } else {
+        setStatus(Plasma::PassiveStatus);
+    }
 }
 
 void KScreenApplet::popupEvent(bool show)
