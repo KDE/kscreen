@@ -96,7 +96,7 @@ void Console::printConfig()
 
         Edid* edid = output->edid();
         qDebug() << "EDID Info: ";
-        if (edid != 0) {
+        if (edid && edid->isValid()) {
             qDebug() << "\tDevice ID: " << edid->deviceId();
             qDebug() << "\tName: " << edid->name();
             qDebug() << "\tVendor: " << edid->vendor();
