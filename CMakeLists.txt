@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6)
 
 find_package(Qt4 REQUIRED)
 find_package(KDE4 REQUIRED)
-find_package(LibKScreen 0.0.82 REQUIRED)
+find_package(LibKScreen 0.0.92 REQUIRED)
 find_package(QJSON 0.8 REQUIRED)
 
 include(MacroLibrary)
