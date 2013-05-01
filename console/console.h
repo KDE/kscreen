@@ -20,6 +20,7 @@
 #define LOOP2
 
 #include <QObject>
+#include <kscreen/output.h>
 
 namespace KScreen
 {
@@ -34,6 +35,7 @@ class Console : public QObject
 
     public Q_SLOTS:
         void printConfig();
+        QString typetoString(const KScreen::Output::Type &type) const;
         void printSerializations();
         void monitor();
         void monitorAndPrint();

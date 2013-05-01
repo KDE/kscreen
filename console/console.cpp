@@ -71,7 +71,7 @@ void Console::printConfig()
         qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
         qDebug() << "Name: " << output->name();
-        qDebug() << "Type: " << output->type();
+        qDebug() << "Type: " << typetoString(output->type());
         qDebug() << "Connected: " << output->isConnected();
         if (!output->isConnected()) {
             continue;
@@ -114,6 +114,43 @@ void Console::printConfig()
             qDebug() << "\tUnavailable";
         }
     }
+}
+
+QString Console::typetoString(const Output::Type& type) const
+{
+    switch (type) {
+        case Output::Unknown:
+            return QLatin1String("Unknown");
+        case Output::Panel:
+            return QLatin1String("Panel (Laptop)");
+        case Output::VGA:
+            return QLatin1String("VGA");
+        case Output::DVII:
+            return QLatin1String("DVI-I");
+        case Output::DVIA:
+            return QLatin1String("DVI-A");
+        case Output::DVID:
+            return QLatin1String("DVI-D");
+        case Output::HDMI:
+            return QLatin1String("HDMI");
+        case Output::TV:
+            return QLatin1String("TV");
+        case Output::TVComposite:
+            return QLatin1String("TV-Composite");
+        case Output::TVSVideo:
+            return QLatin1String("TV-SVideo");
+        case Output::TVComponent:
+            return QLatin1String("TV-Component");
+        case Output::TVSCART:
+            return QLatin1String("TV-SCART");
+        case Output::TVC4:
+            return QLatin1String("TV-C4");
+        case Output::DisplayPort:
+            return QLatin1String("DisplayPort");
+        default:
+            return QLatin1String("Invalid Type");
+
+    };
 }
 
 void Console::printSerializations()
