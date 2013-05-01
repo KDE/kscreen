@@ -404,7 +404,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList& outputs
 KScreen::Output* Generator::embeddedOutput(const KScreen::OutputList& outputs)
 {
     Q_FOREACH(KScreen::Output* output, outputs) {
-        if (!output->type() == KScreen::Output::Panel) {
+        if (output->type() != KScreen::Output::Panel) {
             continue;
         }
 
