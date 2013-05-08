@@ -106,6 +106,8 @@ MouseArea {
 
             id: tooltipLabel;
 
+            height: theme.defaultFont.mSize.height + 5;
+
             color: theme.textColor;
         }
 
