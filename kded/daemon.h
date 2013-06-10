@@ -63,9 +63,9 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
 
         KScreen::Config* m_monitoredConfig;
         quint8 m_iteration;
-        bool m_pendingSave;
         bool m_monitoring;
         QTimer* m_timer;
+        QTimer* m_saveTimer;
         KScreenAdaptor *m_kscreenAdaptor;
 };
 

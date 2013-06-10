@@ -41,9 +41,10 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
  , m_monitoredConfig(0)
  , m_iteration(0)
- , m_pendingSave(false)
  , m_monitoring(false)
  , m_timer(new QTimer())
+ , m_saveTimer(new QTimer())
+ 
 {
     if (!KScreen::Config::loadBackend()) {
         return;
@@ -61,6 +62,11 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     m_timer->setInterval(300);
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), SLOT(applyGenericConfig()));
+
+    m_saveTimer->setInterval(300);
+    m_saveTimer->setSingleShot(true);
+    connect(m_saveTimer, SIGNAL(timeout()), SLOT(saveCurrentConfig()));
+
     connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
     connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
     monitorConnectedChange();
@@ -68,6 +74,9 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
 
 KScreenDaemon::~KScreenDaemon()
 {
+    delete m_saveTimer;
+    delete m_timer;
+
     Generator::destroy();
     Device::destroy();
 }
@@ -112,19 +121,13 @@ void KScreenDaemon::applyIdealConfig()
 void KScreenDaemon::configChanged()
 {
     kDebug() << "Change detected";
-    if (m_pendingSave) {
-        return;
-    }
-
-    kDebug() << "Scheduling screen save";
-    m_pendingSave = true;
-    QMetaObject::invokeMethod(this, "saveCurrentConfig", Qt::QueuedConnection);
+    // Reset timer, delay the writeback
+    m_saveTimer->start();
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
     kDebug() << "Saving current config";
-    m_pendingSave = false;
     Serializer::saveConfig(KScreen::Config::current());
 }
 
