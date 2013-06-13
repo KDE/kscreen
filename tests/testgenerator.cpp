@@ -41,6 +41,8 @@ private Q_SLOTS:
     void laptopLidClosedAndThreeExternal();
     void laptopDockedLidOpenAndExternal();
     void laptopDockedLidClosedAndExternal();
+    void workstationWithoutScreens();
+    void workstationWithNoConnectedScreens();
     void workstationTwoExternalSameSize();
     void workstationTwoExternalDiferentSize();
 
@@ -220,6 +222,34 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     QCOMPARE(external->isPrimary(), true);
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(0, 0));
+}
+
+void testScreenConfig::workstationWithoutScreens()
+{
+    loadConfig("workstationWithoutScreens.json");
+
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(false);
+
+    Config* config = generator->idealConfig();
+
+    QVERIFY(config->outputs().isEmpty());
+}
+
+void testScreenConfig::workstationWithNoConnectedScreens()
+{
+    loadConfig("workstationWithNoConnectedScreens.json");
+
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(false);
+
+    Config* config = generator->idealConfig();
+
+    Output* external1 = config->output(1);
+    Output* external2 = config->output(2);
+
+    QCOMPARE(external1->isEnabled(), false);
+    QCOMPARE(external2->isEnabled(), false);
 }
 
 void testScreenConfig::workstationTwoExternalSameSize()

@@ -70,6 +70,11 @@ KScreen::Config* Generator::idealConfig()
     KScreen::OutputList outputs = config->connectedOutputs();
 
     kDebug() << "Connected outputs: " << outputs.count();
+
+    if (outputs.isEmpty()) {
+        return config;
+    }
+
     if (outputs.count() == 1) {
         singleOutput(outputs);
         return config;
