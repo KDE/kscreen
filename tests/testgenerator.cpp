@@ -41,6 +41,7 @@ private Q_SLOTS:
     void laptopLidClosedAndThreeExternal();
     void laptopDockedLidOpenAndExternal();
     void laptopDockedLidClosedAndExternal();
+    void workstationTwoExternalSameSize();
     void workstationTwoExternalDiferentSize();
 
     void switchDisplayTwoScreens();
@@ -219,6 +220,28 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
     QCOMPARE(external->isPrimary(), true);
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(0, 0));
+}
+
+void testScreenConfig::workstationTwoExternalSameSize()
+{
+    loadConfig("workstaionTwoExternalSameSize.json");
+
+    Generator* generator = Generator::self();
+    generator->setForceLaptop(false);
+
+    Config* config = generator->idealConfig();
+    Output* external1 = config->output(1);
+    Output* external2 = config->output(2);
+
+    QCOMPARE(external1->isPrimary(), true);
+    QCOMPARE(external1->isEnabled(), true);
+    QCOMPARE(external1->currentModeId(), QLatin1String("3"));
+    QCOMPARE(external1->pos(), QPoint(0 ,0));
+
+    QCOMPARE(external2->isPrimary(), false);
+    QCOMPARE(external2->isEnabled(), true);
+    QCOMPARE(external2->currentModeId(), QLatin1String("3"));
+    QCOMPARE(external2->pos(), QPoint(external1->currentMode()->size().width() ,0));
 }
 
 void testScreenConfig::workstationTwoExternalDiferentSize()

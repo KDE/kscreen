@@ -70,15 +70,6 @@
             "modes" :
             [
                 {
-                    "id" : 4,
-                    "name" : "1920x1200",
-                    "refreshRate" : 60,
-                    "size" : {
-                        "width" : 1920,
-                        "height" : 1200
-                    }
-                },
-                {
                     "id" : 3,
                     "name" : "1920x1080",
                     "refreshRate" : 60,
@@ -113,7 +104,7 @@
             "preferredModes" : [3],
             "rotation" : 1,
             "connected" : true,
-            "enabled" : false,
+            "enabled" : true,
             "primary" : false,
             "edid" : "AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg=="
         }
