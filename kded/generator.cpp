@@ -378,7 +378,7 @@ KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
     Q_FOREACH(KScreen::Output* output, outputs) {
         KScreen::Mode* mode = output->preferredMode();
         area = mode->size().width() * mode->size().height();
-        if (area < total) {
+        if (area <= total) {
             continue;
         }
 
