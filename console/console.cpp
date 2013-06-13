@@ -52,6 +52,8 @@ Console::~Console()
 
 void Console::printConfig()
 {
+    qDebug() << "KScreen version: " << KSCREEN_VERSION;
+
     if (!m_config) {
         qDebug() << "Config is invalid, probably backend couldn't load";
         return;
@@ -62,9 +64,9 @@ void Console::printConfig()
     }
 
     qDebug() << "Screen:";
-    qDebug() << "maxSize:" << m_config->screen()->maxSize();
-    qDebug() << "minSize:" << m_config->screen()->minSize();
-    qDebug() << "currentSize:" << m_config->screen()->currentSize();
+    qDebug() << "\tmaxSize:" << m_config->screen()->maxSize();
+    qDebug() << "\tminSize:" << m_config->screen()->minSize();
+    qDebug() << "\tcurrentSize:" << m_config->screen()->currentSize();
 
     OutputList outputs = m_config->outputs();
     Q_FOREACH(Output *output, outputs) {
