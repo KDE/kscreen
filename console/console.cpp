@@ -85,7 +85,11 @@ void Console::printConfig()
         if (output->currentMode()) {
             qDebug() << "Size: " << output->currentMode()->size();
         }
-        qDebug() << "Clones: " << output->clones().isEmpty();
+        if (output->clones().isEmpty()) {
+            qDebug() << "Clones: " << "None";
+        } else {
+            qDebug() << "Clones: " << output->clones().count();
+        }
         qDebug() << "Mode: " << output->currentModeId();
         qDebug() << "Preferred Mode: " << output->preferredModeId();
         qDebug() << "Preferred modes: " << output->preferredModes();
