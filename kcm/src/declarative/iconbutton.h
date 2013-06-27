@@ -48,6 +48,11 @@ class IconButton : public QGraphicsProxyWidget
                WRITE setTooltipText
                NOTIFY tooltipTextChanged)
 
+    Q_PROPERTY(bool iconEnabled
+               READ iconEnabled
+               WRITE setIconEnabled
+               NOTIFY iconEnabledChanged)
+
   public:
     explicit IconButton(QGraphicsItem *parent = 0);
     virtual ~IconButton();
@@ -64,16 +69,24 @@ class IconButton : public QGraphicsProxyWidget
     void setTooltipText(const QString &text);
     QString tooltipText() const;
 
+    void setIconEnabled(bool iconEnabled);
+    bool iconEnabled() const;
+
   Q_SIGNALS:
     void iconNameChanged();
     void textChanged();
     void iconSizeChanged();
     void tooltipTextChanged();
+    void iconEnabledChanged();
 
     void clicked();
 
   private:
+    void loadIcon();
+
     KPushButton *m_button;
+    bool m_iconEnabled;
+    QString m_iconName;
 };
 
 #endif // ICONBUTTON_H

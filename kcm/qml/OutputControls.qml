@@ -241,18 +241,10 @@ Item {
 
             iconSize: root.iconSize;
             iconName: "bookmarks";
-            enabled: (output.enabled && output.primary);
+            iconEnabled: (output.enabled && output.primary);
             tooltipText: i18n("Toggle primary output");
 
-            onClicked: {
-                if (output.enabled) {
-                    output.primary = !output.primary
-
-                    if (output.primary) {
-                        root.primaryTriggered();
-                    }
-                }
-            }
+            onClicked: output.primary = !output.primary
         }
 
 

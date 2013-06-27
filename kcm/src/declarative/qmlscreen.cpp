@@ -166,15 +166,17 @@ void QMLScreen::outputEnabledChanged()
 
 void QMLScreen::outputPrimaryChanged()
 {
-    QObject *newPrimary = sender();
+    KScreen::Output *newPrimary = qobject_cast<KScreen::Output*>(sender());
+    if (!newPrimary->isPrimary()) {
+        return;
+    }
+
     Q_FOREACH (KScreen::Output *output, m_outputMap.keys()) {
         if (output == newPrimary) {
             continue;
         }
 
-        output->blockSignals(true);
         output->setPrimary(false);
-        output->blockSignals(false);
     }
 
     Q_EMIT primaryOutputChanged();

@@ -22,7 +22,8 @@
 #include <KPushButton>
 
 IconButton::IconButton(QGraphicsItem *parent):
-    QGraphicsProxyWidget(parent)
+    QGraphicsProxyWidget(parent),
+    m_iconEnabled(true)
 {
     m_button = new KPushButton();
     m_button->setAttribute(Qt::WA_NoSystemBackground);
@@ -39,17 +40,19 @@ IconButton::~IconButton()
 
 QString IconButton::iconName() const
 {
-    return m_button->icon().name();
+    return m_iconName;
 }
 
 void IconButton::setIconName(const QString &iconName)
 {
-    if (m_button->icon().name() == iconName) {
+    if (m_iconName == iconName) {
         return;
     }
 
-    m_button->setIcon(KIcon(iconName));
+    m_iconName = iconName;
     Q_EMIT iconNameChanged();
+
+    loadIcon();
 }
 
 QString IconButton::text() const
@@ -100,3 +103,31 @@ void IconButton::setTooltipText(const QString &text)
     Q_EMIT tooltipTextChanged();
 }
 
+bool IconButton::iconEnabled() const
+{
+    return m_iconEnabled;
+}
+
+void IconButton::setIconEnabled(bool iconEnabled)
+{
+    m_iconEnabled = iconEnabled;
+    Q_EMIT iconEnabledChanged();
+
+    loadIcon();
+}
+
+void IconButton::loadIcon()
+{
+    if (m_iconName.isEmpty()) {
+        return;
+    }
+
+    const KIcon icon(m_iconName);
+    if (m_iconEnabled) {
+        m_button->setIcon(icon);
+    } else {
+        // FIXME: Is there a better way to do this?
+        const QIcon disabled = QIcon(icon.pixmap(iconSize(), QIcon::QIcon::Disabled));
+        m_button->setIcon(disabled);
+    }
+}
