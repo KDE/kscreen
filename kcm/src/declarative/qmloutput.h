@@ -96,8 +96,6 @@ class QMLOutput : public QDeclarativeItem
                WRITE setOutputY
                NOTIFY outputYChanged)
 
-    Q_PROPERTY(float displayScale READ displayScale CONSTANT)
-
   public:
     enum {
       ModeRole = Qt::UserRole,
@@ -145,13 +143,6 @@ class QMLOutput : public QDeclarativeItem
 
     int outputY() const;
     void setOutputY(int y);
-
-    /**
-     * Returns scale in which the output is drawn on the screen.
-     *
-     * @return Currently we use 1/6th scale
-     */
-    float displayScale() const;
 
     Q_INVOKABLE QAbstractItemModel* modesModel();
 

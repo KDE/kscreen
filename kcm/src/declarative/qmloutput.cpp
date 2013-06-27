@@ -266,12 +266,6 @@ void QMLOutput::setOutputY(int y)
     Q_EMIT outputYChanged();
 }
 
-
-float QMLOutput::displayScale() const
-{
-    return (1.0 / 6.0);
-}
-
 KScreen::Mode* QMLOutput::bestMode() const
 {
     if (!m_output) {
@@ -502,8 +496,8 @@ void QMLOutput::moved()
  */
 void QMLOutput::updateRootProperties()
 {
-    const int transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * displayScale();
-    const int transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * displayScale();
+    const int transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * m_screen->outputScale();
+    const int transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * m_screen->outputScale();
 
     const int transformedX = x() + (width() / 2) - (transformedWidth / 2);
     const int transformedY = y() + (height() / 2) - (transformedHeight / 2);

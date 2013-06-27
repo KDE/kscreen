@@ -26,6 +26,7 @@ class QMLOutput;
 
 namespace KScreen {
 class Output;
+class Config;
 }
 
 class QMLScreen : public QDeclarativeItem
@@ -48,6 +49,10 @@ class QMLScreen : public QDeclarativeItem
                READ enabledOutputsCount
                NOTIFY enabledOutputsCountChanged)
 
+    Q_PROPERTY(float outputScale
+               READ outputScale
+               NOTIFY outputScaleChanged)
+
   public:
     explicit QMLScreen(QDeclarativeItem *parent = 0);
     virtual ~QMLScreen();
@@ -61,7 +66,18 @@ class QMLScreen : public QDeclarativeItem
 
     QSize maxScreenSize() const;
 
+    float outputScale() const;
+
+  Q_SIGNALS:
+    void connectedOutputsCountChanged();
+    void enabledOutputsCountChanged();
+    void primaryOutputChanged();
+
+    void outputScaleChanged();
+
   private Q_SLOTS:
+    void loadOutputs();
+
     void outputConnectedChanged();
     void outputEnabledChanged();
     void outputPrimaryChanged();
@@ -69,15 +85,12 @@ class QMLScreen : public QDeclarativeItem
 
     void qmlOutputMoved();
 
-  Q_SIGNALS:
-    void connectedOutputsCountChanged();
-    void enabledOutputsCountChanged();
-    void primaryOutputChanged();
-
   private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
+    void setInitialPosition();
 
+    KScreen::Config *m_config;
     QHash<KScreen::Output*,QMLOutput*> m_outputMap;
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;

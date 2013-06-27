@@ -74,13 +74,6 @@ int main(int argc, char **argv)
     view.resize(900, 800);
     view.show();
 
-    QDeclarativeItem *outputView = view.rootObject()->findChild<QDeclarativeItem*>("outputView");
-    KScreen::Config *cfg = KScreen::Config::current();
-    Q_FOREACH (KScreen::Output *output, cfg->outputs()) {
-        QMetaObject::invokeMethod(outputView, "addOutput",
-                                  Q_ARG(QDeclarativeEngine*, view.engine()),
-                                  Q_ARG(KScreen::Output*, output));
-    }
     /*
     module->resize(800, 600);
     module->show();

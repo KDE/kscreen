@@ -23,8 +23,13 @@
 
 #include <kscreen/output.h>
 #include <kscreen/config.h>
+#include <kscreen/configmonitor.h>
+
+#include <QGraphicsScene>
+#include <QDeclarativeView>
 
 #include <KDebug>
+#include <QTimer>
 
 QMLScreen::QMLScreen(QDeclarativeItem *parent):
     QDeclarativeItem(parent),
@@ -35,6 +40,7 @@ QMLScreen::QMLScreen(QDeclarativeItem *parent):
     m_rightmost(0),
     m_bottommost(0)
 {
+    QTimer::singleShot(0, this, SLOT(loadOutputs()));
 }
 
 QMLScreen::~QMLScreen()
@@ -70,6 +76,25 @@ void QMLScreen::addOutput(QDeclarativeEngine *engine, KScreen::Output *output)
             this, SLOT(qmlOutputMoved()));
 }
 
+void QMLScreen::loadOutputs()
+{
+    const QList<QGraphicsView*> views = scene()->views();
+    Q_ASSERT(!views.isEmpty());
+    QDeclarativeView *view = qobject_cast<QDeclarativeView*>(views.first());
+    Q_ASSERT(view);
+
+    m_config = KScreen::Config::current();
+    KScreen::ConfigMonitor::instance()->addConfig(m_config);
+
+    Q_FOREACH (KScreen::Output *output, m_config->outputs()) {
+        addOutput(view->engine(), output);
+    }
+
+    blockSignals(true);
+    setInitialPosition();
+    blockSignals(false);
+}
+
 int QMLScreen::connectedOutputsCount() const
 {
     return m_connectedOutputsCount;
@@ -93,8 +118,12 @@ QMLOutput *QMLScreen::primaryOutput() const
 
 QSize QMLScreen::maxScreenSize() const
 {
-    KScreen::Config *config = KScreen::Config::current();
-    return config->screen()->maxSize();
+    return m_config->screen()->maxSize();
+}
+
+float QMLScreen::outputScale() const
+{
+    return 1.0 / 6.0;
 }
 
 void QMLScreen::outputConnectedChanged()
@@ -179,10 +208,10 @@ void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
                 continue;
             }
 
-            other->setOutputX(float(other->x() - m_leftmost->x()) / other->displayScale());
+            other->setOutputX(float(other->x() - m_leftmost->x()) / outputScale());
         }
     } else if (m_leftmost) {
-        qmlOutput->setOutputX(float(qmlOutput->x() - m_leftmost->x()) / qmlOutput->displayScale());
+        qmlOutput->setOutputX(float(qmlOutput->x() - m_leftmost->x()) / outputScale());
     }
 
     if (qmlOutput == m_topmost) {
@@ -195,10 +224,10 @@ void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
                 continue;
             }
 
-            other->setOutputY(float(other->y() - m_topmost->y()) / other->displayScale());
+            other->setOutputY(float(other->y() - m_topmost->y()) / outputScale());
         }
     } else if (m_topmost) {
-        qmlOutput->setOutputY(float(qmlOutput->y() - m_topmost->y()) / qmlOutput->displayScale());
+        qmlOutput->setOutputY(float(qmlOutput->y() - m_topmost->y()) / outputScale());
     }
 }
 
@@ -231,6 +260,47 @@ void QMLScreen::updateCornerOutputs()
         if (!other || output->y() + output->height() > other->y() + other->height()) {
             m_bottommost = output;
         }
+    }
+}
+
+void QMLScreen::setInitialPosition()
+{
+    int disabledOffsetX = width();
+    QSizeF activeScreenSize;
+
+    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+        if (!qmlOutput->output()->isConnected()) {
+            continue;
+        }
+
+        if (!qmlOutput->output()->isEnabled()) {
+            disabledOffsetX -= qmlOutput->width();
+            qmlOutput->setPos(disabledOffsetX, 0);
+            continue;
+        }
+
+        if (qmlOutput->outputX() + qmlOutput->currentOutputWidth() > activeScreenSize.width()) {
+            activeScreenSize.setWidth(qmlOutput->outputX() + qmlOutput->currentOutputWidth());
+        }
+        if (qmlOutput->outputY() + qmlOutput->currentOutputHeight() > activeScreenSize.height()) {
+            activeScreenSize.setHeight(qmlOutput->outputY() + qmlOutput->currentOutputHeight());
+        }
+    }
+
+    activeScreenSize *= outputScale();
+
+    const QPointF offset((width() - activeScreenSize.width()) / 2.0,
+                         (height() - activeScreenSize.height()) / 2.0);
+
+    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+        if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
+            continue;
+        }
+
+        qmlOutput->blockSignals(true);
+        qmlOutput->setPos(offset.rx() + (qmlOutput->outputX() * outputScale()),
+                          offset.ry() + (qmlOutput->outputY() * outputScale()));
+        qmlOutput->blockSignals(false);
     }
 }
 

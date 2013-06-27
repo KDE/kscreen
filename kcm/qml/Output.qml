@@ -50,8 +50,8 @@ QMLOutput {
 
         id: monitorMouseArea;
 
-        width: root.currentOutputWidth * root.displayScale;
-        height: root.currentOutputHeight * root.displayScale;
+        width: root.currentOutputWidth * screen.outputScale;
+        height: root.currentOutputHeight * screen.outputScale
 
         anchors.centerIn: parent;
 
