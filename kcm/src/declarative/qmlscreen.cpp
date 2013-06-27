@@ -41,6 +41,9 @@ QMLScreen::QMLScreen(QDeclarativeItem *parent):
     m_bottommost(0)
 {
     QTimer::singleShot(0, this, SLOT(loadOutputs()));
+
+    connect(this, SIGNAL(widthChanged()), this, SLOT(viewSizeChanged()));
+    connect(this, SIGNAL(heightChanged()), this, SLOT(viewSizeChanged()));
 }
 
 QMLScreen::~QMLScreen()
@@ -91,7 +94,7 @@ void QMLScreen::loadOutputs()
     }
 
     blockSignals(true);
-    setInitialPosition();
+    updateOutputsPlacement();
     blockSignals(false);
 }
 
@@ -231,6 +234,10 @@ void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
     }
 }
 
+void QMLScreen::viewSizeChanged()
+{
+    updateOutputsPlacement();
+}
 
 void QMLScreen::updateCornerOutputs()
 {
@@ -263,7 +270,7 @@ void QMLScreen::updateCornerOutputs()
     }
 }
 
-void QMLScreen::setInitialPosition()
+void QMLScreen::updateOutputsPlacement()
 {
     int disabledOffsetX = width();
     QSizeF activeScreenSize;
@@ -298,8 +305,8 @@ void QMLScreen::setInitialPosition()
         }
 
         qmlOutput->blockSignals(true);
-        qmlOutput->setPos(offset.rx() + (qmlOutput->outputX() * outputScale()),
-                          offset.ry() + (qmlOutput->outputY() * outputScale()));
+        qmlOutput->setPos(offset.x() + (qmlOutput->outputX() * outputScale()),
+                          offset.y() + (qmlOutput->outputY() * outputScale()));
         qmlOutput->blockSignals(false);
     }
 }

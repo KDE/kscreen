@@ -85,10 +85,12 @@ class QMLScreen : public QDeclarativeItem
 
     void qmlOutputMoved();
 
+    void viewSizeChanged();
+
   private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
-    void setInitialPosition();
+    void updateOutputsPlacement();
 
     KScreen::Config *m_config;
     QHash<KScreen::Output*,QMLOutput*> m_outputMap;
