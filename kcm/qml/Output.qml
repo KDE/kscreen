@@ -17,7 +17,7 @@
 */
 
 import QtQuick 1.1
-import KScreen 1.0
+import org.kde.kscreen 1.0
 import org.kde.plasma.core 0.1
 
 QMLOutput {
@@ -26,14 +26,12 @@ QMLOutput {
 
     signal clicked(string self);
     signal primaryTriggered(string self);
-    signal moved(string self);
     signal enabledToggled(string self);
     signal mousePressed();
     signal mouseReleased();
 
-    property Item outputView;
     property bool isDragged: monitorMouseArea.drag.active;
-    property bool isDragEnabled: false;
+    property bool isDragEnabled: true;
     property alias isToggleButtonVisible: controls.isToggleButtonVisible;
     property bool hasMoved: false;
 
@@ -42,34 +40,6 @@ QMLOutput {
 
     visible: (opacity > 0);
     opacity: output.connected ? 1.0 : 0.0;
-
-    /* Transformation of an item (rotation of the MouseArea) is only visual.
-     * The coordinates and dimensions are still the same (when you rotated
-     * 100x500 rectangle by 90 deg, it will still be 100x500, although
-     * visually it will be 500x100).
-     *
-     * This method calculates the real-visual coordinates and dimensions of
-     * the MouseArea and updates root item to match them. This makes snapping
-     * works correctly regardless on visual rotation of the output */
-    function updateRootProperties() {
-        var transformedX, transformedY, transformedWidth, transformedHeight;
-
-        if (output.isHorizontal()) {
-            transformedWidth = monitorMouseArea.width;
-            transformedHeight = monitorMouseArea.height;
-        } else {
-            transformedWidth = monitorMouseArea.height;
-            transformedHeight = monitorMouseArea.width;
-        }
-
-        transformedX = root.x + (root.width / 2) - (transformedWidth / 2);
-        transformedY = root.y + (root.height / 2) - (transformedHeight / 2);
-
-        root.x = transformedX;
-        root.y = transformedY;
-        root.width = transformedWidth;
-        root.height = transformedHeight;
-    }
 
     SystemPalette {
 
@@ -80,39 +50,35 @@ QMLOutput {
 
         id: monitorMouseArea;
 
-
-        anchors {
-            centerIn: parent;
-        }
-
-        opacity: (output.enabled) ? 1.0 : 0.3;
         width: root.currentOutputWidth * root.displayScale;
         height: root.currentOutputHeight * root.displayScale;
+
+        anchors.centerIn: parent;
+
+        opacity: root.output.enabled ? 1.0 : 0.5;
         transformOrigin: Item.Center;
         rotation: {
-            if (output.rotation == Output.None) {
+            if (output.rotation == KScreenOutput.None) {
                 return 0
-            } else if (output.rotation == Output.Left) {
+            } else if (output.rotation == KScreenOutput.Left) {
                 return 270
-            } else if (output.rotation == Output.Inverted) {
+            } else if (output.rotation == KScreenOutput.Inverted) {
                 return 180;
             } else {
                 return 90;
             }
         }
 
-        onWidthChanged: updateRootProperties();
-        onHeightChanged: updateRootProperties();
-
         hoverEnabled: true;
         preventStealing: true;
+
         drag {
-            target: root.isDragEnabled ? root : null;
+            target: root;
             axis: Drag.XandYAxis;
             minimumX: 0;
-            maximumX: outputView.maxContentWidth - root.width;
+            maximumX: screen.maxScreenSize.width - root.width;
             minimumY: 0;
-            maximumY: outputView.maxContentHeight - root.height;
+            maximumY: screen.maxScreenSize.height - root.height;
             filterChildren: false;
         }
 
@@ -127,53 +93,10 @@ QMLOutput {
         }
 
         onClicked: root.clicked(root.output.name);
-        onPositionChanged: {
-
-            if ((mouse.buttons == 0) || !root.output.enabled) {
-                return;
-            }
-
-            root.moved(root.output.name);
-
-            if (root.isDragged) {
-                root.hasMoved = true;
-            }
-
-
-            if (x < 0) {
-                x = 0;
-            } else if (x > outputView.maxContentWidth - width) {
-                x = outputView.maxContentWidth - width;
-            } else if (y < 0) {
-                y = 0;
-            } else if (y > outputView.maxContentHeight - height) {
-                y = outputView.maxContentHeight - height;
-            }
-        }
-
-        /* When button is pressed, emit clicked() signal
-         * which is cought by QMLOutputView */
-        onPressed: {
-            root.clicked(root.output.name);
-            if (root.isDragEnabled) {
-                dragTip.opacity = 1.0;
-                root.mousePressed();
-            }
-        }
-        onReleased: {
-            if (root.isDragEnabled) {
-                dragTip.opacity = 0.0;
-                root.mouseReleased();
-            }
-        }
-
-        onRotationChanged: updateRootProperties();
-
 
         /* FIXME: This could be in 'Behavior', but MouseArea had
          * some complaints...to tired to investigate */
         PropertyAnimation {
-
             id: dragActiveChangedAnimation;
 
             target: monitor;
@@ -196,7 +119,7 @@ QMLOutput {
             RotationAnimation {
                 easing.type: "OutCubic"
                 duration: 250;
-                direction: monitor.rotationDirection;
+                direction: RotationAnimation.Counterclockwise;
             }
         }
 
@@ -220,20 +143,46 @@ QMLOutput {
 
             id: monitor;
 
-            property bool enabled: output.enabled;
-            property bool connected: output.connected;
-            property bool primary: output.primary;
-            property int rotationDirection;
+            anchors.fill: parent;
 
             radius: 4;
             color: palette.window;
-            width: parent.width;
-            height: parent.height;
             smooth: true;
 
             border {
                 color: palette.shadow;
                 width: 1;
+            }
+
+            Rectangle {
+
+                id: posLabel;
+
+                anchors {
+                    left: parent.left;
+                    top: parent.top;
+                }
+
+                width: childrenRect.width + 5;
+                height: childrenRect.height + 2;
+
+                radius: 4;
+
+                opacity: root.output.enabled && monitorMouseArea.drag.active ? 1.0 : 0.0;
+                visible: opacity != 0.0;
+
+                color: "#101010";
+
+                Text {
+                    id: posLabelText;
+
+                    text: root.outputX + "," + root.outputY;
+
+                    color: "white";
+
+                    y: 2;
+                    x: 2;
+                }
             }
 
             OutputControls {
@@ -245,7 +194,7 @@ QMLOutput {
                 }
 
                 parentItem: root;
-                rotationDirection: parent.rotationDirection;
+                output: root.output;
                 isToggleButtonVisible: root.isToggleButtonVisible;
 
                 onPrimaryTriggered: root.primaryTriggered(root.output.name);

@@ -1,13 +1,9 @@
 set(QML_FILES
     main.qml
-    IconButton.qml
-    OutputView.qml
     Output.qml
-    OutputIdentifier.qml
     OutputControls.qml
+    OutputIdentifier.qml
     Tip.qml
-
-    OutputView.js
 )
 
 set(QML_PLASMACOMPONENTS_FILES

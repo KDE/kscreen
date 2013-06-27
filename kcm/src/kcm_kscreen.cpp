@@ -18,7 +18,7 @@
 
 
 #include "kcm_kscreen.h"
-#include "qmloutput.h"
+#include "declarative/qmloutput.h"
 #include "qmlcursor.h"
 #include "modeselectionwidget.h"
 #include "fallbackcomponent.h"

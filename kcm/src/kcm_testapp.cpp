@@ -19,9 +19,27 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 #include <KApplication>
-#include <KCModuleLoader>
+//#include <KCModuleLoader>
 
+#include <QDir>
+#include <unistd.h>
+
+#include <QDeclarativeView>
 #include <QDeclarativeDebuggingEnabler>
+#include <QtDeclarative>
+
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/edid.h>
+#include <kscreen/mode.h>
+
+#include "fallbackcomponent.h"
+#include "iconbutton.h"
+#include "qmloutput.h"
+#include "qmlscreen.h"
+#include "modeselectionwidget.h"
+
+Q_DECLARE_METATYPE(KScreen::Output*)
 
 int main(int argc, char **argv)
 {
@@ -32,9 +50,41 @@ int main(int argc, char **argv)
 
     KApplication app;
 
-    KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
+    //KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
+    qmlRegisterType<FallbackComponent>("org.kde.plasma.extras410", 0, 1, "FallbackComponent");
+
+    qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
+    qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
+    qmlRegisterType<IconButton>("org.kde.kscreen", 1, 0, "IconButton");
+    qmlRegisterType<ModeSelectionWidget>("org.kde.kscreen", 1, 0, "ModeSelectionWidget");
+
+    qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
+    qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
+    qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
+
+    QDir cwd = QDir::current();
+    cwd.cdUp();
+    cwd.cdUp();
+    cwd.cd(QLatin1String("kcm/qml"));
+    chdir(cwd.path().toLatin1().constData());
+    QDeclarativeView view;
+    view.engine()->addImportPath(QLatin1String("/usr/lib64/kde4/imports/"));
+    view.setSource(QUrl("main.qml"));
+    view.setResizeMode(QDeclarativeView::SizeRootObjectToView);
+    view.resize(900, 800);
+    view.show();
+
+    QDeclarativeItem *outputView = view.rootObject()->findChild<QDeclarativeItem*>("outputView");
+    KScreen::Config *cfg = KScreen::Config::current();
+    Q_FOREACH (KScreen::Output *output, cfg->outputs()) {
+        QMetaObject::invokeMethod(outputView, "addOutput",
+                                  Q_ARG(QDeclarativeEngine*, view.engine()),
+                                  Q_ARG(KScreen::Output*, output));
+    }
+    /*
     module->resize(800, 600);
     module->show();
+    */
 
     return app.exec();
 }

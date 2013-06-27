@@ -20,7 +20,7 @@ import QtQuick 1.1
 import org.kde.qtextracomponents 0.1
 import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
-import KScreen 1.0
+import org.kde.kscreen 1.0
 
 /* We switched from PlasmaCore.Dialog to PlasmaComponents.Dialog to
    fix bug #312544. Unfortunatelly the component works correctly only
@@ -42,11 +42,11 @@ Item {
         id: theme;
     }
 
-    property int rotationDirection;
     property Item parentItem;
     property int iconSize: theme.iconSizes.toolbar;
     property int fontSize: theme.defaultFont.pointSize;
     property alias isToggleButtonVisible: enabledButton.visible;
+    property KScreenOutput output;
 
     width: parent.width - 36;
     height: parent.height - 20;
@@ -218,33 +218,18 @@ Item {
             id: rotateButton;
 
             iconSize: root.iconSize;
-            enabledIcon: "object-rotate-left";
+            iconName: "object-rotate-left";
             tooltipText: i18n("Rotate output 90° counterclockwise");
 
-            acceptedButtons: Qt.LeftButton | Qt.RightButton;
             onClicked: {
-                if (mouse.button == Qt.LeftButton) {
-                    monitor.rotationDirection = RotationAnimation.Counterclockwise;
-                    if (output.rotation == Output.None) {
-                        output.rotation = Output.Left;
-                    } else if (output.rotation == Output.Left) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
-                        output.rotation = Output.Right;
-                    } else if (output.rotation == Output.Right) {
-                        output.rotation = Output.None;
-                    }
-                } else {
-                    monitor.rotationDirection = RotationAnimation.Clockwise;
-                    if (output.rotation == Output.None) {
-                        output.rotation = Output.Right;
-                    } else if (output.rotation == Output.Right) {
-                        output.rotation = Output.Inverted;
-                    } else if (output.rotation == Output.Inverted) {
-                        output.rotation = Output.Left;
-                    } else if (output.rotation == Output.Left) {
-                        output.rotation = Output.None;
-                    }
+                if (output.rotation == KScreenOutput.None) {
+                    output.rotation = KScreenOutput.Left;
+                } else if (output.rotation == KScreenOutput.Left) {
+                    output.rotation = KScreenOutput.Inverted;
+                } else if (output.rotation == KScreenOutput.Inverted) {
+                    output.rotation = KScreenOutput.Right;
+                } else if (output.rotation == KScreenOutput.Right) {
+                    output.rotation = KScreenOutput.None;
                 }
             }
         }
@@ -255,7 +240,7 @@ Item {
             id: primaryButton;
 
             iconSize: root.iconSize;
-            enabledIcon: "bookmarks";
+            iconName: "bookmarks";
             enabled: (output.enabled && output.primary);
             tooltipText: i18n("Toggle primary output");
 
@@ -276,7 +261,7 @@ Item {
             id: resizeButton;
 
             iconSize: root.iconSize;
-            enabledIcon: "view-restore"
+            iconName: "view-restore"
             tooltipText: i18n("Show list of available display resolutions");
 
             onClicked: selectionDialog.open();
@@ -292,7 +277,7 @@ Item {
         content: [
                 ModeSelectionWidget {
                     id: contentItem;
-                    output: root.parentItem;
+                    output: root.output;
 
                     onAccepted: selectionDialog.close();
                 }

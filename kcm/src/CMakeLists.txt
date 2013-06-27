@@ -1,9 +1,14 @@
-set(kcm_kscreen_SRCS
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
+
+set(kcm_kscreen_SRCS 
     kcm_kscreen.cpp
 
+    declarative/iconbutton.cpp
+    declarative/qmloutput.cpp
+    declarative/qmloutputcomponent.cpp
+    declarative/qmlscreen.cpp
+
     qmlcursor.cpp
-    qmloutputcomponent.cpp
-    qmloutput.cpp
     modesproxymodel.cpp
     modeselectionwidget.cpp
     resolutionsortmodel.cpp
