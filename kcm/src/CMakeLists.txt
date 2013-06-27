@@ -8,7 +8,6 @@ set(kcm_kscreen_SRCS
     declarative/qmloutputcomponent.cpp
     declarative/qmlscreen.cpp
 
-    qmlcursor.cpp
     modesproxymodel.cpp
     modeselectionwidget.cpp
     resolutionsortmodel.cpp

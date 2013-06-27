@@ -19,7 +19,6 @@
 
 #include "kcm_kscreen.h"
 #include "declarative/qmloutput.h"
-#include "qmlcursor.h"
 #include "modeselectionwidget.h"
 #include "fallbackcomponent.h"
 
@@ -142,9 +141,6 @@ void KCMKScreen::load()
     const QString qmlPath = KStandardDirs::locate(
             "data", QLatin1String(QML_PATH "main.qml"));
     m_declarativeView->setSource(qmlPath);
-
-    QMLCursor *cursor = new QMLCursor(m_declarativeView);
-    m_declarativeView->rootContext()->setContextProperty(QLatin1String("_cursor"), cursor);
 
     QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(m_declarativeView->rootObject());
     if (!rootObj) {
