@@ -7,6 +7,7 @@ set(kcm_kscreen_SRCS
     declarative/qmloutput.cpp
     declarative/qmloutputcomponent.cpp
     declarative/qmlscreen.cpp
+    declarative/qmlslider.cpp
 
     modesproxymodel.cpp
     modeselectionwidget.cpp

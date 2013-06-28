@@ -33,11 +33,10 @@
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 
-#include "fallbackcomponent.h"
 #include "iconbutton.h"
 #include "qmloutput.h"
 #include "qmlscreen.h"
-#include "modeselectionwidget.h"
+#include "qmlslider.h"
 
 Q_DECLARE_METATYPE(KScreen::Output*)
 
@@ -51,12 +50,11 @@ int main(int argc, char **argv)
     KApplication app;
 
     //KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
-    qmlRegisterType<FallbackComponent>("org.kde.plasma.extras410", 0, 1, "FallbackComponent");
 
     qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
     qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
+    qmlRegisterType<QMLSlider>("org.kde.kscreen", 1, 0, "QMLSlider");
     qmlRegisterType<IconButton>("org.kde.kscreen", 1, 0, "IconButton");
-    qmlRegisterType<ModeSelectionWidget>("org.kde.kscreen", 1, 0, "ModeSelectionWidget");
 
     qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");

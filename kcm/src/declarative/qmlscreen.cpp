@@ -40,10 +40,13 @@ QMLScreen::QMLScreen(QDeclarativeItem *parent):
     m_rightmost(0),
     m_bottommost(0)
 {
-    QTimer::singleShot(0, this, SLOT(loadOutputs()));
+    m_config = KScreen::Config::current();
+    KScreen::ConfigMonitor::instance()->addConfig(m_config);
 
     connect(this, SIGNAL(widthChanged()), this, SLOT(viewSizeChanged()));
     connect(this, SIGNAL(heightChanged()), this, SLOT(viewSizeChanged()));
+
+    QTimer::singleShot(0, this, SLOT(loadOutputs()));
 }
 
 QMLScreen::~QMLScreen()
@@ -86,16 +89,11 @@ void QMLScreen::loadOutputs()
     QDeclarativeView *view = qobject_cast<QDeclarativeView*>(views.first());
     Q_ASSERT(view);
 
-    m_config = KScreen::Config::current();
-    KScreen::ConfigMonitor::instance()->addConfig(m_config);
-
     Q_FOREACH (KScreen::Output *output, m_config->outputs()) {
         addOutput(view->engine(), output);
     }
 
-    blockSignals(true);
     updateOutputsPlacement();
-    blockSignals(false);
 }
 
 int QMLScreen::connectedOutputsCount() const
@@ -277,7 +275,8 @@ void QMLScreen::updateOutputsPlacement()
     int disabledOffsetX = width();
     QSizeF activeScreenSize;
 
-    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+    Q_FOREACH (QGraphicsItem *item, childItems()) {
+        QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
         if (!qmlOutput->output()->isConnected()) {
             continue;
         }
@@ -301,7 +300,8 @@ void QMLScreen::updateOutputsPlacement()
     const QPointF offset((width() - activeScreenSize.width()) / 2.0,
                          (height() - activeScreenSize.height()) / 2.0);
 
-    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+    Q_FOREACH (QGraphicsItem *item, childItems()) {
+        QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
         if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
             continue;
         }

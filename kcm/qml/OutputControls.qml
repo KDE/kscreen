@@ -22,15 +22,6 @@ import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.kscreen 1.0
 
-/* We switched from PlasmaCore.Dialog to PlasmaComponents.Dialog to
-   fix bug #312544. Unfortunatelly the component works correctly only
-   in KDE 4.10, it does not fix the bug in KDE 4.9 and it misbehaves.
-
-   To support KDE 4.9 (and older) and to make the code still working,
-   we ship our own copy of the Dialog.qml and it's dependencies from
-   kde-runtime/plasma/declarativeimports */
-import "plasmacomponents" as PlasmaComponents410
-
 Item {
 
     id: root;
@@ -256,24 +247,20 @@ Item {
             iconName: "view-restore"
             tooltipText: i18n("Show list of available display resolutions");
 
-            onClicked: selectionDialog.open();
+            onClicked: slider.visible = true;
         }
     }
 
-    PlasmaComponents410.Dialog {
+    QMLSlider {
+        id: slider;
+        visible: false;
 
-        id: selectionDialog;
+        // Dirty hack, but works :)
+        parent: parentItem;
 
-        visualParent: resizeButton;
-
-        content: [
-                ModeSelectionWidget {
-                    id: contentItem;
-                    output: root.output;
-
-                    onAccepted: selectionDialog.close();
-                }
-        ]
-
+        anchors {
+            bottom: parentItem.top;
+            horizontalCenter: parentItem.horizontalCenter;
+        }
     }
 }
