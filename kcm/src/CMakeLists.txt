@@ -1,21 +1,13 @@
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
 set(kcm_kscreen_SRCS 
-    kcm_kscreen.cpp
+#    kcm_kscreen.cpp
 
     declarative/iconbutton.cpp
     declarative/qmloutput.cpp
     declarative/qmloutputcomponent.cpp
     declarative/qmlscreen.cpp
     declarative/qmlslider.cpp
-
-    modesproxymodel.cpp
-    modeselectionwidget.cpp
-    resolutionsortmodel.cpp
-
-    # Copied from kde-runtime/plasma/declarativeimports/plasmaextracomponents
-    # as a dependency of qml/plasmacomponents/private/InlineDialog.qml
-    fallbackcomponent.cpp
 )
 
 qt4_automoc(${kcm_kscreen_SRCS})
