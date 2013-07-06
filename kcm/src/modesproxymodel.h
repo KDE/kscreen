@@ -21,7 +21,6 @@
 
 #include <QSortFilterProxyModel>
 
-class KComboBox;
 
 class ModesProxyModel : public QSortFilterProxyModel
 {

@@ -22,7 +22,6 @@
 #include <QtCore/QObject>
 
 class QDBusPendingCallWatcher;
-class OrgFreedesktopUPowerInterface;
 class OrgFreedesktopDBusPropertiesInterface;
 class Device : public QObject
 {

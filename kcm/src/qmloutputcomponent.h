@@ -22,7 +22,6 @@
 
 #include <QDeclarativeComponent>
 
-class QDeclarativeContext;
 class QDeclarativeEngine;
 class QMLOutput;
 

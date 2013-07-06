@@ -25,7 +25,6 @@
 #include <kscreen/output.h>
 #include <kscreen/mode.h>
 
-class Device;
 namespace KScreen
 {
     class Config;

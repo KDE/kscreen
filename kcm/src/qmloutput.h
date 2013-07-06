@@ -26,7 +26,6 @@
 class QStandardItemModel;
 class QAbstractItemModel;
 
-class ModesProxyModel;
 namespace KScreen {
 class Output;
 }
