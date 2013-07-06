@@ -460,3 +460,5 @@ void Generator::setForceDocked(bool force)
 {
     m_forceDocked = force;
 }
+
+#include "generator.moc"

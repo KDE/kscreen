@@ -48,3 +48,5 @@ bool ResolutionSortModel::lessThan(const QModelIndex& left, const QModelIndex& r
     return false;
 }
 
+
+#include "resolutionsortmodel.moc"

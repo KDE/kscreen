@@ -188,3 +188,5 @@ KScreen::Mode* QMLOutput::bestMode() const
 
     return bestMode;
 }
+
+#include "qmloutput.moc"

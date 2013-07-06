@@ -124,3 +124,5 @@ void ModesProxyModel::setSourceModelCurrentRow(int index)
 {
     m_currentSourceRow = index;
 }
+
+#include "modesproxymodel.moc"

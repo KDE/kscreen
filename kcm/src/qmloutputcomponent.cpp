@@ -64,3 +64,5 @@ QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output* output)
 
     return dynamic_cast<QMLOutput*>(instance);
 }
+
+#include "qmloutputcomponent.moc"

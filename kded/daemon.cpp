@@ -260,3 +260,5 @@ void KScreenDaemon::disableMonitor(KScreen::Output* output)
     disconnect(output, SIGNAL(posChanged()), this, SLOT(configChanged()));
     disconnect(output, SIGNAL(rotationChanged()), this, SLOT(configChanged()));
 }
+
+#include "daemon.moc"

@@ -156,3 +156,5 @@ void Device::fetchIsDocked()
 {
     setReady();
 }
+
+#include "device.moc"

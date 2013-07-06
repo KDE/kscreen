@@ -283,3 +283,5 @@ void KCMKScreen::outputMouseReleased()
 {
     m_declarativeView->setCursor(Qt::ArrowCursor);
 }
+
+#include "kcm_kscreen.moc"
