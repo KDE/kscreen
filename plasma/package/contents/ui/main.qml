@@ -44,7 +44,7 @@ Item {
             right: parent.right
         }
 
-        text: i18n("A new display %1 has been detected", root.displayName);
+        text: i18nc("%1 is name of the newly connected display", "A new display %1 has been detected", root.displayName);
         wrapMode: Text.WordWrap;
         horizontalAlignment: Text.AlignHCenter
     }
@@ -88,7 +88,7 @@ Item {
             id: extendRight;
 
             icon: "go-next";
-            label: qsTr("Extend to Right");
+            label: i18nc("Places the newly connected screen right of the existing one", "Extend to Right");
 
             onClicked: root.applyAction(KScreenApplet.ActionExtendRight);
         }
@@ -98,7 +98,7 @@ Item {
             id: extendLeft;
 
             icon: "go-previous";
-            label: qsTr("Extend to Left");
+            label: i18nc("Places the newly connected screen left of the existing one", "Extend to Left");
 
             onClicked: root.applyAction(KScreenApplet.ActionExtendLeft);
         }
@@ -108,7 +108,7 @@ Item {
             id: clone;
 
             icon: "window-duplicate";
-            label: qsTr("Clone Primary Output");
+            label: i18nc("Makes the newly conencted screen a clone of the primary one", "Clone Primary Output");
 
             onClicked: root.applyAction(KScreenApplet.ActionClone);
         }
@@ -118,7 +118,7 @@ Item {
             id: disable;
 
             icon: "window-close";
-            label: qsTr("Disable");
+            label: i18nc("Disables the newly connected screen",  "Disable");
 
             onClicked: root.applyAction(KScreenApplet.ActionDisable);
         }
@@ -128,7 +128,7 @@ Item {
             id: noAction;
 
             icon: "dialog-cancel";
-            label: qsTr("No Action");
+            label: i18n("No Action");
 
             onClicked: root.applyAction(KScreenApplet.ActionNoAction);
         }
@@ -138,7 +138,7 @@ Item {
             id: runKCM;
 
             icon: "preferences-system";
-            label: qsTr("Advanced Configuration");
+            label: i18nc("Opens KScreen KCM", "Advanced Configuration");
 
             onClicked: root.runKCM();
         }
