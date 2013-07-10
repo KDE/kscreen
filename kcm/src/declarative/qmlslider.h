@@ -21,10 +21,12 @@
 #define QMLSLIDER_H
 
 #include <QGraphicsProxyWidget>
+#include <QDeclarativeListProperty>
 
 class QSlider;
 namespace KScreen {
 class Output;
+class Mode;
 }
 
 
@@ -37,6 +39,10 @@ class QMLSlider : public QGraphicsProxyWidget
                WRITE setOutput
                NOTIFY outputChanged)
 
+    Q_PROPERTY(QDeclarativeListProperty<KScreen::Mode> modes
+               READ modes
+               NOTIFY modesChanged)
+
   public:
     explicit QMLSlider(QGraphicsItem *parent = 0);
     virtual ~QMLSlider();
@@ -44,12 +50,20 @@ class QMLSlider : public QGraphicsProxyWidget
     KScreen::Output *output() const;
     void setOutput(KScreen::Output *output);
 
+    QDeclarativeListProperty<KScreen::Mode> modes();
+
   Q_SIGNALS:
     void outputChanged();
+    void modesChanged();
+
+  private Q_SLOTS:
+    void slotSliderMoved();
 
   private:
     QSlider *m_slider;
     KScreen::Output *m_output;
+
+    QList<KScreen::Mode*> m_modes;
 
 };
 

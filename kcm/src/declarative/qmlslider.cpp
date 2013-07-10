@@ -20,8 +20,11 @@
 #include "qmlslider.h"
 
 #include <QSlider>
+
 #include <kscreen/output.h>
 #include <kscreen/mode.h>
+
+#include <KDebug>
 
 QMLSlider::QMLSlider(QGraphicsItem *parent):
     QGraphicsProxyWidget(parent),
@@ -30,6 +33,14 @@ QMLSlider::QMLSlider(QGraphicsItem *parent):
     m_slider = new QSlider(Qt::Horizontal);
     m_slider->setAttribute(Qt::WA_NoSystemBackground);
     m_slider->setTickPosition(QSlider::TicksAbove);
+    m_slider->setTickInterval(1);
+
+    m_slider->setMinimum(0);
+    m_slider->setMaximum(0);
+    m_slider->setSingleStep(1);
+
+    connect(m_slider, SIGNAL(valueChanged(int)),
+            this, SLOT(slotSliderMoved()));
 
     setWidget(m_slider);
 }
@@ -44,13 +55,62 @@ KScreen::Output *QMLSlider::output() const
     return m_output;
 }
 
+bool cmpModeByArea(KScreen::Mode *modeA, KScreen::Mode *modeB)
+{
+    const QSize sizeA = modeA->size();
+    const int areaA = sizeA.width() * sizeA.height();
+    const QSize sizeB = modeB->size();
+    const int areaB = sizeB.width() * sizeB.height();
+
+    if (areaA == areaB) {
+        if (sizeA == sizeB) {
+            return modeA->refreshRate() < modeB->refreshRate();
+        }
+
+        if (sizeA.width() == sizeB.width()) {
+            return sizeA.height() < sizeB.height();
+        }
+
+        return sizeA.width() < sizeB.width();
+    }
+
+    return areaA < areaB;
+}
+
 void QMLSlider::setOutput(KScreen::Output *output)
 {
     Q_ASSERT(m_output == 0);
 
     m_output = output;
     Q_EMIT outputChanged();
+
+    if (output) {
+        m_modes = m_output->modes().values();
+        qSort(m_modes.begin(), m_modes.end(), cmpModeByArea);
+
+        m_slider->blockSignals(true);
+        m_slider->setMaximum(m_modes.count() - 1);
+        m_slider->setValue(m_modes.indexOf(output->currentMode()));
+        m_slider->blockSignals(false);
+
+        Q_EMIT modesChanged();
+    }
 }
+
+QDeclarativeListProperty<KScreen::Mode> QMLSlider::modes()
+{
+    return QDeclarativeListProperty<KScreen::Mode>(this, m_modes);
+}
+
+void QMLSlider::slotSliderMoved()
+{
+    Q_ASSERT(m_slider->value() < m_modes.count() );
+
+    KScreen::Mode *mode = m_modes.at(m_slider->value());
+
+    m_output->setCurrentModeId(mode->id());
+}
+
 
 
 #include "qmlslider.moc"

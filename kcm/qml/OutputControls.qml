@@ -193,6 +193,33 @@ Item {
         }
     }
 
+    Text {
+
+        id: resolutionText;
+
+        anchors {
+            top: enabledButton.bottom;
+            topMargin: 5;
+            horizontalCenter: parent.horizontalCenter;
+        }
+
+        color: palette.text;
+        font {
+            family: theme.defaultFont.family;
+            capitalization: theme.defaultFont.capitalization;
+            italic: theme.defaultFont.italic;
+            letterSpacing: theme.defaultFont.letterSpacing;
+            strikeout: theme.defaultFont.strikeout;
+            underline: theme.defaultFont.underline;
+            weight: theme.defaultFont.weight;
+            wordSpacing: theme.defaultFont.wordSpacing;
+            pointSize: root.fontSize;
+        }
+
+        text: (output && output.currentModeId === "") ? "" : 
+            output.currentMode().size.width + "x" + output.currentMode().size.height + " @ " + Math.round(output.currentMode().refreshRate, 1) + "Hz";
+    }
+
     Row {
         anchors {
             horizontalCenter: parent.horizontalCenter;
@@ -247,20 +274,25 @@ Item {
             iconName: "view-restore"
             tooltipText: i18n("Show list of available display resolutions");
 
-            onClicked: slider.visible = true;
+            onClicked: slider.visible = !slider.visible;
         }
     }
 
-    QMLSlider {
+    ResolutionSlider {
         id: slider;
         visible: false;
 
         // Dirty hack, but works :)
         parent: parentItem;
 
+        output: root.output;
+
+        width: 250;
+
         anchors {
             bottom: parentItem.top;
             horizontalCenter: parentItem.horizontalCenter;
         }
+
     }
 }

@@ -71,6 +71,8 @@ void QMLOutput::setOutput(KScreen::Output *output)
 
     connect(m_output, SIGNAL(rotationChanged()),
             this, SLOT(updateRootProperties()));
+    connect(m_output, SIGNAL(currentModeIdChanged()),
+            this, SLOT(currentModeIdChanged()));
 }
 
 QMLScreen *QMLOutput::screen() const
@@ -231,6 +233,30 @@ int QMLOutput::currentOutputWidth() const
 
     return mode->size().width();
 }
+
+void QMLOutput::currentModeIdChanged()
+{
+    if (!m_output) {
+        return;
+    }
+
+    if (m_rightDock) {
+        QMLOutput *rightDock = m_rightDock;
+        float newWidth = currentOutputWidth() * m_screen->outputScale();
+        setX(rightDock->x() - newWidth);
+        setRightDockedTo(rightDock);
+    }
+
+    if (m_bottomDock) {
+        QMLOutput *bottomDock = m_bottomDock;
+        float newHeight = currentOutputHeight() * m_screen->outputScale();
+        setY(bottomDock->y() - newHeight);
+        setBottomDockedTo(bottomDock);
+    }
+
+    Q_EMIT currentOutputSizeChanged();
+}
+
 
 int QMLOutput::outputX() const
 {
@@ -460,19 +486,19 @@ void QMLOutput::moved()
         }
 
         if (!maybeSnapTo(otherOutput)) {
-            if (m_leftDock) {
+            if (m_leftDock == otherOutput) {
                 m_leftDock->undockRight();
                 undockLeft();
             }
-            if (m_topDock) {
+            if (m_topDock == otherOutput) {
                 m_topDock->undockBottom();
                 undockTop();
             }
-            if (m_rightDock) {
+            if (m_rightDock == otherOutput) {
                 m_rightDock->undockLeft();
                 undockRight();
             }
-            if (m_bottomDock) {
+            if (m_bottomDock == otherOutput) {
                 m_bottomDock->undockTop();
                 undockBottom();
             }

@@ -170,6 +170,7 @@ class QMLOutput : public QDeclarativeItem
 
   private Q_SLOTS:
     void moved();
+    void currentModeIdChanged();
 
   private:
     /**
