@@ -48,7 +48,7 @@ public:
     FallbackComponent(QObject *parent = 0);
 
     /**
-    * This method must be called after the the basePath and the candidates property
+    * This method must be called after the basePath and the candidates property
     * This method resolves a file path based on the base path and the candidates.
     * it searches for a file named key under basepath/candidate/key, and returns
     * the path constructed with the first candidate that matches, if any.
