@@ -124,6 +124,10 @@ bool Serializer::saveConfig(KScreen::Config* config)
 
         if (output->isEnabled()) {
             KScreen::Mode *mode = output->currentMode();
+            if (!mode) {
+                kWarning() << "CurrentMode is null" << output->name();
+                return false;
+            }
 
             QVariantMap modeInfo;
             modeInfo["refresh"] = mode->refreshRate();
