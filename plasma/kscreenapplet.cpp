@@ -263,7 +263,7 @@ void KScreenApplet::slotResetApplet()
 void KScreenApplet::slotConfigurationChanged()
 {
     KScreen::Config *config = KScreen::Config::current();
-    if (!config->isValid()) {
+    if (!config || !config->isValid()) {
         setStatus(Plasma::PassiveStatus);
         return;
     }
