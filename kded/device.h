@@ -34,12 +34,14 @@ class Device : public QObject
         bool isLaptop();
         bool isLidClosed();
         bool isDocked();
+        bool nothingOnLidClose();
 
     private Q_SLOTS:
         void init();
         void changed();
         void isLaptopFetched(QDBusPendingCallWatcher* watcher);
         void isLidClosedFetched(QDBusPendingCallWatcher* watcher);
+        void lidActionFetched(QDBusPendingCallWatcher* watcher);
 
     Q_SIGNALS:
         void ready();
@@ -53,11 +55,13 @@ class Device : public QObject
         void fetchIsLaptop();
         void fetchLidIsClosed();
         void fetchIsDocked();
+        void fetchLidAction();
 
         bool m_isReady;
         bool m_isLaptop;
         bool m_isLidClosed;
         bool m_isDocked;
+        bool m_nothingOnLidClose;
 
         static Device* m_instance;
 

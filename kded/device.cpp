@@ -19,6 +19,8 @@
 #include "device.h"
 #include "kded/freedesktop_interface.h"
 
+#include <QDBusServiceWatcher>
+
 #include <kdebug.h>
 
 Device* Device::m_instance = 0;
@@ -44,6 +46,7 @@ Device::Device(QObject* parent)
  , m_isLaptop(false)
  , m_isLidClosed(false)
  , m_isDocked(false)
+ , m_nothingOnLidClose(false)
 {
     m_freedesktop = new OrgFreedesktopDBusPropertiesInterface("org.freedesktop.UPower",
                                                               "/org/freedesktop/UPower",
@@ -51,6 +54,13 @@ Device::Device(QObject* parent)
 
     QDBusConnection::systemBus().connect("org.freedesktop.UPower", "/org/freedesktop/UPower", 
                                          "org.freedesktop.UPower", "Changed", this, SLOT(changed()));
+
+
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
+        QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement", QDBusConnection::sessionBus());
+        connect(watcher, SIGNAL(serviceRegistered(QString)), SLOT(init()));
+        return;
+    }
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
@@ -98,6 +108,11 @@ bool Device::isLidClosed()
 bool Device::isDocked()
 {
     return m_isDocked;
+}
+
+bool Device::nothingOnLidClose()
+{
+    return m_nothingOnLidClose;
 }
 
 void Device::fetchIsLaptop()
@@ -154,7 +169,36 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
 
 void Device::fetchIsDocked()
 {
+    fetchLidAction();
+}
+
+void Device::fetchLidAction()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement",
+                                   "/org/kde/Solid/PowerManagement/Actions/HandleButtonEvents",
+                                   "org.kde.Solid.PowerManagement.Actions.HandleButtonEvents",
+                                   "lidAction");
+    QDBusPendingReply<int> res = QDBusConnection::sessionBus().asyncCall(msg);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(res);
+    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(lidActionFetched(QDBusPendingCallWatcher*)));
+}
+
+void Device::lidActionFetched(QDBusPendingCallWatcher* watcher)
+{
+    const QDBusPendingReply<int> reply = *watcher;
+    if (reply.isError()) {
+        kDebug() << "Couldn't the lidAction" << reply.error().message();
+        setReady();
+        return;
+    }
+
+    m_nothingOnLidClose = reply.value() == 0;
+    kDebug() << "NothingOnLidClose: " << m_nothingOnLidClose;
+
+    watcher->deleteLater();
+
     setReady();
 }
+
 
 #include "device.moc"
