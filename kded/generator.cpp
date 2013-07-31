@@ -82,11 +82,16 @@ KScreen::Config* Generator::idealConfig()
 
     if (isLaptop()) {
         laptop(outputs);
-        return config;
+        return fallbackIfNeeded(config);
     }
 
     extendToRight(outputs);
 
+    return fallbackIfNeeded(config);
+}
+
+KScreen::Config* Generator::fallbackIfNeeded(KScreen::Config* config)
+{
     //If the ideal config can't be applied, try clonning
     if (!KScreen::Config::canBeApplied(config)) {
         delete config;

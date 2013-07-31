@@ -50,6 +50,8 @@ class Generator : public QObject
         explicit Generator();
         virtual ~Generator();
 
+        KScreen::Config* fallbackIfNeeded(KScreen::Config *config);
+
         void laptop(KScreen::OutputList& outputs);
 
         void singleOutput(KScreen::OutputList& outputs);
