@@ -87,6 +87,18 @@ KScreen::Config* Generator::idealConfig()
 
     extendToRight(outputs);
 
+    //If the ideal config can't be applied, try clonning
+    if (!KScreen::Config::canBeApplied(config)) {
+        delete config;
+        config = displaySwitch(1);// Try to clone at our best
+    }
+
+    //If after trying to clone at our best, we fail... return current
+    if (!KScreen::Config::canBeApplied(config)) {
+        delete config;
+        config = KScreen::Config::current();
+    }
+
     return config;
 }
 
