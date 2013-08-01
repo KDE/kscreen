@@ -1,6 +1,6 @@
 project(kscreen)
 
-set(KSCREEN_VERSION 1.0.0)
+set(KSCREEN_VERSION 1.0.1)
 set(KSCREEN_STR_VERSION \"${KSCREEN_VERSION}\")
 
 add_definitions("-DKSCREEN_VERSION=\\\"${KSCREEN_VERSION}\\\"")
