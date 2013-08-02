@@ -82,6 +82,7 @@ void Console::printConfig()
         qDebug() << "Primary: " << output->isPrimary();
         qDebug() << "Rotation: " << output->rotation();
         qDebug() << "Pos: " << output->pos();
+        qDebug() << "MMSize: " << output->sizeMm();
         if (output->currentMode()) {
             qDebug() << "Size: " << output->currentMode()->size();
         }
