@@ -135,9 +135,9 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
     if (iteration == 1) {
         kDebug() << "Cloning";
-        KScreen::ModeList modes = embedded->modes();
+        KScreen::ModeList embeddedModes = embedded->modes();
         QMap<QString, QSize> embeddedModeSize;
-        Q_FOREACH(KScreen::Mode* mode, modes) {
+        Q_FOREACH(KScreen::Mode* mode, embeddedModes) {
             embeddedModeSize.insert(mode->id(), mode->size());
         }
 
@@ -153,11 +153,11 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
         KScreen::ModeList embeddedCommon;
         Q_FOREACH(const QString& key, embeddedKeys) {
-            embeddedCommon.insert(key, modes[key]);
+            embeddedCommon.insert(key, embeddedModes[key]);
         }
 
-        KScreen::Mode* biggestEmbedded = biggestMode(embeddedCommon);
-        KScreen::Mode* biggestExternal = biggestMode(externalCommon);
+        KScreen::Mode* biggestEmbedded = !embeddedCommon.empty() ? biggestMode(embeddedCommon) : biggestMode(embeddedModes);
+        KScreen::Mode* biggestExternal = !externalCommon.empty() ? biggestMode(externalCommon) : biggestMode(externalModes);
 
         embedded->setEnabled(true);
         embedded->setPos(QPoint(0,0));
