@@ -7,7 +7,9 @@ set(kcm_kscreen_SRCS
     declarative/qmloutput.cpp
     declarative/qmloutputcomponent.cpp
     declarative/qmlscreen.cpp
-    declarative/qmlslider.cpp
+
+    controlpanel.cpp
+    widget.cpp
 )
 
 qt4_automoc(${kcm_kscreen_SRCS})

@@ -31,7 +31,7 @@ QMLOutput {
 
     property bool isDragged: monitorMouseArea.drag.active;
     property bool isDragEnabled: true;
-    property alias isToggleButtonVisible: controls.isToggleButtonVisible;
+    property bool isToggleButtonVisible: false;
     property bool hasMoved: false;
 
     width: monitorMouseArea.width;
@@ -184,20 +184,8 @@ QMLOutput {
                 }
             }
 
-            OutputControls {
-
-                id: controls;
-
-                anchors {
-                    centerIn: parent;
-                }
-
-                parentItem: root;
-                output: root.output;
-                isToggleButtonVisible: root.isToggleButtonVisible;
-
-                onPrimaryTriggered: root.primaryTriggered(root.output.name);
-                onEnabledToggled: root.enabledToggled(root.output.name);
+            Text {
+                text: root.output.name;
             }
 
             Rectangle {
