@@ -68,45 +68,15 @@ Item {
                 clip: true;
 
                 objectName: "outputView";
-
-                /*
-                maxContentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
-                maxContentHeight: virtualScreen ? virtualScreen.maxSize.width : root.width;
-                */
             }
         }
-
-        /*
-        PlasmaComponents.ScrollBar {
-
-            id: horizontalScrollbar;
-
-            // The scrollbars seem to have broken anchoring? 
-            y: background.height - height;
-            width: background.width - verticalScrollbar.width;
-
-            orientation: Qt.Horizontal;
-            flickableItem: outputView;
-        }
-
-        PlasmaComponents.ScrollBar {
-
-            id: verticalScrollbar;
-
-            x: background.width - width;
-            height: background.height - horizontalScrollbar.height;
-
-            orientation: Qt.Vertical;
-            flickableItem: outputView;
-        }
-        */
 
         Column {
 
             anchors {
                 left: parent.left;
                 right: identifyButton.left;
-                bottom: horizontalScrollbar.top;
+                bottom: parent.bottom;
                 margins: 5;
             }
 
@@ -134,8 +104,8 @@ Item {
             id: identifyButton;
 
             anchors {
-                right: verticalScrollbar.left;
-                bottom: horizontalScrollbar.top;
+                right: parent.right;
+                bottom: parent.bottom
                 margins: 5;
             }
 

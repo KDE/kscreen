@@ -37,6 +37,7 @@
 #include "qmloutput.h"
 #include "qmlscreen.h"
 #include "qmlslider.h"
+#include "widget.h"
 
 Q_DECLARE_METATYPE(KScreen::Output*)
 
@@ -50,27 +51,9 @@ int main(int argc, char **argv)
     KApplication app;
 
     //KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
-
-    qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
-    qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
-    qmlRegisterType<QMLSlider>("org.kde.kscreen", 1, 0, "QMLSlider");
-    qmlRegisterType<IconButton>("org.kde.kscreen", 1, 0, "IconButton");
-
-    qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
-    qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
-    qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
-
-    QDir cwd = QDir::current();
-    cwd.cdUp();
-    cwd.cdUp();
-    cwd.cd(QLatin1String("kcm/qml"));
-    chdir(cwd.path().toLatin1().constData());
-    QDeclarativeView view;
-    view.engine()->addImportPath(QLatin1String("/usr/lib64/kde4/imports/"));
-    view.setSource(QUrl("main.qml"));
-    view.setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    view.resize(900, 800);
-    view.show();
+    Widget widget;
+    widget.resize(800, 600);
+    widget.show();
 
     /*
     module->resize(800, 600);
