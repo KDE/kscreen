@@ -21,25 +21,9 @@
 #include <KApplication>
 //#include <KCModuleLoader>
 
-#include <QDir>
-#include <unistd.h>
-
-#include <QDeclarativeView>
 #include <QDeclarativeDebuggingEnabler>
-#include <QtDeclarative>
 
-#include <kscreen/config.h>
-#include <kscreen/output.h>
-#include <kscreen/edid.h>
-#include <kscreen/mode.h>
-
-#include "iconbutton.h"
-#include "qmloutput.h"
-#include "qmlscreen.h"
-#include "qmlslider.h"
 #include "widget.h"
-
-Q_DECLARE_METATYPE(KScreen::Output*)
 
 int main(int argc, char **argv)
 {

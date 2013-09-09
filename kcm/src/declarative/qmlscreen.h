@@ -84,6 +84,7 @@ class QMLScreen : public QDeclarativeItem
     void outputPositionChanged();
 
     void qmlOutputMoved();
+    void qmlOutputClicked();
 
     void viewSizeChanged();
 

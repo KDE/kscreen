@@ -30,6 +30,7 @@
 
 #include <KDebug>
 #include <QTimer>
+#include <sys/socket.h>
 
 QMLScreen::QMLScreen(QDeclarativeItem *parent):
     QDeclarativeItem(parent),
@@ -67,6 +68,7 @@ void QMLScreen::addOutput(QDeclarativeEngine *engine, KScreen::Output *output)
     m_outputMap.insert(output, qmloutput);
 
     qmloutput->setParentItem(this);
+    qmloutput->setZValue(m_outputMap.count());
 
     connect(output, SIGNAL(isConnectedChanged()),
             this, SLOT(outputConnectedChanged()));
@@ -80,6 +82,8 @@ void QMLScreen::addOutput(QDeclarativeEngine *engine, KScreen::Output *output)
             this, SLOT(qmlOutputMoved()));
     connect(qmloutput, SIGNAL(xChanged()),
             this, SLOT(qmlOutputMoved()));
+    connect(qmloutput, SIGNAL(clicked()),
+            this, SLOT(qmlOutputClicked()));
 }
 
 void QMLScreen::loadOutputs()
@@ -115,6 +119,18 @@ QMLOutput *QMLScreen::primaryOutput() const
     }
 
     return 0;
+}
+
+void QMLScreen::qmlOutputClicked()
+{
+    QMLOutput *clickedOutput = qobject_cast<QMLOutput*>(sender());
+    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+        if (qmlOutput->zValue() > clickedOutput->zValue()) {
+            qmlOutput->setZValue(qmlOutput->zValue() - 1);
+        }
+    }
+
+    clickedOutput->setZValue(m_outputMap.count());
 }
 
 QSize QMLScreen::maxScreenSize() const

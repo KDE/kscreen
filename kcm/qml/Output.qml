@@ -23,7 +23,7 @@ QMLOutput {
 
     id: root;
 
-    signal clicked(string self);
+    signal clicked();
     signal primaryTriggered(string self);
     signal enabledToggled(string self);
     signal mousePressed();
@@ -91,7 +91,7 @@ QMLOutput {
             dragActiveChangedAnimation.running = true;
         }
 
-        onClicked: root.clicked(root.output.name);
+        onPressed: root.clicked();
 
         /* FIXME: This could be in 'Behavior', but MouseArea had
          * some complaints...to tired to investigate */

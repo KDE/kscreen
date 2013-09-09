@@ -73,6 +73,11 @@ void Widget::loadQml()
     m_declarativeView->setSource(QUrl::fromLocalFile(file));
 
     QGraphicsObject *rootObject = m_declarativeView->rootObject();
+    QMLScreen *screen = rootObject->findChild<QMLScreen*>(QLatin1String("outputView"));
+    if (!screen) {
+        return;
+    }
+
 }
 
 #include "widget.moc"
