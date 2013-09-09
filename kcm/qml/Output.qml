@@ -18,7 +18,6 @@
 
 import QtQuick 1.1
 import org.kde.kscreen 1.0
-import org.kde.plasma.core 0.1
 
 QMLOutput {
 

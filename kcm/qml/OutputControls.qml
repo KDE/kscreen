@@ -18,7 +18,6 @@
 
 import QtQuick 1.1
 import org.kde.qtextracomponents 0.1
-import org.kde.plasma.components 0.1 as PlasmaComponents;
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.kscreen 1.0
 
@@ -36,7 +35,7 @@ Item {
     property Item parentItem;
     property int iconSize: theme.iconSizes.toolbar;
     property int fontSize: theme.defaultFont.pointSize;
-    property alias isToggleButtonVisible: enabledButton.visible;
+    property bool isToggleButtonVisible: true;
     property KScreenOutput output;
 
     width: parent.width - 36;
@@ -55,22 +54,16 @@ Item {
         if ((width < 100) || (height < 80)) {
             monitorName.visible = false;
             outputNameAndSize.anchors.top = root.top;
-            enabledButton.scale = 0.4;
-            enabledButton.anchors.topMargin = 0;
             root.fontSize = theme.smallestFont.pointSize;
             root.iconSize = theme.iconSizes.small;
         } else if ((width < 120) || (height < 100)) {
             monitorName.visible = true;
             outputNameAndSize.anchors.top = monitorName.bottom;
-            enabledButton.scale = 0.6;
-            enabledButton.anchors.topMargin = 2;
             root.fontSize = theme.smallestFont.pointSize;
             root.iconSize = theme.iconSizes.small;
         } else {
             monitorName.visible = true;
             outputNameAndSize.anchors.top = monitorName.bottom;
-            enabledButton.scale = 0.8
-            enabledButton.anchors.topMargin = 4;
             root.fontSize = theme.defaultFont.pointSize;
             root.iconSize = theme.iconSizes.toolbar;
         }
@@ -162,6 +155,7 @@ Item {
     }
 
     /* Enable/Disable output */
+    /*
     PlasmaComponents.Switch {
 
         id: enabledButton;
@@ -176,7 +170,7 @@ Item {
         checked: output.enabled;
 
         onCheckedChanged: {
-            /* FIXME: This should be in KScreen */
+            //  FIXME: This should be in KScreen
             if (output.enabled != enabledButton.checked) {
                 output.enabled = enabledButton.checked;
             }
@@ -192,6 +186,7 @@ Item {
             }
         }
     }
+    */
 
     Text {
 
