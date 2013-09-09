@@ -130,7 +130,9 @@ KScreen::Config* Generator::displaySwitch(int iteration)
 
     KScreen::Output* embedded, *external;
     embedded = embeddedOutput(outputs);
-    outputs.remove(embedded->id());
+    if (embedded) {
+        outputs.remove(embedded->id());
+    }
     external = outputs.value(outputs.keys().first());
 
     if (iteration == 1) {
