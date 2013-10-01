@@ -168,6 +168,7 @@ class QMLOutput : public QDeclarativeItem
     void outputYChanged();
     void outputXChanged();
 
+
   private Q_SLOTS:
     void moved();
     void currentModeIdChanged();

@@ -68,12 +68,16 @@ class QMLScreen : public QDeclarativeItem
 
     float outputScale() const;
 
+    KScreen::Config* config() const;
+
   Q_SIGNALS:
     void connectedOutputsCountChanged();
     void enabledOutputsCountChanged();
     void primaryOutputChanged();
 
     void outputScaleChanged();
+
+    void focusedOutputChanged(QMLOutput *output);
 
   private Q_SLOTS:
     void loadOutputs();

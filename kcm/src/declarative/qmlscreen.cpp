@@ -131,6 +131,8 @@ void QMLScreen::qmlOutputClicked()
     }
 
     clickedOutput->setZValue(m_outputMap.count());
+    clickedOutput->setFocus(true);
+    Q_EMIT focusedOutputChanged(clickedOutput);
 }
 
 QSize QMLScreen::maxScreenSize() const
@@ -140,7 +142,7 @@ QSize QMLScreen::maxScreenSize() const
 
 float QMLScreen::outputScale() const
 {
-    return 1.0 / 6.0;
+    return 1.0 / 8.0;
 }
 
 void QMLScreen::outputConnectedChanged()
@@ -327,6 +329,11 @@ void QMLScreen::updateOutputsPlacement()
                           offset.y() + (qmlOutput->outputY() * outputScale()));
         qmlOutput->blockSignals(false);
     }
+}
+
+KScreen::Config *QMLScreen::config() const
+{
+    return m_config;
 }
 
 

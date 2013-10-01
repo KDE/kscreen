@@ -184,8 +184,48 @@ QMLOutput {
                 }
             }
 
-            Text {
-                text: root.output.name;
+            Item {
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
+                    verticalCenter: parent.verticalCenter;
+                }
+
+                Text {
+                    id: labelVendor;
+                    text: if (root.output.type == KScreenOutput.Panel) {
+                            return qsTr("Laptop Screen");
+                          } else if (root.output.edid && root.output.edid.vendor) {
+                            return root.output.edid.vendor;
+                          } else {
+                            return root.output.name;
+                          }
+
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter;
+                        verticalCenter: parent.verticalCenter;
+                    }
+
+                    color: palette.text;
+                    font.pixelSize: 14;
+                }
+
+                Text {
+                    id: label
+                    text: if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
+                            return root.output.edid.name;
+                          } else {
+                            return "";
+                          }
+
+                    color: palette.text;
+                    font.pixelSize: 10;
+
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter;
+                        top: labelVendor.bottom;
+                        topMargin: 5;
+                    }
+                }
             }
 
             Rectangle {

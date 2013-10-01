@@ -22,8 +22,17 @@
 
 #include <QtGui/QWidget>
 
+class KPushButton;
+class KComboBox;
+namespace KScreen
+{
+class Config;
+}
+
 class ControlPanel;
 class QDeclarativeView;
+class QMLOutput;
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -32,12 +41,30 @@ class Widget : public QWidget
     explicit Widget(QWidget *parent = 0);
     virtual ~Widget();
 
+  private Q_SLOTS:
+    void slotFocusedOutputChanged(QMLOutput *output);
+
+    void slotPrimaryChanged(int index);
+    void slotOutputPrimaryChanged();
+    void slotOutputConnectedChanged();
+    void slotOutputEnabledChanged();
+
+    void slotUnifyOutputs();
   private:
     void loadQml();
 
   private:
+    KScreen::Config *mConfig;
+
     QDeclarativeView *m_declarativeView;
     ControlPanel *m_controlPanel;
+
+    KComboBox *mPrimaryCombo;
+    KComboBox *mProfilesCombo;
+
+    KPushButton *mUnifyButton;
+    KPushButton *mSaveProfileButton;
+
 };
 
 #endif // WIDGET_H
