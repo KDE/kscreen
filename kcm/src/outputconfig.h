@@ -59,6 +59,7 @@ class OutputConfig : public QWidget
     void slotEnabledChanged(bool checked);
     void slotResolutionChanged(const QSize &size);
     void slotRotationChanged(int index);
+    void slotRefreshRateChanged(int index);
 
   private:
     KScreen::Output *mOutput;

@@ -98,6 +98,8 @@ OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
     formLayout->addWidget(new QLabel(i18n("Refresh Rate:"), this), 0, 0);
     formLayout->addWidget(mRefreshRate, 0, 1);
     slotResolutionChanged(mResolution->currentResolution());
+    connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slotRefreshRateChanged(int)));
 
     if (!output->isEnabled()) {
         collapse();
@@ -205,7 +207,18 @@ void OutputConfig::slotRotationChanged(int index)
     mOutput->setRotation(rotation);
 }
 
-
-
+void OutputConfig::slotRefreshRateChanged(int index)
+{
+    QString modeId;
+    if (index == 0) {
+        // Item 0 is "Auto" - "Auto" is equal to highest refresh rate (at least
+        // that's how I understand it, and since the combobox is sorted in descending
+        // order, we just pick the second item from top
+        modeId = mRefreshRate->itemData(1).toString();
+    } else {
+        modeId = mRefreshRate->itemData(index).toString();
+    }
+    mOutput->setCurrentModeId(modeId);
+}
 
 #include "outputconfig.moc"
