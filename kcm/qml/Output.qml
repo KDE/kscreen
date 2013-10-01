@@ -118,7 +118,7 @@ QMLOutput {
             RotationAnimation {
                 easing.type: "OutCubic"
                 duration: 250;
-                direction: RotationAnimation.Counterclockwise;
+                direction: RotationAnimation.Shortest;
             }
         }
 
