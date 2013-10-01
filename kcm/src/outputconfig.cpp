@@ -85,8 +85,19 @@ OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
 
     CollapsableButton *advanced = new CollapsableButton(i18n("Advanced Settings"), this);
     advanced->setCollapsed(true);
-    formLayout->addWidget(advanced, 3, 0);
+    formLayout->addWidget(advanced, 3, 0, 1, 2);
 
+    QWidget *advancedWidget = new QWidget(mControlsWidget);
+    formLayout->addWidget(advancedWidget, 4, 0, 1, 2);
+    advanced->setWidget(advancedWidget);
+    formLayout = new QGridLayout(advancedWidget);
+    advancedWidget->setLayout(formLayout);
+
+    mRefreshRate = new KComboBox(advancedWidget);
+    mRefreshRate->addItem(i18n("Auto"), -1);
+    formLayout->addWidget(new QLabel(i18n("Refresh Rate:"), this), 0, 0);
+    formLayout->addWidget(mRefreshRate, 0, 1);
+    slotResolutionChanged(mResolution->currentResolution());
 
     if (!output->isEnabled()) {
         collapse();
@@ -149,12 +160,16 @@ void OutputConfig::slotEnabledChanged(bool checked)
 
 void OutputConfig::slotResolutionChanged(const QSize &size)
 {
-    // This does not allow changing refresh rate yet - we just select the highest
-    // refresh rate ("Automatic") and go with that
+    // Ignore disconnected outputs
+    if (!size.isValid()) {
+        return;
+    }
 
     KScreen::Mode* selectedMode = 0;
+    QList<KScreen::Mode*> modes;
     Q_FOREACH (KScreen::Mode *mode, mOutput->modes()) {
         if (mode->size() == size) {
+            modes << mode;
             if (!selectedMode || selectedMode->refreshRate() < mode->refreshRate()) {
                 selectedMode = mode;
             }
@@ -163,6 +178,24 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     Q_ASSERT(selectedMode);
     mOutput->setCurrentModeId(selectedMode->id());
+
+    // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
+    // when changing resolution
+    for (int i = 1; i < mRefreshRate->count(); ++i) {
+        mRefreshRate->removeItem(i);
+    }
+
+    for (int i = 0; i < modes.count(); i++) {
+        KScreen::Mode *mode = modes.at(i);
+        mRefreshRate->addItem(QString::fromLatin1("%1 Hz").arg(mode->refreshRate(), 0, 'f', 1), mode->id());
+
+        // If selected refresh rate is other then what we consider the "Auto" value
+        // - that is it's not the highest resolution - then select it, otherwise
+        // we stick with "Auto"
+        if (mode == selectedMode && i > 1) {
+            mRefreshRate->setCurrentIndex(i);
+        }
+    }
 }
 
 void OutputConfig::slotRotationChanged(int index)

@@ -68,6 +68,7 @@ class OutputConfig : public QWidget
     QCheckBox *mEnabled;
     ResolutionSlider *mResolution;
     KComboBox *mRotation;
+    KComboBox *mRefreshRate;
 };
 
 #endif // OUTPUTCONFIG_H

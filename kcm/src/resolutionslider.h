@@ -40,6 +40,8 @@ class ResolutionSlider : public QWidget
     explicit ResolutionSlider(KScreen::Output *output, QWidget *parent = 0);
     virtual ~ResolutionSlider();
 
+    QSize currentResolution() const;
+
   Q_SIGNALS:
     void resolutionChanged(const QSize &size);
 

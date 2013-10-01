@@ -20,10 +20,13 @@
  */
 
 #include "resolutionslider.h"
+
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
 #include <QtGui/QSlider>
+
 #include <KLocalizedString>
+
 #include <kscreen/output.h>
 
 static QString sizeToStr(const QSize &size)
@@ -93,11 +96,25 @@ ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
     mSlider->setMinimum(0);
     mSlider->setMaximum(mModes.size() - 1);
     mSlider->setSingleStep(1);
+    mSlider->setValue(mModes.indexOf(output->currentMode()->size()));
     slotOutputModeChanged();
 }
 
 ResolutionSlider::~ResolutionSlider()
 {
+}
+
+QSize ResolutionSlider::currentResolution() const
+{
+    if (mModes.isEmpty()) {
+        return QSize();
+    }
+
+    if (mModes.size() < 2) {
+        return mModes.first();
+    }
+
+    return mModes.at(mSlider->value());
 }
 
 void ResolutionSlider::slotOutputModeChanged()
