@@ -52,13 +52,13 @@ Widget::Widget(QWidget *parent):
 
     mPrimaryCombo = new KComboBox(this);
     mPrimaryCombo->setSizeAdjustPolicy(QComboBox::QComboBox::AdjustToContents);
-    hbox->addWidget(new QLabel(i18n("Primary display")));
+    hbox->addWidget(new QLabel(i18n("Primary display:")));
     hbox->addWidget(mPrimaryCombo);
 
     hbox->addStretch();
 
     mProfilesCombo = new KComboBox(this);
-    mProfilesCombo->addItem(i18n("Default Profile"));
+    mProfilesCombo->addItem(i18n("Default Profile:"));
     mProfilesCombo->setEnabled(false);
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
