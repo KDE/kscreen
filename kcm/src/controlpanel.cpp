@@ -18,74 +18,52 @@
  */
 
 #include "controlpanel.h"
-
+#include "outputconfig.h"
 
 #include <QtGui/QVBoxLayout>
-#include <QtGui/QFormLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QCheckBox>
-#include <QtGui/QSlider>
-#include <QtGui/QComboBox>
 
-#include <KLocalizedString>
-#include <KStandardDirs>
-#include <KDebug>
+#include <kscreen/config.h>
 
-#include <kscreen/output.h>
-
-ControlPanel::ControlPanel(QWidget *parent):
-    QWidget(parent)
+ControlPanel::ControlPanel(KScreen::Config *config, QWidget *parent)
+    : QScrollArea(parent)
+    , mConfig(config)
 {
-    initUi();
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    setWidgetResizable(true);
+
+    QWidget *widget = new QWidget(this);
+    QVBoxLayout *layout = new QVBoxLayout(widget);
+    layout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
+
+    setWidget(widget);
+
+    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+        OutputConfig *outputCfg = new OutputConfig(output, widget);
+        // Make sure laptop screen is always first - it somehow feels right :)
+        if (output->type() == KScreen::Output::Panel) {
+            layout->insertWidget(0, outputCfg);
+        } else {
+            layout->addWidget(outputCfg);
+        }
+        mOutputConfigs << outputCfg;
+    }
+
+    layout->addStretch(1);
 }
 
 ControlPanel::~ControlPanel()
 {
 }
 
-void ControlPanel::initUi()
+void ControlPanel::activateOutput(KScreen::Output *output)
 {
-    QFormLayout *formLayout = new QFormLayout(this);
-
-    m_outputNameLabel = new QLabel(this);
-    formLayout->addWidget(m_outputNameLabel);
-
-    m_outputTypeLabel = new QLabel(this);
-    formLayout->addWidget(m_outputTypeLabel);
-
-    m_enabledCheckBox = new QCheckBox(this);
-    formLayout->addRow(i18n("Enabled"), m_enabledCheckBox);
-    connect(m_enabledCheckBox, SIGNAL(toggled(bool)),
-            this, SLOT(slotEnabledChanged(bool)));
-
-    m_resolutionSlider = new QSlider(Qt::Horizontal, this);
-    formLayout->addRow(i18n("Resolution"), m_resolutionSlider);
-    connect(m_resolutionSlider, SIGNAL(sliderMoved(int)),
-            this, SLOT(slotResolutionChanged(int)));
-
-    m_rotationCombo = new QComboBox(this);
-    m_rotationCombo->addItem(i18n("Normal"), KScreen::Output::None);
-    m_rotationCombo->addItem(i18n("90 degrees"), KScreen::Output::Left);
-    m_rotationCombo->addItem(i18n("180 degrees"), KScreen::Output::Inverted);
-    m_rotationCombo->addItem(i18n("270 degrees"), KScreen::Output::Right);
-    formLayout->addRow(i18n("Rotation"), m_rotationCombo);
-    connect(m_rotationCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotRotationChanged(int)));
+    Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
+        if (cfg->output()->id() == output->id()) {
+            cfg->expand();
+        }
+    }
 }
 
-void ControlPanel::slotEnabledChanged(bool checked)
-{
-
-}
-
-void ControlPanel::slotResolutionChanged(int value)
-{
-
-}
-
-void ControlPanel::slotRotationChanged(int index)
-{
-
-}
 
 #include "controlpanel.moc"

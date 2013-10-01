@@ -17,36 +17,20 @@
  *
  */
 
-#ifndef CONTROLPANEL_H
-#define CONTROLPANEL_H
+#ifndef UTILS_H
+#define UTILS_H
 
-#include <QtGui/QScrollArea>
-
-class OutputConfig;
-class QLabel;
-class QCheckBox;
-class QSlider;
-class QComboBox;
+#include <QtCore/QString>
 
 namespace KScreen {
-class Config;
 class Output;
 }
 
-class ControlPanel : public QScrollArea
+namespace Utils
 {
-    Q_OBJECT
 
-  public:
-    explicit ControlPanel(KScreen::Config *config, QWidget *parent = 0);
-    virtual ~ControlPanel();
+    QString outputName(KScreen::Output *output);
 
-  public Q_SLOTS:
-    void activateOutput(KScreen::Output *output);
+}
 
-  private:
-    KScreen::Config *mConfig;
-    QList<OutputConfig*> mOutputConfigs;
-};
-
-#endif // CONTROLPANEL_H
+#endif
