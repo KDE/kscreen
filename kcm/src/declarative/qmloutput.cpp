@@ -45,7 +45,8 @@ QMLOutput::QMLOutput(QDeclarativeItem *parent):
     m_leftDock(0),
     m_topDock(0),
     m_rightDock(0),
-    m_bottomDock(0)
+    m_bottomDock(0),
+    m_isCloneMode(false)
 {
     connect(this, SIGNAL(xChanged()), SLOT(moved()));
     connect(this, SIGNAL(yChanged()), SLOT(moved()));
@@ -286,6 +287,21 @@ void QMLOutput::setOutputY(int y)
     Q_EMIT outputYChanged();
 }
 
+bool QMLOutput::isCloneMode() const
+{
+    return m_isCloneMode;
+}
+
+void QMLOutput::setIsCloneMode(bool isCloneMode)
+{
+    if (m_isCloneMode == isCloneMode) {
+        return;
+    }
+
+    m_isCloneMode = isCloneMode;
+    Q_EMIT isCloneModeChanged();
+}
+
 KScreen::Mode* QMLOutput::bestMode() const
 {
     if (!m_output) {
@@ -470,6 +486,9 @@ bool QMLOutput::maybeSnapTo(QMLOutput *other)
 void QMLOutput::moved()
 {
     const QList<QGraphicsItem*> siblings = screen()->childItems();
+
+    // First, if we have moved, then unset the "cloneOf" flag
+    setCloneOf(0);
 
     disconnect(this, SIGNAL(xChanged()), this, SLOT(moved()));
     disconnect(this, SIGNAL(yChanged()), this, SLOT(moved()));

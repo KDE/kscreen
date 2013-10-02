@@ -63,12 +63,15 @@ class QMLScreen : public QDeclarativeItem
     int enabledOutputsCount() const;
 
     QMLOutput* primaryOutput() const;
+    QList<QMLOutput*> outputs() const;
 
     QSize maxScreenSize() const;
 
     float outputScale() const;
 
     KScreen::Config* config() const;
+
+    void updateOutputsPlacement();
 
   Q_SIGNALS:
     void connectedOutputsCountChanged();
@@ -95,7 +98,6 @@ class QMLScreen : public QDeclarativeItem
   private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
-    void updateOutputsPlacement();
 
     KScreen::Config *m_config;
     QHash<KScreen::Output*,QMLOutput*> m_outputMap;

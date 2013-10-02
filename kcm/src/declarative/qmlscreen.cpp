@@ -121,6 +121,12 @@ QMLOutput *QMLScreen::primaryOutput() const
     return 0;
 }
 
+QList<QMLOutput*> QMLScreen::outputs() const
+{
+    return m_outputMap.values();
+}
+
+
 void QMLScreen::qmlOutputClicked()
 {
     QMLOutput *clickedOutput = qobject_cast<QMLOutput*>(sender());

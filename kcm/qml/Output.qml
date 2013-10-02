@@ -192,7 +192,9 @@ QMLOutput {
 
                 Text {
                     id: labelVendor;
-                    text: if (root.output.type == KScreenOutput.Panel) {
+                    text: if (root.isCloneMode === true) {
+                            return qsTr("Unified outputs");
+                          } else if (root.output.type == KScreenOutput.Panel) {
                             return qsTr("Laptop Screen");
                           } else if (root.output.edid && root.output.edid.vendor) {
                             return root.output.edid.vendor;
@@ -211,7 +213,9 @@ QMLOutput {
 
                 Text {
                     id: label
-                    text: if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
+                    text: if (root.isCloneMode === true) {
+                            return "";
+                          } else if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
                             return root.output.edid.name;
                           } else {
                             return "";

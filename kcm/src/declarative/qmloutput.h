@@ -42,6 +42,11 @@ class QMLOutput : public QDeclarativeItem
                WRITE setOutput
                NOTIFY outputChanged)
 
+    Q_PROPERTY(bool isCloneMode
+               READ isCloneMode
+               WRITE setIsCloneMode
+               NOTIFY isCloneModeChanged)
+
     Q_PROPERTY(QMLScreen* screen
                READ screen
                WRITE setScreen
@@ -144,6 +149,9 @@ class QMLOutput : public QDeclarativeItem
     int outputY() const;
     void setOutputY(int y);
 
+    void setIsCloneMode(bool isCloneMode);
+    bool isCloneMode() const;
+
   public Q_SLOTS:
     void updateRootProperties();
 
@@ -166,6 +174,7 @@ class QMLOutput : public QDeclarativeItem
     void outputYChanged();
     void outputXChanged();
 
+    void isCloneModeChanged();
 
   private Q_SLOTS:
     void moved();
@@ -186,6 +195,7 @@ class QMLOutput : public QDeclarativeItem
     QMLOutput *m_rightDock;
     QMLOutput *m_bottomDock;
 
+    bool m_isCloneMode;
 };
 
 #endif // QMLOUTPUT_H

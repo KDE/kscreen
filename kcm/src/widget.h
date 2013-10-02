@@ -22,6 +22,7 @@
 
 #include <QtGui/QWidget>
 
+class QMLScreen;
 class KPushButton;
 class KComboBox;
 namespace KScreen
@@ -54,6 +55,7 @@ class Widget : public QWidget
     void loadQml();
 
   private:
+    QMLScreen *mScreen;
     KScreen::Config *mConfig;
 
     QDeclarativeView *m_declarativeView;
