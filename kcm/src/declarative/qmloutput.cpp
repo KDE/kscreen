@@ -45,8 +45,7 @@ QMLOutput::QMLOutput(QDeclarativeItem *parent):
     m_leftDock(0),
     m_topDock(0),
     m_rightDock(0),
-    m_bottomDock(0),
-    m_modesModel(new QStandardItemModel(this))
+    m_bottomDock(0)
 {
     connect(this, SIGNAL(xChanged()), SLOT(moved()));
     connect(this, SIGNAL(yChanged()), SLOT(moved()));
@@ -189,11 +188,6 @@ void QMLOutput::setCloneOf(QMLOutput* other)
 QMLOutput* QMLOutput::cloneOf() const
 {
     return m_cloneOf;
-}
-
-QAbstractItemModel* QMLOutput::modesModel()
-{
-    return m_modesModel;
 }
 
 int QMLOutput::currentOutputHeight() const

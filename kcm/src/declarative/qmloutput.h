@@ -144,8 +144,6 @@ class QMLOutput : public QDeclarativeItem
     int outputY() const;
     void setOutputY(int y);
 
-    Q_INVOKABLE QAbstractItemModel* modesModel();
-
   public Q_SLOTS:
     void updateRootProperties();
 
@@ -187,8 +185,6 @@ class QMLOutput : public QDeclarativeItem
     QMLOutput *m_topDock;
     QMLOutput *m_rightDock;
     QMLOutput *m_bottomDock;
-
-    QStandardItemModel *m_modesModel;
 
 };
 
