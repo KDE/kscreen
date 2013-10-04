@@ -20,6 +20,7 @@
  */
 
 #include "resolutionslider.h"
+#include "utils.h"
 
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
@@ -28,11 +29,6 @@
 #include <KLocalizedString>
 
 #include <kscreen/output.h>
-
-static QString sizeToStr(const QSize &size)
-{
-    return QString::fromLatin1("%1x%2").arg(size.width()).arg(size.height());
-}
 
 static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
 {
@@ -85,14 +81,14 @@ ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
         if (mModes.size() == 0) {
             mCurrentLabel->setText(i18n("No available resolutions"));
         } else {
-            mCurrentLabel->setText(sizeToStr(mModes.first()));
+            mCurrentLabel->setText(Utils::sizeToString(mModes.first()));
         }
 
         return;
     }
 
-    mSmallestLabel->setText(sizeToStr(mModes.first()));
-    mBiggestLabel->setText(sizeToStr(mModes.last()));
+    mSmallestLabel->setText(Utils::sizeToString(mModes.first()));
+    mBiggestLabel->setText(Utils::sizeToString(mModes.last()));
     mSlider->setMinimum(0);
     mSlider->setMaximum(mModes.size() - 1);
     mSlider->setSingleStep(1);
@@ -129,7 +125,7 @@ void ResolutionSlider::slotOutputModeChanged()
 void ResolutionSlider::slotSlideValueChanged(int value)
 {
     const QSize &size = mModes.at(value);
-    mCurrentLabel->setText(sizeToStr(size));
+    mCurrentLabel->setText(Utils::sizeToString(size));
 
     Q_EMIT resolutionChanged(size);
 }

@@ -42,3 +42,9 @@ QString Utils::outputName(KScreen::Output *output)
         return output->name();
     }
 }
+
+QString Utils::sizeToString(const QSize &size)
+{
+    return QString::fromLatin1("%1x%2").arg(size.width()).arg(size.height());
+}
+

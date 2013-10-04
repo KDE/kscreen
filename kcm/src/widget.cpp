@@ -41,6 +41,7 @@
 #include <KLocalizedString>
 #include <KComboBox>
 #include <KPushButton>
+#include <KDebug>
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -84,7 +85,7 @@ Widget::Widget(QWidget *parent):
         connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
         connect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
 
-        if (!output->isConnected()) {
+        if (!output->isConnected() || !output->isEnabled()) {
             continue;
         }
 
@@ -97,7 +98,7 @@ Widget::Widget(QWidget *parent):
 
     mUnifyButton = new KPushButton(i18n("Unify outputs"), this);
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
-    hbox->addWidget(mUnifyButton);
+    layout->addWidget(mUnifyButton);
 }
 
 Widget::~Widget()
@@ -187,6 +188,14 @@ void Widget::slotOutputEnabledChanged()
         }
     }
 
+    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
+    if (output->isEnabled()) {
+        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
+    } else {
+        const int index = mPrimaryCombo->findData(output->id());
+        mPrimaryCombo->removeItem(index);
+    }
+
     mUnifyButton->setEnabled(enabledOutputsCnt > 1);
 }
 
@@ -221,6 +230,9 @@ void Widget::slotUnifyOutputs()
     base->setIsCloneMode(true);
 
     mScreen->updateOutputsPlacement();
+
+    mPrimaryCombo->setEnabled(false);
+    m_controlPanel->setUnifiedOutput(base->output());
 }
 
 

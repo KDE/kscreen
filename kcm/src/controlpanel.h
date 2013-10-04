@@ -22,7 +22,10 @@
 
 #include <QtGui/QScrollArea>
 
+class QVBoxLayout;
 class OutputConfig;
+class UnifiedOutputConfig;
+
 class QLabel;
 class QCheckBox;
 class QSlider;
@@ -41,12 +44,17 @@ class ControlPanel : public QScrollArea
     explicit ControlPanel(KScreen::Config *config, QWidget *parent = 0);
     virtual ~ControlPanel();
 
+    void setUnifiedOutput(KScreen::Output *output);
+
   public Q_SLOTS:
     void activateOutput(KScreen::Output *output);
 
   private:
     KScreen::Config *mConfig;
     QList<OutputConfig*> mOutputConfigs;
+
+    QVBoxLayout *mLayout;
+    UnifiedOutputConfig *mUnifiedOutputCfg;
 };
 
 #endif // CONTROLPANEL_H

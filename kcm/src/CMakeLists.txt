@@ -1,6 +1,6 @@
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
-set(kcm_kscreen_SRCS 
+set(kcm_kscreen_SRCS
 #    kcm_kscreen.cpp
 
     declarative/iconbutton.cpp
@@ -11,6 +11,7 @@ set(kcm_kscreen_SRCS
     collapsablebutton.cpp
     controlpanel.cpp
     outputconfig.cpp
+    unifiedoutputconfig.cpp
     resolutionslider.cpp
     utils.cpp
     widget.cpp

@@ -19,6 +19,7 @@
 
 #include "controlpanel.h"
 #include "outputconfig.h"
+#include "unifiedoutputconfig.h"
 
 #include <QtGui/QVBoxLayout>
 
@@ -27,14 +28,15 @@
 ControlPanel::ControlPanel(KScreen::Config *config, QWidget *parent)
     : QScrollArea(parent)
     , mConfig(config)
+    , mUnifiedOutputCfg(0)
 {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     setWidgetResizable(true);
 
     QWidget *widget = new QWidget(this);
-    QVBoxLayout *layout = new QVBoxLayout(widget);
-    layout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
+    mLayout = new QVBoxLayout(widget);
+    mLayout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
 
     setWidget(widget);
 
@@ -42,14 +44,14 @@ ControlPanel::ControlPanel(KScreen::Config *config, QWidget *parent)
         OutputConfig *outputCfg = new OutputConfig(output, widget);
         // Make sure laptop screen is always first - it somehow feels right :)
         if (output->type() == KScreen::Output::Panel) {
-            layout->insertWidget(0, outputCfg);
+            mLayout->insertWidget(0, outputCfg);
         } else {
-            layout->addWidget(outputCfg);
+            mLayout->addWidget(outputCfg);
         }
         mOutputConfigs << outputCfg;
     }
 
-    layout->addStretch(1);
+    mLayout->addStretch(1);
 }
 
 ControlPanel::~ControlPanel()
@@ -65,5 +67,24 @@ void ControlPanel::activateOutput(KScreen::Output *output)
     }
 }
 
+void ControlPanel::setUnifiedOutput(KScreen::Output *output)
+{
+    Q_FOREACH (OutputConfig *config, mOutputConfigs) {
+        if (!config->output()->isConnected()) {
+            continue;
+        }
+
+        config->setVisible(output == 0);
+    }
+
+    if (output == 0) {
+        mUnifiedOutputCfg->deleteLater();
+    } else {
+        mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, widget());
+        mUnifiedOutputCfg->setOutput(output);
+        mUnifiedOutputCfg->setVisible(true);
+        mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
+    }
+}
 
 #include "controlpanel.moc"

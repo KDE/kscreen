@@ -39,9 +39,11 @@ class OutputConfig : public QWidget
     Q_OBJECT
 
   public:
+    explicit OutputConfig(QWidget *parent);
     explicit OutputConfig(KScreen::Output *output, QWidget *parent = 0);
     virtual ~OutputConfig();
 
+    virtual void setOutput(KScreen::Output *output);
     KScreen::Output* output() const;
 
     bool isExpanded() const;
@@ -51,7 +53,7 @@ class OutputConfig : public QWidget
     void collapse();
     void expand();
 
-  private Q_SLOTS:
+  protected Q_SLOTS:
     void slotOutputConnectedChanged();
     void slotOutputEnabledChanged();
     void slotOutputRotationChanged();
@@ -61,7 +63,10 @@ class OutputConfig : public QWidget
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
 
-  private:
+  protected:
+    virtual void initUi();
+
+  protected:
     KScreen::Output *mOutput;
 
     CollapsableButton *mLabel;

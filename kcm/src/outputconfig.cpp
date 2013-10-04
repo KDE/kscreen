@@ -40,17 +40,31 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
+OutputConfig::OutputConfig(QWidget *parent)
+    : QWidget(parent)
+    , mOutput(0)
+{
+}
+
 OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
     : QWidget(parent)
-    , mOutput(output)
 {
-    connect(output, SIGNAL(isConnectedChanged()), SLOT(slotOutputConnectedChanged()));
-    connect(output, SIGNAL(isEnabledChanged()), SLOT(slotOutputEnabledChanged()));
-    connect(output, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
+    setOutput(output);
+}
+
+OutputConfig::~OutputConfig()
+{
+}
+
+void OutputConfig::initUi()
+{
+    connect(mOutput, SIGNAL(isConnectedChanged()), SLOT(slotOutputConnectedChanged()));
+    connect(mOutput, SIGNAL(isEnabledChanged()), SLOT(slotOutputEnabledChanged()));
+    connect(mOutput, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
 
     QGridLayout *layout = new QGridLayout(this);
 
-    mLabel = new CollapsableButton(Utils::outputName(output), this);
+    mLabel = new CollapsableButton(Utils::outputName(mOutput), this);
     layout->addWidget(mLabel, 0, 0, 1, 2);
 
     layout->addItem(new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Minimum), 1, 0);
@@ -62,12 +76,12 @@ OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
     QGridLayout *formLayout = new QGridLayout(mControlsWidget);
 
     mEnabled = new QCheckBox(i18n("Enabled"), mControlsWidget);
-    mEnabled->setChecked(output->isEnabled());
+    mEnabled->setChecked(mOutput->isEnabled());
     connect(mEnabled, SIGNAL(clicked(bool)), SLOT(slotEnabledChanged(bool)));
     formLayout->addWidget(new QLabel(i18n("Display:"), this), 0, 0);
     formLayout->addWidget(mEnabled, 0, 1);
 
-    mResolution = new ResolutionSlider(output, mControlsWidget);
+    mResolution = new ResolutionSlider(mOutput, mControlsWidget);
     connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
     formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
     formLayout->addWidget(mResolution, 1, 1);
@@ -101,17 +115,19 @@ OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
     connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotRefreshRateChanged(int)));
 
-    if (!output->isEnabled()) {
+    if (!mOutput->isEnabled()) {
         collapse();
     }
 
-    if (!output->isConnected()) {
+    if (!mOutput->isConnected()) {
         hide();
     }
 }
 
-OutputConfig::~OutputConfig()
+void OutputConfig::setOutput(KScreen::Output *output)
 {
+    mOutput = output;
+    initUi();
 }
 
 KScreen::Output* OutputConfig::output() const

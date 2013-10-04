@@ -21,6 +21,7 @@
 #define UTILS_H
 
 #include <QtCore/QString>
+#include <QtCore/QSize>
 
 namespace KScreen {
 class Output;
@@ -31,6 +32,7 @@ namespace Utils
 
     QString outputName(KScreen::Output *output);
 
+    QString sizeToString(const QSize &size);
 }
 
 #endif
