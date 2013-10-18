@@ -52,9 +52,19 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void scheduleMonitorChange();
         void outputConnectedChanged();
 
+        /* DBus methods */
+        QVariant listCurrentProfiles() const;
+        QString activeProfile() const;
+        void activateProfile(const QString &id);
+        QString createProfileFromCurrentConfig(const QString &name, bool preferred);
+        void setPreferredProfile(const QString &id);
+        void deleteProfile(const QString &id);
+
     Q_SIGNALS:
+        /* DBus signals */
         void outputConnected(const QString &outputName);
         void unknownOutputConnected(const QString &outputName);
+        void profilesChanged();
 
     private:
         void monitorConnectedChange();
@@ -67,6 +77,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_timer;
         QTimer* m_saveTimer;
         KScreenAdaptor *m_kscreenAdaptor;
+        QString m_profileId;
 };
 
 #endif /*KSCREN_DAEMON_H*/

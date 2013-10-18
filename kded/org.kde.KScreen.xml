@@ -8,5 +8,26 @@
         <signal name="unknownOutputConnected">
             <arg type="s" name="outputName" direction="out" />
         </signal>
+        <method name="listCurrentProfiles">
+            <arg type="v" name="profiles" direction="out" />
+        </method>
+        <method name="activeProfile">
+            <arg type="s" name="id" direction="out" />
+        </method>
+        <method name="activateProfile">
+            <arg type="s" name="id" direction="in" />
+        </method>
+        <method name="setPreferredProfile">
+            <arg type="s" name="id" direction="in" />
+        </method>
+        <method name="createProfileFromCurrentConfig">
+            <arg type="s" name="name" direction="in" />
+            <arg type="b" name="preferred" direction="in" />
+            <arg type="s" name="id" direction="out" />
+        </method>
+        <method name="deleteProfile">
+            <arg type="s" name="id" direction="in" />
+        </method>
+        <signal name="profilesChanged"/>
     </interface>
 </node>
