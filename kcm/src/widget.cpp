@@ -45,7 +45,8 @@
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
-    mScreen(0)
+    mScreen(0),
+    mPrevConfig(0)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
 
@@ -79,7 +80,8 @@ Widget::Widget(QWidget *parent):
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
 
-    m_controlPanel = new ControlPanel(mConfig, this);
+    m_controlPanel = new ControlPanel(this);
+    m_controlPanel->setConfig(mConfig);
     Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
         connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
         connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
@@ -134,7 +136,8 @@ void Widget::loadQml()
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
 
-    mConfig = mScreen->config();
+    mConfig = KScreen::Config::current();
+    mScreen->setConfig(mConfig);
 }
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
@@ -205,23 +208,18 @@ void Widget::slotUnifyOutputs()
     QList<int> clones;
 
     if (base->isCloneMode()) {
-        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
-            if (!output->output()->isConnected()) {
-                continue;
-            }
+        mScreen->setConfig(mPrevConfig);
+        mConfig = mScreen->config();
+        m_controlPanel->setConfig(mConfig);
 
-            output->setCloneOf(0);
-            output->output()->setClones(QList<int>());
-            output->setIsCloneMode(false);
-            output->show();
-        }
-
-        mScreen->updateOutputsPlacement();
         mPrimaryCombo->setEnabled(true);
-        m_controlPanel->setUnifiedOutput(0);
 
         mUnifyButton->setText(i18n("Unify Outputs"));
     } else {
+        // Clone the current config, so that we can restore it in case user
+        // breaks the cloning
+        mPrevConfig = mConfig->clone();
+
         Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
             if (!output->output()->isConnected()) {
                 continue;

@@ -34,6 +34,7 @@
 
 QMLScreen::QMLScreen(QDeclarativeItem *parent):
     QDeclarativeItem(parent),
+    m_config(0),
     m_connectedOutputsCount(0),
     m_enabledOutputsCount(0),
     m_leftmost(0),
@@ -41,13 +42,8 @@ QMLScreen::QMLScreen(QDeclarativeItem *parent):
     m_rightmost(0),
     m_bottommost(0)
 {
-    m_config = KScreen::Config::current();
-    KScreen::ConfigMonitor::instance()->addConfig(m_config);
-
     connect(this, SIGNAL(widthChanged()), this, SLOT(viewSizeChanged()));
     connect(this, SIGNAL(heightChanged()), this, SLOT(viewSizeChanged()));
-
-    QTimer::singleShot(0, this, SLOT(loadOutputs()));
 }
 
 QMLScreen::~QMLScreen()
@@ -343,6 +339,26 @@ KScreen::Config *QMLScreen::config() const
 {
     return m_config;
 }
+
+void QMLScreen::setConfig(KScreen::Config *config)
+{
+    qDeleteAll(m_outputMap);
+    m_outputMap.clear();
+    m_bottommost = m_leftmost = m_rightmost = m_topmost = 0;
+    m_connectedOutputsCount = 0;
+    m_enabledOutputsCount = 0;
+
+    if (m_config) {
+        KScreen::ConfigMonitor::instance()->removeConfig(m_config);
+        m_config->deleteLater();
+    }
+    m_config = config;
+    m_config->setParent(this);
+    KScreen::ConfigMonitor::instance()->addConfig(m_config);
+
+    QTimer::singleShot(0, this, SLOT(loadOutputs()));
+}
+
 
 
 #include "qmlscreen.moc"

@@ -70,6 +70,7 @@ class QMLScreen : public QDeclarativeItem
     float outputScale() const;
 
     KScreen::Config* config() const;
+    void setConfig(KScreen::Config *config);
 
     void updateOutputsPlacement();
 

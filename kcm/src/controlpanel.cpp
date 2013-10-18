@@ -25,9 +25,8 @@
 
 #include <kscreen/config.h>
 
-ControlPanel::ControlPanel(KScreen::Config *config, QWidget *parent)
+ControlPanel::ControlPanel(QWidget *parent)
     : QScrollArea(parent)
-    , mConfig(config)
     , mUnifiedOutputCfg(0)
 {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -37,25 +36,37 @@ ControlPanel::ControlPanel(KScreen::Config *config, QWidget *parent)
     QWidget *widget = new QWidget(this);
     mLayout = new QVBoxLayout(widget);
     mLayout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
+    mLayout->addStretch(1);
 
     setWidget(widget);
-
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
-        OutputConfig *outputCfg = new OutputConfig(output, widget);
-        // Make sure laptop screen is always first - it somehow feels right :)
-        if (output->type() == KScreen::Output::Panel) {
-            mLayout->insertWidget(0, outputCfg);
-        } else {
-            mLayout->addWidget(outputCfg);
-        }
-        mOutputConfigs << outputCfg;
-    }
-
-    mLayout->addStretch(1);
 }
 
 ControlPanel::~ControlPanel()
 {
+}
+
+void ControlPanel::setConfig(KScreen::Config *config)
+{
+    qDeleteAll(mOutputConfigs);
+    mOutputConfigs.clear();
+
+    mConfig = config;
+    if (mUnifiedOutputCfg) {
+        delete mUnifiedOutputCfg;
+        mUnifiedOutputCfg = 0;
+    }
+
+    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+        OutputConfig *outputCfg = new OutputConfig(output, widget());
+        // Make sure laptop screen is always first - it somehow feels right :)
+        if (output->type() == KScreen::Output::Panel) {
+            mLayout->insertWidget(0, outputCfg);
+        } else {
+            // Place before the stretch
+            mLayout->insertWidget(mLayout->count() - 2, outputCfg);
+        }
+        mOutputConfigs << outputCfg;
+    }
 }
 
 void ControlPanel::activateOutput(KScreen::Output *output)

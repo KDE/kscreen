@@ -57,6 +57,7 @@ class Widget : public QWidget
   private:
     QMLScreen *mScreen;
     KScreen::Config *mConfig;
+    KScreen::Config *mPrevConfig;
 
     QDeclarativeView *m_declarativeView;
     ControlPanel *m_controlPanel;

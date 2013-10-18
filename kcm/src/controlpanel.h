@@ -41,8 +41,10 @@ class ControlPanel : public QScrollArea
     Q_OBJECT
 
   public:
-    explicit ControlPanel(KScreen::Config *config, QWidget *parent = 0);
+    explicit ControlPanel(QWidget *parent = 0);
     virtual ~ControlPanel();
+
+    void setConfig(KScreen::Config *config);
 
     void setUnifiedOutput(KScreen::Output *output);
 
