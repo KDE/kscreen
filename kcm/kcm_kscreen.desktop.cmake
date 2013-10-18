@@ -5,9 +5,9 @@ Type=Service
 X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_kscreen
 X-KDE-ParentApp=kcontrol
-
 X-KDE-System-Settings-Parent-Category=display
 X-KDE-Weight=50
+X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
 Name=Display Configuration
 Name[bs]=Konfiguracija ekrana
