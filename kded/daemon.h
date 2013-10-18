@@ -25,7 +25,6 @@
 
 #include <kscreen/config.h>
 
-class KScreenAdaptor;
 class QTimer;
 
 class KDE_EXPORT KScreenDaemon : public KDEDModule
@@ -66,7 +65,6 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         bool m_monitoring;
         QTimer* m_timer;
         QTimer* m_saveTimer;
-        KScreenAdaptor *m_kscreenAdaptor;
 };
 
 #endif /*KSCREN_DAEMON_H*/

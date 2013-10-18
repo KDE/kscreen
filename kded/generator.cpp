@@ -38,7 +38,6 @@ Generator* Generator::self()
 
 Generator::Generator()
  : QObject()
- , m_isReady(false)
  , m_forceLaptop(false)
  , m_forceLidClosed(false)
  , m_forceDocked(false)

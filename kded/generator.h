@@ -65,7 +65,6 @@ class Generator : public QObject
         bool isLidClosed();
         bool isDocked();
 
-        bool m_isReady;
         bool m_forceLaptop;
         bool m_forceLidClosed;
         bool m_forceDocked;
