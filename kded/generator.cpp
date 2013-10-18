@@ -373,26 +373,26 @@ void Generator::extendToRight(KScreen::OutputList& outputs)
 
 KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)
 {
-    int area, total = 0;
-    KScreen::Mode* biggest = 0;
+    int modeArea, biggestArea = 0;
+    KScreen::Mode* biggestMode = 0;
     Q_FOREACH(KScreen::Mode* mode, modes) {
-        area = mode->size().width() * mode->size().height();
-        if (area < total) {
+        modeArea = mode->size().width() * mode->size().height();
+        if (modeArea < biggestArea) {
             continue;
         }
-        if (area == total && mode->refreshRate() < biggest->refreshRate()) {
+        if (modeArea == biggestArea && mode->refreshRate() < biggestMode->refreshRate()) {
             continue;
         }
-        if (area == total && mode->refreshRate() > biggest->refreshRate()) {
-            biggest = mode;
+        if (modeArea == biggestArea && mode->refreshRate() > biggestMode->refreshRate()) {
+            biggestMode = mode;
             continue;
         }
 
-        total = area;
-        biggest = mode;
+        biggestArea = modeArea;
+        biggestMode = mode;
     }
 
-    return biggest;
+    return biggestMode;
 }
 
 KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
