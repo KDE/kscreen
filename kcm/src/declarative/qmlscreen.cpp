@@ -306,8 +306,10 @@ void QMLScreen::updateOutputsPlacement()
         }
 
         if (!qmlOutput->output()->isEnabled()) {
+            qmlOutput->blockSignals(true);
             disabledOffsetX -= qmlOutput->width();
             qmlOutput->setPos(disabledOffsetX, 0);
+            qmlOutput->blockSignals(false);
             continue;
         }
 
