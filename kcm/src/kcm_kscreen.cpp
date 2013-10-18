@@ -76,7 +76,7 @@ KCMKScreen::~KCMKScreen()
 
 void KCMKScreen::load()
 {
-    // Do nothing, the Widget has already been constructed
+    mKScreenWidget->setConfig(KScreen::Config::current());
 }
 
 void KCMKScreen::save()
@@ -120,6 +120,16 @@ void KCMKScreen::save()
     /* Store the current config, apply settings */
     config->setConfig(config);
 }
+
+void KCMKScreen::defaults()
+{
+    if (!mKScreenWidget) {
+        return;
+    }
+
+    mKScreenWidget->setConfig(KScreen::Config::current());
+}
+
 
 void KCMKScreen::clearOutputIdentifiers()
 {
