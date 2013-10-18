@@ -204,35 +204,60 @@ void Widget::slotUnifyOutputs()
     QMLOutput *base = mScreen->primaryOutput();
     QList<int> clones;
 
+    if (base->isCloneMode()) {
+        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
+            if (!output->output()->isConnected()) {
+                continue;
+            }
 
-    Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
-        if (!output->output()->isConnected() || !output->output()->isEnabled()) {
-            continue;
+            output->setCloneOf(0);
+            output->output()->setClones(QList<int>());
+            output->setIsCloneMode(false);
+            output->show();
         }
 
-        if (base == 0) {
-            base = output;
+        mScreen->updateOutputsPlacement();
+        mPrimaryCombo->setEnabled(true);
+        m_controlPanel->setUnifiedOutput(0);
+
+        mUnifyButton->setText(i18n("Unify Outputs"));
+    } else {
+        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
+            if (!output->output()->isConnected()) {
+                continue;
+            }
+
+            if (!output->output()->isEnabled()) {
+                output->hide();
+                continue;
+            }
+
+            if (base == 0) {
+                base = output;
+            }
+
+            output->setOutputX(0);
+            output->setOutputY(0);
+            output->output()->setPos(QPoint(0, 0));
+            output->output()->setClones(QList<int>());
+
+            if (base != output) {
+                clones << output->output()->id();
+                output->setCloneOf(base);
+                output->hide();
+            }
         }
 
-        output->setOutputX(0);
-        output->setOutputY(0);
-        output->output()->setPos(QPoint(0, 0));
-        output->output()->setClones(QList<int>());
+        base->output()->setClones(clones);
+        base->setIsCloneMode(true);
 
-        if (base != output) {
-            clones << output->output()->id();
-            output->setCloneOf(base);
-            output->hide();
-        }
+        mScreen->updateOutputsPlacement();
+
+        mPrimaryCombo->setEnabled(false);
+        m_controlPanel->setUnifiedOutput(base->output());
+
+        mUnifyButton->setText(i18n("Break unified outputs"));
     }
-
-    base->output()->setClones(clones);
-    base->setIsCloneMode(true);
-
-    mScreen->updateOutputsPlacement();
-
-    mPrimaryCombo->setEnabled(false);
-    m_controlPanel->setUnifiedOutput(base->output());
 }
 
 
