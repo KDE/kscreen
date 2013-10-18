@@ -21,6 +21,7 @@
 #define QMLSCREEN_H
 
 #include <QtDeclarative/QDeclarativeItem>
+#include <QPointer>
 
 class QMLOutput;
 
@@ -100,7 +101,7 @@ class QMLScreen : public QDeclarativeItem
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
 
-    KScreen::Config *m_config;
+    QPointer<KScreen::Config> m_config;
     QHash<KScreen::Output*,QMLOutput*> m_outputMap;
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;

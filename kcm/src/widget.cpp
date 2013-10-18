@@ -46,6 +46,7 @@
 Widget::Widget(QWidget *parent):
     QWidget(parent),
     mScreen(0),
+    mConfig(0),
     mPrevConfig(0)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -82,22 +83,7 @@ Widget::Widget(QWidget *parent):
     hbox->addWidget(mProfilesCombo);
 
     m_controlPanel = new ControlPanel(this);
-    m_controlPanel->setConfig(mConfig);
     connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
-        connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
-        connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
-        connect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
-
-        if (!output->isConnected() || !output->isEnabled()) {
-            continue;
-        }
-
-        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
-        if (output->isPrimary()) {
-            mPrimaryCombo->setCurrentIndex(mPrimaryCombo->count() - 1);
-        }
-    }
     layout->addWidget(m_controlPanel);
 
     mUnifyButton = new KPushButton(i18n("Unify outputs"), this);
@@ -107,6 +93,30 @@ Widget::Widget(QWidget *parent):
 
 Widget::~Widget()
 {
+}
+
+void Widget::setConfig(KScreen::Config *config)
+{
+    if (mConfig) {
+        Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+            disconnect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
+            disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
+            disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
+        }
+
+        delete mConfig;
+    }
+
+    mConfig = config;
+    mScreen->setConfig(mConfig);
+    m_controlPanel->setConfig(mConfig);
+    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+        connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
+        connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
+        connect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
+    }
+
+    initPrimaryCombo();
 }
 
 KScreen::Config *Widget::currentConfig() const
@@ -144,10 +154,28 @@ void Widget::loadQml()
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SIGNAL(changed()));
-
-    mConfig = KScreen::Config::current();
-    mScreen->setConfig(mConfig);
 }
+
+void Widget::initPrimaryCombo()
+{
+    mPrimaryCombo->blockSignals(true);
+    mPrimaryCombo->clear();
+    mPrimaryCombo->addItem(i18n("No primary output"));
+
+    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+        if (!output->isConnected() || !output->isEnabled()) {
+            continue;
+        }
+
+        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
+        qDebug() << output->name() << output->isPrimary();
+        if (output->isPrimary()) {
+            mPrimaryCombo->setCurrentIndex(mPrimaryCombo->count() - 1);
+        }
+    }
+    mPrimaryCombo->blockSignals(false);
+}
+
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
 {
@@ -222,17 +250,33 @@ void Widget::slotUnifyOutputs()
     QMLOutput *base = mScreen->primaryOutput();
     QList<int> clones;
 
+    if (!base) {
+        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
+            if (output->output()->isConnected() && output->output()->isEnabled()) {
+                base = output;
+                break;
+            }
+        }
+
+        if (!base) {
+            // WTF?
+            return;
+        }
+    }
+
     if (base->isCloneMode()) {
-        mScreen->setConfig(mPrevConfig);
-        mConfig = mScreen->config();
-        m_controlPanel->setConfig(mConfig);
+        setConfig(mPrevConfig);
+        mPrevConfig = 0;
 
         mPrimaryCombo->setEnabled(true);
-
         mUnifyButton->setText(i18n("Unify Outputs"));
     } else {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
+        if (mPrevConfig) {
+            delete mPrevConfig;
+        }
+
         mPrevConfig = mConfig->clone();
 
         Q_FOREACH (QMLOutput *output, mScreen->outputs()) {

@@ -350,7 +350,7 @@ void QMLScreen::setConfig(KScreen::Config *config)
 
     if (m_config) {
         KScreen::ConfigMonitor::instance()->removeConfig(m_config);
-        m_config->deleteLater();
+        delete m_config.data();
     }
     m_config = config;
     m_config->setParent(this);

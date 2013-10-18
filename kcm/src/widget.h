@@ -42,6 +42,7 @@ class Widget : public QWidget
     explicit Widget(QWidget *parent = 0);
     virtual ~Widget();
 
+    void setConfig(KScreen::Config *config);
     KScreen::Config* currentConfig() const;
 
   Q_SIGNALS:
@@ -58,6 +59,8 @@ class Widget : public QWidget
     void slotUnifyOutputs();
   private:
     void loadQml();
+
+    void initPrimaryCombo();
 
   private:
     QMLScreen *mScreen;
