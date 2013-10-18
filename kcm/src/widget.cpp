@@ -82,6 +82,7 @@ Widget::Widget(QWidget *parent):
 
     m_controlPanel = new ControlPanel(this);
     m_controlPanel->setConfig(mConfig);
+    connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
     Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
         connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
         connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
@@ -140,6 +141,8 @@ void Widget::loadQml()
 
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
+    connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
+            this, SIGNAL(changed()));
 
     mConfig = KScreen::Config::current();
     mScreen->setConfig(mConfig);
@@ -167,6 +170,8 @@ void Widget::slotPrimaryChanged(int index)
         output->setPrimary(output->id() == id);
         output->blockSignals(false);
     }
+
+    Q_EMIT changed();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -261,6 +266,8 @@ void Widget::slotUnifyOutputs()
 
         mUnifyButton->setText(i18n("Break unified outputs"));
     }
+
+    Q_EMIT changed();
 }
 
 

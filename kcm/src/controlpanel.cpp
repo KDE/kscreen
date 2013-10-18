@@ -58,6 +58,9 @@ void ControlPanel::setConfig(KScreen::Config *config)
 
     Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
         OutputConfig *outputCfg = new OutputConfig(output, widget());
+        connect(outputCfg, SIGNAL(changed()),
+                this, SIGNAL(changed()));
+
         // Make sure laptop screen is always first - it somehow feels right :)
         if (output->type() == KScreen::Output::Panel) {
             mLayout->insertWidget(0, outputCfg);
@@ -95,6 +98,8 @@ void ControlPanel::setUnifiedOutput(KScreen::Output *output)
         mUnifiedOutputCfg->setOutput(output);
         mUnifiedOutputCfg->setVisible(true);
         mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
+        connect(mUnifiedOutputCfg, SIGNAL(changed()),
+                this, SIGNAL(changed()));
     }
 }
 

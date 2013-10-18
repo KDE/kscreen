@@ -174,6 +174,8 @@ void OutputConfig::slotOutputRotationChanged()
 void OutputConfig::slotEnabledChanged(bool checked)
 {
     mOutput->setEnabled(checked);
+
+    Q_EMIT changed();
 }
 
 void OutputConfig::slotResolutionChanged(const QSize &size)
@@ -214,6 +216,8 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i);
         }
     }
+
+    Q_EMIT changed();
 }
 
 void OutputConfig::slotRotationChanged(int index)
@@ -221,6 +225,8 @@ void OutputConfig::slotRotationChanged(int index)
     KScreen::Output::Rotation rotation = 
         static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     mOutput->setRotation(rotation);
+
+    Q_EMIT changed();
 }
 
 void OutputConfig::slotRefreshRateChanged(int index)
@@ -235,6 +241,8 @@ void OutputConfig::slotRefreshRateChanged(int index)
         modeId = mRefreshRate->itemData(index).toString();
     }
     mOutput->setCurrentModeId(modeId);
+
+    Q_EMIT changed();
 }
 
 #include "outputconfig.moc"

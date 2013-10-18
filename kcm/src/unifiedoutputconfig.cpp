@@ -165,6 +165,8 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
 
         clone->setCurrentModeId(id);
     }
+
+    Q_EMIT changed();
 }
 
 QString UnifiedOutputConfig::findBestMode(const KScreen::Output *output, const QSize &size)

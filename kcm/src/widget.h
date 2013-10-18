@@ -44,6 +44,9 @@ class Widget : public QWidget
 
     KScreen::Config* currentConfig() const;
 
+  Q_SIGNALS:
+    void changed();
+
   private Q_SLOTS:
     void slotFocusedOutputChanged(QMLOutput *output);
 

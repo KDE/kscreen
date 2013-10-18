@@ -51,6 +51,9 @@ class ControlPanel : public QScrollArea
   public Q_SLOTS:
     void activateOutput(KScreen::Output *output);
 
+  Q_SIGNALS:
+    void changed();
+
   private:
     KScreen::Config *mConfig;
     QList<OutputConfig*> mOutputConfigs;

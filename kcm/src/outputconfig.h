@@ -63,6 +63,9 @@ class OutputConfig : public QWidget
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
 
+  Q_SIGNALS:
+    void changed();
+
   protected:
     virtual void initUi();
 

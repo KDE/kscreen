@@ -64,6 +64,9 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     QHBoxLayout *layout = new QHBoxLayout(this);
     mKScreenWidget = new Widget(this);
     layout->addWidget(mKScreenWidget);
+
+    connect(mKScreenWidget, SIGNAL(changed()),
+            this, SLOT(changed()));
 }
 
 KCMKScreen::~KCMKScreen()
