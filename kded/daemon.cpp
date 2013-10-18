@@ -128,7 +128,7 @@ void KScreenDaemon::configChanged()
 void KScreenDaemon::saveCurrentConfig()
 {
     kDebug() << "Saving current config";
-    Serializer::saveConfig(KScreen::Config::current());
+    Serializer::saveConfig(KScreen::Config::current(), m_profileId);
 }
 
 void KScreenDaemon::displayButton()
@@ -263,9 +263,11 @@ void KScreenDaemon::disableMonitor(KScreen::Output* output)
     disconnect(output, SIGNAL(rotationChanged()), this, SLOT(configChanged()));
 }
 
-QVariant KScreenDaemon::listCurrentProfiles() const
+QMap<QString,QString> KScreenDaemon::listCurrentProfiles() const
 {
-    return Serializer::listProfiles(Serializer::currentConfigId());
+    const QMap<QString,QString> map = Serializer::listProfiles(Serializer::currentConfigId());
+    kDebug() << map;
+    return map;
 }
 
 QString KScreenDaemon::activeProfile() const
@@ -283,9 +285,9 @@ void KScreenDaemon::activateProfile(const QString &id)
     m_profileId = id;
 }
 
-QString KScreenDaemon::createProfileFromCurrentConfig(const QString &name)
+QString KScreenDaemon::createProfileFromCurrentConfig(const QString &name, bool preferred)
 {
-    // DUMMY!
+    return Serializer::createProfile(KScreen::Config::current(), name);
 }
 
 void KScreenDaemon::deleteProfile(const QString &id)
@@ -294,4 +296,3 @@ void KScreenDaemon::deleteProfile(const QString &id)
 
     Q_EMIT profilesChanged();
 }
-

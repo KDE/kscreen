@@ -38,7 +38,7 @@ class Serializer
         static bool configExists(const QString &configId);
 
         static KScreen::Config* config(const QString &configId, const QString &profileId = QString());
-        static bool saveConfig(KScreen::Config* config);
+        static bool saveConfig(KScreen::Config* config, const QString &currentProfileId);
 
         static KScreen::Output* findOutput(const KScreen::Config *config, const QVariantMap &info);
         static QString outputId(const KScreen::Output* output);
@@ -47,10 +47,15 @@ class Serializer
 
         static QMap<QString,QString> listProfiles(const QString &configId);
         static void removeProfile(const QString &configId, const QString &profileId);
+        static void updateProfile(KScreen::Config *config, const QString &configId, const QString &profileId);
+        static QString createProfile(KScreen::Config *config, const QString &name);
 
     private:
         static QString configFileName(const QString &configId);
         static QVariant loadConfigFile(const QString &configId);
+        static void saveConfigFile(const QString &configId, const QVariant &variant);
+
+        static QVariant serializeProfile(KScreen::Config *config, const QString &name, const QString &profileId = QString());
 };
 
 #endif //KDED_SERIALIZER_H

@@ -9,15 +9,13 @@
             <arg type="s" name="outputName" direction="out" />
         </signal>
         <method name="listCurrentProfiles">
-            <arg type="v" name="profiles" direction="out" />
+            <arg type="{ss}" name="profiles" direction="out" />
+            <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,QString&gt;"/>
         </method>
         <method name="activeProfile">
             <arg type="s" name="id" direction="out" />
         </method>
         <method name="activateProfile">
-            <arg type="s" name="id" direction="in" />
-        </method>
-        <method name="setPreferredProfile">
             <arg type="s" name="id" direction="in" />
         </method>
         <method name="createProfileFromCurrentConfig">

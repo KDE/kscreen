@@ -53,11 +53,10 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void outputConnectedChanged();
 
         /* DBus methods */
-        QVariant listCurrentProfiles() const;
+        QMap<QString,QString> listCurrentProfiles() const;
         QString activeProfile() const;
         void activateProfile(const QString &id);
         QString createProfileFromCurrentConfig(const QString &name, bool preferred);
-        void setPreferredProfile(const QString &id);
         void deleteProfile(const QString &id);
 
     Q_SIGNALS:
