@@ -291,5 +291,7 @@ QString KScreenDaemon::createProfileFromCurrentConfig(const QString &name)
 void KScreenDaemon::deleteProfile(const QString &id)
 {
     Serializer::removeProfile(Serializer::currentConfigId(), id);
+
+    Q_EMIT profilesChanged();
 }
 
