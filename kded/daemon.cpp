@@ -102,7 +102,7 @@ void KScreenDaemon::applyKnownConfig()
 {
     kDebug() << "Applying known config";
     setMonitorForChanges(false);
-    KScreen::Config* config = Serializer::config(Serializer::currentId());
+    KScreen::Config* config = Serializer::config(Serializer::currentConfigId());
     if (!KScreen::Config::canBeApplied(config)) {
         return applyIdealConfig();
     }
@@ -187,6 +187,8 @@ void KScreenDaemon::outputConnectedChanged()
             Q_EMIT unknownOutputConnected(output->name());
         }
     }
+
+    Q_EMIT profilesChanged();
 }
 
 void KScreenDaemon::monitorConnectedChange()
@@ -260,3 +262,34 @@ void KScreenDaemon::disableMonitor(KScreen::Output* output)
     disconnect(output, SIGNAL(posChanged()), this, SLOT(configChanged()));
     disconnect(output, SIGNAL(rotationChanged()), this, SLOT(configChanged()));
 }
+
+QVariant KScreenDaemon::listCurrentProfiles() const
+{
+    return Serializer::listProfiles(Serializer::currentConfigId());
+}
+
+QString KScreenDaemon::activeProfile() const
+{
+    return m_profileId;
+}
+
+void KScreenDaemon::activateProfile(const QString &id)
+{
+    KScreen::Config *config = Serializer::config(Serializer::currentConfigId(), id);
+    if (config->isValid()) {
+        config->setConfig(config);
+    }
+
+    m_profileId = id;
+}
+
+QString KScreenDaemon::createProfileFromCurrentConfig(const QString &name)
+{
+    // DUMMY!
+}
+
+void KScreenDaemon::deleteProfile(const QString &id)
+{
+    Serializer::removeProfile(Serializer::currentConfigId(), id);
+}
+

@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright (C) 2013 by Daniel Vrátil <dvratil@redhat.com>                         *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -33,9 +34,11 @@
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
-#include <KStandardDirs>
 
-QString Serializer::currentId()
+#include <KStandardDirs>
+#include <KLocalizedString>
+
+QString Serializer::currentConfigId()
 {
     KScreen::OutputList outputs = KScreen::Config::current()->outputs();
 
@@ -58,16 +61,16 @@ QString Serializer::currentId()
 
 bool Serializer::configExists()
 {
-    return Serializer::configExists(Serializer::currentId());
+    return Serializer::configExists(Serializer::currentConfigId());
 }
 
-bool Serializer::configExists(const QString& id)
+bool Serializer::configExists(const QString &configId)
 {
-    QString path = KStandardDirs::locateLocal("data", "kscreen/"+id);
+    QString path = KStandardDirs::locateLocal("data", "kscreen/" + configId);
     return QFile::exists(path);
 }
 
-KScreen::Config* Serializer::config(const QString& id)
+KScreen::Config* Serializer::config(const QString &configId, const QString &profileId)
 {
     QJson::Parser parser;
     KScreen::Config* config = KScreen::Config::current();
@@ -76,10 +79,42 @@ KScreen::Config* Serializer::config(const QString& id)
     }
 
     KScreen::OutputList outputList = config->outputs();
-    QFile file(KStandardDirs::locateLocal("data", "kscreen/"+id));
-    file.open(QIODevice::ReadOnly);
+    QFile file(KStandardDirs::locateLocal("data", "kscreen/" + configId));
+    if (!file.open(QIODevice::ReadOnly)) {
+        return 0;
+    }
 
-    QVariantList outputs = parser.parse(file.readAll()).toList();
+    bool ok = false;
+    const QVariant v = parser.parse(file.readAll(), &ok);
+    if (!ok || !v.isValid()) {
+        return 0;
+    }
+
+    QVariantList outputs;
+
+    const QVariantMap map = v.toMap();
+    if (!map.contains(QLatin1String("version"))) {
+        outputs = v.toList();
+    } else {
+        const QVariantList profiles = map[QLatin1String("profiles")].toList();
+        if (!profileId.isEmpty()) {
+            Q_FOREACH (const QVariant &profile, profiles) {
+                const QVariantMap info = profile.toMap();
+                if (info[QLatin1String("id")].toString() == profileId) {
+                    outputs = info[QLatin1String("outputs")].toList();
+                    break;
+                }
+            }
+        }
+
+        // No profile was chosen, or invalid profile ID was given - just get
+        // the first profile and continue
+        if (profileId.isEmpty() || outputs.isEmpty()) {
+            const QVariantMap profile = profiles.first().toMap();
+            outputs = profile[QLatin1String("outputs")].toList();
+        }
+    }
+
     Q_FOREACH(KScreen::Output* output, outputList) {
         if (!output->isConnected() && output->isEnabled()) {
             output->setEnabled(false);
@@ -144,7 +179,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(outputList);
 
-    QString path = KStandardDirs::locateLocal("data", "kscreen/"+ Serializer::currentId());
+    QString path = KStandardDirs::locateLocal("data", "kscreen/"+ Serializer::currentConfigId());
     QFile file(path);
     file.open(QIODevice::WriteOnly);
     file.write(json);
@@ -223,4 +258,86 @@ QVariantMap Serializer::metadata(const KScreen::Output* output)
 
     metadata["fullname"] = output->edid()->deviceId();
     return metadata;
+}
+
+QMap<QString, QString> Serializer::listProfiles(const QString &configId)
+{
+    if (!Serializer::configExists(configId)) {
+        return QMap<QString,QString>();
+    }
+
+    QJson::Parser parser;
+    QFile file(KStandardDirs::locateLocal("data", "kscreen/" + configId));
+    if (!file.open(QIODevice::ReadOnly)) {
+        return QMap<QString,QString>();
+    }
+
+    QJson::Parser parser;
+    bool ok = false;
+    const QVariant v = parser.parse(file.readAll(), &ok);
+    if (!ok || !v.isValid()) {
+        return QMap<QString,QString>();
+    }
+
+    QMap<QString,QString> profiles;
+
+    const QVariantMap map = v.toMap();
+    // Version 1
+    if (!map.contains(QLatin1String("version"))) {
+        profiles.insert(QString(), i18n("Default"));
+        return;
+    }
+
+    const QVariantList profilesList = map[QLatin1String("profiles")].toList();
+    Q_FOREACH (const QVariant &profile, profilesList) {
+        const QVariantMap info = profile.toMap();
+        profiles.insert(info[QLatin1String("id")].toString(),
+                        info[QLatin1String("name")].toString());
+    }
+
+    return profiles;
+}
+
+void Serializer::removeProfile(const QString &configId, const QString &profileId)
+{
+    if (!Serializer::configExists(configId)) {
+        return;
+    }
+
+    QFile file(KStandardDirs::locateLocal("data", "kscreen/" + configId));
+    if (!file.open(QIODevice::ReadWrite)) {
+        return QMap<QString,QString>();
+    }
+
+    QJson::Parser parser;
+    bool ok = false;
+    const QVariant v = parser.parse(file.readAll(), &ok);
+    if (!ok || !v.isValid()) {
+        return;
+    }
+
+    QVariantMap map = v.toMap();
+
+    // Version 1 did not support profiles
+    if (!map.contains(QLatin1String("version"))) {
+        return;
+    }
+
+    QVariantList profiles = map[QLatin1String("profiles")].toList();
+    // Find the profile, remove it from the list
+    for (int i = 0; i < profiles.count(); i++) {
+        const QVariantMap info = profiles.at(i).toMap();
+        if (info[QLatin1String("id")].toString() == profileId) {
+            profiles.removeAt(i);
+            break;
+        }
+    }
+
+    // Update the parent map
+    map[QLatin1String("profiles")] = profiles;
+
+    // Write it back to file
+    QJson::Serializer serializer;
+    file.resize(0);
+    file.write(serializer.serialize(map));
 }
