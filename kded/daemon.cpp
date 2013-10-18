@@ -56,6 +56,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     action->setGlobalShortcut(KShortcut(Qt::Key_Display));
 
     new KScreenAdaptor(this);
+    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.KScreen"));
 
     connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
 
