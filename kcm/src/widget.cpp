@@ -168,7 +168,6 @@ void Widget::initPrimaryCombo()
         }
 
         mPrimaryCombo->addItem(Utils::outputName(output), output->id());
-        qDebug() << output->name() << output->isPrimary();
         if (output->isPrimary()) {
             mPrimaryCombo->setCurrentIndex(mPrimaryCombo->count() - 1);
         }
