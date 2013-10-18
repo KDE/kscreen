@@ -67,6 +67,7 @@ Widget::Widget(QWidget *parent):
 
     mPrimaryCombo = new KComboBox(this);
     mPrimaryCombo->setSizeAdjustPolicy(QComboBox::QComboBox::AdjustToContents);
+    mPrimaryCombo->addItem(i18n("No primary screen"));
     connect(mPrimaryCombo, SIGNAL(currentIndexChanged(int)), SLOT(slotPrimaryChanged(int)));
 
     hbox->addWidget(new QLabel(i18n("Primary display:")));
@@ -157,6 +158,10 @@ void Widget::slotOutputPrimaryChanged()
 {
     const int id = qobject_cast<KScreen::Output*>(sender())->id();
     const int index = mPrimaryCombo->findData(id);
+    if (index == -1) { // No primary
+        mPrimaryCombo->setCurrentIndex(0);
+        return;
+    }
     mPrimaryCombo->blockSignals(true);
     mPrimaryCombo->setCurrentIndex(index);
     mPrimaryCombo->blockSignals(false);
