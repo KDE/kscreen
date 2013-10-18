@@ -22,28 +22,22 @@
 #include <KCModule>
 #include <QDeclarativeListProperty>
 
-class QDeclarativeView;
+class Widget;
 class QTimer;
-class ControlPanel;
-
-namespace KScreen {
-class Config;
-}
 
 class KCMKScreen : public KCModule
 {
     Q_OBJECT
-public:
+
+  public:
     explicit KCMKScreen (QWidget* parent = 0, const QVariantList& args = QVariantList());
     virtual ~KCMKScreen();
 
-public Q_SLOTS:
+  public Q_SLOTS:
     virtual void load();
     virtual void save();
 
-    static bool x11EventFilter(void* message, long int* result);
-
-private Q_SLOTS:
+  private Q_SLOTS:
     void identifyOutputs();
     void clearOutputIdentifiers();
     void moveMouse(int dX, int dY);
@@ -51,11 +45,8 @@ private Q_SLOTS:
     void outputMousePressed();
     void outputMouseReleased();
 
-private:
-    KScreen::Config *m_config;
-
-    QDeclarativeView *m_declarativeView;
-    ControlPanel *m_controlPanel;
+  private:
+    Widget *mKScreenWidget;
 
     QList<QWidget*> m_outputIdentifiers;
     QTimer *m_outputTimer;

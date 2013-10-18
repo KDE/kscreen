@@ -107,6 +107,11 @@ Widget::~Widget()
 {
 }
 
+KScreen::Config *Widget::currentConfig() const
+{
+    return mConfig;
+}
+
 void Widget::loadQml()
 {
     qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");

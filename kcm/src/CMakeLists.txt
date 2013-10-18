@@ -1,7 +1,7 @@
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
 set(kcm_kscreen_SRCS
-#    kcm_kscreen.cpp
+    kcm_kscreen.cpp
 
     declarative/iconbutton.cpp
     declarative/qmloutput.cpp
@@ -19,15 +19,15 @@ set(kcm_kscreen_SRCS
 
 qt4_automoc(${kcm_kscreen_SRCS})
 
-#kde4_add_plugin(kcm_kscreen ${kcm_kscreen_SRCS})
+kde4_add_plugin(kcm_kscreen ${kcm_kscreen_SRCS})
 
-#target_link_libraries(kcm_kscreen
-#    ${QT_QTDECLARATIVE_LIBRARY}
-#    ${KDE4_KDEUI_LIBS}
-#    ${KDE4_PLASMA_LIBS}
-#    ${LibKScreen_LIBRARY})
+target_link_libraries(kcm_kscreen
+    ${QT_QTDECLARATIVE_LIBRARY}
+    ${KDE4_KDEUI_LIBS}
+    ${KDE4_PLASMA_LIBS}
+    ${LibKScreen_LIBRARY})
 
-#install(TARGETS kcm_kscreen DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(TARGETS kcm_kscreen DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 kde4_add_executable(kcm_testapp
         kcm_testapp.cpp

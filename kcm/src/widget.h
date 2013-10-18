@@ -42,6 +42,8 @@ class Widget : public QWidget
     explicit Widget(QWidget *parent = 0);
     virtual ~Widget();
 
+    KScreen::Config* currentConfig() const;
+
   private Q_SLOTS:
     void slotFocusedOutputChanged(QMLOutput *output);
 
