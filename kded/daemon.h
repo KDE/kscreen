@@ -26,6 +26,8 @@
 
 #include <kscreen/config.h>
 
+#include "dbus/types.h"
+
 class KScreenAdaptor;
 class QTimer;
 
@@ -54,7 +56,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void outputConnectedChanged();
 
         /* DBus methods */
-        QMap<QString,QString> listCurrentProfiles() const;
+        StringMap listCurrentProfiles() const;
         QString activeProfile() const;
         void activateProfile(const QString &id);
         QString createProfileFromCurrentConfig(const QString &name, bool preferred);

@@ -18,11 +18,21 @@
 
 #include <QtCore/QMetaType>
 #include <QtCore/QMap>
+#include <QtDBus/QDBusMetaType>
 
 #ifndef KSCREEN_DBUS_TYPES
 #define KSCREEN_DBUS_TYPES
 
-typedef QMap<QString, QString> StringStringMap;
-Q_DECLARE_METATYPE(StringStringMap);
+typedef QMap<QString, QString> StringMap;
+Q_DECLARE_METATYPE(StringMap);
+
+static int registerDbusTypes()
+{
+    qDBusRegisterMetaType<StringMap >();
+
+    return 0;
+}
+
+static int dbusTypes__dummy = registerDbusTypes();
 
 #endif //KSCREEN_DBUS_TYPES

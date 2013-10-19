@@ -9,8 +9,8 @@
             <arg type="s" name="outputName" direction="out" />
         </signal>
         <method name="listCurrentProfiles">
-            <arg type="{ss}" name="profiles" direction="out" />
-            <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,QString&gt;"/>
+            <arg type="a{ss}" name="profiles" direction="out" />
+            <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="StringMap"/>
         </method>
         <method name="activeProfile">
             <arg type="s" name="id" direction="out" />

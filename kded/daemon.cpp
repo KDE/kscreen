@@ -266,9 +266,7 @@ void KScreenDaemon::disableMonitor(KScreen::Output* output)
 
 QMap<QString,QString> KScreenDaemon::listCurrentProfiles() const
 {
-    const QMap<QString,QString> map = Serializer::listProfiles(Serializer::currentConfigId());
-    kDebug() << map;
-    return map;
+    return Serializer::listProfiles(Serializer::currentConfigId());
 }
 
 QString KScreenDaemon::activeProfile() const
