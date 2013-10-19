@@ -26,6 +26,9 @@
         <method name="deleteProfile">
             <arg type="s" name="id" direction="in" />
         </method>
+        <method name="getProfile">
+            <arg type="s" name="id" direction="in" />
+            <arg type="v" name="profile" direction="out" />
         <signal name="profilesChanged"/>
     </interface>
 </node>

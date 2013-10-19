@@ -297,3 +297,8 @@ void KScreenDaemon::deleteProfile(const QString &id)
 
     Q_EMIT profilesChanged();
 }
+
+QDBusVariant KScreenDaemon::getProfile(const QString &id)
+{
+    return QDBusVariant(Serializer::loadProfile(Serializer::currentConfigId(), id));
+}

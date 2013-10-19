@@ -433,3 +433,28 @@ void Serializer::removeProfile(const QString &configId, const QString &profileId
     file.write(serializer.serialize(map));
     file.close();
 }
+
+QVariant Serializer::loadProfile(const QString &configId, const QString &profileId)
+{
+    const QVariant v = loadConfigFile(configId);
+    if (v.isNull()) {
+        return QVariant();
+    }
+
+    QVariantMap map = v.toMap();
+    // Old version, "v" contains directly the list of outputs
+    if (!map.contains(QLatin1String("version"))) {
+        return v;
+    }
+
+    const QVariantList profiles = map[QLatin1String("profiles")].toList();
+    Q_FOREACH (const QVariant &profile, profiles) {
+        const QVariantMap info = profile.toMap();
+        if (info[QLatin1String("id")].toString() == profileId) {
+            return profile;
+        }
+    }
+
+    return QVariant();
+}
+

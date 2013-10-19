@@ -50,6 +50,7 @@ class Serializer
         static void updateProfile(KScreen::Config *config, const QString &configId, const QString &profileId);
         static QString createProfile(KScreen::Config *config, const QString &name);
 
+        static QVariant loadProfile(const QString &configId, const QString &profileId);
     private:
         static QString configFileName(const QString &configId);
         static QVariant loadConfigFile(const QString &configId);

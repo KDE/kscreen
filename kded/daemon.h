@@ -20,6 +20,7 @@
 #define KSCREN_DAEMON_H
 
 #include <QtCore/QVariant>
+#include <QtDBus/QDBusVariant>
 
 #include <kdedmodule.h>
 
@@ -58,6 +59,7 @@ class KDE_EXPORT KScreenDaemon : public KDEDModule
         void activateProfile(const QString &id);
         QString createProfileFromCurrentConfig(const QString &name, bool preferred);
         void deleteProfile(const QString &id);
+        QDBusVariant getProfile(const QString &id);
 
     Q_SIGNALS:
         /* DBus signals */
