@@ -63,8 +63,11 @@ Widget::Widget(QWidget *parent):
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
 
-    QHBoxLayout *hbox = new QHBoxLayout(widget);
-    widget->setLayout(hbox);
+    QVBoxLayout *vbox = new QVBoxLayout(widget);
+    widget->setLayout(vbox);
+
+    QHBoxLayout *hbox = new QHBoxLayout;
+    vbox->addLayout(hbox);
 
     mPrimaryCombo = new KComboBox(this);
     mPrimaryCombo->setSizeAdjustPolicy(QComboBox::QComboBox::AdjustToContents);
@@ -82,13 +85,14 @@ Widget::Widget(QWidget *parent):
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
 
+
     m_controlPanel = new ControlPanel(this);
     connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
-    layout->addWidget(m_controlPanel);
+    vbox->addWidget(m_controlPanel);
 
     mUnifyButton = new KPushButton(i18n("Unify outputs"), this);
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
-    layout->addWidget(mUnifyButton);
+    vbox->addWidget(mUnifyButton);
 }
 
 Widget::~Widget()
