@@ -68,15 +68,29 @@ QVariant Serializer::loadConfigFile(const QString &configId)
 void Serializer::saveConfigFile(const QString &configId, const QVariant &variant)
 {
     if (configId.isEmpty()) {
+        kWarning() << "Invalid config ID";
         return;
     }
 
     QJson::Serializer serializer;
-    const QByteArray json = serializer.serialize(variant);
+    bool ok = false;
+    const QByteArray json = serializer.serialize(variant, &ok);
+    if (!ok) {
+        kWarning() << "Failed to serialize configuration";
+        return;
+    }
 
     QFile file(Serializer::configFileName(configId));
-    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
-    file.write(json);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        kWarning() << "Failed to open file" << file.fileName();
+        return;
+    }
+
+    if (file.write(json) == -1) {
+        kWarning() << "Failed to write data to file";
+        return;
+    }
+
     file.close();
 }
 
@@ -206,7 +220,7 @@ bool Serializer::saveConfig(KScreen::Config *config, const QString &currentProfi
     map[QLatin1String("version")] = 2;
     map[QLatin1String("profiles")] = profiles;
 
-    saveConfigFile(currentProfileId, map);
+    saveConfigFile(configId, map);
     return true;
 }
 
