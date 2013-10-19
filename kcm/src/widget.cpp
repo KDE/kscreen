@@ -28,6 +28,7 @@
 #include <QtGui/QSplitter>
 #include <QtGui/QLabel>
 #include <QtCore/qglobal.h>
+#include <QtDBus/QDBusArgument>
 
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
@@ -80,10 +81,12 @@ Widget::Widget(QWidget *parent):
 
     hbox->addStretch();
 
+    mProfilesModel = new ProfilesModel(this);
+    connect(mProfilesModel, SIGNAL(modelUpdated()),
+            this, SLOT(slotProfilesUpdated()));
     mProfilesCombo = new KComboBox(this);
-    mProfilesCombo->setModel(new ProfilesModel(this));
-    connect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotProfileChanged(int)));
+    mProfilesCombo->setModel(mProfilesModel);
+    mProfilesCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
 
@@ -326,8 +329,8 @@ void Widget::slotUnifyOutputs()
 
 void Widget::slotProfileChanged(int index)
 {
-    const QVariant v = mProfilesCombo->itemData(index, ProfilesModel::ConfigRole);
-    const QVariantList outputs = v.toList();
+    const QVariantMap profile = mProfilesCombo->itemData(index, ProfilesModel::ProfileRole).toMap();
+    const QVariantList outputs = profile[QLatin1String("outputs")].toList();
 
     // FIXME: Copy-pasted from KDED's Serializer::config()
     KScreen::Config *config = KScreen::Config::current();
@@ -396,5 +399,22 @@ KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &
 
     return 0;
 }
+
+void Widget::slotProfilesAboutToUpdate()
+{
+    disconnect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
+               this, SLOT(slotProfileChanged(int)));
+}
+
+
+void Widget::slotProfilesUpdated()
+{
+    connect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slotProfileChanged(int)));
+
+    const int index = mProfilesModel->activeProfileIndex();
+    mProfilesCombo->setCurrentIndex(index);
+}
+
 
 #include "widget.moc"

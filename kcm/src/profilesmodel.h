@@ -32,18 +32,27 @@ class ProfilesModel : public QStandardItemModel
   public:
     enum {
         ProfileIDRole = Qt::UserRole + 1,
-        ConfigRole
+        ProfileRole
     };
 
     explicit ProfilesModel(QObject *parent = 0);
     virtual ~ProfilesModel();
+
+    int activeProfileIndex() const;
+    int profileIndex(const QString &profileId);
 
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
   public Q_SLOTS:
     void reloadProfiles();
 
+  Q_SIGNALS:
+    void aboutToUpdateModel();
+    void modelUpdated();
+
   private:
+    QVariant parseOutputs(const QVariant &variant) const;
+
     org::kde::KScreen *mInterface;
 
     mutable QMap<QString, QVariant> mProfilesCache;

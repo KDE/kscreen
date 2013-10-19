@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QDBusConnection>
 #include <QDBusMetaType>
+#include <QDBusReply>
 
 ProfilesModel::ProfilesModel(QObject *parent):
     QStandardItemModel(parent)
@@ -43,6 +44,8 @@ ProfilesModel::~ProfilesModel()
 
 void ProfilesModel::reloadProfiles()
 {
+    Q_EMIT aboutToUpdateModel();
+
     const QMap<QString,QString> profiles = mInterface->listCurrentProfiles();
 
     clear();
@@ -57,22 +60,93 @@ void ProfilesModel::reloadProfiles()
 
         appendRow(item);
     }
+
+    Q_EMIT modelUpdated();
 }
 
 QVariant ProfilesModel::data(const QModelIndex &index, int role) const
 {
-    if (role == ConfigRole) {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
+    if (role == ProfileRole) {
         const QString profileId = QStandardItemModel::data(index, ProfileIDRole).toString();
         if (!mProfilesCache.contains(profileId)) {
-            const QVariant config = mInterface->getProfile(profileId).value().variant();
-            mProfilesCache.insert(profileId, config);
-            return config;
+            QVariantMap profile = mInterface->getProfile(profileId);
+            profile["outputs"] = parseOutputs(profile[QLatin1String("outputs")]);
+
+            mProfilesCache.insert(profileId, profile);
+            return profile;
         }
 
         return mProfilesCache.value(profileId);
     }
 
     return QStandardItemModel::data(index, role);
+}
+
+int ProfilesModel::activeProfileIndex() const
+{
+    const QString activeProfile = mInterface->activeProfile();
+
+    for (int i = 0; i < rowCount(); i++) {
+        const QModelIndex rowIndex = index(i, 0);
+        if (activeProfile.isEmpty()) {
+            const QVariantMap map = data(rowIndex, ProfileRole).toMap();
+            if (map[QLatin1String("preferred")].toBool()) {
+                return i;
+            }
+        } else {
+            if (data(rowIndex, ProfileIDRole).toString() == activeProfile) {
+                return i;
+            }
+        }
+    }
+
+    return -1;
+}
+
+// FIXME: Yeah, if someone could explain me why this cannot happen
+// automatically, that would be great.
+QVariant ProfilesModel::parseOutputs(const QVariant &variant) const
+{
+    QVariantList outputs;
+
+    QDBusArgument arg = variant.value<QDBusArgument>();
+    arg >> outputs;
+
+    for (int i = 0; i < outputs.count(); i++) {
+        QDBusArgument arg = outputs.at(i).value<QDBusArgument>();
+        QVariantMap output;
+        arg >> output;
+
+        QVariantMap metadata;
+        arg = output[QLatin1String("metadata")].value<QDBusArgument>();
+        arg >> metadata;
+        output[QLatin1String("metadata")] = metadata;
+
+        QVariantMap pos;
+        arg = output[QLatin1String("pos")].value<QDBusArgument>();
+        arg >> pos;
+        output[QLatin1String("pos")] = pos;
+
+        if (output.contains(QLatin1String("mode"))) {
+            QVariantMap mode;
+            arg = output[QLatin1String("mode")].value<QDBusArgument>();
+            arg >> mode;
+
+            QVariantMap size;
+            arg = mode[QLatin1String("size")].value<QDBusArgument>();
+            arg >> size;
+            mode[QLatin1String("size")] = size;
+            output[QLatin1String("mode")] = mode;
+        }
+
+        outputs.replace(i, output);
+    }
+
+    return outputs;
 }
 
 

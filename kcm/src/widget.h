@@ -23,6 +23,7 @@
 #include <QtGui/QWidget>
 #include <QVariantMap>
 
+class ProfilesModel;
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
@@ -62,6 +63,10 @@ class Widget : public QWidget
 
     void slotUnifyOutputs();
     void slotProfileChanged(int index);
+
+    void slotProfilesAboutToUpdate();
+    void slotProfilesUpdated();
+
   private:
     void loadQml();
 
@@ -76,6 +81,7 @@ class Widget : public QWidget
     QDeclarativeView *m_declarativeView;
     ControlPanel *m_controlPanel;
 
+    ProfilesModel *mProfilesModel;
     KComboBox *mPrimaryCombo;
     KComboBox *mProfilesCombo;
 
