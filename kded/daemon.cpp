@@ -266,7 +266,9 @@ void KScreenDaemon::disableMonitor(KScreen::Output* output)
 
 QMap<QString,QString> KScreenDaemon::listCurrentProfiles() const
 {
-    return Serializer::listProfiles(Serializer::currentConfigId());
+    const QString cfgId = Serializer::currentConfigId();
+    kDebug() << cfgId;
+    return Serializer::listProfiles(cfgId);
 }
 
 QString KScreenDaemon::activeProfile() const
@@ -276,7 +278,9 @@ QString KScreenDaemon::activeProfile() const
 
 void KScreenDaemon::activateProfile(const QString &id)
 {
-    KScreen::Config *config = Serializer::config(Serializer::currentConfigId(), id);
+    const QString cfgId = Serializer::currentConfigId();
+    kDebug() << cfgId << id;
+    KScreen::Config *config = Serializer::config(cfgId, id);
     if (config->isValid()) {
         config->setConfig(config);
     }
@@ -286,17 +290,22 @@ void KScreenDaemon::activateProfile(const QString &id)
 
 QString KScreenDaemon::createProfileFromCurrentConfig(const QString &name, bool preferred)
 {
+    kDebug() << name;
     return Serializer::createProfile(KScreen::Config::current(), name);
 }
 
 void KScreenDaemon::deleteProfile(const QString &id)
 {
-    Serializer::removeProfile(Serializer::currentConfigId(), id);
+    const QString cfgId = Serializer::currentConfigId();
+    kDebug() << cfgId << id;
+    Serializer::removeProfile(cfgId, id);
 
     Q_EMIT profilesChanged();
 }
 
 QDBusVariant KScreenDaemon::getProfile(const QString &id)
 {
+    const QString cfgId = Serializer::currentConfigId();
+    kDebug() << cfgId << id;
     return QDBusVariant(Serializer::loadProfile(Serializer::currentConfigId(), id));
 }
