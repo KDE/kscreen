@@ -9,9 +9,7 @@ set(testgenerator_SRCS
     ../kded/generator.cpp
     ../kded/device.cpp)
 
-qt4_add_dbus_interface(testgenerator_SRCS
-    ../kded/org.freedesktop.DBus.Properties.xml
-    upower_interface)
+qt4_add_dbus_interface(testgenerator_SRCS ${CMAKE_SOURCE_DIR}/dbus/org.freedesktop.DBus.Properties.xml upower_interface)
 
 kde4_add_unit_test(testgenerator ${testgenerator_SRCS})
 
