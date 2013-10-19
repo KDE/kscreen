@@ -21,18 +21,22 @@
 #define WIDGET_H
 
 #include <QtGui/QWidget>
+#include <QVariantMap>
 
+class QMLOutput;
 class QMLScreen;
+class ControlPanel;
+
 class KPushButton;
 class KComboBox;
+
+class QDeclarativeView;
+
 namespace KScreen
 {
 class Config;
+class Output;
 }
-
-class ControlPanel;
-class QDeclarativeView;
-class QMLOutput;
 
 class Widget : public QWidget
 {
@@ -57,11 +61,13 @@ class Widget : public QWidget
     void slotOutputEnabledChanged();
 
     void slotUnifyOutputs();
+    void slotProfileChanged(int index);
   private:
     void loadQml();
 
     void initPrimaryCombo();
 
+    KScreen::Output* findOutput(KScreen::Config *config, const QVariantMap &info);
   private:
     QMLScreen *mScreen;
     KScreen::Config *mConfig;

@@ -74,11 +74,6 @@ KCMKScreen::~KCMKScreen()
     clearOutputIdentifiers();
 }
 
-void KCMKScreen::load()
-{
-    mKScreenWidget->setConfig(KScreen::Config::current());
-}
-
 void KCMKScreen::save()
 {
     kDebug() << "Saving";

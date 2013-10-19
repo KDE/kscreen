@@ -19,6 +19,7 @@
 
 #include "widget.h"
 #include "controlpanel.h"
+#include "profilesmodel.h"
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeEngine>
@@ -80,8 +81,9 @@ Widget::Widget(QWidget *parent):
     hbox->addStretch();
 
     mProfilesCombo = new KComboBox(this);
-    mProfilesCombo->addItem(i18n("Default Profile:"));
-    mProfilesCombo->setEnabled(false);
+    mProfilesCombo->setModel(new ProfilesModel(this));
+    connect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slotProfileChanged(int)));
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
 
@@ -322,5 +324,77 @@ void Widget::slotUnifyOutputs()
     Q_EMIT changed();
 }
 
+void Widget::slotProfileChanged(int index)
+{
+    const QVariant v = mProfilesCombo->itemData(index, ProfilesModel::ConfigRole);
+    const QVariantList outputs = v.toList();
+
+    // FIXME: Copy-pasted from KDED's Serializer::config()
+    KScreen::Config *config = KScreen::Config::current();
+    KScreen::OutputList outputList = config->outputs();
+    Q_FOREACH(KScreen::Output * output, outputList) {
+        if (!output->isConnected() && output->isEnabled()) {
+            output->setEnabled(false);
+        }
+    }
+
+    KScreen::Config *outputsConfig = config->clone();
+    Q_FOREACH(const QVariant & info, outputs) {
+        KScreen::Output *output = findOutput(outputsConfig, info.toMap());
+        if (!output) {
+            continue;
+        }
+
+        delete outputList.take(output->id());
+        outputList.insert(output->id(), output);
+    }
+
+    config->setOutputs(outputList);
+
+    setConfig(config);
+}
+
+// FIXME: Copy-pasted from KDED's Serializer::findOutput()
+KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &info)
+{
+    KScreen::OutputList outputs = config->outputs();
+    Q_FOREACH(KScreen::Output * output, outputs) {
+        if (!output->isConnected()) {
+            continue;
+        }
+
+        const QString outputId = (output->edid() && output->edid()->isValid()) ? output->edid()->hash() : output->name();
+        if (outputId != info["id"].toString()) {
+            continue;
+        }
+
+        QVariantMap posInfo = info["pos"].toMap();
+        QPoint point(posInfo["x"].toInt(), posInfo["y"].toInt());
+        output->setPos(point);
+        output->setPrimary(info["primary"].toBool());
+        output->setEnabled(info["enabled"].toBool());
+        output->setRotation(static_cast<KScreen::Output::Rotation>(info["rotation"].toInt()));
+
+        QVariantMap modeInfo = info["mode"].toMap();
+        QVariantMap modeSize = modeInfo["size"].toMap();
+        QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
+
+        KScreen::ModeList modes = output->modes();
+        Q_FOREACH(KScreen::Mode * mode, modes) {
+            if (mode->size() != size) {
+                continue;
+            }
+            if (QString::number(mode->refreshRate()) != modeInfo["refresh"].toString()) {
+                continue;
+            }
+
+            output->setCurrentModeId(mode->id());
+            break;
+        }
+        return output;
+    }
+
+    return 0;
+}
 
 #include "widget.moc"

@@ -22,8 +22,6 @@
 
 #include <QDeclarativeDebuggingEnabler>
 
-#include <kscreen/config.h>
-
 #include "widget.h"
 
 int main(int argc, char **argv)
@@ -37,7 +35,6 @@ int main(int argc, char **argv)
 
     Widget widget;
     widget.resize(800, 600);
-    widget.setConfig(KScreen::Config::current());
     widget.show();
 
 
