@@ -303,9 +303,9 @@ void KScreenDaemon::deleteProfile(const QString &id)
     Q_EMIT profilesChanged();
 }
 
-QDBusVariant KScreenDaemon::getProfile(const QString &id)
+QVariantMap KScreenDaemon::getProfile(const QString &id)
 {
     const QString cfgId = Serializer::currentConfigId();
     kDebug() << cfgId << id;
-    return QDBusVariant(Serializer::loadProfile(Serializer::currentConfigId(), id));
+    return Serializer::loadProfile(Serializer::currentConfigId(), id).toMap();
 }

@@ -153,7 +153,7 @@ KScreen::Config *Serializer::config(const QString &configId, const QString &prof
         // list of it's outputs configuration
         const QVariantList profiles = map[QLatin1String("profiles")].toList();
         if (!profileId.isEmpty()) {
-            Q_FOREACH(const QVariant & profile, profiles) {
+            Q_FOREACH (const QVariant &profile, profiles) {
                 const QVariantMap info = profile.toMap();
                 if (info[QLatin1String("id")].toString() == profileId) {
                     outputs = info[QLatin1String("outputs")].toList();
@@ -162,9 +162,20 @@ KScreen::Config *Serializer::config(const QString &configId, const QString &prof
             }
         }
 
-        // No profile was chosen, or invalid profile ID was given - just get
-        // the first profile and continue
+        // No profile was chosen, or invalid profile ID was given - try to find
+        // the preferred (default) one
         if (profileId.isEmpty() || outputs.isEmpty()) {
+            Q_FOREACH (const QVariant &profile, profiles) {
+                const QVariantMap info = profile.toMap();
+                if (info[QLatin1String("preferred")].toBool()) {
+                    outputs = info[QLatin1String("outputs")].toList();
+                    break;
+                }
+            }
+        }
+
+        // When no output is marked as default, then just take the first profile
+        if (outputs.isEmpty() && !profiles.isEmpty()) {
             const QVariantMap profile = profiles.first().toMap();
             outputs = profile[QLatin1String("outputs")].toList();
         }
@@ -213,12 +224,12 @@ bool Serializer::saveConfig(KScreen::Config *config, const QString &currentProfi
 
     // Configuration either does not exist yes, so we simply create one.
 
-    QVariantList profiles;
-    profiles << serializeProfile(config, i18n("Default"));
+    QVariantMap profile = serializeProfile(config, i18n("Default")).toMap();
+    profile[QLatin1String("preferred")] = true;
 
     QVariantMap map;
     map[QLatin1String("version")] = 2;
-    map[QLatin1String("profiles")] = profiles;
+    map[QLatin1String("profiles")] = QVariantList() << profile;
 
     saveConfigFile(configId, map);
     return true;

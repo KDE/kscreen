@@ -28,7 +28,8 @@
         </method>
         <method name="getProfile">
             <arg type="s" name="id" direction="in" />
-            <arg type="v" name="profile" direction="out" />
+            <arg type="a{sv}" name="profile" direction="out" />
+            <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
         <signal name="profilesChanged"/>
     </interface>
 </node>
