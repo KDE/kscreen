@@ -46,7 +46,7 @@ QString Serializer::configFileName(const QString &configId)
 
 QVariant Serializer::loadConfigFile(const QString &configId)
 {
-    if (!Serializer::configExists(configId)) {
+    if (configId.isEmpty() || !Serializer::configExists(configId)) {
         return QVariant();
     }
 
@@ -67,6 +67,10 @@ QVariant Serializer::loadConfigFile(const QString &configId)
 
 void Serializer::saveConfigFile(const QString &configId, const QVariant &variant)
 {
+    if (configId.isEmpty()) {
+        return;
+    }
+
     QJson::Serializer serializer;
     const QByteArray json = serializer.serialize(variant);
 
@@ -202,14 +206,7 @@ bool Serializer::saveConfig(KScreen::Config *config, const QString &currentProfi
     map[QLatin1String("version")] = 2;
     map[QLatin1String("profiles")] = profiles;
 
-    QJson::Serializer serializer;
-    const QByteArray json = serializer.serialize(map);
-
-    QFile file(Serializer::configFileName(currentProfileId));
-    file.open(QIODevice::WriteOnly);
-    file.write(json);
-    file.close();
-
+    saveConfigFile(currentProfileId, map);
     return true;
 }
 
@@ -376,12 +373,8 @@ QMap<QString, QString> Serializer::listProfiles(const QString &configId)
     QMap<QString, QString> profiles;
 
     const QVariant v = loadConfigFile(configId);
-    if (v.isNull()) {
-        return profiles;
-    }
-
     const QVariantMap map = v.toMap();
-    // Version 1
+    // Version 1, or invalid content - return default as current
     if (!map.contains(QLatin1String("version"))) {
         profiles.insert(QString(), i18n("Default"));
         return profiles;
@@ -438,7 +431,7 @@ QVariant Serializer::loadProfile(const QString &configId, const QString &profile
 {
     const QVariant v = loadConfigFile(configId);
     if (v.isNull()) {
-        return QVariant();
+        return QVariantList();
     }
 
     QVariantMap map = v.toMap();
@@ -455,6 +448,6 @@ QVariant Serializer::loadProfile(const QString &configId, const QString &profile
         }
     }
 
-    return QVariant();
+    return QVariantList();
 }
 
