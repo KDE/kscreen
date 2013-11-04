@@ -24,7 +24,6 @@
 
 class QDeclarativeView;
 class QTimer;
-class ControlPanel;
 
 namespace KScreen {
 class Config;
@@ -55,7 +54,6 @@ private:
     KScreen::Config *m_config;
 
     QDeclarativeView *m_declarativeView;
-    ControlPanel *m_controlPanel;
 
     QList<QWidget*> m_outputIdentifiers;
     QTimer *m_outputTimer;
