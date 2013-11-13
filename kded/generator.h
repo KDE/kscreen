@@ -51,12 +51,14 @@ class Generator : public QObject
         virtual ~Generator();
 
         KScreen::Config* fallbackIfNeeded(KScreen::Config *config);
+        void cloneScreens(KScreen::OutputList& outputs);
 
         void laptop(KScreen::OutputList& outputs);
 
         void singleOutput(KScreen::OutputList& outputs);
         void extendToRight(KScreen::OutputList& outputs);
         KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
+        KScreen::Mode* bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
         KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
         KScreen::Output* embeddedOutput(const KScreen::OutputList &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);

@@ -28,6 +28,11 @@
 
 Generator* Generator::instance = 0;
 
+bool operator<(const QSize &s1, const QSize &s2)
+{
+    return s1.width() * s1.height() < s2.width() * s2.height();
+}
+
 Generator* Generator::self()
 {
     if (!Generator::instance) {
@@ -84,6 +89,7 @@ KScreen::Config* Generator::idealConfig()
         return fallbackIfNeeded(config);
     }
 
+    kDebug() << "Extend to Right";
     extendToRight(outputs);
 
     return fallbackIfNeeded(config);
@@ -91,14 +97,23 @@ KScreen::Config* Generator::idealConfig()
 
 KScreen::Config* Generator::fallbackIfNeeded(KScreen::Config* config)
 {
+    kDebug();
     //If the ideal config can't be applied, try clonning
     if (!KScreen::Config::canBeApplied(config)) {
         delete config;
-        config = displaySwitch(1);// Try to clone at our best
+        if (Device::self()->isLaptop()) {
+            config = displaySwitch(1);// Try to clone at our best
+        } else {
+            config = KScreen::Config::current();
+            KScreen::OutputList outputList = config->connectedOutputs();
+            outputList.value(outputList.keys().first())->setPrimary(true);
+            cloneScreens(outputList);
+        }
     }
 
     //If after trying to clone at our best, we fail... return current
     if (!KScreen::Config::canBeApplied(config)) {
+        kDebug() << "Can't be applied";
         delete config;
         config = KScreen::Config::current();
     }
@@ -127,46 +142,19 @@ KScreen::Config* Generator::displaySwitch(int iteration)
         return config;
     }
 
+    if (iteration == 1) {
+        kDebug() << "Cloning";
+        embeddedOutput(outputs)->setPrimary(true);
+        cloneScreens(outputs);
+
+        return config;
+    }
+
     KScreen::Output* embedded, *external;
     embedded = embeddedOutput(outputs);
     outputs.remove(embedded->id());
     external = outputs.value(outputs.keys().first());
 
-    if (iteration == 1) {
-        kDebug() << "Cloning";
-        KScreen::ModeList embeddedModes = embedded->modes();
-        QMap<QString, QSize> embeddedModeSize;
-        Q_FOREACH(KScreen::Mode* mode, embeddedModes) {
-            embeddedModeSize.insert(mode->id(), mode->size());
-        }
-
-        QList<QString> embeddedKeys;
-        KScreen::ModeList externalCommon;
-        KScreen::ModeList externalModes = external->modes();
-        Q_FOREACH(KScreen::Mode* mode, externalModes) {
-            if (!embeddedModeSize.keys(mode->size()).isEmpty()) {
-                externalCommon.insert(mode->id(), mode);
-                embeddedKeys.append(embeddedModeSize.keys(mode->size()));
-            }
-        }
-
-        KScreen::ModeList embeddedCommon;
-        Q_FOREACH(const QString& key, embeddedKeys) {
-            embeddedCommon.insert(key, embeddedModes[key]);
-        }
-
-        KScreen::Mode* biggestEmbedded = !embeddedCommon.empty() ? biggestMode(embeddedCommon) : biggestMode(embeddedModes);
-        KScreen::Mode* biggestExternal = !externalCommon.empty() ? biggestMode(externalCommon) : biggestMode(externalModes);
-
-        embedded->setEnabled(true);
-        embedded->setPos(QPoint(0,0));
-        embedded->setCurrentModeId(biggestEmbedded->id());
-        external->setEnabled(true);
-        external->setPos(QPoint(0,0));
-        external->setCurrentModeId(biggestExternal->id());
-
-        return config;
-    }
 
     if (iteration == 2) {
         kDebug() << "Extend to left";
@@ -222,6 +210,70 @@ KScreen::Config* Generator::displaySwitch(int iteration)
     }
 
     return config;
+}
+
+uint qHash(const QSize &size)
+{
+    return size.width() * size.height();
+}
+
+void Generator::cloneScreens(KScreen::OutputList& outputs)
+{
+    if (outputs.isEmpty()) {
+        kWarning() << "output list to clone is empty";
+        return;
+    }
+
+    QSet<QSize> commonSizes;
+    const QSize maxSize  = KScreen::Config::current()->screen()->maxSize();
+
+    QList<QSet<QSize> >modes;
+    Q_FOREACH(KScreen::Output *output, outputs) {
+        QSet<QSize> modeSizes;
+        KScreen::ModeList modes = output->modes();
+        Q_FOREACH(KScreen::Mode *mode, modes) {
+            const QSize size = mode->size();
+            if (size.width() > maxSize.width() || size.height() > maxSize.height()) {
+                continue;
+            }
+            modeSizes.insert(mode->size());
+        }
+
+        //If we have nothing to compare against
+        if (commonSizes.isEmpty()) {
+            commonSizes = modeSizes;
+            continue;
+        }
+
+        commonSizes.intersect(modeSizes);
+    }
+
+    kDebug() << "Common sizes: " << commonSizes;
+    //fallback to biggestMode if no commonSizes have been found
+    if (commonSizes.isEmpty()) {
+        Q_FOREACH(KScreen::Output *output, outputs) {
+            output->setEnabled(true);
+            output->setPos(QPoint(0, 0));
+            output->setCurrentModeId(biggestMode(output->modes())->id());
+        }
+        return;
+    }
+
+
+    //At this point, we know we have common sizes, let's get the biggest on
+    QList<QSize> commonSizeList = commonSizes.toList();
+    qSort(commonSizeList.begin(), commonSizeList.end());
+    QSize biggestSize = commonSizeList.last();
+
+    //Finally, look for the mode with biggestSize and biggest refreshRate and set it
+    kDebug() << "Biggest Size: " << biggestSize;
+    KScreen::Mode* bestMode;
+    Q_FOREACH(KScreen::Output *output, outputs) {
+        bestMode = bestModeForSize(output->modes(), biggestSize);
+        output->setEnabled(true);
+        output->setPos(QPoint(0, 0));
+        output->setCurrentModeId(bestMode->id());
+    }
 }
 
 void Generator::singleOutput(KScreen::OutputList& outputs)
@@ -390,6 +442,27 @@ KScreen::Mode* Generator::biggestMode(const KScreen::ModeList& modes)
     }
 
     return biggestMode;
+}
+
+KScreen::Mode* Generator::bestModeForSize(const KScreen::ModeList& modes, const QSize &size)
+{
+    KScreen::Mode *bestMode = 0;
+    Q_FOREACH(KScreen::Mode *mode, modes) {
+        if (mode->size() != size) {
+            continue;
+        }
+
+        if (!bestMode) {
+            bestMode = mode;
+            continue;
+        }
+
+        if (mode->refreshRate() > bestMode->refreshRate()) {
+            bestMode = mode;
+        }
+    }
+
+    return bestMode;
 }
 
 KScreen::Output* Generator::biggestOutput(const KScreen::OutputList &outputs)
