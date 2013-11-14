@@ -114,6 +114,7 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
 
 KCMKScreen::~KCMKScreen()
 {
+    clearOutputIdentifiers();
 }
 
 bool KCMKScreen::x11EventFilter(void* message, long int* result)
