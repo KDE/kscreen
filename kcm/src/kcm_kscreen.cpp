@@ -248,10 +248,16 @@ void KCMKScreen::identifyOutputs()
             kWarning() << "Failed to obtain root item";
             continue;
         }
+        QSize realSize;
+        if (output->isHorizontal()) {
+            realSize = mode->size();
+        } else {
+            realSize = QSize(mode->size().height(), mode->size().width());
+        }
         rootObj->setProperty("outputName", output->name());
-        rootObj->setProperty("modeName", mode->name());
+        rootObj->setProperty("modeName", QString::fromLatin1("%1x%2").arg(realSize.width()).arg(realSize.height()));
 
-        QRect outputRect(output->pos(), mode->size());
+        const QRect outputRect(output->pos(), realSize);
         QRect geometry(QPoint(0, 0), view->sizeHint());
         geometry.moveCenter(outputRect.center());
         view->setGeometry(geometry);
