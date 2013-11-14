@@ -48,6 +48,7 @@ private Q_SLOTS:
     void workstationTwoExternalDiferentSize();
 
     void switchDisplayTwoScreens();
+    void switchDisplayTwoScreensNoCommonMode();
 };
 
 void testScreenConfig::loadConfig(const QByteArray& fileName)
@@ -387,6 +388,27 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(1280, 0));
 }
+
+void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
+{
+    loadConfig("switchDisplayTwoScreensNoCommonMode.json");
+
+    Generator *generator = Generator::self();
+    qDebug() << "MEH MOH";
+    Config *config = generator->displaySwitch(1);
+    Output *laptop = config->outputs().value(1);
+    Output *external = config->outputs().value(2);
+
+    QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+    QCOMPARE(external->currentModeId(), QLatin1String("5"));
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+}
+
 
 QTEST_MAIN(testScreenConfig)
 
