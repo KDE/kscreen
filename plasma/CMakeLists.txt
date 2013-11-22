@@ -11,6 +11,9 @@ target_link_libraries(plasma_applet_kscreen
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/plasma-applet-kscreen.desktop.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/plasma-applet-kscreen.desktop
                @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/package/metadata.desktop.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/package/metadata.desktop
+               @ONLY)
 
 
 install(TARGETS plasma_applet_kscreen
@@ -18,11 +21,10 @@ install(TARGETS plasma_applet_kscreen
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/plasma-applet-kscreen.desktop
         DESTINATION ${SERVICES_INSTALL_DIR})
 
-install(DIRECTORY package/
+install(DIRECTORY package/contents/
+        DESTINATION ${DATA_INSTALL_DIR}/plasma/packages/org.kde.plasma.kscreen.qml/contents)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/package/metadata.desktop
         DESTINATION ${DATA_INSTALL_DIR}/plasma/packages/org.kde.plasma.kscreen.qml)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/plasma-applet-kscreen.desktop
-        DESTINATION ${DATA_INSTALL_DIR}/plasma/packages/org.kde.plasma.kscreen.qml
-        RENAME metadata.desktop)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/plasma-applet-kscreen.desktop
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/package/metadata.desktop
         DESTINATION ${SERVICES_INSTALL_DIR}
         RENAME plasma-applet-kscreen-qml.desktop)
