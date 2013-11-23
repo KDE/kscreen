@@ -2,7 +2,7 @@
 Type=Service
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
- 
+
 X-KDE-PluginInfo-Author=Dan Vrátil
 X-KDE-PluginInfo-Email=dvratil@redhat.com
 X-KDE-PluginInfo-Name=org.kde.plasma.kscreen.qml
