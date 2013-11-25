@@ -74,7 +74,7 @@ void KScreenApplet::init()
     bool conn = connection.connect(QLatin1String("org.kde.kded"),
                                    QLatin1String("/modules/kscreen"),
                                    QLatin1String("org.kde.KScreen"),
-                                   QLatin1String("unkownOutputConnected"),
+                                   QLatin1String("unknownOutputConnected"),
                                    //QLatin1String("outputConnected"),
                                    QLatin1String("s"),
                                    this, SLOT(slotUnknownDisplayConnected(QString)));
