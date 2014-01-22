@@ -318,12 +318,10 @@ Flickable {
 
             if (output.output.enabled) {
                 enabledCount++;
-                if (enabledCount > 0) {
-                    break;
-                }
             }
         }
 
+        tooManyActiveOutputs.opacity = ((enabledCount > virtualScreen.maxActiveOutputsCount) ? 1.0 : 0.0);
         noActiveOutputsWarning.opacity = (enabledCount > 0) ? 0.0 : 1.0;
     }
 

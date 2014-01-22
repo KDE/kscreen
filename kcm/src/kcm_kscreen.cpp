@@ -168,7 +168,7 @@ void KCMKScreen::load()
     }
     QMetaObject::invokeMethod(outputView, "reorderOutputs");
 
-    connect(outputView, SIGNAL(outputChanged()), SLOT(changed()));
+    connect(outputView, SIGNAL(outputChanged()), SLOT(outputChanged()));
     connect(outputView, SIGNAL(moveMouse(int,int)), SLOT(moveMouse(int,int)));
     connect(outputView, SIGNAL(outputMousePressed()), SLOT(outputMousePressed()));
     connect(outputView, SIGNAL(outputMouseReleased()), SLOT(outputMouseReleased()));
@@ -208,6 +208,14 @@ void KCMKScreen::save()
         {
             return;
         }
+    }
+
+    if (!Config::canBeApplied(m_config)) {
+        KMessageBox::information(this,
+            i18n("Sorry, your configuration could not be applied.\n\n"
+                 "Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."),
+                 i18n("Unsupported configuration"));
+        return;
     }
 
     /* Store the current config, apply settings */
@@ -290,5 +298,18 @@ void KCMKScreen::outputMouseReleased()
 {
     m_declarativeView->setCursor(Qt::ArrowCursor);
 }
+
+void KCMKScreen::outputChanged()
+{
+    if (!Config::canBeApplied(m_config)) {
+        setButtons(KCModule::Default);
+        changed(false);
+    } else {
+        setButtons(KCModule::Default | KCModule::Apply);
+        changed(true);
+    }
+
+}
+
 
 #include "kcm_kscreen.moc"

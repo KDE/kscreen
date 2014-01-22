@@ -124,6 +124,15 @@ Item {
                 icon: "dialog-warning";
                 text: i18n("Warning: There are no active outputs!");
             }
+
+            Tip {
+
+                id: tooManyActiveOutputs;
+                objectName: "tooManyActiveOutputs";
+
+                icon: "dialog-error";
+                text: i18n("Your system only supports up to %1 active screens", virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
+            }
         }
 
         IconButton {

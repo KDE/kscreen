@@ -49,6 +49,7 @@ private Q_SLOTS:
 
     void outputMousePressed();
     void outputMouseReleased();
+    void outputChanged();
 
 private:
     KScreen::Config *m_config;
