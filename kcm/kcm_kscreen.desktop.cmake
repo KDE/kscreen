@@ -25,6 +25,7 @@ Name[gl]=Configuración da pantalla
 Name[hu]=Megjelenítési beállítások
 Name[it]=Configurazione dello schermo
 Name[ko]=디스플레이 설정
+Name[lt]=Ekrano konfigūracija
 Name[mr]=प्रदर्शकाची संयोजना
 Name[nb]=Skjermoppsett
 Name[nl]=Instellingen van het scherm
