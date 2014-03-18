@@ -29,6 +29,7 @@ Name[lt]=Ekrano konfigūracija
 Name[mr]=प्रदर्शकाची संयोजना
 Name[nb]=Skjermoppsett
 Name[nl]=Instellingen van het scherm
+Name[pa]=ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ
 Name[pl]=Konfiguracja wyświetlania
 Name[pt]=Configuração do Ecrã
 Name[pt_BR]=Configuração da tela
