@@ -2,6 +2,7 @@
 Name=KScreen 2
 Name[bs]=KScreen 2
 Name[ca]=KScreen 2
+Name[ca@valencia]=KScreen 2
 Name[cs]=KScreen 2
 Name[da]=KScreen 2
 Name[de]=KScreen 2
@@ -36,6 +37,7 @@ Name[zh_TW]=KScreen 2
 Comment=Screen management
 Comment[bs]=Upravljanje ekranom
 Comment[ca]=Gestió de pantalla
+Comment[ca@valencia]=Gestió de pantalla
 Comment[cs]=Správa obrazovek
 Comment[da]=Håndtering af skærme
 Comment[de]=Bildschirm-Verwaltung
