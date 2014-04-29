@@ -63,6 +63,8 @@ void Console::printConfig()
         return;
     }
 
+    connect(m_config, SIGNAL(primaryOutputChanged(KScreen::Output*)), SLOT(primaryOutputChanged(KScreen::Output*)));
+
     qDebug() << "Screen:";
     qDebug() << "\tmaxSize:" << m_config->screen()->maxSize();
     qDebug() << "\tminSize:" << m_config->screen()->minSize();
@@ -198,6 +200,11 @@ void Console::monitorAndPrint()
 {
     monitor();
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
+}
+
+void Console::primaryOutputChanged(Output* output)
+{
+    qDebug() << "New primary output: " << output->id() << output->name();
 }
 
 #include <console.moc>

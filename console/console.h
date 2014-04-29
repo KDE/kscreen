@@ -39,6 +39,7 @@ class Console : public QObject
         void printSerializations();
         void monitor();
         void monitorAndPrint();
+        void primaryOutputChanged(KScreen::Output *output);
 
     private:
         KScreen::Config *m_config;
