@@ -81,6 +81,7 @@ int main (int argc, char *argv[])
         qDebug() << "Remember to enable KSRandR or KSRandR11 in kdebugdialog";
         //Print config so that we have some pivot data
         console->printConfig();
+        console->monitor();
         //Do nothing, enable backend output to see debug
         return app.exec();
     }
