@@ -19,7 +19,9 @@
 
 #include "widget.h"
 #include "controlpanel.h"
+#ifdef WITH_PROFILES
 #include "profilesmodel.h"
+#endif
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeEngine>
@@ -60,7 +62,6 @@ Widget::Widget(QWidget *parent):
     m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     splitter->addWidget(m_declarativeView);
     splitter->setStretchFactor(0, 1);
-    loadQml();
 
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
@@ -81,7 +82,9 @@ Widget::Widget(QWidget *parent):
 
     hbox->addStretch();
 
+#ifdef WITH_PROFILES
     mProfilesModel = new ProfilesModel(this);
+
     connect(mProfilesModel, SIGNAL(modelUpdated()),
             this, SLOT(slotProfilesUpdated()));
     mProfilesCombo = new KComboBox(this);
@@ -89,7 +92,7 @@ Widget::Widget(QWidget *parent):
     mProfilesCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     hbox->addWidget(new QLabel(i18n("Active profile")));
     hbox->addWidget(mProfilesCombo);
-
+#endif
 
     m_controlPanel = new ControlPanel(this);
     connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
@@ -98,6 +101,8 @@ Widget::Widget(QWidget *parent):
     mUnifyButton = new KPushButton(i18n("Unify outputs"), this);
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
     vbox->addWidget(mUnifyButton);
+
+    loadQml();
 }
 
 Widget::~Widget()
@@ -163,6 +168,11 @@ void Widget::loadQml()
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SIGNAL(changed()));
+
+
+#ifndef WITH_PROFILES
+    setConfig(KScreen::Config::current());
+#endif
 }
 
 void Widget::initPrimaryCombo()
@@ -329,6 +339,7 @@ void Widget::slotUnifyOutputs()
 
 void Widget::slotProfileChanged(int index)
 {
+#ifdef WITH_PROFILES
     const QVariantMap profile = mProfilesCombo->itemData(index, ProfilesModel::ProfileRole).toMap();
     const QVariantList outputs = profile[QLatin1String("outputs")].toList();
 
@@ -355,6 +366,7 @@ void Widget::slotProfileChanged(int index)
     config->setOutputs(outputList);
 
     setConfig(config);
+#endif
 }
 
 // FIXME: Copy-pasted from KDED's Serializer::findOutput()
@@ -402,18 +414,22 @@ KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &
 
 void Widget::slotProfilesAboutToUpdate()
 {
+#ifdef WITH_PROFILES
     disconnect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
                this, SLOT(slotProfileChanged(int)));
+#endif
 }
 
 
 void Widget::slotProfilesUpdated()
 {
+#ifdef WITH_PROFILES
     connect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotProfileChanged(int)));
 
     const int index = mProfilesModel->activeProfileIndex();
     mProfilesCombo->setCurrentIndex(index);
+#endif
 }
 
 
