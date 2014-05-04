@@ -49,6 +49,8 @@ Q_DECLARE_METATYPE(KScreen::Screen*)
 KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args)
 {
+    setButtons(Apply | Default);
+
     KAboutData* about =
         new KAboutData("kscreen", "kcm_kscren",
                     ki18n("Display Configuration"),
@@ -118,12 +120,18 @@ void KCMKScreen::save()
 
 void KCMKScreen::defaults()
 {
+    load();
+}
+
+void KCMKScreen::load()
+{
     if (!mKScreenWidget) {
         return;
     }
 
     mKScreenWidget->setConfig(KScreen::Config::current());
 }
+
 
 
 void KCMKScreen::clearOutputIdentifiers()

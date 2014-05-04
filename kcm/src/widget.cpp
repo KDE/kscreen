@@ -169,8 +169,6 @@ void Widget::loadQml()
 
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
-    connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
-            this, SIGNAL(changed()));
 
 
 #ifndef WITH_PROFILES

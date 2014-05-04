@@ -34,6 +34,7 @@ class KCMKScreen : public KCModule
     virtual ~KCMKScreen();
 
   public Q_SLOTS:
+    virtual void load();
     virtual void save();
     virtual void defaults();
 
