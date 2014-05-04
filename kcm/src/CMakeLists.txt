@@ -1,21 +1,23 @@
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
+
 set(kcm_kscreen_SRCS
-    kcm_kscreen.cpp
+    declarative/iconbutton.cpp
+    declarative/qmloutput.cpp
+    declarative/qmloutputcomponent.cpp
+    declarative/qmlscreen.cpp
 
-    qmlcursor.cpp
-    qmloutputcomponent.cpp
-    qmloutput.cpp
-    modesproxymodel.cpp
-    modeselectionwidget.cpp
-    resolutionsortmodel.cpp
-
-    # Copied from kde-runtime/plasma/declarativeimports/plasmaextracomponents
-    # as a dependency of qml/plasmacomponents/private/InlineDialog.qml
-    fallbackcomponent.cpp
+    collapsablebutton.cpp
+    controlpanel.cpp
+    outputconfig.cpp
+    unifiedoutputconfig.cpp
+    resolutionslider.cpp
+    utils.cpp
+    widget.cpp
 )
 
 qt4_automoc(${kcm_kscreen_SRCS})
 
-kde4_add_plugin(kcm_kscreen ${kcm_kscreen_SRCS})
+kde4_add_plugin(kcm_kscreen kcm_kscreen.cpp ${kcm_kscreen_SRCS})
 
 target_link_libraries(kcm_kscreen
     ${QT_QTDECLARATIVE_LIBRARY}
@@ -25,9 +27,8 @@ target_link_libraries(kcm_kscreen
 
 install(TARGETS kcm_kscreen DESTINATION ${PLUGIN_INSTALL_DIR} )
 
-kde4_add_executable(kcm_testapp
-        kcm_testapp.cpp
-        ${kcm_kscreen_SRCS})
+
+kde4_add_executable(kcm_testapp kcm_testapp.cpp ${kcm_kscreen_SRCS})
 set_target_properties(kcm_testapp PROPERTIES COMPILE_FLAGS "-DQT_DECLARATIVE_DEBUG")
 target_link_libraries(kcm_testapp
         ${QT_QTDECLARATIVE_LIBRARY}

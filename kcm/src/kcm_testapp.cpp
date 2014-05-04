@@ -19,9 +19,10 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 #include <KApplication>
-#include <KCModuleLoader>
 
 #include <QDeclarativeDebuggingEnabler>
+
+#include "widget.h"
 
 int main(int argc, char **argv)
 {
@@ -32,10 +33,10 @@ int main(int argc, char **argv)
 
     KApplication app;
 
-    KCModule *module = KCModuleLoader::loadModule("kcm_kscreen", KCModuleLoader::Inline);
-    module->resize(800, 600);
-    module->show();
+    Widget widget;
+    widget.resize(800, 600);
+    widget.show();
+
 
     return app.exec();
 }
-

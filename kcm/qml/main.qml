@@ -18,9 +18,8 @@
 
 import QtQuick 1.1
 import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.qtextracomponents 0.1
-import KScreen 1.0 as KScreen;
+import org.kde.kscreen 1.0
 
 Item {
 
@@ -61,7 +60,7 @@ Item {
             anchors.fill: parent;
             focus: true;
 
-            OutputView {
+            QMLScreen {
 
                 id: outputView;
 
@@ -69,33 +68,7 @@ Item {
                 clip: true;
 
                 objectName: "outputView";
-
-                maxContentWidth: virtualScreen ? virtualScreen.maxSize.width : root.width;
-                maxContentHeight: virtualScreen ? virtualScreen.maxSize.width : root.width;
             }
-        }
-
-        PlasmaComponents.ScrollBar {
-
-            id: horizontalScrollbar;
-
-            /* The scrollbars seem to have broken anchoring? */
-            y: background.height - height;
-            width: background.width - verticalScrollbar.width;
-
-            orientation: Qt.Horizontal;
-            flickableItem: outputView;
-        }
-
-        PlasmaComponents.ScrollBar {
-
-            id: verticalScrollbar;
-
-            x: background.width - width;
-            height: background.height - horizontalScrollbar.height;
-
-            orientation: Qt.Vertical;
-            flickableItem: outputView;
         }
 
         Column {
@@ -103,7 +76,7 @@ Item {
             anchors {
                 left: parent.left;
                 right: identifyButton.left;
-                bottom: horizontalScrollbar.top;
+                bottom: parent.bottom;
                 margins: 5;
             }
 
@@ -140,14 +113,13 @@ Item {
             id: identifyButton;
 
             anchors {
-                right: verticalScrollbar.left;
-                bottom: horizontalScrollbar.top;
+                right: parent.right;
+                bottom: parent.bottom
                 margins: 5;
             }
 
-            enabledIcon: "kdocumentinfo"
+            iconName: "kdocumentinfo"
             iconSize: theme.largeIconSize;
-            smooth: true
             tooltipText: i18n("Identify outputs");
 
             onClicked: root.identifyOutputsRequested();
