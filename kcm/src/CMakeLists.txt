@@ -1,5 +1,4 @@
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/declarative
-                    ${CMAKE_CURRENT_BINARY_DIR})
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
 set(kcm_kscreen_SRCS
     declarative/iconbutton.cpp
@@ -10,16 +9,12 @@ set(kcm_kscreen_SRCS
     collapsablebutton.cpp
     controlpanel.cpp
     outputconfig.cpp
-    profilesmodel.cpp
-    resolutionslider.cpp
     unifiedoutputconfig.cpp
+    resolutionslider.cpp
     utils.cpp
     widget.cpp
 )
 
-set(kscreen_dbus ${CMAKE_SOURCE_DIR}/dbus/org.kde.KScreen.xml)
-set_source_files_properties(${kscreen_dbus} PROPERTIES INCLUDE "${CMAKE_SOURCE_DIR}/dbus/types.h" )
-qt4_add_dbus_interface(kcm_kscreen_SRCS ${kscreen_dbus} kscreeninterface)
 qt4_automoc(${kcm_kscreen_SRCS})
 
 kde4_add_plugin(kcm_kscreen kcm_kscreen.cpp ${kcm_kscreen_SRCS})

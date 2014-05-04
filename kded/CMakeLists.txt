@@ -1,5 +1,4 @@
-include_directories(${CMAKE_CURRENT_BINARY_DIR}
-                    ${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(kscreen_daemon_SRCS
     daemon.cpp
@@ -8,8 +7,14 @@ set(kscreen_daemon_SRCS
     device.cpp
 )
 
-qt4_add_dbus_interface(kscreen_daemon_SRCS ${CMAKE_SOURCE_DIR}/dbus/org.freedesktop.DBus.Properties.xml freedesktop_interface)
-qt4_add_dbus_adaptor(kscreen_daemon_SRCS ${CMAKE_SOURCE_DIR}/dbus/org.kde.KScreen.xml daemon.h KScreenDaemon)
+qt4_add_dbus_interface(kscreen_daemon_SRCS
+    org.freedesktop.DBus.Properties.xml
+    freedesktop_interface)
+qt4_add_dbus_adaptor(kscreen_daemon_SRCS
+    org.kde.KScreen.xml
+    daemon.h
+    KScreenDaemon
+)
 
 kde4_add_plugin(kded_kscreen
     ${kscreen_daemon_SRCS}
