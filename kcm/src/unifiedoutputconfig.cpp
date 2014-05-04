@@ -124,6 +124,17 @@ KScreen::Output *UnifiedOutputConfig::createFakeOutput()
 
     // This will give us list of resolution that are shared by all outputs
     QList<QSize> commonResults = commonSizes.keys(mClones.count());
+    // If there are no common resolution, fallback to smallest preferred mode
+    if (commonResults.isEmpty()) {
+        QSize smallestMode;
+        Q_FOREACH (KScreen::Output *clone, mClones) {
+            qDebug() << smallestMode << clone->preferredMode()->size();
+            if (!smallestMode.isValid() || clone->preferredMode()->size() < smallestMode) {
+                smallestMode = clone->preferredMode()->size();
+            }
+        }
+        commonResults << smallestMode;
+    }
     qSort(commonResults);
 
     KScreen::ModeList modes;
