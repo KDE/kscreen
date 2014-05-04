@@ -76,7 +76,11 @@ void UnifiedOutputConfig::setOutput(KScreen::Output *output)
 void UnifiedOutputConfig::initUi()
 {
     setTitle(i18n("Unified Outputs"));
-    QGridLayout *formLayout = new QGridLayout(this);
+
+    QVBoxLayout *vbox = new QVBoxLayout(this);
+    QGridLayout *formLayout = new QGridLayout();
+    vbox->addLayout(formLayout);
+    vbox->addStretch(2);
 
     KScreen::Output *fakeOutput = createFakeOutput();
     mResolution = new ResolutionSlider(fakeOutput, this);

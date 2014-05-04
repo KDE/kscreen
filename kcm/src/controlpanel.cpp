@@ -66,12 +66,15 @@ void ControlPanel::setConfig(KScreen::Config *config)
         mLayout->addWidget(outputCfg);
         mOutputConfigs << outputCfg;
     }
-
-    mLayout->addStretch(1);
 }
 
 void ControlPanel::activateOutput(KScreen::Output *output)
 {
+    // Ignore activateOutput when in unified mode
+    if (mUnifiedOutputCfg) {
+        return;
+    }
+
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
         cfg->setVisible(cfg->output()->id() == output->id());
     }
@@ -89,6 +92,7 @@ void ControlPanel::setUnifiedOutput(KScreen::Output *output)
 
     if (output == 0) {
         mUnifiedOutputCfg->deleteLater();
+        mUnifiedOutputCfg = 0;
     } else {
         mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, widget());
         mUnifiedOutputCfg->setOutput(output);

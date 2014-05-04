@@ -63,8 +63,12 @@ void OutputConfig::initUi()
     connect(mOutput, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
 
     setTitle(Utils::outputName(mOutput));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QGridLayout *formLayout = new QGridLayout(this);
+    QVBoxLayout *vbox = new QVBoxLayout(this);
+    QGridLayout *formLayout = new QGridLayout();
+    vbox->addLayout(formLayout);
+    vbox->addStretch(2);
 
     mEnabled = new QCheckBox(i18n("Enabled"), this);
     mEnabled->setChecked(mOutput->isEnabled());
@@ -106,9 +110,6 @@ void OutputConfig::initUi()
     connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotRefreshRateChanged(int)));
 
-    if (!mOutput->isConnected()) {
-        hide();
-    }
 }
 
 void OutputConfig::setOutput(KScreen::Output *output)
