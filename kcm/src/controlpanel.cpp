@@ -38,7 +38,6 @@ ControlPanel::ControlPanel(QWidget *parent)
     QWidget *widget = new QWidget(this);
     mLayout = new QVBoxLayout(widget);
     mLayout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
-    mLayout->addStretch(1);
 
     setWidget(widget);
 }
@@ -60,26 +59,21 @@ void ControlPanel::setConfig(KScreen::Config *config)
 
     Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
         OutputConfig *outputCfg = new OutputConfig(output, widget());
+        outputCfg->hide();
         connect(outputCfg, SIGNAL(changed()),
                 this, SIGNAL(changed()));
 
-        // Make sure laptop screen is always first - it somehow feels right :)
-        if (output->type() == KScreen::Output::Panel) {
-            mLayout->insertWidget(0, outputCfg);
-        } else {
-            // Place before the stretch
-            mLayout->insertWidget(mLayout->count() - 2, outputCfg);
-        }
+        mLayout->addWidget(outputCfg);
         mOutputConfigs << outputCfg;
     }
+
+    mLayout->addStretch(1);
 }
 
 void ControlPanel::activateOutput(KScreen::Output *output)
 {
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
-        if (cfg->output()->id() == output->id()) {
-            cfg->expand();
-        }
+        cfg->setVisible(cfg->output()->id() == output->id());
     }
 }
 

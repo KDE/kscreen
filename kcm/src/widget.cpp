@@ -54,6 +54,8 @@ Widget::Widget(QWidget *parent):
     mConfig(0),
     mPrevConfig(0)
 {
+    setMinimumHeight(550);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
@@ -61,11 +63,12 @@ Widget::Widget(QWidget *parent):
 
     m_declarativeView = new QDeclarativeView(this);
     m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+    m_declarativeView->setMinimumHeight(280);
     splitter->addWidget(m_declarativeView);
-    splitter->setStretchFactor(0, 1);
 
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
+    splitter->setStretchFactor(1, 1);
 
     QVBoxLayout *vbox = new QVBoxLayout(widget);
     widget->setLayout(vbox);

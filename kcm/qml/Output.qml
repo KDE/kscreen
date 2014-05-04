@@ -40,6 +40,7 @@ QMLOutput {
     visible: (opacity > 0);
     opacity: output.connected ? 1.0 : 0.0;
 
+
     SystemPalette {
 
         id: palette;
@@ -149,18 +150,22 @@ QMLOutput {
             smooth: true;
 
             border {
-                color: palette.shadow;
+                color: root.focus ? palette.highlight : palette.shadow;
                 width: 1;
+
+                Behavior on color {
+                    PropertyAnimation {
+                        duration: 150;
+                    }
+                }
             }
 
             Rectangle {
 
                 id: posLabel;
 
-                anchors {
-                    left: parent.left;
-                    top: parent.top;
-                }
+                y: 4;
+                x: 4;
 
                 width: childrenRect.width + 5;
                 height: childrenRect.height + 2;
@@ -243,8 +248,14 @@ QMLOutput {
                 }
 
                 height: 10;
-                color: palette.shadow;
+                color: root.focus ? palette.highlight : palette.shadow;
                 smooth: true;
+
+                Behavior on color {
+                    PropertyAnimation {
+                        duration: 150;
+                    }
+                }
             }
         }
     }

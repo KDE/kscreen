@@ -75,27 +75,17 @@ void UnifiedOutputConfig::setOutput(KScreen::Output *output)
 
 void UnifiedOutputConfig::initUi()
 {
-    QGridLayout *layout = new QGridLayout(this);
-
-    mLabel = new CollapsableButton(i18n("Unified Output"), this);
-    layout->addWidget(mLabel, 0, 0, 1, 2);
-
-    layout->addItem(new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Minimum), 1, 0);
-
-    mControlsWidget = new QGroupBox(this);
-    mLabel->setWidget(mControlsWidget);
-    layout->addWidget(mControlsWidget, 1, 1);
-
-    QGridLayout *formLayout = new QGridLayout(mControlsWidget);
+    setTitle(i18n("Unified Outputs"));
+    QGridLayout *formLayout = new QGridLayout(this);
 
     KScreen::Output *fakeOutput = createFakeOutput();
-    mResolution = new ResolutionSlider(fakeOutput, mControlsWidget);
+    mResolution = new ResolutionSlider(fakeOutput, this);
     connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
     formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
     formLayout->addWidget(mResolution, 1, 1);
     slotResolutionChanged(mResolution->currentResolution());
 
-    mRotation = new KComboBox(mControlsWidget);
+    mRotation = new KComboBox(this);
     connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
     mRotation->addItem(KIcon(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
     mRotation->addItem(KIcon(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);

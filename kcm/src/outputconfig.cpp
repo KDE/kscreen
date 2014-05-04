@@ -41,13 +41,13 @@
 #include <kscreen/edid.h>
 
 OutputConfig::OutputConfig(QWidget *parent)
-    : QWidget(parent)
+    : QGroupBox(parent)
     , mOutput(0)
 {
 }
 
 OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
-    : QWidget(parent)
+    : QGroupBox(parent)
 {
     setOutput(output);
 }
@@ -62,31 +62,22 @@ void OutputConfig::initUi()
     connect(mOutput, SIGNAL(isEnabledChanged()), SLOT(slotOutputEnabledChanged()));
     connect(mOutput, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
 
-    QGridLayout *layout = new QGridLayout(this);
+    setTitle(Utils::outputName(mOutput));
 
-    mLabel = new CollapsableButton(Utils::outputName(mOutput), this);
-    layout->addWidget(mLabel, 0, 0, 1, 2);
+    QGridLayout *formLayout = new QGridLayout(this);
 
-    layout->addItem(new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Minimum), 1, 0);
-
-    mControlsWidget = new QGroupBox(this);
-    mLabel->setWidget(mControlsWidget);
-    layout->addWidget(mControlsWidget, 1, 1);
-
-    QGridLayout *formLayout = new QGridLayout(mControlsWidget);
-
-    mEnabled = new QCheckBox(i18n("Enabled"), mControlsWidget);
+    mEnabled = new QCheckBox(i18n("Enabled"), this);
     mEnabled->setChecked(mOutput->isEnabled());
     connect(mEnabled, SIGNAL(clicked(bool)), SLOT(slotEnabledChanged(bool)));
     formLayout->addWidget(new QLabel(i18n("Display:"), this), 0, 0);
     formLayout->addWidget(mEnabled, 0, 1);
 
-    mResolution = new ResolutionSlider(mOutput, mControlsWidget);
+    mResolution = new ResolutionSlider(mOutput, this);
     connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
     formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
     formLayout->addWidget(mResolution, 1, 1);
 
-    mRotation = new KComboBox(mControlsWidget);
+    mRotation = new KComboBox(this);
     connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
     mRotation->addItem(KIcon(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
     mRotation->addItem(KIcon(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
@@ -101,7 +92,7 @@ void OutputConfig::initUi()
     advanced->setCollapsed(true);
     formLayout->addWidget(advanced, 3, 0, 1, 2);
 
-    QWidget *advancedWidget = new QWidget(mControlsWidget);
+    QWidget *advancedWidget = new QWidget(this);
     formLayout->addWidget(advancedWidget, 4, 0, 1, 2);
     advanced->setWidget(advancedWidget);
     formLayout = new QGridLayout(advancedWidget);
@@ -114,10 +105,6 @@ void OutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotRefreshRateChanged(int)));
-
-    if (!mOutput->isEnabled()) {
-        collapse();
-    }
 
     if (!mOutput->isConnected()) {
         hide();
@@ -133,26 +120,6 @@ void OutputConfig::setOutput(KScreen::Output *output)
 KScreen::Output* OutputConfig::output() const
 {
     return mOutput;
-}
-
-bool OutputConfig::isExpanded() const
-{
-    return mControlsWidget->isVisible();
-}
-
-void OutputConfig::collapse()
-{
-    mLabel->setCollapsed(true);
-}
-
-void OutputConfig::expand()
-{
-    mLabel->setCollapsed(false);
-}
-
-void OutputConfig::toggle()
-{
-    mLabel->toggle();
 }
 
 void OutputConfig::slotOutputConnectedChanged()
