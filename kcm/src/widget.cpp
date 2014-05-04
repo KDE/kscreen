@@ -46,6 +46,7 @@
 #include <KComboBox>
 #include <KPushButton>
 #include <KDebug>
+#include <KStandardDirs>
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -148,14 +149,13 @@ void Widget::loadQml()
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
     qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
 
-    QDir dir = QDir::current();
-    dir.cdUp();
-    dir.cdUp();
-    dir.cd("kcm/qml");
-    QDir::setCurrent(dir.path());
-
-    const QString file = QDir::currentPath() + "/main.qml";
-    m_declarativeView->engine()->addImportPath(QLatin1String("/usr/lib64/kde4/imports/"));
+    //const QString file = QDir::currentPath() + "/main.qml";
+    const QString file = KStandardDirs::locate("data", QLatin1String("kcm_kscreen/qml/main.qml"));
+    QStringListIterator paths(KGlobal::dirs()->findDirs("module", "imports"));
+    paths.toBack();
+    while (paths.hasPrevious()) {
+        m_declarativeView->engine()->addImportPath(paths.previous());
+    }
     m_declarativeView->setSource(QUrl::fromLocalFile(file));
 
     QGraphicsObject *rootObject = m_declarativeView->rootObject();

@@ -37,12 +37,7 @@ QMLOutputComponent::QMLOutputComponent(QDeclarativeEngine *engine, QMLScreen *pa
     QDeclarativeComponent(engine, parent),
     m_engine(engine)
 {
-    /*
-    QString qmlPath = KStandardDirs::locate(
-        "data", QLatin1String("kcm_kscreen/qml/Output.qml"));
-    */
-    QString qmlPath = QDir::currentPath() + "/Output.qml";
-
+    const QString qmlPath = KStandardDirs::locate("data", QLatin1String("kcm_kscreen/qml/Output.qml"));
     loadUrl(KUrl::fromPath(qmlPath));
 }
 
