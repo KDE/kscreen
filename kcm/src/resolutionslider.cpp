@@ -92,7 +92,13 @@ ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
     mSlider->setMinimum(0);
     mSlider->setMaximum(mModes.size() - 1);
     mSlider->setSingleStep(1);
-    mSlider->setValue(mModes.indexOf(output->currentMode()->size()));
+    if (output->currentMode()) {
+      mSlider->setValue(mModes.indexOf(output->currentMode()->size()));
+    } else if (output->preferredMode()) {
+      mSlider->setValue(mModes.indexOf(output->preferredMode()->size()));
+    } else {
+      mSlider->setValue(mSlider->maximum());
+    }
     slotOutputModeChanged();
 }
 
