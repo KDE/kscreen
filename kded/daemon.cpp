@@ -23,13 +23,13 @@
 #include "kscreenadaptor.h"
 
 #include <QtCore/QTimer>
+#include <QAction>
+#include <QShortcut>
 
-#include <kdebug.h>
-#include <kdemacros.h>
-#include <kaction.h>
 #include <KLocalizedString>
 #include <KActionCollection>
 #include <KPluginFactory>
+#include <KGlobalAccel>
 
 #include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
@@ -51,9 +51,9 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
     }
 
     KActionCollection *coll = new KActionCollection(this);
-    KAction* action = coll->addAction("display");
+    QAction* action = coll->addAction(QStringLiteral("display"));
     action->setText(i18n("Switch Display" ));
-    action->setGlobalShortcut(KShortcut(Qt::Key_Display));
+    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
 
     new KScreenAdaptor(this);
 
@@ -89,7 +89,7 @@ void KScreenDaemon::init()
 
 void KScreenDaemon::applyConfig()
 {
-    kDebug() << "Applying config";
+    qDebug() << "Applying config";
     if (Serializer::configExists()) {
         applyKnownConfig();
         return;
@@ -100,7 +100,7 @@ void KScreenDaemon::applyConfig()
 
 void KScreenDaemon::applyKnownConfig()
 {
-    kDebug() << "Applying known config";
+    qDebug() << "Applying known config";
     setMonitorForChanges(false);
     KScreen::Config* config = Serializer::config(Serializer::currentId());
     if (!KScreen::Config::canBeApplied(config)) {
@@ -113,29 +113,29 @@ void KScreenDaemon::applyKnownConfig()
 
 void KScreenDaemon::applyIdealConfig()
 {
-    kDebug() << "Applying ideal config";
+    qDebug() << "Applying ideal config";
     setMonitorForChanges(true);
     KScreen::Config::setConfig(Generator::self()->idealConfig());
 }
 
 void KScreenDaemon::configChanged()
 {
-    kDebug() << "Change detected";
+    qDebug() << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
-    kDebug() << "Saving current config";
+    qDebug() << "Saving current config";
     Serializer::saveConfig(KScreen::Config::current());
 }
 
 void KScreenDaemon::displayButton()
 {
-    kDebug() << "displayBtn triggered";
+    qDebug() << "displayBtn triggered";
     if (m_timer->isActive()) {
-        kDebug() << "Too fast cowboy";
+        qDebug() << "Too fast cowboy";
         return;
     }
 
@@ -144,7 +144,7 @@ void KScreenDaemon::displayButton()
 
 void KScreenDaemon::resetDisplaySwitch()
 {
-    kDebug();
+    qDebug();
     m_iteration = 0;
 }
 
@@ -156,8 +156,8 @@ void KScreenDaemon::applyGenericConfig()
 
     setMonitorForChanges(true);
     m_iteration++;
-    kDebug() << "displayButton: " << m_iteration;
-    KDebug::Block genericConfig("Applying display switch");
+    qDebug() << "displayButton: " << m_iteration;
+//     KDebug::Block genericConfig("Applying display switch");
     KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
@@ -165,7 +165,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
     Q_UNUSED(lidIsClosed);
 //     KDebug::Block genericConfig(" Lid closed");
-//     kDebug() << "Lid is closed:" << lidIsClosed;
+//     qDebug() << "Lid is closed:" << lidIsClosed;
 //     //If the laptop is closed, use ideal config WITHOUT saving it
 //     if (lidIsClosed) {
 //         setMonitorForChanges(false);
@@ -214,7 +214,7 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     if (m_monitoring == enabled) {
         return;
     }
-    kDebug() << "Monitor for changes: " << enabled;
+    qDebug() << "Monitor for changes: " << enabled;
     if (!m_monitoredConfig) {
         m_monitoredConfig = KScreen::Config::current();
         if (!m_monitoredConfig) {

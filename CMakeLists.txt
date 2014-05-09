@@ -1,32 +1,30 @@
-project(kscreen)
+project(KScreen)
 
-set(KSCREEN_VERSION 1.0.2.1)
+cmake_minimum_required(VERSION 2.8.12)
+
+set(KSCREEN_VERSION 2.0.0)
 set(KSCREEN_STR_VERSION \"${KSCREEN_VERSION}\")
 
 add_definitions("-DKSCREEN_VERSION=\\\"${KSCREEN_VERSION}\\\"")
 
+find_package(ECM 0.0.9 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-cmake_minimum_required(VERSION 2.6)
+find_package(Qt5 REQUIRED COMPONENTS QuickWidgets X11Extras Test)
+find_package(KF5 REQUIRED COMPONENTS Screen DBusAddons ConfigWidgets I18n XmlGui GlobalAccel)
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(ECMInstallIcons)
+include(ECMMarkAsTest)
+include(FeatureSummary)
 
-find_package(Qt4 REQUIRED)
-find_package(KDE4 REQUIRED)
-find_package(LibKScreen 1.0.2 REQUIRED)
-find_package(QJSON 0.8 REQUIRED)
-
-include(MacroLibrary)
-include(KDE4Defaults)
-
-include_directories(
-    ${QT_INCLUDES}
-    ${KDE4_INCLUDES}
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${QJSON_INCLUDE_DIR}
-    ${LibKScreen_INCLUDE_DIR}
-)
 
 add_subdirectory(icons)
-add_subdirectory(kcm)
-add_subdirectory(plasma)
+# add_subdirectory(kcm)
+# add_subdirectory(plasma)
 add_subdirectory(kded)
 add_subdirectory(tests)
 add_subdirectory(console)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

@@ -18,15 +18,11 @@
 
 #include <unistd.h>
 
-#include <QtCore/QDebug>
-#include <QtCore/QProcess>
-
-#include <KApplication>
+#include <QProcess>
+#include <QCommandLineParser>
+#include <QApplication>
 #include <KAboutData>
-#include <KComponentData>
-#include <KCmdLineArgs>
-#include <KApplication>
-#include <KAboutData>
+#include <KLocalizedString>
 
 #include "console.h"
 
@@ -34,41 +30,42 @@ using namespace std;
 
 void showCommands()
 {
-    qDebug() << "Commands: " << endl;
-    qDebug() << "    bug \t <Show information needed for a bug report>" << endl;
-    qDebug() << "    config \t <Show kscreen config files>" << endl;
-    qDebug() << "    outputs \t <Show Output information>" << endl;
-    qDebug() << "    monitor \t <Monitors for changes>" << endl;
+    QTextStream(stdout) << "Commands: " << endl;
+    QTextStream(stdout) << "    bug \t <Show information needed for a bug report>" << endl;
+    QTextStream(stdout) << "    config \t <Show kscreen config files>" << endl;
+    QTextStream(stdout) << "    outputs \t <Show Output information>" << endl;
+    QTextStream(stdout) << "    monitor \t <Monitors for changes>" << endl;
 }
 int main (int argc, char *argv[])
 {
     dup2(1, 2);
 
-    KAboutData aboutData("kscreen-console", "kscreen-console", ki18n("KScreen Console"), "1.0", ki18n("KScreen Console"),
-    KAboutData::License_GPL, ki18n("(c) 2012 KScreen Team"));
+    QApplication app(argc, argv);
+    KAboutData aboutData("kscreen-console", "kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
+    KAboutData::License_GPL, i18n("(c) 2012 KScreen Team"));
+    KAboutData::setApplicationData(aboutData);
 
-    aboutData.addAuthor(ki18n("Alejandro Fiestas Olivares"), ki18n("Maintainer"), "afiestas@kde.org",
+    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), "afiestas@kde.org",
         "http://www.afiestas.org/");
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    QCommandLineParser parser;
+    parser.addPositionalArgument("command", i18n("Command to execute (commands will list the available commands)"));
+    parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
 
-    KCmdLineOptions options;
-    options.add("commands", ki18n("Show available commands"));
-    options.add("+[arg(s)]", ki18n("Arguments for command"));
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-    KCmdLineArgs::addCmdLineOptions(options);
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("commands")) {
+    if (parser.isSet("commands")) {
         showCommands();
         return 1;
     }
-    KApplication app;
 
     Console *console = new Console(0);
 
     QString command;
-    if (args->count() > 0) {
-        command = args->arg(0);
+    if (!parser.positionalArguments().isEmpty()) {
+        command = parser.positionalArguments().first();
     }
 
     if (command.isEmpty()) {
@@ -78,7 +75,7 @@ int main (int argc, char *argv[])
     }
 
     if (command == "monitor") {
-        qDebug() << "Remember to enable KSRandR or KSRandR11 in kdebugdialog";
+        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
         //Print config so that we have some pivot data
         console->printConfig();
         console->monitor();
@@ -96,15 +93,15 @@ int main (int argc, char *argv[])
         return 1;
     }
     if (command == "bug") {
-        qDebug() << endl << "========================xrandr --verbose==========================" << endl;
+        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
         QProcess proc;
         proc.setProcessChannelMode(QProcess::MergedChannels);
         proc.start("xrandr", QStringList("--verbose"));
         proc.waitForFinished();
-        qDebug() << proc.readAll().data();
-        qDebug() << endl << "========================Outputs===================================" << endl;
+        QTextStream(stdout) << proc.readAll().data();
+        QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
         console->printConfig();
-        qDebug() << endl << "========================Configurations============================" << endl;
+        QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
         console->printSerializations();
         return 1;
     }

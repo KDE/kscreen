@@ -24,16 +24,12 @@
 #include <QtCore/QVariant>
 #include <QtCore/QVariantList>
 #include <QtCore/QVariantMap>
-
-#include <qjson/serializer.h>
-#include <qjson/parser.h>
-
-#include <kdebug.h>
+#include <QtCore/QStandardPaths>
+#include <QJsonDocument>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
-#include <KStandardDirs>
 
 QString Serializer::currentId()
 {
@@ -45,14 +41,14 @@ QString Serializer::currentId()
             continue;
         }
 
-        kDebug() << "Part of the Id: " << Serializer::outputId(output);
+        qDebug() << "Part of the Id: " << Serializer::outputId(output);
         hashList.insert(0, Serializer::outputId(output));
     }
 
     qSort(hashList.begin(), hashList.end());
 
     QCryptographicHash hash(QCryptographicHash::Md5);
-    hash.addData(hashList.join(QString()).toAscii());
+    hash.addData(hashList.join(QString()).toLatin1());
     return hash.result().toHex();
 }
 
@@ -63,23 +59,23 @@ bool Serializer::configExists()
 
 bool Serializer::configExists(const QString& id)
 {
-    QString path = KStandardDirs::locateLocal("data", "kscreen/"+id);
+    QString path(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + id);
     return QFile::exists(path);
 }
 
 KScreen::Config* Serializer::config(const QString& id)
 {
-    QJson::Parser parser;
     KScreen::Config* config = KScreen::Config::current();
     if (!config) {
         return 0;
     }
 
     KScreen::OutputList outputList = config->outputs();
-    QFile file(KStandardDirs::locateLocal("data", "kscreen/"+id));
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + id);
     file.open(QIODevice::ReadOnly);
 
-    QVariantList outputs = parser.parse(file.readAll()).toList();
+    QJsonDocument parser;
+    QVariantList outputs = parser.fromJson(file.readAll()).toVariant().toList();
     Q_FOREACH(KScreen::Output* output, outputList) {
         if (!output->isConnected() && output->isEnabled()) {
             output->setEnabled(false);
@@ -125,7 +121,7 @@ bool Serializer::saveConfig(KScreen::Config* config)
         if (output->isEnabled()) {
             KScreen::Mode *mode = output->currentMode();
             if (!mode) {
-                kWarning() << "CurrentMode is null" << output->name();
+                qWarning() << "CurrentMode is null" << output->name();
                 return false;
             }
 
@@ -145,16 +141,17 @@ bool Serializer::saveConfig(KScreen::Config* config)
         outputList.append(info);
     }
 
-    QJson::Serializer serializer;
-    QByteArray json = serializer.serialize(outputList);
+    QJsonDocument serializer;
+    serializer.fromVariant(outputList);
+    QByteArray json = serializer.toJson();
 
-    QString path = KStandardDirs::locateLocal("data", "kscreen/"+ Serializer::currentId());
+    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + Serializer::currentId();
     QFile file(path);
     file.open(QIODevice::WriteOnly);
     file.write(json);
     file.close();
 
-    kDebug() << "Config saved on: " << path;
+    qDebug() << "Config saved on: " << path;
     return true;
 }
 
@@ -185,9 +182,9 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
         QVariantMap modeSize = modeInfo["size"].toMap();
         QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
 
-        kDebug() << "Finding a mode with: ";
-        kDebug() << size;
-        kDebug() << modeInfo["refresh"].toString();
+        qDebug() << "Finding a mode with: ";
+        qDebug() << size;
+        qDebug() << modeInfo["refresh"].toString();
 
         KScreen::ModeList modes = output->modes();
         Q_FOREACH(KScreen::Mode* mode, modes) {
@@ -198,7 +195,7 @@ KScreen::Output* Serializer::findOutput(const QVariantMap& info)
                 continue;
             }
 
-            kDebug() << "Found: " << mode->id() << " " << mode->name();
+            qDebug() << "Found: " << mode->id() << " " << mode->name();
             output->setCurrentModeId(mode->id());
             break;
         }
@@ -220,11 +217,11 @@ QString Serializer::outputId(const KScreen::Output* output)
 QVariantMap Serializer::metadata(const KScreen::Output* output)
 {
     QVariantMap metadata;
-    metadata["name"] = output->name();
+    metadata[QStringLiteral("name")] = output->name();
     if (!output->edid() || !output->edid()->isValid()) {
         return metadata;
     }
 
-    metadata["fullname"] = output->edid()->deviceId();
+    metadata[QStringLiteral("fullname")] = output->edid()->deviceId();
     return metadata;
 }

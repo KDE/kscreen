@@ -23,17 +23,14 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
-
-#include <qjson/parser.h>
-#include <qjson/serializer.h>
+#include <QStandardPaths>
+#include <qjsondocument.h>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/mode.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/edid.h>
-
-#include <KStandardDirs>
 
 using namespace KScreen;
 
@@ -52,8 +49,6 @@ Console::~Console()
 
 void Console::printConfig()
 {
-    qDebug() << "KScreen version: " << KSCREEN_VERSION;
-
     if (!m_config) {
         qDebug() << "Config is invalid, probably backend couldn't load";
         return;
@@ -164,30 +159,27 @@ QString Console::typetoString(const Output::Type& type) const
 
 void Console::printSerializations()
 {
-    QString path = KStandardDirs::locateLocal("data", "kscreen/");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kscreen/";
     qDebug() << "Configs in: " << path;
 
     QDir dir(path);
     QStringList files = dir.entryList(QDir::Files);
     qDebug() << "Number of files: " << files.count() << endl;
 
-    bool ok;
-    QJson::Parser parser;
-    QJson::Serializer serializer;
-    serializer.setIndentMode(QJson::IndentFull);
+    QJsonDocument parser;
     Q_FOREACH(const QString fileName, files) {
-        ok = true;
+        QJsonParseError error;
         qDebug() << fileName;
         QFile file(path + "/" + fileName);
         file.open(QFile::ReadOnly);
-        QVariant data = parser.parse(file.readAll(), &ok);
-        if (!ok) {
+        QVariant data = parser.fromJson(file.readAll(), &error);
+        if (error.error != QJsonParseError::NoError) {
             qDebug() << "    " << "can't parse file";
-            qDebug() << "    " << parser.errorString();
+            qDebug() << "    " << error.errorString();
             continue;
         }
 
-        qDebug() << serializer.serialize(data) << endl;
+        qDebug() << parser.toJson(QJsonDocument::Indented) << endl;
     }
 }
 

@@ -32,6 +32,7 @@ class testScreenConfig : public QObject
     private:
         void loadConfig(const QByteArray &fileName);
 
+    void switchDisplayTwoScreensNoCommonMode();
 private Q_SLOTS:
     void initTestCase();
     void singleOutput();
@@ -48,7 +49,6 @@ private Q_SLOTS:
     void workstationTwoExternalDiferentSize();
 
     void switchDisplayTwoScreens();
-    void switchDisplayTwoScreensNoCommonMode();
 };
 
 void testScreenConfig::loadConfig(const QByteArray& fileName)
@@ -412,4 +412,4 @@ void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
 
 QTEST_MAIN(testScreenConfig)
 
-#include "testscreenconfig.moc"
+#include "testgenerator.moc"

@@ -27,7 +27,7 @@
 
 class QTimer;
 
-class KDE_EXPORT KScreenDaemon : public KDEDModule
+class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KScreen")
