@@ -13,7 +13,8 @@
         "currentSize" : {
             "width" : 1280,
             "height" : 800
-        }
+        },
+        "maxActiveOutputsCount": 1
     },
     "outputs" :
     [
