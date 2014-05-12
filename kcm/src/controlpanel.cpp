@@ -23,7 +23,7 @@
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
 
-#include <QtGui/QVBoxLayout>
+#include <QVBoxLayout>
 
 #include <kscreen/config.h>
 

@@ -23,18 +23,14 @@
 #include "profilesmodel.h"
 #endif
 
-#include <QtDeclarative/QDeclarativeView>
-#include <QtDeclarative/QDeclarativeEngine>
-
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QSplitter>
-#include <QtGui/QLabel>
+#include <QVBoxLayout>
+#include <QSplitter>
+#include <QLabel>
 #include <QtCore/qglobal.h>
 #include <QtDBus/QDBusArgument>
 
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
-#include "declarative/iconbutton.h"
 #include "utils.h"
 
 #include <kscreen/output.h>
@@ -42,11 +38,11 @@
 #include <kscreen/mode.h>
 #include <kscreen/config.h>
 #include <QtCore/QDir>
+#include <QStandardPaths>
 #include <KLocalizedString>
-#include <KComboBox>
-#include <KPushButton>
-#include <KDebug>
-#include <KStandardDirs>
+#include <QComboBox>
+#include <QPushButton>
+#include <QQuickWidget>
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -61,8 +57,8 @@ Widget::Widget(QWidget *parent):
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
     layout->addWidget(splitter);
 
-    m_declarativeView = new QDeclarativeView(this);
-    m_declarativeView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+    m_declarativeView = new QQuickWidget(this);
+    m_declarativeView->setResizeMode(QQuickWidget::SizeRootObjectToView);
     m_declarativeView->setMinimumHeight(280);
     splitter->addWidget(m_declarativeView);
 
@@ -76,7 +72,7 @@ Widget::Widget(QWidget *parent):
     QHBoxLayout *hbox = new QHBoxLayout;
     vbox->addLayout(hbox);
 
-    mPrimaryCombo = new KComboBox(this);
+    mPrimaryCombo = new QComboBox(this);
     mPrimaryCombo->setSizeAdjustPolicy(QComboBox::QComboBox::AdjustToContents);
     mPrimaryCombo->addItem(i18n("No primary screen"));
     connect(mPrimaryCombo, SIGNAL(currentIndexChanged(int)), SLOT(slotPrimaryChanged(int)));
@@ -91,7 +87,7 @@ Widget::Widget(QWidget *parent):
 
     connect(mProfilesModel, SIGNAL(modelUpdated()),
             this, SLOT(slotProfilesUpdated()));
-    mProfilesCombo = new KComboBox(this);
+    mProfilesCombo = new QComboBox(this);
     mProfilesCombo->setModel(mProfilesModel);
     mProfilesCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     hbox->addWidget(new QLabel(i18n("Active profile")));
@@ -102,7 +98,7 @@ Widget::Widget(QWidget *parent):
     connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
     vbox->addWidget(m_controlPanel);
 
-    mUnifyButton = new KPushButton(i18n("Unify outputs"), this);
+    mUnifyButton = new QPushButton(i18n("Unify outputs"), this);
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
     vbox->addWidget(mUnifyButton);
 
@@ -146,26 +142,21 @@ void Widget::loadQml()
 {
     qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
     qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
-    qmlRegisterType<IconButton>("org.kde.kscreen", 1, 0, "IconButton");
 
     qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
     qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
 
     //const QString file = QDir::currentPath() + "/main.qml";
-    const QString file = KStandardDirs::locate("data", QLatin1String("kcm_kscreen/qml/main.qml"));
-    QStringListIterator paths(KGlobal::dirs()->findDirs("module", "imports"));
-    paths.toBack();
-    while (paths.hasPrevious()) {
-        m_declarativeView->engine()->addImportPath(paths.previous());
-    }
+    const QString file = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kcm_kscreen/qml/main.qml"));
     m_declarativeView->setSource(QUrl::fromLocalFile(file));
 
-    QGraphicsObject *rootObject = m_declarativeView->rootObject();
+    QQuickItem* rootObject = m_declarativeView->rootObject();
     mScreen = rootObject->findChild<QMLScreen*>(QLatin1String("outputView"));
     if (!mScreen) {
         return;
     }
+    mScreen->setEngine(m_declarativeView->engine());
 
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
@@ -304,7 +295,7 @@ void Widget::slotUnifyOutputs()
             }
 
             if (!output->output()->isEnabled()) {
-                output->hide();
+                output->setVisible(false);
                 continue;
             }
 
@@ -320,7 +311,7 @@ void Widget::slotUnifyOutputs()
             if (base != output) {
                 clones << output->output()->id();
                 output->setCloneOf(base);
-                output->hide();
+                output->setVisible(false);
             }
         }
 

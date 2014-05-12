@@ -22,18 +22,17 @@
 
 #include <KPluginFactory>
 #include <KAboutData>
-#include <KStandardDirs>
-#include <KUrl>
-#include <KDebug>
 #include <KMessageBox>
+#include <KLocalizedString>
 
 #include <QHBoxLayout>
 #include <QTimer>
+#include <qstandardpaths.h>
 
-#include <QDeclarativeView>
-#include <QDeclarativeItem>
+#include <QQuickWidget>
 
 #include <kscreen/config.h>
+#include <qquickitem.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
 K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
@@ -47,17 +46,17 @@ Q_DECLARE_METATYPE(KScreen::Output*)
 Q_DECLARE_METATYPE(KScreen::Screen*)
 
 KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
-    KCModule(KCMDisplayConfigurationFactory::componentData(), parent, args)
+    KCModule(parent, args)
 {
     setButtons(Apply | Default);
 
     KAboutData* about =
-        new KAboutData("kscreen", "kcm_kscren",
-                    ki18n("Display Configuration"),
-                    "", ki18n("Configuration for displays"),
-                    KAboutData::License_GPL_V2, ki18n("(c), 2012-2013 Daniel Vrátil"));
+        new KAboutData(QStringLiteral("kscreen"), QStringLiteral("kcm_kscren"),
+                    i18n("Display Configuration"),
+                    QString(), i18n("Configuration for displays"),
+                    KAboutData::License_GPL_V2, i18n("(c), 2012-2013 Daniel Vrátil"));
 
-    about->addAuthor(ki18n("Daniel Vrátil"), ki18n("Maintainer") , "dvratil@redhat.com");
+    about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
 
     m_outputTimer = new QTimer(this);
@@ -78,7 +77,7 @@ KCMKScreen::~KCMKScreen()
 
 void KCMKScreen::save()
 {
-    kDebug() << "Saving";
+    qDebug() << "Saving";
 
     if (!mKScreenWidget) {
         return;
@@ -94,20 +93,20 @@ void KCMKScreen::save()
             atLeastOneEnabledOutput = true;
         }
 
-        kDebug() << output->name() << "\n"
+        qDebug() << output->name() << "\n"
                 << "	Connected:" << output->isConnected() << "\n"
                 << "	Enabled:" << output->isEnabled() << "\n"
                 << "	Primary:" << output->isPrimary() << "\n"
                 << "	Rotation:" << output->rotation() << "\n"
-                << "	Mode:" << (mode ? mode->name() : "unknown") << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
+                << "	Mode:" << (mode ? mode->name() : QStringLiteral("unknown")) << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
                 << "    Position:" << output->pos().x() << "x" << output->pos().y();
     }
 
     if (!atLeastOneEnabledOutput) {
         if (KMessageBox::warningYesNo(this, i18n("Are you sure you want to disable all outputs?"),
             i18n("Disable all outputs?"),
-            KGuiItem(i18n("&Disable All Outputs"), KIcon(QLatin1String("dialog-ok-apply"))),
-            KGuiItem(i18n("&Reconfigure"), KIcon(QLatin1String("dialog-cancel"))),
+            KGuiItem(i18n("&Disable All Outputs"), QIcon::fromTheme(QLatin1String("dialog-ok-apply"))),
+            KGuiItem(i18n("&Reconfigure"), QIcon::fromTheme(QLatin1String("dialog-cancel"))),
             QString(), KMessageBox::Dangerous) == KMessageBox::No)
         {
             return;
@@ -151,8 +150,7 @@ void KCMKScreen::clearOutputIdentifiers()
 
 void KCMKScreen::identifyOutputs()
 {
-    const QString qmlPath = KStandardDirs::locate(
-            "data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String(QML_PATH "OutputIdentifier.qml"));
 
     m_outputTimer->stop();
     clearOutputIdentifiers();
@@ -166,14 +164,14 @@ void KCMKScreen::identifyOutputs()
 
         Mode *mode = output->currentMode();
 
-        QDeclarativeView *view = new QDeclarativeView();
+        QQuickWidget *view = new QQuickWidget();
         view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-        view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
-        view->setSource(KUrl::fromPath(qmlPath));
+        view->setResizeMode(QQuickWidget::SizeViewToRootObject);
+        view->setSource(QUrl::fromLocalFile(qmlPath));
 
-        QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
+        QQuickItem *rootObj = view->rootObject();
         if (!rootObj) {
-            kWarning() << "Failed to obtain root item";
+            qWarning() << "Failed to obtain root item";
             continue;
         }
         QSize realSize;
@@ -183,7 +181,7 @@ void KCMKScreen::identifyOutputs()
             realSize = QSize(mode->size().height(), mode->size().width());
         }
         rootObj->setProperty("outputName", output->name());
-        rootObj->setProperty("modeName", QString::fromLatin1("%1x%2").arg(realSize.width()).arg(realSize.height()));
+        rootObj->setProperty("modeName", QStringLiteral("%1x%2").arg(realSize.width()).arg(realSize.height()));
 
         const QRect outputRect(output->pos(), realSize);
         QRect geometry(QPoint(0, 0), view->sizeHint());

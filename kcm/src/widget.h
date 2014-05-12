@@ -20,7 +20,7 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QVariantMap>
 
 class ProfilesModel;
@@ -28,10 +28,10 @@ class QMLOutput;
 class QMLScreen;
 class ControlPanel;
 
-class KPushButton;
-class KComboBox;
+class QPushButton;
+class QComboBox;
 
-class QDeclarativeView;
+class QQuickWidget;
 
 namespace KScreen
 {
@@ -78,15 +78,15 @@ class Widget : public QWidget
     KScreen::Config *mConfig;
     KScreen::Config *mPrevConfig;
 
-    QDeclarativeView *m_declarativeView;
+    QQuickWidget *m_declarativeView;
     ControlPanel *m_controlPanel;
 
     ProfilesModel *mProfilesModel;
-    KComboBox *mPrimaryCombo;
-    KComboBox *mProfilesCombo;
+    QComboBox *mPrimaryCombo;
+    QComboBox *mProfilesCombo;
 
-    KPushButton *mUnifyButton;
-    KPushButton *mSaveProfileButton;
+    QPushButton *mUnifyButton;
+    QPushButton *mSaveProfileButton;
 
 };
 

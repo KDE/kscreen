@@ -20,17 +20,18 @@
 #ifndef QMLSCREEN_H
 #define QMLSCREEN_H
 
-#include <QtDeclarative/QDeclarativeItem>
+#include <QQuickItem>
 #include <QPointer>
 
 class QMLOutput;
+class QQmlEngine;
 
 namespace KScreen {
 class Output;
 class Config;
 }
 
-class QMLScreen : public QDeclarativeItem
+class QMLScreen : public QQuickItem
 {
     Q_OBJECT
 
@@ -54,11 +55,14 @@ class QMLScreen : public QDeclarativeItem
                READ outputScale
                NOTIFY outputScaleChanged)
 
+    Q_PROPERTY(QQmlEngine* engine
+               MEMBER m_engine)
+
   public:
-    explicit QMLScreen(QDeclarativeItem *parent = 0);
+    explicit QMLScreen(QQuickItem *parent = 0);
     virtual ~QMLScreen();
 
-    Q_INVOKABLE void addOutput(QDeclarativeEngine *engine, KScreen::Output *output);
+    Q_INVOKABLE void addOutput(KScreen::Output *output);
 
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
@@ -74,6 +78,7 @@ class QMLScreen : public QDeclarativeItem
     void setConfig(KScreen::Config *config);
 
     void updateOutputsPlacement();
+    void setEngine(QQmlEngine* engine);
 
   Q_SIGNALS:
     void connectedOutputsCountChanged();
@@ -106,6 +111,7 @@ class QMLScreen : public QDeclarativeItem
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;
 
+    QQmlEngine* m_engine;
     QMLOutput *m_leftmost, *m_topmost, *m_rightmost, *m_bottommost;
 
 };

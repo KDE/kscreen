@@ -22,11 +22,11 @@
 #ifndef OUTPUTCONFIG_H
 #define OUTPUTCONFIG_H
 
-#include <QtGui/QGroupBox>
+#include <QGroupBox>
+#include <QComboBox>
 
 class CollapsableButton;
 class QCheckBox;
-class KComboBox;
 class ResolutionSlider;
 class QLabel;
 
@@ -67,8 +67,8 @@ class OutputConfig : public QGroupBox
     KScreen::Output *mOutput;
     QCheckBox *mEnabled;
     ResolutionSlider *mResolution;
-    KComboBox *mRotation;
-    KComboBox *mRefreshRate;
+    QComboBox *mRotation;
+    QComboBox *mRefreshRate;
 };
 
 #endif // OUTPUTCONFIG_H

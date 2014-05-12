@@ -24,15 +24,14 @@
 #include "resolutionslider.h"
 #include "utils.h"
 
-#include <KComboBox>
-#include <KIcon>
+#include <QComboBox>
+#include <QIcon>
 #include <KLocalizedString>
-#include <KDebug>
 
-#include <QtGui/QGridLayout>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QCheckBox>
-#include <QtGui/QGroupBox>
+#include <QGridLayout>
+#include <QSpacerItem>
+#include <QCheckBox>
+#include <QGroupBox>
 
 #include <kscreen/output.h>
 #include <kscreen/config.h>
@@ -89,12 +88,12 @@ void UnifiedOutputConfig::initUi()
     formLayout->addWidget(mResolution, 1, 1);
     slotResolutionChanged(mResolution->currentResolution());
 
-    mRotation = new KComboBox(this);
+    mRotation = new QComboBox(this);
     connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
-    mRotation->addItem(KIcon(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(KIcon(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
-    mRotation->addItem(KIcon(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
-    mRotation->addItem(KIcon(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
     formLayout->addWidget(new QLabel(i18n("Orientation:"), this), 2, 0);
     formLayout->addWidget(mRotation, 2, 1);
 

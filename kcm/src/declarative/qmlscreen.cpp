@@ -26,14 +26,12 @@
 #include <kscreen/configmonitor.h>
 
 #include <QGraphicsScene>
-#include <QDeclarativeView>
 
-#include <KDebug>
 #include <QTimer>
 #include <sys/socket.h>
 
-QMLScreen::QMLScreen(QDeclarativeItem *parent):
-    QDeclarativeItem(parent),
+QMLScreen::QMLScreen(QQuickItem *parent):
+    QQuickItem(parent),
     m_config(0),
     m_connectedOutputsCount(0),
     m_enabledOutputsCount(0),
@@ -50,21 +48,21 @@ QMLScreen::~QMLScreen()
 {
 }
 
-void QMLScreen::addOutput(QDeclarativeEngine *engine, KScreen::Output *output)
+void QMLScreen::addOutput(KScreen::Output *output)
 {
-    //QDeclarativeItem *container = findChild<QDeclarativeItem*>(QLatin1String("outputContainer"));
+    //QQuickItem *container = findChild<QQuickItem*>(QLatin1String("outputContainer"));
 
-    QMLOutputComponent comp(engine, this);
+    QMLOutputComponent comp(m_engine, this);
     QMLOutput *qmloutput = comp.createForOutput(output);
     if (!qmloutput) {
-        kWarning() << "Failed to create QMLOutput";
+        qWarning() << "Failed to create QMLOutput";
         return;
     }
 
     m_outputMap.insert(output, qmloutput);
 
     qmloutput->setParentItem(this);
-    qmloutput->setZValue(m_outputMap.count());
+    qmloutput->setZ(m_outputMap.count());
 
     connect(output, SIGNAL(isConnectedChanged()),
             this, SLOT(outputConnectedChanged()));
@@ -84,13 +82,8 @@ void QMLScreen::addOutput(QDeclarativeEngine *engine, KScreen::Output *output)
 
 void QMLScreen::loadOutputs()
 {
-    const QList<QGraphicsView*> views = scene()->views();
-    Q_ASSERT(!views.isEmpty());
-    QDeclarativeView *view = qobject_cast<QDeclarativeView*>(views.first());
-    Q_ASSERT(view);
-
     Q_FOREACH (KScreen::Output *output, m_config->outputs()) {
-        addOutput(view->engine(), output);
+        addOutput(output);
     }
 
     updateOutputsPlacement();
@@ -127,12 +120,12 @@ void QMLScreen::qmlOutputClicked()
 {
     QMLOutput *clickedOutput = qobject_cast<QMLOutput*>(sender());
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        if (qmlOutput->zValue() > clickedOutput->zValue()) {
-            qmlOutput->setZValue(qmlOutput->zValue() - 1);
+        if (qmlOutput->z() > clickedOutput->z()) {
+            qmlOutput->setZ(qmlOutput->z() - 1);
         }
     }
 
-    clickedOutput->setZValue(m_outputMap.count());
+    clickedOutput->setZ(m_outputMap.count());
     clickedOutput->setFocus(true);
     Q_EMIT focusedOutputChanged(clickedOutput);
 }
@@ -295,7 +288,7 @@ void QMLScreen::updateOutputsPlacement()
     int disabledOffsetX = width();
     QSizeF activeScreenSize;
 
-    Q_FOREACH (QGraphicsItem *item, childItems()) {
+    Q_FOREACH (QQuickItem *item, childItems()) {
         QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
         if (!qmlOutput->output()->isConnected()) {
             continue;
@@ -304,7 +297,7 @@ void QMLScreen::updateOutputsPlacement()
         if (!qmlOutput->output()->isEnabled()) {
             qmlOutput->blockSignals(true);
             disabledOffsetX -= qmlOutput->width();
-            qmlOutput->setPos(disabledOffsetX, 0);
+            qmlOutput->setPosition(QPoint(disabledOffsetX, 0));
             qmlOutput->blockSignals(false);
             continue;
         }
@@ -322,15 +315,15 @@ void QMLScreen::updateOutputsPlacement()
     const QPointF offset((width() - activeScreenSize.width()) / 2.0,
                          (height() - activeScreenSize.height()) / 2.0);
 
-    Q_FOREACH (QGraphicsItem *item, childItems()) {
+    Q_FOREACH (QQuickItem *item, childItems()) {
         QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
         if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
             continue;
         }
 
         qmlOutput->blockSignals(true);
-        qmlOutput->setPos(offset.x() + (qmlOutput->outputX() * outputScale()),
-                          offset.y() + (qmlOutput->outputY() * outputScale()));
+        qmlOutput->setPosition(QPointF(offset.x() + (qmlOutput->outputX() * outputScale()),
+                          offset.y() + (qmlOutput->outputY() * outputScale())));
         qmlOutput->blockSignals(false);
     }
 }
@@ -359,6 +352,9 @@ void QMLScreen::setConfig(KScreen::Config *config)
     QTimer::singleShot(0, this, SLOT(loadOutputs()));
 }
 
-
+void QMLScreen::setEngine(QQmlEngine* engine)
+{
+    m_engine = engine;
+}
 
 #include "qmlscreen.moc"

@@ -23,22 +23,19 @@
 
 #include <kscreen/output.h>
 
-#include <QtDeclarative/QDeclarativeEngine>
-
-#include <KStandardDirs>
-#include <KDebug>
-#include <KUrl>
 #include <QDir>
+#include <QStandardPaths>
+#include <QQmlEngine>
 
 Q_DECLARE_METATYPE(KScreen::Output*)
 Q_DECLARE_METATYPE(QMLScreen*)
 
-QMLOutputComponent::QMLOutputComponent(QDeclarativeEngine *engine, QMLScreen *parent):
-    QDeclarativeComponent(engine, parent),
+QMLOutputComponent::QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent):
+    QQmlComponent(engine, parent),
     m_engine(engine)
 {
-    const QString qmlPath = KStandardDirs::locate("data", QLatin1String("kcm_kscreen/qml/Output.qml"));
-    loadUrl(KUrl::fromPath(qmlPath));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kcm_kscreen/qml/Output.qml"));
+    loadUrl(QUrl::fromLocalFile(qmlPath));
 }
 
 QMLOutputComponent::~QMLOutputComponent()
@@ -51,7 +48,7 @@ QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output *output)
 
     instance = beginCreate(m_engine->rootContext());
     if (!instance) {
-        kWarning() << errorString();
+        qWarning() << errorString();
         return 0;
     }
 

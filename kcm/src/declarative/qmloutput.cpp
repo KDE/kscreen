@@ -21,10 +21,10 @@
 #include "qmlscreen.h"
 
 #include <kscreen/output.h>
-#include <KDebug>
 
 #include <QStandardItem>
 #include <QStandardItemModel>
+#include <qquickitem.h>
 
 const static int sMargin = 0;
 const static int sSnapArea = 20;
@@ -37,8 +37,8 @@ bool operator>(const QSize &sizeA, const QSize &sizeB)
     return ((sizeA.width() > sizeB.width()) && (sizeA.height() > sizeB.height()));
 }
 
-QMLOutput::QMLOutput(QDeclarativeItem *parent):
-    QDeclarativeItem(parent),
+QMLOutput::QMLOutput(QQuickItem *parent):
+    QQuickItem(parent),
     m_output(0),
     m_screen(0),
     m_cloneOf(0),
@@ -321,7 +321,8 @@ KScreen::Mode* QMLOutput::bestMode() const
 
 bool QMLOutput::collidesWithOutput(QObject *other)
 {
-    return QGraphicsItem::collidesWithItem(qobject_cast<QGraphicsItem*>(other), Qt::IntersectsItemShape);
+    QQuickItem* otherItem = qobject_cast<QQuickItem*>(other);
+    return boundingRect().intersects(otherItem->boundingRect());
 }
 
 bool QMLOutput::maybeSnapTo(QMLOutput *other)
@@ -485,14 +486,14 @@ bool QMLOutput::maybeSnapTo(QMLOutput *other)
 
 void QMLOutput::moved()
 {
-    const QList<QGraphicsItem*> siblings = screen()->childItems();
+    const QList<QQuickItem*> siblings = screen()->childItems();
 
     // First, if we have moved, then unset the "cloneOf" flag
     setCloneOf(0);
 
     disconnect(this, SIGNAL(xChanged()), this, SLOT(moved()));
     disconnect(this, SIGNAL(yChanged()), this, SLOT(moved()));
-    Q_FOREACH (QGraphicsItem *sibling, siblings) {
+    Q_FOREACH (QQuickItem *sibling, siblings) {
         QMLOutput *otherOutput = qobject_cast<QMLOutput*>(sibling);
         if (!otherOutput || otherOutput == this) {
             continue;
@@ -541,6 +542,6 @@ void QMLOutput::updateRootProperties()
     const int transformedX = x() + (width() / 2) - (transformedWidth / 2);
     const int transformedY = y() + (height() / 2) - (transformedHeight / 2);
 
-    setPos(transformedX, transformedY);
+    setPosition(QPoint(transformedX, transformedY));
     setSize(QSize(transformedWidth, transformedHeight));
 }

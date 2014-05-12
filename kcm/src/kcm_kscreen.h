@@ -20,7 +20,6 @@
 #define KCM_KSCREEN_H
 
 #include <KCModule>
-#include <QDeclarativeListProperty>
 
 class Widget;
 class QTimer;

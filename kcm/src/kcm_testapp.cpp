@@ -17,21 +17,19 @@
 */
 
 #include <KAboutData>
-#include <KCmdLineArgs>
-#include <KApplication>
+#include <KLocalizedString>
+#include <QApplication>
 
-#include <QDeclarativeDebuggingEnabler>
+// #include <QQuickDebuggingEnabler>
 
 #include "widget.h"
 
 int main(int argc, char **argv)
 {
-    QDeclarativeDebuggingEnabler enabler;
+//     QQuickDebuggingEnabler enabler;
+    QApplication app(argc, argv);
 
-    KAboutData aboutData("kcm_testapp", "kcm_testapp", ki18n("KCM Test App"), "1.0");
-    KCmdLineArgs::init(argc, argv, &aboutData);
-
-    KApplication app;
+    KAboutData aboutData("kcm_testapp", "kcm_testapp", i18n("KCM Test App"), "1.0");
 
     Widget widget;
     widget.resize(800, 600);

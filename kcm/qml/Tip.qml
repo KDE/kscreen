@@ -1,10 +1,9 @@
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.qtextracomponents 0.1
+import QtQuick 2.1
+import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
 
-    property alias icon: tipIcon.icon;
+    property alias icon: tipIcon.source;
     property alias text: tipText.text;
 
     width: parent.width;
@@ -19,20 +18,14 @@ Item {
         }
     }
 
-    PlasmaCore.Theme {
-
-        id: theme;
-
-    }
-
-    QIconItem {
+    PlasmaCore.IconItem {
 
         id: tipIcon;
 
         width: theme.iconSizes.toolbar;
         height: theme.iconSizes.toolbar;
 
-        icon: "dialog-information";
+        source: "dialog-information";
     }
 
     Text {

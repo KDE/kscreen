@@ -20,7 +20,7 @@
 #ifndef QMLOUTPUT_H
 #define QMLOUTPUT_H
 
-#include <QDeclarativeItem>
+#include <QQuickItem>
 #include <kscreen/mode.h>
 
 class QStandardItemModel;
@@ -33,7 +33,7 @@ namespace KScreen {
 class Output;
 }
 
-class QMLOutput : public QDeclarativeItem
+class QMLOutput : public QQuickItem
 {
     Q_OBJECT
 
@@ -109,7 +109,7 @@ class QMLOutput : public QDeclarativeItem
       RefreshRateRole
     };
 
-    explicit QMLOutput(QDeclarativeItem *parent = 0);
+    explicit QMLOutput(QQuickItem *parent = 0);
     virtual ~QMLOutput();
 
     KScreen::Output* output() const;

@@ -21,11 +21,11 @@
 
 #include "collapsablebutton.h"
 
-#include <QtGui/QPainter>
-#include <QtGui/QStyleOption>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPaintEvent>
-#include <QtGui/QHBoxLayout>
+#include <QPainter>
+#include <QStyleOption>
+#include <QMouseEvent>
+#include <QPaintEvent>
+#include <QHBoxLayout>
 
 CollapsableButton::CollapsableButton(const QString &text, QWidget *parent)
     : QWidget(parent)

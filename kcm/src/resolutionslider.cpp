@@ -22,9 +22,9 @@
 #include "resolutionslider.h"
 #include "utils.h"
 
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QSlider>
+#include <QGridLayout>
+#include <QLabel>
+#include <QSlider>
 
 #include <KLocalizedString>
 

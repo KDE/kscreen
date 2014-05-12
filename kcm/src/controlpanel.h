@@ -22,7 +22,7 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
 
-#include <QtGui/QScrollArea>
+#include <QScrollArea>
 
 class QVBoxLayout;
 class OutputConfig;

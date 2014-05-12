@@ -20,7 +20,7 @@
 #ifndef QMLOUTPUTCOMPONENT_H
 #define QMLOUTPUTCOMPONENT_H
 
-#include <QtDeclarative/QDeclarativeComponent>
+#include <QQmlComponent>
 
 class QMLScreen;
 class QMLOutput;
@@ -28,18 +28,18 @@ namespace KScreen {
 class Output;
 }
 
-class QMLOutputComponent : public QDeclarativeComponent
+class QMLOutputComponent : public QQmlComponent
 {
     Q_OBJECT
 
   public:
-    explicit QMLOutputComponent(QDeclarativeEngine *engine, QMLScreen *parent);
+    explicit QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent);
     virtual ~QMLOutputComponent();
 
     QMLOutput* createForOutput(KScreen::Output *output);
 
   private:
-    QDeclarativeEngine *m_engine;
+    QQmlEngine *m_engine;
 
 };
 

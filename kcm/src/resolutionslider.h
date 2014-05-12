@@ -22,7 +22,7 @@
 #ifndef RESOLUTIONSLIDER_H
 #define RESOLUTIONSLIDER_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QtCore/QSet>
 
 class QSlider;

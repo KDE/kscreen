@@ -25,17 +25,16 @@
 #include "utils.h"
 
 #include <QtCore/QStringBuilder>
-#include <QtGui/QFormLayout>
-#include <QtGui/QComboBox>
-#include <QtGui/QCheckBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QGroupBox>
+#include <QFormLayout>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QGroupBox>
 
 #include <KLocalizedString>
-#include <KComboBox>
-#include <KIcon>
+#include <QComboBox>
 
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
@@ -81,12 +80,12 @@ void OutputConfig::initUi()
     formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
     formLayout->addWidget(mResolution, 1, 1);
 
-    mRotation = new KComboBox(this);
+    mRotation = new QComboBox(this);
     connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
-    mRotation->addItem(KIcon(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(KIcon(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
-    mRotation->addItem(KIcon(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
-    mRotation->addItem(KIcon(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
     formLayout->addWidget(new QLabel(i18n("Orientation:"), this), 2, 0);
     formLayout->addWidget(mRotation, 2, 1);
 
@@ -102,7 +101,7 @@ void OutputConfig::initUi()
     formLayout = new QGridLayout(advancedWidget);
     advancedWidget->setLayout(formLayout);
 
-    mRefreshRate = new KComboBox(advancedWidget);
+    mRefreshRate = new QComboBox(advancedWidget);
     mRefreshRate->addItem(i18n("Auto"), -1);
     formLayout->addWidget(new QLabel(i18n("Refresh Rate:"), this), 0, 0);
     formLayout->addWidget(mRefreshRate, 0, 1);

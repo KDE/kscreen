@@ -16,9 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.qtextracomponents 0.1
+import QtQuick 2.1
+import QtQuick.Controls 1.1 as Controls
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kquickcontrols 2.0
 import org.kde.kscreen 1.0
 
 Item {
@@ -36,13 +37,6 @@ Item {
 
     SystemPalette {
         id: palette;
-    }
-
-    /* Don't use colors from theme, we want to be consistent with KCM, not
-     * with Plasma here. Font sizes are the same though */
-    PlasmaCore.Theme {
-
-        id: theme;
     }
 
     Rectangle {
@@ -108,19 +102,18 @@ Item {
             }
         }
 
-        IconButton {
-
-            id: identifyButton;
-
+        Controls.ToolButton {
+            id: identifyButton
             anchors {
-                right: parent.right;
+                right: parent.right
                 bottom: parent.bottom
-                margins: 5;
+                margins: 5
             }
 
+            height: width
+            width: theme.largeIconSize;
             iconName: "kdocumentinfo"
-            iconSize: theme.largeIconSize;
-            tooltipText: i18n("Identify outputs");
+            tooltip: i18n("Identify outputs");
 
             onClicked: root.identifyOutputsRequested();
         }

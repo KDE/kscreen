@@ -21,7 +21,7 @@
 #ifndef PROFILESMODEL_H
 #define PROFILESMODEL_H
 
-#include <QtGui/QStandardItemModel>
+#include <QStandardItemModel>
 
 #include "kscreeninterface.h"
 

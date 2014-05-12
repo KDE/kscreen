@@ -22,7 +22,7 @@
 #ifndef COLLAPSABLE_BUTTON_H
 #define COLLAPSABLE_BUTTON_H
 
-#include <QtGui/QLabel>
+#include <QLabel>
 
 class CollapsableButton : public QWidget
 {
