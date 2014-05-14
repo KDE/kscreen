@@ -41,8 +41,8 @@ int main (int argc, char *argv[])
     dup2(1, 2);
 
     QApplication app(argc, argv);
-    KAboutData aboutData("kscreen-console", "kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
-    KAboutData::License_GPL, i18n("(c) 2012 KScreen Team"));
+    KAboutData aboutData("kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
+    KAboutLicense::GPL, i18n("(c) 2012 KScreen Team"));
     KAboutData::setApplicationData(aboutData);
 
     aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), "afiestas@kde.org",

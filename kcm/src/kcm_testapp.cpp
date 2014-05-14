@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 //     QQuickDebuggingEnabler enabler;
     QApplication app(argc, argv);
 
-    KAboutData aboutData("kcm_testapp", "kcm_testapp", i18n("KCM Test App"), "1.0");
+    KAboutData aboutData("kcm_testapp", "kcm_testapp", i18n("KCM Test App"), "1.0", KAboutLicense::GPL);
 
     Widget widget;
     widget.resize(800, 600);

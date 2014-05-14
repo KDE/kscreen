@@ -51,10 +51,10 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     setButtons(Apply | Default);
 
     KAboutData* about =
-        new KAboutData(QStringLiteral("kscreen"), QStringLiteral("kcm_kscren"),
+        new KAboutData(QStringLiteral("kcm_kscren"),
                     i18n("Display Configuration"),
                     QString(), i18n("Configuration for displays"),
-                    KAboutData::License_GPL_V2, i18n("(c), 2012-2013 Daniel Vrátil"));
+                    KAboutLicense::GPL_V2, i18n("(c), 2012-2013 Daniel Vrátil"));
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
