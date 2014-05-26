@@ -120,6 +120,7 @@ void Widget::setConfig(KScreen::Config *config)
             disconnect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
             disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
             disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
+            disconnect(output, SIGNAL(posChanged()), this, SIGNAL(changed()));
         }
 
         delete mConfig;
@@ -132,6 +133,7 @@ void Widget::setConfig(KScreen::Config *config)
         connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
         connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
         connect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
+        connect(output, SIGNAL(posChanged()), this, SIGNAL(changed()));
     }
 
     initPrimaryCombo();
