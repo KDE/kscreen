@@ -26,6 +26,7 @@
 #include <QtCore/QVariantMap>
 #include <QtCore/QStandardPaths>
 #include <QJsonDocument>
+#include <QDir>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -70,10 +71,11 @@ KScreen::Config* Serializer::config(const QString& id)
         return 0;
     }
 
-    KScreen::OutputList outputList = config->outputs();
     QFile file(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + id);
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly))
+        return 0;
 
+    KScreen::OutputList outputList = config->outputs();
     QJsonDocument parser;
     QVariantList outputs = parser.fromJson(file.readAll()).toVariant().toList();
     Q_FOREACH(KScreen::Output* output, outputList) {
@@ -141,17 +143,16 @@ bool Serializer::saveConfig(KScreen::Config* config)
         outputList.append(info);
     }
 
-    QJsonDocument serializer;
-    serializer.fromVariant(outputList);
-    QByteArray json = serializer.toJson();
+    QString directory = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/");
+    bool b = QDir().mkpath(directory);
+    Q_ASSERT(b);
+    QString filePath = directory + Serializer::currentId();
+    QFile file(filePath);
+    b = file.open(QIODevice::WriteOnly);
+    Q_ASSERT(b);
+    file.write(QJsonDocument::fromVariant(outputList).toJson());
+    qDebug() << "Config saved on: " << filePath;
 
-    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + Serializer::currentId();
-    QFile file(path);
-    file.open(QIODevice::WriteOnly);
-    file.write(json);
-    file.close();
-
-    qDebug() << "Config saved on: " << path;
     return true;
 }
 
