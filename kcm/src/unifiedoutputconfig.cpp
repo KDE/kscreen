@@ -179,6 +179,7 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::Output *output, const Q
     QString id;
     Q_FOREACH (KScreen::Mode *mode, output->modes()) {
         if (mode->size() == size && mode->refreshRate() > refreshRate) {
+            refreshRate = mode->refreshRate();
             id = mode->id();
         }
     }
