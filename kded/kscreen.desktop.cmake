@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KScreen 2
+Name[bg]=KScreen 2
 Name[bs]=KScreen 2
 Name[ca]=KScreen 2
 Name[ca@valencia]=KScreen 2
@@ -36,6 +37,7 @@ Name[x-test]=xxKScreen 2xx
 Name[zh_CN]=KScreen 2
 Name[zh_TW]=KScreen 2
 Comment=Screen management
+Comment[bg]=Управление на екрана
 Comment[bs]=Upravljanje ekranom
 Comment[ca]=Gestió de pantalla
 Comment[ca@valencia]=Gestió de pantalla
