@@ -247,7 +247,7 @@ void KScreenApplet::slotApplyAction(int actionId)
 void KScreenApplet::slotRunKCM()
 {
     KToolInvocation::kdeinitExec(
-        QLatin1String("kcmshell4"),
+        QLatin1String("kcmshell5"),
         QStringList() << QLatin1String("kscreen"));
 
     hidePopup();
