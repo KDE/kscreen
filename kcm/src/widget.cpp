@@ -29,7 +29,8 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QSplitter>
 #include <QtGui/QLabel>
-#include <QtCore/qglobal.h>
+#include <QtCore/QTimer>
+#include <QtCore/QDir>
 #include <QtDBus/QDBusArgument>
 
 #include "declarative/qmloutput.h"
@@ -41,12 +42,13 @@
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 #include <kscreen/config.h>
-#include <QtCore/QDir>
+
 #include <KLocalizedString>
 #include <KComboBox>
 #include <KPushButton>
 #include <KDebug>
 #include <KStandardDirs>
+#include <KUrl>
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -106,11 +108,15 @@ Widget::Widget(QWidget *parent):
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
     vbox->addWidget(mUnifyButton);
 
+    mOutputTimer = new QTimer(this);
+    connect(mOutputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
+
     loadQml();
 }
 
 Widget::~Widget()
 {
+    clearOutputIdentifiers();
 }
 
 void Widget::setConfig(KScreen::Config *config)
@@ -171,6 +177,8 @@ void Widget::loadQml()
 
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
+    connect(rootObject->findChild<QObject*>("identifyButton"), SIGNAL(clicked()),
+            this, SLOT(slotIdentifyOutputs()));
 
 
 #ifndef WITH_PROFILES
@@ -435,5 +443,70 @@ void Widget::slotProfilesUpdated()
 #endif
 }
 
+
+void Widget::clearOutputIdentifiers()
+{
+    mOutputTimer->stop();
+    qDeleteAll(mOutputIdentifiers);
+    mOutputIdentifiers.clear();
+}
+
+void Widget::slotIdentifyOutputs()
+{
+    kDebug();
+    kDebug() << "!";
+    const QString file = KStandardDirs::locate("data", QLatin1String("kcm_kscreen/qml/OutputIdentifier.qml"));
+    QStringListIterator paths(KGlobal::dirs()->findDirs("module", "imports"));
+    paths.toBack();
+
+    mOutputTimer->stop();
+    clearOutputIdentifiers();
+
+    /* Obtain the current active configuration from KScreen */
+    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
+    Q_FOREACH (KScreen::Output *output, outputs) {
+        if (!output->isConnected() || !output->currentMode()) {
+            continue;
+        }
+
+        KScreen::Mode *mode = output->currentMode();
+
+        QDeclarativeView *view = new QDeclarativeView();
+        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+        view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
+        while (paths.hasPrevious()) {
+            view->engine()->addImportPath(paths.previous());
+        }
+        view->setSource(QUrl::fromLocalFile(file));
+
+
+        QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
+        if (!rootObj) {
+            kWarning() << "Failed to obtain root item";
+            continue;
+        }
+        QSize realSize;
+        if (output->isHorizontal()) {
+            realSize = mode->size();
+        } else {
+            realSize = QSize(mode->size().height(), mode->size().width());
+        }
+        rootObj->setProperty("displayName", Utils::outputName(output));
+        rootObj->setProperty("modeName", Utils::sizeToString(realSize));
+
+        const QRect outputRect(output->pos(), realSize);
+        QRect geometry(QPoint(0, 0), view->sizeHint());
+        geometry.moveCenter(outputRect.center());
+        view->setGeometry(geometry);
+
+        mOutputIdentifiers << view;
+    }
+
+    Q_FOREACH (QWidget *widget, mOutputIdentifiers) {
+        widget->show();
+    }
+
+    mOutputTimer->start(2500);
+}
 
 #include "widget.moc"

@@ -67,12 +67,15 @@ class Widget : public QWidget
     void slotProfilesAboutToUpdate();
     void slotProfilesUpdated();
 
+    void slotIdentifyOutputs();
+    void clearOutputIdentifiers();
+
   private:
     void loadQml();
-
     void initPrimaryCombo();
 
     KScreen::Output* findOutput(KScreen::Config *config, const QVariantMap &info);
+
   private:
     QMLScreen *mScreen;
     KScreen::Config *mConfig;
@@ -87,6 +90,9 @@ class Widget : public QWidget
 
     KPushButton *mUnifyButton;
     KPushButton *mSaveProfileButton;
+
+    QList<QWidget*> mOutputIdentifiers;
+    QTimer *mOutputTimer;
 
 };
 

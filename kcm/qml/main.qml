@@ -27,8 +27,6 @@ Item {
 
     property variant virtualScreen: null;
 
-    signal identifyOutputsRequested();
-
     objectName: "root";
     focus: true;
 
@@ -111,6 +109,7 @@ Item {
         IconButton {
 
             id: identifyButton;
+            objectName: "identifyButton";
 
             anchors {
                 right: parent.right;
@@ -121,8 +120,6 @@ Item {
             iconName: "kdocumentinfo"
             iconSize: theme.largeIconSize;
             tooltipText: i18n("Identify outputs");
-
-            onClicked: root.identifyOutputsRequested();
         }
     }
 }

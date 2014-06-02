@@ -22,16 +22,10 @@
 
 #include <KPluginFactory>
 #include <KAboutData>
-#include <KStandardDirs>
-#include <KUrl>
 #include <KDebug>
 #include <KMessageBox>
 
 #include <QHBoxLayout>
-#include <QTimer>
-
-#include <QDeclarativeView>
-#include <QDeclarativeItem>
 
 #include <kscreen/config.h>
 
@@ -60,9 +54,6 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     about->addAuthor(ki18n("Daniel Vrátil"), ki18n("Maintainer") , "dvratil@redhat.com");
     setAboutData(about);
 
-    m_outputTimer = new QTimer(this);
-    connect(m_outputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
-
     QHBoxLayout *layout = new QHBoxLayout(this);
     mKScreenWidget = new Widget(this);
     layout->addWidget(mKScreenWidget);
@@ -73,7 +64,6 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
 
 KCMKScreen::~KCMKScreen()
 {
-    clearOutputIdentifiers();
 }
 
 void KCMKScreen::save()
@@ -138,66 +128,6 @@ void KCMKScreen::load()
     }
 
     mKScreenWidget->setConfig(KScreen::Config::current());
-}
-
-
-
-void KCMKScreen::clearOutputIdentifiers()
-{
-    m_outputTimer->stop();
-    qDeleteAll(m_outputIdentifiers);
-    m_outputIdentifiers.clear();
-}
-
-void KCMKScreen::identifyOutputs()
-{
-    const QString qmlPath = KStandardDirs::locate(
-            "data", QLatin1String(QML_PATH "OutputIdentifier.qml"));
-
-    m_outputTimer->stop();
-    clearOutputIdentifiers();
-
-    /* Obtain the current active configuration from KScreen */
-    OutputList outputs = KScreen::Config::current()->outputs();
-    Q_FOREACH (KScreen::Output *output, outputs) {
-        if (!output->isConnected() || !output->currentMode()) {
-            continue;
-        }
-
-        Mode *mode = output->currentMode();
-
-        QDeclarativeView *view = new QDeclarativeView();
-        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-        view->setResizeMode(QDeclarativeView::SizeViewToRootObject);
-        view->setSource(KUrl::fromPath(qmlPath));
-
-        QDeclarativeItem *rootObj = dynamic_cast<QDeclarativeItem*>(view->rootObject());
-        if (!rootObj) {
-            kWarning() << "Failed to obtain root item";
-            continue;
-        }
-        QSize realSize;
-        if (output->isHorizontal()) {
-            realSize = mode->size();
-        } else {
-            realSize = QSize(mode->size().height(), mode->size().width());
-        }
-        rootObj->setProperty("outputName", output->name());
-        rootObj->setProperty("modeName", QString::fromLatin1("%1x%2").arg(realSize.width()).arg(realSize.height()));
-
-        const QRect outputRect(output->pos(), realSize);
-        QRect geometry(QPoint(0, 0), view->sizeHint());
-        geometry.moveCenter(outputRect.center());
-        view->setGeometry(geometry);
-
-        m_outputIdentifiers << view;
-    }
-
-    Q_FOREACH (QWidget *widget, m_outputIdentifiers) {
-        widget->show();
-    }
-
-    m_outputTimer->start(2500);
 }
 
 #include "kcm_kscreen.moc"
