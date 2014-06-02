@@ -141,13 +141,17 @@ void OutputConfig::slotOutputConnectedChanged()
 
 void OutputConfig::slotOutputEnabledChanged()
 {
+    mEnabled->blockSignals(true);
     mEnabled->setChecked(mOutput->isEnabled());
+    mEnabled->blockSignals(false);
 }
 
 void OutputConfig::slotOutputRotationChanged()
 {
     const int index = mRotation->findData(mOutput->rotation());
+    mRotation->blockSignals(true);
     mRotation->setCurrentIndex(index);
+    mRotation->blockSignals(false);
 }
 
 void OutputConfig::slotEnabledChanged(bool checked)
@@ -180,6 +184,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
+    mRefreshRate->blockSignals(true);
     for (int i = 1; i < mRefreshRate->count(); ++i) {
         mRefreshRate->removeItem(i);
     }
@@ -195,6 +200,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i);
         }
     }
+    mRefreshRate->blockSignals(false);
 
     Q_EMIT changed();
 }
