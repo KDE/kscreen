@@ -41,10 +41,6 @@ class KCMKScreen : public KCModule
   private Q_SLOTS:
     void identifyOutputs();
     void clearOutputIdentifiers();
-    void moveMouse(int dX, int dY);
-
-    void outputMousePressed();
-    void outputMouseReleased();
 
   private:
     Widget *mKScreenWidget;

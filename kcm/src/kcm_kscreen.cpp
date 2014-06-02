@@ -200,24 +200,4 @@ void KCMKScreen::identifyOutputs()
     m_outputTimer->start(2500);
 }
 
-void KCMKScreen::moveMouse(int dX, int dY)
-{
-    QPoint pos = QCursor::pos();
-    pos.rx() += dX;
-    pos.ry() += dY;
-
-    QCursor::setPos(pos);
-}
-
-void KCMKScreen::outputMousePressed()
-{
-    //m_declarativeView->setCursor(Qt::ClosedHandCursor);
-}
-
-void KCMKScreen::outputMouseReleased()
-{
-    //m_declarativeView->setCursor(Qt::ArrowCursor);
-}
-
-
 #include "kcm_kscreen.moc"
