@@ -191,8 +191,11 @@ QMLOutput {
 
             Item {
                 anchors {
-                    horizontalCenter: parent.horizontalCenter;
                     verticalCenter: parent.verticalCenter;
+                    left: parent.left;
+                    right: parent.right;
+                    leftMargin: 5;
+                    rightMargin: 5;
                 }
 
                 Text {
@@ -208,12 +211,15 @@ QMLOutput {
                           }
 
                     anchors {
-                        horizontalCenter: parent.horizontalCenter;
                         verticalCenter: parent.verticalCenter;
+                        left: parent.left;
+                        right: parent.right;
                     }
+                    horizontalAlignment: Text.AlignHCenter;
 
                     color: palette.text;
                     font.pixelSize: 14;
+                    elide: Text.ElideRight;
                 }
 
                 Text {
