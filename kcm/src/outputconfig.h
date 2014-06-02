@@ -22,7 +22,7 @@
 #ifndef OUTPUTCONFIG_H
 #define OUTPUTCONFIG_H
 
-#include <QtGui/QGroupBox>
+#include <QtGui/QWidget>
 
 class CollapsableButton;
 class QCheckBox;
@@ -35,7 +35,7 @@ namespace KScreen
 class Output;
 }
 
-class OutputConfig : public QGroupBox
+class OutputConfig : public QWidget
 {
     Q_OBJECT
 
@@ -47,6 +47,7 @@ class OutputConfig : public QGroupBox
     virtual void setOutput(KScreen::Output *output);
     KScreen::Output* output() const;
 
+    void setTitle(const QString &title);
   protected Q_SLOTS:
     void slotOutputConnectedChanged();
     void slotOutputEnabledChanged();
@@ -64,6 +65,7 @@ class OutputConfig : public QGroupBox
     virtual void initUi();
 
   protected:
+    QLabel *mTitle;
     KScreen::Output *mOutput;
     QCheckBox *mEnabled;
     ResolutionSlider *mResolution;

@@ -41,13 +41,13 @@
 #include <kscreen/edid.h>
 
 OutputConfig::OutputConfig(QWidget *parent)
-    : QGroupBox(parent)
+    : QWidget(parent)
     , mOutput(0)
 {
 }
 
 OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
-    : QGroupBox(parent)
+    : QWidget(parent)
 {
     setOutput(output);
 }
@@ -56,30 +56,38 @@ OutputConfig::~OutputConfig()
 {
 }
 
+void OutputConfig::setTitle(const QString& title)
+{
+    mTitle->setText(title);
+}
+
+
 void OutputConfig::initUi()
 {
     connect(mOutput, SIGNAL(isConnectedChanged()), SLOT(slotOutputConnectedChanged()));
     connect(mOutput, SIGNAL(isEnabledChanged()), SLOT(slotOutputEnabledChanged()));
     connect(mOutput, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
 
-    setTitle(Utils::outputName(mOutput));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
-    QGridLayout *formLayout = new QGridLayout();
+    mTitle = new QLabel(this);
+    mTitle->setAlignment(Qt::AlignHCenter);
+    vbox->addWidget(mTitle);
+
+    setTitle(Utils::outputName(mOutput));
+
+    QFormLayout *formLayout = new QFormLayout();
     vbox->addLayout(formLayout);
-    vbox->addStretch(2);
 
     mEnabled = new QCheckBox(i18n("Enabled"), this);
     mEnabled->setChecked(mOutput->isEnabled());
     connect(mEnabled, SIGNAL(clicked(bool)), SLOT(slotEnabledChanged(bool)));
-    formLayout->addWidget(new QLabel(i18n("Display:"), this), 0, 0);
-    formLayout->addWidget(mEnabled, 0, 1);
+    formLayout->addRow(i18n("Display:"), mEnabled);
 
     mResolution = new ResolutionSlider(mOutput, this);
     connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
-    formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
-    formLayout->addWidget(mResolution, 1, 1);
+    formLayout->addRow(i18n("Resolution:"), mResolution);
 
     mRotation = new KComboBox(this);
     connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
@@ -87,29 +95,32 @@ void OutputConfig::initUi()
     mRotation->addItem(KIcon(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
     mRotation->addItem(KIcon(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
     mRotation->addItem(KIcon(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
-    formLayout->addWidget(new QLabel(i18n("Orientation:"), this), 2, 0);
-    formLayout->addWidget(mRotation, 2, 1);
+    formLayout->addRow(i18n("Orientation:"), mRotation);
 
-    formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 2, 3, 1);
+    formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
 
-    CollapsableButton *advanced = new CollapsableButton(i18n("Advanced Settings"), this);
-    advanced->setCollapsed(true);
-    formLayout->addWidget(advanced, 3, 0, 1, 2);
+    CollapsableButton *advancedButton = new CollapsableButton(i18n("Advanced Settings"), this);
+    advancedButton->setCollapsed(true);
+    vbox->addWidget(advancedButton);
 
     QWidget *advancedWidget = new QWidget(this);
-    formLayout->addWidget(advancedWidget, 4, 0, 1, 2);
-    advanced->setWidget(advancedWidget);
-    formLayout = new QGridLayout(advancedWidget);
+    int leftMargin, topMargin, rightMargin, bottomMargin;
+    advancedWidget->getContentsMargins(&leftMargin, &topMargin, &rightMargin, &bottomMargin);
+    advancedWidget->setContentsMargins(25, topMargin, rightMargin, bottomMargin);
+    vbox->addWidget(advancedWidget);
+    advancedButton->setWidget(advancedWidget);
+
+    formLayout = new QFormLayout(advancedWidget);
     advancedWidget->setLayout(formLayout);
 
     mRefreshRate = new KComboBox(advancedWidget);
     mRefreshRate->addItem(i18n("Auto"), -1);
-    formLayout->addWidget(new QLabel(i18n("Refresh Rate:"), this), 0, 0);
-    formLayout->addWidget(mRefreshRate, 0, 1);
+    formLayout->addRow(i18n("Refresh Rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotRefreshRateChanged(int)));
 
+    vbox->addStretch(2);
 }
 
 void OutputConfig::setOutput(KScreen::Output *output)
