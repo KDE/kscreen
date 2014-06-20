@@ -81,7 +81,7 @@ Item {
                 id: dragTip;
 
                 icon: "dialog-information";
-                text: i18n("Tip: Hold Ctrl while dragging a display to disable snapping");
+                text: i18nd("kcm_displayconfiguration", "Tip: Hold Ctrl while dragging a display to disable snapping");
             }
 
             Tip {
@@ -89,7 +89,7 @@ Item {
                 id: noActiveOutputsWarning;
 
                 icon: "dialog-warning";
-                text: i18n("Warning: There are no active outputs!");
+                text: i18nd("kcm_displayconfiguration", "Warning: There are no active outputs!");
             }
 
             Tip {
@@ -98,7 +98,7 @@ Item {
                 objectName: "tooManyActiveOutputs";
 
                 icon: "dialog-error";
-                text: i18n("Your system only supports up to %1 active screens", virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
+                text: i18nd("kcm_displayconfiguration", "Your system only supports up to %1 active screens", virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
             }
         }
 
@@ -113,7 +113,7 @@ Item {
             height: width
             width: theme.largeIconSize;
             iconName: "kdocumentinfo"
-            tooltip: i18n("Identify outputs");
+            tooltip: i18nd("kcm_displayconfiguration", "Identify outputs");
 
             onClicked: root.identifyOutputsRequested();
         }

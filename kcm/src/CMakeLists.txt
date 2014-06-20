@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"kcm_displayconfiguration\")
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
 set(kcm_kscreen_SRCS
