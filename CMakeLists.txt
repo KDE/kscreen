@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8.12)
 set(KSCREEN_VERSION 2.0.0)
 set(KSCREEN_STR_VERSION \"${KSCREEN_VERSION}\")
 
-add_definitions("-DKSCREEN_VERSION=\\\"${KSCREEN_VERSION}\\\"")
+add_definitions("-DKSCREEN_VERSION=\"${KSCREEN_VERSION}\"")
 
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
