@@ -1,4 +1,4 @@
-include_directories(${QT_INCLUDES} ${CMAKE_SOURCE_DIR}/src ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(kscreen-console main.cpp console.cpp)
 
