@@ -75,9 +75,13 @@ void UnifiedOutputConfig::setOutput(KScreen::Output *output)
 
 void UnifiedOutputConfig::initUi()
 {
+    QVBoxLayout *vbox = new QVBoxLayout(this);
+    mTitle = new QLabel(this);
+    mTitle->setAlignment(Qt::AlignHCenter);
+    vbox->addWidget(mTitle);
+
     setTitle(i18n("Unified Outputs"));
 
-    QVBoxLayout *vbox = new QVBoxLayout(this);
     QGridLayout *formLayout = new QGridLayout();
     vbox->addLayout(formLayout);
     vbox->addStretch(2);
