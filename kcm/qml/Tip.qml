@@ -7,7 +7,7 @@ Item {
     property alias text: tipText.text;
 
     width: parent.width;
-    height: theme.iconSizes.toolbar;
+    height: units.iconSizes.toolbar;
 
     opacity: 0.0;
 
@@ -22,8 +22,8 @@ Item {
 
         id: tipIcon;
 
-        width: theme.iconSizes.toolbar;
-        height: theme.iconSizes.toolbar;
+        width: units.iconSizes.toolbar;
+        height: units.iconSizes.toolbar;
 
         source: "dialog-information";
     }
