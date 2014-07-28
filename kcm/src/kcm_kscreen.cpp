@@ -26,6 +26,7 @@
 #include <KMessageBox>
 
 #include <QHBoxLayout>
+#include <QLabel>
 
 #include <kscreen/config.h>
 
@@ -55,11 +56,18 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     setAboutData(about);
 
     QHBoxLayout *layout = new QHBoxLayout(this);
-    mKScreenWidget = new Widget(this);
-    layout->addWidget(mKScreenWidget);
+    if (KScreen::Config::current()) {
+        mKScreenWidget = new Widget(this);
+        layout->addWidget(mKScreenWidget);
 
-    connect(mKScreenWidget, SIGNAL(changed()),
-            this, SLOT(changed()));
+        connect(mKScreenWidget, SIGNAL(changed()),
+                this, SLOT(changed()));
+    } else {
+        mKScreenWidget = 0;
+        QLabel *errorLabel = new QLabel(this);
+        layout->addWidget(errorLabel);
+        errorLabel->setText(i18n("No kscreen backend found. Please check your kscreen installation."));
+    }
 }
 
 KCMKScreen::~KCMKScreen()
