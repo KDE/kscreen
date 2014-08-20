@@ -363,7 +363,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->currentModeId(), QLatin1String("5"));
     QCOMPARE(external->isPrimary(), true);
     QCOMPARE(external->isEnabled(), true);
-    QCOMPARE(external->pos(), QPoint(0, 0));
+    QCOMPARE(external->pos(), QPoint(1280, 0));
 
     //Enable embedded, disable external
     config = generator->displaySwitch(4);
