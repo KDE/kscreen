@@ -26,6 +26,7 @@
 #include <QVBoxLayout>
 #include <QSplitter>
 #include <QLabel>
+#include <QTimer>
 #include <QtCore/qglobal.h>
 #include <QtDBus/QDBusArgument>
 
@@ -37,12 +38,15 @@
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 #include <kscreen/config.h>
+
 #include <QtCore/QDir>
 #include <QStandardPaths>
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QPushButton>
 #include <QQuickWidget>
+
+#define QML_PATH "kcm_kscreen/qml/"
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -102,11 +106,15 @@ Widget::Widget(QWidget *parent):
     connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
     vbox->addWidget(mUnifyButton);
 
+    mOutputTimer = new QTimer(this);
+    connect(mOutputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
+
     loadQml();
 }
 
 Widget::~Widget()
 {
+    clearOutputIdentifiers();
 }
 
 void Widget::setConfig(KScreen::Config *config)
@@ -162,6 +170,8 @@ void Widget::loadQml()
 
     connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
             this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
+    connect(rootObject->findChild<QObject*>("identifyButton"), SIGNAL(clicked()),
+            this, SLOT(slotIdentifyOutputs()));
 
 
 #ifndef WITH_PROFILES
@@ -426,5 +436,62 @@ void Widget::slotProfilesUpdated()
 #endif
 }
 
+
+void Widget::clearOutputIdentifiers()
+{
+    mOutputTimer->stop();
+    qDeleteAll(mOutputIdentifiers);
+    mOutputIdentifiers.clear();
+}
+
+void Widget::slotIdentifyOutputs()
+{
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String(QML_PATH "OutputIdentifier.qml"));
+
+    mOutputTimer->stop();
+    clearOutputIdentifiers();
+
+    /* Obtain the current active configuration from KScreen */
+    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
+    Q_FOREACH (KScreen::Output *output, outputs) {
+        if (!output->isConnected() || !output->currentMode()) {
+            continue;
+        }
+
+        KScreen::Mode *mode = output->currentMode();
+
+        QQuickWidget *view = new QQuickWidget();
+        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+        view->setResizeMode(QQuickWidget::SizeViewToRootObject);
+        view->setSource(QUrl::fromLocalFile(qmlPath));
+
+        QQuickItem *rootObj = view->rootObject();
+        if (!rootObj) {
+            qWarning() << "Failed to obtain root item";
+            continue;
+        }
+        QSize realSize;
+        if (output->isHorizontal()) {
+            realSize = mode->size();
+        } else {
+            realSize = QSize(mode->size().height(), mode->size().width());
+        }
+        rootObj->setProperty("outputName", output->name());
+        rootObj->setProperty("modeName", QStringLiteral("%1x%2").arg(realSize.width()).arg(realSize.height()));
+
+        const QRect outputRect(output->pos(), realSize);
+        QRect geometry(QPoint(0, 0), view->sizeHint());
+        geometry.moveCenter(outputRect.center());
+        view->setGeometry(geometry);
+
+        mOutputIdentifiers << view;
+    }
+
+    Q_FOREACH (QWidget *widget, mOutputIdentifiers) {
+        widget->show();
+    }
+
+    mOutputTimer->start(2500);
+}
 
 #include "widget.moc"

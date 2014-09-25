@@ -22,7 +22,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore;
 Item {
     id: root;
 
-    property string outputName;
+    property string displayName;
     property string modeName;
 
     width: childrenRect.width;
@@ -53,12 +53,11 @@ Item {
             spacing: 10;
 
             Text {
-
-                id: nameLabel;
+                id: displayName;
 
                 anchors.horizontalCenter: parent.horizontalCenter;
 
-                text: root.outputName;
+                text: root.displayName;
                 font.pointSize: 50;
                 color: palette.text;
                 horizontalAlignment: Text.AlignHCenter;

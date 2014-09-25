@@ -28,8 +28,6 @@ Item {
 
     property variant virtualScreen: null;
 
-    signal identifyOutputsRequested();
-
     objectName: "root";
     focus: true;
 
@@ -102,8 +100,10 @@ Item {
             }
         }
 
+
         Controls.ToolButton {
             id: identifyButton
+
             anchors {
                 right: parent.right
                 bottom: parent.bottom
@@ -113,6 +113,7 @@ Item {
             height: width
             width: theme.largeIconSize;
             iconName: "kdocumentinfo"
+
             tooltip: i18nd("kcm_displayconfiguration", "Identify outputs");
 
             onClicked: root.identifyOutputsRequested();

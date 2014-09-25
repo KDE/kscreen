@@ -28,6 +28,7 @@
 #include <QHBoxLayout>
 #include <QTimer>
 #include <qstandardpaths.h>
+#include <QLabel>
 
 #include <QQuickWidget>
 
@@ -37,8 +38,6 @@
 K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
 K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
                                                 "kcm_displayconfiguration" /* catalog name */))
-
-#define QML_PATH "kcm_kscreen/qml/"
 
 using namespace KScreen;
 
@@ -59,20 +58,23 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
 
-    m_outputTimer = new QTimer(this);
-    connect(m_outputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
-
     QHBoxLayout *layout = new QHBoxLayout(this);
-    mKScreenWidget = new Widget(this);
-    layout->addWidget(mKScreenWidget);
+    if (KScreen::Config::current()) {
+        mKScreenWidget = new Widget(this);
+        layout->addWidget(mKScreenWidget);
 
-    connect(mKScreenWidget, SIGNAL(changed()),
-            this, SLOT(changed()));
+        connect(mKScreenWidget, SIGNAL(changed()),
+                this, SLOT(changed()));
+    } else {
+        mKScreenWidget = 0;
+        QLabel *errorLabel = new QLabel(this);
+        layout->addWidget(errorLabel);
+        errorLabel->setText(i18n("No kscreen backend found. Please check your kscreen installation."));
+    }
 }
 
 KCMKScreen::~KCMKScreen()
 {
-    clearOutputIdentifiers();
 }
 
 void KCMKScreen::save()
@@ -138,84 +140,5 @@ void KCMKScreen::load()
 
     mKScreenWidget->setConfig(KScreen::Config::current());
 }
-
-
-
-void KCMKScreen::clearOutputIdentifiers()
-{
-    m_outputTimer->stop();
-    qDeleteAll(m_outputIdentifiers);
-    m_outputIdentifiers.clear();
-}
-
-void KCMKScreen::identifyOutputs()
-{
-    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String(QML_PATH "OutputIdentifier.qml"));
-
-    m_outputTimer->stop();
-    clearOutputIdentifiers();
-
-    /* Obtain the current active configuration from KScreen */
-    OutputList outputs = KScreen::Config::current()->outputs();
-    Q_FOREACH (KScreen::Output *output, outputs) {
-        if (!output->isConnected() || !output->currentMode()) {
-            continue;
-        }
-
-        Mode *mode = output->currentMode();
-
-        QQuickWidget *view = new QQuickWidget();
-        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-        view->setResizeMode(QQuickWidget::SizeViewToRootObject);
-        view->setSource(QUrl::fromLocalFile(qmlPath));
-
-        QQuickItem *rootObj = view->rootObject();
-        if (!rootObj) {
-            qWarning() << "Failed to obtain root item";
-            continue;
-        }
-        QSize realSize;
-        if (output->isHorizontal()) {
-            realSize = mode->size();
-        } else {
-            realSize = QSize(mode->size().height(), mode->size().width());
-        }
-        rootObj->setProperty("outputName", output->name());
-        rootObj->setProperty("modeName", QStringLiteral("%1x%2").arg(realSize.width()).arg(realSize.height()));
-
-        const QRect outputRect(output->pos(), realSize);
-        QRect geometry(QPoint(0, 0), view->sizeHint());
-        geometry.moveCenter(outputRect.center());
-        view->setGeometry(geometry);
-
-        m_outputIdentifiers << view;
-    }
-
-    Q_FOREACH (QWidget *widget, m_outputIdentifiers) {
-        widget->show();
-    }
-
-    m_outputTimer->start(2500);
-}
-
-void KCMKScreen::moveMouse(int dX, int dY)
-{
-    QPoint pos = QCursor::pos();
-    pos.rx() += dX;
-    pos.ry() += dY;
-
-    QCursor::setPos(pos);
-}
-
-void KCMKScreen::outputMousePressed()
-{
-    //m_declarativeView->setCursor(Qt::ClosedHandCursor);
-}
-
-void KCMKScreen::outputMouseReleased()
-{
-    //m_declarativeView->setCursor(Qt::ArrowCursor);
-}
-
 
 #include "kcm_kscreen.moc"

@@ -125,7 +125,9 @@ void ResolutionSlider::slotOutputModeChanged()
         return;
     }
 
+    mSlider->blockSignals(true);
     mSlider->setValue(mModes.indexOf(mOutput->currentMode()->size()));
+    mSlider->blockSignals(false);
 }
 
 void ResolutionSlider::slotSlideValueChanged(int value)

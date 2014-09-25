@@ -37,19 +37,9 @@ class KCMKScreen : public KCModule
     virtual void save();
     virtual void defaults();
 
-  private Q_SLOTS:
-    void identifyOutputs();
-    void clearOutputIdentifiers();
-    void moveMouse(int dX, int dY);
-
-    void outputMousePressed();
-    void outputMouseReleased();
-
   private:
     Widget *mKScreenWidget;
 
-    QList<QWidget*> m_outputIdentifiers;
-    QTimer *m_outputTimer;
 };
 
 #endif // DisplayConfiguration_H
