@@ -50,6 +50,9 @@ class Widget : public QWidget
     void setConfig(KScreen::Config *config);
     KScreen::Config* currentConfig() const;
 
+  protected:
+    virtual bool eventFilter(QObject *object, QEvent *event);
+
   Q_SIGNALS:
     void changed();
 

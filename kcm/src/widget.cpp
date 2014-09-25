@@ -54,6 +54,8 @@ Widget::Widget(QWidget *parent):
     mConfig(0),
     mPrevConfig(0)
 {
+    qRegisterMetaType<QQuickWidget*>();
+
     setMinimumHeight(550);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -116,6 +118,23 @@ Widget::~Widget()
 {
     clearOutputIdentifiers();
 }
+
+bool Widget::eventFilter(QObject* object, QEvent* event)
+{
+    if (event->type() == QEvent::Resize) {
+        if (mOutputIdentifiers.contains(qobject_cast<QWidget*>(object))) {
+            QResizeEvent *e = static_cast<QResizeEvent*>(event);
+            const QRect screenSize = object->property("screenSize").toRect();
+            QRect geometry(QPoint(0, 0), e->size());
+            geometry.moveCenter(screenSize.center());
+            static_cast<QWidget*>(object)->setGeometry(geometry);
+            // Pass the event further
+        }
+    }
+
+    return QObject::eventFilter(object, event);
+}
+
 
 void Widget::setConfig(KScreen::Config *config)
 {
@@ -464,6 +483,7 @@ void Widget::slotIdentifyOutputs()
         view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
         view->setResizeMode(QQuickWidget::SizeViewToRootObject);
         view->setSource(QUrl::fromLocalFile(qmlPath));
+        view->installEventFilter(this);
 
         QQuickItem *rootObj = view->rootObject();
         if (!rootObj) {
@@ -476,14 +496,9 @@ void Widget::slotIdentifyOutputs()
         } else {
             realSize = QSize(mode->size().height(), mode->size().width());
         }
-        rootObj->setProperty("outputName", output->name());
-        rootObj->setProperty("modeName", QStringLiteral("%1x%2").arg(realSize.width()).arg(realSize.height()));
-
-        const QRect outputRect(output->pos(), realSize);
-        QRect geometry(QPoint(0, 0), view->sizeHint());
-        geometry.moveCenter(outputRect.center());
-        view->setGeometry(geometry);
-
+        rootObj->setProperty("outputName", Utils::outputName(output));
+        rootObj->setProperty("modeName", Utils::sizeToString(realSize));
+        view->setProperty("screenSize", QRect(output->pos(), realSize));
         mOutputIdentifiers << view;
     }
 

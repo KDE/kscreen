@@ -102,7 +102,9 @@ Item {
 
 
         Controls.ToolButton {
+
             id: identifyButton
+            objectName: "identifyButton";
 
             anchors {
                 right: parent.right
@@ -115,8 +117,6 @@ Item {
             iconName: "kdocumentinfo"
 
             tooltip: i18nd("kcm_displayconfiguration", "Identify outputs");
-
-            onClicked: root.identifyOutputsRequested();
         }
     }
 }

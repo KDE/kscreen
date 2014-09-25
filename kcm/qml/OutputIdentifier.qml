@@ -17,12 +17,12 @@
 */
 
 import QtQuick 2.1
-import org.kde.plasma.core 2.0 as PlasmaCore;
+import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: root;
 
-    property string displayName;
+    property string outputName;
     property string modeName;
 
     width: childrenRect.width;
@@ -30,10 +30,6 @@ Item {
 
     SystemPalette {
         id: palette;
-    }
-
-    PlasmaCore.Theme {
-        id: theme;
     }
 
     Rectangle {
@@ -57,7 +53,8 @@ Item {
 
                 anchors.horizontalCenter: parent.horizontalCenter;
 
-                text: root.displayName;
+                text: root.outputName;
+                wrapMode: Text.WordWrap;
                 font.pointSize: 50;
                 color: palette.text;
                 horizontalAlignment: Text.AlignHCenter;
