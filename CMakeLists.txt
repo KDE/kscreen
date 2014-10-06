@@ -22,7 +22,7 @@ include(FeatureSummary)
 
 add_subdirectory(icons)
 add_subdirectory(kcm)
-# add_subdirectory(plasma)
+#add_subdirectory(plasma)
 add_subdirectory(kded)
 add_subdirectory(tests)
 add_subdirectory(console)

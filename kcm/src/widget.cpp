@@ -28,7 +28,6 @@
 #include <QLabel>
 #include <QTimer>
 #include <QtCore/qglobal.h>
-#include <QtDBus/QDBusArgument>
 
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"

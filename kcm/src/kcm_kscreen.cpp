@@ -36,8 +36,6 @@
 #include <qquickitem.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
-K_EXPORT_PLUGIN(KCMDisplayConfigurationFactory ("kcm_kscreen" /* kcm name */,
-                                                "kcm_displayconfiguration" /* catalog name */))
 
 using namespace KScreen;
 
@@ -50,9 +48,9 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
     setButtons(Apply | Default);
 
     KAboutData* about =
-        new KAboutData(QStringLiteral("kcm_kscren"),
+        new KAboutData(QStringLiteral("kcm_kscreen"),
                     i18n("Display Configuration"),
-                    QString(), i18n("Configuration for displays"),
+                    QString(KSCREEN_VERSION), i18n("Configuration for displays"),
                     KAboutLicense::GPL_V2, i18n("(c), 2012-2013 Daniel Vrátil"));
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));

@@ -201,9 +201,9 @@ QMLOutput {
                 Text {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
-                            return qsTr("Unified Outputs");
+                            return i18n("Unified Outputs");
                           } else if (root.output.type == KScreenOutput.Panel) {
-                            return qsTr("Laptop Screen");
+                            return i18n("Laptop Screen");
                           } else if (root.output.edid && root.output.edid.vendor) {
                             return root.output.edid.vendor;
                           } else {
