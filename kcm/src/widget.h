@@ -31,7 +31,7 @@ class ControlPanel;
 class QPushButton;
 class QComboBox;
 
-class QQuickWidget;
+class QQuickView;
 
 namespace KScreen
 {
@@ -84,7 +84,7 @@ class Widget : public QWidget
     KScreen::Config *mConfig;
     KScreen::Config *mPrevConfig;
 
-    QQuickWidget *m_declarativeView;
+    QQuickView *m_declarativeView;
     ControlPanel *m_controlPanel;
 
     ProfilesModel *mProfilesModel;
@@ -94,7 +94,7 @@ class Widget : public QWidget
     QPushButton *mUnifyButton;
     QPushButton *mSaveProfileButton;
 
-    QList<QWidget*> mOutputIdentifiers;
+    QList<QQuickView*> mOutputIdentifiers;
     QTimer *mOutputTimer;
 
 };

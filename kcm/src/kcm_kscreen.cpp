@@ -30,7 +30,7 @@
 #include <qstandardpaths.h>
 #include <QLabel>
 
-#include <QQuickWidget>
+#include <QQuickView>
 
 #include <kscreen/config.h>
 #include <qquickitem.h>

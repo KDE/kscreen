@@ -44,7 +44,7 @@
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QPushButton>
-#include <QQuickWidget>
+#include <QQuickView>
 
 #define QML_PATH "kcm_kscreen/qml/"
 
@@ -54,7 +54,7 @@ Widget::Widget(QWidget *parent):
     mConfig(0),
     mPrevConfig(0)
 {
-    qRegisterMetaType<QQuickWidget*>();
+    qRegisterMetaType<QQuickView*>();
 
     setMinimumHeight(550);
 
@@ -63,10 +63,12 @@ Widget::Widget(QWidget *parent):
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
     layout->addWidget(splitter);
 
-    m_declarativeView = new QQuickWidget(this);
-    m_declarativeView->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    m_declarativeView = new QQuickView();
+    QWidget *container = QWidget::createWindowContainer(m_declarativeView, this);
+    m_declarativeView->setResizeMode(QQuickView::SizeRootObjectToView);
     m_declarativeView->setMinimumHeight(280);
-    splitter->addWidget(m_declarativeView);
+    container->setMinimumHeight(280);
+    splitter->addWidget(container);
 
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
@@ -122,12 +124,12 @@ Widget::~Widget()
 bool Widget::eventFilter(QObject* object, QEvent* event)
 {
     if (event->type() == QEvent::Resize) {
-        if (mOutputIdentifiers.contains(qobject_cast<QWidget*>(object))) {
+        if (mOutputIdentifiers.contains(qobject_cast<QQuickView*>(object))) {
             QResizeEvent *e = static_cast<QResizeEvent*>(event);
             const QRect screenSize = object->property("screenSize").toRect();
             QRect geometry(QPoint(0, 0), e->size());
             geometry.moveCenter(screenSize.center());
-            static_cast<QWidget*>(object)->setGeometry(geometry);
+            static_cast<QQuickView*>(object)->setGeometry(geometry);
             // Pass the event further
         }
     }
@@ -479,9 +481,10 @@ void Widget::slotIdentifyOutputs()
 
         KScreen::Mode *mode = output->currentMode();
 
-        QQuickWidget *view = new QQuickWidget();
-        view->setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-        view->setResizeMode(QQuickWidget::SizeViewToRootObject);
+        QQuickView *view = new QQuickView();
+
+        view->setFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+        view->setResizeMode(QQuickView::SizeViewToRootObject);
         view->setSource(QUrl::fromLocalFile(qmlPath));
         view->installEventFilter(this);
 
@@ -502,8 +505,8 @@ void Widget::slotIdentifyOutputs()
         mOutputIdentifiers << view;
     }
 
-    Q_FOREACH (QWidget *widget, mOutputIdentifiers) {
-        widget->show();
+    Q_FOREACH (QQuickView *view, mOutputIdentifiers) {
+        view->show();
     }
 
     mOutputTimer->start(2500);
