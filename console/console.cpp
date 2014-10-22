@@ -31,15 +31,14 @@
 #include <kscreen/mode.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/edid.h>
+#include <kscreen/getconfigoperation.h>
 
 using namespace KScreen;
 
-Console::Console(QObject* parent): QObject(parent)
+Console::Console(const ConfigPtr &config)
+    : QObject()
+    , m_config(config)
 {
-    qDebug() << "START";
-    QDateTime date = QDateTime::currentDateTime();
-    m_config = Config::current();
-    qDebug() << "Config::current() took" << date.msecsTo(QDateTime::currentDateTime()) << "milliseconds";
 }
 
 Console::~Console()
@@ -58,7 +57,10 @@ void Console::printConfig()
         return;
     }
 
-    connect(m_config, SIGNAL(primaryOutputChanged(KScreen::Output*)), SLOT(primaryOutputChanged(KScreen::Output*)));
+    connect(m_config.data(), &Config::primaryOutputChanged,
+            [&](const OutputPtr &output) {
+                qDebug() << "New primary output: " << output->id() << output->name();
+            });
 
     qDebug() << "Screen:";
     qDebug() << "\tmaxSize:" << m_config->screen()->maxSize();
@@ -66,7 +68,7 @@ void Console::printConfig()
     qDebug() << "\tcurrentSize:" << m_config->screen()->currentSize();
 
     OutputList outputs = m_config->outputs();
-    Q_FOREACH(Output *output, outputs) {
+    Q_FOREACH(const OutputPtr &output, outputs) {
         qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
         qDebug() << "Name: " << output->name();
@@ -94,7 +96,7 @@ void Console::printConfig()
         qDebug() << "Modes: ";
 
         ModeList modes = output->modes();
-        Q_FOREACH(Mode* mode, modes) {
+        Q_FOREACH(const ModePtr &mode, modes) {
             qDebug() << "\t" << mode->id() << "  " << mode->name() << " " << mode->size() << " " << mode->refreshRate();
         }
 
@@ -193,10 +195,3 @@ void Console::monitorAndPrint()
     monitor();
     connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
 }
-
-void Console::primaryOutputChanged(Output* output)
-{
-    qDebug() << "New primary output: " << output->id() << output->name();
-}
-
-#include <console.moc>

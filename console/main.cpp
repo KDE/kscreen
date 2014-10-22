@@ -21,8 +21,12 @@
 #include <QProcess>
 #include <QCommandLineParser>
 #include <QApplication>
+#include <QtCore/QDateTime>
 #include <KAboutData>
 #include <KLocalizedString>
+
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/config.h>
 
 #include "console.h"
 
@@ -36,6 +40,51 @@ void showCommands()
     QTextStream(stdout) << "    outputs \t <Show Output information>" << endl;
     QTextStream(stdout) << "    monitor \t <Monitors for changes>" << endl;
 }
+
+void configReceived(KScreen::ConfigOperation *op)
+{
+    KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+
+    const QString command = op->property("command").toString();
+    const qint64 msecs = QDateTime::currentMSecsSinceEpoch() - op->property("start").toLongLong();
+    qDebug() << "Received config. Took" << msecs << "milliseconds";
+
+    Console *console = new Console(config);
+
+    if (command.isEmpty()) {
+        console->printConfig();
+        console->monitorAndPrint();
+    } else if (command == "monitor") {
+        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
+        //Print config so that we have some pivot data
+        console->printConfig();
+        console->monitor();
+        //Do nothing, enable backend output to see debug
+    } else if (command == "outputs") {
+        console->printConfig();
+        qApp->quit();
+    } else if (command == "config") {
+        console->printSerializations();
+        qApp->quit();
+    } else if (command == "bug") {
+        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
+        QProcess proc;
+        proc.setProcessChannelMode(QProcess::MergedChannels);
+        proc.start("xrandr", QStringList("--verbose"));
+        proc.waitForFinished();
+        QTextStream(stdout) << proc.readAll().data();
+        QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
+        console->printConfig();
+        QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
+        console->printSerializations();
+        qApp->quit();
+    } else {
+        showCommands();
+        qApp->quit();
+    }
+}
+
+
 int main (int argc, char *argv[])
 {
     dup2(1, 2);
@@ -61,50 +110,20 @@ int main (int argc, char *argv[])
         return 1;
     }
 
-    Console *console = new Console(0);
-
     QString command;
     if (!parser.positionalArguments().isEmpty()) {
         command = parser.positionalArguments().first();
     }
 
-    if (command.isEmpty()) {
-        console->printConfig();
-        console->monitorAndPrint();
-        return app.exec();
-    }
+    qDebug() << "START: Requesting Config";
 
-    if (command == "monitor") {
-        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
-        //Print config so that we have some pivot data
-        console->printConfig();
-        console->monitor();
-        //Do nothing, enable backend output to see debug
-        return app.exec();
-    }
+    KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation();
+    op->setProperty("command", command);
+    op->setProperty("start", QDateTime::currentMSecsSinceEpoch());
+    QObject::connect(op, &KScreen::GetConfigOperation::finished,
+                     [&](KScreen::ConfigOperation *op) {
+                          configReceived(op);
+                      });
 
-    if (command == "outputs") {
-        console->printConfig();
-        return 1;
-    }
-
-    if (command == "config") {
-        console->printSerializations();
-        return 1;
-    }
-    if (command == "bug") {
-        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
-        QProcess proc;
-        proc.setProcessChannelMode(QProcess::MergedChannels);
-        proc.start("xrandr", QStringList("--verbose"));
-        proc.waitForFinished();
-        QTextStream(stdout) << proc.readAll().data();
-        QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
-        console->printConfig();
-        QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
-        console->printSerializations();
-        return 1;
-    }
-    showCommands();
-    return -1;
+    app.exec();
 }
