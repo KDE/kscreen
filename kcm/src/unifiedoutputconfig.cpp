@@ -32,6 +32,7 @@
 #include <QSpacerItem>
 #include <QCheckBox>
 #include <QGroupBox>
+#include <QVBoxLayout>
 
 #include <kscreen/output.h>
 #include <kscreen/config.h>
@@ -49,7 +50,7 @@ bool qMapLessThanKey(const QSize &s1, const QSize &s2)
 }
 
 
-UnifiedOutputConfig::UnifiedOutputConfig(KScreen::Config *config, QWidget *parent)
+UnifiedOutputConfig::UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent)
     : OutputConfig(parent)
     , mConfig(config)
 {
@@ -59,7 +60,7 @@ UnifiedOutputConfig::~UnifiedOutputConfig()
 {
 }
 
-void UnifiedOutputConfig::setOutput(KScreen::Output *output)
+void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
 
@@ -85,15 +86,17 @@ void UnifiedOutputConfig::initUi()
     vbox->addLayout(formLayout);
     vbox->addStretch(2);
 
-    KScreen::Output *fakeOutput = createFakeOutput();
+    KScreen::OutputPtr fakeOutput = createFakeOutput();
     mResolution = new ResolutionSlider(fakeOutput, this);
-    connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
+    connect(mResolution, &ResolutionSlider::resolutionChanged,
+            this, &UnifiedOutputConfig::slotResolutionChanged);
     formLayout->addWidget(new QLabel(i18n("Resolution:"), this), 1, 0);
     formLayout->addWidget(mResolution, 1, 1);
     slotResolutionChanged(mResolution->currentResolution());
 
     mRotation = new QComboBox(this);
-    connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &UnifiedOutputConfig::slotRotationChanged);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
@@ -104,13 +107,13 @@ void UnifiedOutputConfig::initUi()
     formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 2, 3, 1);
 }
 
-KScreen::Output *UnifiedOutputConfig::createFakeOutput()
+KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
 {
     // Find set of common resolutions
     QMap<QSize, int> commonSizes;
-    Q_FOREACH (KScreen::Output *clone, mClones) {
+    Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         QList<QSize> processedSizes;
-        Q_FOREACH (KScreen::Mode *mode, clone->modes()) {
+        Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             // Make sure we don't count some modes multiple times because of different
             // refresh rates
             if (processedSizes.contains(mode->size())) {
@@ -127,14 +130,14 @@ KScreen::Output *UnifiedOutputConfig::createFakeOutput()
         }
     }
 
-    KScreen::Output *fakeOutput = new KScreen::Output(this);
+    KScreen::OutputPtr fakeOutput(new KScreen::Output);
 
     // This will give us list of resolution that are shared by all outputs
     QList<QSize> commonResults = commonSizes.keys(mClones.count());
     // If there are no common resolution, fallback to smallest preferred mode
     if (commonResults.isEmpty()) {
         QSize smallestMode;
-        Q_FOREACH (KScreen::Output *clone, mClones) {
+        Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
             qDebug() << smallestMode << clone->preferredMode()->size();
             if (!smallestMode.isValid() || clone->preferredMode()->size() < smallestMode) {
                 smallestMode = clone->preferredMode()->size();
@@ -146,7 +149,7 @@ KScreen::Output *UnifiedOutputConfig::createFakeOutput()
 
     KScreen::ModeList modes;
     Q_FOREACH (const QSize &size, commonResults) {
-        KScreen::Mode *mode = new KScreen::Mode(fakeOutput);
+        KScreen::ModePtr mode(new KScreen::Mode);
         mode->setSize(size);
         mode->setId(Utils::sizeToString(size));
         mode->setName(mode->id());
@@ -164,7 +167,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
         return;
     }
 
-    Q_FOREACH (KScreen::Output *clone, mClones) {
+    Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size);
         if (id.isEmpty()) {
             // FIXME: Error?
@@ -177,11 +180,11 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
     Q_EMIT changed();
 }
 
-QString UnifiedOutputConfig::findBestMode(const KScreen::Output *output, const QSize &size)
+QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size)
 {
     float refreshRate = 0;
     QString id;
-    Q_FOREACH (KScreen::Mode *mode, output->modes()) {
+    Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
         if (mode->size() == size && mode->refreshRate() > refreshRate) {
             refreshRate = mode->refreshRate();
             id = mode->id();

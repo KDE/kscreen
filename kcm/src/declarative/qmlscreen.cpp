@@ -30,6 +30,8 @@
 #include <QTimer>
 #include <sys/socket.h>
 
+//static void NullDeleter(KScreen::Output */*output*/) { }
+
 QMLScreen::QMLScreen(QQuickItem *parent):
     QQuickItem(parent),
     m_config(0),
@@ -40,15 +42,15 @@ QMLScreen::QMLScreen(QQuickItem *parent):
     m_rightmost(0),
     m_bottommost(0)
 {
-    connect(this, SIGNAL(widthChanged()), this, SLOT(viewSizeChanged()));
-    connect(this, SIGNAL(heightChanged()), this, SLOT(viewSizeChanged()));
+    connect(this, &QMLScreen::widthChanged, this, &QMLScreen::viewSizeChanged);
+    connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);
 }
 
 QMLScreen::~QMLScreen()
 {
 }
 
-void QMLScreen::addOutput(KScreen::Output *output)
+void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 {
     //QQuickItem *container = findChild<QQuickItem*>(QLatin1String("outputContainer"));
 
@@ -64,25 +66,29 @@ void QMLScreen::addOutput(KScreen::Output *output)
     qmloutput->setParentItem(this);
     qmloutput->setZ(m_outputMap.count());
 
-    connect(output, SIGNAL(isConnectedChanged()),
-            this, SLOT(outputConnectedChanged()));
-    connect(output, SIGNAL(isEnabledChanged()),
-            this, SLOT(outputEnabledChanged()));
-    connect(output, SIGNAL(isPrimaryChanged()),
-            this, SLOT(outputPrimaryChanged()));
-    connect(output, SIGNAL(posChanged()),
-            this, SLOT(outputPositionChanged()));
-    connect(qmloutput, SIGNAL(yChanged()),
-            this, SLOT(qmlOutputMoved()));
-    connect(qmloutput, SIGNAL(xChanged()),
-            this, SLOT(qmlOutputMoved()));
+    connect(output.data(), &KScreen::Output::isConnectedChanged,
+            this, &QMLScreen::outputConnectedChanged);
+    connect(output.data(), &KScreen::Output::isEnabledChanged,
+            this, &QMLScreen::outputEnabledChanged);
+    connect(output.data(), &KScreen::Output::isPrimaryChanged,
+            this, &QMLScreen::outputPrimaryChanged);
+    connect(output.data(), &KScreen::Output::posChanged,
+            this, &QMLScreen::outputPositionChanged);
+    connect(qmloutput, &QMLOutput::yChanged,
+            [this, qmloutput]() {
+                qmlOutputMoved(qmloutput);
+            });
+    connect(qmloutput, &QMLOutput::xChanged,
+            [this, qmloutput]() {
+                qmlOutputMoved(qmloutput);
+            });
     connect(qmloutput, SIGNAL(clicked()),
             this, SLOT(qmlOutputClicked()));
 }
 
 void QMLScreen::loadOutputs()
 {
-    Q_FOREACH (KScreen::Output *output, m_config->outputs()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, m_config->outputs()) {
         addOutput(output);
     }
 
@@ -144,7 +150,7 @@ void QMLScreen::outputConnectedChanged()
 {
     int connectedCount = 0;
 
-    Q_FOREACH (KScreen::Output *output, m_outputMap.keys()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, m_outputMap.keys()) {
         if (output->isConnected()) {
             ++connectedCount;
         }
@@ -159,11 +165,12 @@ void QMLScreen::outputConnectedChanged()
 void QMLScreen::outputEnabledChanged()
 {
     /* TODO: Update position of QMLOutput */
-    qmlOutputMoved(m_outputMap.value(qobject_cast<KScreen::Output*>(sender())));
+    const KScreen::OutputPtr output(qobject_cast<KScreen::Output*>(sender()), [](void *){});
+    qmlOutputMoved(m_outputMap.value(output));
 
     int enabledCount = 0;
 
-    Q_FOREACH (KScreen::Output *output, m_outputMap.keys()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, m_outputMap.keys()) {
         if (output->isEnabled()) {
             ++enabledCount;
         }
@@ -177,17 +184,21 @@ void QMLScreen::outputEnabledChanged()
 
 void QMLScreen::outputPrimaryChanged()
 {
-    KScreen::Output *newPrimary = qobject_cast<KScreen::Output*>(sender());
+    const KScreen::OutputPtr newPrimary(qobject_cast<KScreen::Output*>(sender()), [](void *){});
     if (!newPrimary->isPrimary()) {
         return;
     }
 
-    Q_FOREACH (KScreen::Output *output, m_outputMap.keys()) {
+    for (auto iter = m_outputMap.begin(); iter != m_outputMap.end(); ++iter) {
+        KScreen::OutputPtr output = iter.key();
         if (output == newPrimary) {
             continue;
         }
 
         output->setPrimary(false);
+        QMLOutput *qmlOutput = (*iter);
+        iter = m_outputMap.erase(iter);
+        iter = m_outputMap.insert(output, qmlOutput);
     }
 
     Q_EMIT primaryOutputChanged();
@@ -196,11 +207,6 @@ void QMLScreen::outputPrimaryChanged()
 void QMLScreen::outputPositionChanged()
 {
     /* TODO: Reposition the QMLOutputs */
-}
-
-void QMLScreen::qmlOutputMoved()
-{
-    qmlOutputMoved(qobject_cast<QMLOutput*>(sender()));
 }
 
 void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
@@ -328,12 +334,12 @@ void QMLScreen::updateOutputsPlacement()
     }
 }
 
-KScreen::Config *QMLScreen::config() const
+KScreen::ConfigPtr QMLScreen::config() const
 {
     return m_config;
 }
 
-void QMLScreen::setConfig(KScreen::Config *config)
+void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
 {
     qDeleteAll(m_outputMap);
     m_outputMap.clear();
@@ -343,10 +349,8 @@ void QMLScreen::setConfig(KScreen::Config *config)
 
     if (m_config) {
         KScreen::ConfigMonitor::instance()->removeConfig(m_config);
-        delete m_config.data();
     }
     m_config = config;
-    m_config->setParent(this);
     KScreen::ConfigMonitor::instance()->addConfig(m_config);
 
     QTimer::singleShot(0, this, SLOT(loadOutputs()));
@@ -356,5 +360,3 @@ void QMLScreen::setEngine(QQmlEngine* engine)
 {
     m_engine = engine;
 }
-
-#include "qmlscreen.moc"

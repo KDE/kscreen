@@ -114,8 +114,3 @@ void CollapsableButton::toggle()
     setCollapsed(!isCollapsed());
     Q_EMIT toggled();
 }
-
-
-
-
-#include "collapsablebutton.moc"

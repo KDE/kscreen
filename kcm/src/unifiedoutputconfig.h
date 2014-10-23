@@ -34,22 +34,22 @@ class UnifiedOutputConfig : public OutputConfig
 {
     Q_OBJECT
   public:
-    explicit UnifiedOutputConfig(KScreen::Config *config, QWidget *parent);
+    explicit UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent);
     virtual ~UnifiedOutputConfig();
 
-    void setOutput(KScreen::Output *output);
+    void setOutput(const KScreen::OutputPtr &output);
 
   private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
 
   private:
     virtual void initUi();
-    KScreen::Output* createFakeOutput();
-    QString findBestMode(const KScreen::Output *output, const QSize &size);
+    KScreen::OutputPtr createFakeOutput();
+    QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
 
   private:
-    KScreen::Config *mConfig;
-    QList<KScreen::Output*> mClones;
+    KScreen::ConfigPtr mConfig;
+    QList<KScreen::OutputPtr> mClones;
 };
 
 #endif // UNIFIEDOUTPUTCONFIG_H

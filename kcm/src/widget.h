@@ -23,6 +23,8 @@
 #include <QWidget>
 #include <QVariantMap>
 
+#include <kscreen/config.h>
+
 class ProfilesModel;
 class QMLOutput;
 class QMLScreen;
@@ -35,8 +37,7 @@ class QQuickView;
 
 namespace KScreen
 {
-class Config;
-class Output;
+class ConfigOperation;
 }
 
 class Widget : public QWidget
@@ -47,8 +48,8 @@ class Widget : public QWidget
     explicit Widget(QWidget *parent = 0);
     virtual ~Widget();
 
-    void setConfig(KScreen::Config *config);
-    KScreen::Config* currentConfig() const;
+    void setConfig(const KScreen::ConfigPtr &config);
+    KScreen::ConfigPtr currentConfig() const;
 
   protected:
     virtual bool eventFilter(QObject *object, QEvent *event);
@@ -70,19 +71,20 @@ class Widget : public QWidget
     void slotProfilesAboutToUpdate();
     void slotProfilesUpdated();
 
-    void slotIdentifyOutputs();
+    void slotIdentifyButtonClicked();
+    void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     void clearOutputIdentifiers();
 
   private:
     void loadQml();
     void initPrimaryCombo();
 
-    KScreen::Output* findOutput(KScreen::Config *config, const QVariantMap &info);
+    KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
   private:
     QMLScreen *mScreen;
-    KScreen::Config *mConfig;
-    KScreen::Config *mPrevConfig;
+    KScreen::ConfigPtr mConfig;
+    KScreen::ConfigPtr mPrevConfig;
 
     QQuickView *m_declarativeView;
     ControlPanel *m_controlPanel;

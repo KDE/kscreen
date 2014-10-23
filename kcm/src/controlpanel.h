@@ -24,6 +24,8 @@
 
 #include <QScrollArea>
 
+#include <kscreen/output.h>
+
 class QVBoxLayout;
 class OutputConfig;
 class UnifiedOutputConfig;
@@ -33,11 +35,6 @@ class QCheckBox;
 class QSlider;
 class QComboBox;
 
-namespace KScreen {
-class Config;
-class Output;
-}
-
 class ControlPanel : public QScrollArea
 {
     Q_OBJECT
@@ -46,18 +43,18 @@ class ControlPanel : public QScrollArea
     explicit ControlPanel(QWidget *parent = 0);
     virtual ~ControlPanel();
 
-    void setConfig(KScreen::Config *config);
+    void setConfig(const KScreen::ConfigPtr &config);
 
-    void setUnifiedOutput(KScreen::Output *output);
+    void setUnifiedOutput(const KScreen::OutputPtr &output);
 
   public Q_SLOTS:
-    void activateOutput(KScreen::Output *output);
+    void activateOutput(const KScreen::OutputPtr &output);
 
   Q_SIGNALS:
     void changed();
 
   private:
-    KScreen::Config *mConfig;
+    KScreen::ConfigPtr mConfig;
     QList<OutputConfig*> mOutputConfigs;
 
     QVBoxLayout *mLayout;

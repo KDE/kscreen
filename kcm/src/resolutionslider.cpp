@@ -35,12 +35,12 @@ static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
     return sizeA.width() * sizeA.height() < sizeB.width() * sizeB.height();
 }
 
-ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
+ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent)
     : QWidget(parent)
     , mOutput(output)
 {
-    connect(output, SIGNAL(currentModeIdChanged()),
-            this, SLOT(slotOutputModeChanged()));
+    connect(output.data(), &KScreen::Output::currentModeIdChanged,
+            this, &ResolutionSlider::slotOutputModeChanged);
 
     QGridLayout *layout = new QGridLayout(this);
 
@@ -53,8 +53,8 @@ ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
     mSlider->setSingleStep(1);
     mSlider->setPageStep(1);
     layout->addWidget(mSlider, 0, 1);
-    connect(mSlider, SIGNAL(valueChanged(int)),
-            this, SLOT(slotSlideValueChanged(int)));
+    connect(mSlider, &QSlider::valueChanged,
+            this, &ResolutionSlider::slotSlideValueChanged);
 
     mBiggestLabel = new QLabel(this);
     layout->addWidget(mBiggestLabel, 0, 2);
@@ -63,7 +63,7 @@ ResolutionSlider::ResolutionSlider(KScreen::Output *output, QWidget *parent)
     mCurrentLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(mCurrentLabel, 1, 0, 1, 3);
 
-    Q_FOREACH (KScreen::Mode* mode, output->modes()) {
+    Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
         if (mModes.contains(mode->size())) {
             continue;
         }
@@ -137,6 +137,3 @@ void ResolutionSlider::slotSlideValueChanged(int value)
 
     Q_EMIT resolutionChanged(size);
 }
-
-
-#include "resolutionslider.moc"

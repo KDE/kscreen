@@ -30,7 +30,7 @@ const static int sMargin = 0;
 const static int sSnapArea = 20;
 const static int sSnapAlignArea = 10;
 
-Q_DECLARE_METATYPE(KScreen::Mode*)
+Q_DECLARE_METATYPE(KScreen::ModePtr)
 
 bool operator>(const QSize &sizeA, const QSize &sizeB)
 {
@@ -39,7 +39,6 @@ bool operator>(const QSize &sizeA, const QSize &sizeB)
 
 QMLOutput::QMLOutput(QQuickItem *parent):
     QQuickItem(parent),
-    m_output(0),
     m_screen(0),
     m_cloneOf(0),
     m_leftDock(0),
@@ -48,8 +47,10 @@ QMLOutput::QMLOutput(QQuickItem *parent):
     m_bottomDock(0),
     m_isCloneMode(false)
 {
-    connect(this, SIGNAL(xChanged()), SLOT(moved()));
-    connect(this, SIGNAL(yChanged()), SLOT(moved()));
+    connect(this, &QMLOutput::xChanged,
+            this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
+    connect(this, &QMLOutput::yChanged,
+            this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
 }
 
 QMLOutput::~QMLOutput()
@@ -59,20 +60,25 @@ QMLOutput::~QMLOutput()
 
 KScreen::Output* QMLOutput::output() const
 {
+    return m_output.data();
+}
+
+KScreen::OutputPtr QMLOutput::outputPtr() const
+{
     return m_output;
 }
 
-void QMLOutput::setOutput(KScreen::Output *output)
+void QMLOutput::setOutputPtr(const KScreen::OutputPtr &output)
 {
-    Q_ASSERT(m_output == 0);
+    Q_ASSERT(m_output.isNull());
 
     m_output = output;
     Q_EMIT outputChanged();
 
-    connect(m_output, SIGNAL(rotationChanged()),
-            this, SLOT(updateRootProperties()));
-    connect(m_output, SIGNAL(currentModeIdChanged()),
-            this, SLOT(currentModeIdChanged()));
+    connect(m_output.data(), &KScreen::Output::rotationChanged,
+            this, &QMLOutput::updateRootProperties);
+    connect(m_output.data(), &KScreen::Output::currentModeIdChanged,
+            this, &QMLOutput::currentModeIdChanged);
 }
 
 QMLScreen *QMLOutput::screen() const
@@ -197,7 +203,7 @@ int QMLOutput::currentOutputHeight() const
         return 0;
     }
 
-    KScreen::Mode *mode = m_output->currentMode();
+    KScreen::ModePtr mode = m_output->currentMode();
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
@@ -216,7 +222,7 @@ int QMLOutput::currentOutputWidth() const
         return 0;
     }
 
-    KScreen::Mode *mode = m_output->currentMode();
+    KScreen::ModePtr mode = m_output->currentMode();
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
@@ -302,15 +308,15 @@ void QMLOutput::setIsCloneMode(bool isCloneMode)
     Q_EMIT isCloneModeChanged();
 }
 
-KScreen::Mode* QMLOutput::bestMode() const
+KScreen::ModePtr QMLOutput::bestMode() const
 {
     if (!m_output) {
-        return 0;
+        return KScreen::ModePtr();
     }
 
     KScreen::ModeList modes = m_output->modes();
-    KScreen::Mode *bestMode = 0;
-    Q_FOREACH (KScreen::Mode *mode, modes) {
+    KScreen::ModePtr bestMode;
+    Q_FOREACH (const KScreen::ModePtr &mode, modes) {
         if (!bestMode || (mode->size() > bestMode->size())) {
             bestMode = mode;
         }
@@ -491,8 +497,8 @@ void QMLOutput::moved()
     // First, if we have moved, then unset the "cloneOf" flag
     setCloneOf(0);
 
-    disconnect(this, SIGNAL(xChanged()), this, SLOT(moved()));
-    disconnect(this, SIGNAL(yChanged()), this, SLOT(moved()));
+    disconnect(this, &QMLOutput::xChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
+    disconnect(this, &QMLOutput::yChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
     Q_FOREACH (QQuickItem *sibling, siblings) {
         QMLOutput *otherOutput = qobject_cast<QMLOutput*>(sibling);
         if (!otherOutput || otherOutput == this) {
@@ -518,8 +524,8 @@ void QMLOutput::moved()
             }
         }
     }
-    connect(this, SIGNAL(xChanged()), SLOT(moved()));
-    connect(this, SIGNAL(yChanged()), SLOT(moved()));
+    connect(this, &QMLOutput::xChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
+    connect(this, &QMLOutput::yChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
 
     Q_EMIT moved(m_output->name());
 }

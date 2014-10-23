@@ -33,17 +33,22 @@
 #include <QQuickView>
 
 #include <kscreen/config.h>
+#include <kscreen/output.h>
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/setconfigoperation.h>
+
 #include <qquickitem.h>
 
 K_PLUGIN_FACTORY(KCMDisplayConfigurationFactory, registerPlugin<KCMKScreen>();)
 
 using namespace KScreen;
 
-Q_DECLARE_METATYPE(KScreen::Output*)
-Q_DECLARE_METATYPE(KScreen::Screen*)
+Q_DECLARE_METATYPE(KScreen::OutputPtr)
+Q_DECLARE_METATYPE(KScreen::ScreenPtr)
 
-KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
-    KCModule(parent, args)
+KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
+    : KCModule(parent, args)
+    , mKScreenWidget(0)
 {
     setButtons(Apply | Default);
 
@@ -55,20 +60,27 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args) :
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
+}
 
+void KCMKScreen::configReady(ConfigOperation* op)
+{
     QHBoxLayout *layout = new QHBoxLayout(this);
-    if (KScreen::Config::current()) {
-        mKScreenWidget = new Widget(this);
-        layout->addWidget(mKScreenWidget);
 
-        connect(mKScreenWidget, SIGNAL(changed()),
-                this, SLOT(changed()));
-    } else {
+    if (op->hasError()) {
         mKScreenWidget = 0;
+        delete mKScreenWidget;
         QLabel *errorLabel = new QLabel(this);
         layout->addWidget(errorLabel);
         errorLabel->setText(i18n("No kscreen backend found. Please check your kscreen installation."));
+        return;
     }
+
+    mKScreenWidget = new Widget(this);
+    mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+    layout->addWidget(mKScreenWidget);
+
+    connect(mKScreenWidget, SIGNAL(changed()),
+            this, SLOT(changed()));
 }
 
 KCMKScreen::~KCMKScreen()
@@ -83,17 +95,17 @@ void KCMKScreen::save()
         return;
     }
 
-    KScreen::Config *config = mKScreenWidget->currentConfig();
+    const KScreen::ConfigPtr &config = mKScreenWidget->currentConfig();
 
     bool atLeastOneEnabledOutput = false;
-    Q_FOREACH(KScreen::Output *output, config->outputs()) {
-        KScreen::Mode *mode = output->currentMode();
+    Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {
+        KScreen::ModePtr mode = output->currentMode();
 
         if (output->isEnabled()) {
             atLeastOneEnabledOutput = true;
         }
 
-        qDebug() << output->name() << "\n"
+        qDebug() << output->name() << output.data() << "\n"
                 << "	Connected:" << output->isConnected() << "\n"
                 << "	Enabled:" << output->isEnabled() << "\n"
                 << "	Primary:" << output->isPrimary() << "\n"
@@ -122,21 +134,20 @@ void KCMKScreen::save()
     }
 
     /* Store the current config, apply settings */
-    config->setConfig(config);
+    new SetConfigOperation(config);
 }
 
 void KCMKScreen::defaults()
 {
+    qDebug() << "LOAD";
     load();
 }
 
 void KCMKScreen::load()
 {
-    if (!mKScreenWidget) {
-        return;
-    }
-
-    mKScreenWidget->setConfig(KScreen::Config::current());
+    qDebug() << "LOAD";
+    connect(new GetConfigOperation(), &GetConfigOperation::finished,
+            this, &KCMKScreen::configReady);
 }
 
 #include "kcm_kscreen.moc"

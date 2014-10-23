@@ -25,19 +25,17 @@
 #include <QWidget>
 #include <QtCore/QSet>
 
+#include <kscreen/output.h>
+
 class QSlider;
 class QLabel;
-
-namespace KScreen {
-    class Output;
-}
 
 class ResolutionSlider : public QWidget
 {
     Q_OBJECT
 
   public:
-    explicit ResolutionSlider(KScreen::Output *output, QWidget *parent = 0);
+    explicit ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent = 0);
     virtual ~ResolutionSlider();
 
     QSize currentResolution() const;
@@ -50,7 +48,7 @@ class ResolutionSlider : public QWidget
     void slotOutputModeChanged();
 
   private:
-    KScreen::Output *mOutput;
+    KScreen::OutputPtr mOutput;
 
     QList<QSize> mModes;
 

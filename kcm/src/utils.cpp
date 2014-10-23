@@ -26,7 +26,12 @@
 
 #include <KLocalizedString>
 
-QString Utils::outputName(KScreen::Output *output)
+QString Utils::outputName(const KScreen::OutputPtr& output)
+{
+    return outputName(output.data());
+}
+
+QString Utils::outputName(const KScreen::Output *output)
 {
     if (output->type() == KScreen::Output::Panel) {
         return i18n("Laptop Screen");

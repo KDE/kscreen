@@ -148,6 +148,3 @@ QVariant ProfilesModel::parseOutputs(const QVariant &variant) const
 
     return outputs;
 }
-
-
-#include "profilesmodel.moc"

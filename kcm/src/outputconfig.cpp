@@ -45,7 +45,7 @@ OutputConfig::OutputConfig(QWidget *parent)
 {
 }
 
-OutputConfig::OutputConfig(KScreen::Output *output, QWidget *parent)
+OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent)
     : QWidget(parent)
 {
     setOutput(output);
@@ -63,9 +63,25 @@ void OutputConfig::setTitle(const QString& title)
 
 void OutputConfig::initUi()
 {
-    connect(mOutput, SIGNAL(isConnectedChanged()), SLOT(slotOutputConnectedChanged()));
-    connect(mOutput, SIGNAL(isEnabledChanged()), SLOT(slotOutputEnabledChanged()));
-    connect(mOutput, SIGNAL(rotationChanged()), SLOT(slotOutputRotationChanged()));
+    connect(mOutput.data(), &KScreen::Output::isConnectedChanged,
+            [this]() {
+                setVisible(mOutput->isConnected());
+            });
+
+    connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
+            [this]() {
+                mEnabled->blockSignals(true);
+                mEnabled->setChecked(mOutput->isEnabled());
+                mEnabled->blockSignals(false);
+            });
+
+    connect(mOutput.data(), &KScreen::Output::rotationChanged,
+            [this]() {
+                const int index = mRotation->findData(mOutput->rotation());
+                mRotation->blockSignals(true);
+                mRotation->setCurrentIndex(index);
+                mRotation->blockSignals(false);
+            });
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -81,15 +97,22 @@ void OutputConfig::initUi()
 
     mEnabled = new QCheckBox(i18n("Enabled"), this);
     mEnabled->setChecked(mOutput->isEnabled());
-    connect(mEnabled, SIGNAL(clicked(bool)), SLOT(slotEnabledChanged(bool)));
+    connect(mEnabled, &QCheckBox::clicked,
+            [this](bool checked) {
+                  mOutput->setEnabled(checked);
+                  qDebug() << mOutput.data() << mOutput->name() << mOutput->isEnabled();
+                  Q_EMIT changed();
+            });
     formLayout->addRow(i18n("Display:"), mEnabled);
 
     mResolution = new ResolutionSlider(mOutput, this);
-    connect(mResolution, SIGNAL(resolutionChanged(QSize)), SLOT(slotResolutionChanged(QSize)));
+    connect(mResolution, &ResolutionSlider::resolutionChanged,
+            this, &OutputConfig::slotResolutionChanged);
     formLayout->addRow(i18n("Resolution:"), mResolution);
 
     mRotation = new QComboBox(this);
-    connect(mRotation, SIGNAL(currentIndexChanged(int)), SLOT(slotRotationChanged(int)));
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &OutputConfig::slotRotationChanged);
 
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
@@ -117,49 +140,23 @@ void OutputConfig::initUi()
     mRefreshRate->addItem(i18n("Auto"), -1);
     formLayout->addRow(i18n("Refresh Rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
-    connect(mRefreshRate, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotRefreshRateChanged(int)));
+    connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &OutputConfig::slotRefreshRateChanged);
 
     vbox->addStretch(2);
 }
 
-void OutputConfig::setOutput(KScreen::Output *output)
+void OutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
     initUi();
 }
 
-KScreen::Output* OutputConfig::output() const
+KScreen::OutputPtr OutputConfig::output() const
 {
     return mOutput;
 }
 
-void OutputConfig::slotOutputConnectedChanged()
-{
-    setVisible(mOutput->isConnected());
-}
-
-void OutputConfig::slotOutputEnabledChanged()
-{
-    mEnabled->blockSignals(true);
-    mEnabled->setChecked(mOutput->isEnabled());
-    mEnabled->blockSignals(false);
-}
-
-void OutputConfig::slotOutputRotationChanged()
-{
-    const int index = mRotation->findData(mOutput->rotation());
-    mRotation->blockSignals(true);
-    mRotation->setCurrentIndex(index);
-    mRotation->blockSignals(false);
-}
-
-void OutputConfig::slotEnabledChanged(bool checked)
-{
-    mOutput->setEnabled(checked);
-
-    Q_EMIT changed();
-}
 
 void OutputConfig::slotResolutionChanged(const QSize &size)
 {
@@ -168,9 +165,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
         return;
     }
 
-    KScreen::Mode* selectedMode = 0;
-    QList<KScreen::Mode*> modes;
-    Q_FOREACH (KScreen::Mode *mode, mOutput->modes()) {
+    KScreen::ModePtr selectedMode;
+    QList<KScreen::ModePtr> modes;
+    Q_FOREACH (const KScreen::ModePtr mode, mOutput->modes()) {
         if (mode->size() == size) {
             modes << mode;
             if (!selectedMode || selectedMode->refreshRate() < mode->refreshRate()) {
@@ -190,7 +187,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
     }
 
     for (int i = 0; i < modes.count(); i++) {
-        KScreen::Mode *mode = modes.at(i);
+        const KScreen::ModePtr mode = modes.at(i);
         mRefreshRate->addItem(QString::fromLatin1("%1 Hz").arg(mode->refreshRate(), 0, 'f', 1), mode->id());
 
         // If selected refresh rate is other then what we consider the "Auto" value
@@ -229,5 +226,3 @@ void OutputConfig::slotRefreshRateChanged(int index)
 
     Q_EMIT changed();
 }
-
-#include "outputconfig.moc"

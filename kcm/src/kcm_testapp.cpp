@@ -20,6 +20,8 @@
 #include <KLocalizedString>
 #include <QApplication>
 
+#include <kscreen/getconfigoperation.h>
+
 // #include <QQuickDebuggingEnabler>
 
 #include "widget.h"
@@ -35,6 +37,10 @@ int main(int argc, char **argv)
     widget.resize(800, 600);
     widget.show();
 
+    QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+                     [&](KScreen::ConfigOperation *op) {
+                        widget.setConfig(qobject_cast<KScreen::GetConfigOperation*>(op)->config());
+                    });
 
     return app.exec();
 }

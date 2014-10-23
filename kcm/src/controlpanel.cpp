@@ -46,7 +46,7 @@ ControlPanel::~ControlPanel()
 {
 }
 
-void ControlPanel::setConfig(KScreen::Config *config)
+void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
 {
     qDeleteAll(mOutputConfigs);
     mOutputConfigs.clear();
@@ -57,18 +57,18 @@ void ControlPanel::setConfig(KScreen::Config *config)
         mUnifiedOutputCfg = 0;
     }
 
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         OutputConfig *outputCfg = new OutputConfig(output, widget());
         outputCfg->hide();
-        connect(outputCfg, SIGNAL(changed()),
-                this, SIGNAL(changed()));
+        connect(outputCfg, &OutputConfig::changed,
+                this, &ControlPanel::changed);
 
         mLayout->addWidget(outputCfg);
         mOutputConfigs << outputCfg;
     }
 }
 
-void ControlPanel::activateOutput(KScreen::Output *output)
+void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
 {
     // Ignore activateOutput when in unified mode
     if (mUnifiedOutputCfg) {
@@ -80,7 +80,7 @@ void ControlPanel::activateOutput(KScreen::Output *output)
     }
 }
 
-void ControlPanel::setUnifiedOutput(KScreen::Output *output)
+void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
 {
     Q_FOREACH (OutputConfig *config, mOutputConfigs) {
         if (!config->output()->isConnected()) {
@@ -90,7 +90,7 @@ void ControlPanel::setUnifiedOutput(KScreen::Output *output)
         config->setVisible(output == 0);
     }
 
-    if (output == 0) {
+    if (output.isNull()) {
         mUnifiedOutputCfg->deleteLater();
         mUnifiedOutputCfg = 0;
     } else {
@@ -98,9 +98,7 @@ void ControlPanel::setUnifiedOutput(KScreen::Output *output)
         mUnifiedOutputCfg->setOutput(output);
         mUnifiedOutputCfg->setVisible(true);
         mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
-        connect(mUnifiedOutputCfg, SIGNAL(changed()),
-                this, SIGNAL(changed()));
+        connect(mUnifiedOutputCfg, &UnifiedOutputConfig::changed,
+                this, &ControlPanel::changed);
     }
 }
-
-#include "controlpanel.moc"

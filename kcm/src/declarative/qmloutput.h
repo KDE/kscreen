@@ -29,9 +29,6 @@ class QAbstractItemModel;
 class ModesProxyModel;
 class QMLScreen;
 
-namespace KScreen {
-class Output;
-}
 
 class QMLOutput : public QQuickItem
 {
@@ -39,7 +36,11 @@ class QMLOutput : public QQuickItem
 
     Q_PROPERTY(KScreen::Output* output
                READ output
-               WRITE setOutput
+               NOTIFY outputChanged)
+
+    Q_PROPERTY(KScreen::OutputPtr outputPtr
+               READ outputPtr
+               WRITE setOutputPtr
                NOTIFY outputChanged)
 
     Q_PROPERTY(bool isCloneMode
@@ -112,8 +113,10 @@ class QMLOutput : public QQuickItem
     explicit QMLOutput(QQuickItem *parent = 0);
     virtual ~QMLOutput();
 
-    KScreen::Output* output() const;
-    void setOutput(KScreen::Output *output);
+    KScreen::Output* output() const; // For QML
+
+    KScreen::OutputPtr outputPtr() const;
+    void setOutputPtr(const KScreen::OutputPtr &output);
 
     QMLScreen* screen() const;
     void setScreen(QMLScreen *screen);
@@ -184,9 +187,9 @@ class QMLOutput : public QQuickItem
     /**
      * Returns the biggest resolution available assuming it's the preferred one
      */
-    KScreen::Mode* bestMode() const;
+    KScreen::ModePtr bestMode() const;
 
-    KScreen::Output *m_output;
+    KScreen::OutputPtr m_output;
     QMLScreen *m_screen;
 
     QMLOutput *m_cloneOf;
