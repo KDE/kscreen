@@ -24,14 +24,26 @@
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
 #include <QStandardPaths>
-#include <qjsondocument.h>
+#include <QJsonDocument>
+#include <QJsonObject>
 
+#include <kscreen/types.h>
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/mode.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/edid.h>
 #include <kscreen/getconfigoperation.h>
+
+
+namespace KScreen
+{
+namespace ConfigSerializer
+{
+// Exported private symbol in configserializer_p.h in KScreen
+extern QJsonObject serializeConfig(const KScreen::ConfigPtr &config);
+}
+}
 
 using namespace KScreen;
 
@@ -157,6 +169,12 @@ QString Console::typetoString(const Output::Type& type) const
             return QLatin1String("Invalid Type");
 
     };
+}
+
+void Console::printJSONConfig()
+{
+    QJsonDocument doc(KScreen::ConfigSerializer::serializeConfig(m_config));
+    qDebug() << doc.toJson(QJsonDocument::Indented);
 }
 
 void Console::printSerializations()

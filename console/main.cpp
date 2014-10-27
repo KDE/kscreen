@@ -32,18 +32,9 @@
 
 using namespace std;
 
-void showCommands()
-{
-    QTextStream(stdout) << "Commands: " << endl;
-    QTextStream(stdout) << "    bug \t <Show information needed for a bug report>" << endl;
-    QTextStream(stdout) << "    config \t <Show kscreen config files>" << endl;
-    QTextStream(stdout) << "    outputs \t <Show Output information>" << endl;
-    QTextStream(stdout) << "    monitor \t <Monitors for changes>" << endl;
-}
-
 void configReceived(KScreen::ConfigOperation *op)
 {
-    KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
 
     const QString command = op->property("command").toString();
     const qint64 msecs = QDateTime::currentMSecsSinceEpoch() - op->property("start").toLongLong();
@@ -78,8 +69,11 @@ void configReceived(KScreen::ConfigOperation *op)
         QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
         console->printSerializations();
         qApp->quit();
+    } else if (command == "json") {
+        console->printJSONConfig();
+        qApp->quit();
     } else {
-        showCommands();
+
         qApp->quit();
     }
 }
@@ -90,25 +84,25 @@ int main (int argc, char *argv[])
     dup2(1, 2);
 
     QApplication app(argc, argv);
-    KAboutData aboutData("kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
-    KAboutLicense::GPL, i18n("(c) 2012 KScreen Team"));
-    KAboutData::setApplicationData(aboutData);
-
-    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), "afiestas@kde.org",
-        "http://www.afiestas.org/");
+    app.setApplicationName(QLatin1Literal("KScreen Console"));
+    app.setApplicationVersion(QLatin1Literal("5.0"));
+    app.setApplicationDisplayName(QApplication::tr("KScreen Console"));
 
     QCommandLineParser parser;
-    parser.addPositionalArgument("command", i18n("Command to execute (commands will list the available commands)"));
-    parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
+    parser.setApplicationDescription(
+        QApplication::tr("KScreen Console is a CLI tool to query KScreen status\n\n"
+                         "Commands:\n"
+                         "  bug             Show information needed for a bug report\n"
+                         "  config          Show KScreen config files\n"
+                         "  outputs         Show outout information\n"
+                         "  monitor         Monitor for changes\n"
+                         "  json            Show current KScreen config"));
+    parser.addHelpOption();
+    parser.addPositionalArgument("command", QApplication::tr("Command to execute"),
+                                 QLatin1String("bug|config|outputs|monitor|json"));
+    parser.addPositionalArgument("[args...]", QApplication::tr("Arguments for the specified command"));
 
-    aboutData.setupCommandLine(&parser);
     parser.process(app);
-    aboutData.processCommandLine(&parser);
-
-    if (parser.isSet("commands")) {
-        showCommands();
-        return 1;
-    }
 
     QString command;
     if (!parser.positionalArguments().isEmpty()) {
