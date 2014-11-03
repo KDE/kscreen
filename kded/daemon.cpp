@@ -226,11 +226,14 @@ void KScreenDaemon::monitorConnectedChange()
     KScreen::OutputList outputs = m_monitoredConfig->outputs();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::applyConfig, Qt::QueuedConnection);
+                this, &KScreenDaemon::applyConfig,
+                Qt::QueuedConnection | Qt::UniqueConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::resetDisplaySwitch, Qt::QueuedConnection);
+                this, &KScreenDaemon::resetDisplaySwitch,
+                Qt::QueuedConnection | Qt::UniqueConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::outputConnectedChanged, Qt::QueuedConnection);
+                this, &KScreenDaemon::outputConnectedChanged,
+                Qt::QueuedConnection | Qt::UniqueConnection);
     }
 }
 
