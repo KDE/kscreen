@@ -48,6 +48,11 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_saveTimer(new QTimer())
  
 {
+    QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
+}
+
+void KScreenDaemon::requestConfig()
+{
     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
             this, &KScreenDaemon::configReady);
 }
@@ -58,30 +63,7 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
         return;
     }
 
-    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
-
-    KActionCollection *coll = new KActionCollection(this);
-    QAction* action = coll->addAction(QStringLiteral("display"));
-    action->setText(i18n("Switch Display" ));
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
-
-    new KScreenAdaptor(this);
-
-    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
-
-    m_timer->setInterval(300);
-    m_timer->setSingleShot(true);
-    connect(m_timer, SIGNAL(timeout()), SLOT(applyGenericConfig()));
-
-    m_saveTimer->setInterval(300);
-    m_saveTimer->setSingleShot(true);
-    connect(m_saveTimer, SIGNAL(timeout()), SLOT(saveCurrentConfig()));
-
-    connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
-    connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
-    Generator::self()->setCurrentConfig(m_monitoredConfig);
-    monitorConnectedChange();
+    init();
 }
 
 KScreenDaemon::~KScreenDaemon()
@@ -95,8 +77,46 @@ KScreenDaemon::~KScreenDaemon()
 
 void KScreenDaemon::init()
 {
-    disconnect(Generator::self(), SIGNAL(ready()), this, SLOT(init()));
-    applyConfig();
+    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    qDebug() << "KDED KSCREEN: CONFIG" << m_monitoredConfig.data() << "is ready";
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+
+    KActionCollection *coll = new KActionCollection(this);
+    QAction* action = coll->addAction(QStringLiteral("display"));
+    action->setText(i18n("Switch Display" ));
+    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
+    connect(action, &QAction::triggered, [&](bool) { displayButton(); });
+
+    new KScreenAdaptor(this);
+
+    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
+
+    m_timer->setInterval(300);
+    m_timer->setSingleShot(true);
+    connect(m_timer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
+
+    m_saveTimer->setInterval(300);
+    m_saveTimer->setSingleShot(true);
+    connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
+
+    auto con = connect(Generator::self(), &Generator::ready,
+                       [&, con]() {
+                           disconnect(con);
+                           applyConfig();
+                       });
+
+    Generator::self()->setCurrentConfig(m_monitoredConfig);
+    monitorConnectedChange();
+}
+
+void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
+{
+    setMonitorForChanges(false);
+    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
+            [&]() {
+                qDebug() << "Apply config done";
+                setMonitorForChanges(true);
+            });
 }
 
 void KScreenDaemon::applyConfig()
@@ -108,32 +128,26 @@ void KScreenDaemon::applyConfig()
     }
 
     applyIdealConfig();
+    qDebug() << "Apply config done";
 }
 
 void KScreenDaemon::applyKnownConfig()
 {
-    qDebug() << "Applying known config";
-    setMonitorForChanges(false);
-    KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+    const QString configId = Serializer::configId(m_monitoredConfig);
+    qDebug() << "Applying known config" << configId;
+
+    KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     if (!KScreen::Config::canBeApplied(config)) {
         return applyIdealConfig();
     }
 
-    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
-            [&]() {
-                setMonitorForChanges(true);
-            });
+    doApplyConfig(config);
 }
 
 void KScreenDaemon::applyIdealConfig()
 {
     qDebug() << "Applying ideal config";
-    setMonitorForChanges(false);
-    const KScreen::ConfigPtr config = Generator::self()->idealConfig(m_monitoredConfig);
-    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
-            [&]() {
-                setMonitorForChanges(true);
-            });
+    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
 void KScreenDaemon::configChanged()
@@ -172,16 +186,10 @@ void KScreenDaemon::applyGenericConfig()
         m_iteration = 0;
     }
 
-    setMonitorForChanges(false);
     m_iteration++;
     qDebug() << "displayButton: " << m_iteration;
-//     KDebug::Block genericConfig("Applying display switch");
 
-    const KScreen::ConfigPtr config = Generator::self()->displaySwitch(m_iteration);
-    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
-            [&]() {
-                setMonitorForChanges(true);
-            });
+    doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -218,11 +226,11 @@ void KScreenDaemon::monitorConnectedChange()
     KScreen::OutputList outputs = m_monitoredConfig->outputs();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::applyConfig);
+                this, &KScreenDaemon::applyConfig, Qt::QueuedConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::resetDisplaySwitch);
+                this, &KScreenDaemon::resetDisplaySwitch, Qt::QueuedConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::outputConnectedChanged);
+                this, &KScreenDaemon::outputConnectedChanged, Qt::QueuedConnection);
     }
 }
 

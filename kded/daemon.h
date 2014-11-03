@@ -42,7 +42,9 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         virtual ~KScreenDaemon();
 
     public Q_SLOTS:
+        virtual void requestConfig();
         void configReady(KScreen::ConfigOperation *op);
+
         void init();
         void applyConfig();
         void applyKnownConfig();
@@ -60,7 +62,9 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void outputConnected(const QString &outputName);
         void unknownOutputConnected(const QString &outputName);
 
-    private:
+    protected:
+        virtual void doApplyConfig(const KScreen::ConfigPtr &config);
+
         void monitorConnectedChange();
         void enableMonitor(const KScreen::OutputPtr &output);
         void disableMonitor(const KScreen::OutputPtr &output);
