@@ -51,15 +51,11 @@ int main (int argc, char *argv[])
     QCommandLineParser parser;
     parser.addPositionalArgument("command", i18n("Command to execute (commands will list the available commands)"));
     parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
+    parser.addHelpOption();
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
-
-    if (parser.isSet("commands")) {
-        showCommands();
-        return 1;
-    }
 
     Console *console = new Console(0);
 
@@ -72,6 +68,11 @@ int main (int argc, char *argv[])
         console->printConfig();
         console->monitorAndPrint();
         return app.exec();
+    }
+
+    if (command == "commands") {
+        showCommands();
+        return 1;
     }
 
     if (command == "monitor") {
