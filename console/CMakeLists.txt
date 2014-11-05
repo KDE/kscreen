@@ -3,7 +3,6 @@ include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(kscreen-console main.cpp console.cpp)
 
 target_link_libraries(kscreen-console
-            Qt5::Widgets
             Qt5::X11Extras
             Qt5::DBus
             KF5::CoreAddons

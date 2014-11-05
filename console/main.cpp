@@ -20,7 +20,7 @@
 
 #include <QProcess>
 #include <QCommandLineParser>
-#include <QApplication>
+#include <QGuiApplication>
 #include <KAboutData>
 #include <KLocalizedString>
 
@@ -40,7 +40,7 @@ int main (int argc, char *argv[])
 {
     dup2(1, 2);
 
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     KAboutData aboutData("kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
     KAboutLicense::GPL, i18n("(c) 2012 KScreen Team"));
     KAboutData::setApplicationData(aboutData);
