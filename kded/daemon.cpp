@@ -63,6 +63,10 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
         return;
     }
 
+    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    qDebug() << "KDED KSCREEN: CONFIG" << m_monitoredConfig.data() << "is ready";
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+
     init();
 }
 
@@ -77,10 +81,6 @@ KScreenDaemon::~KScreenDaemon()
 
 void KScreenDaemon::init()
 {
-    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    qDebug() << "KDED KSCREEN: CONFIG" << m_monitoredConfig.data() << "is ready";
-    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
-
     KActionCollection *coll = new KActionCollection(this);
     QAction* action = coll->addAction(QStringLiteral("display"));
     action->setText(i18n("Switch Display" ));
@@ -99,7 +99,7 @@ void KScreenDaemon::init()
     m_saveTimer->setSingleShot(true);
     connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
 
-    auto con = connect(Generator::self(), &Generator::ready,
+    QMetaObject::Connection con = connect(Generator::self(), &Generator::ready,
                        [&, con]() {
                            disconnect(con);
                            applyConfig();
@@ -227,13 +227,13 @@ void KScreenDaemon::monitorConnectedChange()
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::applyConfig,
-                Qt::QueuedConnection | Qt::UniqueConnection);
+                Qt::UniqueConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::resetDisplaySwitch,
-                Qt::QueuedConnection | Qt::UniqueConnection);
+                Qt::UniqueConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::outputConnectedChanged,
-                Qt::QueuedConnection | Qt::UniqueConnection);
+                Qt::UniqueConnection);
     }
 }
 

@@ -8,7 +8,7 @@ macro(ADD_KDED_TEST testname)
         ${testname}.cpp
         ${CMAKE_SOURCE_DIR}/kded/generator.cpp
         ${CMAKE_SOURCE_DIR}/kded/device.cpp
-        ${CMAKE_SOURCE_DIR}/kded/daemon.cpp
+        #${CMAKE_SOURCE_DIR}/kded/daemon.cpp
     )
 
     qt5_add_dbus_interface(test_SRCS
@@ -23,5 +23,5 @@ macro(ADD_KDED_TEST testname)
     ecm_mark_as_test(${testname})
 endmacro()
 
-add_kded_test(testkdedgenerator)
-add_kded_test(testkdeddaemon)
+add_kded_test(testgenerator)
+#add_kded_test(testdaemon)

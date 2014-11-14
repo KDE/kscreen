@@ -36,7 +36,7 @@ class Generator : public QObject
         static Generator* self();
         static void destroy();
 
-        void setCurrentConfig(KScreen::ConfigPtr &currentConfig);
+        void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
 
         KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
         KScreen::ConfigPtr displaySwitch(int iteration);

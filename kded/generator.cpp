@@ -59,7 +59,7 @@ Generator::~Generator()
 {
 }
 
-void Generator::setCurrentConfig(KScreen::ConfigPtr& currentConfig)
+void Generator::setCurrentConfig(const KScreen::ConfigPtr &currentConfig)
 {
     m_currentConfig = currentConfig;
 }
