@@ -25,6 +25,7 @@
 #include <QtCore/QTimer>
 #include <QAction>
 #include <QShortcut>
+#include <QLoggingCategory>
 
 #include <KLocalizedString>
 #include <KActionCollection>
@@ -64,7 +65,7 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
     }
 
     m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    qDebug() << "KDED KSCREEN: CONFIG" << m_monitoredConfig.data() << "is ready";
+    qCDebug(KDED) << "Config" << m_monitoredConfig.data() << "is ready";
     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
     init();
@@ -121,20 +122,20 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 
 void KScreenDaemon::applyConfig()
 {
-    qDebug() << "Applying config";
+    qCDebug(KDED) << "Applying config";
     if (Serializer::configExists(m_monitoredConfig)) {
         applyKnownConfig();
         return;
     }
 
     applyIdealConfig();
-    qDebug() << "Apply config done";
+    qCDebug(KDED) << "Apply config done";
 }
 
 void KScreenDaemon::applyKnownConfig()
 {
     const QString configId = Serializer::configId(m_monitoredConfig);
-    qDebug() << "Applying known config" << configId;
+    qCDebug(KDED) << "Applying known config" << configId;
 
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     if (!KScreen::Config::canBeApplied(config)) {
@@ -146,37 +147,37 @@ void KScreenDaemon::applyKnownConfig()
 
 void KScreenDaemon::applyIdealConfig()
 {
-    qDebug() << "Applying ideal config";
+    qCDebug(KDED) << "Applying ideal config";
     doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
 void KScreenDaemon::configChanged()
 {
-    qDebug() << "Change detected";
+    qCDebug(KDED) << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
-    qDebug() << "Saving current config";
+    qCDebug(KDED) << "Saving current config";
     Serializer::saveConfig(m_monitoredConfig);
 }
 
 void KScreenDaemon::displayButton()
 {
-    qDebug() << "displayBtn triggered";
-    if (m_timer->isActive()) {
-        qDebug() << "Too fast cowboy";
+    qCDebug(KDED) << "displayBtn triggered";
+    if (m_buttonTimer->isActive()) {
+        qCDebug(KDED) << "Too fast cowboy";
         return;
     }
 
-    m_timer->start();
+    m_buttonTimer->start();
 }
 
 void KScreenDaemon::resetDisplaySwitch()
 {
-    qDebug();
+    qCDebug(KDED) << "resetDisplaySwitch()";
     m_iteration = 0;
 }
 
@@ -187,7 +188,7 @@ void KScreenDaemon::applyGenericConfig()
     }
 
     m_iteration++;
-    qDebug() << "displayButton: " << m_iteration;
+    qCDebug(KDED) << "displayButton: " << m_iteration;
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }
@@ -211,6 +212,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 void KScreenDaemon::outputConnectedChanged()
 {
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
+    qCDebug(KDED) << "outputConnectedChanged():" << output->name();
 
     if (output->isConnected()) {
         Q_EMIT outputConnected(output->name());
@@ -243,7 +245,7 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
         return;
     }
 
-    qDebug() << "Monitor for changes: " << enabled;
+    qCDebug(KDED) << "Monitor for changes: " << enabled;
     m_monitoring = enabled;
 
     const KScreen::OutputList outputs = m_monitoredConfig->outputs();
