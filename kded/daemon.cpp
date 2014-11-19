@@ -40,12 +40,15 @@
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
+Q_LOGGING_CATEGORY(KDED, "org.kde.KScreen.KDED");
+
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
  , m_monitoredConfig(0)
  , m_iteration(0)
  , m_monitoring(false)
- , m_timer(new QTimer())
+ , m_changeCompressor(new QTimer())
+ , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  
 {
@@ -73,8 +76,9 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
 
 KScreenDaemon::~KScreenDaemon()
 {
+    delete m_changeCompressor;
     delete m_saveTimer;
-    delete m_timer;
+    delete m_buttonTimer;
 
     Generator::destroy();
     Device::destroy();
@@ -92,19 +96,20 @@ void KScreenDaemon::init()
 
     connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
 
-    m_timer->setInterval(300);
-    m_timer->setSingleShot(true);
-    connect(m_timer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
+    m_buttonTimer->setInterval(300);
+    m_buttonTimer->setSingleShot(true);
+    connect(m_buttonTimer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
 
     m_saveTimer->setInterval(300);
     m_saveTimer->setSingleShot(true);
     connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
 
-    QMetaObject::Connection con = connect(Generator::self(), &Generator::ready,
-                       [&, con]() {
-                           disconnect(con);
-                           applyConfig();
-                       });
+    m_changeCompressor->setInterval(10);
+    m_changeCompressor->setSingleShot(true);
+    connect(m_changeCompressor, &QTimer::timeout, this, &KScreenDaemon::applyConfig);
+
+    connect(Generator::self(), &Generator::ready,
+            this, &KScreenDaemon::applyConfig);
 
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
@@ -112,7 +117,9 @@ void KScreenDaemon::init()
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
+    qCDebug(KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
+
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
             [&]() {
                 qDebug() << "Apply config done";
@@ -211,6 +218,12 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 
 void KScreenDaemon::outputConnectedChanged()
 {
+    if (!m_changeCompressor->isActive()) {
+        m_changeCompressor->start();
+    }
+
+    resetDisplaySwitch();
+
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
     qCDebug(KDED) << "outputConnectedChanged():" << output->name();
 
@@ -223,16 +236,11 @@ void KScreenDaemon::outputConnectedChanged()
     }
 }
 
+
 void KScreenDaemon::monitorConnectedChange()
 {
     KScreen::OutputList outputs = m_monitoredConfig->outputs();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
-        connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::applyConfig,
-                Qt::UniqueConnection);
-        connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::resetDisplaySwitch,
-                Qt::UniqueConnection);
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::outputConnectedChanged,
                 Qt::UniqueConnection);

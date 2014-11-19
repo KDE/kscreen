@@ -72,7 +72,8 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         KScreen::ConfigPtr m_monitoredConfig;
         quint8 m_iteration;
         bool m_monitoring;
-        QTimer* m_timer;
+        QTimer* m_changeCompressor;
+        QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
 };
 
