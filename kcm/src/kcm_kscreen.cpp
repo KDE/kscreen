@@ -105,7 +105,7 @@ void KCMKScreen::save()
             atLeastOneEnabledOutput = true;
         }
 
-        qDebug() << output->name() << output.data() << "\n"
+        qDebug() << output->name() << output->id() << output.data() << "\n"
                 << "	Connected:" << output->isConnected() << "\n"
                 << "	Enabled:" << output->isEnabled() << "\n"
                 << "	Primary:" << output->isPrimary() << "\n"

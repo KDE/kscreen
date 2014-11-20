@@ -64,19 +64,19 @@ void OutputConfig::setTitle(const QString& title)
 void OutputConfig::initUi()
 {
     connect(mOutput.data(), &KScreen::Output::isConnectedChanged,
-            [this]() {
+            this, [=]() {
                 setVisible(mOutput->isConnected());
             });
 
     connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
-            [this]() {
+            this, [=]() {
                 mEnabled->blockSignals(true);
                 mEnabled->setChecked(mOutput->isEnabled());
                 mEnabled->blockSignals(false);
             });
 
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
-            [this]() {
+            this, [=]() {
                 const int index = mRotation->findData(mOutput->rotation());
                 mRotation->blockSignals(true);
                 mRotation->setCurrentIndex(index);
@@ -98,7 +98,7 @@ void OutputConfig::initUi()
     mEnabled = new QCheckBox(i18n("Enabled"), this);
     mEnabled->setChecked(mOutput->isEnabled());
     connect(mEnabled, &QCheckBox::clicked,
-            [this](bool checked) {
+            this, [=](bool checked) {
                   mOutput->setEnabled(checked);
                   qDebug() << mOutput.data() << mOutput->name() << mOutput->isEnabled();
                   Q_EMIT changed();
