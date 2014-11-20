@@ -17,11 +17,10 @@
  *************************************************************************************/
 
 #include "device.h"
+#include "debug.h"
 #include "kded/freedesktop_interface.h"
 
 #include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(KDED_DEVICE, "org.kde.KScreen.KDED.Device")
 
 Device* Device::m_instance = 0;
 
@@ -113,7 +112,7 @@ void Device::isLaptopFetched(QDBusPendingCallWatcher* watcher)
 {
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
-        qCDebug(KDED_DEVICE) << "Couldn't get if the device is a laptop: " << reply.error().message();
+        qCDebug(KSCREEN_KDED) << "Couldn't get if the device is a laptop: " << reply.error().message();
         return;
     }
 
@@ -139,7 +138,7 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
 {
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
-        qCDebug(KDED_DEVICE) << "Couldn't get if the laptop has the lid closed: " << reply.error().message();
+        qCDebug(KSCREEN_KDED) << "Couldn't get if the laptop has the lid closed: " << reply.error().message();
         return;
     }
 

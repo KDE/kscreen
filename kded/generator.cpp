@@ -18,6 +18,7 @@
 
 #include "generator.h"
 #include "device.h"
+#include "debug.h"
 
 #include <QDBusReply>
 #include <QDBusMessage>
@@ -25,8 +26,6 @@
 #include <QLoggingCategory>
 
 #include <kscreen/config.h>
-
-Q_LOGGING_CATEGORY(KDED_GENERATOR, "org.kde.KScreen.KDED.Generator")
 
 Generator* Generator::instance = 0;
 
@@ -79,7 +78,7 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
 
     KScreen::OutputList outputs = config->connectedOutputs();
 
-    qCDebug(KDED_GENERATOR) << "Connected outputs: " << outputs.count();
+    qCDebug(KSCREEN_KDED) << "Connected outputs: " << outputs.count();
 
     if (outputs.isEmpty()) {
         return config;
@@ -95,7 +94,7 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
         return fallbackIfNeeded(config);
     }
 
-    qCDebug(KDED_GENERATOR) << "Extend to Right";
+    qCDebug(KSCREEN_KDED) << "Extend to Right";
     extendToRight(outputs);
 
     return fallbackIfNeeded(config);
@@ -103,7 +102,7 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
 
 KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
 {
-    qCDebug(KDED_GENERATOR) << "fallbackIfNeeded()";
+    qCDebug(KSCREEN_KDED) << "fallbackIfNeeded()";
 
     KScreen::ConfigPtr newConfig;
 
@@ -123,7 +122,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
 
     //If after trying to clone at our best, we fail... return current
     if (!KScreen::Config::canBeApplied(newConfig)) {
-        qCDebug(KDED_GENERATOR) << "Config cannot be applied";
+        qCDebug(KSCREEN_KDED) << "Config cannot be applied";
         newConfig = config;
     }
 
@@ -150,7 +149,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     }
 
     if (iteration == 1) {
-        qCDebug(KDED_GENERATOR) << "Cloning";
+        qCDebug(KSCREEN_KDED) << "Cloning";
         embeddedOutput(outputs)->setPrimary(true);
         cloneScreens(outputs);
 
@@ -164,7 +163,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
 
 
     if (iteration == 2) {
-        qCDebug(KDED_GENERATOR) << "Extend to left";
+        qCDebug(KSCREEN_KDED) << "Extend to left";
         external->setEnabled(true);
         external->setPos(QPoint(0,0));
         external->setCurrentModeId(external->preferredModeId());
@@ -178,7 +177,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     }
 
     if (iteration == 3) {
-        qCDebug(KDED_GENERATOR) << "Turn of embedded (laptop)";
+        qCDebug(KSCREEN_KDED) << "Turn of embedded (laptop)";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -189,7 +188,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     }
 
     if (iteration == 4) {
-        qCDebug(KDED_GENERATOR) << "Turn off external screen";
+        qCDebug(KSCREEN_KDED) << "Turn off external screen";
         embedded->setEnabled(true);
         embedded->setPrimary(true);
         embedded->setPos(QPoint(0,0));
@@ -201,7 +200,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     }
 
     if (iteration == 5) {
-        qCDebug(KDED_GENERATOR) << "Extend to the right";
+        qCDebug(KSCREEN_KDED) << "Extend to the right";
         embedded->setPos(QPoint(0,0));
         embedded->setCurrentModeId(embedded->preferredModeId());
         embedded->setPrimary(true);
@@ -227,7 +226,7 @@ uint qHash(const QSize &size)
 void Generator::cloneScreens(KScreen::OutputList& outputs)
 {
     if (outputs.isEmpty()) {
-        qCWarning(KDED_GENERATOR) << "output list to clone is empty";
+        qCWarning(KSCREEN_KDED) << "output list to clone is empty";
         return;
     }
 
@@ -255,7 +254,7 @@ void Generator::cloneScreens(KScreen::OutputList& outputs)
         commonSizes.intersect(modeSizes);
     }
 
-    qCDebug(KDED_GENERATOR) << "Common sizes: " << commonSizes;
+    qCDebug(KSCREEN_KDED) << "Common sizes: " << commonSizes;
     //fallback to biggestMode if no commonSizes have been found
     if (commonSizes.isEmpty()) {
         Q_FOREACH(KScreen::OutputPtr output, outputs) {
@@ -273,7 +272,7 @@ void Generator::cloneScreens(KScreen::OutputList& outputs)
     QSize biggestSize = commonSizeList.last();
 
     //Finally, look for the mode with biggestSize and biggest refreshRate and set it
-    qCDebug(KDED_GENERATOR) << "Biggest Size: " << biggestSize;
+    qCDebug(KSCREEN_KDED) << "Biggest Size: " << biggestSize;
     KScreen::ModePtr bestMode;
     Q_FOREACH(KScreen::OutputPtr output, outputs) {
         bestMode = bestModeForSize(output->modes(), biggestSize);
@@ -317,13 +316,13 @@ void Generator::laptop(KScreen::OutputList &outputs)
     outputs.remove(embedded->id());
 
     if (outputs.isEmpty()) {
-        qCWarning(KDED_GENERATOR) << "No external outputs found, going for singleOutput()";
+        qCWarning(KSCREEN_KDED) << "No external outputs found, going for singleOutput()";
         outputs.insert(embedded->id(), embedded);
         return singleOutput(outputs);
     }
 
     if (isLidClosed() && outputs.count() == 1) {
-        qCDebug(KDED_GENERATOR) << "With lid closed";
+        qCDebug(KSCREEN_KDED) << "With lid closed";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -337,7 +336,7 @@ void Generator::laptop(KScreen::OutputList &outputs)
     }
 
     if (isLidClosed() && outputs.count() > 1) {
-        qCDebug(KDED_GENERATOR) << "Lid is closed, and more than one output";
+        qCDebug(KSCREEN_KDED) << "Lid is closed, and more than one output";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
@@ -345,7 +344,7 @@ void Generator::laptop(KScreen::OutputList &outputs)
         return;
     }
 
-    qCDebug(KDED_GENERATOR) << "Lid is open";
+    qCDebug(KSCREEN_KDED) << "Lid is open";
     //If lid is open, laptop screen shuold be primary
     embedded->setPos(QPoint(0,0));
     embedded->setCurrentModeId(embedded->preferredModeId());
@@ -385,7 +384,7 @@ void Generator::laptop(KScreen::OutputList &outputs)
     }
 
     if (isDocked()) {
-        qCDebug(KDED_GENERATOR) << "Docked";
+        qCDebug(KSCREEN_KDED) << "Docked";
         embedded->setPrimary(false);
         biggest->setPrimary(true);
     }
@@ -395,7 +394,7 @@ void Generator::extendToRight(KScreen::OutputList &outputs)
 {
     Q_ASSERT(!outputs.isEmpty());
 
-    qCDebug(KDED_GENERATOR) << "Extending to the right";
+    qCDebug(KSCREEN_KDED) << "Extending to the right";
     KScreen::OutputPtr biggest = biggestOutput(outputs);
     Q_ASSERT(biggest);
 
@@ -495,7 +494,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs
 //     KDebug::Block disableBlock("Disabling disconnected screens");
     Q_FOREACH(KScreen::OutputPtr output, outputs) {
         if (!output->isConnected()) {
-            qCDebug(KDED_GENERATOR) << output->name() << " Disabled";
+            qCDebug(KSCREEN_KDED) << output->name() << " Disabled";
             output->setEnabled(false);
             output->setPrimary(false);
         }

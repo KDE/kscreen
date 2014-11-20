@@ -3,6 +3,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../)
 
 set(kscreen_daemon_SRCS
+    debug.cpp
     daemon.cpp
     serializer.cpp
     generator.cpp

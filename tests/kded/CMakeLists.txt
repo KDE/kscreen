@@ -8,6 +8,7 @@ macro(ADD_KDED_TEST testname)
         ${testname}.cpp
         ${CMAKE_SOURCE_DIR}/kded/generator.cpp
         ${CMAKE_SOURCE_DIR}/kded/device.cpp
+        ${CMAKE_SOURCE_DIR}/kded/debug.cpp
         #${CMAKE_SOURCE_DIR}/kded/daemon.cpp
     )
 

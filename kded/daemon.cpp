@@ -21,6 +21,7 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
+#include "debug.h"
 
 #include <QtCore/QTimer>
 #include <QAction>
@@ -39,8 +40,6 @@
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
-
-Q_LOGGING_CATEGORY(KDED, "org.kde.KScreen.KDED");
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
@@ -68,7 +67,7 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
     }
 
     m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    qCDebug(KDED) << "Config" << m_monitoredConfig.data() << "is ready";
+    qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
     init();
@@ -117,32 +116,31 @@ void KScreenDaemon::init()
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
-    qCDebug(KDED) << "doApplyConfig()";
+    qCDebug(KSCREEN_KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
 
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
             [&]() {
-                qDebug() << "Apply config done";
+                qCDebug(KSCREEN_KDED) << "Config applied";
                 setMonitorForChanges(true);
             });
 }
 
 void KScreenDaemon::applyConfig()
 {
-    qCDebug(KDED) << "Applying config";
+    qCDebug(KSCREEN_KDED) << "Applying config";
     if (Serializer::configExists(m_monitoredConfig)) {
         applyKnownConfig();
         return;
     }
 
     applyIdealConfig();
-    qCDebug(KDED) << "Apply config done";
 }
 
 void KScreenDaemon::applyKnownConfig()
 {
     const QString configId = Serializer::configId(m_monitoredConfig);
-    qCDebug(KDED) << "Applying known config" << configId;
+    qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
 
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     if (!KScreen::Config::canBeApplied(config)) {
@@ -154,28 +152,28 @@ void KScreenDaemon::applyKnownConfig()
 
 void KScreenDaemon::applyIdealConfig()
 {
-    qCDebug(KDED) << "Applying ideal config";
+    qCDebug(KSCREEN_KDED) << "Applying ideal config";
     doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
 void KScreenDaemon::configChanged()
 {
-    qCDebug(KDED) << "Change detected";
+    qCDebug(KSCREEN_KDED) << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
-    qCDebug(KDED) << "Saving current config";
+    qCDebug(KSCREEN_KDED) << "Saving current config to file";
     Serializer::saveConfig(m_monitoredConfig);
 }
 
 void KScreenDaemon::displayButton()
 {
-    qCDebug(KDED) << "displayBtn triggered";
+    qCDebug(KSCREEN_KDED) << "displayBtn triggered";
     if (m_buttonTimer->isActive()) {
-        qCDebug(KDED) << "Too fast cowboy";
+        qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
         return;
     }
 
@@ -184,7 +182,7 @@ void KScreenDaemon::displayButton()
 
 void KScreenDaemon::resetDisplaySwitch()
 {
-    qCDebug(KDED) << "resetDisplaySwitch()";
+    qCDebug(KSCREEN_KDED) << "resetDisplaySwitch()";
     m_iteration = 0;
 }
 
@@ -195,7 +193,7 @@ void KScreenDaemon::applyGenericConfig()
     }
 
     m_iteration++;
-    qCDebug(KDED) << "displayButton: " << m_iteration;
+    qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }
@@ -225,7 +223,7 @@ void KScreenDaemon::outputConnectedChanged()
     resetDisplaySwitch();
 
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
-    qCDebug(KDED) << "outputConnectedChanged():" << output->name();
+    qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
 
     if (output->isConnected()) {
         Q_EMIT outputConnected(output->name());
@@ -253,7 +251,7 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
         return;
     }
 
-    qCDebug(KDED) << "Monitor for changes: " << enabled;
+    qCDebug(KSCREEN_KDED) << "Monitor for changes: " << enabled;
     m_monitoring = enabled;
 
     const KScreen::OutputList outputs = m_monitoredConfig->outputs();
