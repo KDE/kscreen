@@ -16,7 +16,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#include "../kded/generator.h"
+#include "../../kded/generator.h"
 
 #include <QtTest>
 #include <QtCore/QObject>
@@ -257,6 +257,7 @@ void testScreenConfig::workstationWithoutScreens()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(false);
+    generator->setForceNotLaptop(true);
 
     ConfigPtr config = generator->idealConfig(currentConfig);
 
@@ -270,6 +271,7 @@ void testScreenConfig::workstationWithNoConnectedScreens()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(false);
+    generator->setForceNotLaptop(true);
 
     ConfigPtr config = generator->idealConfig(currentConfig);
 
@@ -287,6 +289,7 @@ void testScreenConfig::workstationTwoExternalSameSize()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(false);
+    generator->setForceNotLaptop(true);
 
     ConfigPtr config = generator->idealConfig(currentConfig);
     OutputPtr external1 = config->output(1);
@@ -310,6 +313,7 @@ void testScreenConfig::workstationFallbackMode()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(false);
+    generator->setForceNotLaptop(true);
 
     ConfigPtr config = generator->idealConfig(currentConfig);
     OutputPtr external1 = config->output(1);
@@ -334,6 +338,7 @@ void testScreenConfig::workstationTwoExternalDiferentSize()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(false);
+    generator->setForceNotLaptop(true);
 
     ConfigPtr config = generator->idealConfig(currentConfig);
     OutputPtr external1 = config->output(1);
@@ -356,6 +361,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     generator->setForceLaptop(true);
+    generator->setForceNotLaptop(false);
     generator->setForceDocked(false);
     generator->setForceLidClosed(false);
 

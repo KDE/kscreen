@@ -46,6 +46,7 @@ Generator::Generator()
  : QObject()
  , m_forceLaptop(false)
  , m_forceLidClosed(false)
+ , m_forceNotLaptop(false)
  , m_forceDocked(false)
 {
     connect(Device::self(), SIGNAL(ready()), SIGNAL(ready()));
@@ -108,7 +109,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
 
     //If the ideal config can't be applied, try clonning
     if (!KScreen::Config::canBeApplied(config)) {
-        if (Device::self()->isLaptop()) {
+        if (isLaptop()) {
             newConfig = displaySwitch(1);// Try to clone at our best
         } else {
             newConfig = config;
@@ -519,6 +520,9 @@ bool Generator::isLaptop()
     if (m_forceLaptop) {
         return true;
     }
+    if (m_forceNotLaptop) {
+        return false;
+    }
 
     return Device::self()->isLaptop();
 }
@@ -527,6 +531,9 @@ bool Generator::isLidClosed()
 {
     if (m_forceLidClosed) {
         return true;
+    }
+    if (m_forceNotLaptop) {
+        return false;
     }
 
     return Device::self()->isLidClosed();
@@ -555,3 +562,9 @@ void Generator::setForceDocked(bool force)
 {
     m_forceDocked = force;
 }
+
+void Generator::setForceNotLaptop(bool force)
+{
+    m_forceNotLaptop = force;
+}
+

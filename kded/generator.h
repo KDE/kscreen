@@ -44,6 +44,7 @@ class Generator : public QObject
         void setForceLaptop(bool force);
         void setForceLidClosed(bool force);
         void setForceDocked(bool force);
+        void setForceNotLaptop(bool force);
 
     Q_SIGNALS:
         void ready();
@@ -71,6 +72,7 @@ class Generator : public QObject
 
         bool m_forceLaptop;
         bool m_forceLidClosed;
+        bool m_forceNotLaptop;
         bool m_forceDocked;
 
         KScreen::ConfigPtr m_currentConfig;
