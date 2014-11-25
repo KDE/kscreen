@@ -21,7 +21,8 @@
 #define QMLSCREEN_H
 
 #include <QQuickItem>
-#include <QPointer>
+
+#include <kscreen/output.h>
 
 class QMLOutput;
 class QQmlEngine;
@@ -62,7 +63,7 @@ class QMLScreen : public QQuickItem
     explicit QMLScreen(QQuickItem *parent = 0);
     virtual ~QMLScreen();
 
-    Q_INVOKABLE void addOutput(KScreen::Output *output);
+    Q_INVOKABLE void addOutput(const KScreen::OutputPtr &output);
 
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
@@ -74,8 +75,8 @@ class QMLScreen : public QQuickItem
 
     float outputScale() const;
 
-    KScreen::Config* config() const;
-    void setConfig(KScreen::Config *config);
+    KScreen::ConfigPtr config() const;
+    void setConfig(const KScreen::ConfigPtr &config);
 
     void updateOutputsPlacement();
     void setEngine(QQmlEngine* engine);
@@ -97,7 +98,6 @@ class QMLScreen : public QQuickItem
     void outputPrimaryChanged();
     void outputPositionChanged();
 
-    void qmlOutputMoved();
     void qmlOutputClicked();
 
     void viewSizeChanged();
@@ -106,8 +106,8 @@ class QMLScreen : public QQuickItem
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
 
-    QPointer<KScreen::Config> m_config;
-    QHash<KScreen::Output*,QMLOutput*> m_outputMap;
+    KScreen::ConfigPtr m_config;
+    QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;
 

@@ -27,7 +27,7 @@
 #include <QStandardPaths>
 #include <QQmlEngine>
 
-Q_DECLARE_METATYPE(KScreen::Output*)
+Q_DECLARE_METATYPE(KScreen::OutputPtr)
 Q_DECLARE_METATYPE(QMLScreen*)
 
 QMLOutputComponent::QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent):
@@ -42,7 +42,7 @@ QMLOutputComponent::~QMLOutputComponent()
 {
 }
 
-QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output *output)
+QMLOutput* QMLOutputComponent::createForOutput(const KScreen::OutputPtr &output)
 {
     QObject *instance;
 
@@ -52,12 +52,14 @@ QMLOutput* QMLOutputComponent::createForOutput(KScreen::Output *output)
         return 0;
     }
 
-    instance->setProperty("output", QVariant::fromValue(output));
-    instance->setProperty("screen", QVariant::fromValue(qobject_cast<QMLScreen*>(parent())));
+    bool success = false;
+    success = instance->setProperty("outputPtr", QVariant::fromValue(output));
+    Q_ASSERT(success);
+    success = instance->setProperty("screen", QVariant::fromValue(qobject_cast<QMLScreen*>(parent())));
+    Q_ASSERT(success);
+    Q_UNUSED(success);
 
     completeCreate();
 
     return qobject_cast<QMLOutput*>(instance);
 }
-
-#include "qmloutputcomponent.moc"

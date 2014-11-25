@@ -22,23 +22,20 @@
 #include <QtCore/QObject>
 #include <QtCore/QVariantMap>
 
-namespace KScreen
-{
-    class Config;
-    class Output;
-}
+#include <kscreen/config.h>
+
 class Serializer
 {
     public:
-        static QString currentId();
-        static bool configExists();
+        static QString configId(const KScreen::ConfigPtr &config);
+        static bool configExists(const KScreen::ConfigPtr &config);
         static bool configExists(const QString& id);
-        static KScreen::Config* config(const QString& id);
-        static bool saveConfig(KScreen::Config* config);
+        static KScreen::ConfigPtr config(const KScreen::ConfigPtr &currentConfig, const QString& id);
+        static bool saveConfig(const KScreen::ConfigPtr &config);
 
-        static KScreen::Output* findOutput(const QVariantMap &info);
-        static QString outputId(const KScreen::Output* output);
-        static QVariantMap metadata(const KScreen::Output* output);
+        static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
+        static QString outputId(const KScreen::OutputPtr &output);
+        static QVariantMap metadata(const KScreen::OutputPtr &output);
 };
 
 #endif //KDED_SERIALIZER_H

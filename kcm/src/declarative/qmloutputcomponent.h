@@ -22,11 +22,10 @@
 
 #include <QQmlComponent>
 
+#include <kscreen/output.h>
+
 class QMLScreen;
 class QMLOutput;
-namespace KScreen {
-class Output;
-}
 
 class QMLOutputComponent : public QQmlComponent
 {
@@ -36,7 +35,7 @@ class QMLOutputComponent : public QQmlComponent
     explicit QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent);
     virtual ~QMLOutputComponent();
 
-    QMLOutput* createForOutput(KScreen::Output *output);
+    QMLOutput* createForOutput(const KScreen::OutputPtr &output);
 
   private:
     QQmlEngine *m_engine;

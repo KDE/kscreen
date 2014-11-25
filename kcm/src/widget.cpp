@@ -37,6 +37,7 @@
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 #include <kscreen/config.h>
+#include <kscreen/getconfigoperation.h>
 
 #include <QtCore/QDir>
 #include <QStandardPaths>
@@ -80,9 +81,10 @@ Widget::Widget(QWidget *parent):
     vbox->addLayout(hbox);
 
     mPrimaryCombo = new QComboBox(this);
-    mPrimaryCombo->setSizeAdjustPolicy(QComboBox::QComboBox::AdjustToContents);
+    mPrimaryCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     mPrimaryCombo->addItem(i18n("No primary screen"));
-    connect(mPrimaryCombo, SIGNAL(currentIndexChanged(int)), SLOT(slotPrimaryChanged(int)));
+    connect(mPrimaryCombo, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &Widget::slotPrimaryChanged);
 
     hbox->addWidget(new QLabel(i18n("Primary display:")));
     hbox->addWidget(mPrimaryCombo);
@@ -102,15 +104,22 @@ Widget::Widget(QWidget *parent):
 #endif
 
     m_controlPanel = new ControlPanel(this);
-    connect(m_controlPanel, SIGNAL(changed()), this, SIGNAL(changed()));
+    connect(m_controlPanel, &ControlPanel::changed,
+            this, &Widget::changed);
     vbox->addWidget(m_controlPanel);
 
     mUnifyButton = new QPushButton(i18n("Unify outputs"), this);
-    connect(mUnifyButton, SIGNAL(clicked(bool)), this, SLOT(slotUnifyOutputs()));
+    connect(mUnifyButton, &QPushButton::clicked,
+            [&](bool clicked) {
+                Q_UNUSED(clicked);
+                slotUnifyOutputs();
+            });
+
     vbox->addWidget(mUnifyButton);
 
     mOutputTimer = new QTimer(this);
-    connect(mOutputTimer, SIGNAL(timeout()), SLOT(clearOutputIdentifiers()));
+    connect(mOutputTimer, &QTimer::timeout,
+            this, &Widget::clearOutputIdentifiers);
 
     loadQml();
 }
@@ -137,33 +146,39 @@ bool Widget::eventFilter(QObject* object, QEvent* event)
 }
 
 
-void Widget::setConfig(KScreen::Config *config)
+void Widget::setConfig(const KScreen::ConfigPtr &config)
 {
     if (mConfig) {
-        Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
-            disconnect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
-            disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
-            disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
-            disconnect(output, SIGNAL(posChanged()), this, SIGNAL(changed()));
+        Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+            disconnect(output.data(), &KScreen::Output::isConnectedChanged,
+                       this, &Widget::slotOutputConnectedChanged);
+            disconnect(output.data(), &KScreen::Output::isEnabledChanged,
+                       this, &Widget::slotOutputEnabledChanged);
+            disconnect(output.data(), &KScreen::Output::isPrimaryChanged,
+                       this, &Widget::slotOutputPrimaryChanged);
+            disconnect(output.data(), &KScreen::Output::posChanged,
+                       this, &Widget::changed);
         }
-
-        delete mConfig;
     }
 
     mConfig = config;
     mScreen->setConfig(mConfig);
     m_controlPanel->setConfig(mConfig);
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
-        connect(output, SIGNAL(isConnectedChanged()), this, SLOT(slotOutputConnectedChanged()));
-        connect(output, SIGNAL(isEnabledChanged()), this, SLOT(slotOutputEnabledChanged()));
-        connect(output, SIGNAL(isPrimaryChanged()), this, SLOT(slotOutputPrimaryChanged()));
-        connect(output, SIGNAL(posChanged()), this, SIGNAL(changed()));
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        connect(output.data(), &KScreen::Output::isConnectedChanged,
+                this, &Widget::slotOutputConnectedChanged);
+        connect(output.data(), &KScreen::Output::isEnabledChanged,
+                this, &Widget::slotOutputEnabledChanged);
+        connect(output.data(), &KScreen::Output::isPrimaryChanged,
+                this, &Widget::slotOutputPrimaryChanged);
+        connect(output.data(), &KScreen::Output::posChanged,
+                this, &Widget::changed);
     }
 
     initPrimaryCombo();
 }
 
-KScreen::Config *Widget::currentConfig() const
+KScreen::ConfigPtr Widget::currentConfig() const
 {
     return mConfig;
 }
@@ -188,15 +203,10 @@ void Widget::loadQml()
     }
     mScreen->setEngine(m_declarativeView->engine());
 
-    connect(mScreen, SIGNAL(focusedOutputChanged(QMLOutput*)),
-            this, SLOT(slotFocusedOutputChanged(QMLOutput*)));
+    connect(mScreen, &QMLScreen::focusedOutputChanged,
+            this, &Widget::slotFocusedOutputChanged);
     connect(rootObject->findChild<QObject*>("identifyButton"), SIGNAL(clicked()),
-            this, SLOT(slotIdentifyOutputs()));
-
-
-#ifndef WITH_PROFILES
-    setConfig(KScreen::Config::current());
-#endif
+            this, SLOT(slotIdentifyButtonClicked()));
 }
 
 void Widget::initPrimaryCombo()
@@ -205,7 +215,7 @@ void Widget::initPrimaryCombo()
     mPrimaryCombo->clear();
     mPrimaryCombo->addItem(i18n("No primary output"));
 
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (!output->isConnected() || !output->isEnabled()) {
             continue;
         }
@@ -221,7 +231,7 @@ void Widget::initPrimaryCombo()
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
 {
-    m_controlPanel->activateOutput(output->output());
+    m_controlPanel->activateOutput(output->outputPtr());
 }
 
 void Widget::slotOutputPrimaryChanged()
@@ -240,7 +250,7 @@ void Widget::slotOutputPrimaryChanged()
 void Widget::slotPrimaryChanged(int index)
 {
     const int id = mPrimaryCombo->itemData(index).toInt();
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+    for (KScreen::OutputPtr &output : mConfig->outputs()) {
         output->blockSignals(true);
         output->setPrimary(output->id() == id);
         output->blockSignals(false);
@@ -266,7 +276,7 @@ void Widget::slotOutputConnectedChanged()
 void Widget::slotOutputEnabledChanged()
 {
     int enabledOutputsCnt = 0;
-    Q_FOREACH (KScreen::Output *output, mConfig->outputs()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
             ++enabledOutputsCnt;
         }
@@ -308,17 +318,13 @@ void Widget::slotUnifyOutputs()
 
     if (base->isCloneMode()) {
         setConfig(mPrevConfig);
-        mPrevConfig = 0;
+        mPrevConfig.clear();
 
         mPrimaryCombo->setEnabled(true);
         mUnifyButton->setText(i18n("Unify Outputs"));
     } else {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
-        if (mPrevConfig) {
-            delete mPrevConfig;
-        }
-
         mPrevConfig = mConfig->clone();
 
         Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
@@ -353,7 +359,7 @@ void Widget::slotUnifyOutputs()
         mScreen->updateOutputsPlacement();
 
         mPrimaryCombo->setEnabled(false);
-        m_controlPanel->setUnifiedOutput(base->output());
+        m_controlPanel->setUnifiedOutput(base->outputPtr());
 
         mUnifyButton->setText(i18n("Break unified outputs"));
     }
@@ -390,14 +396,16 @@ void Widget::slotProfileChanged(int index)
     config->setOutputs(outputList);
 
     setConfig(config);
+#else
+    Q_UNUSED(index)
 #endif
 }
 
 // FIXME: Copy-pasted from KDED's Serializer::findOutput()
-KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &info)
+KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info)
 {
     KScreen::OutputList outputs = config->outputs();
-    Q_FOREACH(KScreen::Output * output, outputs) {
+    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         if (!output->isConnected()) {
             continue;
         }
@@ -418,8 +426,8 @@ KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &
         QVariantMap modeSize = modeInfo["size"].toMap();
         QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
 
-        KScreen::ModeList modes = output->modes();
-        Q_FOREACH(KScreen::Mode * mode, modes) {
+        const KScreen::ModeList modes = output->modes();
+        Q_FOREACH(const KScreen::ModePtr &mode, modes) {
             if (mode->size() != size) {
                 continue;
             }
@@ -433,7 +441,7 @@ KScreen::Output *Widget::findOutput(KScreen::Config *config, const QVariantMap &
         return output;
     }
 
-    return 0;
+    return KScreen::OutputPtr();
 }
 
 void Widget::slotProfilesAboutToUpdate()
@@ -464,21 +472,32 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::slotIdentifyOutputs()
+void Widget::slotIdentifyButtonClicked()
 {
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+            this, &Widget::slotIdentifyOutputs);
+}
+
+void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
+{
+    if (op->hasError()) {
+        return;
+    }
+
+    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+
     const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String(QML_PATH "OutputIdentifier.qml"));
 
     mOutputTimer->stop();
     clearOutputIdentifiers();
 
     /* Obtain the current active configuration from KScreen */
-    KScreen::OutputList outputs = KScreen::Config::current()->outputs();
-    Q_FOREACH (KScreen::Output *output, outputs) {
+    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (!output->isConnected() || !output->currentMode()) {
             continue;
         }
 
-        KScreen::Mode *mode = output->currentMode();
+        const KScreen::ModePtr mode = output->currentMode();
 
         QQuickView *view = new QQuickView();
 
@@ -510,5 +529,3 @@ void Widget::slotIdentifyOutputs()
 
     mOutputTimer->start(2500);
 }
-
-#include "widget.moc"

@@ -26,15 +26,13 @@
 #include <QComboBox>
 #include <QWidget>
 
+#include <kscreen/output.h>
+
 class CollapsableButton;
 class QCheckBox;
 class ResolutionSlider;
 class QLabel;
 
-namespace KScreen
-{
-class Output;
-}
 
 class OutputConfig : public QWidget
 {
@@ -42,19 +40,14 @@ class OutputConfig : public QWidget
 
   public:
     explicit OutputConfig(QWidget *parent);
-    explicit OutputConfig(KScreen::Output *output, QWidget *parent = 0);
+    explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = 0);
     virtual ~OutputConfig();
 
-    virtual void setOutput(KScreen::Output *output);
-    KScreen::Output* output() const;
+    virtual void setOutput(const KScreen::OutputPtr &output);
+    KScreen::OutputPtr output() const;
 
     void setTitle(const QString &title);
   protected Q_SLOTS:
-    void slotOutputConnectedChanged();
-    void slotOutputEnabledChanged();
-    void slotOutputRotationChanged();
-
-    void slotEnabledChanged(bool checked);
     void slotResolutionChanged(const QSize &size);
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
@@ -67,7 +60,7 @@ class OutputConfig : public QWidget
 
   protected:
     QLabel *mTitle;
-    KScreen::Output *mOutput;
+    KScreen::OutputPtr mOutput;
     QCheckBox *mEnabled;
     ResolutionSlider *mResolution;
     QComboBox *mRotation;

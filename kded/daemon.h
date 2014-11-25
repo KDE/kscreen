@@ -27,6 +27,11 @@
 
 class QTimer;
 
+namespace KScreen
+{
+class ConfigOperation;
+}
+
 class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
@@ -37,6 +42,9 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         virtual ~KScreenDaemon();
 
     public Q_SLOTS:
+        virtual void requestConfig();
+        void configReady(KScreen::ConfigOperation *op);
+
         void init();
         void applyConfig();
         void applyKnownConfig();
@@ -48,22 +56,24 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void applyGenericConfig();
         void lidClosedChanged(bool lidIsClosed);
         void setMonitorForChanges(bool enabled);
-        void scheduleMonitorChange();
         void outputConnectedChanged();
 
     Q_SIGNALS:
         void outputConnected(const QString &outputName);
         void unknownOutputConnected(const QString &outputName);
 
-    private:
-        void monitorConnectedChange();
-        void enableMonitor(KScreen::Output *output);
-        void disableMonitor(KScreen::Output *output);
+    protected:
+        virtual void doApplyConfig(const KScreen::ConfigPtr &config);
 
-        KScreen::Config* m_monitoredConfig;
+        void monitorConnectedChange();
+        void enableMonitor(const KScreen::OutputPtr &output);
+        void disableMonitor(const KScreen::OutputPtr &output);
+
+        KScreen::ConfigPtr m_monitoredConfig;
         quint8 m_iteration;
         bool m_monitoring;
-        QTimer* m_timer;
+        QTimer* m_changeCompressor;
+        QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
 };
 

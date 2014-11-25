@@ -36,8 +36,10 @@ class Generator : public QObject
         static Generator* self();
         static void destroy();
 
-        KScreen::Config* idealConfig();
-        KScreen::Config* displaySwitch(int iteration);
+        void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
+
+        KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
+        KScreen::ConfigPtr displaySwitch(int iteration);
 
         void setForceLaptop(bool force);
         void setForceLidClosed(bool force);
@@ -50,17 +52,17 @@ class Generator : public QObject
         explicit Generator();
         virtual ~Generator();
 
-        KScreen::Config* fallbackIfNeeded(KScreen::Config *config);
+        KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
         void cloneScreens(KScreen::OutputList& outputs);
 
         void laptop(KScreen::OutputList& outputs);
 
         void singleOutput(KScreen::OutputList& outputs);
         void extendToRight(KScreen::OutputList& outputs);
-        KScreen::Mode* biggestMode(const KScreen::ModeList &modes);
-        KScreen::Mode* bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
-        KScreen::Output* biggestOutput(const KScreen::OutputList &outputs);
-        KScreen::Output* embeddedOutput(const KScreen::OutputList &outputs);
+        KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
+        KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
+        KScreen::OutputPtr biggestOutput(const KScreen::OutputList &outputs);
+        KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &outputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
 
         bool isLaptop();
@@ -70,6 +72,8 @@ class Generator : public QObject
         bool m_forceLaptop;
         bool m_forceLidClosed;
         bool m_forceDocked;
+
+        KScreen::ConfigPtr m_currentConfig;
 
         static Generator* instance;
 };

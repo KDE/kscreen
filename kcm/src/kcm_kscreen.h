@@ -24,6 +24,11 @@
 class Widget;
 class QTimer;
 
+namespace KScreen
+{
+class ConfigOperation;
+}
+
 class KCMKScreen : public KCModule
 {
     Q_OBJECT
@@ -38,6 +43,8 @@ class KCMKScreen : public KCModule
     virtual void defaults();
 
   private:
+    void configReady(KScreen::ConfigOperation *op);
+
     Widget *mKScreenWidget;
 
 };

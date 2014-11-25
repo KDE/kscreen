@@ -21,21 +21,65 @@
 #include <QProcess>
 #include <QCommandLineParser>
 #include <QGuiApplication>
+#include <QtCore/QDateTime>
 #include <KAboutData>
 #include <KLocalizedString>
+
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/config.h>
 
 #include "console.h"
 
 using namespace std;
 
-void showCommands()
+void configReceived(KScreen::ConfigOperation *op)
 {
-    QTextStream(stdout) << "Commands: " << endl;
-    QTextStream(stdout) << "    bug \t <Show information needed for a bug report>" << endl;
-    QTextStream(stdout) << "    config \t <Show kscreen config files>" << endl;
-    QTextStream(stdout) << "    outputs \t <Show Output information>" << endl;
-    QTextStream(stdout) << "    monitor \t <Monitors for changes>" << endl;
+
+    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+
+    const QString command = op->property("command").toString();
+    const qint64 msecs = QDateTime::currentMSecsSinceEpoch() - op->property("start").toLongLong();
+    qDebug() << "Received config. Took" << msecs << "milliseconds";
+
+    Console *console = new Console(config);
+
+    if (command.isEmpty()) {
+        console->printConfig();
+        console->monitorAndPrint();
+    } else if (command == "monitor") {
+        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
+        //Print config so that we have some pivot data
+        console->printConfig();
+        console->monitor();
+        //Do nothing, enable backend output to see debug
+    } else if (command == "outputs") {
+        console->printConfig();
+        qApp->quit();
+    } else if (command == "config") {
+        console->printSerializations();
+        qApp->quit();
+    } else if (command == "bug") {
+        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
+        QProcess proc;
+        proc.setProcessChannelMode(QProcess::MergedChannels);
+        proc.start("xrandr", QStringList("--verbose"));
+        proc.waitForFinished();
+        QTextStream(stdout) << proc.readAll().data();
+        QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
+        console->printConfig();
+        QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
+        console->printSerializations();
+        qApp->quit();
+    } else if (command == "json") {
+        console->printJSONConfig();
+        qApp->quit();
+    } else {
+
+        qApp->quit();
+    }
 }
+
+
 int main (int argc, char *argv[])
 {
     dup2(1, 2);
@@ -49,63 +93,35 @@ int main (int argc, char *argv[])
         "http://www.afiestas.org/");
 
     QCommandLineParser parser;
-    parser.addPositionalArgument("command", i18n("Command to execute (commands will list the available commands)"));
-    parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
+    parser.setApplicationDescription(
+        i18n("KScreen Console is a CLI tool to query KScreen status\n\n"
+             "Commands:\n"
+             "  bug             Show information needed for a bug report\n"
+             "  config          Show KScreen config files\n"
+             "  outputs         Show outout information\n"
+             "  monitor         Monitor for changes\n"
+             "  json            Show current KScreen config"));
     parser.addHelpOption();
+    parser.addPositionalArgument("command", i18n("Command to execute"),
+                                 QLatin1String("bug|config|outputs|monitor|json"));
+    parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
 
-    aboutData.setupCommandLine(&parser);
     parser.process(app);
-    aboutData.processCommandLine(&parser);
-
-    Console *console = new Console(0);
 
     QString command;
     if (!parser.positionalArguments().isEmpty()) {
         command = parser.positionalArguments().first();
     }
 
-    if (command.isEmpty()) {
-        console->printConfig();
-        console->monitorAndPrint();
-        return app.exec();
-    }
+    qDebug() << "START: Requesting Config";
 
-    if (command == "commands") {
-        showCommands();
-        return 1;
-    }
+    KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation();
+    op->setProperty("command", command);
+    op->setProperty("start", QDateTime::currentMSecsSinceEpoch());
+    QObject::connect(op, &KScreen::GetConfigOperation::finished,
+                     [&](KScreen::ConfigOperation *op) {
+                          configReceived(op);
+                      });
 
-    if (command == "monitor") {
-        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
-        //Print config so that we have some pivot data
-        console->printConfig();
-        console->monitor();
-        //Do nothing, enable backend output to see debug
-        return app.exec();
-    }
-
-    if (command == "outputs") {
-        console->printConfig();
-        return 1;
-    }
-
-    if (command == "config") {
-        console->printSerializations();
-        return 1;
-    }
-    if (command == "bug") {
-        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
-        QProcess proc;
-        proc.setProcessChannelMode(QProcess::MergedChannels);
-        proc.start("xrandr", QStringList("--verbose"));
-        proc.waitForFinished();
-        QTextStream(stdout) << proc.readAll().data();
-        QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
-        console->printConfig();
-        QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
-        console->printSerializations();
-        return 1;
-    }
-    showCommands();
-    return -1;
+    app.exec();
 }

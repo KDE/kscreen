@@ -21,10 +21,12 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
+#include "debug.h"
 
 #include <QtCore/QTimer>
 #include <QAction>
 #include <QShortcut>
+#include <QLoggingCategory>
 
 #include <KLocalizedString>
 #include <KActionCollection>
@@ -33,6 +35,8 @@
 
 #include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/setconfigoperation.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
@@ -42,40 +46,38 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_monitoredConfig(0)
  , m_iteration(0)
  , m_monitoring(false)
- , m_timer(new QTimer())
+ , m_changeCompressor(new QTimer())
+ , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  
 {
-    if (!KScreen::Config::loadBackend()) {
+    QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
+}
+
+void KScreenDaemon::requestConfig()
+{
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, &KScreenDaemon::configReady);
+}
+
+void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
+{
+    if (op->hasError()) {
         return;
     }
 
-    KActionCollection *coll = new KActionCollection(this);
-    QAction* action = coll->addAction(QStringLiteral("display"));
-    action->setText(i18n("Switch Display" ));
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
+    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
-    new KScreenAdaptor(this);
-
-    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
-
-    m_timer->setInterval(300);
-    m_timer->setSingleShot(true);
-    connect(m_timer, SIGNAL(timeout()), SLOT(applyGenericConfig()));
-
-    m_saveTimer->setInterval(300);
-    m_saveTimer->setSingleShot(true);
-    connect(m_saveTimer, SIGNAL(timeout()), SLOT(saveCurrentConfig()));
-
-    connect(action, SIGNAL(triggered(bool)), SLOT(displayButton()));
-    connect(Generator::self(), SIGNAL(ready()), SLOT(init()));
-    monitorConnectedChange();
+    init();
 }
 
 KScreenDaemon::~KScreenDaemon()
 {
+    delete m_changeCompressor;
     delete m_saveTimer;
-    delete m_timer;
+    delete m_buttonTimer;
 
     Generator::destroy();
     Device::destroy();
@@ -83,14 +85,51 @@ KScreenDaemon::~KScreenDaemon()
 
 void KScreenDaemon::init()
 {
-    disconnect(Generator::self(), SIGNAL(ready()), this, SLOT(init()));
-    applyConfig();
+    KActionCollection *coll = new KActionCollection(this);
+    QAction* action = coll->addAction(QStringLiteral("display"));
+    action->setText(i18n("Switch Display" ));
+    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
+    connect(action, &QAction::triggered, [&](bool) { displayButton(); });
+
+    new KScreenAdaptor(this);
+
+    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
+
+    m_buttonTimer->setInterval(300);
+    m_buttonTimer->setSingleShot(true);
+    connect(m_buttonTimer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
+
+    m_saveTimer->setInterval(300);
+    m_saveTimer->setSingleShot(true);
+    connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
+
+    m_changeCompressor->setInterval(10);
+    m_changeCompressor->setSingleShot(true);
+    connect(m_changeCompressor, &QTimer::timeout, this, &KScreenDaemon::applyConfig);
+
+    connect(Generator::self(), &Generator::ready,
+            this, &KScreenDaemon::applyConfig);
+
+    Generator::self()->setCurrentConfig(m_monitoredConfig);
+    monitorConnectedChange();
+}
+
+void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
+{
+    qCDebug(KSCREEN_KDED) << "doApplyConfig()";
+    setMonitorForChanges(false);
+
+    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
+            [&]() {
+                qCDebug(KSCREEN_KDED) << "Config applied";
+                setMonitorForChanges(true);
+            });
 }
 
 void KScreenDaemon::applyConfig()
 {
-    qDebug() << "Applying config";
-    if (Serializer::configExists()) {
+    qCDebug(KSCREEN_KDED) << "Applying config";
+    if (Serializer::configExists(m_monitoredConfig)) {
         applyKnownConfig();
         return;
     }
@@ -100,51 +139,50 @@ void KScreenDaemon::applyConfig()
 
 void KScreenDaemon::applyKnownConfig()
 {
-    qDebug() << "Applying known config";
-    setMonitorForChanges(false);
-    KScreen::Config* config = Serializer::config(Serializer::currentId());
+    const QString configId = Serializer::configId(m_monitoredConfig);
+    qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
+
+    KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     if (!KScreen::Config::canBeApplied(config)) {
         return applyIdealConfig();
     }
 
-    KScreen::Config::setConfig(config);
-    QMetaObject::invokeMethod(this, "scheduleMonitorChange", Qt::QueuedConnection);
+    doApplyConfig(config);
 }
 
 void KScreenDaemon::applyIdealConfig()
 {
-    qDebug() << "Applying ideal config";
-    setMonitorForChanges(true);
-    KScreen::Config::setConfig(Generator::self()->idealConfig());
+    qCDebug(KSCREEN_KDED) << "Applying ideal config";
+    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
 void KScreenDaemon::configChanged()
 {
-    qDebug() << "Change detected";
+    qCDebug(KSCREEN_KDED) << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
 
 void KScreenDaemon::saveCurrentConfig()
 {
-    qDebug() << "Saving current config";
-    Serializer::saveConfig(KScreen::Config::current());
+    qCDebug(KSCREEN_KDED) << "Saving current config to file";
+    Serializer::saveConfig(m_monitoredConfig);
 }
 
 void KScreenDaemon::displayButton()
 {
-    qDebug() << "displayBtn triggered";
-    if (m_timer->isActive()) {
-        qDebug() << "Too fast cowboy";
+    qCDebug(KSCREEN_KDED) << "displayBtn triggered";
+    if (m_buttonTimer->isActive()) {
+        qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
         return;
     }
 
-    m_timer->start();
+    m_buttonTimer->start();
 }
 
 void KScreenDaemon::resetDisplaySwitch()
 {
-    qDebug();
+    qCDebug(KSCREEN_KDED) << "resetDisplaySwitch()";
     m_iteration = 0;
 }
 
@@ -154,11 +192,10 @@ void KScreenDaemon::applyGenericConfig()
         m_iteration = 0;
     }
 
-    setMonitorForChanges(true);
     m_iteration++;
-    qDebug() << "displayButton: " << m_iteration;
-//     KDebug::Block genericConfig("Applying display switch");
-    KScreen::Config::setConfig(Generator::self()->displaySwitch(m_iteration));
+    qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
+
+    doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -179,33 +216,32 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 
 void KScreenDaemon::outputConnectedChanged()
 {
+    if (!m_changeCompressor->isActive()) {
+        m_changeCompressor->start();
+    }
+
+    resetDisplaySwitch();
+
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
+    qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
 
     if (output->isConnected()) {
         Q_EMIT outputConnected(output->name());
 
-        if (!Serializer::configExists()) {
+        if (!Serializer::configExists(m_monitoredConfig)) {
             Q_EMIT unknownOutputConnected(output->name());
         }
     }
 }
 
+
 void KScreenDaemon::monitorConnectedChange()
 {
-    if (!m_monitoredConfig) {
-        m_monitoredConfig = KScreen::Config::current();
-        if (!m_monitoredConfig) {
-            return;
-        }
-
-        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
-    }
-
     KScreen::OutputList outputs = m_monitoredConfig->outputs();
-    Q_FOREACH(KScreen::Output* output, outputs) {
-        connect(output, SIGNAL(isConnectedChanged()), SLOT(applyConfig()));
-        connect(output, SIGNAL(isConnectedChanged()), SLOT(resetDisplaySwitch()));
-        connect(output, SIGNAL(isConnectedChanged()), SLOT(outputConnectedChanged()));
+    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
+        connect(output.data(), &KScreen::Output::isConnectedChanged,
+                this, &KScreenDaemon::outputConnectedChanged,
+                Qt::UniqueConnection);
     }
 }
 
@@ -214,19 +250,12 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     if (m_monitoring == enabled) {
         return;
     }
-    qDebug() << "Monitor for changes: " << enabled;
-    if (!m_monitoredConfig) {
-        m_monitoredConfig = KScreen::Config::current();
-        if (!m_monitoredConfig) {
-            return;
-        }
-        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
-    }
 
+    qCDebug(KSCREEN_KDED) << "Monitor for changes: " << enabled;
     m_monitoring = enabled;
 
-    KScreen::OutputList outputs = m_monitoredConfig->outputs();
-    Q_FOREACH(KScreen::Output* output, outputs) {
+    const KScreen::OutputList outputs = m_monitoredConfig->outputs();
+    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         if (m_monitoring) {
             enableMonitor(output);
         } else {
@@ -235,31 +264,40 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     }
 }
 
-void KScreenDaemon::scheduleMonitorChange()
+void KScreenDaemon::enableMonitor(const KScreen::OutputPtr &output)
 {
-    QMetaObject::invokeMethod(this, "setMonitorForChanges", Qt::QueuedConnection, Q_ARG(bool, true));
+    connect(output.data(), &KScreen::Output::currentModeIdChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::isEnabledChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::isPrimaryChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::outputChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::clonesChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::posChanged,
+            this, &KScreenDaemon::configChanged);
+    connect(output.data(), &KScreen::Output::rotationChanged,
+            this, &KScreenDaemon::configChanged);
 }
 
-void KScreenDaemon::enableMonitor(KScreen::Output* output)
+void KScreenDaemon::disableMonitor(const KScreen::OutputPtr &output)
 {
-    connect(output, SIGNAL(currentModeIdChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(isEnabledChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(isPrimaryChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(outputChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(clonesChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(posChanged()), SLOT(configChanged()));
-    connect(output, SIGNAL(rotationChanged()), SLOT(configChanged()));
-}
-
-void KScreenDaemon::disableMonitor(KScreen::Output* output)
-{
-    disconnect(output, SIGNAL(currentModeIdChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(isEnabledChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(isPrimaryChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(outputChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(clonesChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(posChanged()), this, SLOT(configChanged()));
-    disconnect(output, SIGNAL(rotationChanged()), this, SLOT(configChanged()));
+    disconnect(output.data(), &KScreen::Output::currentModeIdChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::isEnabledChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::isPrimaryChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::outputChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::clonesChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::posChanged,
+               this, &KScreenDaemon::configChanged);
+    disconnect(output.data(), &KScreen::Output::rotationChanged,
+               this, &KScreenDaemon::configChanged);
 }
 
 #include "daemon.moc"
