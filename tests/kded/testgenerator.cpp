@@ -38,6 +38,7 @@ private:
 
 private Q_SLOTS:
     void initTestCase();
+    void cleanupTestCase();
     void singleOutput();
     void laptopLidOpenAndExternal();
     void laptopLidOpenAndTwoExternal();
@@ -74,6 +75,11 @@ KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray& fileName)
 void testScreenConfig::initTestCase()
 {
     setenv("KSCREEN_BACKEND", "Fake", 1);
+}
+
+void testScreenConfig::cleanupTestCase()
+{
+    KScreen::BackendManager::instance()->shutdownBackend();
 }
 
 void testScreenConfig::singleOutput()
