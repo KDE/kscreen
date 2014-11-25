@@ -178,7 +178,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     }
 
     if (iteration == 3) {
-        qCDebug(KSCREEN_KDED) << "Turn of embedded (laptop)";
+        qCDebug(KSCREEN_KDED) << "Turn off embedded (laptop)";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
