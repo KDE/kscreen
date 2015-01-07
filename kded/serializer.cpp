@@ -186,7 +186,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
             if (mode->size() != size) {
                 continue;
             }
-            if (QString::number(mode->refreshRate()) != modeInfo["refresh"].toString()) {
+            if (!qFuzzyCompare(mode->refreshRate(), modeInfo["refresh"].toFloat())) {
                 continue;
             }
 
