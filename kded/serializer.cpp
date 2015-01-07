@@ -39,20 +39,22 @@ QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
     KScreen::OutputList outputs = currentConfig->outputs();
 
     QStringList hashList;
+    qCDebug(KSCREEN_KDED) << "Calculating config ID for" << currentConfig.data();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         if (!output->isConnected()) {
             continue;
         }
 
-        qCDebug(KSCREEN_KDED) << "Part of the Id: " << Serializer::outputId(output);
+        qCDebug(KSCREEN_KDED) << "\tPart of the Id: " << Serializer::outputId(output);
         hashList.insert(0, Serializer::outputId(output));
     }
 
     qSort(hashList.begin(), hashList.end());
 
-    QCryptographicHash hash(QCryptographicHash::Md5);
-    hash.addData(hashList.join(QString()).toLatin1());
-    return hash.result().toHex();
+    const QByteArray hash = QCryptographicHash::hash(hashList.join(QString()).toLatin1(),
+                                                     QCryptographicHash::Md5).toHex();
+    qCDebug(KSCREEN_KDED) << "\tConfig ID:" << hash;
+    return hash;
 }
 
 bool Serializer::configExists(const KScreen::ConfigPtr &config)
@@ -175,11 +177,9 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
 
         const QVariantMap modeInfo = info["mode"].toMap();
         const QVariantMap modeSize = modeInfo["size"].toMap();
-        QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
+        const QSize size = QSize(modeSize["width"].toInt(), modeSize["height"].toInt());
 
-        qCDebug(KSCREEN_KDED) << "Finding a mode with: ";
-        qCDebug(KSCREEN_KDED) << size;
-        qCDebug(KSCREEN_KDED) << modeInfo["refresh"].toString();
+        qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo["refresh"].toFloat();
 
         KScreen::ModeList modes = output->modes();
         Q_FOREACH(const KScreen::ModePtr &mode, modes) {
@@ -190,7 +190,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
                 continue;
             }
 
-            qCDebug(KSCREEN_KDED) << "Found: " << mode->id() << " " << mode->name();
+            qCDebug(KSCREEN_KDED) << "\tFound: " << mode->id() << " " << mode->size() << "@" << mode->refreshRate();
             output->setCurrentModeId(mode->id());
             break;
         }
