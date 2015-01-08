@@ -22,46 +22,49 @@
 #include <QtCore/QObject>
 
 class QDBusPendingCallWatcher;
+class QDBusInterface;
 class OrgFreedesktopDBusPropertiesInterface;
+
 class Device : public QObject
 {
-    Q_OBJECT
-    public:
-        static Device* self();
-        static void destroy();
+Q_OBJECT
+public:
+    static Device* self();
+    static void destroy();
 
-        bool isReady();
-        bool isLaptop();
-        bool isLidClosed();
-        bool isDocked();
+    bool isReady();
+    bool isLaptop();
+    bool isLidClosed();
+    bool isDocked();
 
-    private Q_SLOTS:
-        void init();
-        void changed();
-        void isLaptopFetched(QDBusPendingCallWatcher* watcher);
-        void isLidClosedFetched(QDBusPendingCallWatcher* watcher);
+private Q_SLOTS:
+    void changed();
+    void isLaptopFetched(QDBusPendingCallWatcher* watcher);
+    void isLidClosedFetched(QDBusPendingCallWatcher* watcher);
 
-    Q_SIGNALS:
-        void ready();
-        void lidIsClosedChanged(bool after, bool before);
+Q_SIGNALS:
+    void ready();
+    void lidClosedChanged(bool closed);
+    void resumingFromSuspend();
 
-    private:
-        explicit Device(QObject* parent = 0);
-        virtual ~Device();
+private:
+    explicit Device(QObject* parent = 0);
+    virtual ~Device();
 
-        void setReady();
-        void fetchIsLaptop();
-        void fetchLidIsClosed();
-        void fetchIsDocked();
+    void setReady();
+    void fetchIsLaptop();
+    void fetchLidIsClosed();
+    void fetchIsDocked();
 
-        bool m_isReady;
-        bool m_isLaptop;
-        bool m_isLidClosed;
-        bool m_isDocked;
+    bool m_isReady;
+    bool m_isLaptop;
+    bool m_isLidClosed;
+    bool m_isDocked;
 
-        static Device* m_instance;
+    static Device* m_instance;
 
-        OrgFreedesktopDBusPropertiesInterface* m_freedesktop;
+    OrgFreedesktopDBusPropertiesInterface *m_freedesktop;
+    QDBusInterface *m_suspendSession;
 };
 
 #endif //KDED_DEVICE_H
