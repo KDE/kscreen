@@ -93,8 +93,6 @@ void KScreenDaemon::init()
 
     new KScreenAdaptor(this);
 
-    connect(Device::self(), SIGNAL(lidIsClosedChanged(bool,bool)), SLOT(lidClosedChanged(bool)));
-
     m_buttonTimer->setInterval(300);
     m_buttonTimer->setSingleShot(true);
     connect(m_buttonTimer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
@@ -106,6 +104,18 @@ void KScreenDaemon::init()
     m_changeCompressor->setInterval(10);
     m_changeCompressor->setSingleShot(true);
     connect(m_changeCompressor, &QTimer::timeout, this, &KScreenDaemon::applyConfig);
+
+
+    connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
+    connect(Device::self(), &Device::resumingFromSuspend,
+            [&]() {
+                qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
+                // We don't care about the result, we just want to force the backend
+                // to query XRandR so that it will detect possible changes that happened
+                // while the computer was suspended, and will emit the change events.
+                new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
+            });
+
 
     connect(Generator::self(), &Generator::ready,
             this, &KScreenDaemon::applyConfig);
