@@ -87,7 +87,7 @@ void KScreenDaemon::init()
     KActionCollection *coll = new KActionCollection(this);
     QAction* action = coll->addAction(QStringLiteral("display"));
     action->setText(i18n("Switch Display" ));
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_Display));
+    KGlobalAccel::self()->setGlobalShortcut(action, Qt::Key_Display);
     connect(action, &QAction::triggered, [&](bool) { displayButton(); });
 
     new KScreenAdaptor(this);
