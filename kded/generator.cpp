@@ -43,13 +43,13 @@ Generator* Generator::self()
 }
 
 Generator::Generator()
- : QObject()
- , m_forceLaptop(false)
- , m_forceLidClosed(false)
- , m_forceNotLaptop(false)
- , m_forceDocked(false)
+   : QObject()
+   , m_forceLaptop(false)
+   , m_forceLidClosed(false)
+   , m_forceNotLaptop(false)
+   , m_forceDocked(false)
 {
-    connect(Device::self(), SIGNAL(ready()), SIGNAL(ready()));
+    connect(Device::self(), &Device::ready, this, &Generator::ready);
 }
 
 void Generator::destroy()

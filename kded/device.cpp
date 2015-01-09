@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright (C) 2015 by Daniel Vrátil <dvratil@redhat.com>                         *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -40,30 +41,46 @@ void Device::destroy()
 }
 
 Device::Device(QObject* parent) 
- : QObject(parent)
- , m_isReady(false)
- , m_isLaptop(false)
- , m_isLidClosed(false)
- , m_isDocked(false)
+   : QObject(parent)
+   , m_isReady(false)
+   , m_isLaptop(false)
+   , m_isLidClosed(false)
+   , m_isDocked(false)
 {
     m_freedesktop = new OrgFreedesktopDBusPropertiesInterface("org.freedesktop.UPower",
                                                               "/org/freedesktop/UPower",
-                                                              QDBusConnection::systemBus());
+                                                              QDBusConnection::systemBus(),
+                                                              this);
+    if (!m_freedesktop->isValid()) {
+        qCWarning(KSCREEN_KDED) << "UPower not available, lid detection won't work";
+        qCDebug(KSCREEN_KDED) << m_freedesktop->lastError().message();
+    } else {
+        QDBusConnection::systemBus().connect(QLatin1String("org.freedesktop.UPower"),
+                                             QLatin1String("/org/freedesktop/UPower"),
+                                             QLatin1String("org.freedesktop.DBus.Properties"),
+                                             QLatin1String("PropertiesChanged"),
+                                             this, SLOT(changed()));
+        fetchIsLaptop();
+    }
 
-    QDBusConnection::systemBus().connect("org.freedesktop.UPower", "/org/freedesktop/UPower", 
-                                         "org.freedesktop.UPower", "Changed", this, SLOT(changed()));
+    m_suspendSession = new QDBusInterface(QLatin1String("org.kde.Solid.PowerManagement"),
+                                          QLatin1String("/org/kde/Solid/PowerManagement/Actions/SuspendSession"),
+                                          QLatin1String("org.kde.Solid.PowerManagement.Actions.SuspendSession"),
+                                          QDBusConnection::sessionBus(),
+                                          this);
+    if (m_suspendSession->isValid()) {
+        connect(m_suspendSession, SIGNAL(resumingFromSuspend()),
+                this, SIGNAL(resumingFromSuspend()));
+    } else {
+        qCWarning(KSCREEN_KDED) << "PowerDevil SuspendSession action not available!";
+        qCDebug(KSCREEN_KDED) << m_suspendSession->lastError().message();
+    }
 
-    QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
+    fetchIsLaptop();
 }
 
 Device::~Device()
 {
-    delete m_freedesktop;
-}
-
-void Device::init()
-{
-    fetchIsLaptop();
 }
 
 void Device::changed()
@@ -142,13 +159,13 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
         return;
     }
 
-    bool oldValue = m_isLidClosed;
-    m_isLidClosed = reply.value().toBool();
-    watcher->deleteLater();
-
-    if (m_isReady && (oldValue != m_isLidClosed)) {
-        Q_EMIT lidIsClosedChanged(m_isLidClosed, oldValue);
+    if (reply.argumentAt<0>() != m_isLidClosed) {
+        m_isLidClosed = reply.value().toBool();
+        if (m_isReady) {
+            Q_EMIT lidClosedChanged(m_isLidClosed);;
+        }
     }
+    watcher->deleteLater();
 
     fetchIsDocked();
 }
