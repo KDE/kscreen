@@ -23,7 +23,7 @@
 #include "kscreenadaptor.h"
 #include "debug.h"
 
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <QAction>
 #include <QShortcut>
 #include <QLoggingCategory>
@@ -39,7 +39,6 @@
 #include <kscreen/setconfigoperation.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
-K_EXPORT_PLUGIN(KScreenDaemonFactory("kscreen", "kscreen"))
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)

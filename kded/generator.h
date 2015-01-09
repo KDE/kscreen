@@ -19,8 +19,8 @@
 #ifndef KDED_GENERATOR_H
 #define KDED_GENERATOR_H
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QObject>
+#include <QString>
 
 #include <kscreen/output.h>
 #include <kscreen/mode.h>

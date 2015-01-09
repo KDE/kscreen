@@ -19,13 +19,10 @@
 #include "serializer.h"
 #include "debug.h"
 
-#include <QtCore/QStringList>
-#include <QtCore/QCryptographicHash>
-#include <QtCore/QFile>
-#include <QtCore/QVariant>
-#include <QtCore/QVariantList>
-#include <QtCore/QVariantMap>
-#include <QtCore/QStandardPaths>
+#include <QStringList>
+#include <QCryptographicHash>
+#include <QFile>
+#include <QStandardPaths>
 #include <QJsonDocument>
 #include <QDir>
 #include <QLoggingCategory>

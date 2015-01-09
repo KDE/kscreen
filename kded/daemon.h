@@ -19,7 +19,7 @@
 #ifndef KSCREN_DAEMON_H
 #define KSCREN_DAEMON_H
 
-#include <QtCore/QVariant>
+#include <QVariant>
 
 #include <kdedmodule.h>
 

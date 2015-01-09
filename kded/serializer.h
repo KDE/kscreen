@@ -19,8 +19,8 @@
 #ifndef KDED_SERIALIZER_H
 #define KDED_SERIALIZER_H
 
-#include <QtCore/QObject>
-#include <QtCore/QVariantMap>
+#include <QObject>
+#include <QVariantMap>
 
 #include <kscreen/config.h>
 

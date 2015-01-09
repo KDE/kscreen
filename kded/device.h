@@ -19,7 +19,7 @@
 #ifndef KDED_DEVICE_H
 #define KDED_DEVICE_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class QDBusPendingCallWatcher;
 class QDBusInterface;
