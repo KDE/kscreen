@@ -66,8 +66,6 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         virtual void doApplyConfig(const KScreen::ConfigPtr &config);
 
         void monitorConnectedChange();
-        void enableMonitor(const KScreen::OutputPtr &output);
-        void disableMonitor(const KScreen::OutputPtr &output);
 
         KScreen::ConfigPtr m_monitoredConfig;
         quint8 m_iteration;

@@ -263,51 +263,13 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
 
     qCDebug(KSCREEN_KDED) << "Monitor for changes: " << enabled;
     m_monitoring = enabled;
-
-    const KScreen::OutputList outputs = m_monitoredConfig->outputs();
-    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
-        if (m_monitoring) {
-            enableMonitor(output);
-        } else {
-            disableMonitor(output);
-        }
+    if (m_monitoring) {
+        connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged,
+                this, &KScreenDaemon::configChanged, Qt::UniqueConnection);
+    } else {
+        disconnect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged,
+                   this, &KScreenDaemon::configChanged);
     }
-}
-
-void KScreenDaemon::enableMonitor(const KScreen::OutputPtr &output)
-{
-    connect(output.data(), &KScreen::Output::currentModeIdChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::isEnabledChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::isPrimaryChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::outputChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::clonesChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::posChanged,
-            this, &KScreenDaemon::configChanged);
-    connect(output.data(), &KScreen::Output::rotationChanged,
-            this, &KScreenDaemon::configChanged);
-}
-
-void KScreenDaemon::disableMonitor(const KScreen::OutputPtr &output)
-{
-    disconnect(output.data(), &KScreen::Output::currentModeIdChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::isEnabledChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::isPrimaryChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::outputChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::clonesChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::posChanged,
-               this, &KScreenDaemon::configChanged);
-    disconnect(output.data(), &KScreen::Output::rotationChanged,
-               this, &KScreenDaemon::configChanged);
 }
 
 #include "daemon.moc"
