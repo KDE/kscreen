@@ -1,16 +1,24 @@
 [Desktop Entry]
 Name=KScreen 2
 Name[fr]=KScreen 2
+Name[nb]=KScreen 2
 Name[nl]=KScreen 2
+Name[pl]=KEkran 2
+Name[pt]=KScreen 2
 Name[pt_BR]=KScreen 2
 Name[sk]=KScreen 2
+Name[sv]=Kscreen 2
 Name[uk]=KScreen 2
 Name[x-test]=xxKScreen 2xx
 Comment=Screen management
 Comment[fr]=Gestion d'écrans
+Comment[nb]=Skjembehandling
 Comment[nl]=Schermbeheer
+Comment[pl]=Zarządzanie ekranem
+Comment[pt]=Gestão do ecrã
 Comment[pt_BR]=Gerenciamento de telas
 Comment[sk]=Správa obrazoviek
+Comment[sv]=Skärmhantering
 Comment[uk]=Керування екраном
 Comment[x-test]=xxScreen managementxx
 
