@@ -17,6 +17,7 @@
 */
 
 import QtQuick 2.1
+import QtGraphicalEffects 1.0
 import org.kde.kscreen 1.0
 
 QMLOutput {
@@ -148,6 +149,7 @@ QMLOutput {
             radius: 4;
             color: palette.window;
             smooth: true;
+            clip: true;
 
             border {
                 color: root.focus ? palette.highlight : palette.shadow;
@@ -243,25 +245,38 @@ QMLOutput {
                 }
             }
 
-            Rectangle {
+            Item {
+                id: orientationPanelContainer;
 
-                id: orientationPanel;
+                anchors.fill: monitor;
 
-                anchors {
-                    left: parent.left;
-                    right: parent.right;
-                    bottom: parent.bottom;
-                }
+                visible: false
 
-                height: 10;
-                color: root.focus ? palette.highlight : palette.shadow;
-                smooth: true;
+                Rectangle {
+                    id: orientationPanel;
 
-                Behavior on color {
-                    PropertyAnimation {
-                        duration: 150;
+                    anchors {
+                        left: parent.left;
+                        right: parent.right;
+                        bottom: parent.bottom;
+                    }
+
+                    height: 10;
+                    color: root.focus ? palette.highlight : palette.shadow;
+                    smooth: true;
+
+                    Behavior on color {
+                        PropertyAnimation {
+                            duration: 150;
+                        }
                     }
                 }
+            }
+
+            OpacityMask {
+                anchors.fill: orientationPanelContainer;
+                source: orientationPanelContainer;
+                maskSource: monitor;
             }
         }
     }
