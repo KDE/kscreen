@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KScreen 2
 Name[ca]=KScreen 2
+Name[cs]=KScreen 2
 Name[es]=KScreen 2
 Name[fi]=KScreen 2
 Name[fr]=KScreen 2
@@ -15,6 +16,7 @@ Name[uk]=KScreen 2
 Name[x-test]=xxKScreen 2xx
 Comment=Screen management
 Comment[ca]=Gestió de pantalla
+Comment[cs]=Správa obrazovek
 Comment[es]=Gestión de la pantalla
 Comment[fi]=Näyttöjen hallinta
 Comment[fr]=Gestion d'écrans

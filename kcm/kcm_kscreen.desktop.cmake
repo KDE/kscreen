@@ -11,6 +11,7 @@ X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
 Name=Display Configuration
 Name[ca]=Configuració de la pantalla
+Name[cs]=Nastavení zobrazení
 Name[es]=Configuración de la pantalla
 Name[fi]=Näyttöasetukset
 Name[fr]=Configuration de l'affichage
@@ -25,6 +26,7 @@ Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
 Comment=Manage and configure monitors and displays
 Comment[ca]=Gestiona i configura els monitors i pantalles
+Comment[cs]=Spravovat a nastavit monitory a zobrazení
 Comment[es]=Gestionar y configurar monitores y pantallas
 Comment[fi]=Näyttöjen asetusten hallinta
 Comment[fr]=Gère et configure les moniteurs et les écrans
