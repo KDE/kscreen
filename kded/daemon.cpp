@@ -106,7 +106,7 @@ void KScreenDaemon::init()
     m_changeCompressor->setSingleShot(true);
     connect(m_changeCompressor, &QTimer::timeout, this, &KScreenDaemon::applyConfig);
 
-    m_lidClosedTimer->setInterval(2000);
+    m_lidClosedTimer->setInterval(1000);
     m_lidClosedTimer->setSingleShot(true);
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
 
@@ -121,7 +121,10 @@ void KScreenDaemon::init()
                 new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
             });
     connect(Device::self(), &Device::aboutToSuspend,
-            m_lidClosedTimer, &QTimer::stop);
+            [&]() {
+                qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for " << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
+                m_lidClosedTimer->stop();
+            });
 
 
     connect(Generator::self(), &Generator::ready,
