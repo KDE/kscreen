@@ -46,6 +46,7 @@ Q_SIGNALS:
     void ready();
     void lidClosedChanged(bool closed);
     void resumingFromSuspend();
+    void aboutToSuspend();
 
 private:
     explicit Device(QObject* parent = 0);
