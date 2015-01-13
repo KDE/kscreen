@@ -46,6 +46,8 @@ class Generator : public QObject
         void setForceDocked(bool force);
         void setForceNotLaptop(bool force);
 
+        static KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
+
     Q_SIGNALS:
         void ready();
 
@@ -60,7 +62,6 @@ class Generator : public QObject
 
         void singleOutput(KScreen::OutputList& outputs);
         void extendToRight(KScreen::OutputList& outputs);
-        KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
         KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
         KScreen::OutputPtr biggestOutput(const KScreen::OutputList &outputs);
         KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &outputs);
