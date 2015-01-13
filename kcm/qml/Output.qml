@@ -192,8 +192,9 @@ QMLOutput {
             }
 
             Item {
+                y: ((parent.height - orientationPanel.height) / 2) - (implicitHeight / 2)
+
                 anchors {
-                    verticalCenter: parent.verticalCenter;
                     left: parent.left;
                     right: parent.right;
                     leftMargin: 5;
