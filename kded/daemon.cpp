@@ -239,50 +239,13 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
             Serializer::removeConfig(openConfigId);
 
             doApplyConfig(openedConfig);
-            /*
-            KScreen::OutputPtr closedLidOutput = findEmbeddedOutput(m_monitoredConfig);
-            if (!closedLidOutput) {
-                // WTF?
-                return;
-            }
-            const KScreen::OutputPtr openedLidOutput = openedConfig->output(closedLidOutput->id());
-            if (!openedLidOutput) {
-                // WTF?
-                return;
-            }
-
-            closedLidOutput->setEnabled(true);
-            closedLidOutput->setPos(openedLidOutput->pos());
-            closedLidOutput->setCurrentModeId(openedLidOutput->currentModeId());
-            closedLidOutput->setPrimary(openedLidOutput->isPrimary());
-            closedLidOutput->setRotation(openedLidOutput->rotation());
-
-            const KScreen::ModePtr newMode = closedLidOutput->currentMode();
-            if (!newMode) {
-                // WTF?
-                return;
-            }
-            const QRect closedGeometry = closedLidOutput->geometry();
-            for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-                if (output == closedLidOutput) {
-                    continue;
-                }
-
-                const QRect geom = output->geometry();
-
-                if (geom.left() >= closedGeometry.left() &&
-                    geom.top() >= closedGeometry.top() && geom.top() <= closedGeometry.bottom()) {
-                    output->pos().rx() += closedGeometry.width();
-                }
-            }
-            */
         }
     }
 }
 
 void KScreenDaemon::lidClosedTimeout()
 {
-    // Make sure nothing has changed in the past 2 seconds.. :-)
+    // Make sure nothing has changed in the past second... :-)
     if (!Device::self()->isLidClosed()) {
         return;
     }
