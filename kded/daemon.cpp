@@ -220,6 +220,12 @@ void KScreenDaemon::applyGenericConfig()
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
+    // Ignore this when we don't have any external monitors, we can't turn off our
+    // only screen
+    if (m_monitoredConfig->connectedOutputs().count() == 1) {
+        return;
+    }
+
     if (lidIsClosed) {
         // Lid is closed, now we wait for couple seconds to find out whether it
         // will trigger a suspend (see Device::aboutToSuspend), or whether we should
