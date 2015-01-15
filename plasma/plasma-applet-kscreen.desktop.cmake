@@ -15,6 +15,7 @@ Name[sk]=Rýchle nastavenie obrazovky
 Name[sv]=Snabbinställning av skärm
 Name[uk]=Швидке налаштовування дисплея
 Name[x-test]=xxQuick Display Configurationxx
+Name[zh_CN]=快捷显示管理
 Comment=Quick configuration of a new display
 Comment[ca]=Configuració ràpida d'una nova pantalla
 Comment[cs]=Rychlé nastavení nového zobrazení
@@ -31,6 +32,7 @@ Comment[sk]=Rýchle nastavenie novej obrazovky
 Comment[sv]=Snabbinställning av en ny skärm
 Comment[uk]=Швидке налаштовування нового дисплея
 Comment[x-test]=xxQuick configuration of a new displayxx
+Comment[zh_CN]=快捷配置新显示器
 
 Icon=preferences-desktop-display-randr
 Type=Service
