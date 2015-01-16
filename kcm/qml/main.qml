@@ -96,7 +96,10 @@ Item {
                 objectName: "tooManyActiveOutputs";
 
                 icon: "dialog-error";
-                text: i18nd("kcm_displayconfiguration", "Your system only supports up to %1 active screens", virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
+                text: i18ndp("kcm_displayconfiguration",
+                             "Your system only supports up to %1 active screen",
+                             "Your system only supports up to %1 active screens",
+                             virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
             }
         }
 
