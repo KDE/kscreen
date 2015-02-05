@@ -25,6 +25,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QSlider>
+#include <QComboBox>
 
 #include <KLocalizedString>
 
@@ -38,30 +39,14 @@ static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
 ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent)
     : QWidget(parent)
     , mOutput(output)
+    , mSmallestLabel(0)
+    , mBiggestLabel(0)
+    , mCurrentLabel(0)
+    , mSlider(0)
+    , mComboBox(0)
 {
     connect(output.data(), &KScreen::Output::currentModeIdChanged,
             this, &ResolutionSlider::slotOutputModeChanged);
-
-    QGridLayout *layout = new QGridLayout(this);
-
-    mSmallestLabel = new QLabel(this);
-    layout->addWidget(mSmallestLabel, 0, 0);
-
-    mSlider = new QSlider(Qt::Horizontal, this);
-    mSlider->setTickInterval(1);
-    mSlider->setTickPosition(QSlider::TicksBelow);
-    mSlider->setSingleStep(1);
-    mSlider->setPageStep(1);
-    layout->addWidget(mSlider, 0, 1);
-    connect(mSlider, &QSlider::valueChanged,
-            this, &ResolutionSlider::slotSlideValueChanged);
-
-    mBiggestLabel = new QLabel(this);
-    layout->addWidget(mBiggestLabel, 0, 2);
-
-    mCurrentLabel = new QLabel(this);
-    mCurrentLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(mCurrentLabel, 1, 0, 1, 3);
 
     Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
         if (mModes.contains(mode->size())) {
@@ -70,36 +55,64 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
 
         mModes << mode->size();
     }
-
     qSort(mModes.begin(), mModes.end(), sizeLessThan);
 
-    if (mModes.size() < 2) {
-        mSmallestLabel->hide();
-        mBiggestLabel->hide();
-        mSlider->hide();
-        mCurrentLabel->setAlignment(Qt::AlignLeft);
-        if (mModes.size() == 0) {
-            mCurrentLabel->setText(i18n("No available resolutions"));
-        } else {
-            mCurrentLabel->setText(Utils::sizeToString(mModes.first()));
+    QGridLayout *layout = new QGridLayout(this);
+
+    if (mModes.count() > 15) {
+        std::reverse(mModes.begin(), mModes.end());
+        mComboBox = new QComboBox(this);
+        mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        mComboBox->setEditable(false);
+        Q_FOREACH (const QSize &size, mModes) {
+            mComboBox->addItem(Utils::sizeToString(size));
+            if ((output->currentMode() && (output->currentMode()->size() == size))
+                || (output->preferredMode() && (output->preferredMode()->size() == size))) {
+                    mComboBox->setCurrentIndex(mComboBox->count() - 1);
+            }
         }
-
-        return;
-    }
-
-    mSmallestLabel->setText(Utils::sizeToString(mModes.first()));
-    mBiggestLabel->setText(Utils::sizeToString(mModes.last()));
-    mSlider->setMinimum(0);
-    mSlider->setMaximum(mModes.size() - 1);
-    mSlider->setSingleStep(1);
-    if (output->currentMode()) {
-      mSlider->setValue(mModes.indexOf(output->currentMode()->size()));
-    } else if (output->preferredMode()) {
-      mSlider->setValue(mModes.indexOf(output->preferredMode()->size()));
+        layout->addWidget(mComboBox, 0, 0, 1, 1);
+        connect(mComboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                this, &ResolutionSlider::slotValueChanged);
     } else {
-      mSlider->setValue(mSlider->maximum());
+        mCurrentLabel = new QLabel(this);
+        mCurrentLabel->setAlignment(Qt::AlignCenter);
+        layout->addWidget(mCurrentLabel, 1, 0, 1, 3);
+
+        if (mModes.count() == 0) {
+            mCurrentLabel->setText(i18n("No available resolutions"));
+        } else if (mModes.count() == 1) {
+            mCurrentLabel->setText(Utils::sizeToString(mModes.first()));
+        } else {
+            mSlider = new QSlider(Qt::Horizontal, this);
+            mSlider->setTickInterval(1);
+            mSlider->setTickPosition(QSlider::TicksBelow);
+            mSlider->setSingleStep(1);
+            mSlider->setPageStep(1);
+            mSlider->setMinimum(0);
+            mSlider->setMaximum(mModes.size() - 1);
+            mSlider->setSingleStep(1);
+            if (output->currentMode()) {
+                mSlider->setValue(mModes.indexOf(output->currentMode()->size()));
+            } else if (output->preferredMode()) {
+                mSlider->setValue(mModes.indexOf(output->preferredMode()->size()));
+            } else {
+                mSlider->setValue(mSlider->maximum());
+            }
+            layout->addWidget(mSlider, 0, 1);
+            connect(mSlider, &QSlider::valueChanged,
+                    this, &ResolutionSlider::slotValueChanged);
+
+            mSmallestLabel = new QLabel(this);
+            mSmallestLabel->setText(Utils::sizeToString(mModes.first()));
+            layout->addWidget(mSmallestLabel, 0, 0);
+            mBiggestLabel = new QLabel(this);
+            mBiggestLabel->setText(Utils::sizeToString(mModes.last()));
+            layout->addWidget(mBiggestLabel, 0, 2);
+
+            mCurrentLabel->setText(Utils::sizeToString(mModes.at(mSlider->value())));
+        }
     }
-    slotOutputModeChanged();
 }
 
 ResolutionSlider::~ResolutionSlider()
@@ -116,7 +129,12 @@ QSize ResolutionSlider::currentResolution() const
         return mModes.first();
     }
 
-    return mModes.at(mSlider->value());
+    if (mSlider) {
+        return mModes.at(mSlider->value());
+    } else {
+        const int i = mComboBox->currentIndex();
+        return i > -1 ? mModes.at(i) : QSize();
+    }
 }
 
 void ResolutionSlider::slotOutputModeChanged()
@@ -125,15 +143,23 @@ void ResolutionSlider::slotOutputModeChanged()
         return;
     }
 
-    mSlider->blockSignals(true);
-    mSlider->setValue(mModes.indexOf(mOutput->currentMode()->size()));
-    mSlider->blockSignals(false);
+    if (mSlider) {
+        mSlider->blockSignals(true);
+        mSlider->setValue(mModes.indexOf(mOutput->currentMode()->size()));
+        mSlider->blockSignals(false);
+    } else {
+        mComboBox->blockSignals(true);
+        mComboBox->setCurrentIndex(mModes.indexOf(mOutput->currentMode()->size()));
+        mComboBox->blockSignals(false);
+    }
 }
 
-void ResolutionSlider::slotSlideValueChanged(int value)
+void ResolutionSlider::slotValueChanged(int value)
 {
     const QSize &size = mModes.at(value);
-    mCurrentLabel->setText(Utils::sizeToString(size));
+    if (mCurrentLabel) {
+        mCurrentLabel->setText(Utils::sizeToString(size));
+    }
 
     Q_EMIT resolutionChanged(size);
 }

@@ -29,6 +29,7 @@
 
 class QSlider;
 class QLabel;
+class QComboBox;
 
 class ResolutionSlider : public QWidget
 {
@@ -44,7 +45,7 @@ class ResolutionSlider : public QWidget
     void resolutionChanged(const QSize &size);
 
   private Q_SLOTS:
-    void slotSlideValueChanged(int);
+    void slotValueChanged(int);
     void slotOutputModeChanged();
 
   private:
@@ -56,6 +57,7 @@ class ResolutionSlider : public QWidget
     QLabel *mBiggestLabel;
     QLabel *mCurrentLabel;
     QSlider *mSlider;
+    QComboBox *mComboBox;
 };
 
 #endif // RESOLUTIONSLIDER_H
