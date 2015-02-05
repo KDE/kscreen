@@ -73,6 +73,7 @@ Widget::Widget(QWidget *parent):
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
     splitter->setStretchFactor(1, 1);
+    widget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(widget);
     widget->setLayout(vbox);

@@ -60,6 +60,8 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
+
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 }
 
 void KCMKScreen::configReady(ConfigOperation* op)

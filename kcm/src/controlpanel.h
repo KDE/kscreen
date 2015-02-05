@@ -22,7 +22,7 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
 
-#include <QScrollArea>
+#include <QFrame>
 
 #include <kscreen/output.h>
 
@@ -35,7 +35,7 @@ class QCheckBox;
 class QSlider;
 class QComboBox;
 
-class ControlPanel : public QScrollArea
+class ControlPanel : public QFrame
 {
     Q_OBJECT
 

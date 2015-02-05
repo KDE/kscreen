@@ -28,18 +28,12 @@
 #include <kscreen/config.h>
 
 ControlPanel::ControlPanel(QWidget *parent)
-    : QScrollArea(parent)
+    : QFrame(parent)
     , mUnifiedOutputCfg(0)
 {
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    setWidgetResizable(true);
-
-    QWidget *widget = new QWidget(this);
-    mLayout = new QVBoxLayout(widget);
-    mLayout->setSizeConstraint(QLayout::QLayout::SetMinAndMaxSize);
-
-    setWidget(widget);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
+    mLayout = new QVBoxLayout(this);
 }
 
 ControlPanel::~ControlPanel()
@@ -58,7 +52,7 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     }
 
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-        OutputConfig *outputCfg = new OutputConfig(output, widget());
+        OutputConfig *outputCfg = new OutputConfig(output, this);
         outputCfg->hide();
         connect(outputCfg, &OutputConfig::changed,
                 this, &ControlPanel::changed);
@@ -94,7 +88,7 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         mUnifiedOutputCfg->deleteLater();
         mUnifiedOutputCfg = 0;
     } else {
-        mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, widget());
+        mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, this);
         mUnifiedOutputCfg->setOutput(output);
         mUnifiedOutputCfg->setVisible(true);
         mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
