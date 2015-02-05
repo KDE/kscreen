@@ -62,11 +62,11 @@ QMLOutput {
             if (output.rotation == KScreenOutput.None) {
                 return 0
             } else if (output.rotation == KScreenOutput.Left) {
-                return 270
+                return 90
             } else if (output.rotation == KScreenOutput.Inverted) {
                 return 180;
             } else {
-                return 90;
+                return 270;
             }
         }
 
