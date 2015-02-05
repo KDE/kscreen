@@ -134,7 +134,10 @@ void KCMKScreen::save()
     }
 
     /* Store the current config, apply settings */
-    new SetConfigOperation(config);
+    auto *op = new SetConfigOperation(config);
+    /* Block until the operation is completed, otherwise KCMShell will terminate
+     * before we get to execute the Operation */
+    op->exec();
 }
 
 void KCMKScreen::defaults()
