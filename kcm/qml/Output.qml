@@ -42,6 +42,10 @@ QMLOutput {
     opacity: output.connected ? 1.0 : 0.0;
 
 
+    Component.onCompleted: {
+        root.updateRootProperties();
+    }
+
     SystemPalette {
 
         id: palette;

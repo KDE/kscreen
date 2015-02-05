@@ -111,13 +111,14 @@ void OutputConfig::initUi()
     formLayout->addRow(i18n("Resolution:"), mResolution);
 
     mRotation = new QComboBox(this);
-    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &OutputConfig::slotRotationChanged);
-
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &OutputConfig::slotRotationChanged);
+    mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
+
     formLayout->addRow(i18n("Orientation:"), mRotation);
 
     formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
