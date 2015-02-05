@@ -60,6 +60,8 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
     setAboutData(about);
+
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 }
 
 void KCMKScreen::configReady(ConfigOperation* op)
@@ -134,7 +136,10 @@ void KCMKScreen::save()
     }
 
     /* Store the current config, apply settings */
-    new SetConfigOperation(config);
+    auto *op = new SetConfigOperation(config);
+    /* Block until the operation is completed, otherwise KCMShell will terminate
+     * before we get to execute the Operation */
+    op->exec();
 }
 
 void KCMKScreen::defaults()
