@@ -26,6 +26,7 @@ Name[tr]=Hızlı Ekran Yapılandırması
 Name[uk]=Швидке налаштовування дисплея
 Name[x-test]=xxQuick Display Configurationxx
 Name[zh_CN]=快捷显示管理
+Name[zh_TW]=快速顯示設定
 Comment=Quick configuration of a new display
 Comment[ca]=Configuració ràpida d'una nova pantalla
 Comment[cs]=Rychlé nastavení nového zobrazení
@@ -53,6 +54,7 @@ Comment[tr]=Yeni bir ekranın hızlı yapılandırması
 Comment[uk]=Швидке налаштовування нового дисплея
 Comment[x-test]=xxQuick configuration of a new displayxx
 Comment[zh_CN]=快捷配置新显示器
+Comment[zh_TW]=快速設定新的顯示
 
 Icon=preferences-desktop-display-randr
 Type=Service
