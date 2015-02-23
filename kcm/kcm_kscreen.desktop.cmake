@@ -10,6 +10,7 @@ X-KDE-Weight=40
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
 Name=Display Configuration
+Name[bs]=Konfiguracija ekrana
 Name[ca]=Configuració de la pantalla
 Name[cs]=Nastavení zobrazení
 Name[de]=Anzeige einrichten
@@ -34,6 +35,7 @@ Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
 Name[zh_CN]=显示配置
 Comment=Manage and configure monitors and displays
+Comment[bs]=Upravljanje i konfiguracija monitora i ekrana
 Comment[ca]=Gestiona i configura els monitors i pantalles
 Comment[cs]=Spravovat a nastavit monitory a zobrazení
 Comment[de]=Verwaltung und Einrichtung vom Monitoren und Anzeigen
