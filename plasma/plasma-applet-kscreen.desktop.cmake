@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Quick Display Configuration
+Name[bs]=Brza konfiguracija ekrana
 Name[ca]=Configuració ràpida de la pantalla
 Name[cs]=Rychlé nastavení zobrazení
 Name[de]=Schnelle Anzeige-Einrichtung
@@ -28,6 +29,7 @@ Name[x-test]=xxQuick Display Configurationxx
 Name[zh_CN]=快捷显示管理
 Name[zh_TW]=快速顯示設定
 Comment=Quick configuration of a new display
+Comment[bs]=Brza konfiguracija novog ekrana
 Comment[ca]=Configuració ràpida d'una nova pantalla
 Comment[cs]=Rychlé nastavení nového zobrazení
 Comment[de]=Schnelle Einrichtung einer neuen Anzeige
