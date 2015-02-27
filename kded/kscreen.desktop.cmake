@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KScreen 2
+Name[ast]=KScreen 2
 Name[bs]=KScreen 2
 Name[ca]=KScreen 2
 Name[cs]=KScreen 2
