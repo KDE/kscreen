@@ -542,12 +542,12 @@ void QMLOutput::moved()
  */
 void QMLOutput::updateRootProperties()
 {
-    const int transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * m_screen->outputScale();
-    const int transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * m_screen->outputScale();
+    const float transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * m_screen->outputScale();
+    const float transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * m_screen->outputScale();
 
-    const int transformedX = x() + (width() / 2) - (transformedWidth / 2);
-    const int transformedY = y() + (height() / 2) - (transformedHeight / 2);
+    const float transformedX = x() + (width() / 2.0) - (transformedWidth / 2.0);
+    const float transformedY = y() + (height() / 2.0) - (transformedHeight / 2.0);
 
-    setPosition(QPoint(transformedX, transformedY));
-    setSize(QSize(transformedWidth, transformedHeight));
+    setPosition(QPointF(transformedX, transformedY));
+    setSize(QSizeF(transformedWidth, transformedHeight));
 }
