@@ -77,12 +77,14 @@ void KCMKScreen::configReady(ConfigOperation* op)
         return;
     }
 
-    mKScreenWidget = new Widget(this);
-    mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
-    layout->addWidget(mKScreenWidget);
+    if (!mKScreenWidget) {
+        mKScreenWidget = new Widget(this);
+        layout->addWidget(mKScreenWidget);
+        connect(mKScreenWidget, SIGNAL(changed()),
+                this, SLOT(changed()));
+    }
 
-    connect(mKScreenWidget, SIGNAL(changed()),
-            this, SLOT(changed()));
+    mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
 }
 
 KCMKScreen::~KCMKScreen()
