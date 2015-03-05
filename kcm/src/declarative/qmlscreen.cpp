@@ -84,15 +84,8 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
             });
     connect(qmloutput, SIGNAL(clicked()),
             this, SLOT(qmlOutputClicked()));
-}
 
-void QMLScreen::loadOutputs()
-{
-    Q_FOREACH (const KScreen::OutputPtr &output, m_config->outputs()) {
-        addOutput(output);
-    }
-
-    updateOutputsPlacement();
+    qmloutput->updateRootProperties();
 }
 
 int QMLScreen::connectedOutputsCount() const
@@ -353,7 +346,17 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
     m_config = config;
     KScreen::ConfigMonitor::instance()->addConfig(m_config);
 
-    QTimer::singleShot(0, this, SLOT(loadOutputs()));
+    Q_FOREACH (const KScreen::OutputPtr &output, m_config->outputs()) {
+        addOutput(output);
+    }
+
+    updateOutputsPlacement();
+
+    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+        if (qmlOutput->output()->isConnected() && qmlOutput->output()->isEnabled()) {
+            qmlOutput->dockToNeighbours();
+        }
+    }
 }
 
 void QMLScreen::setEngine(QQmlEngine* engine)

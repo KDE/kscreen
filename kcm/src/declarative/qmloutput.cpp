@@ -25,6 +25,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <qquickitem.h>
+#include <QRect>
 
 const static int sMargin = 0;
 const static int sSnapArea = 20;
@@ -306,6 +307,39 @@ void QMLOutput::setIsCloneMode(bool isCloneMode)
 
     m_isCloneMode = isCloneMode;
     Q_EMIT isCloneModeChanged();
+}
+
+void QMLOutput::dockToNeighbours()
+{
+    Q_FOREACH (QMLOutput *otherQmlOutput, m_screen->outputs()) {
+        if (otherQmlOutput == this) {
+            continue;
+        }
+
+        if (!otherQmlOutput->output()->isConnected() || !otherQmlOutput->output()->isEnabled()) {
+            continue;
+        }
+
+        const QRect geom = m_output->geometry();
+        const QRect otherGeom = otherQmlOutput->output()->geometry();
+
+        if (geom.left() - 1 == otherGeom.right()) {
+            setLeftDockedTo(otherQmlOutput);
+            continue;
+        }
+        if (geom.right() + 1 == otherGeom.left()) {
+            setRightDockedTo(otherQmlOutput);
+            continue;
+        }
+        if (geom.top() - 1 == otherGeom.bottom()) {
+            setTopDockedTo(otherQmlOutput);
+            continue;
+        }
+        if (geom.bottom() + 1 == otherGeom.top()) {
+            setBottomDockedTo(otherQmlOutput);
+            continue;
+        }
+    }
 }
 
 KScreen::ModePtr QMLOutput::bestMode() const

@@ -155,6 +155,8 @@ class QMLOutput : public QQuickItem
     void setIsCloneMode(bool isCloneMode);
     bool isCloneMode() const;
 
+    void dockToNeighbours();
+
   public Q_SLOTS:
     void updateRootProperties();
 
