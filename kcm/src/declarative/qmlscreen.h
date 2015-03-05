@@ -91,8 +91,6 @@ class QMLScreen : public QQuickItem
     void focusedOutputChanged(QMLOutput *output);
 
   private Q_SLOTS:
-    void loadOutputs();
-
     void outputConnectedChanged();
     void outputEnabledChanged();
     void outputPrimaryChanged();
