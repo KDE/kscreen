@@ -83,7 +83,7 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
                 qmlOutputMoved(qmloutput);
             });
     connect(qmloutput, SIGNAL(clicked()),
-            this, SLOT(qmlOutputClicked()));
+            this, SLOT(setActiveOutput()));
 
     qmloutput->updateRootProperties();
 }
@@ -115,18 +115,17 @@ QList<QMLOutput*> QMLScreen::outputs() const
 }
 
 
-void QMLScreen::qmlOutputClicked()
+void QMLScreen::setActiveOutput(QMLOutput *output)
 {
-    QMLOutput *clickedOutput = qobject_cast<QMLOutput*>(sender());
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        if (qmlOutput->z() > clickedOutput->z()) {
+        if (qmlOutput->z() > output->z()) {
             qmlOutput->setZ(qmlOutput->z() - 1);
         }
     }
 
-    clickedOutput->setZ(m_outputMap.count());
-    clickedOutput->setFocus(true);
-    Q_EMIT focusedOutputChanged(clickedOutput);
+    output->setZ(m_outputMap.count());
+    output->setFocus(true);
+    Q_EMIT focusedOutputChanged(output);
 }
 
 QSize QMLScreen::maxScreenSize() const

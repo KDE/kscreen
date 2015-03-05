@@ -177,6 +177,16 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     }
 
     initPrimaryCombo();
+
+    // Select the primary (or only) output by default
+    QMLOutput *qmlOutput = mScreen->primaryOutput();
+    if (qmlOutput) {
+        mScreen->setActiveOutput(qmlOutput);
+    } else {
+        if (mScreen->outputs().count() > 0) {
+            mScreen->setActiveOutput(mScreen->outputs()[0]);
+        }
+    }
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const

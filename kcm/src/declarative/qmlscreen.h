@@ -23,8 +23,8 @@
 #include <QQuickItem>
 
 #include <kscreen/output.h>
+#include "qmloutput.h"
 
-class QMLOutput;
 class QQmlEngine;
 
 namespace KScreen {
@@ -81,6 +81,14 @@ class QMLScreen : public QQuickItem
     void updateOutputsPlacement();
     void setEngine(QQmlEngine* engine);
 
+    void setActiveOutput(QMLOutput *output);
+
+  public Q_SLOTS:
+    void setActiveOutput() {
+        setActiveOutput(qobject_cast<QMLOutput*>(sender()));
+    }
+
+
   Q_SIGNALS:
     void connectedOutputsCountChanged();
     void enabledOutputsCountChanged();
@@ -95,8 +103,6 @@ class QMLScreen : public QQuickItem
     void outputEnabledChanged();
     void outputPrimaryChanged();
     void outputPositionChanged();
-
-    void qmlOutputClicked();
 
     void viewSizeChanged();
 
