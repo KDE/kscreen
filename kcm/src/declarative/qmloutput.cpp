@@ -103,8 +103,6 @@ void QMLOutput::setLeftDockedTo(QMLOutput *output)
 
     m_leftDock = output;
     Q_EMIT leftDockedToChanged();
-
-    update();
 }
 
 QMLOutput *QMLOutput::leftDockedTo() const
@@ -125,8 +123,6 @@ void QMLOutput::setTopDockedTo(QMLOutput *output)
 
     m_topDock = output;
     Q_EMIT topDockedToChanged();
-
-    update();
 }
 
 QMLOutput *QMLOutput::topDockedTo() const
@@ -147,8 +143,6 @@ void QMLOutput::setRightDockedTo(QMLOutput *output)
 
     m_rightDock = output;
     Q_EMIT rightDockedToChanged();
-
-    update();
 }
 
 QMLOutput *QMLOutput::rightDockedTo() const
@@ -169,8 +163,6 @@ void QMLOutput::setBottomDockedTo(QMLOutput *output)
 
     m_bottomDock = output;
     Q_EMIT bottomDockedToChanged();
-
-    update();
 }
 
 QMLOutput *QMLOutput::bottomDockedTo() const
