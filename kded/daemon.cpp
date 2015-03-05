@@ -48,6 +48,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_changeCompressor(new QTimer())
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
+ , m_lidClosedTimer(new QTimer())
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -77,6 +78,7 @@ KScreenDaemon::~KScreenDaemon()
     delete m_changeCompressor;
     delete m_saveTimer;
     delete m_buttonTimer;
+    delete m_lidClosedTimer;
 
     Generator::destroy();
     Device::destroy();
@@ -104,6 +106,10 @@ void KScreenDaemon::init()
     m_changeCompressor->setSingleShot(true);
     connect(m_changeCompressor, &QTimer::timeout, this, &KScreenDaemon::applyConfig);
 
+    m_lidClosedTimer->setInterval(1000);
+    m_lidClosedTimer->setSingleShot(true);
+    connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
+
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend,
@@ -113,6 +119,11 @@ void KScreenDaemon::init()
                 // to query XRandR so that it will detect possible changes that happened
                 // while the computer was suspended, and will emit the change events.
                 new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
+            });
+    connect(Device::self(), &Device::aboutToSuspend,
+            [&]() {
+                qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for " << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
+                m_lidClosedTimer->stop();
             });
 
 
@@ -175,7 +186,7 @@ void KScreenDaemon::configChanged()
 void KScreenDaemon::saveCurrentConfig()
 {
     qCDebug(KSCREEN_KDED) << "Saving current config to file";
-    Serializer::saveConfig(m_monitoredConfig);
+    Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
 }
 
 void KScreenDaemon::displayButton()
@@ -209,19 +220,65 @@ void KScreenDaemon::applyGenericConfig()
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
-    Q_UNUSED(lidIsClosed);
-//     KDebug::Block genericConfig(" Lid closed");
-//     qDebug() << "Lid is closed:" << lidIsClosed;
-//     //If the laptop is closed, use ideal config WITHOUT saving it
-//     if (lidIsClosed) {
-//         setMonitorForChanges(false);
-//         KScreen::Config::setConfig(Generator::self()->idealConfig());
-//         return;
-//     }
-//
-//     //If the lid is open, restore config (or generate a new one if needed
-//     applyConfig();
+    // Ignore this when we don't have any external monitors, we can't turn off our
+    // only screen
+    if (m_monitoredConfig->connectedOutputs().count() == 1) {
+        return;
+    }
+
+    if (lidIsClosed) {
+        // Lid is closed, now we wait for couple seconds to find out whether it
+        // will trigger a suspend (see Device::aboutToSuspend), or whether we should
+        // turn off the screen
+        qCDebug(KSCREEN_KDED) << "Lid closed, waiting to see if the computer goes to sleep...";
+        m_lidClosedTimer->start();
+        return;
+    } else {
+        qCDebug(KSCREEN_KDED) << "Lid opened!";
+        // We should have a config with "_lidOpened" suffix lying around. If not,
+        // then the configuration has changed while the lid was closed and we just
+        // use applyConfig() and see what we can do ...
+
+        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
+        if (Serializer::configExists(openConfigId)) {
+            const KScreen::ConfigPtr openedConfig = Serializer::config(m_monitoredConfig, openConfigId);
+            Serializer::removeConfig(openConfigId);
+
+            doApplyConfig(openedConfig);
+        }
+    }
 }
+
+void KScreenDaemon::lidClosedTimeout()
+{
+    // Make sure nothing has changed in the past second... :-)
+    if (!Device::self()->isLidClosed()) {
+        return;
+    }
+
+    // If we are here, it means that closing the lid did not result in suspend
+    // action.
+    // FIXME: This could be simply because the suspend took longer than m_lidClosedTimer
+    // timeout. Ideally we need to be able to look into PowerDevil config to see
+    // what's the configured action for lid events, but there's no API to do that
+    // and I'm no parsing PowerDevil's configs...
+
+    qCDebug(KSCREEN_KDED) << "Lid closed without system going to suspend -> turning off the screen";
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        if (output->type() == KScreen::Output::Panel) {
+            if (output->isConnected() && output->isEnabled()) {
+                // Save the current config with opened lid, just so that we know
+                // how to restore it later
+                const QString configId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
+                Serializer::saveConfig(m_monitoredConfig, configId);
+                disableOutput(m_monitoredConfig, output);
+                doApplyConfig(m_monitoredConfig);
+                return;
+            }
+        }
+    }
+}
+
 
 void KScreenDaemon::outputConnectedChanged()
 {
@@ -270,5 +327,41 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
                    this, &KScreenDaemon::configChanged);
     }
 }
+
+void KScreenDaemon::disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output)
+{
+    const QRect geom = output->geometry();
+    qCDebug(KSCREEN_KDED) << "Laptop geometry:" << geom << output->pos() << (output->currentMode() ? output->currentMode()->size() : QSize());
+
+    // Move all outputs right from the @p output to left
+    for (KScreen::OutputPtr &otherOutput : config->outputs()) {
+        if (otherOutput == output || !otherOutput->isConnected() || !otherOutput->isEnabled()) {
+            continue;
+        }
+
+        QPoint otherPos = otherOutput->pos();
+        if (otherPos.x() >= geom.right() && otherPos.y() >= geom.top() && otherPos.y() <= geom.bottom()) {
+            otherPos.setX(otherPos.x() - geom.width());
+        }
+        qCDebug(KSCREEN_KDED) << "Moving" << otherOutput->name() << "from" << otherOutput->pos() << "to" << otherPos;
+        otherOutput->setPos(otherPos);
+    }
+
+    // Disable the output
+    output->setEnabled(false);
+}
+
+KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &config)
+{
+    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
+        if (output->type() == KScreen::Output::Panel) {
+            return output;
+        }
+    }
+
+    return KScreen::OutputPtr();
+}
+
+
 
 #include "daemon.moc"

@@ -57,6 +57,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void resetDisplaySwitch();
         void applyGenericConfig();
         void lidClosedChanged(bool lidIsClosed);
+        void lidClosedTimeout();
         void setMonitorForChanges(bool enabled);
         void outputConnectedChanged();
 
@@ -68,6 +69,8 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         virtual void doApplyConfig(const KScreen::ConfigPtr &config);
 
         void monitorConnectedChange();
+        static KScreen::OutputPtr findEmbeddedOutput(const KScreen::ConfigPtr &config);
+        void disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output);
 
         KScreen::ConfigPtr m_monitoredConfig;
         Generator::DisplaySwitchAction m_iteration;
@@ -75,6 +78,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_changeCompressor;
         QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
+        QTimer* m_lidClosedTimer;
 };
 
 #endif /*KSCREN_DAEMON_H*/

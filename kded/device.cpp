@@ -71,6 +71,8 @@ Device::Device(QObject* parent)
     if (m_suspendSession->isValid()) {
         connect(m_suspendSession, SIGNAL(resumingFromSuspend()),
                 this, SIGNAL(resumingFromSuspend()));
+        connect(m_suspendSession, SIGNAL(aboutToSuspend()),
+                this, SIGNAL(aboutToSuspend()));
     } else {
         qCWarning(KSCREEN_KDED) << "PowerDevil SuspendSession action not available!";
         qCDebug(KSCREEN_KDED) << m_suspendSession->lastError().message();

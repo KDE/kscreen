@@ -31,6 +31,15 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
+static QString configFileName(const QString &configId)
+{
+    const QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/");
+    if (!QDir().mkpath(dir)) {
+        return QString();
+    }
+    return dir + configId;
+}
+
 QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
 {
     KScreen::OutputList outputs = currentConfig->outputs();
@@ -65,13 +74,14 @@ bool Serializer::configExists(const QString& id)
     return QFile::exists(path);
 }
 
-KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString& id)
+KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString &id)
 {
     KScreen::ConfigPtr config = currentConfig->clone();
 
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + id);
-    if (!file.open(QIODevice::ReadOnly))
+    QFile file(configFileName(id));
+    if (!file.open(QIODevice::ReadOnly)) {
         return KScreen::ConfigPtr();
+    }
 
     KScreen::OutputList outputList = config->outputs();
     QJsonDocument parser;
@@ -96,7 +106,7 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
     return config;
 }
 
-bool Serializer::saveConfig(const KScreen::ConfigPtr &config)
+bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &configId)
 {
     const KScreen::OutputList outputs = config->outputs();
 
@@ -141,18 +151,22 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config)
         outputList.append(info);
     }
 
-    const QString directory = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/");
-    bool b = QDir().mkpath(directory);
-    Q_ASSERT(b);
-    QString filePath = directory + Serializer::configId(config);
-    QFile file(filePath);
-    b = file.open(QIODevice::WriteOnly);
-    Q_ASSERT(b);
+    QFile file(configFileName(configId));
+    if (!file.open(QIODevice::WriteOnly)) {
+        qCWarning(KSCREEN_KDED) << "Failed to open config file for writing! " << file.errorString();
+        return false;
+    }
     file.write(QJsonDocument::fromVariant(outputList).toJson());
-    qCDebug(KSCREEN_KDED) << "Config saved on: " << filePath;
+    qCDebug(KSCREEN_KDED) << "Config saved on: " << file.fileName();
 
     return true;
 }
+
+void Serializer::removeConfig(const QString &id)
+{
+    QFile::remove(configFileName(id));
+}
+
 
 KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
