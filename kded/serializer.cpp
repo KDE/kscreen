@@ -18,6 +18,7 @@
 
 #include "serializer.h"
 #include "debug.h"
+#include "generator.h"
 
 #include <QtCore/QStringList>
 #include <QtCore/QCryptographicHash>
@@ -182,6 +183,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
         qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo["refresh"].toFloat();
 
         KScreen::ModeList modes = output->modes();
+        KScreen::ModePtr matchingMode;
         Q_FOREACH(const KScreen::ModePtr &mode, modes) {
             if (mode->size() != size) {
                 continue;
@@ -191,12 +193,34 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
             }
 
             qCDebug(KSCREEN_KDED) << "\tFound: " << mode->id() << " " << mode->size() << "@" << mode->refreshRate();
-            output->setCurrentModeId(mode->id());
+            matchingMode = mode;
             break;
         }
+
+        if (!matchingMode) {
+            qCWarning(KSCREEN_KDED) << "\tFailed to find a matching mode - this means that our config is corrupted"
+                                       "or a different device with the same serial number has been connected (very unlikely)."
+                                       "Falling back to preferred modes.";
+            matchingMode = output->preferredMode();
+
+            if (!matchingMode) {
+                qCWarning(KSCREEN_KDED) << "\tFailed to get a preferred mode, falling back to biggest mode.";
+                matchingMode = Generator::biggestMode(modes);
+
+                if (!matchingMode) {
+                    qCWarning(KSCREEN_KDED) << "\tFailed to get biggest mode. Which means there are no modes. Turning off the screen.";
+                    output->setEnabled(false);
+                    return output;
+                }
+            }
+        }
+
+        output->setCurrentModeId(matchingMode->id());
         return output;
     }
 
+    qCWarning(KSCREEN_KDED) << "\tFailed to find a matching output in the current config - this means that our config is corrupted"
+                               "or a different device with the same serial number has been connected (very unlikely).";
     return KScreen::OutputPtr();
 }
 
