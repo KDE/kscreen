@@ -372,7 +372,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     generator->setForceLidClosed(false);
 
     //Clone all
-    ConfigPtr config = generator->displaySwitch(1);
+    ConfigPtr config = generator->displaySwitch(Generator::Clone);
     OutputPtr laptop = config->outputs().value(1);
     OutputPtr external = config->outputs().value(2);
     QCOMPARE(laptop->currentModeId(), QLatin1String("2"));
@@ -385,7 +385,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->pos(), QPoint(0, 0));
 
     //Extend to left
-    config = generator->displaySwitch(2);
+    config = generator->displaySwitch(Generator::ExtendToLeft);
     laptop = config->outputs().value(1);
     external = config->outputs().value(2);
     QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
@@ -398,7 +398,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->pos(), QPoint(0, 0));
 
     //Disable embedded,. enable external
-    config = generator->displaySwitch(3);
+    config = generator->displaySwitch(Generator::TurnOffEmbedded);
     laptop = config->outputs().value(1);
     external = config->outputs().value(2);;
     QCOMPARE(laptop->isEnabled(), false);
@@ -408,7 +408,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->pos(), QPoint(0, 0));
 
     //Enable embedded, disable external
-    config = generator->displaySwitch(4);
+    config = generator->displaySwitch(Generator::TurnOffExternal);
     laptop = config->outputs().value(1);
     external = config->outputs().value(2);;
     QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
@@ -418,7 +418,7 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->isEnabled(), false);
 
     //Extend to right
-    config = generator->displaySwitch(5);
+    config = generator->displaySwitch(Generator::ExtendToRight);
     laptop = config->outputs().value(1);
     external = config->outputs().value(2);
     QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
@@ -438,7 +438,7 @@ void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
     Generator *generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
     qDebug() << "MEH MOH";
-    ConfigPtr config = generator->displaySwitch(1);
+    ConfigPtr config = generator->displaySwitch(Generator::Clone);
     OutputPtr laptop = config->outputs().value(1);
     OutputPtr external = config->outputs().value(2);
 
