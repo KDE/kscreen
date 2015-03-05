@@ -11,7 +11,11 @@ find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(Qt5 REQUIRED COMPONENTS QuickWidgets X11Extras Test)
-find_package(KF5 REQUIRED COMPONENTS Screen DBusAddons ConfigWidgets I18n XmlGui GlobalAccel)
+find_package(KF5 REQUIRED COMPONENTS DBusAddons ConfigWidgets I18n XmlGui GlobalAccel)
+
+set(MIN_LIBKSCREEN_VERSION "5.2.91")
+find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
+
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)

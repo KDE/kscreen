@@ -34,6 +34,7 @@
 #include <KGlobalAccel>
 
 #include <kscreen/config.h>
+#include <kscreen/output.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/setconfigoperation.h>
@@ -163,7 +164,7 @@ void KScreenDaemon::applyKnownConfig()
     qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
 
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
-    if (!KScreen::Config::canBeApplied(config)) {
+    if (!KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
         return applyIdealConfig();
     }
 
@@ -186,7 +187,15 @@ void KScreenDaemon::configChanged()
 void KScreenDaemon::saveCurrentConfig()
 {
     qCDebug(KSCREEN_KDED) << "Saving current config to file";
-    Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+
+    // We assume the config is valid, since it's what we got, but we are interested
+    // in the "at least one enabled screen" check
+    const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
+    if (valid) {
+        Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+    } else {
+        qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
+    }
 }
 
 void KScreenDaemon::displayButton()
