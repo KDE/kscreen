@@ -33,13 +33,22 @@ class Generator : public QObject
 {
     Q_OBJECT
     public:
+        enum DisplaySwitchAction {
+            None = 0,
+            Clone = 1,
+            ExtendToLeft = 2,
+            TurnOffEmbedded = 3,
+            TurnOffExternal = 4,
+            ExtendToRight = 5,
+        };
+
         static Generator* self();
         static void destroy();
 
         void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
 
         KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
-        KScreen::ConfigPtr displaySwitch(int iteration);
+        KScreen::ConfigPtr displaySwitch(DisplaySwitchAction iteration);
 
         void setForceLaptop(bool force);
         void setForceLidClosed(bool force);

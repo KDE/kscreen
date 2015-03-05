@@ -110,7 +110,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
     //If the ideal config can't be applied, try clonning
     if (!KScreen::Config::canBeApplied(config)) {
         if (isLaptop()) {
-            newConfig = displaySwitch(1);// Try to clone at our best
+            newConfig = displaySwitch(Generator::Clone); // Try to clone at our best
         } else {
             newConfig = config;
             KScreen::OutputList outputList = config->connectedOutputs();
@@ -130,7 +130,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
     return config;
 }
 
-KScreen::ConfigPtr Generator::displaySwitch(int iteration)
+KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 {
 //     KDebug::Block switchBlock("Display Switch");
     KScreen::ConfigPtr config = m_currentConfig;
@@ -149,7 +149,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
         return config;
     }
 
-    if (iteration == 1) {
+    if (action == Generator::Clone) {
         qCDebug(KSCREEN_KDED) << "Cloning";
         embeddedOutput(outputs)->setPrimary(true);
         cloneScreens(outputs);
@@ -163,7 +163,8 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
     external = outputs.value(outputs.keys().first());
 
 
-    if (iteration == 2) {
+    switch (action) {
+    case Generator::ExtendToLeft: {
         qCDebug(KSCREEN_KDED) << "Extend to left";
         external->setEnabled(true);
         external->setPos(QPoint(0,0));
@@ -176,8 +177,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
         embedded->setPrimary(true);
         return config;
     }
-
-    if (iteration == 3) {
+    case Generator::TurnOffEmbedded: {
         qCDebug(KSCREEN_KDED) << "Turn off embedded (laptop)";
         embedded->setEnabled(false);
         embedded->setPrimary(false);
@@ -187,8 +187,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
         external->setCurrentModeId(external->preferredModeId());
         return config;
     }
-
-    if (iteration == 4) {
+    case Generator::TurnOffExternal: {
         qCDebug(KSCREEN_KDED) << "Turn off external screen";
         embedded->setEnabled(true);
         embedded->setPrimary(true);
@@ -199,8 +198,7 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
         external->setPrimary(false);
         return config;
     }
-
-    if (iteration == 5) {
+    case Generator::ExtendToRight: {
         qCDebug(KSCREEN_KDED) << "Extend to the right";
         embedded->setPos(QPoint(0,0));
         embedded->setCurrentModeId(embedded->preferredModeId());
@@ -212,9 +210,13 @@ KScreen::ConfigPtr Generator::displaySwitch(int iteration)
         external->setEnabled(true);
         external->setCurrentModeId(external->preferredModeId());
         external->setPrimary(false);
-
         return config;
     }
+    default:
+        // None: just return config
+        // Clone: handled above
+        break;
+    } // switch
 
     return config;
 }
@@ -567,4 +569,3 @@ void Generator::setForceNotLaptop(bool force)
 {
     m_forceNotLaptop = force;
 }
-
