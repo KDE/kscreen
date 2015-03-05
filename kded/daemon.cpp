@@ -43,7 +43,7 @@ K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
  , m_monitoredConfig(0)
- , m_iteration(0)
+ , m_iteration(Generator::None)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer())
  , m_buttonTimer(new QTimer())
@@ -192,16 +192,16 @@ void KScreenDaemon::displayButton()
 void KScreenDaemon::resetDisplaySwitch()
 {
     qCDebug(KSCREEN_KDED) << "resetDisplaySwitch()";
-    m_iteration = 0;
+    m_iteration = Generator::None;
 }
 
 void KScreenDaemon::applyGenericConfig()
 {
-    if (m_iteration == 5) {
-        m_iteration = 0;
+    if (m_iteration == Generator::ExtendToRight) {
+        m_iteration = Generator::None;
     }
 
-    m_iteration++;
+    m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
     qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));

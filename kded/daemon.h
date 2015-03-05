@@ -25,6 +25,8 @@
 
 #include <kscreen/config.h>
 
+#include "generator.h"
+
 class QTimer;
 
 namespace KScreen
@@ -68,7 +70,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void monitorConnectedChange();
 
         KScreen::ConfigPtr m_monitoredConfig;
-        quint8 m_iteration;
+        Generator::DisplaySwitchAction m_iteration;
         bool m_monitoring;
         QTimer* m_changeCompressor;
         QTimer* m_buttonTimer;
