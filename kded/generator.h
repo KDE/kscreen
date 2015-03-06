@@ -65,16 +65,18 @@ class Generator : public QObject
         virtual ~Generator();
 
         KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
-        void cloneScreens(KScreen::OutputList& outputs);
 
-        void laptop(KScreen::OutputList& outputs);
+        void cloneScreens(KScreen::OutputList &connectedOutputs);
+        void laptop(KScreen::OutputList &connectedOutputs);
+        void singleOutput(KScreen::OutputList &connectedOutputs);
+        void extendToRight(KScreen::OutputList &connectedOutputs);
 
-        void singleOutput(KScreen::OutputList& outputs);
-        void extendToRight(KScreen::OutputList& outputs);
         KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
-        KScreen::OutputPtr biggestOutput(const KScreen::OutputList &outputs);
-        KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &outputs);
-        void disableAllDisconnectedOutputs(const KScreen::OutputList &outputs);
+        KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
+
+        KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
+        KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
+        void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
 
         bool isLaptop();
         bool isLidClosed();

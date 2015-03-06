@@ -147,7 +147,7 @@ void ResolutionSlider::slotOutputModeChanged()
         mSlider->blockSignals(true);
         mSlider->setValue(mModes.indexOf(mOutput->currentMode()->size()));
         mSlider->blockSignals(false);
-    } else {
+    } else if (mComboBox) {
         mComboBox->blockSignals(true);
         mComboBox->setCurrentIndex(mModes.indexOf(mOutput->currentMode()->size()));
         mComboBox->blockSignals(false);
