@@ -1,6 +1,5 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_BINARY_DIR}
-                    ${X11_Xrandr_INCLUDE_PATH}
 )
 
 macro(ADD_KDED_TEST testname)

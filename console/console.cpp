@@ -18,7 +18,6 @@
 
 #include "console.h"
 
-#include <QX11Info>
 #include <QtCore/QDebug>
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
