@@ -120,7 +120,7 @@ void KCMKScreen::save()
 
     if (!atLeastOneEnabledOutput) {
         if (KMessageBox::warningYesNo(this, i18n("Are you sure you want to disable all outputs?"),
-            i18n("Disable All Outputs"),
+            i18nc("@title:window", "Disable All Outputs"),
             KGuiItem(i18n("&Disable All Outputs"), QIcon::fromTheme(QLatin1String("dialog-ok-apply"))),
             KGuiItem(i18n("&Reconfigure"), QIcon::fromTheme(QLatin1String("dialog-cancel"))),
             QString(), KMessageBox::Dangerous) == KMessageBox::No)
@@ -133,7 +133,7 @@ void KCMKScreen::save()
         KMessageBox::information(this,
             i18n("Sorry, your configuration could not be applied.\n\n"
                  "Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."),
-                 i18n("Unsupported configuration"));
+                 i18nc("@title:window", "Unsupported Configuration"));
         return;
     }
 
