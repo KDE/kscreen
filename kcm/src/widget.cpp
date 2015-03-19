@@ -109,7 +109,7 @@ Widget::Widget(QWidget *parent):
             this, &Widget::changed);
     vbox->addWidget(m_controlPanel);
 
-    mUnifyButton = new QPushButton(i18n("Unify outputs"), this);
+    mUnifyButton = new QPushButton(i18n("Unify Outputs"), this);
     connect(mUnifyButton, &QPushButton::clicked,
             [&](bool clicked) {
                 Q_UNUSED(clicked);
@@ -224,7 +224,7 @@ void Widget::initPrimaryCombo()
 {
     mPrimaryCombo->blockSignals(true);
     mPrimaryCombo->clear();
-    mPrimaryCombo->addItem(i18n("No primary output"));
+    mPrimaryCombo->addItem(i18n("No Primary Output"));
 
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (!output->isConnected() || !output->isEnabled()) {
@@ -332,7 +332,7 @@ void Widget::slotUnifyOutputs()
         mPrevConfig.clear();
 
         mPrimaryCombo->setEnabled(true);
-        mUnifyButton->setText(i18n("Unify outputs"));
+        mUnifyButton->setText(i18n("Unify Outputs"));
     } else {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
@@ -372,7 +372,7 @@ void Widget::slotUnifyOutputs()
         mPrimaryCombo->setEnabled(false);
         m_controlPanel->setUnifiedOutput(base->outputPtr());
 
-        mUnifyButton->setText(i18n("Break unified outputs"));
+        mUnifyButton->setText(i18n("Break Unified Outputs"));
     }
 
     Q_EMIT changed();

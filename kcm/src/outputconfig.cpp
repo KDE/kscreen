@@ -112,9 +112,9 @@ void OutputConfig::initUi()
 
     mRotation = new QComboBox(this);
     mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° clockwise"), KScreen::Output::Left);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside down"), KScreen::Output::Inverted);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° counterclockwise"), KScreen::Output::Right);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° Clockwise"), KScreen::Output::Left);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
+    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° Counterclockwise"), KScreen::Output::Right);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
@@ -139,7 +139,7 @@ void OutputConfig::initUi()
 
     mRefreshRate = new QComboBox(advancedWidget);
     mRefreshRate->addItem(i18n("Auto"), -1);
-    formLayout->addRow(i18n("Refresh Rate:"), mRefreshRate);
+    formLayout->addRow(i18n("Refresh rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRefreshRateChanged);
