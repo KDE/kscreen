@@ -332,7 +332,7 @@ void Widget::slotUnifyOutputs()
         mPrevConfig.clear();
 
         mPrimaryCombo->setEnabled(true);
-        mUnifyButton->setText(i18n("Unify Outputs"));
+        mUnifyButton->setText(i18n("Unify outputs"));
     } else {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
