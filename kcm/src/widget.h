@@ -29,6 +29,7 @@ class ProfilesModel;
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
+class PrimaryOutputCombo;
 
 class QPushButton;
 class QComboBox;
@@ -60,9 +61,6 @@ class Widget : public QWidget
   private Q_SLOTS:
     void slotFocusedOutputChanged(QMLOutput *output);
 
-    void slotPrimaryChanged(int index);
-    void slotOutputPrimaryChanged();
-    void slotOutputConnectedChanged();
     void slotOutputEnabledChanged();
 
     void slotUnifyOutputs();
@@ -90,7 +88,7 @@ class Widget : public QWidget
     ControlPanel *mControlPanel;
 
     ProfilesModel *mProfilesModel;
-    QComboBox *mPrimaryCombo;
+    PrimaryOutputCombo *mPrimaryCombo;
     QComboBox *mProfilesCombo;
 
     QPushButton *mUnifyButton;

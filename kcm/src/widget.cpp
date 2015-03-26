@@ -22,6 +22,7 @@
 #ifdef WITH_PROFILES
 #include "profilesmodel.h"
 #endif
+#include "primaryoutputcombo.h"
 
 #include <QVBoxLayout>
 #include <QSplitter>
@@ -81,12 +82,7 @@ Widget::Widget(QWidget *parent):
     QHBoxLayout *hbox = new QHBoxLayout;
     vbox->addLayout(hbox);
 
-    mPrimaryCombo = new QComboBox(this);
-    mPrimaryCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    mPrimaryCombo->addItem(i18n("No primary screen"));
-    connect(mPrimaryCombo, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &Widget::slotPrimaryChanged);
-
+    mPrimaryCombo = new PrimaryOutputCombo(this);
     hbox->addWidget(new QLabel(i18n("Primary display:")));
     hbox->addWidget(mPrimaryCombo);
 
@@ -150,33 +146,22 @@ bool Widget::eventFilter(QObject* object, QEvent* event)
 void Widget::setConfig(const KScreen::ConfigPtr &config)
 {
     if (mConfig) {
-        Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-            disconnect(output.data(), &KScreen::Output::isConnectedChanged,
-                       this, &Widget::slotOutputConnectedChanged);
-            disconnect(output.data(), &KScreen::Output::isEnabledChanged,
-                       this, &Widget::slotOutputEnabledChanged);
-            disconnect(output.data(), &KScreen::Output::isPrimaryChanged,
-                       this, &Widget::slotOutputPrimaryChanged);
-            disconnect(output.data(), &KScreen::Output::posChanged,
-                       this, &Widget::changed);
+        for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+            output->disconnect(this);
         }
     }
 
     mConfig = config;
     mScreen->setConfig(mConfig);
     mControlPanel->setConfig(mConfig);
-    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-        connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &Widget::slotOutputConnectedChanged);
+    mPrimaryCombo->setConfig(mConfig);
+
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
-        connect(output.data(), &KScreen::Output::isPrimaryChanged,
-                this, &Widget::slotOutputPrimaryChanged);
         connect(output.data(), &KScreen::Output::posChanged,
                 this, &Widget::changed);
     }
-
-    initPrimaryCombo();
 
     // Select the primary (or only) output by default
     QMLOutput *qmlOutput = mScreen->primaryOutput();
@@ -220,68 +205,10 @@ void Widget::loadQml()
             this, SLOT(slotIdentifyButtonClicked()));
 }
 
-void Widget::initPrimaryCombo()
-{
-    mPrimaryCombo->blockSignals(true);
-    mPrimaryCombo->clear();
-    mPrimaryCombo->addItem(i18n("No Primary Output"));
-
-    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-        if (!output->isConnected() || !output->isEnabled()) {
-            continue;
-        }
-
-        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
-        if (output->isPrimary()) {
-            mPrimaryCombo->setCurrentIndex(mPrimaryCombo->count() - 1);
-        }
-    }
-    mPrimaryCombo->blockSignals(false);
-}
-
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
 {
     mControlPanel->activateOutput(output->outputPtr());
-}
-
-void Widget::slotOutputPrimaryChanged()
-{
-    const int id = qobject_cast<KScreen::Output*>(sender())->id();
-    const int index = mPrimaryCombo->findData(id);
-    if (index == -1) { // No primary
-        mPrimaryCombo->setCurrentIndex(0);
-        return;
-    }
-    mPrimaryCombo->blockSignals(true);
-    mPrimaryCombo->setCurrentIndex(index);
-    mPrimaryCombo->blockSignals(false);
-}
-
-void Widget::slotPrimaryChanged(int index)
-{
-    const int id = mPrimaryCombo->itemData(index).toInt();
-    for (KScreen::OutputPtr &output : mConfig->outputs()) {
-        output->blockSignals(true);
-        output->setPrimary(output->id() == id);
-        output->blockSignals(false);
-    }
-
-    Q_EMIT changed();
-}
-
-void Widget::slotOutputConnectedChanged()
-{
-    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
-    if (output->isConnected()) {
-        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
-        if (output->isPrimary()) {
-            mPrimaryCombo->setCurrentIndex(mPrimaryCombo->count() - 1);
-        }
-    } else {
-        const int index = mPrimaryCombo->findData(output->id());
-        mPrimaryCombo->removeItem(index);
-    }
 }
 
 void Widget::slotOutputEnabledChanged()
@@ -295,14 +222,6 @@ void Widget::slotOutputEnabledChanged()
         if (enabledOutputsCnt > 1) {
             break;
         }
-    }
-
-    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
-    if (output->isEnabled()) {
-        mPrimaryCombo->addItem(Utils::outputName(output), output->id());
-    } else {
-        const int index = mPrimaryCombo->findData(output->id());
-        mPrimaryCombo->removeItem(index);
     }
 
     mUnifyButton->setEnabled(enabledOutputsCnt > 1);
