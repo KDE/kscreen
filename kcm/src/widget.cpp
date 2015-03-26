@@ -39,6 +39,7 @@
 #include <kscreen/mode.h>
 #include <kscreen/config.h>
 #include <kscreen/getconfigoperation.h>
+#include <kscreen/configmonitor.h>
 
 #include <QtCore/QDir>
 #include <QStandardPaths>
@@ -146,12 +147,15 @@ bool Widget::eventFilter(QObject* object, QEvent* event)
 void Widget::setConfig(const KScreen::ConfigPtr &config)
 {
     if (mConfig) {
+        KScreen::ConfigMonitor::instance()->removeConfig(mConfig);
         for (const KScreen::OutputPtr &output : mConfig->outputs()) {
             output->disconnect(this);
         }
     }
 
     mConfig = config;
+    KScreen::ConfigMonitor::instance()->addConfig(mConfig);
+
     mScreen->setConfig(mConfig);
     mControlPanel->setConfig(mConfig);
     mPrimaryCombo->setConfig(mConfig);
@@ -172,6 +176,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
             mScreen->setActiveOutput(mScreen->outputs()[0]);
         }
     }
+
+    slotOutputEnabledChanged();
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const

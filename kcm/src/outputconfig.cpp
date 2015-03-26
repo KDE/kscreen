@@ -65,7 +65,9 @@ void OutputConfig::initUi()
 {
     connect(mOutput.data(), &KScreen::Output::isConnectedChanged,
             this, [=]() {
-                setVisible(mOutput->isConnected());
+                if (!mOutput->isConnected()) {
+                    setVisible(false);
+                }
             });
 
     connect(mOutput.data(), &KScreen::Output::isEnabledChanged,

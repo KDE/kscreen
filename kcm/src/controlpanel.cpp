@@ -44,21 +44,43 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
 {
     qDeleteAll(mOutputConfigs);
     mOutputConfigs.clear();
+    delete mUnifiedOutputCfg;
+    mUnifiedOutputCfg = 0;
 
-    mConfig = config;
-    if (mUnifiedOutputCfg) {
-        delete mUnifiedOutputCfg;
-        mUnifiedOutputCfg = 0;
+    if (mConfig) {
+        mConfig->disconnect(this);
     }
 
-    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-        OutputConfig *outputCfg = new OutputConfig(output, this);
-        outputCfg->hide();
-        connect(outputCfg, &OutputConfig::changed,
-                this, &ControlPanel::changed);
+    mConfig = config;
+    connect(mConfig.data(), &KScreen::Config::outputAdded,
+            this, &ControlPanel::addOutput);
+    connect(mConfig.data(), &KScreen::Config::outputRemoved,
+            this, &ControlPanel::removeOutput);
 
-        mLayout->addWidget(outputCfg);
-        mOutputConfigs << outputCfg;
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        addOutput(output);
+    }
+}
+
+void ControlPanel::addOutput(const KScreen::OutputPtr &output)
+{
+    OutputConfig *outputCfg = new OutputConfig(output, this);
+    outputCfg->setVisible(false);
+    connect(outputCfg, &OutputConfig::changed,
+            this, &ControlPanel::changed);
+
+    mLayout->addWidget(outputCfg);
+    mOutputConfigs << outputCfg;
+}
+
+void ControlPanel::removeOutput(int outputId)
+{
+    for (OutputConfig *outputCfg : mOutputConfigs) {
+        if (outputCfg->output()->id() == outputId) {
+            mOutputConfigs.removeOne(outputCfg);
+            delete outputCfg;
+            return;
+        }
     }
 }
 
@@ -68,6 +90,8 @@ void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
     if (mUnifiedOutputCfg) {
         return;
     }
+
+    qDebug() << "Activate output" << output->id();
 
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
         cfg->setVisible(cfg->output()->id() == output->id());

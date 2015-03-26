@@ -53,6 +53,10 @@ class ControlPanel : public QFrame
   Q_SIGNALS:
     void changed();
 
+private Q_SLOTS:
+    void addOutput(const KScreen::OutputPtr &output);
+    void removeOutput(int outputId);
+
   private:
     KScreen::ConfigPtr mConfig;
     QList<OutputConfig*> mOutputConfigs;

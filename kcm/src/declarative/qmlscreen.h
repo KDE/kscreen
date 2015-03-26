@@ -40,10 +40,6 @@ class QMLScreen : public QQuickItem
                READ maxScreenSize
                CONSTANT)
 
-    Q_PROPERTY(QMLOutput* primaryOutput
-               READ primaryOutput
-               NOTIFY primaryOutputChanged)
-
     Q_PROPERTY(int connectedOutputsCount
                READ connectedOutputsCount
                NOTIFY connectedOutputsCountChanged)
@@ -63,7 +59,6 @@ class QMLScreen : public QQuickItem
     explicit QMLScreen(QQuickItem *parent = 0);
     virtual ~QMLScreen();
 
-    Q_INVOKABLE void addOutput(const KScreen::OutputPtr &output);
 
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
@@ -92,16 +87,17 @@ class QMLScreen : public QQuickItem
   Q_SIGNALS:
     void connectedOutputsCountChanged();
     void enabledOutputsCountChanged();
-    void primaryOutputChanged();
 
     void outputScaleChanged();
 
     void focusedOutputChanged(QMLOutput *output);
 
   private Q_SLOTS:
+    void addOutput(const KScreen::OutputPtr &output);
+    void removeOutput(int outputId);
+
     void outputConnectedChanged();
     void outputEnabledChanged();
-    void outputPrimaryChanged();
     void outputPositionChanged();
 
     void viewSizeChanged();

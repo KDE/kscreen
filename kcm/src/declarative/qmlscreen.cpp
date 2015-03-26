@@ -23,7 +23,6 @@
 
 #include <kscreen/output.h>
 #include <kscreen/config.h>
-#include <kscreen/configmonitor.h>
 
 #include <QGraphicsScene>
 
@@ -50,6 +49,46 @@ QMLScreen::~QMLScreen()
 {
 }
 
+KScreen::ConfigPtr QMLScreen::config() const
+{
+    return m_config;
+}
+
+void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
+{
+    qDeleteAll(m_outputMap);
+    m_outputMap.clear();
+    m_bottommost = m_leftmost = m_rightmost = m_topmost = 0;
+    m_connectedOutputsCount = 0;
+    m_enabledOutputsCount = 0;
+
+    if (m_config) {
+        m_config->disconnect(this);
+    }
+
+    m_config = config;
+    connect(m_config.data(), &KScreen::Config::outputAdded,
+            this, [this](const KScreen::OutputPtr &output) {
+                addOutput(output);
+                updateOutputsPlacement();
+            });
+    connect(m_config.data(), &KScreen::Config::outputRemoved,
+            this, &QMLScreen::removeOutput);
+
+    for (const KScreen::OutputPtr &output : m_config->outputs()) {
+        addOutput(output);
+    }
+
+    updateOutputsPlacement();
+
+    for (QMLOutput *qmlOutput : m_outputMap) {
+        if (qmlOutput->output()->isConnected() && qmlOutput->output()->isEnabled()) {
+            qmlOutput->dockToNeighbours();
+        }
+    }
+}
+
+
 void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 {
     //QQuickItem *container = findChild<QQuickItem*>(QLatin1String("outputContainer"));
@@ -70,8 +109,6 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
             this, &QMLScreen::outputConnectedChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged,
             this, &QMLScreen::outputEnabledChanged);
-    connect(output.data(), &KScreen::Output::isPrimaryChanged,
-            this, &QMLScreen::outputPrimaryChanged);
     connect(output.data(), &KScreen::Output::posChanged,
             this, &QMLScreen::outputPositionChanged);
     connect(qmloutput, &QMLOutput::yChanged,
@@ -87,6 +124,20 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 
     qmloutput->updateRootProperties();
 }
+
+void QMLScreen::removeOutput(int outputId)
+{
+    for (const KScreen::OutputPtr &output : m_outputMap.keys()) {
+        if (output->id() == outputId) {
+            QMLOutput *qmlOutput = m_outputMap.take(output);
+            qmlOutput->setParentItem(Q_NULLPTR);
+            qmlOutput->setParent(Q_NULLPTR);
+            qmlOutput->deleteLater();
+            return;
+        }
+    }
+}
+
 
 int QMLScreen::connectedOutputsCount() const
 {
@@ -172,28 +223,6 @@ void QMLScreen::outputEnabledChanged()
         m_enabledOutputsCount = enabledCount;
         Q_EMIT enabledOutputsCountChanged();
     }
-}
-
-void QMLScreen::outputPrimaryChanged()
-{
-    const KScreen::OutputPtr newPrimary(qobject_cast<KScreen::Output*>(sender()), [](void *){});
-    if (!newPrimary->isPrimary()) {
-        return;
-    }
-
-    for (auto iter = m_outputMap.begin(); iter != m_outputMap.end(); ++iter) {
-        KScreen::OutputPtr output = iter.key();
-        if (output == newPrimary) {
-            continue;
-        }
-
-        output->setPrimary(false);
-        QMLOutput *qmlOutput = (*iter);
-        iter = m_outputMap.erase(iter);
-        iter = m_outputMap.insert(output, qmlOutput);
-    }
-
-    Q_EMIT primaryOutputChanged();
 }
 
 void QMLScreen::outputPositionChanged()
@@ -323,38 +352,6 @@ void QMLScreen::updateOutputsPlacement()
         qmlOutput->setPosition(QPointF(offset.x() + (qmlOutput->outputX() * outputScale()),
                           offset.y() + (qmlOutput->outputY() * outputScale())));
         qmlOutput->blockSignals(false);
-    }
-}
-
-KScreen::ConfigPtr QMLScreen::config() const
-{
-    return m_config;
-}
-
-void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
-{
-    qDeleteAll(m_outputMap);
-    m_outputMap.clear();
-    m_bottommost = m_leftmost = m_rightmost = m_topmost = 0;
-    m_connectedOutputsCount = 0;
-    m_enabledOutputsCount = 0;
-
-    if (m_config) {
-        KScreen::ConfigMonitor::instance()->removeConfig(m_config);
-    }
-    m_config = config;
-    KScreen::ConfigMonitor::instance()->addConfig(m_config);
-
-    Q_FOREACH (const KScreen::OutputPtr &output, m_config->outputs()) {
-        addOutput(output);
-    }
-
-    updateOutputsPlacement();
-
-    Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        if (qmlOutput->output()->isConnected() && qmlOutput->output()->isEnabled()) {
-            qmlOutput->dockToNeighbours();
-        }
     }
 }
 
