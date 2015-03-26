@@ -86,8 +86,8 @@ class Widget : public QWidget
     KScreen::ConfigPtr mConfig;
     KScreen::ConfigPtr mPrevConfig;
 
-    QQuickView *m_declarativeView;
-    ControlPanel *m_controlPanel;
+    QQuickView *mDeclarativeView;
+    ControlPanel *mControlPanel;
 
     ProfilesModel *mProfilesModel;
     QComboBox *mPrimaryCombo;

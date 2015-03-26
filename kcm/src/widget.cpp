@@ -63,10 +63,10 @@ Widget::Widget(QWidget *parent):
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
     layout->addWidget(splitter);
 
-    m_declarativeView = new QQuickView();
-    QWidget *container = QWidget::createWindowContainer(m_declarativeView, this);
-    m_declarativeView->setResizeMode(QQuickView::SizeRootObjectToView);
-    m_declarativeView->setMinimumHeight(280);
+    mDeclarativeView = new QQuickView();
+    QWidget *container = QWidget::createWindowContainer(mDeclarativeView, this);
+    mDeclarativeView->setResizeMode(QQuickView::SizeRootObjectToView);
+    mDeclarativeView->setMinimumHeight(280);
     container->setMinimumHeight(280);
     splitter->addWidget(container);
 
@@ -104,10 +104,10 @@ Widget::Widget(QWidget *parent):
     hbox->addWidget(mProfilesCombo);
 #endif
 
-    m_controlPanel = new ControlPanel(this);
-    connect(m_controlPanel, &ControlPanel::changed,
+    mControlPanel = new ControlPanel(this);
+    connect(mControlPanel, &ControlPanel::changed,
             this, &Widget::changed);
-    vbox->addWidget(m_controlPanel);
+    vbox->addWidget(mControlPanel);
 
     mUnifyButton = new QPushButton(i18n("Unify Outputs"), this);
     connect(mUnifyButton, &QPushButton::clicked,
@@ -164,7 +164,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
 
     mConfig = config;
     mScreen->setConfig(mConfig);
-    m_controlPanel->setConfig(mConfig);
+    mControlPanel->setConfig(mConfig);
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &Widget::slotOutputConnectedChanged);
@@ -205,14 +205,14 @@ void Widget::loadQml()
 
     //const QString file = QDir::currentPath() + "/main.qml";
     const QString file = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kcm_kscreen/qml/main.qml"));
-    m_declarativeView->setSource(QUrl::fromLocalFile(file));
+    mDeclarativeView->setSource(QUrl::fromLocalFile(file));
 
-    QQuickItem* rootObject = m_declarativeView->rootObject();
+    QQuickItem* rootObject = mDeclarativeView->rootObject();
     mScreen = rootObject->findChild<QMLScreen*>(QLatin1String("outputView"));
     if (!mScreen) {
         return;
     }
-    mScreen->setEngine(m_declarativeView->engine());
+    mScreen->setEngine(mDeclarativeView->engine());
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
@@ -242,7 +242,7 @@ void Widget::initPrimaryCombo()
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
 {
-    m_controlPanel->activateOutput(output->outputPtr());
+    mControlPanel->activateOutput(output->outputPtr());
 }
 
 void Widget::slotOutputPrimaryChanged()
@@ -370,7 +370,7 @@ void Widget::slotUnifyOutputs()
         mScreen->updateOutputsPlacement();
 
         mPrimaryCombo->setEnabled(false);
-        m_controlPanel->setUnifiedOutput(base->outputPtr());
+        mControlPanel->setUnifiedOutput(base->outputPtr());
 
         mUnifyButton->setText(i18n("Break Unified Outputs"));
     }
