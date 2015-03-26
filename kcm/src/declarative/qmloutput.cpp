@@ -200,6 +200,9 @@ int QMLOutput::currentOutputHeight() const
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
+            if (!mode) {
+                return 1000;
+            }
             m_output->setCurrentModeId(mode->id());
         } else {
             return 1000;
@@ -219,6 +222,9 @@ int QMLOutput::currentOutputWidth() const
     if (!mode) {
         if (m_output->isConnected()) {
             mode = bestMode();
+            if (!mode) {
+                return 1000;
+            }
             m_output->setCurrentModeId(mode->id());
         } else {
             return 1000;
