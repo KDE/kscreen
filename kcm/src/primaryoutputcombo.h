@@ -36,6 +36,9 @@ public:
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::OutputPtr primaryOutput() const;
 
+Q_SIGNALS:
+    void changed();
+
 private Q_SLOTS:
     void addOutput(const KScreen::OutputPtr &output);
     void removeOutput(int outputId);

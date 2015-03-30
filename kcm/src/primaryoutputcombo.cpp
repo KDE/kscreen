@@ -66,9 +66,12 @@ void PrimaryOutputCombo::setConfig(const KScreen::ConfigPtr &config)
     connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
             this, &PrimaryOutputCombo::setPrimaryOutput);
 
+    // Don't emit currentIndexChanged
+    const bool blocked = blockSignals(true);
     for (const KScreen::OutputPtr &output : config->outputs()) {
         addOutput(output);
     }
+    blockSignals(blocked);
 }
 
 void PrimaryOutputCombo::addOutput(const KScreen::OutputPtr &output)
@@ -172,10 +175,12 @@ void PrimaryOutputCombo::onCurrentIndexChanged(int currentIndex)
         return;
     }
 
-    if (currentIndex == 0) {
-        mConfig->setPrimaryOutput(KScreen::OutputPtr());
-    } else if (currentIndex > 0) {
-        mConfig->setPrimaryOutput(mConfig->output(itemData(currentIndex).toInt()));
+    const KScreen::OutputPtr newPrimary = currentIndex == 0 ? KScreen::OutputPtr() : mConfig->output(itemData(currentIndex).toInt());
+    if (newPrimary == mConfig->primaryOutput()) {
+        return;
     }
+
+    mConfig->setPrimaryOutput(newPrimary);
+    Q_EMIT changed();
 }
 

@@ -84,6 +84,8 @@ Widget::Widget(QWidget *parent):
     vbox->addLayout(hbox);
 
     mPrimaryCombo = new PrimaryOutputCombo(this);
+    connect(mPrimaryCombo, &PrimaryOutputCombo::changed,
+            this, &Widget::changed);
     hbox->addWidget(new QLabel(i18n("Primary display:")));
     hbox->addWidget(mPrimaryCombo);
 
