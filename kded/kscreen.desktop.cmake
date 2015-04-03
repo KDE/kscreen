@@ -38,6 +38,7 @@ Name[x-test]=xxKScreen 2xx
 Name[zh_CN]=KScreen 2
 Name[zh_TW]=KScreen 2
 Comment=Screen management
+Comment[ast]=Xestión de pantalla
 Comment[bg]=Управление на екрана
 Comment[bs]=Upravljanje ekranom
 Comment[ca]=Gestió de pantalla
