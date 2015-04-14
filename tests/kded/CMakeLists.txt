@@ -1,6 +1,5 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_BINARY_DIR}
-                    ${X11_Xrandr_INCLUDE_PATH}
 )
 
 macro(ADD_KDED_TEST testname)
@@ -18,6 +17,7 @@ macro(ADD_KDED_TEST testname)
     )
 
     add_executable(${testname} ${test_SRCS})
+    add_dependencies(${testname} kded_kscreen) # make sure the dbus interfaces are generated
     target_compile_definitions(${testname} PRIVATE "-DTEST_DATA=\"${CMAKE_CURRENT_SOURCE_DIR}/configs/\"")
     target_link_libraries(${testname} Qt5::Test Qt5::DBus Qt5::Gui KF5::Screen)
     add_test(kscreen-kded-${testname} ${testname})

@@ -22,7 +22,6 @@ add_library(kcm_kscreen MODULE kcm_kscreen.cpp ${kcm_kscreen_SRCS})
 target_link_libraries(kcm_kscreen
     Qt5::QuickWidgets
     Qt5::Widgets
-    Qt5::X11Extras
     KF5::Screen
     KF5::I18n
     KF5::ConfigWidgets
