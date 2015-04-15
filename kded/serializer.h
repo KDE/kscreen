@@ -26,17 +26,23 @@
 
 class Serializer
 {
-    public:
-        static QString configId(const KScreen::ConfigPtr &config);
-        static bool configExists(const KScreen::ConfigPtr &config);
-        static bool configExists(const QString& id);
-        static KScreen::ConfigPtr config(const KScreen::ConfigPtr &currentConfig, const QString& id);
-        static bool saveConfig(const KScreen::ConfigPtr &config, const QString &configId);
-        static void removeConfig(const QString &id);
+public:
+    static QString configId(const KScreen::ConfigPtr &config);
+    static bool configExists(const KScreen::ConfigPtr &config);
+    static bool configExists(const QString& id);
+    static KScreen::ConfigPtr config(const KScreen::ConfigPtr &currentConfig, const QString& id);
+    static bool saveConfig(const KScreen::ConfigPtr &config, const QString &configId);
+    static void removeConfig(const QString &id);
 
-        static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
-        static QString outputId(const KScreen::OutputPtr &output);
-        static QVariantMap metadata(const KScreen::OutputPtr &output);
+    static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
+    static QString outputId(const KScreen::OutputPtr &output);
+    static QVariantMap metadata(const KScreen::OutputPtr &output);
+
+    static void setConfigPath(const QString &path);
+private:
+    static QString configFileName(const QString &configId);
+
+    static QString sConfigPath;
 };
 
 #endif //KDED_SERIALIZER_H

@@ -24,6 +24,9 @@
 #include <QCryptographicHash>
 #include <QFile>
 #include <QStandardPaths>
+#include <QStandardPaths>
+#include <QRect>
+#include <QStringBuilder>
 #include <QJsonDocument>
 #include <QDir>
 #include <QLoggingCategory>
@@ -32,13 +35,22 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
-static QString configFileName(const QString &configId)
+QString Serializer::sConfigPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
+
+void Serializer::setConfigPath(const QString &path)
 {
-    const QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/");
-    if (!QDir().mkpath(dir)) {
+    sConfigPath = path;
+    if (!sConfigPath.endsWith(QLatin1Char('/'))) {
+        sConfigPath += QLatin1Char('/');
+    }
+}
+
+QString Serializer::configFileName(const QString &configId)
+{
+    if (!QDir().mkpath(sConfigPath)) {
         return QString();
     }
-    return dir + configId;
+    return sConfigPath % configId;
 }
 
 QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
@@ -69,10 +81,9 @@ bool Serializer::configExists(const KScreen::ConfigPtr &config)
     return Serializer::configExists(Serializer::configId(config));
 }
 
-bool Serializer::configExists(const QString& id)
+bool Serializer::configExists(const QString &id)
 {
-    QString path(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/") + id);
-    return QFile::exists(path);
+    return QFile::exists(sConfigPath % id);
 }
 
 KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString &id)
@@ -93,16 +104,29 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
         }
     }
 
+    QSize screenSize;
     Q_FOREACH(const QVariant &info, outputs) {
         KScreen::OutputPtr output = Serializer::findOutput(config, info.toMap());
         if (!output) {
             continue;
         }
 
+        if (output->isEnabled()) {
+            const QRect geom = output->geometry();
+            if (geom.x() + geom.width() > screenSize.width()) {
+                screenSize.setWidth(geom.x() + geom.width());
+            }
+            if (geom.y() + geom.height() > screenSize.height()) {
+                screenSize.setHeight(geom.y() + geom.height());
+            }
+        }
+
         outputList.remove(output->id());
         outputList.insert(output->id(), output);
     }
     config->setOutputs(outputList);
+    config->screen()->setCurrentSize(screenSize);
+
 
     return config;
 }
@@ -157,6 +181,7 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
         qCWarning(KSCREEN_KDED) << "Failed to open config file for writing! " << file.errorString();
         return false;
     }
+
     file.write(QJsonDocument::fromVariant(outputList).toJson());
     qCDebug(KSCREEN_KDED) << "Config saved on: " << file.fileName();
 

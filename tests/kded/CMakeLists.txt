@@ -8,6 +8,7 @@ macro(ADD_KDED_TEST testname)
         ${CMAKE_SOURCE_DIR}/kded/generator.cpp
         ${CMAKE_SOURCE_DIR}/kded/device.cpp
         ${CMAKE_SOURCE_DIR}/kded/debug.cpp
+        ${CMAKE_SOURCE_DIR}/kded/serializer.cpp
         #${CMAKE_SOURCE_DIR}/kded/daemon.cpp
     )
 
@@ -18,11 +19,12 @@ macro(ADD_KDED_TEST testname)
 
     add_executable(${testname} ${test_SRCS})
     add_dependencies(${testname} kded_kscreen) # make sure the dbus interfaces are generated
-    target_compile_definitions(${testname} PRIVATE "-DTEST_DATA=\"${CMAKE_CURRENT_SOURCE_DIR}/configs/\"")
+    target_compile_definitions(${testname} PRIVATE "-DTEST_DATA=\"${CMAKE_CURRENT_SOURCE_DIR}/\"")
     target_link_libraries(${testname} Qt5::Test Qt5::DBus Qt5::Gui KF5::Screen)
     add_test(kscreen-kded-${testname} ${testname})
     ecm_mark_as_test(${testname})
 endmacro()
 
 add_kded_test(testgenerator)
+add_kded_test(serializertest)
 #add_kded_test(testdaemon)
