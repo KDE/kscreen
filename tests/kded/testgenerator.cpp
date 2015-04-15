@@ -84,6 +84,7 @@ void testScreenConfig::cleanupTestCase()
 void testScreenConfig::singleOutput()
 {
     const ConfigPtr currentConfig = loadConfig("singleOutput.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -101,6 +102,7 @@ void testScreenConfig::singleOutput()
 void testScreenConfig::laptopLidOpenAndExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -124,6 +126,7 @@ void testScreenConfig::laptopLidOpenAndExternal()
 void testScreenConfig::laptopLidOpenAndTwoExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopLidOpenAndTwoExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -154,6 +157,7 @@ void testScreenConfig::laptopLidOpenAndTwoExternal()
 void testScreenConfig::laptopLidClosedAndExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -176,6 +180,7 @@ void testScreenConfig::laptopLidClosedAndExternal()
 void testScreenConfig::laptopLidClosedAndThreeExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopLidClosedAndThreeExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -210,6 +215,7 @@ void testScreenConfig::laptopLidClosedAndThreeExternal()
 void testScreenConfig::laptopDockedLidOpenAndExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -235,6 +241,7 @@ void testScreenConfig::laptopDockedLidOpenAndExternal()
 void testScreenConfig::laptopDockedLidClosedAndExternal()
 {
     const ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -258,6 +265,7 @@ void testScreenConfig::laptopDockedLidClosedAndExternal()
 void testScreenConfig::workstationWithoutScreens()
 {
     const ConfigPtr currentConfig = loadConfig("workstationWithoutScreens.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -272,6 +280,7 @@ void testScreenConfig::workstationWithoutScreens()
 void testScreenConfig::workstationWithNoConnectedScreens()
 {
     const ConfigPtr currentConfig = loadConfig("workstationWithNoConnectedScreens.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -290,6 +299,7 @@ void testScreenConfig::workstationWithNoConnectedScreens()
 void testScreenConfig::workstationTwoExternalSameSize()
 {
     const ConfigPtr currentConfig = loadConfig("workstaionTwoExternalSameSize.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -314,6 +324,7 @@ void testScreenConfig::workstationTwoExternalSameSize()
 void testScreenConfig::workstationFallbackMode()
 {
     const ConfigPtr currentConfig = loadConfig("workstationFallbackMode.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -339,6 +350,7 @@ void testScreenConfig::workstationTwoExternalDiferentSize()
 {
 
     const ConfigPtr currentConfig = loadConfig("workstationTwoExternalDiferentSize.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -362,6 +374,7 @@ void testScreenConfig::workstationTwoExternalDiferentSize()
 void testScreenConfig::switchDisplayTwoScreens()
 {
     const ConfigPtr currentConfig = loadConfig("switchDisplayTwoScreens.json");
+    QVERIFY(currentConfig);
 
     Generator* generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
@@ -433,6 +446,7 @@ void testScreenConfig::switchDisplayTwoScreens()
 void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
 {
     const ConfigPtr currentConfig = loadConfig("switchDisplayTwoScreensNoCommonMode.json");
+    QVERIFY(currentConfig);
 
     Generator *generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
