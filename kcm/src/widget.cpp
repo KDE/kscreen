@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013  Daniel Vrátil <dvratil@redhat.com>
+ * Copyright (C) 2013  Daniel Vr??til <dvratil@redhat.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
 #include "utils.h"
+#include "scalingconfig.h"
 
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
@@ -109,13 +110,22 @@ Widget::Widget(QWidget *parent):
     vbox->addWidget(mControlPanel);
 
     mUnifyButton = new QPushButton(i18n("Unify Outputs"), this);
-    connect(mUnifyButton, &QPushButton::clicked,
-            [&](bool clicked) {
-                Q_UNUSED(clicked);
+    connect(mUnifyButton, &QPushButton::released,
+            [this]{
                 slotUnifyOutputs();
             });
 
     vbox->addWidget(mUnifyButton);
+
+    auto setScaleButton = new QPushButton(i18n("Scale Display"), this);
+    connect(setScaleButton, &QPushButton::released,
+            [this] {
+                QPointer<ScalingConfig> dialog = new ScalingConfig(this);
+                dialog->exec();
+                delete dialog;
+            });
+    
+    vbox->addWidget(setScaleButton);
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,

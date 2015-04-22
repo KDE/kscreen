@@ -15,7 +15,11 @@ set(kcm_kscreen_SRCS
     resolutionslider.cpp
     utils.cpp
     widget.cpp
+    previewwidget.cpp
+    scalingconfig.cpp
 )
+
+ki18n_wrap_ui(kcm_kscreen_SRCS stylepreview.ui scaling.ui)
 
 add_library(kcm_kscreen MODULE kcm_kscreen.cpp ${kcm_kscreen_SRCS})
 
@@ -24,7 +28,9 @@ target_link_libraries(kcm_kscreen
     Qt5::Widgets
     KF5::Screen
     KF5::I18n
+    KF5::ConfigCore
     KF5::ConfigWidgets
+    KF5::WidgetsAddons
 )
 
 install(TARGETS kcm_kscreen DESTINATION ${PLUGIN_INSTALL_DIR} )
@@ -36,5 +42,7 @@ target_link_libraries(kcm_testapp
         Qt5::Widgets
         KF5::CoreAddons
         KF5::I18n
+        KF5::ConfigCore
         KF5::Screen
+        KF5::WidgetsAddons
 )
