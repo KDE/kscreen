@@ -50,6 +50,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
+ , m_osdWidget(new OsdWidget)
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -200,6 +201,8 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
+    m_osdWidget->show();
+    
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
     if (m_buttonTimer->isActive()) {
         qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
@@ -307,6 +310,9 @@ void KScreenDaemon::outputConnectedChanged()
             Q_EMIT unknownOutputConnected(output->name());
         }
     }
+
+    if (m_monitoredConfig->outputs().size() > 1)
+        m_osdWidget->show();
 }
 
 

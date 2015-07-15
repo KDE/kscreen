@@ -26,6 +26,7 @@
 #include <kscreen/config.h>
 
 #include "generator.h"
+#include "osdwidget.h"
 
 class QTimer;
 
@@ -79,6 +80,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
+        OsdWidget* m_osdWidget;
 };
 
 #endif /*KSCREN_DAEMON_H*/

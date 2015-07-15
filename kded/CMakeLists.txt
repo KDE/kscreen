@@ -8,6 +8,7 @@ set(kscreen_daemon_SRCS
     serializer.cpp
     generator.cpp
     device.cpp
+    osdwidget.cpp
 )
 
 qt5_add_dbus_interface(kscreen_daemon_SRCS
