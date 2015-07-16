@@ -32,6 +32,7 @@
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KGlobalAccel>
+#include <KToolInvocation>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -81,6 +82,8 @@ KScreenDaemon::~KScreenDaemon()
     delete m_saveTimer;
     delete m_buttonTimer;
     delete m_lidClosedTimer;
+    delete m_osdWidget;
+    m_osdWidget = nullptr;
 
     Generator::destroy();
     Device::destroy();
@@ -131,6 +134,13 @@ void KScreenDaemon::init()
 
     connect(Generator::self(), &Generator::ready,
             this, &KScreenDaemon::applyConfig);
+
+    connect(m_osdWidget, &OsdWidget::pcScreenOnly, 
+            this, &KScreenDaemon::slotPcScreenOnly);
+    connect(m_osdWidget, &OsdWidget::mirror, this, &KScreenDaemon::slotMirror);
+    connect(m_osdWidget, &OsdWidget::extend, this, &KScreenDaemon::slotExtend);
+    connect(m_osdWidget, &OsdWidget::secondScreenOnly, 
+            this, &KScreenDaemon::slotSecondScreenOnly);
 
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
@@ -201,7 +211,7 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
-    m_osdWidget->show();
+    m_osdWidget->showAll();
     
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
     if (m_buttonTimer->isActive()) {
@@ -311,8 +321,14 @@ void KScreenDaemon::outputConnectedChanged()
         }
     }
 
-    if (m_monitoredConfig->outputs().size() > 1)
-        m_osdWidget->show();
+    unsigned int outputConnected = 0;
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        if (output->isConnected())
+            outputConnected++;
+    }
+
+    if (outputConnected > 1)
+        m_osdWidget->showAll();
 }
 
 
@@ -366,6 +382,101 @@ void KScreenDaemon::disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr
     output->setEnabled(false);
 }
 
+void KScreenDaemon::slotPcScreenOnly() 
+{
+    SetConfigOpThread *thread = nullptr;
+    
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        if (output->isPrimary())
+            output->setEnabled(true);
+        else
+            output->setEnabled(false);
+    }
+
+    thread = new SetConfigOpThread(m_monitoredConfig);
+    thread->start();
+}
+
+void KScreenDaemon::slotMirror() 
+{
+    KScreen::OutputPtr primaryOutput;
+    QPoint primaryPos;
+    QList<int> outputlist;
+    SetConfigOpThread *thread = nullptr;
+
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        // FIXME: it can not setEnabled for output when disabled by pcScreenOnly 
+        // or secondScreenOnly, the same story for slotExtend
+        //output->setEnabled(true);
+        
+        // so just use xrandr, for example, xrandr --output LVDS1 --auto
+        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() << 
+            QString("--output") << output->name() << QString("--auto"));
+
+        if (output->isPrimary()) {
+            primaryOutput = output;
+            primaryPos = output->pos();
+        } else {
+            outputlist << output->id();
+            output->setPos(primaryPos);
+        }
+    }
+
+    primaryOutput->setClones(outputlist);
+
+    thread = new SetConfigOpThread(m_monitoredConfig);
+    thread->start();
+}
+
+void KScreenDaemon::slotExtend() 
+{
+    QPoint secondPos;
+    SetConfigOpThread *thread = nullptr;
+
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() <<
+            QString("--output") << output->name() << QString("--auto"));
+
+        if (output->isPrimary()) {
+            secondPos = output->pos();
+            secondPos.setX(output->pos().x() + output->size().width());
+        } else {
+            output->setPos(secondPos);
+        }
+    }
+
+    thread = new SetConfigOpThread(m_monitoredConfig);
+    thread->start();
+}
+
+void KScreenDaemon::slotSecondScreenOnly() 
+{
+    // FIXME: fail to set second screen only
+    SetConfigOpThread *thread = nullptr;
+    QString primaryName;
+    QString secondName;
+    
+    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+        if (output->isPrimary()) {
+            output->setEnabled(false);
+            primaryName = output->name();
+        } else {
+            output->setEnabled(true);
+            secondName = output->name();
+            break;
+        }
+    }
+
+    thread = new SetConfigOpThread(m_monitoredConfig);
+    thread->start();
+
+    // so just use xrandr command, for example, 
+    // xrandr --output LVDS1 --off --output VGA1 --auto
+    KToolInvocation::kdeinitExec(QString("xrandr"), 
+        QStringList() << QString("--output") << primaryName << QString("--off") 
+        << QString("--output") << secondName << QString("--auto"));
+}
+
 KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &config)
 {
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
@@ -377,6 +488,18 @@ KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &c
     return KScreen::OutputPtr();
 }
 
+SetConfigOpThread::SetConfigOpThread(KScreen::ConfigPtr config) 
+  : m_config(config) 
+{
+}
 
+void SetConfigOpThread::run() 
+{
+    if (!KScreen::Config::canBeApplied(m_config))
+        return;
+
+    auto *op = new KScreen::SetConfigOperation(m_config);
+    op->exec();
+}
 
 #include "daemon.moc"
