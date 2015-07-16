@@ -31,8 +31,16 @@ public:
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
+    void showAll();
+
+Q_SIGNALS:
+    void pcScreenOnly();
+    void mirror();
+    void extend();
+    void secondScreenOnly();
+
 private slots:
     void slotItemClicked(QListWidgetItem*);
 };
 
-#endif
+#endif /* __OSD_WIDGET_H__ */
