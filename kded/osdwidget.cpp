@@ -94,11 +94,20 @@ void OsdWidget::showAll()
     }
 }
 
+void OsdWidget::m_doApplyConfig()
+{
+    connect(new KScreen::SetConfigOperation(m_config), &KScreen::SetConfigOperation::finished,
+            [&]() {
+                qDebug() << "Config applied";
+            });
+}
+
 void OsdWidget::m_pcScreenOnly() 
 {
-    SetConfigOpThread *thread = nullptr;
-    
     for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output->isConnected())
+            continue;
+
         // if there is NO primary set, isPrimary is unreliable!
         if (output->isPrimary() || output->name().contains(lvdsPrefix))
             output->setEnabled(true);
@@ -106,66 +115,82 @@ void OsdWidget::m_pcScreenOnly()
             output->setEnabled(false);
     }
 
-    thread = new SetConfigOpThread(m_config);
-    thread->start();
+    m_doApplyConfig();
 }
 
 void OsdWidget::m_mirror() 
 {
-    KScreen::OutputPtr primaryOutput;
-    QPoint primaryPos(0, 0);
-    SetConfigOpThread *thread = nullptr;
+    QString primaryName = "";
+    QString secondName = "";
 
     // TODO: it needs to find the same resoluation, if there is none?
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            primaryOutput = output;
-            output->setPos(primaryPos);
-        } else {
-            output->setPos(primaryPos);
-        }
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
     }
 
-    thread = new SetConfigOpThread(m_config);
-    thread->start();
+    if (primaryName == "" || secondName == "")
+        return;
+
+    // xrandr --output LVDS1 --auto --output VGA1 --auto --same-as LVDS1
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
+        << QString("--output") << primaryName << QString("--auto")
+        << QString("--output") << secondName << QString("--auto")
+        << QString("--same-as") << primaryName);
 }
 
 void OsdWidget::m_extend() 
 {
-    QPoint secondPos(0, 0);
-    SetConfigOpThread *thread = nullptr;
+    QString primaryName = "";
+    QString secondName = "";
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setPos(secondPos);
-            secondPos.setX(output->pos().x() + output->size().width());
-        } else {
-            output->setPos(secondPos);
-        }
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
     }
 
-    if (secondPos.isNull())
+    if (primaryName == "" || secondName == "")
         return;
 
-    thread = new SetConfigOpThread(m_config);
-    thread->start();
+    // xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
+        << QString("--output") << primaryName << QString("--auto")
+        << QString("--output") << secondName << QString("--auto")
+        << QString("--right-of") << primaryName);
 }
 
 void OsdWidget::m_secondScreenOnly() 
 {
-    SetConfigOpThread *thread = nullptr;
-    
+    QString primaryName = "";
+    QString secondName = "";
+
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setPrimary(false);
-            output->setEnabled(false);
-        } else {
-            output->setEnabled(true);
-        }
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
     }
 
-    thread = new SetConfigOpThread(m_config);
-    thread->start();
+    if (primaryName == "" || secondName == "")
+        return;
+
+    // xrandr --output LVDS1 --off --output VGA1 --auto
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
+        << QString("--output") << primaryName << QString("--off")
+        << QString("--output") << secondName << QString("--auto"));
 }
 
 void OsdWidget::slotItemClicked(QListWidgetItem *item) 
@@ -181,18 +206,4 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
     } else if (item->text() == SECOND_SCREEN_ONLY_MODE) {
         m_secondScreenOnly();
     }
-}
-
-SetConfigOpThread::SetConfigOpThread(KScreen::ConfigPtr config) 
-  : m_config(config) 
-{
-}
-
-void SetConfigOpThread::run() 
-{
-    //if (!KScreen::Config::canBeApplied(m_config))
-    //    return;
-
-    auto *op = new KScreen::SetConfigOperation(m_config);
-    op->exec();
 }

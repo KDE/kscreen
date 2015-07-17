@@ -21,7 +21,6 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
-#include <QThread>
 
 #include <kscreen/config.h>
 
@@ -43,25 +42,12 @@ private slots:
     void slotItemClicked(QListWidgetItem*);
 
 private:
+    void m_doApplyConfig();
     void m_pcScreenOnly();
     void m_mirror();
     void m_extend();
     void m_secondScreenOnly();
 
-    KScreen::ConfigPtr m_config;
-};
-
-class SetConfigOpThread : public QThread
-{
-    Q_OBJECT
-
-public:
-    explicit SetConfigOpThread(KScreen::ConfigPtr);
-
-protected:
-    void run();
-
-private:
     KScreen::ConfigPtr m_config;
 };
 
