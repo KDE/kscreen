@@ -24,14 +24,21 @@
 #include <QListWidget>
 
 #include <KLocalizedString>
+#include <KToolInvocation>
+
+#include <kscreen/output.h>
+#include <kscreen/setconfigoperation.h>
 
 static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen only");
 static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
 static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
 
-OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
-  : QWidget(parent, f) 
+OsdWidget::OsdWidget(KScreen::ConfigPtr config, 
+                     QWidget *parent, 
+                     Qt::WindowFlags f) 
+  : QWidget(parent, f),
+    m_config(config)
 {
     setFixedSize(467, 280);
     QDesktopWidget *desktop = QApplication::desktop();
@@ -66,7 +73,99 @@ OsdWidget::~OsdWidget()
 
 void OsdWidget::showAll() 
 {
-    show();
+    unsigned int outputConnected = 0;
+    bool hasPrimary = false;
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            hasPrimary = true;
+
+        if (output->isConnected())
+            outputConnected++;
+    }
+
+    if (hasPrimary && outputConnected == 2) {
+        show();
+    }
+
+    if (outputConnected > 2) {
+        KToolInvocation::kdeinitExec(QString("kcmshell5"),
+                                     QStringList() << QString("kcm_kscreen"));
+    }
+}
+
+void OsdWidget::m_pcScreenOnly() 
+{
+    SetConfigOpThread *thread = nullptr;
+    
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        // if there is NO primary set, isPrimary is unreliable!
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            output->setEnabled(true);
+        else
+            output->setEnabled(false);
+    }
+
+    thread = new SetConfigOpThread(m_config);
+    thread->start();
+}
+
+void OsdWidget::m_mirror() 
+{
+    KScreen::OutputPtr primaryOutput;
+    QPoint primaryPos(0, 0);
+    SetConfigOpThread *thread = nullptr;
+
+    // TODO: it needs to find the same resoluation, if there is none?
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            primaryOutput = output;
+            output->setPos(primaryPos);
+        } else {
+            output->setPos(primaryPos);
+        }
+    }
+
+    thread = new SetConfigOpThread(m_config);
+    thread->start();
+}
+
+void OsdWidget::m_extend() 
+{
+    QPoint secondPos(0, 0);
+    SetConfigOpThread *thread = nullptr;
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setPos(secondPos);
+            secondPos.setX(output->pos().x() + output->size().width());
+        } else {
+            output->setPos(secondPos);
+        }
+    }
+
+    if (secondPos.isNull())
+        return;
+
+    thread = new SetConfigOpThread(m_config);
+    thread->start();
+}
+
+void OsdWidget::m_secondScreenOnly() 
+{
+    SetConfigOpThread *thread = nullptr;
+    
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setPrimary(false);
+            output->setEnabled(false);
+        } else {
+            output->setEnabled(true);
+        }
+    }
+
+    thread = new SetConfigOpThread(m_config);
+    thread->start();
 }
 
 void OsdWidget::slotItemClicked(QListWidgetItem *item) 
@@ -74,12 +173,26 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
     hide();
 
     if (item->text() == PC_SCREEN_ONLY_MODE) {
-        emit pcScreenOnly();
+        m_pcScreenOnly();
     } else if (item->text() == MIRROR_MODE) {
-        emit mirror();
+        m_mirror();
     } else if (item->text() == EXTEND_MODE) {
-        emit extend();
+        m_extend();
     } else if (item->text() == SECOND_SCREEN_ONLY_MODE) {
-        emit secondScreenOnly();
+        m_secondScreenOnly();
     }
+}
+
+SetConfigOpThread::SetConfigOpThread(KScreen::ConfigPtr config) 
+  : m_config(config) 
+{
+}
+
+void SetConfigOpThread::run() 
+{
+    //if (!KScreen::Config::canBeApplied(m_config))
+    //    return;
+
+    auto *op = new KScreen::SetConfigOperation(m_config);
+    op->exec();
 }

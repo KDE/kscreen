@@ -1,5 +1,6 @@
 /*************************************************************************************
 *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+*  Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>                        *
 *                                                                                   *
 *  This program is free software; you can redistribute it and/or                    *
 *  modify it under the terms of the GNU General Public License                      *
@@ -20,7 +21,6 @@
 #define KSCREN_DAEMON_H
 
 #include <QVariant>
-#include <QThread>
 
 #include <kdedmodule.h>
 
@@ -63,11 +63,6 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void setMonitorForChanges(bool enabled);
         void outputConnectedChanged();
 
-        void slotPcScreenOnly();
-        void slotMirror();
-        void slotExtend();
-        void slotSecondScreenOnly();
-
     Q_SIGNALS:
         void outputConnected(const QString &outputName);
         void unknownOutputConnected(const QString &outputName);
@@ -87,20 +82,6 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
         OsdWidget* m_osdWidget;
-};
-
-class SetConfigOpThread : public QThread 
-{
-    Q_OBJECT
-
-public:
-    explicit SetConfigOpThread(KScreen::ConfigPtr);
-
-protected:
-    void run();
-
-private:
-    KScreen::ConfigPtr m_config;
 };
 
 #endif /*KSCREN_DAEMON_H*/

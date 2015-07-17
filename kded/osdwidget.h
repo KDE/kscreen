@@ -21,26 +21,48 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
+#include <QThread>
+
+#include <kscreen/config.h>
+
+const QString lvdsPrefix = "LVDS";
 
 class OsdWidget : public QWidget 
 {
     Q_OBJECT
 
 public:
-    explicit OsdWidget(QWidget *parent = nullptr, 
+    explicit OsdWidget(KScreen::ConfigPtr config, 
+                       QWidget *parent = nullptr, 
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
     void showAll();
 
-Q_SIGNALS:
-    void pcScreenOnly();
-    void mirror();
-    void extend();
-    void secondScreenOnly();
-
 private slots:
     void slotItemClicked(QListWidgetItem*);
+
+private:
+    void m_pcScreenOnly();
+    void m_mirror();
+    void m_extend();
+    void m_secondScreenOnly();
+
+    KScreen::ConfigPtr m_config;
+};
+
+class SetConfigOpThread : public QThread
+{
+    Q_OBJECT
+
+public:
+    explicit SetConfigOpThread(KScreen::ConfigPtr);
+
+protected:
+    void run();
+
+private:
+    KScreen::ConfigPtr m_config;
 };
 
 #endif /* __OSD_WIDGET_H__ */

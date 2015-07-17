@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>                        *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -32,7 +33,6 @@
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KGlobalAccel>
-#include <KToolInvocation>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -41,8 +41,6 @@
 #include <kscreen/setconfigoperation.h>
 
 K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
-
-static const QString lvdsPrefix = "LVDS";
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
@@ -53,7 +51,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
- , m_osdWidget(new OsdWidget)
+ , m_osdWidget(nullptr)
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -137,15 +135,10 @@ void KScreenDaemon::init()
     connect(Generator::self(), &Generator::ready,
             this, &KScreenDaemon::applyConfig);
 
-    connect(m_osdWidget, &OsdWidget::pcScreenOnly, 
-            this, &KScreenDaemon::slotPcScreenOnly);
-    connect(m_osdWidget, &OsdWidget::mirror, this, &KScreenDaemon::slotMirror);
-    connect(m_osdWidget, &OsdWidget::extend, this, &KScreenDaemon::slotExtend);
-    connect(m_osdWidget, &OsdWidget::secondScreenOnly, 
-            this, &KScreenDaemon::slotSecondScreenOnly);
-
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
+
+    m_osdWidget = new OsdWidget(m_monitoredConfig);
 }
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
@@ -323,18 +316,7 @@ void KScreenDaemon::outputConnectedChanged()
         }
     }
 
-    unsigned int outputConnected = 0;
-    bool hasPrimary = false;
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            hasPrimary = true;
-
-        if (output->isConnected())
-            outputConnected++;
-    }
-
-    if (hasPrimary && outputConnected > 1)
-        m_osdWidget->showAll();
+    m_osdWidget->showAll();
 }
 
 
@@ -388,96 +370,6 @@ void KScreenDaemon::disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr
     output->setEnabled(false);
 }
 
-void KScreenDaemon::slotPcScreenOnly() 
-{
-    SetConfigOpThread *thread = nullptr;
-    
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-        // if there is NO primary set, isPrimary is unreliable!
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            output->setEnabled(true);
-        else
-            output->setEnabled(false);
-    }
-
-    thread = new SetConfigOpThread(m_monitoredConfig);
-    thread->start();
-}
-
-void KScreenDaemon::slotMirror() 
-{
-    KScreen::OutputPtr primaryOutput;
-    QPoint primaryPos(0, 0);
-    SetConfigOpThread *thread = nullptr;
-
-    // TODO: it needs to find the same resoluation, if there is none?
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-        // setEnabled does not work, so just use xrandr, for example, 
-        // xrandr --output LVDS1 --auto
-        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() << 
-            QString("--output") << output->name() << QString("--auto"));
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            primaryOutput = output;
-            primaryPos = output->pos();
-        } else {
-            output->setPos(primaryPos);
-        }
-    }
-
-    thread = new SetConfigOpThread(m_monitoredConfig);
-    thread->start();
-}
-
-void KScreenDaemon::slotExtend() 
-{
-    QPoint secondPos;
-    SetConfigOpThread *thread = nullptr;
-
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() <<
-            QString("--output") << output->name() << QString("--auto"));
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            secondPos = output->pos();
-            secondPos.setX(output->pos().x() + output->size().width());
-        } else {
-            output->setPos(secondPos);
-        }
-    }
-
-    thread = new SetConfigOpThread(m_monitoredConfig);
-    thread->start();
-}
-
-void KScreenDaemon::slotSecondScreenOnly() 
-{
-    SetConfigOpThread *thread = nullptr;
-    QString primaryName;
-    QString secondName;
-    
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setEnabled(false);
-            primaryName = output->name();
-        } else {
-            output->setEnabled(true);
-            secondName = output->name();
-            break;
-        }
-    }
-
-    // fail to secondScreenOnly
-    //thread = new SetConfigOpThread(m_monitoredConfig);
-    //thread->start();
-
-    // so just use xrandr command, for example, 
-    // xrandr --output LVDS1 --off --output VGA1 --auto
-    KToolInvocation::kdeinitExec(QString("xrandr"), 
-        QStringList() << QString("--output") << primaryName << QString("--off") 
-        << QString("--output") << secondName << QString("--auto"));
-}
-
 KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &config)
 {
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
@@ -487,20 +379,6 @@ KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &c
     }
 
     return KScreen::OutputPtr();
-}
-
-SetConfigOpThread::SetConfigOpThread(KScreen::ConfigPtr config) 
-  : m_config(config) 
-{
-}
-
-void SetConfigOpThread::run() 
-{
-    if (!KScreen::Config::canBeApplied(m_config))
-        return;
-
-    auto *op = new KScreen::SetConfigOperation(m_config);
-    op->exec();
 }
 
 #include "daemon.moc"
