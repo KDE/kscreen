@@ -22,7 +22,6 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QListWidget>
-#include <QMessageBox>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
@@ -98,9 +97,7 @@ void OsdWidget::showAll()
 void OsdWidget::m_doApplyConfig()
 {
     if (!KScreen::Config::canBeApplied(m_config)) {
-        QMessageBox msgBox;
-        msgBox.setText(i18n("Invalid screen config"));
-        msgBox.exec();
+        // Invalid screen config
     }
 
     connect(new KScreen::SetConfigOperation(m_config), &KScreen::SetConfigOperation::finished,
@@ -112,25 +109,19 @@ void OsdWidget::m_doApplyConfig()
 void OsdWidget::m_pcScreenOnly() 
 {
     for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output)
+            continue;
+
         if (!output->isConnected())
             continue;
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            output->setPrimary(true);
-        else
-            output->setPrimary(false);
-    }
-
-    m_doApplyConfig();
-
-    for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output->isConnected())
-            continue;
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
             output->setEnabled(true);
-        else
+            output->setPrimary(true);
+        } else {
             output->setEnabled(false);
+            output->setPrimary(false);
+        }
     }
 
     m_doApplyConfig();
@@ -141,6 +132,9 @@ void OsdWidget::m_mirror()
     QPoint primaryPos(0, 0);
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output)
+            continue;
+
         if (!output->isConnected())
             continue;
 
@@ -164,6 +158,9 @@ void OsdWidget::m_extend()
     QPoint secondPos(0, 0);
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output)
+            continue;
+
         if (!output->isConnected())
             continue;
 
@@ -183,29 +180,22 @@ void OsdWidget::m_extend()
     m_doApplyConfig();
 }
 
-// FIXME: how to set second screen only?
 void OsdWidget::m_secondScreenOnly() 
 {
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output->isConnected())
+        if (!output)
             continue;
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            output->setPrimary(false);
-        else
-            output->setPrimary(true);
-    }
-
-    m_doApplyConfig();
-
-    for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (!output->isConnected())
             continue;
 
         if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
             output->setEnabled(false);
+            output->setPrimary(false);
         } else {
             output->setEnabled(true);
+            output->setCurrentModeId(output->preferredModeId());
+            output->setPrimary(true);
         }
     }
 
