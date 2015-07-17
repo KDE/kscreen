@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QListWidget>
+#include <QMessageBox>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
@@ -96,6 +97,12 @@ void OsdWidget::showAll()
 
 void OsdWidget::m_doApplyConfig()
 {
+    if (!KScreen::Config::canBeApplied(m_config)) {
+        QMessageBox msgBox;
+        msgBox.setText(i18n("Invalid screen config"));
+        msgBox.exec();
+    }
+
     connect(new KScreen::SetConfigOperation(m_config), &KScreen::SetConfigOperation::finished,
             [&]() {
                 qDebug() << "Config applied";
@@ -108,7 +115,18 @@ void OsdWidget::m_pcScreenOnly()
         if (!output->isConnected())
             continue;
 
-        // if there is NO primary set, isPrimary is unreliable!
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            output->setPrimary(true);
+        else
+            output->setPrimary(false);
+    }
+
+    m_doApplyConfig();
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output->isConnected())
+            continue;
+
         if (output->isPrimary() || output->name().contains(lvdsPrefix))
             output->setEnabled(true);
         else
@@ -120,77 +138,78 @@ void OsdWidget::m_pcScreenOnly()
 
 void OsdWidget::m_mirror() 
 {
-    QString primaryName = "";
-    QString secondName = "";
+    QPoint primaryPos(0, 0);
 
-    // TODO: it needs to find the same resoluation, if there is none?
     for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (!output->isConnected())
             continue;
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            primaryName = output->name();
-        else
-            secondName = output->name();
+        if (!output->isEnabled()) {
+            output->setEnabled(true);
+            output->setCurrentModeId(output->preferredModeId());
+        }
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            primaryPos = output->pos();
+        } else {
+            output->setPos(primaryPos);
+        }
     }
 
-    if (primaryName == "" || secondName == "")
-        return;
-
-    // xrandr --output LVDS1 --auto --output VGA1 --auto --same-as LVDS1
-    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
-        << QString("--output") << primaryName << QString("--auto")
-        << QString("--output") << secondName << QString("--auto")
-        << QString("--same-as") << primaryName);
+    m_doApplyConfig();
 }
 
 void OsdWidget::m_extend() 
 {
-    QString primaryName = "";
-    QString secondName = "";
+    QPoint secondPos(0, 0);
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (!output->isConnected())
             continue;
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            primaryName = output->name();
-        else
-            secondName = output->name();
+        if (!output->isEnabled()) {
+            output->setEnabled(true);
+            output->setCurrentModeId(output->preferredModeId());
+        }
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setPos(secondPos);
+            secondPos.setX(output->pos().x() + output->size().width());
+        } else {
+            output->setPos(secondPos);
+        }
     }
 
-    if (primaryName == "" || secondName == "")
-        return;
-
-    // xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
-    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
-        << QString("--output") << primaryName << QString("--auto")
-        << QString("--output") << secondName << QString("--auto")
-        << QString("--right-of") << primaryName);
+    m_doApplyConfig();
 }
 
+// FIXME: how to set second screen only?
 void OsdWidget::m_secondScreenOnly() 
 {
-    QString primaryName = "";
-    QString secondName = "";
-
     for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (!output->isConnected())
             continue;
 
         if (output->isPrimary() || output->name().contains(lvdsPrefix))
-            primaryName = output->name();
+            output->setPrimary(false);
         else
-            secondName = output->name();
+            output->setPrimary(true);
     }
 
-    if (primaryName == "" || secondName == "")
-        return;
+    m_doApplyConfig();
 
-    // xrandr --output LVDS1 --off --output VGA1 --auto
-    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList()
-        << QString("--output") << primaryName << QString("--off")
-        << QString("--output") << secondName << QString("--auto"));
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setEnabled(false);
+        } else {
+            output->setEnabled(true);
+        }
+    }
+
+    m_doApplyConfig();
 }
 
 void OsdWidget::slotItemClicked(QListWidgetItem *item) 
