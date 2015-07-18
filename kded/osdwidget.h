@@ -23,6 +23,7 @@
 #include <QListWidgetItem>
 
 #include <kscreen/config.h>
+#include <kscreen/output.h>
 
 const QString lvdsPrefix = "LVDS";
 
@@ -44,6 +45,8 @@ private slots:
 private:
     void m_doApplyConfig();
     void m_pcScreenOnly();
+    QSize m_findSimilarResolution(KScreen::OutputPtr primary, 
+                                  KScreen::OutputPtr second);
     void m_mirror();
     void m_extend();
     void m_secondScreenOnly();

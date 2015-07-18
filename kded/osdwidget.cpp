@@ -26,7 +26,6 @@
 #include <KLocalizedString>
 #include <KToolInvocation>
 
-#include <kscreen/output.h>
 #include <kscreen/setconfigoperation.h>
 
 static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen only");
@@ -127,9 +126,35 @@ void OsdWidget::m_pcScreenOnly()
     m_doApplyConfig();
 }
 
+QSize OsdWidget::m_findSimilarResolution(KScreen::OutputPtr primary, 
+                                         KScreen::OutputPtr second) 
+{
+    QSize similarSize(0, 0);
+    
+    return similarSize;
+}
+
 void OsdWidget::m_mirror() 
 {
     QPoint primaryPos(0, 0);
+    KScreen::OutputPtr primary;
+    KScreen::OutputPtr second;
+    QSize similar(0, 0);
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (!output)
+            continue;
+
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primary = output;
+        else
+            second = output;
+    }
+
+    similar = m_findSimilarResolution(primary, second);
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (!output)
@@ -140,14 +165,17 @@ void OsdWidget::m_mirror()
 
         if (!output->isEnabled()) {
             output->setEnabled(true);
-            output->setCurrentModeId(output->preferredModeId());
+            if (similar.isNull())
+                output->setCurrentModeId(output->preferredModeId());
         }
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+        if (!similar.isNull())
+            output->setSize(similar);
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
             primaryPos = output->pos();
-        } else {
+        else
             output->setPos(primaryPos);
-        }
     }
 
     m_doApplyConfig();
