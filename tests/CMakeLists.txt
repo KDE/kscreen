@@ -17,4 +17,4 @@ kde4_add_unit_test(testgenerator ${testgenerator_SRCS})
 
 target_link_libraries(testgenerator ${QT_QTTEST_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} kscreen)
 
-add_test(testgenerator ${CMAKE_CURRENT_BINARY_DIR}/testgenerator)
+add_test(kscreen-testgenerator ${CMAKE_CURRENT_BINARY_DIR}/testgenerator)
