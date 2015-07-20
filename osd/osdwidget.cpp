@@ -104,6 +104,9 @@ bool OsdWidget::isAbleToShow()
         if (output.isNull())
             continue;
         
+        if (!output->isConnected())
+            continue;
+
         if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
             hasPrimary = true;
             primaryEnabled = output->isEnabled();
@@ -122,10 +125,14 @@ bool OsdWidget::isAbleToShow()
             m_modeList->setCurrentRow(0);
 
         if (primaryEnabled && secondEnabled) {
-            if (primaryPos == secondPos)
+            if (primaryPos == secondPos) {
                 m_modeList->setCurrentRow(1);
-            else
+            } else {
+                // extend mode
+                QDesktopWidget *desktop = QApplication::desktop();
+                move(desktop->width() / 5, (desktop->height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
+            }
         }
 
         if (!primaryEnabled && secondEnabled)
@@ -164,8 +171,6 @@ void OsdWidget::m_pcScreenOnly()
 {
     if (m_config.isNull())
         return;
-    
-    qDebug() << __PRETTY_FUNCTION__;
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
         if (output.isNull())
@@ -247,6 +252,9 @@ void OsdWidget::m_mirror()
     m_doApplyConfig();
 }
 
+#if 0
+// FIXME: when second screen only switch to extend, it fails to be extended, 
+// but mirror! it should be extended.
 void OsdWidget::m_extend() 
 {
     QPoint secondPos(0, 0);
@@ -278,9 +286,42 @@ void OsdWidget::m_extend()
 
     m_doApplyConfig();
 }
+#endif
+
+void OsdWidget::m_extend() 
+{
+    QString primaryName = "";
+    QString secondName = "";
+
+    if (m_config.isNull())
+        return;
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output.isNull())
+            continue;
+
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
+    }
+
+    if (primaryName == "" || secondName == "")
+        return;
+
+    // xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() 
+        << QString("--output") << primaryName << QString("--auto") 
+        << QString("--output") << secondName << QString("--auto") 
+        << QString("--right-of") << primaryName);
+}
 
 #if 0
-// FIXME: canBeAppled: There are no enabled screens, at least one required
+// FIXME: fail to set second screen only canBeAppled: There are no enabled 
+// screens, at least one required
 void OsdWidget::m_secondScreenOnly() 
 {
     if (m_config.isNull())
