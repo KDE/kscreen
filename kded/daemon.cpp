@@ -33,6 +33,7 @@
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KGlobalAccel>
+#include <KToolInvocation>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -51,7 +52,6 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
- , m_osdWidget(nullptr)
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -82,8 +82,6 @@ KScreenDaemon::~KScreenDaemon()
     delete m_saveTimer;
     delete m_buttonTimer;
     delete m_lidClosedTimer;
-    delete m_osdWidget;
-    m_osdWidget = nullptr;
 
     Generator::destroy();
     Device::destroy();
@@ -137,8 +135,6 @@ void KScreenDaemon::init()
 
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
-
-    m_osdWidget = new OsdWidget(m_monitoredConfig);
 }
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
@@ -206,7 +202,7 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
-    m_osdWidget->showAll();
+    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
     
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
     if (m_buttonTimer->isActive()) {
@@ -316,7 +312,7 @@ void KScreenDaemon::outputConnectedChanged()
         }
     }
 
-    m_osdWidget->showAll();
+    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
 }
 
 

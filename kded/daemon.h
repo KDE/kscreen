@@ -1,6 +1,5 @@
 /*************************************************************************************
 *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
-*  Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>                        *
 *                                                                                   *
 *  This program is free software; you can redistribute it and/or                    *
 *  modify it under the terms of the GNU General Public License                      *
@@ -27,7 +26,6 @@
 #include <kscreen/config.h>
 
 #include "generator.h"
-#include "osdwidget.h"
 
 class QTimer;
 
@@ -81,7 +79,6 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
-        OsdWidget* m_osdWidget;
 };
 
 #endif /*KSCREN_DAEMON_H*/

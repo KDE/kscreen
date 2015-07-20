@@ -16,42 +16,18 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
 *************************************************************************************/
 
-#ifndef __OSD_WIDGET_H__
-#define __OSD_WIDGET_H__
+#include "qtsingleapplication/QtSingleApplication"
+#include "osdwidget.h"
 
-#include <QWidget>
-#include <QListWidgetItem>
+int main(int argc, char* argv[]) 
+{                                                                        
+    QtSingleApplication app(argc, argv);
 
-#include <kscreen/config.h>
-#include <kscreen/output.h>
+    if (app.isRunning())
+        return 0;
 
-const QString lvdsPrefix = "LVDS";
+    OsdWidget *osdWidget = new OsdWidget;
+    osdWidget->show();
 
-class OsdWidget : public QWidget 
-{
-    Q_OBJECT
-
-public:
-    explicit OsdWidget(KScreen::ConfigPtr config, 
-                       QWidget *parent = nullptr, 
-                       Qt::WindowFlags f = Qt::ToolTip);
-    ~OsdWidget();
-
-    void showAll();
-
-private slots:
-    void slotItemClicked(QListWidgetItem*);
-
-private:
-    void m_doApplyConfig();
-    void m_pcScreenOnly();
-    QSize m_findSimilarResolution(KScreen::OutputPtr primary, 
-                                  KScreen::OutputPtr second);
-    void m_mirror();
-    void m_extend();
-    void m_secondScreenOnly();
-
-    KScreen::ConfigPtr m_config;
-};
-
-#endif /* __OSD_WIDGET_H__ */
+    return app.exec();
+}

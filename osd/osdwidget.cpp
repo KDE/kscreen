@@ -22,22 +22,24 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QListWidget>
+#include <QMessageBox>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
 
+#include <kscreen/getconfigoperation.h>
 #include <kscreen/setconfigoperation.h>
 
+static const QString lvdsPrefix = "LVDS";
 static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen only");
 static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
 static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
 
-OsdWidget::OsdWidget(KScreen::ConfigPtr config, 
-                     QWidget *parent, 
-                     Qt::WindowFlags f) 
+OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
   : QWidget(parent, f),
-    m_config(config)
+    m_modeList(nullptr),
+    m_configIsReady(false)
 {
     setFixedSize(467, 280);
     QDesktopWidget *desktop = QApplication::desktop();
@@ -45,70 +47,128 @@ OsdWidget::OsdWidget(KScreen::ConfigPtr config,
 
     QVBoxLayout *vbox = new QVBoxLayout;
 
-    QListWidget *modeList = new QListWidget;
-    modeList->setFlow(QListView::LeftToRight);
-    connect(modeList, SIGNAL(itemClicked(QListWidgetItem*)), 
+    m_modeList = new QListWidget;
+    m_modeList->setFlow(QListView::LeftToRight);
+    connect(m_modeList, SIGNAL(itemClicked(QListWidgetItem*)), 
             this, SLOT(slotItemClicked(QListWidgetItem*)));
-    vbox->addWidget(modeList);
+    vbox->addWidget(m_modeList);
 
     QListWidgetItem *item = new QListWidgetItem(PC_SCREEN_ONLY_MODE);
-    modeList->addItem(item);
+    m_modeList->addItem(item);
 
     item = new QListWidgetItem(MIRROR_MODE);
-    modeList->addItem(item);
+    m_modeList->addItem(item);
 
     item = new QListWidgetItem(EXTEND_MODE);
-    modeList->addItem(item);
+    m_modeList->addItem(item);
 
     item = new QListWidgetItem(SECOND_SCREEN_ONLY_MODE);
-    modeList->addItem(item);
+    m_modeList->addItem(item);
 
     setLayout(vbox);
+
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, &OsdWidget::slotConfigReady);
 }
 
 OsdWidget::~OsdWidget() 
 {
 }
 
-void OsdWidget::showAll() 
+void OsdWidget::slotConfigReady(KScreen::ConfigOperation* op)                   
+{                                                                               
+    if (op->hasError()) {
+        return;
+    }
+
+    m_config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    
+    isAbleToShow();
+}
+
+bool OsdWidget::isAbleToShow() 
 {
     unsigned int outputConnected = 0;
     bool hasPrimary = false;
+    bool primaryEnabled = true;
+    bool secondEnabled = true;
+    QPoint primaryPos(0, 0);
+    QPoint secondPos(0, 0);
+
+    if (m_config.isNull()) {
+        QCoreApplication::quit();
+        return false;
+    }
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+        if (output.isNull())
+            continue;
+        
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
             hasPrimary = true;
+            primaryEnabled = output->isEnabled();
+            primaryPos = output->pos();
+        } else {
+            secondEnabled = output->isEnabled();
+            secondPos = output->pos();
+        }
 
         if (output->isConnected())
             outputConnected++;
     }
 
     if (hasPrimary && outputConnected == 2) {
-        show();
+        if (primaryEnabled && !secondEnabled)
+            m_modeList->setCurrentRow(0);
+
+        if (primaryEnabled && secondEnabled) {
+            if (primaryPos == secondPos)
+                m_modeList->setCurrentRow(1);
+            else
+                m_modeList->setCurrentRow(2);
+        }
+
+        if (!primaryEnabled && secondEnabled)
+            m_modeList->setCurrentRow(3);
+
+        return true;
     }
 
     if (outputConnected > 2) {
         KToolInvocation::kdeinitExec(QString("kcmshell5"),
                                      QStringList() << QString("kcm_kscreen"));
     }
+
+    QCoreApplication::quit();
+
+    return false;
 }
 
 void OsdWidget::m_doApplyConfig()
 {
+    if (m_config.isNull())
+        return;
+    
     if (!KScreen::Config::canBeApplied(m_config)) {
         // Invalid screen config
+        QMessageBox msgBox;
+        msgBox.setText("Invalid screen config");
+        msgBox.exec();
     }
 
-    connect(new KScreen::SetConfigOperation(m_config), &KScreen::SetConfigOperation::finished,
-            [&]() {
-                qDebug() << "Config applied";
-            });
+    auto *op = new KScreen::SetConfigOperation(m_config);
+    op->exec();
 }
 
 void OsdWidget::m_pcScreenOnly() 
 {
+    if (m_config.isNull())
+        return;
+    
+    qDebug() << __PRETTY_FUNCTION__;
+
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output)
+        if (output.isNull())
             continue;
 
         if (!output->isConnected())
@@ -141,8 +201,11 @@ void OsdWidget::m_mirror()
     KScreen::OutputPtr second;
     QSize similar(0, 0);
 
+    if (m_config.isNull())
+        return;
+
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output)
+        if (output.isNull())
             continue;
 
         if (!output->isConnected())
@@ -157,7 +220,7 @@ void OsdWidget::m_mirror()
     similar = m_findSimilarResolution(primary, second);
 
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output)
+        if (output.isNull())
             continue;
 
         if (!output->isConnected())
@@ -172,10 +235,13 @@ void OsdWidget::m_mirror()
         if (!similar.isNull())
             output->setSize(similar);
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setPrimary(true);
             primaryPos = output->pos();
-        else
+        } else {
+            output->setPrimary(false);
             output->setPos(primaryPos);
+        }
     }
 
     m_doApplyConfig();
@@ -185,8 +251,11 @@ void OsdWidget::m_extend()
 {
     QPoint secondPos(0, 0);
 
+    if (m_config.isNull())
+        return;
+
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output)
+        if (output.isNull())
             continue;
 
         if (!output->isConnected())
@@ -198,9 +267,11 @@ void OsdWidget::m_extend()
         }
 
         if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
+            output->setPrimary(true);
             output->setPos(secondPos);
             secondPos.setX(output->pos().x() + output->size().width());
         } else {
+            output->setPrimary(false);
             output->setPos(secondPos);
         }
     }
@@ -208,10 +279,15 @@ void OsdWidget::m_extend()
     m_doApplyConfig();
 }
 
+#if 0
+// FIXME: canBeAppled: There are no enabled screens, at least one required
 void OsdWidget::m_secondScreenOnly() 
 {
+    if (m_config.isNull())
+        return;
+    
     for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (!output)
+        if (output.isNull())
             continue;
 
         if (!output->isConnected())
@@ -229,11 +305,40 @@ void OsdWidget::m_secondScreenOnly()
 
     m_doApplyConfig();
 }
+#endif
+
+void OsdWidget::m_secondScreenOnly() 
+{
+    QString primaryName = "";
+    QString secondName = "";
+
+    if (m_config.isNull())
+        return;
+
+    for (KScreen::OutputPtr &output : m_config->outputs()) {
+        if (output.isNull())
+            continue;
+
+        if (!output->isConnected())
+            continue;
+
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else 
+            secondName = output->name();
+    }
+
+    if (primaryName == "" || secondName == "")
+        return;
+
+    // xrandr --output LVDS1 --off --output VGA1 --auto
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() 
+        << QString("--output") << primaryName << QString("--off") 
+        << QString("--output") << secondName << QString("--auto"));
+}
 
 void OsdWidget::slotItemClicked(QListWidgetItem *item) 
 {
-    hide();
-
     if (item->text() == PC_SCREEN_ONLY_MODE) {
         m_pcScreenOnly();
     } else if (item->text() == MIRROR_MODE) {
@@ -243,4 +348,6 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
     } else if (item->text() == SECOND_SCREEN_ONLY_MODE) {
         m_secondScreenOnly();
     }
+
+    QCoreApplication::quit();
 }

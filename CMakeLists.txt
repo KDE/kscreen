@@ -10,7 +10,7 @@ add_definitions("-DKSCREEN_VERSION=\"${KSCREEN_VERSION}\"")
 find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-find_package(Qt5 REQUIRED COMPONENTS QuickWidgets Test)
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets Network QuickWidgets Test)
 find_package(KF5 REQUIRED COMPONENTS DBusAddons ConfigWidgets I18n XmlGui GlobalAccel Service)
 
 set(MIN_LIBKSCREEN_VERSION "5.2.91")
@@ -28,6 +28,7 @@ add_subdirectory(icons)
 add_subdirectory(kcm)
 #add_subdirectory(plasma)
 add_subdirectory(kded)
+add_subdirectory(osd)
 add_subdirectory(tests)
 add_subdirectory(console)
 
