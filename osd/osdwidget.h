@@ -27,6 +27,8 @@
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 
+class OutputWidget;
+
 class OsdWidget : public QWidget 
 {
     Q_OBJECT
@@ -41,6 +43,7 @@ public:
 private slots:
     void slotItemClicked(QListWidgetItem*);
     void slotConfigReady(KScreen::ConfigOperation*);
+    void slotShowMeChanged(int state);
 
 private:
     void m_doApplyConfig();
@@ -50,10 +53,24 @@ private:
     void m_mirror();
     void m_extend();
     void m_secondScreenOnly();
+    bool m_isShowMe();
 
     bool m_configIsReady;
     QListWidget *m_modeList;
     KScreen::ConfigPtr m_config;
+    OutputWidget *m_primaryOutputWidget;
+    OutputWidget *m_secondOutputWidget;
+};
+
+class OutputWidget : public QWidget 
+{
+    Q_OBJECT
+
+public:
+    explicit OutputWidget(QString id, 
+                          QWidget *parent = nullptr, 
+                          Qt::WindowFlags f = Qt::ToolTip);
+    ~OutputWidget();
 };
 
 #endif /* __OSD_WIDGET_H__ */

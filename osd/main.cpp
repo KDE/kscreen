@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         return 0;
 
     OsdWidget *osdWidget = new OsdWidget;
-    osdWidget->show();
+    osdWidget->isAbleToShow();
 
     return app.exec();
 }

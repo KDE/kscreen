@@ -23,6 +23,10 @@
 #include <QVBoxLayout>
 #include <QListWidget>
 #include <QMessageBox>
+#include <QLabel>
+#include <QCheckBox>
+#include <QDir>
+#include <QSettings>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
@@ -36,13 +40,14 @@ static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
 static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
 static const QSize modeIconSize(111, 112);
+static const QPoint outputMargin(20, 20);
 
 OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
   : QWidget(parent, f),
     m_modeList(nullptr),
     m_configIsReady(false)
 {
-    setFixedSize(520, 148);
+    setFixedSize(520, 176);
     QDesktopWidget *desktop = QApplication::desktop();
     move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
 
@@ -75,7 +80,16 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
 
+    QCheckBox *showMe = new QCheckBox(i18n("Still show me next time"));
+    if (m_isShowMe())
+        showMe->setCheckState(Qt::Checked);
+    connect(showMe, SIGNAL(stateChanged(int)), this, SLOT(slotShowMeChanged(int)));
+    vbox->addWidget(showMe);
+
     setLayout(vbox);
+
+    m_primaryOutputWidget = new OutputWidget("1");
+    m_secondOutputWidget = new OutputWidget("2");
 
     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
             this, &OsdWidget::slotConfigReady);
@@ -85,6 +99,45 @@ OsdWidget::~OsdWidget()
 {
     while (m_modeList->count())
         m_modeList->takeItem(0);
+
+    if (m_primaryOutputWidget) {
+        delete m_primaryOutputWidget;
+        m_primaryOutputWidget = nullptr;
+    }
+
+    if (m_secondOutputWidget) {
+        delete m_secondOutputWidget;
+        m_secondOutputWidget = nullptr;
+    }
+}
+
+void OsdWidget::slotShowMeChanged(int state) 
+{
+    QSettings settings("kscreen", "settings");
+    
+    if (state == Qt::Unchecked)
+        settings.setValue("osd/showme", false);
+    else if (state == Qt::Checked)
+        settings.setValue("osd/showme", true);
+}
+
+bool OsdWidget::m_isShowMe() 
+{
+    QSettings settings("kscreen", "settings");
+    
+    QString settingsDir = QDir::homePath() + "/.config/kscreen";
+    QDir dir(settingsDir);
+    if (!dir.exists()) {
+        dir.mkdir(settingsDir);
+        return true;
+    }
+
+    QString settingsPath = settingsDir + "/settings.conf";
+    QFile file(settingsPath);
+    if (!file.exists())
+        return true;
+    
+    return settings.value("osd/showme").toBool();
 }
 
 void OsdWidget::slotConfigReady(KScreen::ConfigOperation* op)                   
@@ -107,6 +160,12 @@ bool OsdWidget::isAbleToShow()
     QPoint primaryPos(0, 0);
     QPoint secondPos(0, 0);
     QSize primarySize(0, 0);
+    QSize secondSize(0, 0);
+
+    if (!m_isShowMe()) {
+        QCoreApplication::quit();
+        return false;
+    }
 
     if (m_config.isNull()) {
         QCoreApplication::quit();
@@ -128,6 +187,7 @@ bool OsdWidget::isAbleToShow()
         } else {
             secondEnabled = output->isEnabled();
             secondPos = output->pos();
+            secondSize = output->size();
         }
 
         if (output->isConnected())
@@ -135,23 +195,37 @@ bool OsdWidget::isAbleToShow()
     }
 
     if (hasPrimary && outputConnected == 2) {
-        if (primaryEnabled && !secondEnabled)
+        if (primaryEnabled && !secondEnabled) {
             m_modeList->setCurrentRow(0);
+            m_primaryOutputWidget->move(outputMargin);
+            m_primaryOutputWidget->show();
+        }
 
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
                 m_modeList->setCurrentRow(1);
+                // FIXME: how to draw different output id when mirror?
             } else {
                 // extend mode
                 QDesktopWidget *desktop = QApplication::desktop();
                 move((primarySize.width() - width()) / 2, 
                      (desktop->height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
+                m_primaryOutputWidget->move(outputMargin);
+                m_primaryOutputWidget->show();
+                m_secondOutputWidget->move(
+                    outputMargin.x() + primarySize.width(), outputMargin.y());
+                m_secondOutputWidget->show();
             }
         }
 
-        if (!primaryEnabled && secondEnabled)
+        if (!primaryEnabled && secondEnabled) {
             m_modeList->setCurrentRow(3);
+            m_secondOutputWidget->move(outputMargin);
+            m_secondOutputWidget->show();
+        }
+
+        show();
 
         return true;
     }
@@ -267,42 +341,6 @@ void OsdWidget::m_mirror()
     m_doApplyConfig();
 }
 
-#if 0
-// FIXME: when second screen only switch to extend, it fails to be extended, 
-// but mirror! it should be extended.
-void OsdWidget::m_extend() 
-{
-    QPoint secondPos(0, 0);
-
-    if (m_config.isNull())
-        return;
-
-    for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output.isNull())
-            continue;
-
-        if (!output->isConnected())
-            continue;
-
-        if (!output->isEnabled()) {
-            output->setEnabled(true);
-            output->setCurrentModeId(output->preferredModeId());
-        }
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setPrimary(true);
-            output->setPos(secondPos);
-            secondPos.setX(output->pos().x() + output->size().width());
-        } else {
-            output->setPrimary(false);
-            output->setPos(secondPos);
-        }
-    }
-
-    m_doApplyConfig();
-}
-#endif
-
 void OsdWidget::m_extend() 
 {
     QString primaryName = "";
@@ -333,35 +371,6 @@ void OsdWidget::m_extend()
         << QString("--output") << secondName << QString("--auto") 
         << QString("--right-of") << primaryName);
 }
-
-#if 0
-// FIXME: fail to set second screen only canBeAppled: There are no enabled 
-// screens, at least one required
-void OsdWidget::m_secondScreenOnly() 
-{
-    if (m_config.isNull())
-        return;
-    
-    for (KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output.isNull())
-            continue;
-
-        if (!output->isConnected())
-            continue;
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setEnabled(false);
-            output->setPrimary(false);
-        } else {
-            output->setEnabled(true);
-            output->setCurrentModeId(output->preferredModeId());
-            output->setPrimary(true);
-        }
-    }
-
-    m_doApplyConfig();
-}
-#endif
 
 void OsdWidget::m_secondScreenOnly() 
 {
@@ -406,4 +415,24 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
     }
 
     QCoreApplication::quit();
+}
+
+OutputWidget::OutputWidget(QString id, QWidget *parent, Qt::WindowFlags f)
+  : QWidget(parent, f) 
+{
+    setFixedSize(90, 90);
+
+    QVBoxLayout *vbox = new QVBoxLayout;
+    QFont font;
+    font.setPixelSize(90);
+    QLabel *label = new QLabel(id);
+    label->setFont(font);
+    label->setAlignment(Qt::AlignCenter);
+    vbox->addWidget(label);
+
+    setLayout(vbox);
+}
+
+OutputWidget::~OutputWidget() 
+{
 }
