@@ -204,7 +204,8 @@ bool OsdWidget::isAbleToShow()
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
                 m_modeList->setCurrentRow(1);
-                // FIXME: how to draw different output id when mirror?
+                // NOTE: it does not need to move && show primary and second 
+                // output widget in mirror mode
             } else {
                 // extend mode
                 QDesktopWidget *desktop = QApplication::desktop();
@@ -258,6 +259,9 @@ void OsdWidget::m_doApplyConfig()
 
 void OsdWidget::m_pcScreenOnly() 
 {
+    QString primaryName = "";
+    QString secondName = "";
+    
     if (m_config.isNull())
         return;
 
@@ -268,16 +272,19 @@ void OsdWidget::m_pcScreenOnly()
         if (!output->isConnected())
             continue;
 
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setEnabled(true);
-            output->setPrimary(true);
-        } else {
-            output->setEnabled(false);
-            output->setPrimary(false);
-        }
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
     }
 
-    m_doApplyConfig();
+    if (primaryName == "" || secondName == "")
+        return;
+
+    // xrandr --output LVDS1 --auto --output VGA1 --off
+    KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() 
+        << QString("--output") << primaryName << QString("--auto") 
+        << QString("--output") << secondName << QString("--off"));
 }
 
 QSize OsdWidget::m_findSimilarResolution(KScreen::OutputPtr primary, 
