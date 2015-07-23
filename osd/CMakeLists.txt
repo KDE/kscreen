@@ -1,10 +1,13 @@
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
+QT5_ADD_RESOURCES(qtsourceview_RC_SRCS images/image.qrc)
+
 add_executable(kscreen-osd 
     main.cpp 
     osdwidget.cpp
     qtsingleapplication/qtsingleapplication.cpp
-    qtsingleapplication/qtlocalpeer.cpp)
+    qtsingleapplication/qtlocalpeer.cpp
+    ${qtsourceview_RC_SRCS})
 
 target_link_libraries(kscreen-osd
             Qt5::Core

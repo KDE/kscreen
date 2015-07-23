@@ -35,13 +35,14 @@ static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen only");
 static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
 static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
+static const QSize modeIconSize(111, 112);
 
 OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
   : QWidget(parent, f),
     m_modeList(nullptr),
     m_configIsReady(false)
 {
-    setFixedSize(467, 280);
+    setFixedSize(520, 148);
     QDesktopWidget *desktop = QApplication::desktop();
     move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
 
@@ -49,20 +50,29 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
     m_modeList = new QListWidget;
     m_modeList->setFlow(QListView::LeftToRight);
+    m_modeList->setViewMode(QListView::IconMode);
+    m_modeList->setIconSize(QSize(90, 90));
+    m_modeList->setSpacing(6);
     connect(m_modeList, SIGNAL(itemClicked(QListWidgetItem*)), 
             this, SLOT(slotItemClicked(QListWidgetItem*)));
     vbox->addWidget(m_modeList);
 
-    QListWidgetItem *item = new QListWidgetItem(PC_SCREEN_ONLY_MODE);
+    QListWidgetItem *item = new QListWidgetItem(
+        QIcon(QPixmap(":/pc-screen-only.png")), PC_SCREEN_ONLY_MODE);
+    item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
 
-    item = new QListWidgetItem(MIRROR_MODE);
+    item = new QListWidgetItem(QIcon(QPixmap(":/mirror.png")), MIRROR_MODE);
+    item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
 
-    item = new QListWidgetItem(EXTEND_MODE);
+    item = new QListWidgetItem(QIcon(QPixmap(":/extend.png")), EXTEND_MODE);
+    item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
 
-    item = new QListWidgetItem(SECOND_SCREEN_ONLY_MODE);
+    item = new QListWidgetItem(
+        QIcon(QPixmap(":/second-screen-only.png")), SECOND_SCREEN_ONLY_MODE);
+    item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
 
     setLayout(vbox);
@@ -73,6 +83,8 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
 OsdWidget::~OsdWidget() 
 {
+    while (m_modeList->count())
+        m_modeList->takeItem(0);
 }
 
 void OsdWidget::slotConfigReady(KScreen::ConfigOperation* op)                   
@@ -94,6 +106,7 @@ bool OsdWidget::isAbleToShow()
     bool secondEnabled = true;
     QPoint primaryPos(0, 0);
     QPoint secondPos(0, 0);
+    QSize primarySize(0, 0);
 
     if (m_config.isNull()) {
         QCoreApplication::quit();
@@ -111,6 +124,7 @@ bool OsdWidget::isAbleToShow()
             hasPrimary = true;
             primaryEnabled = output->isEnabled();
             primaryPos = output->pos();
+            primarySize = output->size();
         } else {
             secondEnabled = output->isEnabled();
             secondPos = output->pos();
@@ -130,7 +144,8 @@ bool OsdWidget::isAbleToShow()
             } else {
                 // extend mode
                 QDesktopWidget *desktop = QApplication::desktop();
-                move(desktop->width() / 5, (desktop->height() - height()) / 2);
+                move((primarySize.width() - width()) / 2, 
+                     (desktop->height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
             }
         }

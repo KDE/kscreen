@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>pc-screen-only.png</file>
+    <file>mirror.png</file>
+    <file>extend.png</file>
+    <file>second-screen-only.png</file>
+  </qresource>
+</RCC>
