@@ -62,10 +62,12 @@ public:
         QStyleOptionViewItemV4 opt = option;
         initStyleOption(&opt, index);
 
+        opt.decorationPosition = QStyleOptionViewItem::Bottom;
+
         if (opt.state & QStyle::State_MouseOver)
             opt.icon = opt.icon.pixmap(opt.decorationSize, QIcon::Selected);
 
-        QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &opt, 
+        QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &opt,
                                            painter, 0);
     }
 };
