@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013  Daniel Vrátil <dvratil@redhat.com>
+ * Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +25,9 @@
 #endif
 #include "primaryoutputcombo.h"
 
+#include <QCheckBox>
+#include <QSettings>
+#include <QMessageBox>
 #include <QVBoxLayout>
 #include <QSplitter>
 #include <QLabel>
@@ -54,7 +58,8 @@ Widget::Widget(QWidget *parent):
     QWidget(parent),
     mScreen(0),
     mConfig(0),
-    mPrevConfig(0)
+    mPrevConfig(0),
+    mShowOsd(nullptr)
 {
     qRegisterMetaType<QQuickView*>();
 
@@ -117,6 +122,11 @@ Widget::Widget(QWidget *parent):
 
     vbox->addWidget(mUnifyButton);
 
+    mShowOsd = new QCheckBox(i18n("Automatically popup switch wizard when new monitor plugged in"));
+    getShowOsd();
+    connect(mShowOsd, &QCheckBox::clicked, this, &Widget::slotShowOsdChanged);
+    vbox->addWidget(mShowOsd);
+
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,
             this, &Widget::clearOutputIdentifiers);
@@ -127,6 +137,64 @@ Widget::Widget(QWidget *parent):
 Widget::~Widget()
 {
     clearOutputIdentifiers();
+}
+
+void Widget::slotShowOsdChanged() 
+{
+    QMessageBox msgBox(
+        QMessageBox::Question,
+        i18n("Hide osd when new monitor plugged in?"),
+        i18n("You have disabled automatically popping up of monitor switch wizard, it can be triggered by Multimedia hotkey 'XF86Display'. If you have no hotkey supported, consider to setup the hotkey or keep the option unchanged"),
+        QMessageBox::Cancel | QMessageBox::Ok);
+
+    msgBox.setDefaultButton(QMessageBox::Cancel);
+
+    int state = mShowOsd->checkState();
+    if (state == Qt::Unchecked) {
+        int ret = msgBox.exec();
+        if (ret == QMessageBox::Ok) {
+            mShowOsd->setChecked(false);
+            emit changed();
+        } else {
+            mShowOsd->setChecked(true);
+        }
+    } else if (state == Qt::Checked) {
+        emit changed();
+    }
+}
+
+void Widget::getShowOsd() 
+{
+    mShowOsd->setChecked(isShowOsd());
+}
+
+void Widget::setShowOsd() 
+{
+    QSettings settings("kscreen", "settings");
+    int state = mShowOsd->checkState();
+    if (state == Qt::Unchecked)
+        settings.setValue("osd/showme", false);
+    else if (state == Qt::Checked)
+        settings.setValue("osd/showme", true);
+}
+
+bool Widget::isShowOsd()
+{
+    QSettings settings("kscreen", "settings");
+
+    QString settingsDir = QDir::homePath() + "/.config/kscreen";
+    QDir dir(settingsDir);
+    if (!dir.exists()) {
+        dir.mkdir(settingsDir);
+        return true;
+    }
+
+    QString settingsPath = settingsDir + "/settings.conf";
+    QFile file(settingsPath);
+    if (!file.exists())
+        return true;
+
+    return settings.value("osd/showme").toBool();
 }
 
 bool Widget::eventFilter(QObject* object, QEvent* event)

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013  Daniel Vrátil <dvratil@redhat.com>
+ * Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +34,7 @@ class PrimaryOutputCombo;
 
 class QPushButton;
 class QComboBox;
+class QCheckBox;
 
 class QQuickView;
 
@@ -51,6 +53,9 @@ class Widget : public QWidget
 
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::ConfigPtr currentConfig() const;
+
+    void getShowOsd();
+    void setShowOsd();
 
   protected:
     virtual bool eventFilter(QObject *object, QEvent *event);
@@ -73,11 +78,14 @@ class Widget : public QWidget
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     void clearOutputIdentifiers();
 
+    void slotShowOsdChanged();
+
   private:
     void loadQml();
     void initPrimaryCombo();
 
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
+    bool isShowOsd();
 
   private:
     QMLScreen *mScreen;
@@ -97,6 +105,7 @@ class Widget : public QWidget
     QList<QQuickView*> mOutputIdentifiers;
     QTimer *mOutputTimer;
 
+    QCheckBox *mShowOsd;
 };
 
 #endif // WIDGET_H

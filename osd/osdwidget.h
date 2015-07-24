@@ -46,7 +46,6 @@ protected:
 private slots:
     void slotItemClicked(QListWidgetItem*);
     void slotConfigReady(KScreen::ConfigOperation*);
-    void slotShowMeChanged(int state);
 
 private:
     void m_createItem(QString iconName, QString modeLabel);

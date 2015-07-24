@@ -22,9 +22,7 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QListWidget>
-#include <QMessageBox>
 #include <QLabel>
-#include <QCheckBox>
 #include <QDir>
 #include <QSettings>
 #include <QBitmap>
@@ -35,7 +33,6 @@
 #include <KToolInvocation>
 
 #include <kscreen/getconfigoperation.h>
-#include <kscreen/setconfigoperation.h>
 
 static const QString lvdsPrefix = "LVDS";
 static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen \nonly");
@@ -111,10 +108,11 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
     m_createItem("second-screen-only", SECOND_SCREEN_ONLY_MODE);
 
-    QCheckBox *showMe = new QCheckBox(i18n("Still show me next time"));
-    if (m_isShowMe())
-        showMe->setCheckState(Qt::Checked);
-    connect(showMe, SIGNAL(stateChanged(int)), this, SLOT(slotShowMeChanged(int)));
+    QLabel *showMe = new QLabel(i18n("<a href=\"#\">Disable automatically popping up?</a>"));
+    connect(showMe, &QLabel::linkActivated, [this]() {
+                KToolInvocation::kdeinitExec(QString("kcmshell5"), 
+                    QStringList() << QString("kcm_kscreen"));
+            });
     vbox->addWidget(showMe);
 
     setLayout(vbox);
@@ -174,20 +172,10 @@ void OsdWidget::paintEvent(QPaintEvent *)
     setMask(bmp);
 }
 
-void OsdWidget::slotShowMeChanged(int state) 
-{
-    QSettings settings("kscreen", "settings");
-    
-    if (state == Qt::Unchecked)
-        settings.setValue("osd/showme", false);
-    else if (state == Qt::Checked)
-        settings.setValue("osd/showme", true);
-}
-
 bool OsdWidget::m_isShowMe() 
 {
     QSettings settings("kscreen", "settings");
-    
+
     QString settingsDir = QDir::homePath() + "/.config/kscreen";
     QDir dir(settingsDir);
     if (!dir.exists()) {
@@ -199,7 +187,7 @@ bool OsdWidget::m_isShowMe()
     QFile file(settingsPath);
     if (!file.exists())
         return true;
-    
+
     return settings.value("osd/showme").toBool();
 }
 

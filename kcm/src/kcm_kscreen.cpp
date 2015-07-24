@@ -85,6 +85,7 @@ void KCMKScreen::configReady(ConfigOperation* op)
     }
 
     mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+    mKScreenWidget->getShowOsd();
 }
 
 KCMKScreen::~KCMKScreen()
@@ -98,6 +99,8 @@ void KCMKScreen::save()
     if (!mKScreenWidget) {
         return;
     }
+
+    mKScreenWidget->setShowOsd();
 
     const KScreen::ConfigPtr &config = mKScreenWidget->currentConfig();
 
