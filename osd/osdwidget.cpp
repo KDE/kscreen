@@ -38,13 +38,13 @@
 #include <kscreen/setconfigoperation.h>
 
 static const QString lvdsPrefix = "LVDS";
-static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen only");
+static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen \nonly");
 static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
-static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
-static const QSize modeIconSize(111, 112);
+static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen \nonly");
+static const QSize modeIconSize(111, 115);
 static const QPoint outputMargin(20, 20);
-static const QSize lineSize(1, 111);
+static const QSize lineSize(1, modeIconSize.height());
 
 class ItemDelegate : public QStyledItemDelegate
 {
@@ -77,7 +77,7 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     m_modeList(nullptr),
     m_configIsReady(false)
 {
-    setFixedSize(520, 176);
+    setFixedSize(520, 166);
     QDesktopWidget *desktop = QApplication::desktop();
     move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
 
@@ -86,11 +86,12 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
                   "QListWidget::item::hover {background: #b5b5b6; }");
 
     QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->setContentsMargins(10, 0, 10, 10);
 
     m_modeList = new QListWidget;
     m_modeList->setFlow(QListView::LeftToRight);
     m_modeList->setViewMode(QListView::IconMode);
-    m_modeList->setIconSize(QSize(90, 90));
+    m_modeList->setIconSize(modeIconSize);
     m_modeList->setSpacing(6);
     m_modeList->setFrameStyle(QFrame::NoFrame);
     m_modeList->setItemDelegate(new ItemDelegate(m_modeList));
