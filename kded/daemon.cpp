@@ -202,8 +202,6 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::displayButton()
 {
-    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
-    
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
     if (m_buttonTimer->isActive()) {
         qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
@@ -229,6 +227,8 @@ void KScreenDaemon::applyGenericConfig()
     qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
+
+    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
