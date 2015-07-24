@@ -35,10 +35,10 @@
 #include <kscreen/getconfigoperation.h>
 
 static const QString lvdsPrefix = "LVDS";
-static const QString PC_SCREEN_ONLY_MODE = i18n("PC screen \nonly");
+static const QString PC_SCREEN_ONLY_MODE = i18n("PC");
 static const QString MIRROR_MODE = i18n("Mirror");
 static const QString EXTEND_MODE = i18n("Extend");
-static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen \nonly");
+static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second");
 static const QSize modeIconSize(111, 115);
 static const QPoint outputMargin(20, 20);
 static const QSize lineSize(1, modeIconSize.height());
@@ -168,7 +168,7 @@ void OsdWidget::paintEvent(QPaintEvent *)
     p.setPen(Qt::NoPen);
     p.setBrush(Qt::black);
     p.setRenderHint(QPainter::Antialiasing);
-    p.drawRoundedRect(bmp.rect(), 16, 16);
+    p.drawRoundedRect(bmp.rect(), 6, 6);
     setMask(bmp);
 }
 
