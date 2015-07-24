@@ -40,13 +40,17 @@ public:
 
     bool isAbleToShow();
 
+protected:
+    void paintEvent(QPaintEvent *);
+
 private slots:
     void slotItemClicked(QListWidgetItem*);
     void slotConfigReady(KScreen::ConfigOperation*);
     void slotShowMeChanged(int state);
 
 private:
-    void m_doApplyConfig();
+    void m_createItem(QString iconName, QString modeLabel);
+    void m_createLine();
     void m_pcScreenOnly();
     QSize m_findSimilarResolution(KScreen::OutputPtr primary, 
                                   KScreen::OutputPtr second);

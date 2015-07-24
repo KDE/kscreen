@@ -27,6 +27,9 @@
 #include <QCheckBox>
 #include <QDir>
 #include <QSettings>
+#include <QBitmap>
+#include <QPainter>
+#include <QStyledItemDelegate>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
@@ -41,6 +44,31 @@ static const QString EXTEND_MODE = i18n("Extend");
 static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second screen only");
 static const QSize modeIconSize(111, 112);
 static const QPoint outputMargin(20, 20);
+static const QSize lineSize(1, 111);
+
+class ItemDelegate : public QStyledItemDelegate
+{
+public:
+    ItemDelegate(QObject* parent = 0) : QStyledItemDelegate(parent)
+    {
+    }
+
+    void paint(QPainter* painter, 
+               const QStyleOptionViewItem& option, 
+               const QModelIndex& index) const
+    {
+        Q_ASSERT(index.isValid());
+
+        QStyleOptionViewItemV4 opt = option;
+        initStyleOption(&opt, index);
+
+        if (opt.state & QStyle::State_MouseOver)
+            opt.icon = opt.icon.pixmap(opt.decorationSize, QIcon::Selected);
+
+        QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &opt, 
+                                           painter, 0);
+    }
+};
 
 OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
   : QWidget(parent, f),
@@ -51,6 +79,10 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     QDesktopWidget *desktop = QApplication::desktop();
     move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
 
+    setStyleSheet("QListWidget { background: #e7ebf0; }"
+                  "QListWidget::item:selected { background: #b5b5b6; }"
+                  "QListWidget::item::hover {background: #b5b5b6; }");
+
     QVBoxLayout *vbox = new QVBoxLayout;
 
     m_modeList = new QListWidget;
@@ -58,27 +90,23 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     m_modeList->setViewMode(QListView::IconMode);
     m_modeList->setIconSize(QSize(90, 90));
     m_modeList->setSpacing(6);
+    m_modeList->setFrameStyle(QFrame::NoFrame);
+    m_modeList->setItemDelegate(new ItemDelegate(m_modeList));
+    m_modeList->viewport()->setAttribute(Qt::WA_Hover);
     connect(m_modeList, SIGNAL(itemClicked(QListWidgetItem*)), 
             this, SLOT(slotItemClicked(QListWidgetItem*)));
     vbox->addWidget(m_modeList);
 
-    QListWidgetItem *item = new QListWidgetItem(
-        QIcon(QPixmap(":/pc-screen-only.png")), PC_SCREEN_ONLY_MODE);
-    item->setSizeHint(modeIconSize);
-    m_modeList->addItem(item);
+    m_createItem("pc-screen-only", PC_SCREEN_ONLY_MODE);
+    m_createLine();
 
-    item = new QListWidgetItem(QIcon(QPixmap(":/mirror.png")), MIRROR_MODE);
-    item->setSizeHint(modeIconSize);
-    m_modeList->addItem(item);
+    m_createItem("mirror", MIRROR_MODE);
+    m_createLine();
 
-    item = new QListWidgetItem(QIcon(QPixmap(":/extend.png")), EXTEND_MODE);
-    item->setSizeHint(modeIconSize);
-    m_modeList->addItem(item);
+    m_createItem("extend", EXTEND_MODE);
+    m_createLine();
 
-    item = new QListWidgetItem(
-        QIcon(QPixmap(":/second-screen-only.png")), SECOND_SCREEN_ONLY_MODE);
-    item->setSizeHint(modeIconSize);
-    m_modeList->addItem(item);
+    m_createItem("second-screen-only", SECOND_SCREEN_ONLY_MODE);
 
     QCheckBox *showMe = new QCheckBox(i18n("Still show me next time"));
     if (m_isShowMe())
@@ -109,6 +137,38 @@ OsdWidget::~OsdWidget()
         delete m_secondOutputWidget;
         m_secondOutputWidget = nullptr;
     }
+}
+
+void OsdWidget::m_createItem(QString iconName, QString modeLabel)
+{
+    QIcon icon;
+    icon.addPixmap(QPixmap(":/" + iconName + ".png"), QIcon::Normal);
+    icon.addPixmap(QPixmap(":/" + iconName + "-selected.png"), QIcon::Selected);
+    QListWidgetItem *item = new QListWidgetItem(icon, modeLabel);
+    item->setSizeHint(modeIconSize);
+    m_modeList->addItem(item);
+}
+
+void OsdWidget::m_createLine() 
+{
+    QListWidgetItem *item = new QListWidgetItem;
+    m_modeList->addItem(item);
+    QFrame* line = new QFrame;
+    line->setFrameShape(QFrame::VLine);
+    item->setSizeHint(lineSize);
+    m_modeList->setItemWidget(item, line);
+}
+
+void OsdWidget::paintEvent(QPaintEvent *) 
+{
+    QBitmap bmp(size());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.drawRoundedRect(bmp.rect(), 16, 16);
+    setMask(bmp);
 }
 
 void OsdWidget::slotShowMeChanged(int state) 
@@ -147,7 +207,7 @@ void OsdWidget::slotConfigReady(KScreen::ConfigOperation* op)
     }
 
     m_config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    
+
     isAbleToShow();
 }
 
@@ -203,7 +263,7 @@ bool OsdWidget::isAbleToShow()
 
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
-                m_modeList->setCurrentRow(1);
+                m_modeList->setCurrentRow(2);
                 // NOTE: it does not need to move && show primary and second 
                 // output widget in mirror mode
             } else {
@@ -211,7 +271,7 @@ bool OsdWidget::isAbleToShow()
                 QDesktopWidget *desktop = QApplication::desktop();
                 move((primarySize.width() - width()) / 2, 
                      (desktop->height() - height()) / 2);
-                m_modeList->setCurrentRow(2);
+                m_modeList->setCurrentRow(4);
                 m_primaryOutputWidget->move(outputMargin);
                 m_primaryOutputWidget->show();
                 m_secondOutputWidget->move(
@@ -221,7 +281,7 @@ bool OsdWidget::isAbleToShow()
         }
 
         if (!primaryEnabled && secondEnabled) {
-            m_modeList->setCurrentRow(3);
+            m_modeList->setCurrentRow(6);
             m_secondOutputWidget->move(outputMargin);
             m_secondOutputWidget->show();
         }
@@ -239,22 +299,6 @@ bool OsdWidget::isAbleToShow()
     QCoreApplication::quit();
 
     return false;
-}
-
-void OsdWidget::m_doApplyConfig()
-{
-    if (m_config.isNull())
-        return;
-    
-    if (!KScreen::Config::canBeApplied(m_config)) {
-        // Invalid screen config
-        QMessageBox msgBox;
-        msgBox.setText("Invalid screen config");
-        msgBox.exec();
-    }
-
-    auto *op = new KScreen::SetConfigOperation(m_config);
-    op->exec();
 }
 
 void OsdWidget::m_pcScreenOnly() 
@@ -290,17 +334,23 @@ void OsdWidget::m_pcScreenOnly()
 QSize OsdWidget::m_findSimilarResolution(KScreen::OutputPtr primary, 
                                          KScreen::OutputPtr second) 
 {
-    QSize similarSize(0, 0);
-    
-    return similarSize;
+    for (KScreen::ModePtr &primaryMode : primary->modes()) {
+        for (KScreen::ModePtr &secondMode : second->modes()) {
+            if (primaryMode->size() == secondMode->size())
+                return primaryMode->size();
+        }
+    }
+
+    return QSize(0, 0);
 }
 
 void OsdWidget::m_mirror() 
 {
-    QPoint primaryPos(0, 0);
     KScreen::OutputPtr primary;
     KScreen::OutputPtr second;
     QSize similar(0, 0);
+    QString primaryName = "";
+    QString secondName = "";
 
     if (m_config.isNull())
         return;
@@ -327,25 +377,31 @@ void OsdWidget::m_mirror()
         if (!output->isConnected())
             continue;
 
-        if (!output->isEnabled()) {
-            output->setEnabled(true);
-            if (similar.isNull())
-                output->setCurrentModeId(output->preferredModeId());
-        }
-
-        if (!similar.isNull())
-            output->setSize(similar);
-
-        if (output->isPrimary() || output->name().contains(lvdsPrefix)) {
-            output->setPrimary(true);
-            primaryPos = output->pos();
-        } else {
-            output->setPrimary(false);
-            output->setPos(primaryPos);
-        }
+        if (output->isPrimary() || output->name().contains(lvdsPrefix))
+            primaryName = output->name();
+        else
+            secondName = output->name();
     }
 
-    m_doApplyConfig();
+    if (primaryName == "" || secondName == "")
+        return;
+
+    if (similar.isNull()) {
+        // xrandr --output LVDS1 --auto --output VGA1 --auto --same-as LVDS1
+        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() 
+            << QString("--output") << primaryName << QString("--auto") 
+            << QString("--output") << secondName << QString("--auto") 
+            << QString("--same-as") << primaryName);
+    } else {
+        QString mode = QString::number(similar.width()) + "x" + 
+            QString::number(similar.height());
+        // xrandr --output LVDS1 --mode 1024x768 --output VGA1 --mode 1024x768 
+        // --same-as LVDS1
+        KToolInvocation::kdeinitExec(QString("xrandr"), QStringList() 
+            << QString("--output") << primaryName << QString("--mode") << mode 
+            << QString("--output") << secondName << QString("--mode") << mode 
+            << QString("--same-as") << primaryName);
+    }
 }
 
 void OsdWidget::m_extend() 
