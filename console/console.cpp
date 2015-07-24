@@ -95,8 +95,7 @@ void Console::printConfig()
         qDebug() << "Pos: " << output->pos();
         qDebug() << "MMSize: " << output->sizeMm();
         if (output->currentMode()) {
-            // FIXME: undefined reference to KScreen::Output::size() const
-            //qDebug() << "Size: " << output->size();
+            qDebug() << "Size: " << output->size();
         }
         if (output->clones().isEmpty()) {
             qDebug() << "Clones: " << "None";
