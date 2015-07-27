@@ -32,7 +32,7 @@
 #include <KLocalizedString>
 #include <KToolInvocation>
 
-#include <kscreen/getconfigoperation.h>
+#include <kscreen/output.h>
 
 static const QString PC_SCREEN_ONLY_MODE = i18n("PC");
 static const QString MIRROR_MODE = i18n("Mirror");
@@ -68,16 +68,12 @@ public:
     }
 };
 
-OsdWidget::OsdWidget(KScreen::ConfigPtr config, 
-                     QWidget *parent, 
-                     Qt::WindowFlags f) 
+OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
   : QWidget(parent, f),
-    m_config(config),
-    m_modeList(nullptr)
+    m_modeList(nullptr),
+    m_pluggedIn(false)
 {
     setFixedSize(520, 166);
-    QDesktopWidget *desktop = QApplication::desktop();
-    move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
 
     QVBoxLayout *vbox = new QVBoxLayout;
 
@@ -133,6 +129,11 @@ OsdWidget::~OsdWidget()
     }
 }
 
+void OsdWidget::pluggedIn() 
+{
+    m_pluggedIn = true;
+}
+
 void OsdWidget::m_createItem(QString iconName, QString modeLabel)
 {
     QIcon icon;
@@ -184,7 +185,7 @@ bool OsdWidget::m_isShowMe()
     return settings.value("osd/showme").toBool();
 }
 
-bool OsdWidget::isAbleToShow() 
+bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config) 
 {
     unsigned int outputConnected = 0;
     bool hasPrimary = false;
@@ -194,18 +195,24 @@ bool OsdWidget::isAbleToShow()
     QPoint secondPos(0, 0);
     QSize primarySize(0, 0);
     QSize secondSize(0, 0);
+    QDesktopWidget *desktop = QApplication::desktop();
 
     if (!m_isShowMe()) {
         hideAll();
         return false;
     }
 
-    if (m_config.isNull()) {
+    if (!m_pluggedIn) {
         hideAll();
         return false;
     }
 
-    for (KScreen::OutputPtr &output : m_config->outputs()) {
+    if (config.isNull()) {
+        hideAll();
+        return false;
+    }
+
+    for (KScreen::OutputPtr &output : config->outputs()) {
         if (output.isNull())
             continue;
         
@@ -229,6 +236,8 @@ bool OsdWidget::isAbleToShow()
 
     if (hasPrimary && outputConnected == 2) {
         if (primaryEnabled && !secondEnabled) {
+            move((primarySize.width() - width()) / 2, 
+                 (desktop->height() - height()) / 2);
             m_modeList->setCurrentRow(0);
             m_primaryOutputWidget->move(outputMargin);
             m_primaryOutputWidget->show();
@@ -236,12 +245,13 @@ bool OsdWidget::isAbleToShow()
 
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
+                move((primarySize.width() - width()) / 2, 
+                     (desktop->height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
                 // NOTE: it does not need to move && show primary and second 
                 // output widget in mirror mode
             } else {
                 // extend mode
-                QDesktopWidget *desktop = QApplication::desktop();
                 move((primarySize.width() - width()) / 2, 
                      (desktop->height() - height()) / 2);
                 m_modeList->setCurrentRow(4);
@@ -254,6 +264,8 @@ bool OsdWidget::isAbleToShow()
         }
 
         if (!primaryEnabled && secondEnabled) {
+            move((secondSize.width() - width()) / 2, 
+                 (desktop->height() - height()) / 2);
             m_modeList->setCurrentRow(6);
             m_secondOutputWidget->move(outputMargin);
             m_secondOutputWidget->show();
@@ -287,6 +299,7 @@ void OsdWidget::hideAll()
 
 void OsdWidget::slotItemClicked(QListWidgetItem *item) 
 {
+    m_pluggedIn = false;
     hideAll();
     
     if (item->text() == PC_SCREEN_ONLY_MODE) {

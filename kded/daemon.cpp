@@ -51,7 +51,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
- , m_osdWidget(NULL)
+ , m_osdWidget(new OsdWidget)
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -141,10 +141,12 @@ void KScreenDaemon::init()
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
 
-    m_osdWidget = new OsdWidget(m_monitoredConfig);
-    connect(m_osdWidget, &OsdWidget::displaySwitch, [this](Generator::DisplaySwitchAction mode) {
-                doApplyConfig(Generator::self()->displaySwitch(mode));
-            });
+    if (m_osdWidget) {
+        connect(m_osdWidget, &OsdWidget::displaySwitch, 
+                [this](Generator::DisplaySwitchAction mode) {
+                    doApplyConfig(Generator::self()->displaySwitch(mode));
+                });
+    }
 }
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
@@ -205,6 +207,8 @@ void KScreenDaemon::saveCurrentConfig()
     const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
     if (valid) {
         Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+        if (m_osdWidget)
+            m_osdWidget->isAbleToShow(m_monitoredConfig);
     } else {
         qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
     }
@@ -219,6 +223,9 @@ void KScreenDaemon::displayButton()
     }
 
     m_buttonTimer->start();
+
+    if (m_osdWidget)
+        m_osdWidget->pluggedIn();
 }
 
 void KScreenDaemon::resetDisplaySwitch()
@@ -239,7 +246,7 @@ void KScreenDaemon::applyGenericConfig()
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 
     if (m_osdWidget)
-        m_osdWidget->isAbleToShow();
+        m_osdWidget->isAbleToShow(m_monitoredConfig);
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -324,7 +331,7 @@ void KScreenDaemon::outputConnectedChanged()
     }
 
     if (m_osdWidget)
-        m_osdWidget->isAbleToShow();
+        m_osdWidget->pluggedIn();
 }
 
 

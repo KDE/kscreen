@@ -23,9 +23,7 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 
-#include <kscreen/configoperation.h>
 #include <kscreen/config.h>
-#include <kscreen/output.h>
 
 #include "generator.h"
 
@@ -36,12 +34,12 @@ class OsdWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OsdWidget(KScreen::ConfigPtr config, 
-                       QWidget *parent = nullptr,
+    explicit OsdWidget(QWidget *parent = nullptr, 
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
-    bool isAbleToShow();
+    bool isAbleToShow(KScreen::ConfigPtr config);
+    void pluggedIn();
     void hideAll();
 
 Q_SIGNALS:
@@ -59,7 +57,7 @@ private:
     bool m_isShowMe();
 
     QListWidget *m_modeList;
-    KScreen::ConfigPtr m_config;
+    bool m_pluggedIn;
     OutputWidget *m_primaryOutputWidget;
     OutputWidget *m_secondOutputWidget;
 };
