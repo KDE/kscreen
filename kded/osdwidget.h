@@ -27,6 +27,8 @@
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 
+#include "generator.h"
+
 class OutputWidget;
 
 class OsdWidget : public QWidget 
@@ -34,31 +36,28 @@ class OsdWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OsdWidget(QWidget *parent = nullptr,
+    explicit OsdWidget(KScreen::ConfigPtr config, 
+                       QWidget *parent = nullptr,
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
     bool isAbleToShow();
+    void hideAll();
+
+Q_SIGNALS:
+    void displaySwitch(Generator::DisplaySwitchAction mode);
 
 protected:
     void paintEvent(QPaintEvent *);
 
 private slots:
     void slotItemClicked(QListWidgetItem*);
-    void slotConfigReady(KScreen::ConfigOperation*);
 
 private:
     void m_createItem(QString iconName, QString modeLabel);
     void m_createLine();
-    void m_pcScreenOnly();
-    QSize m_findSimilarResolution(KScreen::OutputPtr primary, 
-                                  KScreen::OutputPtr second);
-    void m_mirror();
-    void m_extend();
-    void m_secondScreenOnly();
     bool m_isShowMe();
 
-    bool m_configIsReady;
     QListWidget *m_modeList;
     KScreen::ConfigPtr m_config;
     OutputWidget *m_primaryOutputWidget;

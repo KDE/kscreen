@@ -2,12 +2,16 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../)
 
+QT5_ADD_RESOURCES(qtsourceview_RC_SRCS images/image.qrc)
+
 set(kscreen_daemon_SRCS
     debug.cpp
     daemon.cpp
     serializer.cpp
     generator.cpp
     device.cpp
+    osdwidget.cpp
+    ${qtsourceview_RC_SRCS}
 )
 
 qt5_add_dbus_interface(kscreen_daemon_SRCS

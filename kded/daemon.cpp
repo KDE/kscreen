@@ -33,7 +33,6 @@
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KGlobalAccel>
-#include <KToolInvocation>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -52,6 +51,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
+ , m_osdWidget(NULL)
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -85,6 +85,11 @@ KScreenDaemon::~KScreenDaemon()
 
     Generator::destroy();
     Device::destroy();
+
+    if (m_osdWidget) {
+        delete m_osdWidget;
+        m_osdWidget = NULL;
+    }
 }
 
 void KScreenDaemon::init()
@@ -135,6 +140,11 @@ void KScreenDaemon::init()
 
     Generator::self()->setCurrentConfig(m_monitoredConfig);
     monitorConnectedChange();
+
+    m_osdWidget = new OsdWidget(m_monitoredConfig);
+    connect(m_osdWidget, &OsdWidget::displaySwitch, [this](Generator::DisplaySwitchAction mode) {
+                doApplyConfig(Generator::self()->displaySwitch(mode));
+            });
 }
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
@@ -228,7 +238,8 @@ void KScreenDaemon::applyGenericConfig()
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 
-    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
+    if (m_osdWidget)
+        m_osdWidget->isAbleToShow();
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -312,7 +323,8 @@ void KScreenDaemon::outputConnectedChanged()
         }
     }
 
-    KToolInvocation::kdeinitExec(QString("kscreen-osd"), QStringList());
+    if (m_osdWidget)
+        m_osdWidget->isAbleToShow();
 }
 
 
