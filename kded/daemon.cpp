@@ -144,7 +144,17 @@ void KScreenDaemon::init()
     if (m_osdWidget) {
         connect(m_osdWidget, &OsdWidget::displaySwitch, 
                 [this](Generator::DisplaySwitchAction mode) {
-                    doApplyConfig(Generator::self()->displaySwitch(mode));
+                    // NOTE: from ExtendToRight directly switch to TurnOffEmbedded
+                    // might cause libkscreen error: There are no enabled screens, 
+                    // at least one required, I have tried to change the order of 
+                    // Generator DisplaySwitchAction enum to ExtendToRight = 1, 
+                    // TurnOffEmbedded = 2 to reproduce such issue
+                    KScreen::ConfigPtr config = Generator::self()->displaySwitch(mode);
+                    if (KScreen::Config::canBeApplied(
+                            config,
+                            KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
+                        doApplyConfig(config);
+                    }
                 });
     }
 }

@@ -235,6 +235,8 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
     }
 
     if (hasPrimary && outputConnected == 2) {
+        show();
+
         if (primaryEnabled && !secondEnabled) {
             move((primarySize.width() - width()) / 2, 
                  (desktop->height() - height()) / 2);
@@ -270,8 +272,6 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
             m_secondOutputWidget->move(outputMargin);
             m_secondOutputWidget->show();
         }
-
-        show();
 
         return true;
     }
