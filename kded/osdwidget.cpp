@@ -18,7 +18,6 @@
 
 #include "osdwidget.h"
 
-#include <QDesktopWidget>
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QListWidget>
@@ -195,7 +194,6 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
     QPoint secondPos(0, 0);
     QSize primarySize(0, 0);
     QSize secondSize(0, 0);
-    QDesktopWidget *desktop = QApplication::desktop();
 
     if (!m_isShowMe()) {
         hideAll();
@@ -239,7 +237,7 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
 
         if (primaryEnabled && !secondEnabled) {
             move((primarySize.width() - width()) / 2, 
-                 (desktop->height() - height()) / 2);
+                 (primarySize.height() - height()) / 2);
             m_modeList->setCurrentRow(0);
             m_primaryOutputWidget->move(outputMargin);
             m_primaryOutputWidget->show();
@@ -248,14 +246,14 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
                 move((primarySize.width() - width()) / 2, 
-                     (desktop->height() - height()) / 2);
+                     (primarySize.height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
                 // NOTE: it does not need to move && show primary and second 
                 // output widget in mirror mode
             } else {
                 // extend mode
                 move((primarySize.width() - width()) / 2, 
-                     (desktop->height() - height()) / 2);
+                     (primarySize.height() - height()) / 2);
                 m_modeList->setCurrentRow(4);
                 m_primaryOutputWidget->move(outputMargin);
                 m_primaryOutputWidget->show();
@@ -267,7 +265,7 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
 
         if (!primaryEnabled && secondEnabled) {
             move((secondSize.width() - width()) / 2, 
-                 (desktop->height() - height()) / 2);
+                 (secondSize.height() - height()) / 2);
             m_modeList->setCurrentRow(6);
             m_secondOutputWidget->move(outputMargin);
             m_secondOutputWidget->show();
