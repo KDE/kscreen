@@ -1,5 +1,6 @@
 /*
  * Copyright 2013  Dan Vratil <dvratil@redhat.com>
+ * Copyright 2015  Leslie Zhai <xiang.zhai@i-soft.com.cn>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,9 +22,9 @@
 
 #include "kscreenapplet.h"
 
-#include <QGraphicsSceneMouseEvent>
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include <QMessageBox>
 
 #include <KToolInvocation>
 #include <KLocalizedString>
@@ -78,41 +79,11 @@ void KScreenApplet::init()
                                    QLatin1String("s"),
                                    this, SLOT(slotUnknownDisplayConnected(QString)));
     if (!conn) {
+        QMessageBox msgBox(QMessageBox::Warning, 
+            i18n("Warning"), i18n("fail to connect kscreen kded dbus"));
+        msgBox.exec();
     }
 }
-
-#if 0
-void KScreenApplet::initDeclarativeWidget()
-{
-    m_declarativeWidget = new Plasma::DeclarativeWidget(this);
-
-    Plasma::PackageStructure::Ptr structure = Plasma::PackageStructure::load("Plasma/Generic");
-    Plasma::Package package(QString(), "org.kde.plasma.kscreen.qml", structure);
-    m_declarativeWidget->setQmlPath(package.filePath("mainscript"));
-
-    QDeclarativeItem *rootObject = qobject_cast<QDeclarativeItem*>(m_declarativeWidget->rootObject());
-    if (!rootObject) {
-        setFailedToLaunch(true, i18n("Failed to load root object"));
-        return;
-    }
-
-    connect(rootObject, SIGNAL(runKCM()), SLOT(slotRunKCM()));
-    connect(rootObject, SIGNAL(applyAction(int)), SLOT(slotApplyAction(int)));
-}
-
-QGraphicsWidget *KScreenApplet::graphicsWidget()
-{
-    if (hasFailedToLaunch()) {
-        return 0;
-    }
-
-    if (!m_declarativeWidget) {
-        initDeclarativeWidget();
-    }
-
-    return m_declarativeWidget;
-}
-#endif
 
 void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
 {
@@ -237,8 +208,15 @@ void KScreenApplet::applyAction(int actionId)
         qDebug() << "\tClones:" << output->clones();
     }
 
+    if (!KScreen::Config::canBeApplied(m_config)) {
+        QMessageBox msgBox(QMessageBox::Warning, 
+            i18n("Warning"), i18n("Invalid KScreen configuration!"));
+        msgBox.exec();
+    }
+
     auto *op = new KScreen::SetConfigOperation(m_config);
     op->exec();
+
     slotResetApplet();
 }
 
@@ -257,16 +235,24 @@ void KScreenApplet::slotResetApplet()
 
 void KScreenApplet::slotConfigurationChanged()
 {
-    if (m_config.isNull()) {
-        //setStatus(Plasma::PassiveStatus);
-        return;
+    // TODO: if external monitor has been already plugged in before KDE boot
+    // just use !primary output as the external one
+    if (m_newOutputName == "") {
+        for (KScreen::OutputPtr &output : m_config->outputs()) {
+            if (!output->isConnected())
+                continue;
+
+            if (output != m_config->primaryOutput()) {
+                m_newOutputName = output->name();
+                KScreen::Edid *edid = output->edid();
+                m_displayName = edid->vendor() + QLatin1String(" ") + edid->name();
+                emit displayNameChanged();
+            }
+        }
     }
 
-    if (m_config->connectedOutputs().count() > 1) {
-        //setStatus(Plasma::ActiveStatus);
-    } else {
-        //setStatus(Plasma::PassiveStatus);
-    }
+    m_connectedOutputs = m_config.isNull() ? 0 : m_config->connectedOutputs().count();
+    emit connectedOutputsChanged();
 }
 
 KScreen::OutputPtr KScreenApplet::outputForName(const QString &name)

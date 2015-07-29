@@ -23,5 +23,12 @@ Module {
                 "ActionDisable": 4
             }
         }
+        Property { name: "displayName"; type: "string"; isReadonly: true }
+        Property { name: "connectedOutputs"; type: "int"; isReadonly: true }
+        Method { name: "runKCM" }
+        Method {
+            name: "applyAction"
+            Parameter { name: "actionId"; type: "int" }
+        }
     }
 }

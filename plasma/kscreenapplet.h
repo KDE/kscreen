@@ -1,5 +1,6 @@
 /*
  * Copyright 2013  Dan Vratil <dvratil@redhat.com>
+ * Copyright 2015  Leslie Zhai <xiang.zhai@i-soft.com.cn>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -33,6 +34,7 @@ class KScreenApplet : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
+    Q_PROPERTY(int connectedOutputs READ connectedOutputs NOTIFY connectedOutputsChanged)
     Q_ENUMS(DisplayAction)
 
 public:
@@ -47,14 +49,16 @@ public:
     KScreenApplet(QObject *parent = nullptr);
     virtual ~KScreenApplet();
 
+    int connectedOutputs() const { return m_connectedOutputs; }
     QString displayName() const { return m_displayName; }
 
     Q_INVOKABLE void runKCM();
     Q_INVOKABLE void applyAction(int actionId);
 
-    virtual void init();
+    void init();
 
 Q_SIGNALS:
+    void connectedOutputsChanged();
     void displayNameChanged();
 
 private Q_SLOTS:
@@ -68,9 +72,10 @@ private:
 
     KScreen::ConfigPtr m_config;
     bool m_hasNewOutput;
-    QString m_newOutputName;
+    QString m_newOutputName = "";
     QTimer *m_resetTimer;
     QString m_displayName = "UNKNOWN";
+    int m_connectedOutputs = 1;
 };
 
 #endif // KSCREENAPPLET_H

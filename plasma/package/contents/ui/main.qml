@@ -1,5 +1,6 @@
 /*
     Copyright (C) 2012  Dan Vratil <dvratil@redhat.com>
+    Copyright (C) 2015  Leslie Zhai <xiang.zhai@i-soft.com.cn>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -32,6 +33,13 @@ Item {
 
     KScreenApplet {
         id: kscreenApplet
+        onConnectedOutputsChanged: {
+            if (connectedOutputs < 2) {
+                root.visible = false;
+            } else {
+                root.visible = true;
+            }
+        }
         onDisplayNameChanged: {
             root.displayName = displayName;
         }
