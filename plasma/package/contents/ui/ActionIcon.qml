@@ -19,7 +19,7 @@
 
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
+import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0
 
 Item {
@@ -85,9 +85,12 @@ Item {
         onClicked: button.clicked();
     }
 
-    QIconItem {
+    //QIconItem
+    Item {
 
         id: actionIcon;
+
+        property var icon
 
         anchors {
             left: parent.left;

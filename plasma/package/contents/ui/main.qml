@@ -19,8 +19,8 @@
 
 import QtQuick 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
-import org.kde.kscreen 1.0
+import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.kscreen 1.0
 
 Item {
 
@@ -28,10 +28,14 @@ Item {
 
     property int minimumWidth: 290;
     property int minimumHeight: childrenRect.height;
-    property string displayName;
+    property string displayName: "UNKNOWN";
 
-    signal runKCM();
-    signal applyAction(int config);
+    KScreenApplet {
+        id: kscreenApplet
+        onDisplayNameChanged: {
+            root.displayName = displayName;
+        }
+    }
 
     PlasmaComponents.Label {
 
@@ -90,7 +94,7 @@ Item {
             icon: "go-next";
             label: i18nc("Places the newly connected screen right of the existing one", "Extend to Right");
 
-            onClicked: root.applyAction(KScreenApplet.ActionExtendRight);
+            onClicked: kscreenApplet.applyAction(KScreenApplet.ActionExtendRight);
         }
 
         ActionIcon {
@@ -100,7 +104,7 @@ Item {
             icon: "go-previous";
             label: i18nc("Places the newly connected screen left of the existing one", "Extend to Left");
 
-            onClicked: root.applyAction(KScreenApplet.ActionExtendLeft);
+            onClicked: kscreenApplet.applyAction(KScreenApplet.ActionExtendLeft);
         }
 
         ActionIcon {
@@ -110,7 +114,7 @@ Item {
             icon: "window-duplicate";
             label: i18nc("Makes the newly conencted screen a clone of the primary one", "Clone Primary Output");
 
-            onClicked: root.applyAction(KScreenApplet.ActionClone);
+            onClicked: kscreenApplet.applyAction(KScreenApplet.ActionClone);
         }
 
         ActionIcon {
@@ -120,7 +124,7 @@ Item {
             icon: "window-close";
             label: i18nc("Disables the newly connected screen",  "Disable");
 
-            onClicked: root.applyAction(KScreenApplet.ActionDisable);
+            onClicked: kscreenApplet.applyAction(KScreenApplet.ActionDisable);
         }
 
         ActionIcon {
@@ -130,7 +134,7 @@ Item {
             icon: "dialog-cancel";
             label: i18n("No Action");
 
-            onClicked: root.applyAction(KScreenApplet.ActionNoAction);
+            onClicked: kscreenApplet.applyAction(KScreenApplet.ActionNoAction);
         }
 
         ActionIcon {
@@ -140,7 +144,7 @@ Item {
             icon: "preferences-system";
             label: i18nc("Opens KScreen KCM", "Advanced Configuration");
 
-            onClicked: root.runKCM();
+            onClicked: kscreenApplet.runKCM();
         }
     }
 }

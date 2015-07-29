@@ -21,51 +21,50 @@
 
 #include "kscreenapplet.h"
 
-#include <QTimer>
-#include <QDeclarativeItem>
 #include <QGraphicsSceneMouseEvent>
-
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-#include <Plasma/Package>
-#include <Plasma/DeclarativeWidget>
 #include <KToolInvocation>
+#include <KLocalizedString>
 
-#include <kscreen/config.h>
-#include <kscreen/output.h>
 #include <kscreen/edid.h>
 #include <kscreen/configmonitor.h>
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/setconfigoperation.h>
 
-bool leftPos(KScreen::Output* output1, KScreen::Output* output2) {
+bool leftPos(KScreen::OutputPtr output1, KScreen::OutputPtr output2) {
     return (output1->pos().x() < output2->pos().x());
 }
 
-KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &args):
-    Plasma::PopupApplet(parent, args),
-    m_declarativeWidget(0),
+KScreenApplet::KScreenApplet(QObject *parent):
+    QObject(parent),
     m_hasNewOutput(false)
 {
-    qmlRegisterType<KScreenApplet>("org.kde.kscreen", 1, 0, "KScreenApplet");
-    setPopupIcon(QLatin1String("video-display"));
-
     m_resetTimer = new QTimer(this);
+
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished, 
+            this, &KScreenApplet::slotConfigReady);
 
     KScreen::ConfigMonitor *configMonitor = KScreen::ConfigMonitor::instance();
     connect(configMonitor, SIGNAL(configurationChanged()),
             this, SLOT(slotConfigurationChanged()));
-
-    slotConfigurationChanged();
-}
-
-KScreenApplet::KScreenApplet():
-    PopupApplet(0, QVariantList())
-{
-
 }
 
 KScreenApplet::~KScreenApplet()
 {
+}
+
+void KScreenApplet::slotConfigReady(KScreen::ConfigOperation* op)
+{
+    if (op->hasError())
+        return;
+
+    m_config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+
+    slotConfigurationChanged();
+
+    init();
 }
 
 void KScreenApplet::init()
@@ -79,10 +78,10 @@ void KScreenApplet::init()
                                    QLatin1String("s"),
                                    this, SLOT(slotUnknownDisplayConnected(QString)));
     if (!conn) {
-        setFailedToLaunch(true, i18n("Failed to connect to KScreen daemon"));
     }
 }
 
+#if 0
 void KScreenApplet::initDeclarativeWidget()
 {
     m_declarativeWidget = new Plasma::DeclarativeWidget(this);
@@ -101,7 +100,6 @@ void KScreenApplet::initDeclarativeWidget()
     connect(rootObject, SIGNAL(applyAction(int)), SLOT(slotApplyAction(int)));
 }
 
-
 QGraphicsWidget *KScreenApplet::graphicsWidget()
 {
     if (hasFailedToLaunch()) {
@@ -114,14 +112,15 @@ QGraphicsWidget *KScreenApplet::graphicsWidget()
 
     return m_declarativeWidget;
 }
+#endif
 
 void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
 {
-    kDebug() << "New display connected to output" << outputName;
+    qDebug() << "New display connected to output" << outputName;
     m_newOutputName = outputName;
 
     QString displayName;
-    KScreen::Output *newOutput = outputForName(outputName, KScreen::Config::current());
+    KScreen::OutputPtr newOutput = outputForName(outputName);
     KScreen::Edid *edid = newOutput->edid();
     if (!edid) {
         displayName = outputName;
@@ -129,30 +128,28 @@ void KScreenApplet::slotUnknownDisplayConnected(const QString &outputName)
         displayName = edid->vendor() + QLatin1String(" ") + edid->name();
     }
 
-    QDeclarativeItem *rootObject = qobject_cast<QDeclarativeItem*>(m_declarativeWidget->rootObject());
-    rootObject->setProperty("displayName", displayName);
+    m_displayName = displayName;
+    emit displayNameChanged();
 
     m_hasNewOutput = true;
-    showPopup();
 
     // Show the notification for only 20 seconds, should be enough...
     m_resetTimer->singleShot(20000, this, SLOT(slotResetApplet()));
 }
 
-void KScreenApplet::slotApplyAction(int actionId)
+void KScreenApplet::applyAction(int actionId)
 {
     DisplayAction action = (DisplayAction) actionId;
-    kDebug() << "Applying changes" << action;
+    qDebug() << "Applying changes" << action;
 
     if (action == ActionNone) {
-        kDebug() << "Action: None";
+        qDebug() << "Action: None";
         slotResetApplet();
         return;
     }
 
-    KScreen::Config *config = KScreen::Config::current();
-    KScreen::Output *newOutput = outputForName(m_newOutputName, config);
-    kDebug() << "Output for" << m_newOutputName << ":" << newOutput;
+    KScreen::OutputPtr newOutput = outputForName(m_newOutputName);
+    qDebug() << "Output for" << m_newOutputName << ":" << newOutput;
 
     if (newOutput == 0) {
         slotResetApplet();
@@ -160,7 +157,7 @@ void KScreenApplet::slotApplyAction(int actionId)
     }
 
     if (action == ActionDisable) {
-        kDebug() << "Action: Disable";
+        qDebug() << "Action: Disable";
         newOutput->setEnabled(false);
         slotResetApplet();
         return;
@@ -168,15 +165,15 @@ void KScreenApplet::slotApplyAction(int actionId)
 
     newOutput->setEnabled(true);
     newOutput->setCurrentModeId(newOutput->preferredModeId());
-    KScreen::Mode *newMode = newOutput->currentMode();
-    kDebug() << "It's mode is" << newMode;
+    KScreen::ModePtr newMode = newOutput->currentMode();
+    qDebug() << "It's mode is" << newMode;
 
     // Only take enabled outputs, order them from left to right
-    KScreen::OutputList allOutputs = config->outputs();
+    KScreen::OutputList allOutputs = m_config->outputs();
     KScreen::OutputList::Iterator iter;
-    QList<KScreen::Output*> outputs;
+    QList<KScreen::OutputPtr> outputs;
     for (iter = allOutputs.begin(); iter != allOutputs.end(); ++iter) {
-        KScreen::Output *output = iter.value();
+        KScreen::OutputPtr output = iter.value();
         if (output->isConnected() && output->isEnabled()) {
             outputs << output;
         }
@@ -184,9 +181,9 @@ void KScreenApplet::slotApplyAction(int actionId)
     qSort(outputs.begin(), outputs.end(), &leftPos);
 
     if (action == ActionClone) {
-        kDebug() << "Action: Clone";
+        qDebug() << "Action: Clone";
         /* Set the new output as a clone of the primary output */
-        KScreen::Output *primary = config->primaryOutput();
+        KScreen::OutputPtr primary = m_config->primaryOutput();
         if (!primary || primary == newOutput) {
             primary = outputs.first();
             if (primary == newOutput) {
@@ -198,10 +195,10 @@ void KScreenApplet::slotApplyAction(int actionId)
         clones << newOutput->id();
         primary->setClones(clones);
     } else if (action == ActionExtendLeft) {
-        kDebug() << "Action: ExtendLeft";
+        qDebug() << "Action: ExtendLeft";
         int globalWidth = newMode->size().width();
         newOutput->setPos(QPoint(0, 0));
-        Q_FOREACH(KScreen::Output *output, outputs) {
+        Q_FOREACH(KScreen::OutputPtr output, outputs) {
             if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
                 continue;
             }
@@ -213,9 +210,9 @@ void KScreenApplet::slotApplyAction(int actionId)
         }
 
     } else if (action == ActionExtendRight) {
-        kDebug() << "Action: ExtendRight";
+        qDebug() << "Action: ExtendRight";
         int globalWidth = 0;
-        Q_FOREACH(KScreen::Output *output, outputs) {
+        Q_FOREACH(KScreen::OutputPtr output, outputs) {
             if (!output->isConnected() || !output->isEnabled() || (output == newOutput)) {
                 continue;
             }
@@ -229,75 +226,62 @@ void KScreenApplet::slotApplyAction(int actionId)
     }
 
     /* Update the settings */
-    Q_FOREACH(KScreen::Output *output, outputs) {
+    Q_FOREACH(KScreen::OutputPtr output, outputs) {
         if (!output->isEnabled()) {
             continue;
         }
 
-        kDebug() << output->name();
-        kDebug() << "\tSize:" << output->currentMode()->size();
-        kDebug() << "\tPos:" << output->pos();
-        kDebug() << "\tClones:" << output->clones();
+        qDebug() << output->name();
+        qDebug() << "\tSize:" << output->currentMode()->size();
+        qDebug() << "\tPos:" << output->pos();
+        qDebug() << "\tClones:" << output->clones();
     }
 
-    KScreen::Config::setConfig(config);
+    auto *op = new KScreen::SetConfigOperation(m_config);
+    op->exec();
     slotResetApplet();
 }
 
-void KScreenApplet::slotRunKCM()
+void KScreenApplet::runKCM()
 {
     KToolInvocation::kdeinitExec(
         QLatin1String("kcmshell5"),
         QStringList() << QLatin1String("kscreen"));
-
-    hidePopup();
 }
 
 void KScreenApplet::slotResetApplet()
 {
     m_hasNewOutput = false;
     m_newOutputName.clear();
-    hidePopup();
 }
 
 void KScreenApplet::slotConfigurationChanged()
 {
-    KScreen::Config *config = KScreen::Config::current();
-    if (!config || !config->isValid()) {
-        setStatus(Plasma::PassiveStatus);
+    if (m_config.isNull()) {
+        //setStatus(Plasma::PassiveStatus);
         return;
     }
 
-    if (config->connectedOutputs().count() > 1) {
-        setStatus(Plasma::ActiveStatus);
+    if (m_config->connectedOutputs().count() > 1) {
+        //setStatus(Plasma::ActiveStatus);
     } else {
-        setStatus(Plasma::PassiveStatus);
+        //setStatus(Plasma::PassiveStatus);
     }
 }
 
-void KScreenApplet::popupEvent(bool show)
+KScreen::OutputPtr KScreenApplet::outputForName(const QString &name)
 {
-    if (show && !m_hasNewOutput) {
-        slotRunKCM();
-        return;
-    }
-
-    Plasma::PopupApplet::popupEvent(show);
-}
-
-KScreen::Output *KScreenApplet::outputForName(const QString &name, KScreen::Config *config)
-{
-    KScreen::OutputList outputs = config->outputs();
+    KScreen::OutputList outputs = m_config->outputs();
     KScreen::OutputList::Iterator iter;
     for (iter = outputs.begin(); iter != outputs.end(); ++iter) {
-        KScreen::Output *output = iter.value();
+        KScreen::OutputPtr output = iter.value();
 
         if (output->name() == name) {
             return output;
         }
     }
 
-    return 0;
+    return KScreen::OutputPtr(nullptr);
 }
 
 #include "kscreenapplet.moc"

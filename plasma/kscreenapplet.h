@@ -22,25 +22,17 @@
 #ifndef KSCREENAPPLET_H
 #define KSCREENAPPLET_H
 
-#include <Plasma/PopupApplet>
+#include <QObject>
+#include <QTimer>
 
-class QTimer;
-namespace KScreen
-{
-class Output;
-class Config;
-}
+#include <kscreen/output.h>
+#include <kscreen/config.h>
+#include <kscreen/configoperation.h>
 
-namespace Plasma
-{
-class DeclarativeWidget;
-}
-
-class QGraphicsWidget;
-
-class KScreenApplet : public Plasma::PopupApplet
+class KScreenApplet : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
     Q_ENUMS(DisplayAction)
 
 public:
@@ -52,34 +44,33 @@ public:
         ActionDisable,
     };
 
-    KScreenApplet();
-    KScreenApplet(QObject *parent, const QVariantList &args);
+    KScreenApplet(QObject *parent = nullptr);
     virtual ~KScreenApplet();
 
+    QString displayName() const { return m_displayName; }
+
+    Q_INVOKABLE void runKCM();
+    Q_INVOKABLE void applyAction(int actionId);
+
     virtual void init();
-    virtual QGraphicsWidget *graphicsWidget();
+
+Q_SIGNALS:
+    void displayNameChanged();
 
 private Q_SLOTS:
+    void slotConfigReady(KScreen::ConfigOperation *op);
     void slotUnknownDisplayConnected(const QString &output);
-    void slotRunKCM();
-    void slotApplyAction(int actionId);
     void slotResetApplet();
     void slotConfigurationChanged();
 
-protected:
-    virtual void popupEvent(bool show);
-
 private:
-    void initDeclarativeWidget();
-    KScreen::Output* outputForName(const QString &name, KScreen::Config *config);
+    KScreen::OutputPtr outputForName(const QString &name);
 
-    Plasma::DeclarativeWidget *m_declarativeWidget;
+    KScreen::ConfigPtr m_config;
     bool m_hasNewOutput;
     QString m_newOutputName;
     QTimer *m_resetTimer;
-
+    QString m_displayName = "UNKNOWN";
 };
-
-K_EXPORT_PLASMA_APPLET(org.kde.plasma.kscreen, KScreenApplet)
 
 #endif // KSCREENAPPLET_H
