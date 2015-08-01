@@ -34,6 +34,8 @@ ScalingConfig::ScalingConfig(QWidget* parent):
     ui.setupUi(this);
 
     ui.warningWidget->setText(i18n("Scaling changes will come into effect after restart"));
+    ui.warningWidget->show();
+
 
     connect(ui.scaleSlider, &QSlider::valueChanged, ui.previewWidget, [this](qreal value) {
         ui.previewWidget->setScale(value / SLIDER_RATIO);
