@@ -88,16 +88,16 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
             this, SLOT(slotItemClicked(QListWidgetItem*)));
     vbox->addWidget(m_modeList);
 
-    m_createItem("pc-screen-only", PC_SCREEN_ONLY_MODE);
-    m_createLine();
+    createItem("pc-screen-only", PC_SCREEN_ONLY_MODE);
+    createLine();
 
-    m_createItem("mirror", MIRROR_MODE);
-    m_createLine();
+    createItem("mirror", MIRROR_MODE);
+    createLine();
 
-    m_createItem("extend", EXTEND_MODE);
-    m_createLine();
+    createItem("extend", EXTEND_MODE);
+    createLine();
 
-    m_createItem("second-screen-only", SECOND_SCREEN_ONLY_MODE);
+    createItem("second-screen-only", SECOND_SCREEN_ONLY_MODE);
 
     QLabel *showMe = new QLabel(i18n("<a href=\"#\">Disable automatically popping up?</a>"));
     connect(showMe, &QLabel::linkActivated, [this]() {
@@ -133,7 +133,7 @@ void OsdWidget::pluggedIn()
     m_pluggedIn = true;
 }
 
-void OsdWidget::m_createItem(QString iconName, QString modeLabel)
+void OsdWidget::createItem(QString iconName, QString modeLabel)
 {
     QIcon icon;
     icon.addPixmap(QPixmap(":/" + iconName + ".png"), QIcon::Normal);
@@ -143,7 +143,7 @@ void OsdWidget::m_createItem(QString iconName, QString modeLabel)
     m_modeList->addItem(item);
 }
 
-void OsdWidget::m_createLine() 
+void OsdWidget::createLine() 
 {
     QListWidgetItem *item = new QListWidgetItem;
     m_modeList->addItem(item);
@@ -165,7 +165,7 @@ void OsdWidget::paintEvent(QPaintEvent *)
     setMask(bmp);
 }
 
-bool OsdWidget::m_isShowMe() 
+bool OsdWidget::isShowMe() 
 {
     QSettings settings("kscreen", "settings");
 
@@ -195,7 +195,7 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
     QSize primarySize(0, 0);
     QSize secondSize(0, 0);
 
-    if (!m_isShowMe()) {
+    if (!isShowMe()) {
         hideAll();
         return false;
     }

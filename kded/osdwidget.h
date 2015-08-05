@@ -52,9 +52,9 @@ private slots:
     void slotItemClicked(QListWidgetItem*);
 
 private:
-    void m_createItem(QString iconName, QString modeLabel);
-    void m_createLine();
-    bool m_isShowMe();
+    void createItem(QString iconName, QString modeLabel);
+    void createLine();
+    bool isShowMe();
 
     QListWidget *m_modeList;
     bool m_pluggedIn;
