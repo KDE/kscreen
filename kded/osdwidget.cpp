@@ -100,18 +100,6 @@ void OsdWidget::pluggedIn()
     m_pluggedIn = true;
 }
 
-void OsdWidget::paintEvent(QPaintEvent *)
-{
-    QBitmap bmp(size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.setRenderHint(QPainter::Antialiasing);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
-}
-
 bool OsdWidget::isShowMe()
 {
     QSettings settings(QStringLiteral("kscreen"), QStringLiteral("settings"));

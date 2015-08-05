@@ -46,9 +46,6 @@ public:
 Q_SIGNALS:
     void displaySwitch(Generator::DisplaySwitchAction mode);
 
-protected:
-    void paintEvent(QPaintEvent *);
-
 private slots:
     void slotItemClicked(QListWidgetItem*);
 
