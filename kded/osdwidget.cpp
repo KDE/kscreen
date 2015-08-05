@@ -105,24 +105,12 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
     setLayout(vbox);
 
-    m_primaryOutputWidget = new OutputWidget(QStringLiteral("1"));
-    m_secondOutputWidget = new OutputWidget(QStringLiteral("2"));
+    m_primaryOutputWidget = new OutputWidget(QStringLiteral("1"), this);
+    m_secondOutputWidget = new OutputWidget(QStringLiteral("2"), this);
 }
 
 OsdWidget::~OsdWidget()
 {
-    while (m_modeList->count())
-        m_modeList->takeItem(0);
-
-    if (m_primaryOutputWidget) {
-        delete m_primaryOutputWidget;
-        m_primaryOutputWidget = nullptr;
-    }
-
-    if (m_secondOutputWidget) {
-        delete m_secondOutputWidget;
-        m_secondOutputWidget = nullptr;
-    }
 }
 
 void OsdWidget::pluggedIn() 
