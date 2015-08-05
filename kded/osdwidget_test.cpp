@@ -17,13 +17,18 @@
 *************************************************************************************/
 
 #include <QApplication>
+#include <QMainWindow>
+#include <QHBoxLayout>
 
 #include "osdwidget.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    QMainWindow window;
     OsdWidget widget;
+    window.setCentralWidget(&widget);
+    window.show();
     widget.show();
     return app.exec();
 }
