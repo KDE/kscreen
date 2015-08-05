@@ -43,13 +43,13 @@ static const QSize lineSize(1, modeIconSize.height());
 class ItemDelegate : public QStyledItemDelegate
 {
 public:
-    ItemDelegate(QObject* parent = 0) : QStyledItemDelegate(parent)
+    ItemDelegate(QObject *parent = 0) : QStyledItemDelegate(parent)
     {
     }
 
-    void paint(QPainter* painter, 
-               const QStyleOptionViewItem& option, 
-               const QModelIndex& index) const
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const
     {
         Q_ASSERT(index.isValid());
 
@@ -66,13 +66,11 @@ public:
     }
 };
 
-OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f) 
+OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
   : QWidget(parent, f),
     m_modeList(nullptr),
     m_pluggedIn(false)
 {
-    setFixedSize(520, 166);
-
     QVBoxLayout *vbox = new QVBoxLayout;
 
     m_modeList = new QListWidget;
@@ -111,7 +109,7 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     m_secondOutputWidget = new OutputWidget(QStringLiteral("2"));
 }
 
-OsdWidget::~OsdWidget() 
+OsdWidget::~OsdWidget()
 {
     while (m_modeList->count())
         m_modeList->takeItem(0);
@@ -142,7 +140,7 @@ void OsdWidget::createItem(const QString &iconName, const QString &modeLabel)
     m_modeList->addItem(item);
 }
 
-void OsdWidget::createLine() 
+void OsdWidget::createLine()
 {
     QListWidgetItem *item = new QListWidgetItem;
     m_modeList->addItem(item);
@@ -281,7 +279,7 @@ void OsdWidget::hideAll()
         m_secondOutputWidget->hide();
 }
 
-void OsdWidget::slotItemClicked(QListWidgetItem *item) 
+void OsdWidget::slotItemClicked(QListWidgetItem *item)
 {
     m_pluggedIn = false;
     hideAll();
@@ -298,7 +296,7 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
 }
 
 OutputWidget::OutputWidget(const QString &id, QWidget *parent, Qt::WindowFlags f)
-    : QWidget(parent, f) 
+    : QWidget(parent, f)
 {
     setFixedSize(90, 90);
 
