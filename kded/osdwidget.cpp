@@ -113,7 +113,7 @@ OsdWidget::~OsdWidget()
 {
 }
 
-void OsdWidget::pluggedIn() 
+void OsdWidget::pluggedIn()
 {
     m_pluggedIn = true;
 }
@@ -247,8 +247,8 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
     }
 
     if (outputConnected > 2) {
-        KToolInvocation::kdeinitExec(QString("kcmshell5"),
-                                     QStringList() << QString("kcm_kscreen"));
+        KToolInvocation::kdeinitExec(QStringLiteral("kcmshell5"),
+                                     QStringList() << QStringLiteral("kcm_kscreen"));
     }
 
     hideAll();
