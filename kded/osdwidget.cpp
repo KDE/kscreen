@@ -18,15 +18,11 @@
 
 #include "osdwidget.h"
 
-#include <QApplication>
 #include <QVBoxLayout>
-#include <QListWidget>
 #include <QLabel>
 #include <QSettings>
-#include <QBitmap>
-#include <QPainter>
-#include <QStyledItemDelegate>
 #include <QToolButton>
+#include <QAction>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
@@ -45,9 +41,13 @@ static const QSize lineSize(1, modeIconSize.height());
 class OsdWidgetItem : public QToolButton
 {
 public:
-    OsdWidgetItem(const QString &iconName, const QString &name, QWidget *parent = 0)
+    OsdWidgetItem(Generator::DisplaySwitchAction action, QWidget *parent = 0)
         : QToolButton(parent)
+        , mAction(action)
     {
+        const QString name = nameForAction(action);
+        const QString iconName = iconForAction(action);
+
         setText(name);
         setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
@@ -61,6 +61,48 @@ public:
         setIcon(icon);
         setAutoRaise(true);
     }
+
+    Generator::DisplaySwitchAction action() const
+    {
+        return mAction;
+    }
+
+private:
+    QString nameForAction(Generator::DisplaySwitchAction action) const
+    {
+        switch (action) {
+        case Generator::TurnOffExternal:
+            return PC_SCREEN_ONLY_MODE;
+        case Generator::Clone:
+            return MIRROR_MODE;
+        case Generator::ExtendToLeft:
+            return EXTEND_MODE;
+        case Generator::TurnOffEmbedded:
+            return SECOND_SCREEN_ONLY_MODE;
+        default:
+            Q_ASSERT_X(false, "OsdWidgetItem::nameForAction()", "Unsupported action");
+            return QString();
+        }
+    }
+
+    QString iconForAction(Generator::DisplaySwitchAction action) const
+    {
+        switch (action) {
+        case Generator::TurnOffExternal:
+            return QStringLiteral("pc-screen-only");
+        case Generator::Clone:
+            return QStringLiteral("mirror");
+        case Generator::ExtendToLeft:
+            return QStringLiteral("extend");
+        case Generator::TurnOffEmbedded:
+            return QStringLiteral("second-screen-only");
+        default:
+            Q_ASSERT_X(false, "OsdWidgetItem::iconForAction()", "Unsupported action");
+            return QString();
+        }
+    }
+
+    Generator::DisplaySwitchAction mAction;
 };
 
 OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
@@ -71,10 +113,17 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     QVBoxLayout *vbox = new QVBoxLayout;
 
     QHBoxLayout *hbox = new QHBoxLayout;
-    hbox->addWidget(new OsdWidgetItem(QStringLiteral("pc-screen-only"), PC_SCREEN_ONLY_MODE));
-    hbox->addWidget(new OsdWidgetItem(QStringLiteral("mirror"), MIRROR_MODE));
-    hbox->addWidget(new OsdWidgetItem(QStringLiteral("extend"), EXTEND_MODE));
-    hbox->addWidget(new OsdWidgetItem(QStringLiteral("second-screen-only"), SECOND_SCREEN_ONLY_MODE));
+    for (Generator::DisplaySwitchAction action : { Generator::TurnOffExternal,
+                                                   Generator::Clone,
+                                                   Generator::ExtendToLeft,
+                                                   Generator::TurnOffEmbedded }) {
+        OsdWidgetItem *item = new OsdWidgetItem(action);
+        connect(item, &OsdWidgetItem::clicked,
+                [this, item](bool) {
+                    slotItemClicked(item);
+                });
+        hbox->addWidget(item);
+    }
 
     vbox->addLayout(hbox);
 
@@ -210,28 +259,16 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
 void OsdWidget::hideAll()
 {
     hide();
-
-    if (m_primaryOutputWidget)
-        m_primaryOutputWidget->hide();
-
-    if (m_secondOutputWidget)
-        m_secondOutputWidget->hide();
+    m_primaryOutputWidget->hide();
+    m_secondOutputWidget->hide();
 }
 
-void OsdWidget::slotItemClicked(QListWidgetItem *item)
+void OsdWidget::slotItemClicked(OsdWidgetItem *item)
 {
     m_pluggedIn = false;
     hideAll();
 
-    if (item->text() == PC_SCREEN_ONLY_MODE) {
-        emit displaySwitch(Generator::TurnOffExternal);
-    } else if (item->text() == MIRROR_MODE) {
-        emit displaySwitch(Generator::Clone);
-    } else if (item->text() == EXTEND_MODE) {
-        emit displaySwitch(Generator::ExtendToRight);
-    } else if (item->text() == SECOND_SCREEN_ONLY_MODE) {
-        emit displaySwitch(Generator::TurnOffEmbedded);
-    }
+    emit displaySwitch(item->action());
 }
 
 OutputWidget::OutputWidget(const QString &id, QWidget *parent, Qt::WindowFlags f)

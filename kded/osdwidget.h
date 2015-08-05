@@ -28,7 +28,7 @@
 #include "generator.h"
 
 class OutputWidget;
-class QLayout;
+class OsdWidgetItem;
 
 class OsdWidget : public QWidget
 {
@@ -47,7 +47,7 @@ Q_SIGNALS:
     void displaySwitch(Generator::DisplaySwitchAction mode);
 
 private slots:
-    void slotItemClicked(QListWidgetItem*);
+    void slotItemClicked(OsdWidgetItem *item);
 
 private:
     bool isShowMe();

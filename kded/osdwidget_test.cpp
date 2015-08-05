@@ -27,6 +27,10 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     QMainWindow window;
     OsdWidget widget;
+    QObject::connect(&widget, &OsdWidget::displaySwitch,
+                    [](Generator::DisplaySwitchAction action) {
+                        qDebug() << "OsdWidget::displaySwitch emitted:" << action;
+                    });
     window.setCentralWidget(&widget);
     window.show();
     widget.show();
