@@ -59,6 +59,7 @@ public:
         icon.addPixmap(QPixmap(QStringLiteral(":/%1.png").arg(iconName)), QIcon::Normal);
         icon.addPixmap(QPixmap(QStringLiteral(":/%1-selected.png").arg(iconName)), QIcon::Active);
         setIcon(icon);
+        setAutoRaise(true);
     }
 };
 
