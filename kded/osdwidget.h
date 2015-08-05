@@ -34,7 +34,7 @@ class OsdWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OsdWidget(QWidget *parent = nullptr, 
+    explicit OsdWidget(QWidget *parent = Q_NULLPTR,
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
@@ -68,7 +68,7 @@ class OutputWidget : public QWidget
 
 public:
     explicit OutputWidget(const QString &id,
-                          QWidget *parent = nullptr, 
+                          QWidget *parent = Q_NULLPTR,
                           Qt::WindowFlags f = Qt::ToolTip);
     ~OutputWidget();
 };
