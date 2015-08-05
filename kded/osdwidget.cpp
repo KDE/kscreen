@@ -194,7 +194,7 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
         return false;
     }
 
-    for (KScreen::OutputPtr &output : config->outputs()) {
+    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (output.isNull())
             continue;
 
