@@ -132,7 +132,7 @@ void OsdWidget::pluggedIn()
     m_pluggedIn = true;
 }
 
-void OsdWidget::createItem(QString iconName, QString modeLabel)
+void OsdWidget::createItem(const QString &iconName, const QString &modeLabel)
 {
     QIcon icon;
     icon.addPixmap(QPixmap(QStringLiteral(":/%1.png").arg(iconName)), QIcon::Normal);
@@ -152,7 +152,7 @@ void OsdWidget::createLine()
     m_modeList->setItemWidget(item, line);
 }
 
-void OsdWidget::paintEvent(QPaintEvent *) 
+void OsdWidget::paintEvent(QPaintEvent *)
 {
     QBitmap bmp(size());
     bmp.fill();
@@ -164,13 +164,13 @@ void OsdWidget::paintEvent(QPaintEvent *)
     setMask(bmp);
 }
 
-bool OsdWidget::isShowMe() 
+bool OsdWidget::isShowMe()
 {
     QSettings settings(QStringLiteral("kscreen"), QStringLiteral("settings"));
     return settings.value(QStringLiteral("osd/showme"), true).toBool();
 }
 
-bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config) 
+bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
 {
     unsigned int outputConnected = 0;
     bool hasPrimary = false;
@@ -270,7 +270,7 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
     return false;
 }
 
-void OsdWidget::hideAll() 
+void OsdWidget::hideAll()
 {
     hide();
 
@@ -297,8 +297,8 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
     }
 }
 
-OutputWidget::OutputWidget(QString id, QWidget *parent, Qt::WindowFlags f)
-  : QWidget(parent, f) 
+OutputWidget::OutputWidget(const QString &id, QWidget *parent, Qt::WindowFlags f)
+    : QWidget(parent, f) 
 {
     setFixedSize(90, 90);
 
@@ -313,6 +313,6 @@ OutputWidget::OutputWidget(QString id, QWidget *parent, Qt::WindowFlags f)
     setLayout(vbox);
 }
 
-OutputWidget::~OutputWidget() 
+OutputWidget::~OutputWidget()
 {
 }

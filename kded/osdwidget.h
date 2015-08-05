@@ -29,7 +29,7 @@
 
 class OutputWidget;
 
-class OsdWidget : public QWidget 
+class OsdWidget : public QWidget
 {
     Q_OBJECT
 
@@ -38,7 +38,7 @@ public:
                        Qt::WindowFlags f = Qt::ToolTip);
     ~OsdWidget();
 
-    bool isAbleToShow(KScreen::ConfigPtr config);
+    bool isAbleToShow(const KScreen::ConfigPtr &config);
     void pluggedIn();
     void hideAll();
 
@@ -52,7 +52,7 @@ private slots:
     void slotItemClicked(QListWidgetItem*);
 
 private:
-    void createItem(QString iconName, QString modeLabel);
+    void createItem(const QString &iconName, const QString &modeLabel);
     void createLine();
     bool isShowMe();
 
@@ -62,12 +62,12 @@ private:
     OutputWidget *m_secondOutputWidget;
 };
 
-class OutputWidget : public QWidget 
+class OutputWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit OutputWidget(QString id, 
+    explicit OutputWidget(const QString &id,
                           QWidget *parent = nullptr, 
                           Qt::WindowFlags f = Qt::ToolTip);
     ~OutputWidget();
