@@ -22,7 +22,6 @@
 #include <QVBoxLayout>
 #include <QListWidget>
 #include <QLabel>
-#include <QDir>
 #include <QSettings>
 #include <QBitmap>
 #include <QPainter>
@@ -168,20 +167,7 @@ void OsdWidget::paintEvent(QPaintEvent *)
 bool OsdWidget::isShowMe() 
 {
     QSettings settings(QStringLiteral("kscreen"), QStringLiteral("settings"));
-
-    QString settingsDir = QDir::homePath() + "/.config/kscreen";
-    QDir dir(settingsDir);
-    if (!dir.exists()) {
-        dir.mkdir(settingsDir);
-        return true;
-    }
-
-    QString settingsPath = settingsDir + "/settings.conf";
-    QFile file(settingsPath);
-    if (!file.exists())
-        return true;
-
-    return settings.value(QStringLiteral("osd/showme")).toBool();
+    return settings.value(QStringLiteral("osd/showme"), true).toBool();
 }
 
 bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config) 
