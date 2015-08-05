@@ -81,8 +81,8 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     m_modeList->setFrameStyle(QFrame::NoFrame);
     m_modeList->setItemDelegate(new ItemDelegate(m_modeList));
     m_modeList->viewport()->setAttribute(Qt::WA_Hover);
-    connect(m_modeList, SIGNAL(itemClicked(QListWidgetItem*)), 
-            this, SLOT(slotItemClicked(QListWidgetItem*)));
+    connect(m_modeList, &QListWidget::itemClicked,
+            this, &OsdWidget::slotItemClicked);
     vbox->addWidget(m_modeList);
 
     createItem(QStringLiteral("pc-screen-only"), PC_SCREEN_ONLY_MODE);
@@ -97,9 +97,10 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
     createItem(QStringLiteral("second-screen-only"), SECOND_SCREEN_ONLY_MODE);
 
     QLabel *showMe = new QLabel(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
-    connect(showMe, &QLabel::linkActivated, [this]() {
-                KToolInvocation::kdeinitExec(QString("kcmshell5"),
-                    QStringList() << QString("kcm_kscreen"));
+    connect(showMe, &QLabel::linkActivated,
+            []() {
+                KToolInvocation::kdeinitExec(QStringLiteral("kcmshell5"),
+                                             QStringList() << QStringLiteral("kcm_kscreen"));
             });
     vbox->addWidget(showMe);
 
