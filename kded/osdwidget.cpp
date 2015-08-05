@@ -88,28 +88,28 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
             this, SLOT(slotItemClicked(QListWidgetItem*)));
     vbox->addWidget(m_modeList);
 
-    createItem("pc-screen-only", PC_SCREEN_ONLY_MODE);
+    createItem(QStringLiteral("pc-screen-only"), PC_SCREEN_ONLY_MODE);
     createLine();
 
-    createItem("mirror", MIRROR_MODE);
+    createItem(QStringLiteral("mirror"), MIRROR_MODE);
     createLine();
 
-    createItem("extend", EXTEND_MODE);
+    createItem(QStringLiteral("extend"), EXTEND_MODE);
     createLine();
 
-    createItem("second-screen-only", SECOND_SCREEN_ONLY_MODE);
+    createItem(QStringLiteral("second-screen-only"), SECOND_SCREEN_ONLY_MODE);
 
-    QLabel *showMe = new QLabel(i18n("<a href=\"#\">Disable automatically popping up?</a>"));
+    QLabel *showMe = new QLabel(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
     connect(showMe, &QLabel::linkActivated, [this]() {
-                KToolInvocation::kdeinitExec(QString("kcmshell5"), 
+                KToolInvocation::kdeinitExec(QString("kcmshell5"),
                     QStringList() << QString("kcm_kscreen"));
             });
     vbox->addWidget(showMe);
 
     setLayout(vbox);
 
-    m_primaryOutputWidget = new OutputWidget("1");
-    m_secondOutputWidget = new OutputWidget("2");
+    m_primaryOutputWidget = new OutputWidget(QStringLiteral("1"));
+    m_secondOutputWidget = new OutputWidget(QStringLiteral("2"));
 }
 
 OsdWidget::~OsdWidget() 
@@ -136,8 +136,8 @@ void OsdWidget::pluggedIn()
 void OsdWidget::createItem(QString iconName, QString modeLabel)
 {
     QIcon icon;
-    icon.addPixmap(QPixmap(":/" + iconName + ".png"), QIcon::Normal);
-    icon.addPixmap(QPixmap(":/" + iconName + "-selected.png"), QIcon::Selected);
+    icon.addPixmap(QPixmap(QStringLiteral(":/%1.png").arg(iconName)), QIcon::Normal);
+    icon.addPixmap(QPixmap(QStringLiteral(":/%1-selected.png").arg(iconName)), QIcon::Selected);
     QListWidgetItem *item = new QListWidgetItem(icon, modeLabel);
     item->setSizeHint(modeIconSize);
     m_modeList->addItem(item);
@@ -167,7 +167,7 @@ void OsdWidget::paintEvent(QPaintEvent *)
 
 bool OsdWidget::isShowMe() 
 {
-    QSettings settings("kscreen", "settings");
+    QSettings settings(QStringLiteral("kscreen"), QStringLiteral("settings"));
 
     QString settingsDir = QDir::homePath() + "/.config/kscreen";
     QDir dir(settingsDir);
@@ -181,7 +181,7 @@ bool OsdWidget::isShowMe()
     if (!file.exists())
         return true;
 
-    return settings.value("osd/showme").toBool();
+    return settings.value(QStringLiteral("osd/showme")).toBool();
 }
 
 bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config) 
@@ -213,7 +213,7 @@ bool OsdWidget::isAbleToShow(KScreen::ConfigPtr config)
     for (KScreen::OutputPtr &output : config->outputs()) {
         if (output.isNull())
             continue;
-        
+
         if (!output->isConnected())
             continue;
 
@@ -299,7 +299,7 @@ void OsdWidget::slotItemClicked(QListWidgetItem *item)
 {
     m_pluggedIn = false;
     hideAll();
-    
+
     if (item->text() == PC_SCREEN_ONLY_MODE) {
         emit displaySwitch(Generator::TurnOffExternal);
     } else if (item->text() == MIRROR_MODE) {
