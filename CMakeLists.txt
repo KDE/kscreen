@@ -11,7 +11,7 @@ find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets Network QuickWidgets Test)
-find_package(KF5 REQUIRED COMPONENTS DBusAddons ConfigWidgets I18n XmlGui GlobalAccel Service)
+find_package(KF5 REQUIRED COMPONENTS DBusAddons ConfigWidgets I18n XmlGui GlobalAccel Service IconThemes)
 
 set(MIN_LIBKSCREEN_VERSION "5.2.91")
 find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)

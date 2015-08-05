@@ -31,6 +31,7 @@ set(kscreen_daemon_LIBS
     KF5::XmlGui
     KF5::GlobalAccel
     KF5::Service
+    KF5::IconThemes
 )
 
 add_library(kded_kscreen MODULE ${kscreen_daemon_SRCS})

@@ -28,6 +28,7 @@
 #include "generator.h"
 
 class OutputWidget;
+class QLayout;
 
 class OsdWidget : public QWidget
 {
@@ -52,8 +53,6 @@ private slots:
     void slotItemClicked(QListWidgetItem*);
 
 private:
-    void createItem(const QString &iconName, const QString &modeLabel);
-    void createLine();
     bool isShowMe();
 
     QListWidget *m_modeList;

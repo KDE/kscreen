@@ -26,9 +26,11 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QStyledItemDelegate>
+#include <QToolButton>
 
 #include <KLocalizedString>
 #include <KToolInvocation>
+#include <KIconLoader>
 
 #include <kscreen/output.h>
 
@@ -40,29 +42,23 @@ static const QSize modeIconSize(106, 110);
 static const QPoint outputMargin(20, 20);
 static const QSize lineSize(1, modeIconSize.height());
 
-class ItemDelegate : public QStyledItemDelegate
+class OsdWidgetItem : public QToolButton
 {
 public:
-    ItemDelegate(QObject *parent = 0) : QStyledItemDelegate(parent)
+    OsdWidgetItem(const QString &iconName, const QString &name, QWidget *parent = 0)
+        : QToolButton(parent)
     {
-    }
+        setText(name);
+        setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
-    void paint(QPainter *painter,
-               const QStyleOptionViewItem &option,
-               const QModelIndex &index) const
-    {
-        Q_ASSERT(index.isValid());
+        // This is large times 2.5, where 2.5 is an arbitrary constant that should
+        // make this reasonably big even on high-DPI screens
+        setIconSize(QSize(IconSize(KIconLoader::Desktop) * 2, IconSize(KIconLoader::Desktop)) * 2);
 
-        QStyleOptionViewItemV4 opt = option;
-        initStyleOption(&opt, index);
-
-        opt.decorationPosition = QStyleOptionViewItem::Bottom;
-
-        if (opt.state & QStyle::State_MouseOver)
-            opt.icon = opt.icon.pixmap(opt.decorationSize, QIcon::Selected);
-
-        QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &opt,
-                                           painter, 0);
+        QIcon icon;
+        icon.addPixmap(QPixmap(QStringLiteral(":/%1.png").arg(iconName)), QIcon::Normal);
+        icon.addPixmap(QPixmap(QStringLiteral(":/%1-selected.png").arg(iconName)), QIcon::Active);
+        setIcon(icon);
     }
 };
 
@@ -73,28 +69,13 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 {
     QVBoxLayout *vbox = new QVBoxLayout;
 
-    m_modeList = new QListWidget;
-    m_modeList->setFlow(QListView::LeftToRight);
-    m_modeList->setViewMode(QListView::IconMode);
-    m_modeList->setIconSize(modeIconSize);
-    m_modeList->setSpacing(6);
-    m_modeList->setFrameStyle(QFrame::NoFrame);
-    m_modeList->setItemDelegate(new ItemDelegate(m_modeList));
-    m_modeList->viewport()->setAttribute(Qt::WA_Hover);
-    connect(m_modeList, &QListWidget::itemClicked,
-            this, &OsdWidget::slotItemClicked);
-    vbox->addWidget(m_modeList);
+    QHBoxLayout *hbox = new QHBoxLayout;
+    hbox->addWidget(new OsdWidgetItem(QStringLiteral("pc-screen-only"), PC_SCREEN_ONLY_MODE));
+    hbox->addWidget(new OsdWidgetItem(QStringLiteral("mirror"), MIRROR_MODE));
+    hbox->addWidget(new OsdWidgetItem(QStringLiteral("extend"), EXTEND_MODE));
+    hbox->addWidget(new OsdWidgetItem(QStringLiteral("second-screen-only"), SECOND_SCREEN_ONLY_MODE));
 
-    createItem(QStringLiteral("pc-screen-only"), PC_SCREEN_ONLY_MODE);
-    createLine();
-
-    createItem(QStringLiteral("mirror"), MIRROR_MODE);
-    createLine();
-
-    createItem(QStringLiteral("extend"), EXTEND_MODE);
-    createLine();
-
-    createItem(QStringLiteral("second-screen-only"), SECOND_SCREEN_ONLY_MODE);
+    vbox->addLayout(hbox);
 
     QLabel *showMe = new QLabel(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
     connect(showMe, &QLabel::linkActivated,
@@ -117,26 +98,6 @@ OsdWidget::~OsdWidget()
 void OsdWidget::pluggedIn()
 {
     m_pluggedIn = true;
-}
-
-void OsdWidget::createItem(const QString &iconName, const QString &modeLabel)
-{
-    QIcon icon;
-    icon.addPixmap(QPixmap(QStringLiteral(":/%1.png").arg(iconName)), QIcon::Normal);
-    icon.addPixmap(QPixmap(QStringLiteral(":/%1-selected.png").arg(iconName)), QIcon::Selected);
-    QListWidgetItem *item = new QListWidgetItem(icon, modeLabel);
-    item->setSizeHint(modeIconSize);
-    m_modeList->addItem(item);
-}
-
-void OsdWidget::createLine()
-{
-    QListWidgetItem *item = new QListWidgetItem;
-    m_modeList->addItem(item);
-    QFrame* line = new QFrame;
-    line->setFrameShape(QFrame::VLine);
-    item->setSizeHint(lineSize);
-    m_modeList->setItemWidget(item, line);
 }
 
 void OsdWidget::paintEvent(QPaintEvent *)
