@@ -123,10 +123,11 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
     vbox->addLayout(hbox);
 
-    QCheckBox *showMe = new QCheckBox(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
+    QCheckBox *showMe = new QCheckBox(i18n("Disable automatically popping up?"));
+    showMe->setChecked(!isShowMe());
     connect(showMe, &QCheckBox::clicked, [=]() {
                 QSettings settings("kscreen", "settings");
-                settings.setValue("osd/showme", showMe->isChecked());
+                settings.setValue("osd/showme", !showMe->isChecked());
             });
     vbox->addWidget(showMe);
 
