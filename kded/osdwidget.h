@@ -1,5 +1,6 @@
 /*************************************************************************************
 *  Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>                        *
+*  Copyright (C) 2015 Dan Vrátil <dvratil@redhat.com>                               *
 *                                                                                   *
 *  This program is free software; you can redistribute it and/or                    *
 *  modify it under the terms of the GNU General Public License                      *
@@ -22,6 +23,7 @@
 #include <QWidget>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QList>
 
 #include <kscreen/config.h>
 
@@ -51,11 +53,11 @@ private slots:
 
 private:
     bool isShowMe();
+    void clearOutputWidgets();
 
     QListWidget *m_modeList;
     bool m_pluggedIn;
-    OutputWidget *m_primaryOutputWidget;
-    OutputWidget *m_secondOutputWidget;
+    QList<OutputWidget *> m_outputWidgets;
 };
 
 class OutputWidget : public QWidget
@@ -63,10 +65,10 @@ class OutputWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OutputWidget(const QString &id,
+    explicit OutputWidget(const QString &name, 
+                          const QPoint &position, 
                           QWidget *parent = Q_NULLPTR,
                           Qt::WindowFlags f = Qt::ToolTip);
-    ~OutputWidget();
 };
 
 #endif /* __OSD_WIDGET_H__ */

@@ -1,5 +1,6 @@
 /*************************************************************************************
 *  Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>                        *
+*  Copyright (C) 2015 Dan Vrátil <dvratil@redhat.com>                               *
 *                                                                                   *
 *  This program is free software; you can redistribute it and/or                    *
 *  modify it under the terms of the GNU General Public License                      *
@@ -20,6 +21,7 @@
 
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QCheckBox>
 #include <QSettings>
 #include <QToolButton>
 #include <QAction>
@@ -30,13 +32,7 @@
 
 #include <kscreen/output.h>
 
-static const QString PC_SCREEN_ONLY_MODE = i18n("PC");
-static const QString MIRROR_MODE = i18n("Mirror");
-static const QString EXTEND_MODE = i18n("Extend");
-static const QString SECOND_SCREEN_ONLY_MODE = i18n("Second");
-static const QSize modeIconSize(106, 110);
 static const QPoint outputMargin(20, 20);
-static const QSize lineSize(1, modeIconSize.height());
 
 class OsdWidgetItem : public QToolButton
 {
@@ -72,13 +68,13 @@ private:
     {
         switch (action) {
         case Generator::TurnOffExternal:
-            return PC_SCREEN_ONLY_MODE;
+            return i18n("PC screen only");
         case Generator::Clone:
-            return MIRROR_MODE;
+            return i18n("Mirror");
         case Generator::ExtendToLeft:
-            return EXTEND_MODE;
+            return i18n("Extend");
         case Generator::TurnOffEmbedded:
-            return SECOND_SCREEN_ONLY_MODE;
+            return i18n("Second screen only");
         default:
             Q_ASSERT_X(false, "OsdWidgetItem::nameForAction()", "Unsupported action");
             return QString();
@@ -107,7 +103,7 @@ private:
 
 OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
   : QWidget(parent, f),
-    m_modeList(nullptr),
+    m_modeList(Q_NULLPTR),
     m_pluggedIn(false)
 {
     QVBoxLayout *vbox = new QVBoxLayout;
@@ -127,22 +123,29 @@ OsdWidget::OsdWidget(QWidget *parent, Qt::WindowFlags f)
 
     vbox->addLayout(hbox);
 
-    QLabel *showMe = new QLabel(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
-    connect(showMe, &QLabel::linkActivated,
-            []() {
-                KToolInvocation::kdeinitExec(QStringLiteral("kcmshell5"),
-                                             QStringList() << QStringLiteral("kcm_kscreen"));
+    QCheckBox *showMe = new QCheckBox(QStringLiteral("<a href=\"#\">%1</a>").arg(i18n("Disable automatically popping up?")));
+    connect(showMe, &QCheckBox::clicked, [=]() {
+                QSettings settings("kscreen", "settings");
+                settings.setValue("osd/showme", showMe->isChecked());
             });
     vbox->addWidget(showMe);
 
     setLayout(vbox);
-
-    m_primaryOutputWidget = new OutputWidget(QStringLiteral("1"), this);
-    m_secondOutputWidget = new OutputWidget(QStringLiteral("2"), this);
 }
 
-OsdWidget::~OsdWidget()
+OsdWidget::~OsdWidget() 
 {
+    clearOutputWidgets();
+}
+
+void OsdWidget::clearOutputWidgets()
+{
+    Q_FOREACH (OutputWidget *outputWidget, m_outputWidgets) {
+        if (outputWidget) {
+            delete outputWidget;
+            outputWidget = Q_NULLPTR;
+        }
+    }
 }
 
 void OsdWidget::pluggedIn()
@@ -182,12 +185,21 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
         return false;
     }
 
+    outputConnected = config->connectedOutputs().size();
+    if (outputConnected < 2) {
+        hideAll();
+        return false;
+    }
+
+    clearOutputWidgets();
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (output.isNull())
             continue;
 
         if (!output->isConnected())
             continue;
+
+        m_outputWidgets << new OutputWidget(output->name(), output->pos());
 
         if (output->isPrimary()) {
             hasPrimary = true;
@@ -199,56 +211,48 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
             secondPos = output->pos();
             secondSize = output->size();
         }
-
-        if (output->isConnected())
-            outputConnected++;
     }
 
-    if (hasPrimary && outputConnected == 2) {
+    if (hasPrimary) {
         show();
 
         if (primaryEnabled && !secondEnabled) {
+            // pc screen only
             move((primarySize.width() - width()) / 2, 
                  (primarySize.height() - height()) / 2);
             m_modeList->setCurrentRow(0);
-            m_primaryOutputWidget->move(outputMargin);
-            m_primaryOutputWidget->show();
+
+            if (m_outputWidgets.size())
+                m_outputWidgets[0]->show();
         }
 
         if (primaryEnabled && secondEnabled) {
             if (primaryPos == secondPos) {
+                // mirror
                 move((primarySize.width() - width()) / 2, 
                      (primarySize.height() - height()) / 2);
                 m_modeList->setCurrentRow(2);
-                // NOTE: it does not need to move && show primary and second 
-                // output widget in mirror mode
             } else {
-                // extend mode
+                // extend
                 move((primarySize.width() - width()) / 2, 
                      (primarySize.height() - height()) / 2);
                 m_modeList->setCurrentRow(4);
-                m_primaryOutputWidget->move(outputMargin);
-                m_primaryOutputWidget->show();
-                m_secondOutputWidget->move(
-                    outputMargin.x() + primarySize.width(), outputMargin.y());
-                m_secondOutputWidget->show();
+
+                Q_FOREACH (OutputWidget *outputWidget, m_outputWidgets) {
+                    if (outputWidget)
+                        outputWidget->show();
+                }
             }
         }
 
         if (!primaryEnabled && secondEnabled) {
+            // second or Nth screen only
             move((secondSize.width() - width()) / 2, 
                  (secondSize.height() - height()) / 2);
             m_modeList->setCurrentRow(6);
-            m_secondOutputWidget->move(outputMargin);
-            m_secondOutputWidget->show();
         }
 
         return true;
-    }
-
-    if (outputConnected > 2) {
-        KToolInvocation::kdeinitExec(QStringLiteral("kcmshell5"),
-                                     QStringList() << QStringLiteral("kcm_kscreen"));
     }
 
     hideAll();
@@ -259,8 +263,11 @@ bool OsdWidget::isAbleToShow(const KScreen::ConfigPtr &config)
 void OsdWidget::hideAll()
 {
     hide();
-    m_primaryOutputWidget->hide();
-    m_secondOutputWidget->hide();
+
+    Q_FOREACH (OutputWidget *outputWidget, m_outputWidgets) {
+        if (outputWidget)
+            outputWidget->hide();
+    }
 }
 
 void OsdWidget::slotItemClicked(OsdWidgetItem *item)
@@ -271,7 +278,10 @@ void OsdWidget::slotItemClicked(OsdWidgetItem *item)
     emit displaySwitch(item->action());
 }
 
-OutputWidget::OutputWidget(const QString &id, QWidget *parent, Qt::WindowFlags f)
+OutputWidget::OutputWidget(const QString &name, 
+                           const QPoint &position, 
+                           QWidget *parent, 
+                           Qt::WindowFlags f)
     : QWidget(parent, f)
 {
     setFixedSize(90, 90);
@@ -279,14 +289,12 @@ OutputWidget::OutputWidget(const QString &id, QWidget *parent, Qt::WindowFlags f
     QVBoxLayout *vbox = new QVBoxLayout;
     QFont font;
     font.setPixelSize(90);
-    QLabel *label = new QLabel(id);
+    QLabel *label = new QLabel(name);
     label->setFont(font);
     label->setAlignment(Qt::AlignCenter);
     vbox->addWidget(label);
 
     setLayout(vbox);
-}
 
-OutputWidget::~OutputWidget()
-{
+    move(position);
 }
