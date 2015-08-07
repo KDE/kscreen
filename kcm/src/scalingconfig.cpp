@@ -43,6 +43,9 @@ ScalingConfig::ScalingConfig(QWidget* parent):
     connect(ui.scaleSlider, &QSlider::valueChanged, ui.scaleLabel, [this](qreal value) {
         ui.scaleLabel->setText(QString::number(value / SLIDER_RATIO));
     });
+
+    ui.previewWidget->setScale(1);
+    ui.scaleLabel->setText(QString::number(1));
     
     load();
 }
