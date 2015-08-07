@@ -144,18 +144,11 @@ void KScreenDaemon::init()
     if (m_osdWidget) {
         connect(m_osdWidget, &OsdWidget::displaySwitch, 
                 [this](Generator::DisplaySwitchAction mode) {
-                    // FIXME: https://bugs.kde.org/show_bug.cgi?id=350657 
-                    // from ExtendToRight directly switch to TurnOffEmbedded
-                    // might cause libkscreen error: There are no enabled screens, 
-                    // at least one required
                     KScreen::ConfigPtr config = Generator::self()->displaySwitch(mode);
                     if (KScreen::Config::canBeApplied(
                             config,
                             KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) 
                     {
-                        // TRICK: do apply Mirror (Clone aka) config at first,
-                        // then do apply TurnOffEmbedded/External, but it is better to fix
-                        // libkscreen issue ;-)
                         doApplyConfig(config);
                     }
                 });

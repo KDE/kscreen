@@ -217,6 +217,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
+        external->setPos(QPoint(0, 0));
         external->setEnabled(true);
         external->setPrimary(true);
         const KScreen::ModePtr extMode = bestModeForOutput(external);
