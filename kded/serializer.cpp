@@ -104,9 +104,11 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
         }
     }
 
+    auto unmatchedOutputs = config->outputs();
+
     QSize screenSize;
     Q_FOREACH(const QVariant &info, outputs) {
-        KScreen::OutputPtr output = Serializer::findOutput(config, info.toMap());
+        KScreen::OutputPtr output = Serializer::findOutput(unmatchedOutputs, info.toMap());
         if (!output) {
             continue;
         }
@@ -121,6 +123,7 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
             }
         }
 
+        unmatchedOutputs.remove(output->id());
         outputList.remove(output->id());
         outputList.insert(output->id(), output);
     }
@@ -194,9 +197,8 @@ void Serializer::removeConfig(const QString &id)
 }
 
 
-KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
+KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, const QVariantMap& info)
 {
-    KScreen::OutputList outputs = config->outputs();
     Q_FOREACH(KScreen::OutputPtr output, outputs) {
         if (!output->isConnected()) {
             continue;
