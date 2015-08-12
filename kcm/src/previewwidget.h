@@ -32,7 +32,7 @@ public:
     ~PreviewWidget();
     void setScale(qreal scale);
 public Q_SLOTS:
-    void updatePixmapCache();
+    QPixmap updatePixmapCache();
 private:
     qreal pointSizeToPixelSize(qreal pointSize) const;
     qreal m_scale;

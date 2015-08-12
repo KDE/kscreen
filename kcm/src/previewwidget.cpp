@@ -50,9 +50,14 @@ void PreviewWidget::setScale(qreal scale)
 
     font.setPixelSize(pointSizeToPixelSize(font.pointSize()));
     m_internalPreview->setFont(font);
+
+    //as we are a hidden widget, we need to force a repaint to update the size hint properly
+    updatePixmapCache();
+    m_internalPreview->resize(sizeHint());
     m_internalPreview->adjustSize();
 
-    updatePixmapCache();
+    QPixmap preview = updatePixmapCache();
+    setPixmap(preview);
 }
 
 qreal PreviewWidget::pointSizeToPixelSize(qreal pointSize) const
@@ -67,10 +72,11 @@ qreal PreviewWidget::pointSizeToPixelSize(qreal pointSize) const
     return pixelSize / dpr; //as we are now dealing with pixels it will be scaled up in the paint(), so it needs dividing here
 }
 
-void PreviewWidget::updatePixmapCache()
+QPixmap PreviewWidget::updatePixmapCache()
 {
    int dpr = qRound(m_scale);
-   QPixmap pixmap(m_internalPreview ->size() * dpr);
+
+   QPixmap pixmap(m_internalPreview ->sizeHint() * dpr);
    pixmap.setDevicePixelRatio(dpr);
    QPainter p(&pixmap);
    m_internalPreview ->render(&p);
@@ -78,7 +84,7 @@ void PreviewWidget::updatePixmapCache()
    //render back at whatever the native DPR of the KCM is
    pixmap.setDevicePixelRatio(devicePixelRatio());
 
-   setPixmap(pixmap);
+   return pixmap;
 }
 
 
