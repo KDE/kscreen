@@ -39,7 +39,9 @@
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/setconfigoperation.h>
 
-K_PLUGIN_FACTORY(KScreenDaemonFactory, registerPlugin<KScreenDaemon>();)
+K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
+                           "kscreen.json",
+                           registerPlugin<KScreenDaemon>();)
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
