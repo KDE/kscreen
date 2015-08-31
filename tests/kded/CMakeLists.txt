@@ -14,7 +14,7 @@ macro(ADD_KDED_TEST testname)
 
     qt5_add_dbus_interface(test_SRCS
         ${CMAKE_SOURCE_DIR}/kded/org.freedesktop.DBus.Properties.xml
-        upower_interface
+        freedesktop_interface
     )
 
     add_executable(${testname} ${test_SRCS})
