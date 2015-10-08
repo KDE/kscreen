@@ -85,4 +85,4 @@ Comment[uk]=Керування і налаштовування моніторі�
 Comment[x-test]=xxManage and configure monitors and displaysxx
 Comment[zh_CN]=管理和配置显示和监视器
 Comment[zh_TW]=管理與設定螢幕與顯示
-X-KDE-Keywords=display,monitor,scale,scaling,resolution,oritentation,outputs
+X-KDE-Keywords=display,monitor,scale,scaling,resolution,orientation,outputs
