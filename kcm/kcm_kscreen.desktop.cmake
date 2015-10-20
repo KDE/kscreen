@@ -86,6 +86,7 @@ Comment[x-test]=xxManage and configure monitors and displaysxx
 Comment[zh_CN]=管理和配置显示和监视器
 Comment[zh_TW]=管理與設定螢幕與顯示
 X-KDE-Keywords=display,monitor,scale,scaling,resolution,orientation,outputs
+X-KDE-Keywords[ast]=pantalla,pantalles,monitores,monitor,escalar,escala,escaláu,resolución,orientación,salíes,salida
 X-KDE-Keywords[ca]=pantalla,monitor,escala,escalat,resolució,orientació,sortides
 X-KDE-Keywords[en_GB]=display,monitor,scale,scaling,resolution,orientation,outputs
 X-KDE-Keywords[es]=pantalla,monitor,escala,escalado,resolución,orientación,salidas
