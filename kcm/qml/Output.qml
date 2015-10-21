@@ -249,40 +249,39 @@ QMLOutput {
                     }
                 }
             }
+        }
+        Item {
+            id: orientationPanelContainer;
 
-            Item {
-                id: orientationPanelContainer;
+            anchors.fill: monitor;
 
-                anchors.fill: monitor;
+            visible: false
 
-                visible: false
+            Rectangle {
+                id: orientationPanel;
 
-                Rectangle {
-                    id: orientationPanel;
+                anchors {
+                    left: parent.left;
+                    right: parent.right;
+                    bottom: parent.bottom;
+                }
 
-                    anchors {
-                        left: parent.left;
-                        right: parent.right;
-                        bottom: parent.bottom;
-                    }
+                height: 10;
+                color: root.focus ? palette.highlight : palette.shadow;
+                smooth: true;
 
-                    height: 10;
-                    color: root.focus ? palette.highlight : palette.shadow;
-                    smooth: true;
-
-                    Behavior on color {
-                        PropertyAnimation {
-                            duration: 150;
-                        }
+                Behavior on color {
+                    PropertyAnimation {
+                        duration: 150;
                     }
                 }
             }
+        }
 
-            OpacityMask {
-                anchors.fill: orientationPanelContainer;
-                source: orientationPanelContainer;
-                maskSource: monitor;
-            }
+        OpacityMask {
+            anchors.fill: orientationPanelContainer;
+            source: orientationPanelContainer;
+            maskSource: monitor;
         }
     }
 
