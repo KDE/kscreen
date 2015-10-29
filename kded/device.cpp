@@ -47,25 +47,25 @@ Device::Device(QObject* parent)
    , m_isLidClosed(false)
    , m_isDocked(false)
 {
-    m_freedesktop = new OrgFreedesktopDBusPropertiesInterface("org.freedesktop.UPower",
-                                                              "/org/freedesktop/UPower",
+    m_freedesktop = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.freedesktop.UPower"),
+                                                              QStringLiteral("/org/freedesktop/UPower"),
                                                               QDBusConnection::systemBus(),
                                                               this);
     if (!m_freedesktop->isValid()) {
         qCWarning(KSCREEN_KDED) << "UPower not available, lid detection won't work";
         qCDebug(KSCREEN_KDED) << m_freedesktop->lastError().message();
     } else {
-        QDBusConnection::systemBus().connect(QLatin1String("org.freedesktop.UPower"),
-                                             QLatin1String("/org/freedesktop/UPower"),
-                                             QLatin1String("org.freedesktop.DBus.Properties"),
-                                             QLatin1String("PropertiesChanged"),
+        QDBusConnection::systemBus().connect(QStringLiteral("org.freedesktop.UPower"),
+                                             QStringLiteral("/org/freedesktop/UPower"),
+                                             QStringLiteral("org.freedesktop.DBus.Properties"),
+                                             QStringLiteral("PropertiesChanged"),
                                              this, SLOT(changed()));
         fetchIsLaptop();
     }
 
-    m_suspendSession = new QDBusInterface(QLatin1String("org.kde.Solid.PowerManagement"),
-                                          QLatin1String("/org/kde/Solid/PowerManagement/Actions/SuspendSession"),
-                                          QLatin1String("org.kde.Solid.PowerManagement.Actions.SuspendSession"),
+    m_suspendSession = new QDBusInterface(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/SuspendSession"),
+                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.SuspendSession"),
                                           QDBusConnection::sessionBus(),
                                           this);
     if (m_suspendSession->isValid()) {
@@ -122,9 +122,9 @@ bool Device::isDocked()
 
 void Device::fetchIsLaptop()
 {
-    QDBusPendingReply<QVariant> res = m_freedesktop->Get("org.freedesktop.UPower", "LidIsPresent");
+    QDBusPendingReply<QVariant> res = m_freedesktop->Get(QStringLiteral("org.freedesktop.UPower"), QStringLiteral("LidIsPresent"));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(res);
-    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(isLaptopFetched(QDBusPendingCallWatcher*)));
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &Device::isLaptopFetched);
 }
 
 void Device::isLaptopFetched(QDBusPendingCallWatcher* watcher)
@@ -148,9 +148,9 @@ void Device::isLaptopFetched(QDBusPendingCallWatcher* watcher)
 
 void Device::fetchLidIsClosed()
 {
-    QDBusPendingReply<QVariant> res = m_freedesktop->Get("org.freedesktop.UPower", "LidIsClosed");
+    QDBusPendingReply<QVariant> res = m_freedesktop->Get(QStringLiteral("org.freedesktop.UPower"), QStringLiteral("LidIsClosed"));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(res);
-    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(isLidClosedFetched(QDBusPendingCallWatcher*)));
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &Device::isLidClosedFetched);
 }
 
 void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)

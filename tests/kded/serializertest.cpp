@@ -56,8 +56,8 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
     for (int i = 0; i < sizes.count(); ++i) {
         const QSize &size = sizes[i];
         KScreen::ModePtr mode = KScreen::ModePtr::create();
-        mode->setId(QString::fromLatin1("MODE-%1").arg(i));
-        mode->setName(QString::fromLatin1("%1x%2").arg(size.width()).arg(size.height()));
+        mode->setId(QStringLiteral("MODE-%1").arg(i));
+        mode->setName(QStringLiteral("%1x%2").arg(size.width()).arg(size.height()));
         mode->setSize(size);
         mode->setRefreshRate(60.0);
         modes.insert(mode->id(), mode);
@@ -65,7 +65,7 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
 
     KScreen::OutputPtr output1 = KScreen::OutputPtr::create();
     output1->setId(1);
-    output1->setName(QLatin1String("OUTPUT-1"));
+    output1->setName(QStringLiteral("OUTPUT-1"));
     output1->setPos(QPoint(0, 0));
     output1->setConnected(output1Connected);
     output1->setEnabled(output1Connected);
@@ -75,7 +75,7 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
 
     KScreen::OutputPtr output2 = KScreen::OutputPtr::create();
     output2->setId(2);
-    output2->setName(QLatin1String("OUTPUT-2"));
+    output2->setName(QStringLiteral("OUTPUT-2"));
     output2->setPos(QPoint(0, 0));
     output2->setConnected(output2Connected);
     if (output2Connected) {
@@ -92,13 +92,13 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
 
 void TestSerializer::initTestCase()
 {
-    Serializer::setConfigPath(QLatin1String(TEST_DATA "/serializerdata/"));
+    Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 void TestSerializer::testSimpleConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, false);
-    config = Serializer::config(config, QLatin1String("simpleConfig.json"));
+    config = Serializer::config(config, QStringLiteral("simpleConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 1);
@@ -119,7 +119,7 @@ void TestSerializer::testSimpleConfig()
 void TestSerializer::testTwoScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QLatin1String("twoScreenConfig.json"));
+    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -149,7 +149,7 @@ void TestSerializer::testTwoScreenConfig()
 void TestSerializer::testRotatedScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QLatin1String("rotatedScreenConfig.json"));
+    config = Serializer::config(config, QStringLiteral("rotatedScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -179,7 +179,7 @@ void TestSerializer::testRotatedScreenConfig()
 void TestSerializer::testDisabledScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QLatin1String("disabledScreenConfig.json"));
+    config = Serializer::config(config, QStringLiteral("disabledScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);

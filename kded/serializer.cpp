@@ -146,15 +146,15 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
 
         QVariantMap info;
 
-        info["id"] = Serializer::outputId(output);
-        info["primary"] = output->isPrimary();
-        info["enabled"] = output->isEnabled();
-        info["rotation"] = output->rotation();
+        info[QStringLiteral("id")] = Serializer::outputId(output);
+        info[QStringLiteral("primary")] = output->isPrimary();
+        info[QStringLiteral("enabled")] = output->isEnabled();
+        info[QStringLiteral("rotation")] = output->rotation();
 
         QVariantMap pos;
-        pos["x"] = output->pos().x();
-        pos["y"] = output->pos().y();
-        info["pos"] = pos;
+        pos[QStringLiteral("x")] = output->pos().x();
+        pos[QStringLiteral("y")] = output->pos().y();
+        info[QStringLiteral("pos")] = pos;
 
         if (output->isEnabled()) {
             const KScreen::ModePtr mode = output->currentMode();
@@ -164,17 +164,17 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
             }
 
             QVariantMap modeInfo;
-            modeInfo["refresh"] = mode->refreshRate();
+            modeInfo[QStringLiteral("refresh")] = mode->refreshRate();
 
             QVariantMap modeSize;
-            modeSize["width"] = mode->size().width();
-            modeSize["height"] = mode->size().height();
-            modeInfo["size"] = modeSize;
+            modeSize[QStringLiteral("width")] = mode->size().width();
+            modeSize[QStringLiteral("height")] = mode->size().height();
+            modeInfo[QStringLiteral("size")] = modeSize;
 
-            info["mode"] = modeInfo;
+            info[QStringLiteral("mode")] = modeInfo;
         }
 
-        info["metadata"] = Serializer::metadata(output);
+        info[QStringLiteral("metadata")] = Serializer::metadata(output);
 
         outputList.append(info);
     }
@@ -203,22 +203,22 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, co
         if (!output->isConnected()) {
             continue;
         }
-        if (Serializer::outputId(output) != info["id"].toString()) {
+        if (Serializer::outputId(output) != info[QStringLiteral("id")].toString()) {
             continue;
         }
 
-        const QVariantMap posInfo = info["pos"].toMap();
-        QPoint point(posInfo["x"].toInt(), posInfo["y"].toInt());
+        const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
+        QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
         output->setPos(point);
-        output->setPrimary(info["primary"].toBool());
-        output->setEnabled(info["enabled"].toBool());
-        output->setRotation(static_cast<KScreen::Output::Rotation>(info["rotation"].toInt()));
+        output->setPrimary(info[QStringLiteral("primary")].toBool());
+        output->setEnabled(info[QStringLiteral("enabled")].toBool());
+        output->setRotation(static_cast<KScreen::Output::Rotation>(info[QStringLiteral("rotation")].toInt()));
 
-        const QVariantMap modeInfo = info["mode"].toMap();
-        const QVariantMap modeSize = modeInfo["size"].toMap();
-        const QSize size = QSize(modeSize["width"].toInt(), modeSize["height"].toInt());
+        const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
+        const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
+        const QSize size = QSize(modeSize[QStringLiteral("width")].toInt(), modeSize[QStringLiteral("height")].toInt());
 
-        qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo["refresh"].toFloat();
+        qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo[QStringLiteral("refresh")].toFloat();
 
         KScreen::ModeList modes = output->modes();
         KScreen::ModePtr matchingMode;
@@ -226,7 +226,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, co
             if (mode->size() != size) {
                 continue;
             }
-            if (!qFuzzyCompare(mode->refreshRate(), modeInfo["refresh"].toFloat())) {
+            if (!qFuzzyCompare(mode->refreshRate(), modeInfo[QStringLiteral("refresh")].toFloat())) {
                 continue;
             }
 

@@ -55,7 +55,7 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
     KAboutData* about =
         new KAboutData(QStringLiteral("kcm_kscreen"),
                     i18n("Display Configuration"),
-                    QString(KSCREEN_VERSION), i18n("Configuration for displays"),
+                    QStringLiteral(KSCREEN_VERSION), i18n("Configuration for displays"),
                     KAboutLicense::GPL_V2, i18n("(c), 2012-2013 Daniel Vrátil"));
 
     about->addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer") , QStringLiteral("dvratil@redhat.com"));
@@ -121,8 +121,8 @@ void KCMKScreen::save()
     if (!atLeastOneEnabledOutput) {
         if (KMessageBox::warningYesNo(this, i18n("Are you sure you want to disable all outputs?"),
             i18nc("@title:window", "Disable All Outputs"),
-            KGuiItem(i18n("&Disable All Outputs"), QIcon::fromTheme(QLatin1String("dialog-ok-apply"))),
-            KGuiItem(i18n("&Reconfigure"), QIcon::fromTheme(QLatin1String("dialog-cancel"))),
+            KGuiItem(i18n("&Disable All Outputs"), QIcon::fromTheme(QStringLiteral("dialog-ok-apply"))),
+            KGuiItem(i18n("&Reconfigure"), QIcon::fromTheme(QStringLiteral("dialog-cancel"))),
             QString(), KMessageBox::Dangerous) == KMessageBox::No)
         {
             return;

@@ -46,23 +46,23 @@ void configReceived(KScreen::ConfigOperation *op)
     if (command.isEmpty()) {
         console->printConfig();
         console->monitorAndPrint();
-    } else if (command == "monitor") {
+    } else if (command == QLatin1String("monitor")) {
         QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
         //Print config so that we have some pivot data
         console->printConfig();
         console->monitor();
         //Do nothing, enable backend output to see debug
-    } else if (command == "outputs") {
+    } else if (command == QLatin1String("outputs")) {
         console->printConfig();
         qApp->quit();
-    } else if (command == "config") {
+    } else if (command == QLatin1String("config")) {
         console->printSerializations();
         qApp->quit();
-    } else if (command == "bug") {
+    } else if (command == QLatin1String("bug")) {
         QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
         QProcess proc;
         proc.setProcessChannelMode(QProcess::MergedChannels);
-        proc.start("xrandr", QStringList("--verbose"));
+        proc.start(QStringLiteral("xrandr"), QStringList(QStringLiteral("--verbose")));
         proc.waitForFinished();
         QTextStream(stdout) << proc.readAll().data();
         QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
@@ -70,7 +70,7 @@ void configReceived(KScreen::ConfigOperation *op)
         QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
         console->printSerializations();
         qApp->quit();
-    } else if (command == "json") {
+    } else if (command == QLatin1String("json")) {
         console->printJSONConfig();
         qApp->quit();
     } else {
@@ -85,12 +85,12 @@ int main (int argc, char *argv[])
     dup2(1, 2);
 
     QGuiApplication app(argc, argv);
-    KAboutData aboutData("kscreen-console", i18n("KScreen Console"), "1.0", i18n("KScreen Console"),
+    KAboutData aboutData(QStringLiteral("kscreen-console"), i18n("KScreen Console"), QStringLiteral("1.0"), i18n("KScreen Console"),
     KAboutLicense::GPL, i18n("(c) 2012 KScreen Team"));
     KAboutData::setApplicationData(aboutData);
 
-    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), "afiestas@kde.org",
-        "http://www.afiestas.org/");
+    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), QStringLiteral("afiestas@kde.org"),
+        QStringLiteral("http://www.afiestas.org/"));
 
     QCommandLineParser parser;
     parser.setApplicationDescription(
@@ -102,9 +102,9 @@ int main (int argc, char *argv[])
              "  monitor         Monitor for changes\n"
              "  json            Show current KScreen config"));
     parser.addHelpOption();
-    parser.addPositionalArgument("command", i18n("Command to execute"),
-                                 QLatin1String("bug|config|outputs|monitor|json"));
-    parser.addPositionalArgument("[args...]", i18n("Arguments for the specified command"));
+    parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"),
+                                 QStringLiteral("bug|config|outputs|monitor|json"));
+    parser.addPositionalArgument(QStringLiteral("[args...]"), i18n("Arguments for the specified command"));
 
     parser.process(app);
 

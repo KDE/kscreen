@@ -38,10 +38,10 @@ QString Utils::outputName(const KScreen::Output *output)
     }
     if (output->edid() && !output->edid()->vendor().isEmpty()) {
         if (output->edid()->name().isEmpty()) {
-            return QString::fromLatin1("%1 (%2)").arg(output->edid()->vendor(),
+            return QStringLiteral("%1 (%2)").arg(output->edid()->vendor(),
                                                         output->name());
         } else {
-            return QString::fromLatin1("%1 %2 (%3)").arg(output->edid()->vendor(),
+            return QStringLiteral("%1 %2 (%3)").arg(output->edid()->vendor(),
                                                             output->edid()->name(),
                                                             output->name());
         }
@@ -52,6 +52,6 @@ QString Utils::outputName(const KScreen::Output *output)
 
 QString Utils::sizeToString(const QSize &size)
 {
-    return QString::fromLatin1("%1x%2").arg(size.width()).arg(size.height());
+    return QStringLiteral("%1x%2").arg(size.width()).arg(size.height());
 }
 

@@ -57,7 +57,7 @@ ScalingConfig::~ScalingConfig()
 void ScalingConfig::load()
 {
     //we load UI from a config, as rdb value might not be updated yet
-    auto config = KSharedConfig::openConfig("kdeglobals");
+    auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
     const qreal dpi = config->group("KScreen").readEntry("ScaleFactor", 1.0);
     
     m_initialScalingFactor = dpi;
@@ -74,13 +74,13 @@ void ScalingConfig::accept()
     
     //save to config
     //note this is also used by startkde.sh to populate the QT_DEVICE_PIXEL_RATIO env var
-    auto config = KSharedConfig::openConfig("kdeglobals");
+    auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
     config->group("KScreen").writeEntry("ScaleFactor", scalingFactor);   
         
     if (qFuzzyCompare(scalingFactor, 1.0)) {
         //if dpi is the default (96) remove the entry rather than setting it
         QProcess proc;
-        proc.start("xrdb -quiet -remove -nocpp");
+        proc.start(QStringLiteral("xrdb -quiet -remove -nocpp"));
         if (proc.waitForStarted()) {
             proc.write(QByteArray("Xft.dpi\n"));
             proc.closeWriteChannel();
@@ -88,7 +88,7 @@ void ScalingConfig::accept()
         }
     } else {
         QProcess proc;
-        proc.start("xrdb -quiet -merge -nocpp");
+        proc.start(QStringLiteral("xrdb -quiet -merge -nocpp"));
         if (proc.waitForStarted()) {
             proc.write(QByteArray("Xft.dpi: " + QString::number(scaleDPI()).toLatin1()));
             proc.closeWriteChannel();

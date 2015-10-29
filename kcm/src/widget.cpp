@@ -211,7 +211,7 @@ void Widget::loadQml()
     mDeclarativeView->setSource(QUrl::fromLocalFile(file));
 
     QQuickItem* rootObject = mDeclarativeView->rootObject();
-    mScreen = rootObject->findChild<QMLScreen*>(QLatin1String("outputView"));
+    mScreen = rootObject->findChild<QMLScreen*>(QStringLiteral("outputView"));
     if (!mScreen) {
         return;
     }
@@ -219,7 +219,7 @@ void Widget::loadQml()
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
-    connect(rootObject->findChild<QObject*>("identifyButton"), SIGNAL(clicked()),
+    connect(rootObject->findChild<QObject*>(QStringLiteral("identifyButton")), SIGNAL(clicked()),
             this, SLOT(slotIdentifyButtonClicked()));
 }
 
@@ -359,27 +359,27 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
         }
 
         const QString outputId = (output->edid() && output->edid()->isValid()) ? output->edid()->hash() : output->name();
-        if (outputId != info["id"].toString()) {
+        if (outputId != info[QStringLiteral("id")].toString()) {
             continue;
         }
 
-        QVariantMap posInfo = info["pos"].toMap();
-        QPoint point(posInfo["x"].toInt(), posInfo["y"].toInt());
+        QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
+        QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
         output->setPos(point);
-        output->setPrimary(info["primary"].toBool());
-        output->setEnabled(info["enabled"].toBool());
-        output->setRotation(static_cast<KScreen::Output::Rotation>(info["rotation"].toInt()));
+        output->setPrimary(info[QStringLiteral("primary")].toBool());
+        output->setEnabled(info[QStringLiteral("enabled")].toBool());
+        output->setRotation(static_cast<KScreen::Output::Rotation>(info[QStringLiteral("rotation")].toInt()));
 
-        QVariantMap modeInfo = info["mode"].toMap();
-        QVariantMap modeSize = modeInfo["size"].toMap();
-        QSize size(modeSize["width"].toInt(), modeSize["height"].toInt());
+        QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
+        QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
+        QSize size(modeSize[QStringLiteral("width")].toInt(), modeSize[QStringLiteral("height")].toInt());
 
         const KScreen::ModeList modes = output->modes();
         Q_FOREACH(const KScreen::ModePtr &mode, modes) {
             if (mode->size() != size) {
                 continue;
             }
-            if (QString::number(mode->refreshRate()) != modeInfo["refresh"].toString()) {
+            if (QString::number(mode->refreshRate()) != modeInfo[QStringLiteral("refresh")].toString()) {
                 continue;
             }
 
@@ -434,7 +434,7 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
     const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
 
-    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String(QML_PATH "OutputIdentifier.qml"));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral(QML_PATH "OutputIdentifier.qml"));
 
     mOutputTimer->stop();
     clearOutputIdentifiers();

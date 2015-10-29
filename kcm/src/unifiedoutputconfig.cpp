@@ -97,10 +97,10 @@ void UnifiedOutputConfig::initUi()
     mRotation = new QComboBox(this);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &UnifiedOutputConfig::slotRotationChanged);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-left")), i18n("90° Clockwise"), KScreen::Output::Left);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
-    mRotation->addItem(QIcon::fromTheme(QLatin1String("arrow-right")), i18n("90° Counterclockwise"), KScreen::Output::Right);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-up")), i18n("Normal"), KScreen::Output::None);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Clockwise"), KScreen::Output::Left);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Counterclockwise"), KScreen::Output::Right);
     formLayout->addWidget(new QLabel(i18n("Orientation:"), this), 2, 0);
     formLayout->addWidget(mRotation, 2, 1);
 

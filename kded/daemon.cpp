@@ -250,7 +250,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
         // then the configuration has changed while the lid was closed and we just
         // use applyConfig() and see what we can do ...
 
-        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
+        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QStringLiteral("_lidOpened");
         if (Serializer::configExists(openConfigId)) {
             const KScreen::ConfigPtr openedConfig = Serializer::config(m_monitoredConfig, openConfigId);
             Serializer::removeConfig(openConfigId);
@@ -280,7 +280,7 @@ void KScreenDaemon::lidClosedTimeout()
             if (output->isConnected() && output->isEnabled()) {
                 // Save the current config with opened lid, just so that we know
                 // how to restore it later
-                const QString configId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
+                const QString configId = Serializer::configId(m_monitoredConfig) + QStringLiteral("_lidOpened");
                 Serializer::saveConfig(m_monitoredConfig, configId);
                 disableOutput(m_monitoredConfig, output);
                 doApplyConfig(m_monitoredConfig);

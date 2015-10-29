@@ -138,35 +138,35 @@ QString Console::typetoString(const Output::Type& type) const
 {
     switch (type) {
         case Output::Unknown:
-            return QLatin1String("Unknown");
+            return QStringLiteral("Unknown");
         case Output::Panel:
-            return QLatin1String("Panel (Laptop)");
+            return QStringLiteral("Panel (Laptop)");
         case Output::VGA:
-            return QLatin1String("VGA");
+            return QStringLiteral("VGA");
         case Output::DVII:
-            return QLatin1String("DVI-I");
+            return QStringLiteral("DVI-I");
         case Output::DVIA:
-            return QLatin1String("DVI-A");
+            return QStringLiteral("DVI-A");
         case Output::DVID:
-            return QLatin1String("DVI-D");
+            return QStringLiteral("DVI-D");
         case Output::HDMI:
-            return QLatin1String("HDMI");
+            return QStringLiteral("HDMI");
         case Output::TV:
-            return QLatin1String("TV");
+            return QStringLiteral("TV");
         case Output::TVComposite:
-            return QLatin1String("TV-Composite");
+            return QStringLiteral("TV-Composite");
         case Output::TVSVideo:
-            return QLatin1String("TV-SVideo");
+            return QStringLiteral("TV-SVideo");
         case Output::TVComponent:
-            return QLatin1String("TV-Component");
+            return QStringLiteral("TV-Component");
         case Output::TVSCART:
-            return QLatin1String("TV-SCART");
+            return QStringLiteral("TV-SCART");
         case Output::TVC4:
-            return QLatin1String("TV-C4");
+            return QStringLiteral("TV-C4");
         case Output::DisplayPort:
-            return QLatin1String("DisplayPort");
+            return QStringLiteral("DisplayPort");
         default:
-            return QLatin1String("Invalid Type");
+            return QStringLiteral("Invalid Type");
 
     };
 }
@@ -211,5 +211,5 @@ void Console::monitor()
 void Console::monitorAndPrint()
 {
     monitor();
-    connect(ConfigMonitor::instance(), SIGNAL(configurationChanged()), SLOT(printConfig()));
+    connect(ConfigMonitor::instance(), &ConfigMonitor::configurationChanged, this, &Console::printConfig);
 }

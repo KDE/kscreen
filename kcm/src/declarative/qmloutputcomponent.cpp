@@ -34,7 +34,7 @@ QMLOutputComponent::QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent):
     QQmlComponent(engine, parent),
     m_engine(engine)
 {
-    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kcm_kscreen/qml/Output.qml"));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcm_kscreen/qml/Output.qml"));
     loadUrl(QUrl::fromLocalFile(qmlPath));
 }
 
