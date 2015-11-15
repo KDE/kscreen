@@ -105,6 +105,7 @@ X-KDE-Keywords[nn]=skjermbilete,skjerm,skala,skalering,oppløysing,skjermoppløy
 X-KDE-Keywords[pl]=wyświetlacz,monitor,skala,skalowanie,rozdzielczość,kierunek,orientacja,wyjścia
 X-KDE-Keywords[pt]=ecrã,monitor,escala,resolução,orientação,saídas
 X-KDE-Keywords[pt_BR]=tela,monitor,escala,ajuste,resolução,orientação,saídas
+X-KDE-Keywords[ru]=display,monitor,scale,scaling,resolution,orientation,outputs,экран,монитор,масштаб,разрешение,ориентация,выводы
 X-KDE-Keywords[sk]=displej,monitor,mierka,škálovanie,rozlíšenie,orientácia,výstupy
 X-KDE-Keywords[sl]=prikaz,zaslon,monitor,umerjanje,merilo,ločljivost,resolucija,orientacija,usmerjenost,izhodi
 X-KDE-Keywords[sr]=display,monitor,scale,scaling,resolution,oritentation,outputs,приказ,монитор,екран,скалирање,резолуција,оријентација,излаз
