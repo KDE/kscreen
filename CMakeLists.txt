@@ -17,7 +17,7 @@ set(MIN_LIBKSCREEN_VERSION "5.2.91")
 find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
 
 include(KDEInstallDirs)
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMMarkAsTest)
