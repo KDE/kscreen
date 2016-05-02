@@ -33,7 +33,7 @@ This daemon also handles the laptop keys for managing screens.
         is way more static than a notebook and the set of monitors doesn't change that much.
 
         -Always extend to the right
-        -When no more monitors can be anbled show KCM
+        -When no more monitors can be enabled show KCM
 
 Laptop special key:
     This key is usually used to go from mode to mode, we will implement it in the following order:
