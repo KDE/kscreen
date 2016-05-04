@@ -166,7 +166,8 @@ void KScreenDaemon::applyKnownConfig()
     qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
 
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
-    if (!KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
+    // It's possible that the Serializer returned a nullptr
+    if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
         return applyIdealConfig();
     }
 
