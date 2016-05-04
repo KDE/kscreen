@@ -43,6 +43,7 @@ private Q_SLOTS:
     void testCorruptConfig();
     void testCorruptEmptyConfig();
     void testCorruptUselessConfig();
+    void testNullConfig();
 
 private:
     KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
@@ -238,6 +239,22 @@ void TestSerializer::testCorruptUselessConfig()
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
+}
+
+void TestSerializer::testNullConfig()
+{
+    KScreen::ConfigPtr nullConfig;
+    QVERIFY(!nullConfig);
+
+    // Null configs have empty configIds
+    QVERIFY(Serializer::configId(nullConfig).isEmpty());
+
+    // Load config from a file not found results in a nullptr
+    KScreen::ConfigPtr config = createConfig(true, true);
+    QVERIFY(!Serializer::config(config, QString()));
+
+    // Wrong config file name should fail to save
+    QCOMPARE(Serializer::saveConfig(config, QString()), false);
 }
 
 QTEST_MAIN(TestSerializer)
