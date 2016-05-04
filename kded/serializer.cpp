@@ -55,6 +55,9 @@ QString Serializer::configFileName(const QString &configId)
 
 QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
 {
+    if (!currentConfig) {
+        return QString();
+    }
     KScreen::OutputList outputs = currentConfig->outputs();
 
     QStringList hashList;
@@ -92,6 +95,7 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
 
     QFile file(configFileName(id));
     if (!file.open(QIODevice::ReadOnly)) {
+        qCDebug(KSCREEN_KDED) << "failed to open file" << id;
         return KScreen::ConfigPtr();
     }
 
@@ -136,6 +140,9 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
 
 bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &configId)
 {
+    if (!config || configId.isEmpty()) {
+        return false;
+    }
     const KScreen::OutputList outputs = config->outputs();
 
     QVariantList outputList;

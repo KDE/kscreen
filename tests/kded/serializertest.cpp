@@ -39,6 +39,11 @@ private Q_SLOTS:
     void testTwoScreenConfig();
     void testRotatedScreenConfig();
     void testDisabledScreenConfig();
+    void testConfig404();
+    void testCorruptConfig();
+    void testCorruptEmptyConfig();
+    void testCorruptUselessConfig();
+    void testNullConfig();
 
 private:
     KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
@@ -199,6 +204,57 @@ void TestSerializer::testDisabledScreenConfig()
 
     auto screen = config->screen();
     QCOMPARE(screen->currentSize(), QSize(1920, 1280));
+}
+
+void TestSerializer::testConfig404()
+{
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("filenotfoundConfig.json"));
+    QVERIFY(!config);
+    QVERIFY(config.isNull());
+}
+
+void TestSerializer::testCorruptConfig()
+{
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("corruptConfig.json"));
+    QVERIFY(config);
+    QCOMPARE(config->outputs().count(), 2);
+    QVERIFY(config->isValid());
+}
+
+void TestSerializer::testCorruptEmptyConfig()
+{
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("corruptEmptyConfig.json"));
+    QVERIFY(config);
+    QCOMPARE(config->outputs().count(), 2);
+    QVERIFY(config->isValid());
+}
+
+void TestSerializer::testCorruptUselessConfig()
+{
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("corruptUselessConfig.json"));
+    QVERIFY(config);
+    QCOMPARE(config->outputs().count(), 2);
+    QVERIFY(config->isValid());
+}
+
+void TestSerializer::testNullConfig()
+{
+    KScreen::ConfigPtr nullConfig;
+    QVERIFY(!nullConfig);
+
+    // Null configs have empty configIds
+    QVERIFY(Serializer::configId(nullConfig).isEmpty());
+
+    // Load config from a file not found results in a nullptr
+    KScreen::ConfigPtr config = createConfig(true, true);
+    QVERIFY(!Serializer::config(config, QString()));
+
+    // Wrong config file name should fail to save
+    QCOMPARE(Serializer::saveConfig(config, QString()), false);
 }
 
 QTEST_MAIN(TestSerializer)
