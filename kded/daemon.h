@@ -80,7 +80,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
-        QElapsedTimer* m_changeBlockTimer;
+        QScopedPointer<QElapsedTimer> m_changeBlockTimer;
 };
 
 #endif /*KSCREN_DAEMON_H*/

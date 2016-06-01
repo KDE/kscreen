@@ -49,10 +49,10 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_monitoredConfig(0)
  , m_iteration(Generator::None)
  , m_monitoring(false)
- , m_changeCompressor(new QTimer())
- , m_buttonTimer(new QTimer())
- , m_saveTimer(new QTimer())
- , m_lidClosedTimer(new QTimer())
+ , m_changeCompressor(new QTimer(this))
+ , m_buttonTimer(new QTimer(this))
+ , m_saveTimer(new QTimer(this))
+ , m_lidClosedTimer(new QTimer(this))
  , m_changeBlockTimer(new QElapsedTimer())
  
 {
@@ -80,12 +80,6 @@ void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
 
 KScreenDaemon::~KScreenDaemon()
 {
-    delete m_changeCompressor;
-    delete m_saveTimer;
-    delete m_buttonTimer;
-    delete m_lidClosedTimer;
-    delete m_changeBlockTimer;
-
     Generator::destroy();
     Device::destroy();
 }
