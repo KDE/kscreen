@@ -23,6 +23,7 @@
 #include "kscreenadaptor.h"
 #include "debug.h"
 
+#include <QElapsedTimer>
 #include <QTimer>
 #include <QAction>
 #include <QShortcut>
@@ -52,6 +53,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer())
  , m_saveTimer(new QTimer())
  , m_lidClosedTimer(new QTimer())
+ , m_changeBlockTimer(new QElapsedTimer())
  
 {
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
@@ -82,6 +84,7 @@ KScreenDaemon::~KScreenDaemon()
     delete m_saveTimer;
     delete m_buttonTimer;
     delete m_lidClosedTimer;
+    delete m_changeBlockTimer;
 
     Generator::destroy();
     Device::destroy();
@@ -112,7 +115,6 @@ void KScreenDaemon::init()
     m_lidClosedTimer->setInterval(1000);
     m_lidClosedTimer->setSingleShot(true);
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
-
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend,
@@ -145,6 +147,9 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
             [&]() {
                 qCDebug(KSCREEN_KDED) << "Config applied";
+                // We enable monitoring already, but we will ignore the first signals that come
+                // in the next 100ms, since these are likely our own changes still flushing out
+                m_changeBlockTimer->start();
                 setMonitorForChanges(true);
             });
 }
@@ -182,6 +187,12 @@ void KScreenDaemon::applyIdealConfig()
 
 void KScreenDaemon::configChanged()
 {
+    if (m_changeBlockTimer->isValid() && !m_changeBlockTimer->hasExpired(100)) {
+        m_changeBlockTimer->start();
+        qCDebug(KSCREEN_KDED) << "Change detected, but ignoring since it's our own noise";
+        return;
+    }
+    m_changeBlockTimer->invalidate();
     qCDebug(KSCREEN_KDED) << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
