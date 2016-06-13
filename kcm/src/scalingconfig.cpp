@@ -24,13 +24,17 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
+#include <KScreen/Output>
+
 //we want a scale between 1 and 3.0 in intervals of 0.1
 //slider can only handle ints so goes 10-30
 #define SLIDER_RATIO 10.0
 
-ScalingConfig::ScalingConfig(QWidget* parent):
-    QDialog(parent)
+ScalingConfig::ScalingConfig(const KScreen::OutputList &outputList, QWidget* parent):
+    QDialog(parent),
+    m_outputList(outputList)
 {
+
     ui.setupUi(this);
 
     ui.warningWidget->setText(i18n("Scaling changes will come into effect after restart"));
@@ -73,9 +77,19 @@ void ScalingConfig::accept()
     const qreal scalingFactor = scaleFactor();
     
     //save to config
-    //note this is also used by startkde.sh to populate the QT_DEVICE_PIXEL_RATIO env var
     auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
-    config->group("KScreen").writeEntry("ScaleFactor", scalingFactor);   
+    config->group("KScreen").writeEntry("ScaleFactor", scalingFactor);
+
+    //write env var to be used by startkde.sh to populate the QT_SCREEN_SCALE_FACTORS env var
+    //we use QT_SCREEN_SCALE_FACTORS as opposed to QT_SCALE_FACTOR as we need to use one that will *NOT* scale fonts according to the scale
+    //scaling the fonts makes sense if you don't also set a font DPI, but we *need* to set a font DPI for both PlasmaShell which does it's own thing, and for KDE4/GTK2 applications
+
+    QString screenFactors;
+    foreach (const KScreen::OutputPtr &output, m_outputList) {
+        screenFactors.append(output->name() + '=' + QString::number(scalingFactor) + ';');
+    }
+    config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
+
         
     if (qFuzzyCompare(scalingFactor, 1.0)) {
         //if dpi is the default (96) remove the entry rather than setting it
@@ -107,3 +121,4 @@ qreal ScalingConfig::scaleFactor() const
 {
     return ui.scaleSlider->value() / SLIDER_RATIO;
 }
+

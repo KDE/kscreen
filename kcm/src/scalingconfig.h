@@ -21,13 +21,16 @@
 #define SCALINGCONFIG_H
 
 #include <QDialog>
+
+#include <KScreen/Types>
+
 #include "ui_scaling.h"
 
 class ScalingConfig : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ScalingConfig(QWidget* parent = 0);
+    explicit ScalingConfig(const KScreen::OutputList &outputList, QWidget* parent = 0);
     virtual ~ScalingConfig();
     
 protected:
@@ -38,6 +41,7 @@ private:
     qreal scaleDPI() const;
     Ui::Scaling ui;
     qreal m_initialScalingFactor = 1.0;
+    KScreen::OutputList m_outputList;
 };
 
 #endif // SCALINGCONFIG_H

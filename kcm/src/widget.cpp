@@ -120,7 +120,7 @@ Widget::Widget(QWidget *parent):
     auto setScaleButton = new QPushButton(i18n("Scale Display"), this);
     connect(setScaleButton, &QPushButton::released,
             [this] {
-                QPointer<ScalingConfig> dialog = new ScalingConfig(this);
+                QPointer<ScalingConfig> dialog = new ScalingConfig(mConfig->outputs(), this);
                 dialog->exec();
                 delete dialog;
             });
