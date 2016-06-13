@@ -91,6 +91,9 @@ void ScalingConfig::accept()
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
 
         
+    KConfig fontConfig("kcmfonts");
+    auto fontConfigGroup = fontConfig.group("General");
+
     if (qFuzzyCompare(scalingFactor, 1.0)) {
         //if dpi is the default (96) remove the entry rather than setting it
         QProcess proc;
@@ -100,6 +103,7 @@ void ScalingConfig::accept()
             proc.closeWriteChannel();
             proc.waitForFinished();
         }
+        fontConfigGroup.writeEntry("forceFontDPI", 0);
     } else {
         QProcess proc;
         proc.start(QStringLiteral("xrdb -quiet -merge -nocpp"));
@@ -108,7 +112,10 @@ void ScalingConfig::accept()
             proc.closeWriteChannel();
             proc.waitForFinished();
         }
+        fontConfigGroup.writeEntry("forceFontDPI", scaleDPI());
     }
+
+
     QDialog::accept();
 }
 
