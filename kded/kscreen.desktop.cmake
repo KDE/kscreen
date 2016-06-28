@@ -56,6 +56,7 @@ Comment[et]=Ekraanihaldur
 Comment[fi]=Näyttöjen hallinta
 Comment[fr]=Gestion d'écrans
 Comment[gl]=Xestor de pantalla
+Comment[he]=ניהול מסכים
 Comment[hu]=Képernyőkezelés
 Comment[it]=Gestione dello schermo
 Comment[ko]=화면 관리
