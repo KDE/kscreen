@@ -260,6 +260,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     }
     case Generator::None: // just return config
     case Generator::Clone: // handled above
+        break;
     } // switch
 
     return config;
