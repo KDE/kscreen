@@ -165,10 +165,9 @@ QString Console::typetoString(const Output::Type& type) const
             return QStringLiteral("TV-C4");
         case Output::DisplayPort:
             return QStringLiteral("DisplayPort");
-        default:
-            return QStringLiteral("Invalid Type");
 
     };
+    return QStringLiteral("Invalid Type") + QString::number(type);
 }
 
 void Console::printJSONConfig()

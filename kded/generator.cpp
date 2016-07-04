@@ -258,10 +258,8 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
         return config;
     }
-    default:
-        // None: just return config
-        // Clone: handled above
-        break;
+    case Generator::None: // just return config
+    case Generator::Clone: // handled above
     } // switch
 
     return config;
