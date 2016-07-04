@@ -143,6 +143,8 @@ QString Console::typetoString(const Output::Type& type) const
             return QStringLiteral("Panel (Laptop)");
         case Output::VGA:
             return QStringLiteral("VGA");
+        case Output::DVI:
+            return QStringLiteral("DVI");
         case Output::DVII:
             return QStringLiteral("DVI-I");
         case Output::DVIA:
@@ -165,10 +167,9 @@ QString Console::typetoString(const Output::Type& type) const
             return QStringLiteral("TV-C4");
         case Output::DisplayPort:
             return QStringLiteral("DisplayPort");
-        default:
-            return QStringLiteral("Invalid Type");
 
     };
+    return QStringLiteral("Invalid Type") + QString::number(type);
 }
 
 void Console::printJSONConfig()

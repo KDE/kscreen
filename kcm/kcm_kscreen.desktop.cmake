@@ -123,3 +123,4 @@ X-KDE-Keywords[sv]=skärm,bildskärm,skala,skalning,upplösning,orientering,utg�
 X-KDE-Keywords[uk]=display,monitor,scale,scaling,resolution,orientation,outputs,дисплей,монітор,масштаб,масштабування,роздільність,здатність,орієнтація,виведення,виходи
 X-KDE-Keywords[x-test]=xxdisplayxx,xxmonitorxx,xxscalexx,xxscalingxx,xxresolutionxx,xxorientationxx,xxoutputsxx
 X-KDE-Keywords[zh_CN]=display,monitor,scale,scaling,resolution,orientation,outputs,显示,监视器,缩放,分辨率,旋转,方位,输出
+X-KDE-Keywords[zh_TW]=display,monitor,scale,scaling,resolution,orientation,outputs
