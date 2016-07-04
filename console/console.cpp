@@ -143,6 +143,8 @@ QString Console::typetoString(const Output::Type& type) const
             return QStringLiteral("Panel (Laptop)");
         case Output::VGA:
             return QStringLiteral("VGA");
+        case Output::DVI:
+            return QStringLiteral("DVI");
         case Output::DVII:
             return QStringLiteral("DVI-I");
         case Output::DVIA:
