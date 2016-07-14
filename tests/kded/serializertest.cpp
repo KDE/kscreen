@@ -22,6 +22,7 @@
 #include <QtCore/QObject>
 
 #include <KScreen/Config>
+#include <KScreen/EDID>
 #include <KScreen/Screen>
 #include <KScreen/Mode>
 #include <KScreen/Output>
@@ -44,6 +45,7 @@ private Q_SLOTS:
     void testCorruptEmptyConfig();
     void testCorruptUselessConfig();
     void testNullConfig();
+    void testIdenticalOutputs();
 
 private:
     KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
@@ -255,6 +257,116 @@ void TestSerializer::testNullConfig()
 
     // Wrong config file name should fail to save
     QCOMPARE(Serializer::saveConfig(config, QString()), false);
+}
+
+void TestSerializer::testIdenticalOutputs()
+{
+    KScreen::ScreenPtr screen = KScreen::ScreenPtr::create();
+    screen->setCurrentSize(QSize(1920, 1080));
+    screen->setMaxSize(QSize(32768, 32768));
+    screen->setMinSize(QSize(8, 8));
+
+    QList<QSize> sizes({ QSize(1920, 1080), QSize(640, 480), QSize(1024, 768), QSize(1280, 1024), QSize(1920, 1280) });
+    KScreen::ModeList modes;
+    for (int i = 0; i < sizes.count(); ++i) {
+        const QSize &size = sizes[i];
+        KScreen::ModePtr mode = KScreen::ModePtr::create();
+        mode->setId(QStringLiteral("MODE-%1").arg(i));
+        mode->setName(QStringLiteral("%1x%2").arg(size.width()).arg(size.height()));
+        mode->setSize(size);
+        mode->setRefreshRate(60.0);
+        modes.insert(mode->id(), mode);
+    }
+    QByteArray data = QByteArray::fromBase64("AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg==");
+
+    KScreen::OutputPtr output1 = KScreen::OutputPtr::create();
+    output1->setId(1);
+    output1->setEdid(data);
+    qDebug() << "HASH:" << output1->edid()->hash();
+    qDebug() << "OutputID: " << Serializer::outputId(output1);
+    output1->setName(QStringLiteral("DisplayPort-0"));
+    output1->setPos(QPoint(0, 0));
+    output1->setConnected(true);
+    output1->setEnabled(false);
+    output1->setModes(modes);
+
+    KScreen::OutputPtr output2 = KScreen::OutputPtr::create();
+    output2->setId(2);
+    output2->setEdid(data);
+    output2->setName(QStringLiteral("DisplayPort-1"));
+    output2->setPos(QPoint(0, 0));
+    output2->setConnected(true);
+    output2->setEnabled(false);
+    output2->setModes(modes);
+
+    KScreen::OutputPtr output3 = KScreen::OutputPtr::create();
+    output3->setId(3);
+    output3->setEdid(data);
+    output3->setName(QStringLiteral("DisplayPort-2"));
+    output3->setPos(QPoint(0, 0));
+    output3->setConnected(true);
+    output3->setEnabled(false);
+    output3->setModes(modes);
+
+    KScreen::OutputPtr output4 = KScreen::OutputPtr::create();
+    output4->setId(4);
+    output4->setEdid(data);
+    output4->setName(QStringLiteral("DisplayPort-3"));
+    output4->setPos(QPoint(0, 0));
+    output4->setConnected(true);
+    output4->setEnabled(false);
+    output4->setModes(modes);
+
+    KScreen::OutputPtr output5 = KScreen::OutputPtr::create();
+    output5->setId(5);
+    output5->setEdid(data);
+    output5->setName(QStringLiteral("DVI-0"));
+    output5->setPos(QPoint(0, 0));
+    output5->setConnected(true);
+    output5->setEnabled(false);
+    output5->setModes(modes);
+
+    KScreen::OutputPtr output6 = KScreen::OutputPtr::create();
+    output6->setId(6);
+    output6->setEdid(data);
+    output6->setName(QStringLiteral("DVI-1"));
+    output6->setPos(QPoint(0, 0));
+    output6->setConnected(true);
+    output6->setEnabled(false);
+    output6->setModes(modes);
+
+    KScreen::ConfigPtr config = KScreen::ConfigPtr::create();
+    config->setScreen(screen);
+    config->addOutput(output1);
+    config->addOutput(output2);
+    config->addOutput(output3);
+    config->addOutput(output4);
+    config->addOutput(output5);
+    config->addOutput(output6);
+
+    QHash<QString, QPoint> positions;
+    positions["DisplayPort-0"] = QPoint(0, 1080);
+    positions["DisplayPort-1"] = QPoint(2100, 30);
+    positions["DisplayPort-2"] = QPoint(2100, 1080);
+    positions["DisplayPort-3"] = QPoint(4020, 0);
+    positions["DVI-0"] = QPoint(4020, 1080);
+    positions["DVI-1"] = QPoint(0, 0);
+
+    config = Serializer::config(config, QStringLiteral("outputgrid_2x3.json"));
+    QVERIFY(config);
+
+    QCOMPARE(config->connectedOutputs().count(), 6);
+
+    Q_FOREACH (auto output, config->connectedOutputs()) {
+        qDebug() << " ** " << output->pos() << output->name();
+        QVERIFY(output->name() != Serializer::outputId(output));
+        QCOMPARE(positions[output->name()], output->pos());
+        QCOMPARE(output->currentMode()->size(), QSize(1920, 1080));
+        QVERIFY(output->isEnabled());
+    }
+    qDebug() << " sc " << config->screen()->currentSize();
+
+    QCOMPARE(config->screen()->currentSize(), QSize(5940, 2160));
 }
 
 QTEST_MAIN(TestSerializer)
