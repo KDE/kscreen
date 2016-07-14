@@ -206,11 +206,30 @@ void Serializer::removeConfig(const QString &id)
 
 KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, const QVariantMap& info)
 {
+    // As individual outputs are indexed by a hash of their edid, we need to also take their name into account
+    QStringList duplicateIds;
+    QStringList allIds;
+    Q_FOREACH(KScreen::OutputPtr output, outputs) {
+        const auto outputId = Serializer::outputId(output);
+        if (allIds.contains(outputId)) {
+            duplicateIds << outputId;
+        }
+        allIds << outputId;
+    }
+    allIds.clear();
+
     Q_FOREACH(KScreen::OutputPtr output, outputs) {
         if (!output->isConnected()) {
             continue;
         }
-        if (Serializer::outputId(output) != info[QStringLiteral("id")].toString()) {
+        const auto outputId = Serializer::outputId(output);
+        if (outputId != info[QStringLiteral("id")].toString()) {
+            continue;
+        }
+
+        const auto metadata = info[QStringLiteral("metadata")].toMap();
+        const auto outputName = metadata[QStringLiteral("name")].toString();
+        if (duplicateIds.contains(outputId) && output->name() != info[QStringLiteral("name")].toString()) {
             continue;
         }
 
