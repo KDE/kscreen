@@ -203,15 +203,15 @@ void Serializer::removeConfig(const QString &id)
     QFile::remove(configFileName(id));
 }
 
-
 KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, const QVariantMap& info)
 {
-    // As individual outputs are indexed by a hash of their edid, we need to also take their name into account
+    // As individual outputs are indexed by a hash of their edid, which is not unique,
+    // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     QStringList allIds;
-    Q_FOREACH(KScreen::OutputPtr output, outputs) {
+    Q_FOREACH (KScreen::OutputPtr output, outputs) {
         const auto outputId = Serializer::outputId(output);
-        if (allIds.contains(outputId)) {
+        if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
             duplicateIds << outputId;
         }
         allIds << outputId;
@@ -227,10 +227,14 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, co
             continue;
         }
 
-        const auto metadata = info[QStringLiteral("metadata")].toMap();
-        const auto outputName = metadata[QStringLiteral("name")].toString();
-        if (duplicateIds.contains(outputId) && output->name() != info[QStringLiteral("name")].toString()) {
-            continue;
+        // We may have identical outputs connected, these will have the same id in the config
+        // in order to find the right one, also check the output's name (usually the connector)
+        if (!output->name().isEmpty() && duplicateIds.contains(outputId)) {
+            const auto metadata = info[QStringLiteral("metadata")].toMap();
+            const auto outputName = metadata[QStringLiteral("name")].toString();
+            if (output->name() != outputName) {
+                continue;
+            }
         }
 
         const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
