@@ -261,12 +261,14 @@ void TestSerializer::testNullConfig()
 
 void TestSerializer::testIdenticalOutputs()
 {
+    // Test configuration of a video wall with 6 identical outputs connected
+    // this is the autotest for https://bugs.kde.org/show_bug.cgi?id=325277
     KScreen::ScreenPtr screen = KScreen::ScreenPtr::create();
     screen->setCurrentSize(QSize(1920, 1080));
     screen->setMaxSize(QSize(32768, 32768));
     screen->setMinSize(QSize(8, 8));
 
-    QList<QSize> sizes({ QSize(1920, 1080), QSize(640, 480), QSize(1024, 768), QSize(1280, 1024), QSize(1920, 1280) });
+    QList<QSize> sizes({ QSize(640, 480), QSize(1024, 768), QSize(1920, 1080), QSize(1280, 1024), QSize(1920, 1280) });
     KScreen::ModeList modes;
     for (int i = 0; i < sizes.count(); ++i) {
         const QSize &size = sizes[i];
@@ -277,13 +279,15 @@ void TestSerializer::testIdenticalOutputs()
         mode->setRefreshRate(60.0);
         modes.insert(mode->id(), mode);
     }
+    // This one is important, the output id in the config file is a hash of it
     QByteArray data = QByteArray::fromBase64("AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg==");
+
+    // When setting up the outputs, make sure they're not added in alphabetical order
+    // or in the same order of the config file, as that makes the tests accidentally pass
 
     KScreen::OutputPtr output1 = KScreen::OutputPtr::create();
     output1->setId(1);
     output1->setEdid(data);
-    qDebug() << "HASH:" << output1->edid()->hash();
-    qDebug() << "OutputID: " << Serializer::outputId(output1);
     output1->setName(QStringLiteral("DisplayPort-0"));
     output1->setPos(QPoint(0, 0));
     output1->setConnected(true);
@@ -308,6 +312,15 @@ void TestSerializer::testIdenticalOutputs()
     output3->setEnabled(false);
     output3->setModes(modes);
 
+    KScreen::OutputPtr output6 = KScreen::OutputPtr::create();
+    output6->setId(6);
+    output6->setEdid(data);
+    output6->setName(QStringLiteral("DVI-0"));
+    output6->setPos(QPoint(0, 0));
+    output6->setConnected(true);
+    output6->setEnabled(false);
+    output6->setModes(modes);
+
     KScreen::OutputPtr output4 = KScreen::OutputPtr::create();
     output4->setId(4);
     output4->setEdid(data);
@@ -320,29 +333,20 @@ void TestSerializer::testIdenticalOutputs()
     KScreen::OutputPtr output5 = KScreen::OutputPtr::create();
     output5->setId(5);
     output5->setEdid(data);
-    output5->setName(QStringLiteral("DVI-0"));
+    output5->setName(QStringLiteral("DVI-1"));
     output5->setPos(QPoint(0, 0));
     output5->setConnected(true);
     output5->setEnabled(false);
     output5->setModes(modes);
 
-    KScreen::OutputPtr output6 = KScreen::OutputPtr::create();
-    output6->setId(6);
-    output6->setEdid(data);
-    output6->setName(QStringLiteral("DVI-1"));
-    output6->setPos(QPoint(0, 0));
-    output6->setConnected(true);
-    output6->setEnabled(false);
-    output6->setModes(modes);
-
     KScreen::ConfigPtr config = KScreen::ConfigPtr::create();
     config->setScreen(screen);
-    config->addOutput(output1);
-    config->addOutput(output2);
-    config->addOutput(output3);
-    config->addOutput(output4);
-    config->addOutput(output5);
     config->addOutput(output6);
+    config->addOutput(output2);
+    config->addOutput(output5);
+    config->addOutput(output4);
+    config->addOutput(output3);
+    config->addOutput(output1);
 
     QHash<QString, QPoint> positions;
     positions["DisplayPort-0"] = QPoint(0, 1080);
@@ -356,16 +360,14 @@ void TestSerializer::testIdenticalOutputs()
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 6);
-
     Q_FOREACH (auto output, config->connectedOutputs()) {
-        qDebug() << " ** " << output->pos() << output->name();
+        QVERIFY(positions.keys().contains(output->name()));
         QVERIFY(output->name() != Serializer::outputId(output));
         QCOMPARE(positions[output->name()], output->pos());
         QCOMPARE(output->currentMode()->size(), QSize(1920, 1080));
+        QCOMPARE(output->currentMode()->refreshRate(), 60.0);
         QVERIFY(output->isEnabled());
     }
-    qDebug() << " sc " << config->screen()->currentSize();
-
     QCOMPARE(config->screen()->currentSize(), QSize(5940, 2160));
 }
 
