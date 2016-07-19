@@ -108,11 +108,9 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
         }
     }
 
-    auto unmatchedOutputs = config->outputs();
-
     QSize screenSize;
     Q_FOREACH(const QVariant &info, outputs) {
-        KScreen::OutputPtr output = Serializer::findOutput(unmatchedOutputs, info.toMap());
+        KScreen::OutputPtr output = Serializer::findOutput(config, info.toMap());
         if (!output) {
             continue;
         }
@@ -127,7 +125,6 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
             }
         }
 
-        unmatchedOutputs.remove(output->id());
         outputList.remove(output->id());
         outputList.insert(output->id(), output);
     }
@@ -203,9 +200,9 @@ void Serializer::removeConfig(const QString &id)
     QFile::remove(configFileName(id));
 }
 
-KScreen::OutputPtr Serializer::findOutput(const KScreen::OutputList &outputs, const QVariantMap& info)
+KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
-    // As individual outputs are indexed by a hash of their edid, which is not unique,
+    KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     QStringList allIds;
