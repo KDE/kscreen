@@ -80,8 +80,8 @@ void KCMKScreen::configReady(ConfigOperation* op)
     if (!mKScreenWidget) {
         mKScreenWidget = new Widget(this);
         layout->addWidget(mKScreenWidget);
-        connect(mKScreenWidget, SIGNAL(changed()),
-                this, SLOT(changed()));
+        QObject::connect(mKScreenWidget, &Widget::changed,
+                this, &KCMKScreen::changed);
     }
 
     mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
@@ -89,6 +89,13 @@ void KCMKScreen::configReady(ConfigOperation* op)
 
 KCMKScreen::~KCMKScreen()
 {
+}
+
+void KCMKScreen::changed()
+{
+    if (!m_blockChanges) {
+        KCModule::changed();
+    }
 }
 
 void KCMKScreen::save()
@@ -137,11 +144,20 @@ void KCMKScreen::save()
         return;
     }
 
+    m_blockChanges = true;
     /* Store the current config, apply settings */
     auto *op = new SetConfigOperation(config);
     /* Block until the operation is completed, otherwise KCMShell will terminate
      * before we get to execute the Operation */
     op->exec();
+
+    // The 1000ms is a bit "random" here, it's what works on the systems I've tested, but ultimately, this is a hack
+    // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
+    QTimer::singleShot(1000, this,
+        [this] () {
+            m_blockChanges = false;
+        }
+    );
 }
 
 void KCMKScreen::defaults()

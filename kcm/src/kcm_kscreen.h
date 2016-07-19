@@ -41,11 +41,13 @@ class KCMKScreen : public KCModule
     virtual void load();
     virtual void save();
     virtual void defaults();
+    void changed();
 
   private:
     void configReady(KScreen::ConfigOperation *op);
 
     Widget *mKScreenWidget;
+    bool m_blockChanges = false;
 
 };
 
