@@ -34,7 +34,7 @@ public:
     static bool saveConfig(const KScreen::ConfigPtr &config, const QString &configId);
     static void removeConfig(const QString &id);
 
-    static KScreen::OutputPtr findOutput(const KScreen::OutputList &outputs, const QVariantMap &info);
+    static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
     static QString outputId(const KScreen::OutputPtr &output);
     static QVariantMap metadata(const KScreen::OutputPtr &output);
 
