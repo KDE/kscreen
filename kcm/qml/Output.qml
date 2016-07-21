@@ -206,6 +206,26 @@ QMLOutput {
                 }
 
                 Text {
+                    id: nameLabel
+                    text: if (root.isCloneMode === true) {
+                            return "";
+                          } else if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
+                            return root.output.edid.name;
+                          } else {
+                            return "";
+                          }
+
+                    color: palette.text;
+                    font.pixelSize: 10;
+
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter;
+                        bottom: labelVendor.top;
+                        topMargin: 5;
+                    }
+                }
+
+                Text {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
                             return i18n("Unified Outputs");
@@ -231,13 +251,7 @@ QMLOutput {
 
                 Text {
                     id: label
-                    text: if (root.isCloneMode === true) {
-                            return "";
-                          } else if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
-                            return root.output.edid.name;
-                          } else {
-                            return "";
-                          }
+                    text: (labelVendor.text === root.output.name) ? "" : root.output.name
 
                     color: palette.text;
                     font.pixelSize: 10;
