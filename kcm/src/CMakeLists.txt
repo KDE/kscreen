@@ -9,6 +9,7 @@ set(kcm_kscreen_SRCS
 
     collapsablebutton.cpp
     controlpanel.cpp
+    debug.cpp
     outputconfig.cpp
     primaryoutputcombo.cpp
     unifiedoutputconfig.cpp

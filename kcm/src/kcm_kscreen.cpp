@@ -18,6 +18,7 @@
 
 
 #include "kcm_kscreen.h"
+#include "debug.h"
 #include "widget.h"
 
 #include <KPluginFactory>
@@ -100,7 +101,7 @@ void KCMKScreen::changed()
 
 void KCMKScreen::save()
 {
-    qDebug() << "Saving";
+    qCDebug(KSCREEN_KCM) << "Saving.";
 
     if (!mKScreenWidget) {
         return;
@@ -116,7 +117,7 @@ void KCMKScreen::save()
             atLeastOneEnabledOutput = true;
         }
 
-        qDebug() << output->name() << output->id() << output.data() << "\n"
+        qCDebug(KSCREEN_KCM) << output->name() << output->id() << output.data() << "\n"
                 << "	Connected:" << output->isConnected() << "\n"
                 << "	Enabled:" << output->isEnabled() << "\n"
                 << "	Primary:" << output->isPrimary() << "\n"
@@ -162,13 +163,13 @@ void KCMKScreen::save()
 
 void KCMKScreen::defaults()
 {
-    qDebug() << "LOAD";
+    qCDebug(KSCREEN_KCM) << "LOAD";
     load();
 }
 
 void KCMKScreen::load()
 {
-    qDebug() << "LOAD";
+    qCDebug(KSCREEN_KCM) << "LOAD";
     connect(new GetConfigOperation(), &GetConfigOperation::finished,
             this, &KCMKScreen::configReady);
 }

@@ -23,6 +23,7 @@
 #include "resolutionslider.h"
 #include "collapsablebutton.h"
 #include "utils.h"
+#include "debug.h"
 
 #include <QtCore/QStringBuilder>
 #include <QFormLayout>
@@ -102,7 +103,7 @@ void OutputConfig::initUi()
     connect(mEnabled, &QCheckBox::clicked,
             this, [=](bool checked) {
                   mOutput->setEnabled(checked);
-                  qDebug() << mOutput.data() << mOutput->name() << mOutput->isEnabled();
+                  qCDebug(KSCREEN_KCM) << mOutput.data() << mOutput->name() << mOutput->isEnabled();
                   Q_EMIT changed();
             });
     formLayout->addRow(i18n("Display:"), mEnabled);

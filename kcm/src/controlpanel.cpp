@@ -22,6 +22,7 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
+#include "debug.h"
 
 #include <QVBoxLayout>
 
@@ -91,7 +92,7 @@ void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
         return;
     }
 
-    qDebug() << "Activate output" << output->id();
+    qCDebug(KSCREEN_KCM) << "Activate output" << output->id();
 
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
         cfg->setVisible(cfg->output()->id() == output->id());

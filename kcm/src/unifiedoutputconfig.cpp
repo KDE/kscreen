@@ -23,6 +23,7 @@
 #include "collapsablebutton.h"
 #include "resolutionslider.h"
 #include "utils.h"
+#include "debug.h"
 
 #include <QComboBox>
 #include <QIcon>
@@ -138,7 +139,7 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
     if (commonResults.isEmpty()) {
         QSize smallestMode;
         Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
-            qDebug() << smallestMode << clone->preferredMode()->size();
+            qCDebug(KSCREEN_KCM) << smallestMode << clone->preferredMode()->size();
             if (!smallestMode.isValid() || clone->preferredMode()->size() < smallestMode) {
                 smallestMode = clone->preferredMode()->size();
             }
