@@ -56,6 +56,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_changeBlockTimer(new QElapsedTimer())
  
 {
+    KScreen::Log::instance();
     QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
 }
 
@@ -114,6 +115,7 @@ void KScreenDaemon::init()
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend,
             [&]() {
+                KScreen::Log::instance()->setContext("resuming");
                 qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
                 // We don't care about the result, we just want to force the backend
                 // to query XRandR so that it will detect possible changes that happened
@@ -185,6 +187,7 @@ void KScreenDaemon::configChanged()
     if (m_changeBlockTimer->isValid() && !m_changeBlockTimer->hasExpired(100)) {
         m_changeBlockTimer->start();
         qCDebug(KSCREEN_KDED) << "Change detected, but ignoring since it's our own noise";
+        KScreen::Log::instance()->setContext(QString());
         return;
     }
     m_changeBlockTimer->invalidate();
@@ -317,7 +320,6 @@ void KScreenDaemon::outputConnectedChanged()
         }
     }
 }
-
 
 void KScreenDaemon::monitorConnectedChange()
 {

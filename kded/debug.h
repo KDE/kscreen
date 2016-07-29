@@ -21,6 +21,7 @@
 #define KDED_DEBUG_H
 
 #include <QLoggingCategory>
+#include <kscreen/log.h>
 
 Q_DECLARE_LOGGING_CATEGORY(KSCREEN_KDED)
 
