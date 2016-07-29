@@ -73,6 +73,7 @@ KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray& fileName)
 
 void testScreenConfig::initTestCase()
 {
+    qputenv("KSCREEN_LOGGING", "false");
     setenv("KSCREEN_BACKEND", "Fake", 1);
 }
 

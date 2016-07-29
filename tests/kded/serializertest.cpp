@@ -99,6 +99,7 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
 
 void TestSerializer::initTestCase()
 {
+    qputenv("KSCREEN_LOGGING", "false");
     Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
