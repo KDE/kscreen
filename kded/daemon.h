@@ -16,8 +16,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
 *************************************************************************************/
 
-#ifndef KSCREN_DAEMON_H
-#define KSCREN_DAEMON_H
+#ifndef KSCREEN_DAEMON_H
+#define KSCREEN_DAEMON_H
 
 #include <QVariant>
 
@@ -83,4 +83,4 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QScopedPointer<QElapsedTimer> m_changeBlockTimer;
 };
 
-#endif /*KSCREN_DAEMON_H*/
+#endif /*KSCREEN_DAEMON_H*/
