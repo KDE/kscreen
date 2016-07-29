@@ -21,6 +21,7 @@
 #define KSCREEN_KCM_DEBUG_H
 
 #include <QLoggingCategory>
+#include <KScreen/Log>
 
 Q_DECLARE_LOGGING_CATEGORY(KSCREEN_KCM)
 

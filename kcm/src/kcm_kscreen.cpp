@@ -51,6 +51,8 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
     : KCModule(parent, args)
     , mKScreenWidget(0)
 {
+    Log::instance();
+
     setButtons(Apply | Default);
 
     KAboutData* about =
