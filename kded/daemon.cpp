@@ -113,7 +113,7 @@ void KScreenDaemon::init()
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
-    connect(Device::self(), &Device::resumingFromSuspend,
+    connect(Device::self(), &Device::resumingFromSuspend, this,
             [&]() {
                 KScreen::Log::instance()->setContext("resuming");
                 qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
@@ -122,7 +122,7 @@ void KScreenDaemon::init()
                 // while the computer was suspended, and will emit the change events.
                 new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
             });
-    connect(Device::self(), &Device::aboutToSuspend,
+    connect(Device::self(), &Device::aboutToSuspend, this,
             [&]() {
                 qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for " << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
                 m_lidClosedTimer->stop();
@@ -141,7 +141,7 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
     qCDebug(KSCREEN_KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
 
-    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished,
+    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
             [&]() {
                 qCDebug(KSCREEN_KDED) << "Config applied";
                 // We enable monitoring already, but we will ignore the first signals that come
