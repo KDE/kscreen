@@ -106,6 +106,7 @@ X-KDE-Keywords[et]=kuva,monitor,ekraan,skaleerimine,lahutusvõime,eraldusvõime,
 X-KDE-Keywords[fi]=display,monitor,scale,scaling,resolution,orientation,outputs,näyttö,monitori,skaalaus,resoluutio,tarkkuus,suunta,kierto,ulostulot
 X-KDE-Keywords[fr]=affichage,moniteur,échelle,mise à l'échelle,résolution,orientation,sorties
 X-KDE-Keywords[gl]=display,pantalla,monitor,scale,escala,scaling,escalar,resolution,resolución,orientation,orientación,outputs,saída,saídas
+X-KDE-Keywords[it]=schermo,monitor,scala,riscalatura,risoluzione,orientazione,uscite
 X-KDE-Keywords[ko]=display,monitor,scale,scaling,resolution,orientation,outputs,디스플레이,모니터,비율,배율,해상도,출력,방향
 X-KDE-Keywords[nl]=scherm,monitor,schaal,schalen,resolutie,oriëntatie,uitvoer
 X-KDE-Keywords[nn]=skjermbilete,skjerm,skala,skalering,oppløysing,skjermoppløysing,retning,utgang
