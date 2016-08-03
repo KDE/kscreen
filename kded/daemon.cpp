@@ -23,7 +23,6 @@
 #include "kscreenadaptor.h"
 #include "debug.h"
 
-#include <QElapsedTimer>
 #include <QTimer>
 #include <QAction>
 #include <QShortcut>
@@ -53,7 +52,6 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_buttonTimer(new QTimer(this))
  , m_saveTimer(new QTimer(this))
  , m_lidClosedTimer(new QTimer(this))
- , m_changeBlockTimer(new QElapsedTimer())
  
 {
     KScreen::Log::instance();
@@ -112,6 +110,7 @@ void KScreenDaemon::init()
     m_lidClosedTimer->setSingleShot(true);
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
 
+
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this,
             [&]() {
@@ -144,9 +143,6 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
             [&]() {
                 qCDebug(KSCREEN_KDED) << "Config applied";
-                // We enable monitoring already, but we will ignore the first signals that come
-                // in the next 100ms, since these are likely our own changes still flushing out
-                m_changeBlockTimer->start();
                 setMonitorForChanges(true);
             });
 }
@@ -184,13 +180,6 @@ void KScreenDaemon::applyIdealConfig()
 
 void KScreenDaemon::configChanged()
 {
-    if (m_changeBlockTimer->isValid() && !m_changeBlockTimer->hasExpired(100)) {
-        m_changeBlockTimer->start();
-        qCDebug(KSCREEN_KDED) << "Change detected, but ignoring since it's our own noise";
-        KScreen::Log::instance()->setContext(QString());
-        return;
-    }
-    m_changeBlockTimer->invalidate();
     qCDebug(KSCREEN_KDED) << "Change detected";
     // Reset timer, delay the writeback
     m_saveTimer->start();
