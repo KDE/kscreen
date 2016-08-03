@@ -61,13 +61,13 @@ QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
     KScreen::OutputList outputs = currentConfig->outputs();
 
     QStringList hashList;
-    qCDebug(KSCREEN_KDED) << "Calculating config ID for" << currentConfig.data();
+    //qCDebug(KSCREEN_KDED) << "Calculating config ID for" << currentConfig.data();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         if (!output->isConnected()) {
             continue;
         }
 
-        qCDebug(KSCREEN_KDED) << "\tPart of the Id: " << Serializer::outputId(output);
+        //qCDebug(KSCREEN_KDED) << "\tPart of the Id: " << Serializer::outputId(output);
         hashList.insert(0, Serializer::outputId(output));
     }
 
@@ -75,7 +75,7 @@ QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
 
     const QByteArray hash = QCryptographicHash::hash(hashList.join(QString()).toLatin1(),
                                                      QCryptographicHash::Md5).toHex();
-    qCDebug(KSCREEN_KDED) << "\tConfig ID:" << hash;
+    //qCDebug(KSCREEN_KDED) << "\tConfig ID:" << hash;
     return hash;
 }
 

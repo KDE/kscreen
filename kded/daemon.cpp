@@ -168,7 +168,6 @@ void KScreenDaemon::applyKnownConfig()
     if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
         return applyIdealConfig();
     }
-
     doApplyConfig(config);
 }
 
@@ -178,9 +177,20 @@ void KScreenDaemon::applyIdealConfig()
     doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
+void logConfig(const KScreen::ConfigPtr config) {
+    if (config) {
+        foreach (auto o, config->outputs()) {
+            if (o->isConnected()) {
+                qCDebug(KSCREEN_KDED) << o;
+            }
+        }
+    }
+}
+
 void KScreenDaemon::configChanged()
 {
     qCDebug(KSCREEN_KDED) << "Change detected";
+    logConfig(m_monitoredConfig);
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
@@ -194,8 +204,10 @@ void KScreenDaemon::saveCurrentConfig()
     const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
     if (valid) {
         Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+        logConfig(m_monitoredConfig);
     } else {
         qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
+        logConfig(m_monitoredConfig);
     }
 }
 
