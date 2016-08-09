@@ -330,6 +330,16 @@ void KScreenDaemon::monitorConnectedChange()
                 this, &KScreenDaemon::outputConnectedChanged,
                 Qt::UniqueConnection);
     }
+    connect(m_monitoredConfig.data(), &KScreen::Config::outputAdded, this,
+        [this] (const KScreen::OutputPtr output) {
+            if (output->isConnected()) {
+                m_changeCompressor->start();
+            }
+            connect(output.data(), &KScreen::Output::isConnectedChanged,
+                    this, &KScreenDaemon::outputConnectedChanged,
+                    Qt::UniqueConnection);
+        }, Qt::UniqueConnection
+    );
 }
 
 void KScreenDaemon::setMonitorForChanges(bool enabled)
