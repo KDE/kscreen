@@ -202,15 +202,16 @@ void QMLScreen::outputConnectedChanged()
     if (connectedCount != m_connectedOutputsCount) {
         m_connectedOutputsCount = connectedCount;
         Q_EMIT connectedOutputsCountChanged();
+        updateOutputsPlacement();
     }
 }
 
 void QMLScreen::outputEnabledChanged()
 {
-    /* TODO: Update position of QMLOutput */
     const KScreen::OutputPtr output(qobject_cast<KScreen::Output*>(sender()), [](void *){});
-    qmlOutputMoved(m_outputMap.value(output));
-
+    if (output->isEnabled()) {
+        updateOutputsPlacement();
+    }
     int enabledCount = 0;
 
     Q_FOREACH (const KScreen::OutputPtr &output, m_outputMap.keys()) {
