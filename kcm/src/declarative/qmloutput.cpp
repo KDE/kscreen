@@ -29,7 +29,7 @@
 
 const static int sMargin = 0;
 const static int sSnapArea = 20;
-const static int sSnapAlignArea = 10;
+const static int sSnapAlignArea = 6;
 
 Q_DECLARE_METATYPE(KScreen::ModePtr)
 
