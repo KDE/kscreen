@@ -33,6 +33,7 @@ public:
     static KScreen::ConfigPtr config(const KScreen::ConfigPtr &currentConfig, const QString& id);
     static bool saveConfig(const KScreen::ConfigPtr &config, const QString &configId);
     static void removeConfig(const QString &id);
+    static bool moveConfig(const QString &srcId, const QString &destId);
 
     static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
     static QString outputId(const KScreen::OutputPtr &output);
@@ -40,6 +41,7 @@ public:
 
     static void setConfigPath(const QString &path);
 private:
+    friend class TestSerializer;
     static QString configFileName(const QString &configId);
 
     static QString sConfigPath;

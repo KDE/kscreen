@@ -163,6 +163,11 @@ void KScreenDaemon::applyKnownConfig()
     const QString configId = Serializer::configId(m_monitoredConfig);
     qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
 
+    // We may look for a config that has been set when the lid was closed, Bug: 353029
+    if (Device::self()->isLaptop() && !Device::self()->isLidClosed()) {
+        Serializer::moveConfig(configId  + QStringLiteral("_lidOpened"), configId);
+    }
+
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     // It's possible that the Serializer returned a nullptr
     if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {

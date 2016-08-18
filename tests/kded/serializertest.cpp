@@ -46,6 +46,7 @@ private Q_SLOTS:
     void testCorruptUselessConfig();
     void testNullConfig();
     void testIdenticalOutputs();
+    void testMoveConfig();
 
 private:
     KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
@@ -370,6 +371,92 @@ void TestSerializer::testIdenticalOutputs()
         QVERIFY(output->isEnabled());
     }
     QCOMPARE(config->screen()->currentSize(), QSize(5940, 2160));
+}
+
+void TestSerializer::testMoveConfig()
+{
+    // Test if restoring a config using Serializer::moveConfig(src, dest) works
+    // https://bugs.kde.org/show_bug.cgi?id=353029
+
+    // Load a dualhead config
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
+    QVERIFY(config);
+
+    // Make sure we don't write into TEST_DATA
+    QStandardPaths::setTestModeEnabled(true);
+    Serializer::setConfigPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+
+    // Basic assumptions for the remainder of our tests, this is the situation where the lid is opened
+    QCOMPARE(config->connectedOutputs().count(), 2);
+
+    auto output = config->connectedOutputs().first();
+    QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
+    QCOMPARE(output->isEnabled(), true);
+    QCOMPARE(output->isPrimary(), true);
+
+    auto output2 = config->connectedOutputs().last();
+    QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
+    QCOMPARE(output2->isEnabled(), true);
+    QCOMPARE(output2->isPrimary(), false);
+
+    // we fake the lid being closed, first save our current config to _lidOpened
+    Serializer::saveConfig(config, "0xdeadbeef_lidOpened");
+
+    // ... then switch off the panel, set primary to the other output
+    output->setEnabled(false);
+    output->setPrimary(false);
+    output2->setPrimary(true);
+
+    // save config as the current one, this is the config we don't want restored, and which we'll overwrite
+    Serializer::saveConfig(config, "0xdeadbeef");
+
+    QCOMPARE(output->isEnabled(), false);
+    QCOMPARE(output->isPrimary(), false);
+    QCOMPARE(output2->isPrimary(), true);
+
+    // Check if both files exist
+    QFile openCfg(Serializer::configFileName("0xdeadbeef_lidOpened"));
+    QFile closedCfg(Serializer::configFileName("0xdeadbeef"));
+    QVERIFY(openCfg.exists());
+    QVERIFY(closedCfg.exists());
+
+    // Switcheroo...
+    QVERIFY(Serializer::moveConfig("0xdeadbeef_lidOpened", "0xdeadbeef"));
+
+    // Check actual files, src should be gone, dest must exist
+    QVERIFY(!openCfg.exists());
+    QVERIFY(closedCfg.exists());
+
+    // Now load the resulting config and make sure the laptop panel is enabled and primary again
+    config = Serializer::config(config, "0xdeadbeef");
+
+    output = config->connectedOutputs().first();
+    QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
+    QCOMPARE(output->isEnabled(), true);
+    QCOMPARE(output->isPrimary(), true);
+
+    output2 = config->connectedOutputs().last();
+    QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
+    QCOMPARE(output2->isEnabled(), true);
+    QCOMPARE(output2->isPrimary(), false);
+
+    // Make sure we don't screw up when there's no _lidOpened config
+    QVERIFY(!Serializer::moveConfig("0xdeadbeef_lidOpened", "0xdeadbeef"));
+
+    config = Serializer::config(config, "0xdeadbeef");
+
+    output = config->connectedOutputs().first();
+    QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
+    QCOMPARE(output->isEnabled(), true);
+    QCOMPARE(output->isPrimary(), true);
+
+    output2 = config->connectedOutputs().last();
+    QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
+    QCOMPARE(output2->isEnabled(), true);
+    QCOMPARE(output2->isPrimary(), false);
+
+    Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 QTEST_MAIN(TestSerializer)

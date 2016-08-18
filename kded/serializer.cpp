@@ -200,6 +200,20 @@ void Serializer::removeConfig(const QString &id)
     QFile::remove(configFileName(id));
 }
 
+bool Serializer::moveConfig(const QString &srcId, const QString &destId)
+{
+    const QFile srcFile(configFileName(srcId));
+    if (srcFile.exists()) {
+        removeConfig(destId);
+        if (QFile::copy(configFileName(srcId), configFileName(destId))) {
+            removeConfig(srcId);
+            qCDebug(KSCREEN_KDED) << "Restored config" << srcId << "to" << destId;
+            return true;
+        }
+    }
+    return false;
+}
+
 KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
     KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
