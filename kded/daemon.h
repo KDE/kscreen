@@ -71,6 +71,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void monitorConnectedChange();
         static KScreen::OutputPtr findEmbeddedOutput(const KScreen::ConfigPtr &config);
         void disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output);
+        void showOsd(const QString &icon, const QString &text);
 
         KScreen::ConfigPtr m_monitoredConfig;
         Generator::DisplaySwitchAction m_iteration;

@@ -216,9 +216,28 @@ void KScreenDaemon::saveCurrentConfig()
     }
 }
 
+void KScreenDaemon::showOsd(const QString &icon, const QString &text)
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(
+        QLatin1Literal("org.kde.plasmashell"),
+        QLatin1Literal("/org/kde/osdService"),
+        QLatin1Literal("org.kde.osdService"),
+        QLatin1Literal("showText")
+    );
+    msg << icon << text;
+    QDBusConnection::sessionBus().asyncCall(msg);
+}
+
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
+
+    QString message = i18nc("OSD text after XF86Display button press", "No External Display");
+    if (m_monitoredConfig && m_monitoredConfig->connectedOutputs().count() > 1) {
+        message = i18nc("OSD text after XF86Display button press", "Changing Screen Layout");
+    }
+    showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
+
     if (m_buttonTimer->isActive()) {
         qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
         return;
