@@ -9,7 +9,7 @@ X-KDE-System-Settings-Parent-Category=display
 X-KDE-Weight=40
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
-Name=Display Configuration
+Name=Displays
 Name[ar]=اضبط العرض
 Name[ast]=Configuración de pantalla
 Name[bs]=Konfiguracija ekrana
