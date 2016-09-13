@@ -69,7 +69,7 @@ class Widget : public QWidget
     void slotProfilesAboutToUpdate();
     void slotProfilesUpdated();
 
-    void slotIdentifyButtonClicked();
+    void slotIdentifyButtonClicked(bool checked = true);
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     void clearOutputIdentifiers();
 

@@ -95,8 +95,8 @@ Widget::Widget(QWidget *parent):
 #ifdef WITH_PROFILES
     mProfilesModel = new ProfilesModel(this);
 
-    connect(mProfilesModel, SIGNAL(modelUpdated()),
-            this, SLOT(slotProfilesUpdated()));
+    connect(mProfilesModel, &ProfilesModel::modelUpdated()),
+            this, &Widget::slotProfilesUpdated);
     mProfilesCombo = new QComboBox(this);
     mProfilesCombo->setModel(mProfilesModel);
     mProfilesCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
@@ -219,10 +219,9 @@ void Widget::loadQml()
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
-    connect(rootObject->findChild<QObject*>(QStringLiteral("identifyButton")), SIGNAL(clicked()),
-            this, SLOT(slotIdentifyButtonClicked()));
+    connect(qobject_cast<QAbstractButton*>(rootObject->findChild<QObject*>(QStringLiteral("identifyButton"))), &QAbstractButton::clicked,
+            this, &Widget::slotIdentifyButtonClicked);
 }
-
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
 {
@@ -395,17 +394,16 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 void Widget::slotProfilesAboutToUpdate()
 {
 #ifdef WITH_PROFILES
-    disconnect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
-               this, SLOT(slotProfileChanged(int)));
+    disconnect(mProfilesCombo, &QComboBox::currentIndexChanged,
+               this, &Widget::slotProfileChanged);
 #endif
 }
-
 
 void Widget::slotProfilesUpdated()
 {
 #ifdef WITH_PROFILES
-    connect(mProfilesCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotProfileChanged(int)));
+    connect(mProfilesCombo, &QComboBox::currentIndexChanged,
+            this, &Widget::slotProfileChanged);
 
     const int index = mProfilesModel->activeProfileIndex();
     mProfilesCombo->setCurrentIndex(index);
@@ -420,8 +418,9 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::slotIdentifyButtonClicked()
+void Widget::slotIdentifyButtonClicked(bool checked)
 {
+    Q_UNUSED(checked);
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
             this, &Widget::slotIdentifyOutputs);
 }
