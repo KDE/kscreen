@@ -18,59 +18,40 @@
 
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 2.0 as PlasmaComponents
 
-Item {
+Rectangle {
     id: root;
 
     property string outputName;
     property string modeName;
 
-    width: childrenRect.width;
-    height: childrenRect.height;
-
-    SystemPalette {
-        id: palette;
+    color: theme.backgroundColor
+    border {
+        color: theme.textColor
+        width: Math.ceil(units.gridUnit / 20)
     }
 
-    Rectangle {
-        width: column.width + 80;
-        height: column.height + 40;
-        color: palette.base;
-        border {
-                width: 2;
-                color: palette.shadow;
+    width: childrenRect.width + 2 * childrenRect.x
+    height: childrenRect.height + 2 * childrenRect.y
+
+    PlasmaComponents.Label {
+        id: displayName
+        x: units.largeSpacing * 2
+        y: units.largeSpacing
+        font.pointSize: theme.defaultFont.pointSize * 3
+        text: root.outputName;
+        wrapMode: Text.WordWrap;
+        horizontalAlignment: Text.AlignHCenter;
+    }
+
+    PlasmaComponents.Label {
+        id: modeLabel;
+        anchors {
+            horizontalCenter: displayName.horizontalCenter
+            top: displayName.bottom
         }
-
-        Column {
-
-            id: column;
-
-            anchors.centerIn: parent;
-            spacing: 10;
-
-            Text {
-                id: displayName;
-
-                anchors.horizontalCenter: parent.horizontalCenter;
-
-                text: root.outputName;
-                wrapMode: Text.WordWrap;
-                font.pointSize: 50;
-                color: palette.text;
-                horizontalAlignment: Text.AlignHCenter;
-            }
-
-            Text {
-
-                id: modeLabel;
-
-                anchors.horizontalCenter: parent.horizontalCenter;
-
-                text: root.modeName;
-                font.pointSize: theme.defaultFont.pointSize;
-                color: palette.text;
-                horizontalAlignment: Text.AlignHCenter;
-            }
-        }
+        text: root.modeName;
+        horizontalAlignment: Text.AlignHCenter;
     }
 }
