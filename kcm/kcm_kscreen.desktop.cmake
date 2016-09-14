@@ -10,6 +10,12 @@ X-KDE-Weight=40
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
 Name=Displays
+Name[ca]=Pantalles
+Name[nl]=Schermen
+Name[pt]=Ecrãs
+Name[sv]=Bildskärmar
+Name[uk]=Дисплеї
+Name[x-test]=xxDisplaysxx
 Comment=Manage and configure monitors and displays
 Comment[ar]=أدر واضبط الشّاشات والعروض
 Comment[ast]=Xestiona y configura los monitores y pantalles
