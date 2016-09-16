@@ -15,6 +15,7 @@ Name[el]=Οθόνες
 Name[es]=Pantallas
 Name[nl]=Schermen
 Name[pt]=Ecrãs
+Name[sk]=Obrazovky
 Name[sv]=Bildskärmar
 Name[uk]=Дисплеї
 Name[x-test]=xxDisplaysxx
