@@ -219,8 +219,8 @@ void Widget::loadQml()
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
-    connect(qobject_cast<QAbstractButton*>(rootObject->findChild<QObject*>(QStringLiteral("identifyButton"))), &QAbstractButton::clicked,
-            this, &Widget::slotIdentifyButtonClicked);
+    connect(rootObject->findChild<QObject*>(QStringLiteral("identifyButton")), SIGNAL(clicked()),
+            this, SLOT(slotIdentifyButtonClicked()));
 }
 
 void Widget::slotFocusedOutputChanged(QMLOutput *output)
