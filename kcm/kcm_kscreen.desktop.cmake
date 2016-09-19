@@ -12,6 +12,7 @@ X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 Name=Displays
 Name[ca]=Pantalles
 Name[ca@valencia]=Pantalles
+Name[de]=Anzeigen
 Name[el]=Οθόνες
 Name[en_GB]=Displays
 Name[es]=Pantallas
