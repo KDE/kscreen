@@ -192,7 +192,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     for (int i = 0; i < modes.count(); i++) {
         const KScreen::ModePtr mode = modes.at(i);
-        mRefreshRate->addItem(i18n("%1 Hz", QString::fromLatin1("%1").arg(mode->refreshRate(), 0, 'f', 1)), mode->id());
+        mRefreshRate->addItem(i18n("%1 Hz", QString::fromLatin1("%1").arg(mode->refreshRate(), 0, 'f', 2)), mode->id());
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
