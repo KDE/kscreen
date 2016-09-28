@@ -30,7 +30,9 @@ import org.kde.kcm 1.0
 Item {
     id: kscreenModule
     objectName: "kscreenModule"
-    Layout.minimumHeight: childrenRect.height + units.gridUnit
+
+    implicitHeight: childrenRect.height + units.gridUnit * 10
+    implicitWidth: units.gridUnit * 24
 
     ExclusiveGroup { id: themeGroup }
     ColumnLayout {
