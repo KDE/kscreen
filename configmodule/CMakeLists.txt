@@ -3,6 +3,9 @@
 
 set(kscreen_configmodule_SRCS
     configmodule.cpp
+    qmloutput.cpp
+    qmloutputcomponent.cpp
+    qmlscreen.cpp
 )
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kcm_kscreen2.desktop.cmake
@@ -17,6 +20,7 @@ target_link_libraries(kcm_kscreen2
     Qt5::Gui
     Qt5::Quick
     Qt5::Qml
+    KF5::Screen
     KF5::Plasma
     KF5::I18n
     KF5::QuickAddons
