@@ -79,8 +79,6 @@ ConfigModule::~ConfigModule()
 
 void ConfigModule::load()
 {
-
-
     qCDebug(KSCREEN_KCM) << "LOAD";
     connect(new GetConfigOperation(), &GetConfigOperation::finished,
             this, &ConfigModule::configReady);
@@ -120,16 +118,14 @@ void ConfigModule::setConfig(const KScreen::ConfigPtr &config)
 
     mConfig = config;
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
-
     mScreen->setConfig(mConfig);
-//     mControlPanel->setConfig(mConfig);
-//     mPrimaryCombo->setConfig(mConfig);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-//         connect(output.data(), &KScreen::Output::isEnabledChanged,
-//                 this, &Widget::slotOutputEnabledChanged);
-//         connect(output.data(), &KScreen::Output::posChanged,
-//                 this, &Widget::changed);
+        connect(output.data(), &KScreen::Output::posChanged,
+                this, [this] () {
+                    setNeedsSave(true);
+                }
+        );
     }
 
     // Select the primary (or only) output by default
@@ -141,8 +137,6 @@ void ConfigModule::setConfig(const KScreen::ConfigPtr &config)
             mScreen->setActiveOutput(mScreen->outputs()[0]);
         }
     }
-
-//     slotOutputEnabledChanged();
 }
 
 KScreen::ConfigPtr ConfigModule::currentConfig() const
