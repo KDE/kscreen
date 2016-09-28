@@ -19,20 +19,29 @@
  ***************************************************************************/
 
 #include "configmodule.h"
+#include "debug_p.h"
+
+#include <QtQml>
 
 #include <KPluginFactory>
 #include <KLocalizedString>
 #include <KAboutData>
 
 #include <KScreen/EDID>
-#include <KScreen/Output>
+#include <KScreen/GetConfigOperation>
 #include <KScreen/Mode>
+#include <KScreen/Output>
+#include <KScreen/Screen>
 
 #include "qmloutput.h"
 #include "qmlscreen.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(KScreenConfigModuleFactory, "kcm_kscreen2.json", registerPlugin<ConfigModule>();)
+K_PLUGIN_FACTORY_WITH_JSON(KScreenConfigModuleFactory, "kcm_kscreen2.json", registerPlugin<KScreen::ConfigModule>();)
 
+Q_DECLARE_METATYPE(KScreen::OutputPtr)
+Q_DECLARE_METATYPE(KScreen::ScreenPtr)
+
+namespace KScreen {
 
 ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     : KQuickAddons::ConfigModule(parent, args)
@@ -50,11 +59,97 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
     qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
 
-    qDebug() << "ConfigModule loaded.";
+    mScreen = mainUi()->findChild<QMLScreen*>(QStringLiteral("outputView"));
+    if (!mScreen) {
+        qCWarning(KSCREEN_KCM) << "outputView object not found in QtQuick code";
+        return;
+    }
+    mScreen->setEngine(engine());
+
+    connect(mScreen, &QMLScreen::focusedOutputChanged,
+            this, &ConfigModule::focusedOutputChanged);
+
+
+    qCDebug(KSCREEN_KCM) << "ConfigModule loaded.";
 }
 
 ConfigModule::~ConfigModule()
 {
 }
 
+void ConfigModule::load()
+{
+
+
+    qCDebug(KSCREEN_KCM) << "LOAD";
+    connect(new GetConfigOperation(), &GetConfigOperation::finished,
+            this, &ConfigModule::configReady);
+}
+
+void ConfigModule::defaults()
+{
+}
+
+void ConfigModule::save()
+{
+}
+
+void ConfigModule::changed()
+{
+}
+
+void ConfigModule::configReady(KScreen::ConfigOperation* op)
+{
+    qDebug() << "config ready!";
+    setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+}
+
+void ConfigModule::focusedOutputChanged(QMLOutput *output)
+{
+    qCDebug(KSCREEN_KCM) << "Focused output is now:" << output;
+}
+
+void ConfigModule::setConfig(const KScreen::ConfigPtr &config)
+{
+    if (mConfig) {
+        KScreen::ConfigMonitor::instance()->removeConfig(mConfig);
+        for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+            output->disconnect(this);
+        }
+    }
+
+    mConfig = config;
+    KScreen::ConfigMonitor::instance()->addConfig(mConfig);
+
+    mScreen->setConfig(mConfig);
+//     mControlPanel->setConfig(mConfig);
+//     mPrimaryCombo->setConfig(mConfig);
+
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+//         connect(output.data(), &KScreen::Output::isEnabledChanged,
+//                 this, &Widget::slotOutputEnabledChanged);
+//         connect(output.data(), &KScreen::Output::posChanged,
+//                 this, &Widget::changed);
+    }
+
+    // Select the primary (or only) output by default
+    QMLOutput *qmlOutput = mScreen->primaryOutput();
+    if (qmlOutput) {
+        mScreen->setActiveOutput(qmlOutput);
+    } else {
+        if (mScreen->outputs().count() > 0) {
+            mScreen->setActiveOutput(mScreen->outputs()[0]);
+        }
+    }
+
+//     slotOutputEnabledChanged();
+}
+
+KScreen::ConfigPtr ConfigModule::currentConfig() const
+{
+    return mConfig;
+}
+
+
+}
 #include "configmodule.moc"

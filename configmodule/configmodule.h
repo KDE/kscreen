@@ -23,8 +23,18 @@
 
 #include <QObject>
 #include <QVariant>
+
 #include <KQuickAddons/ConfigModule>
 
+#include <KScreen/Config>
+#include <KScreen/ConfigMonitor>
+
+class QMLScreen;
+class QMLOutput;
+
+namespace KScreen {
+
+class ConfigOperation;
 
 class ConfigModule : public KQuickAddons::ConfigModule
 {
@@ -35,10 +45,23 @@ class ConfigModule : public KQuickAddons::ConfigModule
         ConfigModule(QObject* parent, const QVariantList& args);
         virtual ~ConfigModule();
 
+  public Q_SLOTS:
+    virtual void load();
+    virtual void save();
+    virtual void defaults();
+    void changed();
 
-    Q_SIGNALS:
+  private:
+    void configReady(KScreen::ConfigOperation *op);
+    void focusedOutputChanged(QMLOutput *output);
+    void setConfig(const KScreen::ConfigPtr &config);
+    KScreen::ConfigPtr currentConfig() const;
 
-    private:
+    QMLScreen *mScreen;
+    KScreen::ConfigPtr mConfig;
+    KScreen::ConfigPtr mPrevConfig;
+
 };
 
+}
 #endif // KSCREEN_CONFIGMODULE_H
