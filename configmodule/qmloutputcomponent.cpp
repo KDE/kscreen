@@ -20,8 +20,9 @@
 #include "qmloutputcomponent.h"
 #include "qmloutput.h"
 #include "qmlscreen.h"
+#include "debug_p.h"
 
-#include <kscreen/output.h>
+#include <KScreen/Output>
 
 #include <QDir>
 #include <QStandardPaths>
@@ -34,7 +35,7 @@ QMLOutputComponent::QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent):
     QQmlComponent(engine, parent),
     m_engine(engine)
 {
-    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcm_kscreen/qml/Output.qml"));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/kcms/kcm_kscreen2/contents/ui/Output.qml"));
     loadUrl(QUrl::fromLocalFile(qmlPath));
 }
 
