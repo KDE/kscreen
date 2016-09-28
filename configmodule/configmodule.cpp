@@ -24,6 +24,12 @@
 #include <KLocalizedString>
 #include <KAboutData>
 
+#include <KScreen/EDID>
+#include <KScreen/Output>
+#include <KScreen/Mode>
+
+#include "qmloutput.h"
+#include "qmlscreen.h"
 
 K_PLUGIN_FACTORY_WITH_JSON(KScreenConfigModuleFactory, "kcm_kscreen2.json", registerPlugin<ConfigModule>();)
 
@@ -36,6 +42,13 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     about->addAuthor(i18n("Sebastian Kügler"), QString(), "sebas@kde.org");
     setAboutData(about);
     setButtons(Apply | Default);
+
+    qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
+    qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
+
+    qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
+    qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
+    qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
 
     qDebug() << "ConfigModule loaded.";
 }
