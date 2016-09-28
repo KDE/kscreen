@@ -8,10 +8,15 @@ set(kscreen_configmodule_SRCS
     qmlscreen.cpp
 )
 
+ecm_qt_declare_logging_category(kscreen_configmodule_SRCS
+                                HEADER debug_p.h
+                                IDENTIFIER KSCREEN_KCM
+                                CATEGORY_NAME kscreen.kcm
+)
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kcm_kscreen2.desktop.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/kcm_kscreen2.desktop
                @ONLY)
-
 
 add_library(kcm_kscreen2 MODULE ${kscreen_configmodule_SRCS})
 
