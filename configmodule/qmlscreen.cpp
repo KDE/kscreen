@@ -24,12 +24,7 @@
 #include <kscreen/output.h>
 #include <kscreen/config.h>
 
-#include <QGraphicsScene>
-
 #include <QTimer>
-#include <sys/socket.h>
-
-//static void NullDeleter(KScreen::Output */*output*/) { }
 
 QMLScreen::QMLScreen(QQuickItem *parent):
     QQuickItem(parent),
