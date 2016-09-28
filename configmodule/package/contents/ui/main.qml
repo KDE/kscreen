@@ -28,6 +28,9 @@ Item {
 
     property variant virtualScreen: null;
 
+    implicitHeight: childrenRect.height + units.gridUnit * 10
+    implicitWidth: childrenRect.width + units.gridUnit * 10
+
     objectName: "root";
     focus: true;
 
