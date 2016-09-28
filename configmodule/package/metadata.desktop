@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=Displays
+Comment=Configure monitors and displays
+Encoding=UTF-8
+Type=Service
+Icon=preferences-desktop-theme
+X-KDE-ServiceTypes=KCModule
+X-KDE-Library=kcm_kscreen2
+X-KDE-PluginInfo-Author=Sebastian Kügler
+X-KDE-PluginInfo-Email=sebas@kde.org
+X-KDE-PluginInfo-Name=kcm_kscreen2
+X-KDE-PluginInfo-Version=2.0
+X-KDE-PluginInfo-Website=http://kde.org
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-FormFactors=desktop
+X-Plasma-Package=kcm_kscreen2
+X-Plasma-MainScript=ui/KScreenConfigModule.qml
