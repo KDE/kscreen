@@ -52,12 +52,12 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     setAboutData(about);
     setButtons(Apply | Default);
 
-    qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
-    qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
+    qmlRegisterType<QMLOutput>("org.kde.kscreen", 2, 0, "QMLOutput");
+    qmlRegisterType<QMLScreen>("org.kde.kscreen", 2, 0, "QMLScreen");
 
-    qmlRegisterType<KScreen::Output>("org.kde.kscreen", 1, 0, "KScreenOutput");
-    qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 1, 0, "KScreenEdid");
-    qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 1, 0, "KScreenMode");
+    qmlRegisterType<KScreen::Output>("org.kde.kscreen", 2, 0, "KScreenOutput");
+    qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 2, 0, "KScreenEdid");
+    qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 2, 0, "KScreenMode");
 
     mScreen = mainUi()->findChild<QMLScreen*>(QStringLiteral("outputView"));
     if (!mScreen) {

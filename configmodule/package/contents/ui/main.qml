@@ -18,11 +18,13 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.1 as Controls
+import QtQuick.Layouts 1.3
+
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kquickcontrols 2.0
-import org.kde.kscreen 1.0
+import org.kde.kscreen 2.0
 
-Item {
+ColumnLayout {
 
     id: root;
 
@@ -40,89 +42,7 @@ Item {
         id: palette;
     }
 
-    Rectangle {
-        id: background;
+    OutputsView {
 
-        anchors.fill: parent;
-        focus: true;
-
-        color: palette.base;
-
-        FocusScope {
-
-            id: outputViewFocusScope;
-
-            anchors.fill: parent;
-            focus: true;
-
-            QMLScreen {
-
-                id: outputView;
-
-                anchors.fill: parent;
-                clip: true;
-
-                objectName: "outputView";
-            }
-        }
-
-        Column {
-
-            anchors {
-                left: parent.left;
-                right: identifyButton.left;
-                bottom: parent.bottom;
-                margins: 5;
-            }
-
-            spacing: 5;
-
-            Tip {
-
-                id: dragTip;
-
-                icon: "dialog-information";
-                text: i18nd("kcm_displayconfiguration", "Tip: Hold Ctrl while dragging a display to disable snapping");
-            }
-
-            Tip {
-
-                id: noActiveOutputsWarning;
-
-                icon: "dialog-warning";
-                text: i18nd("kcm_displayconfiguration", "Warning: There are no active outputs!");
-            }
-
-            Tip {
-
-                id: tooManyActiveOutputs;
-                objectName: "tooManyActiveOutputs";
-
-                icon: "dialog-error";
-                text: i18ndp("kcm_displayconfiguration",
-                             "Your system only supports up to %1 active screen",
-                             "Your system only supports up to %1 active screens",
-                             virtualScreen ? virtualScreen.maxActiveOutputsCount : 1);
-            }
-        }
-
-
-        Controls.ToolButton {
-
-            id: identifyButton
-            objectName: "identifyButton";
-
-            anchors {
-                right: parent.right
-                bottom: parent.bottom
-                margins: 5
-            }
-
-            height: width
-            width: theme.largeIconSize;
-            iconName: "kdocumentinfo"
-
-            tooltip: i18nd("kcm_displayconfiguration", "Identify outputs");
-        }
     }
 }
