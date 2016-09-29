@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2012  Dan Vratil <dvratil@redhat.com>
+    Copyright 2016 Sebastian Kügler <sebas@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -23,26 +23,34 @@ import QtQuick.Layouts 1.3
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kquickcontrols 2.0
 import org.kde.kscreen 2.0
+import org.kde.kcm 1.0
+
 
 ColumnLayout {
+    id: root
+    objectName: "root"
 
-    id: root;
+    property variant virtualScreen: null
+    property KScreenOutput focusedOutput: null
 
-    property variant virtualScreen: null;
+    implicitHeight: units.gridUnit * 15
+    implicitWidth: units.gridUnit * 30
 
-    implicitHeight: childrenRect.height + units.gridUnit * 10
-    implicitWidth: childrenRect.width + units.gridUnit * 10
+    spacing: units.largeSpacing
 
-    objectName: "root";
-    focus: true;
-
-    anchors.fill: parent;
+    focus: true
 
     SystemPalette {
         id: palette;
     }
 
     OutputsView {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
 
+    }
+
+    OutputSettings {
+        id: outputSettings
     }
 }

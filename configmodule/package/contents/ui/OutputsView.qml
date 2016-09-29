@@ -18,6 +18,8 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.1 as Controls
+import QtQuick.Layouts 1.3
+
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kquickcontrols 2.0
 import org.kde.kscreen 2.0
@@ -25,10 +27,12 @@ import org.kde.kscreen 2.0
 Rectangle {
     id: background;
 
-    anchors.fill: parent;
-    focus: true;
+    Layout.preferredHeight: units.gridUnit * 15
+    Layout.preferredWidth: units.gridUnit * 30
 
-    color: palette.base;
+    focus: true
+
+    color: palette.base
 
     FocusScope {
 
@@ -43,6 +47,10 @@ Rectangle {
 
             anchors.fill: parent;
             clip: true;
+            onFocusedOutputChanged: {
+                print("output name:" + output.output.name);
+                outputSettings.qmlOutput = output;
+            }
 
             objectName: "outputView";
         }
