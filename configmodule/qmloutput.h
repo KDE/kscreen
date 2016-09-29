@@ -104,6 +104,9 @@ class QMLOutput : public QQuickItem
 
     Q_PROPERTY(QQmlListProperty<KScreen::Mode> modes READ modes NOTIFY modesChanged)
 
+    Q_PROPERTY(QStringList modeSizes READ modeSizes NOTIFY modesChanged)
+    Q_PROPERTY(QList<qreal> refreshRates READ refreshRates NOTIFY refreshRatesChanged)
+
 
   public:
     enum {
@@ -161,6 +164,11 @@ class QMLOutput : public QQuickItem
     void dockToNeighbours();
 
     QQmlListProperty<KScreen::Mode> modes();
+    QStringList modeSizes();
+    QList<qreal> refreshRates();
+
+    Q_INVOKABLE void setSelectedSize(int index);
+    Q_INVOKABLE void setSelectedRefreshRate(int index);
 
 public Q_SLOTS:
     void updateRootProperties();
@@ -187,6 +195,7 @@ public Q_SLOTS:
     void isCloneModeChanged();
 
     void modesChanged();
+    void refreshRatesChanged();
 
   private Q_SLOTS:
     void moved();
@@ -197,8 +206,15 @@ public Q_SLOTS:
      * Returns the biggest resolution available assuming it's the preferred one
      */
     KScreen::ModePtr bestMode() const;
+    void updateModes();
 
     KScreen::OutputPtr m_output;
+    QList<KScreen::Mode*> m_modes;
+    QStringList m_modeSizes;
+    QHash<QString, QList<qreal>> m_modesTable;
+    QString m_selectedModeId;
+    QString m_selectedModeSize;
+
     QMLScreen *m_screen;
 
     QMLOutput *m_cloneOf;

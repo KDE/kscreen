@@ -27,7 +27,7 @@ import org.kde.kscreen 2.0
 
 GridLayout {
 
-    property KScreenOutput output: qmlOutput.output
+    property KScreenOutput output: (qmlOutput === null) ? null : qmlOutput.output
     property QMLOutput qmlOutput: null
 
     focus: true
@@ -37,18 +37,17 @@ GridLayout {
     Layout.maximumHeight: childrenRect.height
 
     onOutputChanged: {
+        if (output === null) return;
         print("Output is now: " + outputLabel.text);
         print(" Modes: " + qmlOutput.modes.length);
-        for (var i=0; i<qmlOutput.modes.length; i++) {
-                    print("     : " + qmlOutput.modes[i].name);
-
-        }
+        print(" Modes: " + qmlOutput.modeSizes.length);
     }
 
     PlasmaExtras.Heading {
         id: outputLabel
         level: 2
         text: {
+            if (output === null) return "";
             if (output.type == KScreenOutput.Panel) {
                 return i18n("Laptop Screen");
             }
@@ -60,10 +59,16 @@ GridLayout {
     Label {
         text: i18n("Scaling factor:")
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
-
     }
 
     ColumnLayout {
+
+        Label {
+            Layout.fillWidth: true
+            text: i18nc("value label of scaling slider", "%1x", scalingSlider.value)
+            horizontalAlignment: Text.AlignRight
+        }
+
         Slider {
             id: scalingSlider
             Layout.fillWidth: true
@@ -71,11 +76,6 @@ GridLayout {
             maximumValue: 3
             stepSize: .2
             tickmarksEnabled: true
-        }
-        Label {
-            Layout.fillWidth: true
-            text: i18nc("value label of scaling slider", "%1x", scalingSlider.value)
-            horizontalAlignment: Text.AlignRight
         }
     }
 
@@ -88,29 +88,23 @@ GridLayout {
     ColumnLayout {
         id: modecol
         property KScreenMode selectedMode: null
+
+        Label {
+            Layout.fillWidth: true
+            text: modecol.selectedMode ? modecol.selectedMode.size.width + "x" + modecol.selectedMode.size.height + "@" + modecol.selectedMode.refreshRate.toFixed(2) : ""
+            horizontalAlignment: Text.AlignRight
+        }
+
         Slider {
             Layout.fillWidth: true
             tickmarksEnabled: true
             minimumValue: 0
-            maximumValue: qmlOutput.modes.length
+            maximumValue: (qmlOutput === null) ? 1 : qmlOutput.modes.length - 1
             stepSize: 1
-            onValueChanged: {
-                for (var key in qmlOutput.modes) {
-                    var _m = qmlOutput.modes[key];
-                    print("     m " + _m.id);
-                }
-                print("Mode is now: " + qmlOutput.modes[value].id + " " + qmlOutput.modes[value].name);
-                modecol.selectedMode = qmlOutput.modes[value];
-            }
-        }
-        Label {
-            Layout.fillWidth: true
-            text: modecol.selectedMode.size.width + "x" + modecol.selectedMode.size.height + " @ " + modecol.selectedMode.refreshRate + " Hz"
-            horizontalAlignment: Text.AlignRight
+            onValueChanged: modecol.selectedMode = qmlOutput.modes[value]
         }
     }
     Item {
         Layout.preferredHeight: units.largeSpacing
     }
-
 }

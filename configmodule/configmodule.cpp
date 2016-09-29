@@ -40,6 +40,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KScreenConfigModuleFactory, "kcm_kscreen2.json", regi
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 Q_DECLARE_METATYPE(KScreen::ScreenPtr)
+Q_DECLARE_METATYPE(KScreen::ModePtr)
 
 namespace KScreen {
 
