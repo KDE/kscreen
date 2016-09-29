@@ -48,6 +48,7 @@ QMLOutput::QMLOutput(QQuickItem *parent):
     m_bottomDock(0),
     m_isCloneMode(false)
 {
+    qRegisterMetaType<KScreen::ModeList>("KScreenModeList");
     connect(this, &QMLOutput::xChanged,
             this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
     connect(this, &QMLOutput::yChanged,
@@ -94,6 +95,17 @@ void QMLOutput::setScreen(QMLScreen *screen)
     m_screen = screen;
     Q_EMIT screenChanged();
 }
+
+QQmlListProperty<KScreen::Mode> QMLOutput::modes()
+{
+    QList<KScreen::Mode*> mlst;
+    for (auto _md : output()->modes()) {
+        mlst << _md.data();
+    }
+    QQmlListProperty<KScreen::Mode> lst(this, mlst);
+    return lst;
+}
+
 
 void QMLOutput::setLeftDockedTo(QMLOutput *output)
 {

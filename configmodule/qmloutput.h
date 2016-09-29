@@ -102,6 +102,9 @@ class QMLOutput : public QQuickItem
                WRITE setOutputY
                NOTIFY outputYChanged)
 
+    Q_PROPERTY(QQmlListProperty<KScreen::Mode> modes READ modes NOTIFY modesChanged)
+
+
   public:
     enum {
       ModeRole = Qt::UserRole,
@@ -157,7 +160,9 @@ class QMLOutput : public QQuickItem
 
     void dockToNeighbours();
 
-  public Q_SLOTS:
+    QQmlListProperty<KScreen::Mode> modes();
+
+public Q_SLOTS:
     void updateRootProperties();
 
   Q_SIGNALS:
@@ -180,6 +185,8 @@ class QMLOutput : public QQuickItem
     void outputXChanged();
 
     void isCloneModeChanged();
+
+    void modesChanged();
 
   private Q_SLOTS:
     void moved();
