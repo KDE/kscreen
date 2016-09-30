@@ -100,6 +100,10 @@ bool modeLessThan(const KScreen::Mode* left, const KScreen::Mode* right)
     return sl < sr;
 }
 
+QString modeString(const KScreen::Mode *mode) {
+    return QString("%1x%2").arg(QString::number(mode->size().width()), QString::number(mode->size().height()));
+}
+
 void QMLOutput::updateModes()
 {
     m_modes.clear();
@@ -110,7 +114,7 @@ void QMLOutput::updateModes()
 
     qSort(m_modes.begin(), m_modes.end(), modeLessThan);
     for (auto _mode : m_modes) {
-        const auto msize = QString("%1x%2").arg(_mode->size().width(), _mode->size().height());
+        const auto msize = modeString(_mode);
         if (!m_modeSizes.contains(msize)) {
             m_modeSizes << msize;
         }
@@ -123,18 +127,26 @@ void QMLOutput::updateModes()
 
 void QMLOutput::setSelectedSize(int index)
 {
-    qCDebug(KSCREEN_KCM) << "selected size is now:" << m_modesTable.keys().at(index);
-    const auto msize = m_modesTable.keys().at(index);
-    m_selectedModeSize = msize;
-    for (auto _mode : m_modes) {
-        const auto _msize = QString("%1x%2").arg(_mode->size().width(), _mode->size().height());
-        if (msize == _msize) {
-            m_selectedModeId = _mode->id();
-            // We don't stop here, since we want to select the highest refresh rate as well,
-            // the list we're operating on is sorted.
-        }
+    if (index >= m_modeSizes.count()) {
+        qCWarning(KSCREEN_KCM) << "Invalid index:" << index << m_modesTable.keys();
+        return;
     }
+    const auto msize = m_modeSizes.at(index);
+    //qCDebug(KSCREEN_KCM) << "MODES:" << m_modesTable.keys();
+
+    m_selectedModeSize = msize;
+//     qCDebug(KSCREEN_KCM) << "refreshrates:" << m_modesTable[m_selectedModeSize];
+    m_selectedRefreshRate = 0;
+    updateSelectedMode();
+    qCDebug(KSCREEN_KCM) << "selected size is now:" << index << msize << selectedMode()->name();
+    emit refreshRatesChanged();
 }
+
+KScreen::Mode* QMLOutput::selectedMode() const
+{
+    return m_output->mode(m_selectedModeId).data();
+}
+
 
 QList<qreal> QMLOutput::refreshRates()
 {
@@ -143,9 +155,31 @@ QList<qreal> QMLOutput::refreshRates()
 
 void QMLOutput::setSelectedRefreshRate(int index)
 {
-    qCDebug(KSCREEN_KCM) << "selected size is now:" << m_modesTable.keys().at(index);
+    if (index > m_modesTable[m_selectedModeSize].count()) {
+        qCWarning(KSCREEN_KCM) << "Invalid refresh rate:" << index << m_modesTable[m_selectedModeSize];
+        return;
+    }
+    qCDebug(KSCREEN_KCM) << "selected refresh rate is now:" << m_modesTable[m_selectedModeSize].at(index);
+    m_selectedRefreshRate = m_modesTable[m_selectedModeSize].at(index);
+
+    updateSelectedMode();
 }
 
+void QMLOutput::updateSelectedMode()
+{
+    for (auto mode : m_modes) {
+        if (modeString(mode) == m_selectedModeSize) {
+            if (m_selectedRefreshRate == 0) {
+                m_selectedModeId = mode->id();
+            } else if (m_selectedRefreshRate == mode->refreshRate()) {
+                m_selectedModeId = mode->id();
+            }
+        }
+    }
+    qCDebug(KSCREEN_KCM) << "Selected is now:" << m_selectedModeId << m_output->mode(m_selectedModeId);
+    emit selectedModeChanged();
+    output()->setCurrentModeId(m_selectedModeId);
+}
 
 QMLScreen *QMLOutput::screen() const
 {

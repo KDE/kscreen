@@ -57,28 +57,35 @@ GridLayout {
     }
 
     Label {
+        Layout.fillWidth: true
+        Layout.columnSpan: 2
+        visible: root.perOutputScaling
+        text: i18nc("value label of scaling slider", "%1x", scalingSlider.value)
+        horizontalAlignment: Text.AlignRight
+    }
+
+    Label {
+        visible: root.perOutputScaling
         text: i18n("Scaling factor:")
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
     }
 
-    ColumnLayout {
-
-        Label {
-            Layout.fillWidth: true
-            text: i18nc("value label of scaling slider", "%1x", scalingSlider.value)
-            horizontalAlignment: Text.AlignRight
-        }
-
-        Slider {
-            id: scalingSlider
-            Layout.fillWidth: true
-            minimumValue: 1
-            maximumValue: 3
-            stepSize: .2
-            tickmarksEnabled: true
-        }
+    Slider {
+        id: scalingSlider
+        visible: root.perOutputScaling
+        Layout.fillWidth: true
+        minimumValue: 1
+        maximumValue: 3
+        stepSize: .2
+        tickmarksEnabled: true
     }
 
+    Label {
+        Layout.fillWidth: true
+        Layout.columnSpan: 2
+        text: qmlOutput.selectedMode ? qmlOutput.selectedMode.size.width + "x" + qmlOutput.selectedMode.size.height + "@" + qmlOutput.selectedMode.refreshRate.toFixed(2) : ""
+        horizontalAlignment: Text.AlignRight
+    }
 
     Label {
         text: i18n("Resolution and refresh rate:")
@@ -89,19 +96,35 @@ GridLayout {
         id: modecol
         property KScreenMode selectedMode: null
 
-        Label {
-            Layout.fillWidth: true
-            text: modecol.selectedMode ? modecol.selectedMode.size.width + "x" + modecol.selectedMode.size.height + "@" + modecol.selectedMode.refreshRate.toFixed(2) : ""
-            horizontalAlignment: Text.AlignRight
-        }
-
         Slider {
+            id: resolutionSlider
             Layout.fillWidth: true
             tickmarksEnabled: true
             minimumValue: 0
-            maximumValue: (qmlOutput === null) ? 1 : qmlOutput.modes.length - 1
+            maximumValue: (qmlOutput === null) ? 1 : qmlOutput.modeSizes.length - 2
             stepSize: 1
-            onValueChanged: modecol.selectedMode = qmlOutput.modes[value]
+            onValueChanged: {
+                qmlOutput.setSelectedSize(value)
+            }
+        }
+
+        RowLayout {
+            opacity: (output != null && qmlOutput.refreshRates.length > 1) ? 1.0 : 0.6
+            Behavior on opacity { NumberAnimation { duration: units.longDuration } }
+            CheckBox {
+                id: refreshAutoCheck
+                checked: true
+                text: i18n("Auto");
+            }
+            Slider {
+                Layout.fillWidth: true
+                tickmarksEnabled: true
+                minimumValue: 0
+                enabled: !refreshAutoCheck.checked
+                maximumValue: (qmlOutput === null || qmlOutput.refreshRates.length <= 1) ? 1 : qmlOutput.refreshRates.length - 1
+                stepSize: 1
+                onValueChanged: qmlOutput.setSelectedRefreshRate(value)
+            }
         }
     }
     Item {

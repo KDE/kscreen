@@ -106,6 +106,7 @@ class QMLOutput : public QQuickItem
 
     Q_PROPERTY(QStringList modeSizes READ modeSizes NOTIFY modesChanged)
     Q_PROPERTY(QList<qreal> refreshRates READ refreshRates NOTIFY refreshRatesChanged)
+    Q_PROPERTY(KScreen::Mode* selectedMode READ selectedMode NOTIFY selectedModeChanged)
 
 
   public:
@@ -166,6 +167,7 @@ class QMLOutput : public QQuickItem
     QQmlListProperty<KScreen::Mode> modes();
     QStringList modeSizes();
     QList<qreal> refreshRates();
+    KScreen::Mode* selectedMode() const;
 
     Q_INVOKABLE void setSelectedSize(int index);
     Q_INVOKABLE void setSelectedRefreshRate(int index);
@@ -196,6 +198,7 @@ public Q_SLOTS:
 
     void modesChanged();
     void refreshRatesChanged();
+    void selectedModeChanged();
 
   private Q_SLOTS:
     void moved();
@@ -207,6 +210,7 @@ public Q_SLOTS:
      */
     KScreen::ModePtr bestMode() const;
     void updateModes();
+    void updateSelectedMode();
 
     KScreen::OutputPtr m_output;
     QList<KScreen::Mode*> m_modes;
@@ -214,6 +218,7 @@ public Q_SLOTS:
     QHash<QString, QList<qreal>> m_modesTable;
     QString m_selectedModeId;
     QString m_selectedModeSize;
+    qreal m_selectedRefreshRate = 0;
 
     QMLScreen *m_screen;
 
