@@ -62,7 +62,6 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 2, 0, "KScreenEdid");
     qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 2, 0, "KScreenMode");
     qmlRegisterType<KScreen::ModeSelector>("org.kde.kscreen", 2, 0, "KScreenModeSelector");
-//     qmlRegisterType<KScreen::ModeList>("org.kde.kscreen", 2, 0, "KScreenModeList");
 
     mScreen = mainUi()->findChild<QMLScreen*>(QStringLiteral("outputView"));
     if (!mScreen) {
@@ -73,7 +72,6 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &ConfigModule::focusedOutputChanged);
-
 
     qCDebug(KSCREEN_KCM) << "ConfigModule loaded.";
 }
