@@ -70,14 +70,36 @@ GridLayout {
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
     }
 
-    Slider {
-        id: scalingSlider
-        visible: root.perOutputScaling
+    Item {
         Layout.fillWidth: true
-        minimumValue: 1
-        maximumValue: 3
-        stepSize: .2
-        tickmarksEnabled: true
+        Layout.minimumHeight: childrenRect.height
+        visible: root.perOutputScaling
+        Slider {
+            id: scalingSlider
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+            minimumValue: 1
+            maximumValue: 3
+            stepSize: .2
+            tickmarksEnabled: true
+        }
+        Label {
+            text: kcm.modeSelector.modeLabelLeft
+            anchors {
+                left: parent.left
+                top: scalingSlider.bottom
+            }
+        }
+        Label {
+            text: kcm.modeSelector.modeLabelRight
+            anchors {
+                right: parent.right
+                top: scalingSlider.bottom
+            }
+        }
     }
 
     Label {
@@ -100,19 +122,14 @@ GridLayout {
         id: modecol
         property KScreenMode selectedMode: null
 
-        Slider {
-            id: resolutionSlider
-            Layout.fillWidth: true
-            tickmarksEnabled: true
+        LabeledSlider {
             minimumValue: 0
-            maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 2)
-            stepSize: 1
+            maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
             onValueChanged: {
                 kcm.modeSelector.setSelectedSize(value)
                 refreshSlider.value = refreshSlider.maximumValue;
             }
         }
-
         RowLayout {
             opacity: (output != null && kcm.modeSelector.refreshRates.length > 1) ? 1.0 : 0.6
             Behavior on opacity { NumberAnimation { duration: units.longDuration } }
