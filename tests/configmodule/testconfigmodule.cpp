@@ -135,14 +135,14 @@ void TestConfigModule::testModeSelector()
     QCOMPARE(refreshChanged.count(), 1);
     QCOMPARE(selectedChanged.count(), 1);
     modeselector->setSelectedRefreshRate(0);
-    QCOMPARE(refreshChanged.count(), 2);
+    QCOMPARE(refreshChanged.count(), 1);
     QCOMPARE(selectedChanged.count(), 2);
     QCOMPARE(modeselector->refreshRates().count(), 2);
     qCDebug(KSCREEN_KCM) << "Rates:" << modeselector->refreshRates();
     modeselector->setSelectedRefreshRate(1);
     QCOMPARE(selectedChanged.count(), 3);
     modeselector->setSelectedRefreshRate(1);
-    QCOMPARE(selectedChanged.count(), 1);
+    QCOMPARE(selectedChanged.count(), 3);
 
     QCOMPARE(modesChanged.count(), 0);
 
@@ -162,22 +162,23 @@ void TestConfigModule::testModeSelector()
     qCDebug(KSCREEN_KCM) << "rr:" << refreshChanged.count();
     QCOMPARE(refreshChanged.count(), 3);
 
-    configmodule->focusedOutputChanged(qmlpanel);
+    configmodule->focusedOutputChanged(findQMLOutput(configmodule->mScreen->outputs(), "eDP-1"));
 
     // This is all invalid, it shouldn't crash or emit changed signals
     const int rbefore = refreshChanged.count();
-//     QCOMPARE(selectedChanged.count(), 5);
+    QCOMPARE(selectedChanged.count(), 5);
     QCOMPARE(refreshChanged.count(), rbefore);
     QCOMPARE(modesChanged.count(), 2);
+    QCOMPARE(modeselector->modeSizes().count(), 33);
     modeselector->setSelectedSize(0);
     QCOMPARE(refreshChanged.count(), rbefore + 1);
-//     QCOMPARE(selectedChanged.count(), 6);
+    QCOMPARE(selectedChanged.count(), 6);
     modeselector->setSelectedRefreshRate(6);
     QCOMPARE(refreshChanged.count(), rbefore + 1);
-//     QCOMPARE(selectedChanged.count(), 6);
+    QCOMPARE(selectedChanged.count(), 6);
     modeselector->setSelectedSize(9999);
     QCOMPARE(refreshChanged.count(), rbefore + 1);
-//     QCOMPARE(selectedChanged.count(), 6);
+    QCOMPARE(selectedChanged.count(), 6);
     modeselector->setSelectedRefreshRate(modeselector->refreshRates().count());
 }
 
