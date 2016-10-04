@@ -1,5 +1,5 @@
 /*
-    Copyright Sebastian Kügler <sebas@kde.org>
+    Copyright 2016 Sebastian Kügler <sebas@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -83,7 +83,11 @@ GridLayout {
     Label {
         Layout.fillWidth: true
         Layout.columnSpan: 2
-        text: qmlOutput.selectedMode ? qmlOutput.selectedMode.size.width + "x" + qmlOutput.selectedMode.size.height + "@" + qmlOutput.selectedMode.refreshRate.toFixed(2) : ""
+        text: {
+            if (qmlOutput) {
+                kcm.modeSelector.selectedMode ? kcm.modeSelector.selectedMode.size.width + "x" + kcm.modeSelector.selectedMode.size.height + "@" + kcm.modeSelector.selectedMode.refreshRate.toFixed(2) : ""
+            } else ""
+        }
         horizontalAlignment: Text.AlignRight
     }
 
@@ -101,29 +105,32 @@ GridLayout {
             Layout.fillWidth: true
             tickmarksEnabled: true
             minimumValue: 0
-            maximumValue: (qmlOutput === null) ? 1 : qmlOutput.modeSizes.length - 2
+            maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 2)
             stepSize: 1
             onValueChanged: {
-                qmlOutput.setSelectedSize(value)
+                kcm.modeSelector.setSelectedSize(value)
+                refreshSlider.value = refreshSlider.maximumValue;
             }
         }
 
         RowLayout {
-            opacity: (output != null && qmlOutput.refreshRates.length > 1) ? 1.0 : 0.6
+            opacity: (output != null && kcm.modeSelector.refreshRates.length > 1) ? 1.0 : 0.6
             Behavior on opacity { NumberAnimation { duration: units.longDuration } }
             CheckBox {
                 id: refreshAutoCheck
-                checked: true
+                checked: false
                 text: i18n("Auto");
             }
             Slider {
+                id: refreshSlider
+                objectName: "refreshSlider"
                 Layout.fillWidth: true
                 tickmarksEnabled: true
                 minimumValue: 0
                 enabled: !refreshAutoCheck.checked
-                maximumValue: (qmlOutput === null || qmlOutput.refreshRates.length <= 1) ? 1 : qmlOutput.refreshRates.length - 1
+                maximumValue: (kcm.modeSelector.refreshRates.length <= 1) ? 1 : kcm.modeSelector.refreshRates.length - 1
                 stepSize: 1
-                onValueChanged: qmlOutput.setSelectedRefreshRate(value)
+                onValueChanged: kcm.modeSelector.setSelectedRefreshRate(value)
             }
         }
     }
