@@ -20,6 +20,7 @@
 #include "qmlscreen.h"
 #include "qmloutputcomponent.h"
 #include "qmloutput.h"
+#include "modeselector.h"
 
 #include <kscreen/output.h>
 #include <kscreen/config.h>
@@ -29,6 +30,7 @@
 QMLScreen::QMLScreen(QQuickItem *parent):
     QQuickItem(parent),
     m_config(0),
+    m_modeSelector(new KScreen::ModeSelector(this)),
     m_connectedOutputsCount(0),
     m_enabledOutputsCount(0),
     m_leftmost(0),
@@ -82,7 +84,6 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
         }
     }
 }
-
 
 void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 {

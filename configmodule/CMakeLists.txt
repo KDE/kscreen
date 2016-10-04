@@ -3,6 +3,7 @@
 
 set(kscreen_configmodule_SRCS
     configmodule.cpp
+    modeselector.cpp
     qmloutput.cpp
     qmloutputcomponent.cpp
     qmlscreen.cpp

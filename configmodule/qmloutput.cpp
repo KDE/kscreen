@@ -90,7 +90,7 @@ QStringList QMLOutput::modeSizes()
     return m_modesTable.keys();
 }
 
-bool modeLessThan(const KScreen::Mode* left, const KScreen::Mode* right)
+bool modeLessThan2(const KScreen::Mode* left, const KScreen::Mode* right)
 {
     const auto sl = left->size().width() * left->size().height();
     const auto sr = right->size().width() * right->size().height();
@@ -100,7 +100,7 @@ bool modeLessThan(const KScreen::Mode* left, const KScreen::Mode* right)
     return sl < sr;
 }
 
-QString modeString(const KScreen::Mode *mode) {
+QString modeToString(const KScreen::Mode *mode) {
     return QString("%1x%2").arg(QString::number(mode->size().width()), QString::number(mode->size().height()));
 }
 
@@ -112,9 +112,9 @@ void QMLOutput::updateModes()
         m_modes << _md.data();
     }
 
-    qSort(m_modes.begin(), m_modes.end(), modeLessThan);
+    qSort(m_modes.begin(), m_modes.end(), modeLessThan2);
     for (auto _mode : m_modes) {
-        const auto msize = modeString(_mode);
+        const auto msize = modeToString(_mode);
         if (!m_modeSizes.contains(msize)) {
             m_modeSizes << msize;
         }
@@ -168,7 +168,7 @@ void QMLOutput::setSelectedRefreshRate(int index)
 void QMLOutput::updateSelectedMode()
 {
     for (auto mode : m_modes) {
-        if (modeString(mode) == m_selectedModeSize) {
+        if (modeToString(mode) == m_selectedModeSize) {
             if (m_selectedRefreshRate == 0) {
                 m_selectedModeId = mode->id();
             } else if (m_selectedRefreshRate == mode->refreshRate()) {

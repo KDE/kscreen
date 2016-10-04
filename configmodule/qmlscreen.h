@@ -59,7 +59,6 @@ class QMLScreen : public QQuickItem
     explicit QMLScreen(QQuickItem *parent = 0);
     virtual ~QMLScreen();
 
-
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
 
@@ -107,6 +106,7 @@ class QMLScreen : public QQuickItem
     void updateCornerOutputs();
 
     KScreen::ConfigPtr m_config;
+    KScreen::ModeSelector* m_modeSelector;
     QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;

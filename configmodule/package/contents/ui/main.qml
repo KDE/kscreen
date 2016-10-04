@@ -55,4 +55,6 @@ ColumnLayout {
     OutputSettings {
         id: outputSettings
     }
+
+    Component.onCompleted: print("Completed main.qml")
 }

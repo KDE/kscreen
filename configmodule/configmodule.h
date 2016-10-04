@@ -35,31 +35,42 @@ class QMLOutput;
 namespace KScreen {
 
 class ConfigOperation;
+class ModeSelector;
 
 class ConfigModule : public KQuickAddons::ConfigModule
 {
     Q_OBJECT
 
+    Q_PROPERTY(KScreen::ModeSelector* modeSelector
+               READ modeSelector
+               CONSTANT)
 
     public:
         ConfigModule(QObject* parent, const QVariantList& args);
         virtual ~ConfigModule();
 
-  public Q_SLOTS:
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
-    void changed();
+        KScreen::ModeSelector* modeSelector() const;
 
-  private:
-    void configReady(KScreen::ConfigOperation *op);
-    void focusedOutputChanged(QMLOutput *output);
-    void setConfig(const KScreen::ConfigPtr &config);
-    KScreen::ConfigPtr currentConfig() const;
+    public Q_SLOTS:
+        virtual void load();
+        virtual void save();
+        virtual void defaults();
+        void changed();
 
-    QMLScreen *mScreen;
-    KScreen::ConfigPtr mConfig;
-    KScreen::ConfigPtr mPrevConfig;
+    Q_SIGNALS:
+        void configSet();
+
+    private:
+        friend class TestConfigModule;
+        void configReady(KScreen::ConfigOperation *op);
+        void focusedOutputChanged(QMLOutput *output);
+        void setConfig(const KScreen::ConfigPtr &config);
+        KScreen::ConfigPtr currentConfig() const;
+
+        KScreen::ModeSelector* m_modeSelector;
+        QMLScreen *mScreen;
+        KScreen::ConfigPtr mConfig;
+        KScreen::ConfigPtr mPrevConfig;
 
 };
 

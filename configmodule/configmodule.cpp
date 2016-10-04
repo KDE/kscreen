@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "configmodule.h"
+#include "modeselector.h"
 #include "debug_p.h"
 
 #include <QtQml>
@@ -46,6 +47,7 @@ namespace KScreen {
 
 ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     : KQuickAddons::ConfigModule(parent, args)
+    , m_modeSelector(new ModeSelector(this))
 {
     KAboutData* about = new KAboutData("kcm_kscreen2", i18n("Configure monitors and displays"),
                                        "2.0", QString(), KAboutLicense::LGPL);
@@ -98,15 +100,21 @@ void ConfigModule::changed()
 {
 }
 
-void ConfigModule::configReady(KScreen::ConfigOperation* op)
+KScreen::ModeSelector* ConfigModule::modeSelector() const
 {
-    qDebug() << "config ready!";
-    setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+    return m_modeSelector;
 }
 
 void ConfigModule::focusedOutputChanged(QMLOutput *output)
 {
     qCDebug(KSCREEN_KCM) << "Focused output is now:" << output;
+    m_modeSelector->setOutputPtr(output->outputPtr());
+}
+
+void ConfigModule::configReady(KScreen::ConfigOperation* op)
+{
+    qDebug() << "config ready!";
+    setConfig(qobject_cast<GetConfigOperation*>(op)->config());
 }
 
 void ConfigModule::setConfig(const KScreen::ConfigPtr &config)
@@ -139,6 +147,7 @@ void ConfigModule::setConfig(const KScreen::ConfigPtr &config)
             mScreen->setActiveOutput(mScreen->outputs()[0]);
         }
     }
+    emit configSet();
 }
 
 KScreen::ConfigPtr ConfigModule::currentConfig() const

@@ -29,6 +29,9 @@ class QAbstractItemModel;
 class ModesProxyModel;
 class QMLScreen;
 
+namespace KScreen {
+    class ModeSelector;
+}
 
 class QMLOutput : public QQuickItem
 {
@@ -124,6 +127,8 @@ class QMLOutput : public QQuickItem
 
     KScreen::OutputPtr outputPtr() const;
     void setOutputPtr(const KScreen::OutputPtr &output);
+
+    KScreen::ModeSelector* modeSelector() const;
 
     QMLScreen* screen() const;
     void setScreen(QMLScreen *screen);
