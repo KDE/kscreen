@@ -61,6 +61,7 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     qmlRegisterType<KScreen::Output>("org.kde.kscreen", 2, 0, "KScreenOutput");
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 2, 0, "KScreenEdid");
     qmlRegisterType<KScreen::Mode>("org.kde.kscreen", 2, 0, "KScreenMode");
+    qmlRegisterType<KScreen::ModeSelector>("org.kde.kscreen", 2, 0, "KScreenModeSelector");
 //     qmlRegisterType<KScreen::ModeList>("org.kde.kscreen", 2, 0, "KScreenModeList");
 
     mScreen = mainUi()->findChild<QMLScreen*>(QStringLiteral("outputView"));
@@ -107,7 +108,7 @@ KScreen::ModeSelector* ConfigModule::modeSelector() const
 
 void ConfigModule::focusedOutputChanged(QMLOutput *output)
 {
-    qCDebug(KSCREEN_KCM) << "Focused output is now:" << output;
+    qCDebug(KSCREEN_KCM) << "Focused output is now:" << output->output()->name();
     m_modeSelector->setOutputPtr(output->outputPtr());
 }
 

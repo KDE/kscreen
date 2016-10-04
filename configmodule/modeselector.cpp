@@ -86,8 +86,10 @@ void ModeSelector::updateModes()
             }
             QList<qreal> &refreshRates = m_modesTable[msize];
             refreshRates.append((qreal)(_mode->refreshRate()));
+            qSort(refreshRates.begin(), refreshRates.end());
         }
     }
+    qCDebug(KSCREEN_KCM) << "Bazinga!" << m_modes.count();
     emit modesChanged();
     emit refreshRatesChanged();
 }
@@ -95,7 +97,7 @@ void ModeSelector::updateModes()
 void ModeSelector::setSelectedSize(int index)
 {
     if (index >= m_modeSizes.count()) {
-        qCWarning(KSCREEN_KCM) << "Invalid index:" << index << m_modesTable.keys();
+        qCWarning(KSCREEN_KCM) << "Invalid size index:" << index << m_modeSizes;
         return;
     }
     const auto msize = m_modeSizes.at(index);
@@ -106,7 +108,7 @@ void ModeSelector::setSelectedSize(int index)
     //     qCDebug(KSCREEN_KCM) << "refreshrates:" << m_modesTable[m_selectedModeSize];
         m_selectedRefreshRate = 0;
         updateSelectedMode();
-        qCDebug(KSCREEN_KCM) << "selected size is now:" << index << msize << selectedMode()->size() << m_modesTable[m_selectedModeSize];
+        qCDebug(KSCREEN_KCM) << "EMIT RC!! selected size is now:" << index << msize << selectedMode()->size() << m_modesTable[m_selectedModeSize];
         emit refreshRatesChanged();
     }
 }
@@ -128,7 +130,9 @@ QList<qreal> ModeSelector::refreshRates()
 
 void ModeSelector::setSelectedRefreshRate(int index)
 {
-    if (index > m_modesTable[m_selectedModeSize].count()) {
+
+    qCDebug(KSCREEN_KCM) << " select refresh " << index << m_selectedModeSize << m_modesTable[m_selectedModeSize];
+    if (index >= m_modesTable[m_selectedModeSize].count()) {
         qCWarning(KSCREEN_KCM) << "Invalid refresh rate:" << index << m_modesTable[m_selectedModeSize];
         return;
     }
