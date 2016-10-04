@@ -1,0 +1,1006 @@
+{
+    "outputs": [
+        {
+            "clones": [
+            ],
+            "connected": true,
+            "currentModeId": "75",
+            "enabled": true,
+            "icon": "",
+            "id": 66,
+            "modes": [
+                {
+                    "id": "100",
+                    "name": "",
+                    "refreshRate": 120,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "101",
+                    "name": "",
+                    "refreshRate": 60.316539764404297,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "102",
+                    "name": "",
+                    "refreshRate": 56.25,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "103",
+                    "name": "",
+                    "refreshRate": 120.01870727539062,
+                    "size": {
+                        "height": 525,
+                        "width": 840
+                    }
+                },
+                {
+                    "id": "104",
+                    "name": "",
+                    "refreshRate": 119.76650238037109,
+                    "size": {
+                        "height": 525,
+                        "width": 840
+                    }
+                },
+                {
+                    "id": "105",
+                    "name": "",
+                    "refreshRate": 120.33700561523438,
+                    "size": {
+                        "height": 512,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "106",
+                    "name": "",
+                    "refreshRate": 119.95123291015625,
+                    "size": {
+                        "height": 525,
+                        "width": 700
+                    }
+                },
+                {
+                    "id": "107",
+                    "name": "",
+                    "refreshRate": 120.03948211669922,
+                    "size": {
+                        "height": 512,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "108",
+                    "name": "",
+                    "refreshRate": 119.77488708496094,
+                    "size": {
+                        "height": 450,
+                        "width": 720
+                    }
+                },
+                {
+                    "id": "109",
+                    "name": "",
+                    "refreshRate": 120,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "110",
+                    "name": "",
+                    "refreshRate": 59.940475463867188,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "111",
+                    "name": "",
+                    "refreshRate": 119.59798431396484,
+                    "size": {
+                        "height": 384,
+                        "width": 680
+                    }
+                },
+                {
+                    "id": "112",
+                    "name": "",
+                    "refreshRate": 119.92005157470703,
+                    "size": {
+                        "height": 384,
+                        "width": 680
+                    }
+                },
+                {
+                    "id": "113",
+                    "name": "",
+                    "refreshRate": 120.12834167480469,
+                    "size": {
+                        "height": 432,
+                        "width": 576
+                    }
+                },
+                {
+                    "id": "114",
+                    "name": "",
+                    "refreshRate": 120.00768280029297,
+                    "size": {
+                        "height": 384,
+                        "width": 512
+                    }
+                },
+                {
+                    "id": "115",
+                    "name": "",
+                    "refreshRate": 120.63307952880859,
+                    "size": {
+                        "height": 300,
+                        "width": 400
+                    }
+                },
+                {
+                    "id": "116",
+                    "name": "",
+                    "refreshRate": 112.68029022216797,
+                    "size": {
+                        "height": 300,
+                        "width": 400
+                    }
+                },
+                {
+                    "id": "117",
+                    "name": "",
+                    "refreshRate": 120.10496520996094,
+                    "size": {
+                        "height": 240,
+                        "width": 320
+                    }
+                },
+                {
+                    "id": "75",
+                    "name": "",
+                    "refreshRate": 59.999069213867188,
+                    "size": {
+                        "height": 1440,
+                        "width": 2560
+                    }
+                },
+                {
+                    "id": "76",
+                    "name": "",
+                    "refreshRate": 47.999923706054688,
+                    "size": {
+                        "height": 1440,
+                        "width": 2560
+                    }
+                },
+                {
+                    "id": "77",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 1440,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "78",
+                    "name": "",
+                    "refreshRate": 60.008930206298828,
+                    "size": {
+                        "height": 1392,
+                        "width": 1856
+                    }
+                },
+                {
+                    "id": "79",
+                    "name": "",
+                    "refreshRate": 60.014442443847656,
+                    "size": {
+                        "height": 1344,
+                        "width": 1792
+                    }
+                },
+                {
+                    "id": "80",
+                    "name": "",
+                    "refreshRate": 59.950172424316406,
+                    "size": {
+                        "height": 1200,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "81",
+                    "name": "",
+                    "refreshRate": 59.933879852294922,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "82",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 1200,
+                        "width": 1600
+                    }
+                },
+                {
+                    "id": "83",
+                    "name": "",
+                    "refreshRate": 59.954250335693359,
+                    "size": {
+                        "height": 1050,
+                        "width": 1680
+                    }
+                },
+                {
+                    "id": "84",
+                    "name": "",
+                    "refreshRate": 59.883251190185547,
+                    "size": {
+                        "height": 1050,
+                        "width": 1680
+                    }
+                },
+                {
+                    "id": "85",
+                    "name": "",
+                    "refreshRate": 60.169086456298828,
+                    "size": {
+                        "height": 1024,
+                        "width": 1600
+                    }
+                },
+                {
+                    "id": "86",
+                    "name": "",
+                    "refreshRate": 59.975616455078125,
+                    "size": {
+                        "height": 1050,
+                        "width": 1400
+                    }
+                },
+                {
+                    "id": "87",
+                    "name": "",
+                    "refreshRate": 60.019741058349609,
+                    "size": {
+                        "height": 1024,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "88",
+                    "name": "",
+                    "refreshRate": 59.887443542480469,
+                    "size": {
+                        "height": 900,
+                        "width": 1440
+                    }
+                },
+                {
+                    "id": "89",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 960,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "90",
+                    "name": "",
+                    "refreshRate": 59.798992156982422,
+                    "size": {
+                        "height": 768,
+                        "width": 1360
+                    }
+                },
+                {
+                    "id": "91",
+                    "name": "",
+                    "refreshRate": 59.960025787353516,
+                    "size": {
+                        "height": 768,
+                        "width": 1360
+                    }
+                },
+                {
+                    "id": "92",
+                    "name": "",
+                    "refreshRate": 59.997058868408203,
+                    "size": {
+                        "height": 864,
+                        "width": 1152
+                    }
+                },
+                {
+                    "id": "93",
+                    "name": "",
+                    "refreshRate": 120.07466888427734,
+                    "size": {
+                        "height": 768,
+                        "width": 1024
+                    }
+                },
+                {
+                    "id": "94",
+                    "name": "",
+                    "refreshRate": 60.003841400146484,
+                    "size": {
+                        "height": 768,
+                        "width": 1024
+                    }
+                },
+                {
+                    "id": "95",
+                    "name": "",
+                    "refreshRate": 120,
+                    "size": {
+                        "height": 720,
+                        "width": 960
+                    }
+                },
+                {
+                    "id": "96",
+                    "name": "",
+                    "refreshRate": 120.101318359375,
+                    "size": {
+                        "height": 696,
+                        "width": 928
+                    }
+                },
+                {
+                    "id": "97",
+                    "name": "",
+                    "refreshRate": 120.02888488769531,
+                    "size": {
+                        "height": 672,
+                        "width": 896
+                    }
+                },
+                {
+                    "id": "98",
+                    "name": "",
+                    "refreshRate": 119.99750518798828,
+                    "size": {
+                        "height": 600,
+                        "width": 960
+                    }
+                },
+                {
+                    "id": "99",
+                    "name": "",
+                    "refreshRate": 119.97574615478516,
+                    "size": {
+                        "height": 540,
+                        "width": 960
+                    }
+                }
+            ],
+            "name": "eDP-1",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+                "75"
+            ],
+            "primary": true,
+            "rotation": 1,
+            "size": {
+                "height": 1440,
+                "width": 2560
+            },
+            "sizeMM": {
+                "height": 170,
+                "width": 310
+            },
+            "type": 7,
+            "edid" : "AP///////wBMLcMFMzJGRQkUAQMOMx14Ku6Ro1RMmSYPUFQjCACBAIFAgYCVAKlAswABAQEBAjqAGHE4LUBYLEUA/h8RAAAeAAAA/QA4PB5REQAKICAgICAgAAAA/ABTeW5jTWFzdGVyCiAgAAAA/wBIOU1aMzAyMTk2CiAgAC4="
+
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 67,
+            "modes": [
+            ],
+            "name": "DP-1",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 14
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 68,
+            "modes": [
+            ],
+            "name": "HDMI-1",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 6
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 69,
+            "modes": [
+            ],
+            "name": "DP-2",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 14
+        },
+        {
+            "clones": [
+                69,
+                69
+            ],
+            "connected": true,
+            "currentModeId": "403",
+            "enabled": true,
+            "icon": "",
+            "id": 70,
+            "modes": [
+                {
+                    "id": "101",
+                    "name": "",
+                    "refreshRate": 60.316539764404297,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "110",
+                    "name": "",
+                    "refreshRate": 59.940475463867188,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "118",
+                    "name": "",
+                    "refreshRate": 75.024673461914062,
+                    "size": {
+                        "height": 1024,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "119",
+                    "name": "",
+                    "refreshRate": 75,
+                    "size": {
+                        "height": 864,
+                        "width": 1152
+                    }
+                },
+                {
+                    "id": "120",
+                    "name": "",
+                    "refreshRate": 75.028579711914062,
+                    "size": {
+                        "height": 768,
+                        "width": 1024
+                    }
+                },
+                {
+                    "id": "121",
+                    "name": "",
+                    "refreshRate": 70.069358825683594,
+                    "size": {
+                        "height": 768,
+                        "width": 1024
+                    }
+                },
+                {
+                    "id": "122",
+                    "name": "",
+                    "refreshRate": 74.55126953125,
+                    "size": {
+                        "height": 624,
+                        "width": 832
+                    }
+                },
+                {
+                    "id": "123",
+                    "name": "",
+                    "refreshRate": 72.187568664550781,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "124",
+                    "name": "",
+                    "refreshRate": 75,
+                    "size": {
+                        "height": 600,
+                        "width": 800
+                    }
+                },
+                {
+                    "id": "125",
+                    "name": "",
+                    "refreshRate": 75,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "126",
+                    "name": "",
+                    "refreshRate": 72.808799743652344,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "127",
+                    "name": "",
+                    "refreshRate": 66.666664123535156,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "128",
+                    "name": "",
+                    "refreshRate": 70.0816650390625,
+                    "size": {
+                        "height": 400,
+                        "width": 720
+                    }
+                },
+                {
+                    "id": "403",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "404",
+                    "name": "",
+                    "refreshRate": 50,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "405",
+                    "name": "",
+                    "refreshRate": 59.940200805664062,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "406",
+                    "name": "",
+                    "refreshRate": 30,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "407",
+                    "name": "",
+                    "refreshRate": 25,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "408",
+                    "name": "",
+                    "refreshRate": 30,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "409",
+                    "name": "",
+                    "refreshRate": 25,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "410",
+                    "name": "",
+                    "refreshRate": 24,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "411",
+                    "name": "",
+                    "refreshRate": 29.970100402832031,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "412",
+                    "name": "",
+                    "refreshRate": 29.970100402832031,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "413",
+                    "name": "",
+                    "refreshRate": 23.976079940795898,
+                    "size": {
+                        "height": 1080,
+                        "width": 1920
+                    }
+                },
+                {
+                    "id": "414",
+                    "name": "",
+                    "refreshRate": 74.984428405761719,
+                    "size": {
+                        "height": 900,
+                        "width": 1440
+                    }
+                },
+                {
+                    "id": "415",
+                    "name": "",
+                    "refreshRate": 59.901458740234375,
+                    "size": {
+                        "height": 900,
+                        "width": 1440
+                    }
+                },
+                {
+                    "id": "416",
+                    "name": "",
+                    "refreshRate": 60.015163421630859,
+                    "size": {
+                        "height": 768,
+                        "width": 1360
+                    }
+                },
+                {
+                    "id": "417",
+                    "name": "",
+                    "refreshRate": 59.9095458984375,
+                    "size": {
+                        "height": 800,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "418",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 720,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "419",
+                    "name": "",
+                    "refreshRate": 50,
+                    "size": {
+                        "height": 720,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "420",
+                    "name": "",
+                    "refreshRate": 59.940200805664062,
+                    "size": {
+                        "height": 720,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "421",
+                    "name": "",
+                    "refreshRate": 50,
+                    "size": {
+                        "height": 576,
+                        "width": 720
+                    }
+                },
+                {
+                    "id": "422",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 480,
+                        "width": 720
+                    }
+                },
+                {
+                    "id": "423",
+                    "name": "",
+                    "refreshRate": 59.940059661865234,
+                    "size": {
+                        "height": 480,
+                        "width": 720
+                    }
+                },
+                {
+                    "id": "424",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 480,
+                        "width": 640
+                    }
+                },
+                {
+                    "id": "82",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 1200,
+                        "width": 1600
+                    }
+                },
+                {
+                    "id": "84",
+                    "name": "",
+                    "refreshRate": 59.883251190185547,
+                    "size": {
+                        "height": 1050,
+                        "width": 1680
+                    }
+                },
+                {
+                    "id": "87",
+                    "name": "",
+                    "refreshRate": 60.019741058349609,
+                    "size": {
+                        "height": 1024,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "89",
+                    "name": "",
+                    "refreshRate": 60,
+                    "size": {
+                        "height": 960,
+                        "width": 1280
+                    }
+                },
+                {
+                    "id": "94",
+                    "name": "",
+                    "refreshRate": 60.003841400146484,
+                    "size": {
+                        "height": 768,
+                        "width": 1024
+                    }
+                }
+            ],
+            "name": "HDMI-2",
+            "pos": {
+                "x": 2560,
+                "y": 0
+            },
+            "preferredModes": [
+                "403"
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": 1080,
+                "width": 1920
+            },
+            "sizeMM": {
+                "height": 90,
+                "width": 160
+            },
+            "type": 6,
+            "edid" : "AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg=="
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 71,
+            "modes": [
+            ],
+            "name": "DP-2-1",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 14
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 72,
+            "modes": [
+            ],
+            "name": "DP-2-2",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 14
+        },
+        {
+            "clones": [
+            ],
+            "connected": false,
+            "currentModeId": "",
+            "enabled": false,
+            "icon": "",
+            "id": 73,
+            "modes": [
+            ],
+            "name": "DP-2-3",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+            ],
+            "primary": false,
+            "rotation": 1,
+            "size": {
+                "height": -1,
+                "width": -1
+            },
+            "sizeMM": {
+                "height": 0,
+                "width": 0
+            },
+            "type": 0
+        }
+    ],
+    "screen": {
+        "currentSize": {
+            "height": 1440,
+            "width": 4480
+        },
+        "id": 27856752,
+        "maxActiveOutputsCount": 3,
+        "maxSize": {
+            "height": 8192,
+            "width": 8192
+        },
+        "minSize": {
+            "height": 200,
+            "width": 320
+        }
+    }
+}
