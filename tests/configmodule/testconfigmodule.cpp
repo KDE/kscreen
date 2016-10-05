@@ -120,16 +120,16 @@ void TestConfigModule::testModeSelector()
     configmodule->load();
     auto modeselector = configmodule->modeSelector();
 
-    QCOMPARE(modeselector->modeLabelLeft(), QString());
-    QCOMPARE(modeselector->modeLabelRight(), QString());
+    QCOMPARE(modeselector->modeLabelMin(), QString());
+    QCOMPARE(modeselector->modeLabelMax(), QString());
     QCOMPARE(modeselector->refreshLabelMin(), QString());
     QCOMPARE(modeselector->refreshLabelMax(), QString());
 
     QVERIFY(configSpy.wait(1000));
     QVERIFY(!configmodule->currentConfig().isNull());
     QVERIFY(configmodule->currentConfig()->isValid());
-    QCOMPARE(modeselector->modeLabelLeft(), QStringLiteral("320x240"));
-    QCOMPARE(modeselector->modeLabelRight(), QStringLiteral("2560x1440"));
+    QCOMPARE(modeselector->modeLabelMin(), QStringLiteral("320x240"));
+    QCOMPARE(modeselector->modeLabelMax(), QStringLiteral("2560x1440"));
     QCOMPARE(modeselector->refreshLabelMin(), QStringLiteral("48.00"));
     QCOMPARE(modeselector->refreshLabelMax(), QStringLiteral("60.00"));
 
@@ -160,8 +160,8 @@ void TestConfigModule::testModeSelector()
     configmodule->focusedOutputChanged(qmltv);
     QCOMPARE(modesChanged.count(), 1);
     QCOMPARE(qmltv->modeSizes().count(), 17);
-    QCOMPARE(modeselector->modeLabelLeft(), QStringLiteral("720x400"));
-    QCOMPARE(modeselector->modeLabelRight(), QStringLiteral("1920x1080"));
+    QCOMPARE(modeselector->modeLabelMin(), QStringLiteral("720x400"));
+    QCOMPARE(modeselector->modeLabelMax(), QStringLiteral("1920x1080"));
     QCOMPARE(modeselector->refreshLabelMin(), QStringLiteral("23.98"));
     QCOMPARE(modeselector->refreshLabelMax(), QStringLiteral("60.00"));
     //printModes(modeselector);
@@ -180,8 +180,8 @@ void TestConfigModule::testModeSelector()
     QCOMPARE(selectedChanged.count(), 4);
     QCOMPARE(modesChanged.count(), 2);
     QCOMPARE(modeselector->modeSizes().count(), 33);
-    QCOMPARE(modeselector->modeLabelLeft(), QStringLiteral("320x240"));
-    QCOMPARE(modeselector->modeLabelRight(), QStringLiteral("2560x1440"));
+    QCOMPARE(modeselector->modeLabelMin(), QStringLiteral("320x240"));
+    QCOMPARE(modeselector->modeLabelMax(), QStringLiteral("2560x1440"));
 
     const int rbefore = refreshChanged.count();
 
