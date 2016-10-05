@@ -32,7 +32,7 @@ GridLayout {
 
     focus: true
     columns: 2
-    rowSpacing: units.largeSpacing
+    rowSpacing: units.smallSpacing
 
     Layout.maximumHeight: childrenRect.height
 
@@ -70,36 +70,14 @@ GridLayout {
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
     }
 
-    Item {
-        Layout.fillWidth: true
-        Layout.minimumHeight: childrenRect.height
+    LabeledSlider {
+        id: scalingSlider
         visible: root.perOutputScaling
-        Slider {
-            id: scalingSlider
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-            }
-            minimumValue: 1
-            maximumValue: 3
-            stepSize: .2
-            tickmarksEnabled: true
-        }
-        Label {
-            text: kcm.modeSelector.modeLabelLeft
-            anchors {
-                left: parent.left
-                top: scalingSlider.bottom
-            }
-        }
-        Label {
-            text: kcm.modeSelector.modeLabelRight
-            anchors {
-                right: parent.right
-                top: scalingSlider.bottom
-            }
-        }
+        minimumValue: 1
+        maximumValue: 3
+        stepSize: .2
+        minimumLabel: "1.0x"
+        maximumLabel: "3.0x"
     }
 
     Label {
@@ -121,32 +99,35 @@ GridLayout {
     ColumnLayout {
         id: modecol
         property KScreenMode selectedMode: null
+        spacing: units.smallSpacing
 
         LabeledSlider {
             minimumValue: 0
             maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
+            minimumLabel: kcm.modeSelector.modeLabelLeft
+            maximumLabel: kcm.modeSelector.modeLabelRight
             onValueChanged: {
                 kcm.modeSelector.setSelectedSize(value)
                 refreshSlider.value = refreshSlider.maximumValue;
             }
         }
         RowLayout {
-            opacity: (output != null && kcm.modeSelector.refreshRates.length > 1) ? 1.0 : 0.6
-            Behavior on opacity { NumberAnimation { duration: units.longDuration } }
             CheckBox {
                 id: refreshAutoCheck
                 checked: false
                 text: i18n("Auto");
             }
-            Slider {
+            LabeledSlider {
                 id: refreshSlider
                 objectName: "refreshSlider"
-                Layout.fillWidth: true
-                tickmarksEnabled: true
-                minimumValue: 0
                 enabled: !refreshAutoCheck.checked
+                opacity: (output != null && kcm.modeSelector.refreshRates.length > 1) ? 1.0 : 0.3
+                Behavior on opacity { NumberAnimation { duration: units.longDuration } }
+
                 maximumValue: (kcm.modeSelector.refreshRates.length <= 1) ? 1 : kcm.modeSelector.refreshRates.length - 1
-                stepSize: 1
+                minimumLabel: kcm.modeSelector.refreshLabelMin
+                maximumLabel: kcm.modeSelector.refreshLabelMax
+
                 onValueChanged: kcm.modeSelector.setSelectedRefreshRate(value)
             }
         }

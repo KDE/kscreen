@@ -29,6 +29,7 @@ Item {
     property alias value: internalSlider.value
     property alias minimumValue: internalSlider.minimumValue
     property alias maximumValue: internalSlider.maximumValue
+    property alias stepSize: internalSlider.stepSize
 
     // FIXME: LTR awareness
     property alias minimumLabel: leftLabel.text
@@ -46,7 +47,6 @@ Item {
     }
     Label {
         id: leftLabel
-        text: kcm.modeSelector.modeLabelLeft
         font.pointSize: theme.smallestFont.pointSize
         opacity: 0.8
         anchors {
@@ -56,7 +56,6 @@ Item {
     }
     Label {
         id: rightLabel
-        text: kcm.modeSelector.modeLabelRight
         font.pointSize: theme.smallestFont.pointSize
         opacity: 0.8
         anchors {
