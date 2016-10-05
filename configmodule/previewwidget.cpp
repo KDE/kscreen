@@ -113,6 +113,7 @@ void PreviewWidget::paint(QPainter* painter)
     //painter->begin();
     painter->drawPixmap(QPoint(0, 0), pixmap, QRect(0, 0, width(), height()));
     //painter->end();
+    qDebug() << "rect" << QRect(0, 0, width(), height());
 
 }
 

@@ -22,34 +22,47 @@ import QtQuick.Layouts 1.3
 
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kscreen 2.0
 
-GridLayout {
+Rectangle {
+    id: scalingPreview
 
-    property real scalingFactor: 1.5
+    property real scalingFactor: 1.0
 
-    scale: scalingFactor
+    color: palette.window
+    opacity: 0
+    visible: (opacity > 0);
 
-    columns: 2
+    Behavior on opacity { NumberAnimation { duration: units.longDuration } }
+
+    onScalingFactorChanged: {
+        scalingPreview.opacity = 1;
+        opacityTimer.running = true;
+    }
+
+    Timer {
+        id: opacityTimer
+        interval: 5000
+        onTriggered: scalingPreview.opacity = 0
+    }
 
     PlasmaExtras.Heading {
-        Layout.columnSpan: 2
+        id: sheading
+        text: i18n("Scaling Preview")
+        z: spi.z + 1
+        anchors {
+            top: parent.top
+            right: parent.right
+        }
     }
-    Label {
-        text: i18n("Label:")
-    }
-
-    Slider {
-        Layout.fillWidth: true
-        id: internalSlider
-        tickmarksEnabled: true
-        //minimumValue: 0
-        maximumValue: 5
-        stepSize: 1
-    }
-    Label {
-        text: i18n("Another Label:")
-    }
-    ComboBox {
-
+    ScalingPreviewItem {
+        id: spi
+        scalingFactor: scalingPreview.scalingFactor
+        anchors {
+            left: parent.left
+            top: sheading.top
+            right: parent.right
+            bottom: parent.bottom
+        }
     }
 }

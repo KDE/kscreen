@@ -32,7 +32,7 @@ GridLayout {
 
     focus: true
     columns: 2
-    rowSpacing: units.smallSpacing
+    //rowSpacing: units.smallSpacing
 
     Layout.maximumHeight: childrenRect.height
 
@@ -75,9 +75,10 @@ GridLayout {
         visible: root.perOutputScaling
         minimumValue: 1
         maximumValue: 3
-        stepSize: .2
+        stepSize: .1
         minimumLabel: "1.0x"
         maximumLabel: "3.0x"
+        onValueChanged: root.scalingPreview.scalingFactor = value
     }
 
     Label {

@@ -32,13 +32,13 @@ ColumnLayout {
 
     property variant virtualScreen: null
     property KScreenOutput focusedOutput: null
-    property bool perOutputScaling: false
+    property bool perOutputScaling: true
+    property ScalingPreview scalingPreview: scalingPreview
 
-
-    implicitHeight: units.gridUnit * 15
+    implicitHeight: units.gridUnit * 25
     implicitWidth: units.gridUnit * 30
 
-    spacing: units.largeSpacing
+    spacing: units.smallSpacing
 
     focus: true
 

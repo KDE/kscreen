@@ -17,6 +17,7 @@
 */
 
 import QtQuick 2.1
+import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 import org.kde.kscreen 2.0
 
@@ -47,7 +48,6 @@ QMLOutput {
     }
 
     SystemPalette {
-
         id: palette;
     }
 
@@ -151,7 +151,7 @@ QMLOutput {
             anchors.fill: parent;
 
             radius: 4;
-            color: palette.window;
+            color: palette.base;
             smooth: true;
             clip: true;
 
@@ -205,7 +205,7 @@ QMLOutput {
                     rightMargin: 5;
                 }
 
-                Text {
+                Label {
                     id: nameLabel
                     text: if (root.isCloneMode === true) {
                             return "";
@@ -225,7 +225,7 @@ QMLOutput {
                     }
                 }
 
-                Text {
+                Label {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
                             return i18n("Unified Outputs");
@@ -249,7 +249,7 @@ QMLOutput {
                     elide: Text.ElideRight;
                 }
 
-                Text {
+                Label {
                     id: label
                     text: (labelVendor.text === root.output.name) ? "" : root.output.name
 

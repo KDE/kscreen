@@ -20,6 +20,7 @@
 
 #include "configmodule.h"
 #include "modeselector.h"
+#include "previewwidget.h"
 #include "debug_p.h"
 
 #include <QtQml>
@@ -57,6 +58,7 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
 
     qmlRegisterType<QMLOutput>("org.kde.kscreen", 2, 0, "QMLOutput");
     qmlRegisterType<QMLScreen>("org.kde.kscreen", 2, 0, "QMLScreen");
+    qmlRegisterType<PreviewWidget>("org.kde.kscreen", 2, 0, "ScalingPreviewItem");
 
     qmlRegisterType<KScreen::Output>("org.kde.kscreen", 2, 0, "KScreenOutput");
     qmlRegisterType<KScreen::Edid>("org.kde.kscreen", 2, 0, "KScreenEdid");

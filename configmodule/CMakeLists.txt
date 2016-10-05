@@ -4,10 +4,14 @@
 set(kscreen_configmodule_SRCS
     configmodule.cpp
     modeselector.cpp
+    #scalingconfig.cpp
+    previewwidget.cpp
     qmloutput.cpp
     qmloutputcomponent.cpp
     qmlscreen.cpp
 )
+
+ki18n_wrap_ui(kscreen_configmodule_SRCS stylepreview.ui)
 
 ecm_qt_declare_logging_category(kscreen_configmodule_SRCS
                                 HEADER debug_p.h
@@ -26,10 +30,14 @@ target_link_libraries(kcm_kscreen2
     Qt5::Gui
     Qt5::Quick
     Qt5::Qml
+    Qt5::Widgets
     KF5::Screen
     KF5::Plasma
     KF5::I18n
     KF5::QuickAddons
+    KF5::ConfigCore
+    #KF5::ConfigWidgets
+    KF5::WidgetsAddons
     )
 kcoreaddons_desktop_to_json(kcm_kscreen2 "${CMAKE_CURRENT_BINARY_DIR}/kcm_kscreen2.desktop")
 
