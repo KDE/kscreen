@@ -28,6 +28,7 @@ Name[sl]=Zasloni
 Name[sv]=Bildskärmar
 Name[uk]=Дисплеї
 Name[x-test]=xxDisplaysxx
+Name[zh_CN]=显示
 Name[zh_TW]=顯市示
 Comment=Manage and configure monitors and displays
 Comment[ar]=أدر واضبط الشّاشات والعروض
