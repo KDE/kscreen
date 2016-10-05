@@ -36,6 +36,12 @@ class ModeSelector : public QObject
     Q_PROPERTY(QList<qreal> refreshRates READ refreshRates NOTIFY refreshRatesChanged)
     Q_PROPERTY(KScreen::Mode* selectedMode READ selectedMode NOTIFY selectedModeChanged)
 
+    Q_PROPERTY(QString modeLabelLeft READ modeLabelLeft NOTIFY modesChanged)
+    Q_PROPERTY(QString modeLabelRight READ modeLabelRight NOTIFY modesChanged)
+    Q_PROPERTY(QString refreshLabelMin READ refreshLabelMin NOTIFY refreshRatesChanged)
+    Q_PROPERTY(QString refreshLabelMax READ refreshLabelMax NOTIFY refreshRatesChanged)
+
+
   public:
     explicit ModeSelector(QObject *parent = 0);
     virtual ~ModeSelector();
@@ -51,6 +57,12 @@ class ModeSelector : public QObject
     Q_INVOKABLE void setSelectedSize(int index);
     Q_INVOKABLE void setSelectedRefreshRate(int index);
 
+    QString modeLabelLeft() const;
+    QString modeLabelRight() const;
+
+    QString refreshLabelMin() const;
+    QString refreshLabelMax() const;
+
   Q_SIGNALS:
     void modesChanged();
     void refreshRatesChanged();
@@ -64,10 +76,15 @@ class ModeSelector : public QObject
     KScreen::OutputPtr m_output;
     QList<KScreen::Mode*> m_modes;
     QStringList m_modeSizes;
-    QHash<QString, QList<qreal>> m_modesTable;
+    QHash<QString, QList<qreal>> m_refreshRatesTable;
     QString m_selectedModeId;
     QString m_selectedModeSize;
     qreal m_selectedRefreshRate = 0;
+
+    QString m_modeLabelLeft;
+    QString m_modeLabelRight;
+    QString m_refreshLabelMin;
+    QString m_refreshLabelMax;
 };
 
 };
