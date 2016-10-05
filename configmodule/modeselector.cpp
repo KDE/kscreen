@@ -50,14 +50,14 @@ QQmlListProperty<KScreen::Mode> ModeSelector::modes()
     return lst;
 }
 
-QString ModeSelector::modeLabelLeft() const
+QString ModeSelector::modeLabelMin() const
 {
-    return m_modeLabelLeft;
+    return m_modeLabelMin;
 }
 
-QString ModeSelector::modeLabelRight() const
+QString ModeSelector::modeLabelMax() const
 {
-    return m_modeLabelRight;
+    return m_modeLabelMax;
 }
 
 QString ModeSelector::refreshLabelMin() const
@@ -115,8 +115,8 @@ void ModeSelector::updateModes()
             }
         }
     }
-    m_modeLabelLeft = modeString(m_modes.first());
-    m_modeLabelRight = modeString(m_modes.last());
+    m_modeLabelMin = modeString(m_modes.first());
+    m_modeLabelMax = modeString(m_modes.last());
     m_refreshLabelMin = QString::number(m_refreshRatesTable[currentmsize].first(), 'f', 2);
     m_refreshLabelMax = QString::number(m_refreshRatesTable[currentmsize].last(), 'f', 2);
     emit modesChanged();
