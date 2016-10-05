@@ -104,8 +104,8 @@ GridLayout {
         LabeledSlider {
             minimumValue: 0
             maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
-            minimumLabel: kcm.modeSelector.modeLabelLeft
-            maximumLabel: kcm.modeSelector.modeLabelRight
+            minimumLabel: kcm.modeSelector.modeLabelMin
+            maximumLabel: kcm.modeSelector.modeLabelMax
             onValueChanged: {
                 kcm.modeSelector.setSelectedSize(value)
                 refreshSlider.value = refreshSlider.maximumValue;

@@ -17,48 +17,39 @@
 */
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1 as Controls
+import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.3
 
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.kquickcontrols 2.0
-import org.kde.kscreen 2.0
-import org.kde.kcm 1.0
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
+GridLayout {
 
-ColumnLayout {
-    id: root
-    objectName: "root"
+    property real scalingFactor: 1.5
 
-    property variant virtualScreen: null
-    property KScreenOutput focusedOutput: null
-    property bool perOutputScaling: false
+    scale: scalingFactor
 
+    columns: 2
 
-    implicitHeight: units.gridUnit * 15
-    implicitWidth: units.gridUnit * 30
-
-    spacing: units.largeSpacing
-
-    focus: true
-
-    SystemPalette {
-        id: palette;
+    PlasmaExtras.Heading {
+        Layout.columnSpan: 2
+    }
+    Label {
+        text: i18n("Label:")
     }
 
-    OutputsView {
+    Slider {
         Layout.fillWidth: true
-        Layout.fillHeight: true
-
-        ScalingPreview {
-            id: scalingPreview
-            anchors.fill: parent
-        }
+        id: internalSlider
+        tickmarksEnabled: true
+        //minimumValue: 0
+        maximumValue: 5
+        stepSize: 1
     }
-
-    OutputSettings {
-        id: outputSettings
+    Label {
+        text: i18n("Another Label:")
     }
+    ComboBox {
 
-    Component.onCompleted: print("Completed main.qml")
+    }
 }
