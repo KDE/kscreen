@@ -22,17 +22,31 @@
 #ifndef PREVIEWWIDGET_H
 #define PREVIEWWIDGET_H
 
-#include <QLabel>
+#include <QQuickPaintedItem>
+#include <QPixmap>
 
-class PreviewWidget : public QLabel
+class PreviewWidget : public QQuickPaintedItem
 {
     Q_OBJECT
+
+    Q_PROPERTY(qreal scalingFactor READ scalingFactor WRITE setScalingFactor NOTIFY scalingFactorChanged)
+
 public:
-    PreviewWidget(QWidget *parent=0);
+    PreviewWidget(QQuickItem *parent = nullptr);
     ~PreviewWidget();
-    void setScale(qreal scale);
+
+    qreal scalingFactor() const;
+    void setScalingFactor(qreal scale);
+
+    void paint(QPainter* painter) override;
+    void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry);
+
+Q_SIGNALS:
+    void scalingFactorChanged();
+
 public Q_SLOTS:
     QPixmap updatePixmapCache();
+
 private:
     qreal pointSizeToPixelSize(qreal pointSize) const;
     qreal m_scale;

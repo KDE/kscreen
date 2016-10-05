@@ -22,13 +22,15 @@
 #include "previewwidget.h"
 
 #include <QDebug>
+#include <QGuiApplication>
 #include <QPainter>
+#include <QQuickWindow>
 
 #include "ui_stylepreview.h"
 
 
-PreviewWidget::PreviewWidget(QWidget *parent):
-    QLabel(parent),
+PreviewWidget::PreviewWidget(QQuickItem* parent):
+    QQuickPaintedItem(parent),
     m_scale(1.0),
     m_internalPreview(new QWidget) // deliberately no parent, we don't want it to have a screen
 {
@@ -41,8 +43,9 @@ PreviewWidget::~PreviewWidget()
     delete m_internalPreview;
 }
 
-void PreviewWidget::setScale(qreal scale)
+void PreviewWidget::setScalingFactor(qreal scale)
 {
+    qDebug() << "setScalingFactor: " << m_scale << scale;
     m_scale = scale;
 
     QFont font;
@@ -53,11 +56,17 @@ void PreviewWidget::setScale(qreal scale)
 
     //as we are a hidden widget, we need to force a repaint to update the size hint properly
     updatePixmapCache();
-    m_internalPreview->resize(sizeHint());
+    m_internalPreview->resize(QSize(width(), height()));
     m_internalPreview->adjustSize();
 
-    QPixmap preview = updatePixmapCache();
-    setPixmap(preview);
+    //QPixmap preview = updatePixmapCache();
+//     setPixmap(preview);
+    update();
+}
+
+qreal PreviewWidget::scalingFactor() const
+{
+    return m_scale;
 }
 
 qreal PreviewWidget::pointSizeToPixelSize(qreal pointSize) const
@@ -81,10 +90,29 @@ QPixmap PreviewWidget::updatePixmapCache()
    QPainter p(&pixmap);
    m_internalPreview ->render(&p);
 
+
+   auto nativeDpr = window() != nullptr ? window()->devicePixelRatio() : 1;
+   qDebug() << "nativedpr:" << nativeDpr;
    //render back at whatever the native DPR of the KCM is
-   pixmap.setDevicePixelRatio(devicePixelRatio());
+   pixmap.setDevicePixelRatio(nativeDpr);
 
    return pixmap;
 }
 
+void PreviewWidget::geometryChanged(const QRectF& newGeometry, const QRectF& oldGeometry)
+{
+    Q_UNUSED(oldGeometry);
+    m_internalPreview->resize(newGeometry.size().toSize());
+    m_internalPreview->adjustSize();
+    //update();
+}
+
+void PreviewWidget::paint(QPainter* painter)
+{
+    auto pixmap = updatePixmapCache();
+    //painter->begin();
+    painter->drawPixmap(QPoint(0, 0), pixmap, QRect(0, 0, width(), height()));
+    //painter->end();
+
+}
 
