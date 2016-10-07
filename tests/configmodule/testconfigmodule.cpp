@@ -138,11 +138,11 @@ void TestConfigModule::testModeSelector()
     QSignalSpy refreshChanged(modeselector, &ModeSelector::refreshRatesChanged);
     QSignalSpy sizesChanged(modeselector, &ModeSelector::selectedModeChanged);
 
-    modeselector->setSelectedSize(modeselector->modeSizes().count() - 1);
+    modeselector->setSelectedSize(5);
     QCOMPARE(refreshChanged.count(), 1);
     QCOMPARE(selectedChanged.count(), 1);
-    QCOMPARE(modeselector->refreshLabelMin(), QStringLiteral("48.00"));
-    QCOMPARE(modeselector->refreshLabelMax(), QStringLiteral("60.00"));
+    QCOMPARE(modeselector->refreshLabelMin(), QStringLiteral("59.94"));
+    QCOMPARE(modeselector->refreshLabelMax(), QStringLiteral("120.00"));
 
     modeselector->setSelectedRefreshRate(0);
     QCOMPARE(refreshChanged.count(), 1);
@@ -169,41 +169,39 @@ void TestConfigModule::testModeSelector()
     modeselector->setSelectedSize(1);
     modeselector->setSelectedRefreshRate(6);
     QCOMPARE(modesChanged.count(), 1);
-    QCOMPARE(refreshChanged.count(), 3);
+    QCOMPARE(refreshChanged.count(), 4);
     QCOMPARE(modeselector->refreshLabelMin(), QStringLiteral("59.94"));
     QCOMPARE(modeselector->refreshLabelMax(), QStringLiteral("120.00"));
 
     // change the focused output, make sure we get update signals
     configmodule->focusedOutputChanged(findQMLOutput(configmodule->mScreen->outputs(), "eDP-1"));
 
-    QCOMPARE(refreshChanged.count(), 4);
-    QCOMPARE(selectedChanged.count(), 4);
+    QCOMPARE(refreshChanged.count(), 5);
+    QCOMPARE(selectedChanged.count(), 6);
     QCOMPARE(modesChanged.count(), 2);
     QCOMPARE(modeselector->modeSizes().count(), 33);
     QCOMPARE(modeselector->modeLabelMin(), QStringLiteral("320x240"));
     QCOMPARE(modeselector->modeLabelMax(), QStringLiteral("2560x1440"));
 
-    const int rbefore = refreshChanged.count();
-
-    QCOMPARE(refreshChanged.count(), rbefore);
-
     modeselector->setSelectedSize(0);
-    QCOMPARE(refreshChanged.count(), rbefore + 1);
-    QCOMPARE(selectedChanged.count(), 5);
+    const int rbefore = refreshChanged.count();
+    const int sbefore = selectedChanged.count();
+    QCOMPARE(refreshChanged.count(), rbefore);
+    QCOMPARE(selectedChanged.count(), sbefore);
 
     // Some invalid calls, make sure no unnecessary signals arrive
     modeselector->setSelectedRefreshRate(6);
-    QCOMPARE(refreshChanged.count(), rbefore + 1);
-    QCOMPARE(selectedChanged.count(), 5);
+    QCOMPARE(refreshChanged.count(), rbefore);
+    QCOMPARE(selectedChanged.count(), sbefore);
 
     modeselector->setSelectedSize(9999);
-    QCOMPARE(refreshChanged.count(), rbefore + 1);
-    QCOMPARE(selectedChanged.count(), 5);
+    QCOMPARE(refreshChanged.count(), rbefore);
+    QCOMPARE(selectedChanged.count(), sbefore);
 
     // this is 1 out of bounds, it's going to be ignored
     modeselector->setSelectedRefreshRate(modeselector->refreshRates().count());
-    QCOMPARE(refreshChanged.count(), rbefore + 1);
-    QCOMPARE(selectedChanged.count(), 5);
+    QCOMPARE(refreshChanged.count(), rbefore);
+    QCOMPARE(selectedChanged.count(), sbefore);
 }
 
 }
