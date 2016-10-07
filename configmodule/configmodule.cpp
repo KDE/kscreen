@@ -75,7 +75,7 @@ ConfigModule::ConfigModule(QObject* parent, const QVariantList& args)
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &ConfigModule::focusedOutputChanged);
 
-    qCDebug(KSCREEN_KCM) << "ConfigModule loaded.";
+    //qCDebug(KSCREEN_KCM) << "ConfigModule loaded.";
 }
 
 ConfigModule::~ConfigModule()
@@ -84,7 +84,7 @@ ConfigModule::~ConfigModule()
 
 void ConfigModule::load()
 {
-    qCDebug(KSCREEN_KCM) << "LOAD";
+    //qCDebug(KSCREEN_KCM) << "LOAD";
     connect(new GetConfigOperation(), &GetConfigOperation::finished,
             this, &ConfigModule::configReady);
 }
@@ -108,13 +108,13 @@ KScreen::ModeSelector* ConfigModule::modeSelector() const
 
 void ConfigModule::focusedOutputChanged(QMLOutput *output)
 {
-    qCDebug(KSCREEN_KCM) << "Focused output is now:" << output->output()->name();
+    qCDebug(KSCREEN_KCM) << " ___________________________ Focused output is now:" << output->output()->name();
     m_modeSelector->setOutputPtr(output->outputPtr());
 }
 
 void ConfigModule::configReady(KScreen::ConfigOperation* op)
 {
-    qDebug() << "config ready!";
+    //qDebug() << "config ready!";
     setConfig(qobject_cast<GetConfigOperation*>(op)->config());
 }
 
