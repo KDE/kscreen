@@ -71,7 +71,6 @@ class ConfigModule : public KQuickAddons::ConfigModule
         QMLScreen *mScreen;
         KScreen::ConfigPtr mConfig;
         KScreen::ConfigPtr mPrevConfig;
-
 };
 
 }

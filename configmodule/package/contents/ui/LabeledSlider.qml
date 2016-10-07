@@ -42,6 +42,7 @@ Item {
             right: parent.right
             top: parent.top
         }
+        minimumValue: 0
         tickmarksEnabled: true
         stepSize: 1
     }

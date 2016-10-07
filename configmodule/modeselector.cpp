@@ -22,6 +22,7 @@
 #include "qmloutput.h"
 
 #include <kscreen/output.h>
+#include <KLocalizedString>
 
 Q_DECLARE_METATYPE(KScreen::ModePtr)
 
@@ -41,6 +42,8 @@ ModeSelector::~ModeSelector()
 void ModeSelector::setOutputPtr(const KScreen::OutputPtr &output)
 {
     m_output = output;
+    qDebug() << "mm" << output->currentMode();
+    m_initialMode = output->currentMode();
     updateModes();
     emit outputChanged();
 }
@@ -117,6 +120,9 @@ void ModeSelector::updateModes()
                 currentmsize = msize;
             }
             QList<qreal> &refreshRates = m_refreshRatesTable[msize];
+            if (!refreshRates.count()) {
+                refreshRates.append(0);
+            }
             if (!refreshRates.contains((qreal)(_mode->refreshRate()))) {
                 refreshRates.append((qreal)(_mode->refreshRate()));
                 qSort(refreshRates.begin(), refreshRates.end());
@@ -126,7 +132,7 @@ void ModeSelector::updateModes()
     m_currentModeIndex = m_modeSizes.indexOf(modeString(m_output->currentMode().data()));
     m_modeLabelMin = modeString(m_modes.first());
     m_modeLabelMax = modeString(m_modes.last());
-    m_refreshLabelMin = QString::number(m_refreshRatesTable[currentmsize].first(), 'f', 2);
+    m_refreshLabelMin = QString::number(m_refreshRatesTable[currentmsize].at(1), 'f', 2);
     m_refreshLabelMax = QString::number(m_refreshRatesTable[currentmsize].last(), 'f', 2);
 
     emit modesChanged();
@@ -138,7 +144,7 @@ int ModeSelector::currentModeIndex() const
     return m_currentModeIndex;
 }
 
-void ModeSelector::setSelectedSize(int index)
+void ModeSelector::setSelectedResolutionIndex(int index)
 {
     if (index < 0 || !m_modeSizes.count() || index >= m_modeSizes.count()) {
         qCWarning(KSCREEN_KCM) << "Invalid size index:" << index << m_modeSizes;
@@ -149,7 +155,7 @@ void ModeSelector::setSelectedSize(int index)
         m_selectedModeSize = msize;
         m_selectedRefreshRate = -1; // magic value, means "auto"
         updateSelectedMode();
-        m_refreshLabelMin = QString::number(m_refreshRatesTable[msize].first(), 'f', 2);
+        m_refreshLabelMin = QString::number(m_refreshRatesTable[msize].at(1), 'f', 2);
         m_refreshLabelMax = QString::number(m_refreshRatesTable[msize].last(), 'f', 2);
         emit refreshRatesChanged();
     }
@@ -169,14 +175,32 @@ QList<qreal> ModeSelector::refreshRates()
     return m_refreshRatesTable[m_selectedModeSize];
 }
 
+QStringList ModeSelector::refreshRatesLabels() const
+{
+    QStringList rs({ i18n("Auto") });
+    for (const auto rr : m_refreshRatesTable[m_selectedModeSize]) {
+        rs << QString::number(rr, 'f', 2);
+    }
+    return rs;
+}
+
 void ModeSelector::setSelectedRefreshRate(int index)
 {
-    if (index == -1 || index >= m_refreshRatesTable[m_selectedModeSize].count()) {
+    int ix = index;
+    if (!m_refreshRatesTable[m_selectedModeSize].count()) {
+        qCDebug(KSCREEN_KCM) << "Don't know refresh rates." << index << m_selectedModeSize << m_refreshRatesTable[m_selectedModeSize];
+        return;
+    }
+    qCDebug(KSCREEN_KCM) << "refresh index to " << index;
+    if (index == 0) {
+        ix = m_refreshRatesTable[m_selectedModeSize].count() - 1;
+    }
+    if (ix < 0 || ix >= m_refreshRatesTable[m_selectedModeSize].count()) {
         qCWarning(KSCREEN_KCM) << "Invalid refresh rate:" << index << m_refreshRatesTable[m_selectedModeSize];
         return;
     }
-    if (m_selectedRefreshRate != m_refreshRatesTable[m_selectedModeSize].at(index)) {
-        m_selectedRefreshRate = m_refreshRatesTable[m_selectedModeSize].at(index);
+    if (m_selectedRefreshRate != m_refreshRatesTable[m_selectedModeSize].at(ix)) {
+        m_selectedRefreshRate = m_refreshRatesTable[m_selectedModeSize].at(ix);
         updateSelectedMode();
     }
 }
@@ -200,6 +224,24 @@ void ModeSelector::updateSelectedMode()
     qCDebug(KSCREEN_KCM) << "Selected Mode is now:" << m_selectedModeId << m_output->mode(m_selectedModeId);
     emit selectedModeChanged();
     m_output->setCurrentModeId(m_selectedModeId);
+}
+
+int ModeSelector::preferredRefreshIndexForSizeIndex(int index)
+{
+    auto ms = m_modeSizes.at(index);
+    qCDebug(KSCREEN_KCM) << "iniomde:" << ms << m_initialMode;
+    auto mstring = modeString(m_initialMode.data());
+    qCDebug(KSCREEN_KCM) << "   11:" << mstring << m_selectedModeSize << m_initialMode;
+    if (ms == mstring) {
+        int ix = m_refreshRatesTable[mstring].indexOf(m_initialMode->refreshRate()) + 1;
+        if (ix >= m_refreshRatesTable[mstring].count() - 1) {
+            ix = 0; // auto
+        }
+            qCDebug(KSCREEN_KCM) << "   22:" << m_initialMode << ix << m_refreshRatesTable[mstring];
+        return ix;
+
+    }
+    return 0;
 }
 
 } // ns

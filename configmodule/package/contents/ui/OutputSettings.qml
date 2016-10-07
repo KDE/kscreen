@@ -113,35 +113,20 @@ GridLayout {
 
         LabeledSlider {
             id: resolutionSlider
-            minimumValue: 0
-            //maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
-//             maximumValue: Math.max(0, kcm.modeSelector.modeSizes.length - 1)
             minimumLabel: kcm.modeSelector.modeLabelMin
             maximumLabel: kcm.modeSelector.modeLabelMax
             onValueChanged: {
                 print("res index setting to " + value)
-                kcm.modeSelector.setSelectedSize(value)
-                refreshSlider.value = refreshSlider.maximumValue;
+                kcm.modeSelector.setSelectedResolutionIndex(value)
+                refreshCombo.currentIndex = kcm.modeSelector.preferredRefreshIndexForSizeIndex(value);
             }
         }
-        RowLayout {
-            CheckBox {
-                id: refreshAutoCheck
-                checked: false
-                text: i18n("Auto");
-            }
-            LabeledSlider {
-                id: refreshSlider
-                objectName: "refreshSlider"
-                enabled: !refreshAutoCheck.checked
-                opacity: (output != null && kcm.modeSelector.refreshRates.length > 1) ? 1.0 : 0.3
-                Behavior on opacity { NumberAnimation { duration: units.longDuration } }
-
-                maximumValue: (kcm.modeSelector.refreshRates.length <= 1) ? 1 : kcm.modeSelector.refreshRates.length - 1
-                minimumLabel: kcm.modeSelector.refreshLabelMin
-                maximumLabel: kcm.modeSelector.refreshLabelMax
-
-                onValueChanged: kcm.modeSelector.setSelectedRefreshRate(value)
+        ComboBox {
+            id: refreshCombo
+            model: kcm.modeSelector.refreshRatesLabels
+            onCurrentIndexChanged: {
+                print("Selecting refresh" + currentText);
+                kcm.modeSelector.setSelectedRefreshRate(currentIndex)
             }
         }
     }
