@@ -27,8 +27,7 @@ import org.kde.kscreen 2.0
 
 GridLayout {
 
-    property KScreenOutput output: (qmlOutput === null) ? null : qmlOutput.output
-    property QMLOutput qmlOutput: null
+    property KScreenOutput output: kcm.modeSelector.output
 
     focus: true
     columns: 2
@@ -37,17 +36,27 @@ GridLayout {
     Layout.maximumHeight: childrenRect.height
 
     onOutputChanged: {
-        if (output === null) return;
-        print("Output is now: " + outputLabel.text);
-        print(" Modes: " + qmlOutput.modes.length);
-        print(" Modes: " + qmlOutput.modeSizes.length);
+        print("Output is now: " + output.id);
+        var cmi = kcm.modeSelector.currentModeIndex();
+        var maxi = Math.max(0, kcm.modeSelector.modeSizes.length - 1);
+
+        // This bit is tricky, Slider fails to apply values above a maximumvalue
+        // and also can't set a maximumValue above the current value, so make sure
+        // we set these properties in the right order
+        if (resolutionSlider.value > maxi) {
+            resolutionSlider.value = cmi;
+            resolutionSlider.maximumValue = maxi;
+        } else {
+            resolutionSlider.maximumValue = maxi;
+            resolutionSlider.value = cmi;
+        }
     }
 
     PlasmaExtras.Heading {
         id: outputLabel
         level: 2
         text: {
-            if (output === null) return "";
+            if (output === null) return "null";
             if (output.type == KScreenOutput.Panel) {
                 return i18n("Laptop Screen");
             }
@@ -85,7 +94,7 @@ GridLayout {
         Layout.fillWidth: true
         Layout.columnSpan: 2
         text: {
-            if (qmlOutput) {
+            if (true || qmlOutput) {
                 kcm.modeSelector.selectedMode ? kcm.modeSelector.selectedMode.size.width + "x" + kcm.modeSelector.selectedMode.size.height + "@" + kcm.modeSelector.selectedMode.refreshRate.toFixed(2) : ""
             } else ""
         }
@@ -103,11 +112,14 @@ GridLayout {
         spacing: units.smallSpacing
 
         LabeledSlider {
+            id: resolutionSlider
             minimumValue: 0
-            maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
+            //maximumValue: (qmlOutput === null) ? 1 : Math.max(1, kcm.modeSelector.modeSizes.length - 1)
+//             maximumValue: Math.max(0, kcm.modeSelector.modeSizes.length - 1)
             minimumLabel: kcm.modeSelector.modeLabelMin
             maximumLabel: kcm.modeSelector.modeLabelMax
             onValueChanged: {
+                print("res index setting to " + value)
                 kcm.modeSelector.setSelectedSize(value)
                 refreshSlider.value = refreshSlider.maximumValue;
             }

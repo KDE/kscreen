@@ -47,10 +47,10 @@ Rectangle {
 
             anchors.fill: parent;
             clip: true;
-            onFocusedOutputChanged: {
-                print("output name:" + output.output.name);
-                outputSettings.qmlOutput = output;
-            }
+//             onFocusedOutputChanged: {
+//                 print("output name:" + output.output.name);
+//                 //outputSettings.qmlOutput = output;
+//             }
 
             objectName: "outputView";
         }

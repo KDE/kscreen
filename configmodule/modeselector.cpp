@@ -42,6 +42,12 @@ void ModeSelector::setOutputPtr(const KScreen::OutputPtr &output)
 {
     m_output = output;
     updateModes();
+    emit outputChanged();
+}
+
+KScreen::Output* ModeSelector::output() const
+{
+    return m_output.data();
 }
 
 QQmlListProperty<KScreen::Mode> ModeSelector::modes()
@@ -94,6 +100,8 @@ void ModeSelector::updateModes()
     QString currentmsize;
     m_modes.clear();
     m_modeSizes.clear();
+    //m_selectedModeSize.clear();
+    //m_selectedRefreshRate = 0;
     if (m_output) {
         for (auto _md : m_output->modes()) {
             m_modes << _md.data();
@@ -115,22 +123,28 @@ void ModeSelector::updateModes()
             }
         }
     }
+    m_currentModeIndex = m_modeSizes.indexOf(modeString(m_output->currentMode().data()));
     m_modeLabelMin = modeString(m_modes.first());
     m_modeLabelMax = modeString(m_modes.last());
     m_refreshLabelMin = QString::number(m_refreshRatesTable[currentmsize].first(), 'f', 2);
     m_refreshLabelMax = QString::number(m_refreshRatesTable[currentmsize].last(), 'f', 2);
+
     emit modesChanged();
     emit refreshRatesChanged();
 }
 
+int ModeSelector::currentModeIndex() const
+{
+    return m_currentModeIndex;
+}
+
 void ModeSelector::setSelectedSize(int index)
 {
-    if (index >= m_modeSizes.count()) {
+    if (index < 0 || !m_modeSizes.count() || index >= m_modeSizes.count()) {
         qCWarning(KSCREEN_KCM) << "Invalid size index:" << index << m_modeSizes;
         return;
     }
     const auto msize = m_modeSizes.at(index);
-
     if (m_selectedModeSize != msize) {
         m_selectedModeSize = msize;
         m_selectedRefreshRate = -1; // magic value, means "auto"
@@ -149,7 +163,6 @@ KScreen::Mode* ModeSelector::selectedMode() const
         return nullptr;
     }
 }
-
 
 QList<qreal> ModeSelector::refreshRates()
 {
@@ -170,15 +183,20 @@ void ModeSelector::setSelectedRefreshRate(int index)
 
 void ModeSelector::updateSelectedMode()
 {
+    QString selected;
     for (auto mode : m_modes) {
         if (modeString(mode) == m_selectedModeSize) {
             if (m_selectedRefreshRate <= 0) {
-                m_selectedModeId = mode->id();
+                selected = mode->id();
             } else if (m_selectedRefreshRate == mode->refreshRate()) {
-                m_selectedModeId = mode->id();
+                selected = mode->id();
             }
         }
     }
+    if (selected == m_selectedModeId) {
+        return;
+    }
+    m_selectedModeId = selected;
     qCDebug(KSCREEN_KCM) << "Selected Mode is now:" << m_selectedModeId << m_output->mode(m_selectedModeId);
     emit selectedModeChanged();
     m_output->setCurrentModeId(m_selectedModeId);
