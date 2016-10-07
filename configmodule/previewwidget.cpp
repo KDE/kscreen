@@ -45,7 +45,7 @@ PreviewWidget::~PreviewWidget()
 
 void PreviewWidget::setScalingFactor(qreal scale)
 {
-    qDebug() << "setScalingFactor: " << m_scale << scale;
+    //qDebug() << "setScalingFactor: " << m_scale << scale;
     m_scale = scale;
 
     QFont font;
@@ -92,7 +92,7 @@ QPixmap PreviewWidget::updatePixmapCache()
 
 
    auto nativeDpr = window() != nullptr ? window()->devicePixelRatio() : 1;
-   qDebug() << "nativedpr:" << nativeDpr;
+//    qDebug() << "nativedpr:" << nativeDpr;
    //render back at whatever the native DPR of the KCM is
    pixmap.setDevicePixelRatio(nativeDpr);
 
@@ -113,7 +113,7 @@ void PreviewWidget::paint(QPainter* painter)
     //painter->begin();
     painter->drawPixmap(QPoint(0, 0), pixmap, QRect(0, 0, width(), height()));
     //painter->end();
-    qDebug() << "rect" << QRect(0, 0, width(), height());
+//     qDebug() << "rect" << QRect(0, 0, width(), height());
 
 }
 
