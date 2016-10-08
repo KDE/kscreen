@@ -116,7 +116,8 @@ GridLayout {
             minimumLabel: kcm.modeSelector.modeLabelMin
             maximumLabel: kcm.modeSelector.modeLabelMax
             onValueChanged: {
-                print("res index setting to " + value)
+                //print("res index setting to " + value)
+                refreshCombo.currentIndex = 0;
                 kcm.modeSelector.setSelectedResolutionIndex(value)
                 refreshCombo.currentIndex = kcm.modeSelector.preferredRefreshIndexForSizeIndex(value);
             }
@@ -125,7 +126,7 @@ GridLayout {
             id: refreshCombo
             model: kcm.modeSelector.refreshRatesLabels
             onCurrentIndexChanged: {
-                print("Selecting refresh" + currentText);
+                //print("Selecting refresh" + currentText);
                 kcm.modeSelector.setSelectedRefreshRate(currentIndex)
             }
         }

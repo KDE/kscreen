@@ -179,7 +179,9 @@ QStringList ModeSelector::refreshRatesLabels() const
 {
     QStringList rs({ i18n("Auto") });
     for (const auto rr : m_refreshRatesTable[m_selectedModeSize]) {
-        rs << QString::number(rr, 'f', 2);
+        if (rr > 0) { // we have already appended the Auto label
+            rs << i18nc("refresh rate combo box values", "%1 Hz", QString::number(rr, 'f', 2));
+        }
     }
     return rs;
 }
@@ -191,7 +193,6 @@ void ModeSelector::setSelectedRefreshRate(int index)
         qCDebug(KSCREEN_KCM) << "Don't know refresh rates." << index << m_selectedModeSize << m_refreshRatesTable[m_selectedModeSize];
         return;
     }
-    qCDebug(KSCREEN_KCM) << "refresh index to " << index;
     if (index == 0) {
         ix = m_refreshRatesTable[m_selectedModeSize].count() - 1;
     }
@@ -229,15 +230,12 @@ void ModeSelector::updateSelectedMode()
 int ModeSelector::preferredRefreshIndexForSizeIndex(int index)
 {
     auto ms = m_modeSizes.at(index);
-    qCDebug(KSCREEN_KCM) << "iniomde:" << ms << m_initialMode;
     auto mstring = modeString(m_initialMode.data());
-    qCDebug(KSCREEN_KCM) << "   11:" << mstring << m_selectedModeSize << m_initialMode;
     if (ms == mstring) {
-        int ix = m_refreshRatesTable[mstring].indexOf(m_initialMode->refreshRate()) + 1;
-        if (ix >= m_refreshRatesTable[mstring].count() - 1) {
+        int ix = m_refreshRatesTable[mstring].indexOf(m_initialMode->refreshRate());
+        if (ix >= m_refreshRatesTable[mstring].count()-1) {
             ix = 0; // auto
         }
-            qCDebug(KSCREEN_KCM) << "   22:" << m_initialMode << ix << m_refreshRatesTable[mstring];
         return ix;
 
     }
