@@ -259,6 +259,14 @@ void TestConfigModule::testLabels()
 
 void TestConfigModule::testResolution()
 {
+    const ConfigPtr currentConfig = setConfig("yogaAndTv.json");
+    auto configmodule = new ConfigModule(this, QVariantList());
+    QSignalSpy configSpy(configmodule, &ConfigModule::configSet);
+    configmodule->load();
+    auto modeselector = configmodule->modeSelector();
+    QVERIFY(configSpy.wait(1000));
+
+    modeselector->setSelectedResolutionIndex(modeselector->modeSizes().count() - 2);
 
 }
 
