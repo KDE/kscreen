@@ -242,4 +242,21 @@ int ModeSelector::preferredRefreshIndexForSizeIndex(int index)
     return 0;
 }
 
+QStringList ModeSelector::newOutputActions() const
+{
+    QStringList actions;
+
+    actions.append(i18nc("new output combo box", "Do nothing"));
+    actions.append(i18nc("new output combo box", "Open this configuration module"));
+    actions.append(i18nc("new output combo box", "Extend workspace"));
+    actions.append(i18nc("new output combo box", "Clone outputs"));
+
+    return actions;
+}
+
+void ModeSelector::setNewOutputAction(int index)
+{
+    qCDebug(KSCREEN_KCM) << "Setting new output action" << index << newOutputActions().at(index);
+}
+
 } // ns

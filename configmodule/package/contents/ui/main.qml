@@ -17,7 +17,7 @@
 */
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1 as Controls
+import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.3
 
 import org.kde.plasma.core 2.0 as PlasmaCore
@@ -44,6 +44,17 @@ ColumnLayout {
 
     SystemPalette {
         id: palette;
+    }
+
+    RowLayout {
+        Label {
+            text: i18n("When connecting new display...")
+        }
+        ComboBox {
+            Layout.fillWidth: true
+            model: kcm.modeSelector.newOutputActions
+            onCurrentIndexChanged: kcm.modeSelector.setNewOutputAction(currentIndex)
+        }
     }
 
     OutputsView {

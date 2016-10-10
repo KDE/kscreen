@@ -44,6 +44,7 @@ class ModeSelector : public QObject
     Q_PROPERTY(QString refreshLabelMin READ refreshLabelMin NOTIFY refreshRatesChanged)
     Q_PROPERTY(QString refreshLabelMax READ refreshLabelMax NOTIFY refreshRatesChanged)
 
+    Q_PROPERTY(QStringList newOutputActions READ newOutputActions CONSTANT)
 
   public:
     explicit ModeSelector(QObject *parent = 0);
@@ -61,6 +62,7 @@ class ModeSelector : public QObject
 
     Q_INVOKABLE void setSelectedResolutionIndex(int index);
     Q_INVOKABLE void setSelectedRefreshRate(int index);
+    Q_INVOKABLE void setNewOutputAction(int index);
     Q_INVOKABLE int currentModeIndex() const;
     Q_INVOKABLE int preferredRefreshIndexForSizeIndex(int index);
 
@@ -69,6 +71,8 @@ class ModeSelector : public QObject
 
     QString refreshLabelMin() const;
     QString refreshLabelMax() const;
+
+    QStringList newOutputActions() const;
 
   Q_SIGNALS:
     void outputChanged();
