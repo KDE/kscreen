@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/../)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../ ${CMAKE_SOURCE_DIR}/kcm/src)
 
 set(kscreen_daemon_SRCS
     debug.cpp
@@ -8,6 +8,9 @@ set(kscreen_daemon_SRCS
     serializer.cpp
     generator.cpp
     device.cpp
+    osd.cpp
+    osdmanager.cpp
+    ${CMAKE_SOURCE_DIR}/kcm/src/utils.cpp
 )
 
 qt5_add_dbus_interface(kscreen_daemon_SRCS
@@ -21,7 +24,15 @@ qt5_add_dbus_adaptor(kscreen_daemon_SRCS
 
 add_library(kscreen MODULE ${kscreen_daemon_SRCS})
 
-target_link_libraries(kscreen Qt5::Widgets Qt5::DBus KF5::Screen KF5::DBusAddons KF5::I18n KF5::XmlGui KF5::GlobalAccel)
+target_link_libraries(kscreen Qt5::Widgets
+                              Qt5::DBus
+                              Qt5::Quick
+                              KF5::Declarative
+                              KF5::Screen
+                              KF5::DBusAddons
+                              KF5::I18n
+                              KF5::XmlGui
+                              KF5::GlobalAccel)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop
@@ -30,3 +41,12 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
 kcoreaddons_desktop_to_json(kscreen ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop)
 
 install(TARGETS kscreen DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
+
+set(QML_FILES
+    qml/Osd.qml
+    qml/OsdItem.qml
+    qml/OutputIdentifier.qml
+    qml/ConfigPicker.qml
+)
+
+install(FILES ${QML_FILES} DESTINATION ${DATA_INSTALL_DIR}/kded_kscreen/qml)

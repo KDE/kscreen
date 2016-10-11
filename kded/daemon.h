@@ -60,6 +60,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void lidClosedTimeout();
         void setMonitorForChanges(bool enabled);
         void outputConnectedChanged();
+        void showOutputIdentifier();
 
     Q_SIGNALS:
         void outputConnected(const QString &outputName);

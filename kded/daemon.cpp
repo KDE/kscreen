@@ -21,6 +21,7 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
+#include "osdmanager.h"
 #include "debug.h"
 
 #include <QTimer>
@@ -228,8 +229,18 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
+void KScreenDaemon::showOutputIdentifier()
+{
+    auto osd = new KScreen::OsdManager(this);
+    osd->showOutputIdentifiers();
+}
+
+
 void KScreenDaemon::displayButton()
 {
+    showOutputIdentifier();
+    return;
+
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
     QString message = i18nc("OSD text after XF86Display button press", "No External Display");
@@ -416,7 +427,6 @@ KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &c
 
     return KScreen::OutputPtr();
 }
-
 
 
 #include "daemon.moc"
