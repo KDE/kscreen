@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Martin Klapetek <mklapetek@kde.org>
+ * Copyright 2016 Sebastian Kügler <sebas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -15,38 +15,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.5
+import QtQuick.Layouts 1.3
+import QtQuick.Window 2.2
+
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtra
-import QtQuick.Window 2.2
 
-Item {
+ColumnLayout {
+
     property QtObject rootItem
-    id: root;
 
     property string outputName: rootItem ? rootItem.outputName : ""
     property string modeName: rootItem ? rootItem.modeName : ""
 
-    width: childrenRect.width + 2 * childrenRect.x
-    height: childrenRect.height + 2 * childrenRect.y
-
     PlasmaComponents.Label {
         id: displayName
-        x: units.largeSpacing * 2
-        y: units.largeSpacing
+
+        Layout.maximumWidth: Screen.width * 0.8
+        Layout.maximumHeight: Screen.height * 0.8
+        Layout.margins: units.largeSpacing
+        Layout.bottomMargin: units.smallSpacing
+
+        text: root.outputName
         font.pointSize: theme.defaultFont.pointSize * 3
-        text: root.outputName;
-        wrapMode: Text.WordWrap;
-        horizontalAlignment: Text.AlignHCenter;
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+        maximumLineCount: 2
+        elide: Text.ElideLeft
     }
 
     PlasmaComponents.Label {
         id: modeLabel;
-        anchors {
-            horizontalCenter: displayName.horizontalCenter
-            top: displayName.bottom
-        }
+
+        Layout.fillWidth: true
+        Layout.bottomMargin: units.largeSpacing
+
         text: root.modeName;
         horizontalAlignment: Text.AlignHCenter;
     }
