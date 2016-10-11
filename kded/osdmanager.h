@@ -38,13 +38,18 @@ public:
     OsdManager(QObject *parent = nullptr);
     ~OsdManager() override;
 
+    static OsdManager* self();
+
 
 public Q_SLOTS:
     void showOutputIdentifiers();
 
 private:
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
-    QMap<KScreen::Output*, KScreen::Osd*> m_osds;
+    QMap<QString, KScreen::Osd*> m_osds;
+
+    static OsdManager* m_instance;
+    bool m_showing;
 };
 
 } // ns
