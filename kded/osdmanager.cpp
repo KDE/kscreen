@@ -82,7 +82,6 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         }
 
         KScreen::Osd* osd = nullptr;
-        qDebug() << "output:" << output->name() << m_osds;
         if (m_osds.keys().contains(output->name())) {
             osd = m_osds.value(output->name());
         } else {
