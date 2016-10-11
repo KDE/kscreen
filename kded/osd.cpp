@@ -38,6 +38,7 @@ Osd::Osd(QObject *parent)
     : QObject(parent)
     , m_osdPath(QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml")))
 {
+    qDebug()<<"NEW OSD";
     init();
 }
 
@@ -79,6 +80,7 @@ void Osd::updatePosition()
     if (m_output == nullptr) {
         return;
     }
+
     auto *rootObject = m_osdObject->rootObject();
 
     const int dialogWidth = rootObject->property("width").toInt();

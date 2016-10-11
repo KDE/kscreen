@@ -29,6 +29,8 @@
 
 namespace KScreen {
 
+OsdManager* OsdManager::m_instance = 0;
+
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
 {
@@ -36,6 +38,15 @@ OsdManager::OsdManager(QObject *parent)
 
 OsdManager::~OsdManager()
 {
+}
+
+OsdManager* OsdManager::self()
+{
+    if (!OsdManager::m_instance) {
+        m_instance = new OsdManager();
+    }
+
+    return m_instance;
 }
 
 void OsdManager::showOutputIdentifiers()
@@ -57,27 +68,26 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
                 this, [this](){
                     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
                     qDebug() << "outputConnectedChanged():" << output->name();
-                    if (!output->isConnected()) {
+                    if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
                         KScreen::Osd* osd = nullptr;
-                        if (m_osds.keys().contains(output)) {
+                        if (m_osds.keys().contains(output->name())) {
                             osd->deleteLater();
-                            m_osds.remove(output);
+                            m_osds.remove(output->name());
                         }
                     }
-                },
-                Qt::UniqueConnection);
-        if (!output->isConnected() || !output->currentMode()) {
+                }, Qt::UniqueConnection);
+
+        if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
             continue;
         }
 
-
-        const KScreen::ModePtr mode = output->currentMode();
-
         KScreen::Osd* osd = nullptr;
-        if (m_osds.keys().contains(output.data())) {
-            osd = m_osds.value(output.data());
+        qDebug() << "output:" << output->name() << m_osds;
+        if (m_osds.keys().contains(output->name())) {
+            osd = m_osds.value(output->name());
         } else {
-            osd = new KScreen::Osd(output.data());
+            osd = new KScreen::Osd(this);
+            m_osds.insert(output->name(), osd);
         }
         osd->showOutputIdentifier(output);
     }

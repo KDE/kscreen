@@ -231,10 +231,8 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
 
 void KScreenDaemon::showOutputIdentifier()
 {
-    auto osd = new KScreen::OsdManager(this);
-    osd->showOutputIdentifiers();
+    KScreen::OsdManager::self()->showOutputIdentifiers();
 }
-
 
 void KScreenDaemon::displayButton()
 {
