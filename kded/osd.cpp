@@ -38,7 +38,6 @@ Osd::Osd(QObject *parent)
     : QObject(parent)
     , m_osdPath(QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml")))
 {
-    qDebug()<<"NEW OSD";
     init();
 }
 
@@ -68,9 +67,7 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     }
     rootObject->setProperty("itemSource", QStringLiteral("OutputIdentifier.qml"));
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
-    rootObject->setProperty("showingProgress", false);
     rootObject->setProperty("outputName", Utils::outputName(output));
-    rootObject->setProperty("osdValue", Utils::outputName(output));
     rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
     showOsd();
 }
