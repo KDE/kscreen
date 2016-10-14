@@ -20,6 +20,7 @@ Name[es]=Pantallas
 Name[fi]=Näytöt
 Name[it]=Schermi
 Name[nl]=Schermen
+Name[nn]=Skjermar
 Name[pl]=Ekrany
 Name[pt]=Ecrãs
 Name[ru]=Экраны
