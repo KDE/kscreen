@@ -21,6 +21,7 @@ Name[fi]=Näytöt
 Name[he]=תצוגות
 Name[it]=Schermi
 Name[nl]=Schermen
+Name[nn]=Skjermar
 Name[pl]=Ekrany
 Name[pt]=Ecrãs
 Name[ru]=Экраны
