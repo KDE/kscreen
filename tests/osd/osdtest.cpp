@@ -48,7 +48,7 @@ void OsdTest::start()
 {
     QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
     KScreen::OsdManager::self()->showOutputIdentifiers();
-    QTimer::singleShot(200, KScreen::OsdManager::self(), &KScreen::OsdManager::showOutputIdentifiers);
+    //QTimer::singleShot(200, KScreen::OsdManager::self(), &KScreen::OsdManager::showOutputIdentifiers);
 }
 
 
