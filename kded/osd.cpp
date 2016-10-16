@@ -22,14 +22,13 @@
 
 #include <KScreen/Mode>
 
-#include <QDBusConnection>
 #include <QLoggingCategory>
 #include <QTimer>
-#include <QWindow>
+// #include <QWindow>
 #include <QStandardPaths>
 #include <QDebug>
-#include <QUrl>
-#include <QQuickItem>
+// #include <QUrl>
+// #include <QQuickItem>
 #include <KDeclarative/QmlObject>
 
 namespace KScreen {
@@ -37,25 +36,35 @@ namespace KScreen {
 Osd::Osd(QObject *parent)
     : QObject(parent)
     , m_osdPath(QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml")))
+    , m_osdObject(new KDeclarative::QmlObject(this))
 {
-    init();
+    if (m_osdPath.isEmpty()) {
+        qWarning() << "Failed to find OSD QML file" << m_osdPath;
+    }
+
+    m_osdObject->setSource(QUrl::fromLocalFile(m_osdPath));
+
+    if (m_osdObject->status() != QQmlComponent::Ready) {
+        qWarning() << "Failed to load OSD QML file" << m_osdPath;
+        return;
+    }
+
+    m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
+
+    if (!m_osdTimer) {
+        m_osdTimer = new QTimer(this);
+        m_osdTimer->setSingleShot(true);
+        connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
+    }
 }
 
 Osd::~Osd()
 {
 }
 
-bool Osd::setRootProperty(const char* name, const QVariant& value)
-{
-    return m_osdObject->rootObject()->setProperty(name, value);
-}
-
 void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
 {
-    m_output = output;
-    if (!init()) {
-        return;
-    }
+    m_outputGeometry = output->geometry();
 
     auto *rootObject = m_osdObject->rootObject();
     auto mode = output->currentMode();
@@ -69,12 +78,13 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
     rootObject->setProperty("outputName", Utils::outputName(output));
     rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
+    //QTimer::singleShot(200, this, &Osd::showOsd);
     showOsd();
 }
 
 void Osd::updatePosition()
 {
-    if (m_output == nullptr) {
+    if (!m_outputGeometry.isValid()) {
         return;
     }
 
@@ -82,80 +92,13 @@ void Osd::updatePosition()
 
     const int dialogWidth = rootObject->property("width").toInt();
     const int dialogHeight = rootObject->property("height").toInt();
-    const int relx = m_output->pos().x();
-    const int rely = m_output->pos().y();
-    const int pos_x = relx + (m_output->geometry().width() - dialogWidth) / 2;
-    const int pos_y = rely + (m_output->geometry().height() - dialogHeight) / 2;
+    const int relx = m_outputGeometry.x();
+    const int rely = m_outputGeometry.y();
+    const int pos_x = relx + (m_outputGeometry.width() - dialogWidth) / 2;
+    const int pos_y = rely + (m_outputGeometry.height() - dialogHeight) / 2;
 
     rootObject->setProperty("x", pos_x);
     rootObject->setProperty("y", pos_y);
-}
-
-
-bool Osd::init()
-{
-    if (m_osdObject && m_osdObject->rootObject()) {
-        return true;
-    }
-
-    if (m_osdPath.isEmpty()) {
-        return false;
-    }
-
-    if (!m_osdObject) {
-        m_osdObject = new KDeclarative::QmlObject(this);
-    }
-
-    m_osdObject->setSource(QUrl::fromLocalFile(m_osdPath));
-
-    if (m_osdObject->status() != QQmlComponent::Ready) {
-        qWarning() << "Failed to load OSD QML file" << m_osdPath;
-        return false;
-    }
-
-    m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
-
-    if (!m_osdTimer) {
-        m_osdTimer = new QTimer(this);
-        m_osdTimer->setSingleShot(true);
-        connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
-    }
-
-    return true;
-}
-
-void Osd::showProgress(const QString &icon, const int percent, const QString &additionalText)
-{
-    if (!init()) {
-        return;
-    }
-
-    auto *rootObject = m_osdObject->rootObject();
-
-    int value = qBound(0, percent, 100);
-    rootObject->setProperty("osdValue", value);
-    rootObject->setProperty("osdAdditionalText", additionalText);
-    rootObject->setProperty("showingProgress", true);
-    rootObject->setProperty("icon", icon);
-
-    emit osdProgress(icon, value, additionalText);
-    showOsd();
-}
-
-void Osd::showText(const QString &icon, const QString &text)
-{
-    if (!init()) {
-        return;
-    }
-
-    auto *rootObject = m_osdObject->rootObject();
-
-    rootObject->setProperty("showingProgress", false);
-    rootObject->setProperty("osdValue", text);
-    rootObject->setProperty("icon", icon);
-
-    emit osdText(icon, text);
-    showOsd();
 }
 
 void Osd::showOsd()
