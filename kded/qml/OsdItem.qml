@@ -23,8 +23,8 @@ import QtQuick.Window 2.2
 
 Item {
     property QtObject rootItem
-    height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
-    width: height
+    //height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
+    //width: 1000//Screen.desktopAvailableHeight * 0.8//Math.min(height * 10, Screen.desktopAvailableWidth * 0.8)
 //     height: rootItem.outputHeight + units.gridUnit
 //     width: rootItem.outputWidth + units.gridUnit
 //     objectName: "dialog"
@@ -45,29 +45,13 @@ Item {
     PlasmaCore.IconItem {
         id: icon
 
-        height: parent.height - Math.max(progressBar.height, label.height)
+        height: parent.height - label.height
                               - ((units.smallSpacing/2) * 3) //it's an svg
         width: parent.width
 
         source: rootItem.icon
     }
 
-    PlasmaComponents.ProgressBar {
-        id: progressBar
-
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            margins: Math.floor(units.smallSpacing / 2)
-        }
-
-        visible: rootItem.showingProgress
-        minimumValue: 0
-        maximumValue: 100
-
-        value: Number(rootItem.osdValue)
-    }
     PlasmaExtra.Heading {
         id: label
         anchors {
@@ -77,8 +61,7 @@ Item {
             margins: Math.floor(units.smallSpacing / 2)
         }
 
-        visible: !rootItem.showingProgress
-        text: rootItem.showingProgress ? "" : (rootItem.osdValue ? rootItem.osdValue : "")
+        text: outputName
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         maximumLineCount: 2
@@ -88,5 +71,7 @@ Item {
     }
 
     Component.onCompleted: {
+        print("Desktopw:" + Screen.desktopAvailableWidth)
+        print("Desktoph:" + Screen.desktopAvailableHeight)
     }
 }
