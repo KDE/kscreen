@@ -35,7 +35,7 @@ PlasmaCore.Dialog {
 
     property bool animateOpacity: false
 
-    property string itemSource: "OsdItem.qml"
+    property string itemSource
 
     property string outputName
     property string modeName
