@@ -171,6 +171,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mScreen->setConfig(mConfig);
     mControlPanel->setConfig(mConfig);
     mPrimaryCombo->setConfig(mConfig);
+    mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,
