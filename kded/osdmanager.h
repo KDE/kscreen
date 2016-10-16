@@ -22,6 +22,7 @@
 #include <QObject>
 #include <QString>
 #include <QMap>
+#include <QTimer>
 
 class QmlObject;
 
@@ -34,22 +35,21 @@ class Output;
 class OsdManager : public QObject {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kscreen.osdService")
+
 public:
-    OsdManager(QObject *parent = nullptr);
     ~OsdManager() override;
-
     static OsdManager* self();
-
 
 public Q_SLOTS:
     void showOutputIdentifiers();
 
 private:
+    OsdManager(QObject *parent = nullptr);
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     QMap<QString, KScreen::Osd*> m_osds;
 
     static OsdManager* m_instance;
-    bool m_showing;
+    QTimer* m_cleanupTimer;
 };
 
 } // ns

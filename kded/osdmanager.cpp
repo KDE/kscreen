@@ -33,7 +33,16 @@ OsdManager* OsdManager::m_instance = 0;
 
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
+    , m_cleanupTimer(new QTimer(this))
 {
+    // free up memory when the osd hasn't been used for more than 1 minute
+    m_cleanupTimer->setInterval(60000);
+    m_cleanupTimer->setSingleShot(true);
+    connect(m_cleanupTimer, &QTimer::timeout, this, [this]() {
+        qDeleteAll(m_osds.begin(), m_osds.end());
+        m_osds.clear();
+    });
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAllSlots | QDBusConnection::ExportAllSignals);
 }
 
 OsdManager::~OsdManager()
@@ -64,23 +73,9 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
     const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
 
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
-        connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, [this](){
-                    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
-                    qDebug() << "outputConnectedChanged():" << output->name();
-                    if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
-                        KScreen::Osd* osd = nullptr;
-                        if (m_osds.keys().contains(output->name())) {
-                            osd->deleteLater();
-                            m_osds.remove(output->name());
-                        }
-                    }
-                }, Qt::UniqueConnection);
-
         if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
             continue;
         }
-
         KScreen::Osd* osd = nullptr;
         if (m_osds.keys().contains(output->name())) {
             osd = m_osds.value(output->name());
@@ -90,6 +85,7 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         }
         osd->showOutputIdentifier(output);
     }
+    m_cleanupTimer->start();
 }
 
 

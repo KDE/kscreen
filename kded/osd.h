@@ -17,19 +17,17 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef OSD_H
-#define OSD_H
+#ifndef KSCREEN_OSD_H
+#define KSCREEN_OSD_H
 
 #include <QObject>
+#include <QRect>
 #include <QString>
 
 #include <KScreen/Output>
-class QmlObject;
 
 namespace KDeclarative {
     class QmlObject;
-}
-namespace Plasma {
 }
 
 class QTimer;
@@ -37,40 +35,30 @@ class QTimer;
 namespace KScreen {
 
 class Osd : public QObject {
+
     Q_OBJECT
 
 public:
     Osd(QObject *parent = nullptr);
     ~Osd() override;
 
-    bool setRootProperty(const char *name, const QVariant &value);
     void showOutputIdentifier(const KScreen::OutputPtr output);
-
-public Q_SLOTS:
-    void showText(const QString &icon, const QString &text);
-
-Q_SIGNALS:
-    void osdProgress(const QString &icon, const int percent, const QString &additionalText);
-    void osdText(const QString &icon, const QString &text);
 
 private Q_SLOTS:
     void hideOsd();
 
 private:
-    bool init();
-
-    void showProgress(const QString &icon, const int percent, const QString &additionalText = QString());
     void showOsd();
-
     void updatePosition();
+
     QString m_osdPath;
+    QRect m_outputGeometry;
     KDeclarative::QmlObject *m_osdObject = nullptr;
     QTimer *m_osdTimer = nullptr;
     int m_timeout = 0;
 
-    KScreen::OutputPtr m_output;
 };
 
 } // ns
 
-#endif // OSD_H
+#endif // KSCREEN_OSD_H
