@@ -34,6 +34,7 @@ ColumnLayout {
     property KScreenOutput focusedOutput: null
     property bool perOutputScaling: true
     property ScalingPreview scalingPreview: scalingPreview
+    property MessageWidget messageWidget: messageWidget
 
     implicitHeight: units.gridUnit * 25
     implicitWidth: units.gridUnit * 30
@@ -44,6 +45,11 @@ ColumnLayout {
 
     SystemPalette {
         id: palette;
+    }
+
+    MessageWidget {
+        id: messageWidget
+        text: i18n("Scaling changes will take effect after restart")
     }
 
     RowLayout {

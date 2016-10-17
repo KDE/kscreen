@@ -87,7 +87,12 @@ GridLayout {
         stepSize: .1
         minimumLabel: "1.0x"
         maximumLabel: "3.0x"
-        onValueChanged: root.scalingPreview.scalingFactor = value
+        onValueChanged: {
+            root.scalingPreview.scalingFactor = value;
+            if (value != 1) { // FIXME: compare to initial scaling value
+                root.messageWidget.shown = true;
+            }
+        }
     }
 
     Label {
