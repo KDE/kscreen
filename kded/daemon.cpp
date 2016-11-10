@@ -196,6 +196,15 @@ void KScreenDaemon::configChanged()
 {
     qCDebug(KSCREEN_KDED) << "Change detected";
     logConfig(m_monitoredConfig);
+
+    // Modes may have changed, fix-up current mode id
+    Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->outputs()) {
+        if (output->currentMode().isNull()) {
+            qCDebug(KSCREEN_KDED) << "Current mode" << output->setCurrentModeId << "invalid, setting preferred mode" << output->preferredModeId();
+            output->setCurrentModeId(output->preferredModeId());
+        }
+    }
+
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
@@ -206,6 +215,7 @@ void KScreenDaemon::saveCurrentConfig()
 
     // We assume the config is valid, since it's what we got, but we are interested
     // in the "at least one enabled screen" check
+
     const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
     if (valid) {
         Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
