@@ -98,7 +98,7 @@ int main (int argc, char *argv[])
              "Commands:\n"
              "  bug             Show information needed for a bug report\n"
              "  config          Show KScreen config files\n"
-             "  outputs         Show outout information\n"
+             "  outputs         Show output information\n"
              "  monitor         Monitor for changes\n"
              "  json            Show current KScreen config"));
     parser.addHelpOption();
