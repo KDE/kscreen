@@ -15,40 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.extras 2.0 as PlasmaExtra
+import QtQuick 2.5
 import QtQuick.Window 2.2
+
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.extras 2.0 as PlasmaExtra
 
 Item {
     property QtObject rootItem
-    //height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
-    //width: 1000//Screen.desktopAvailableHeight * 0.8//Math.min(height * 10, Screen.desktopAvailableWidth * 0.8)
-//     height: rootItem.outputHeight + units.gridUnit
-//     width: rootItem.outputWidth + units.gridUnit
-//     objectName: "dialog"
-
-    //  /--------------------\
-    //  |      spacing       |
-    //  | /----------------\ |
-    //  | |                | |
-    //  | |      icon      | |
-    //  | |                | |
-    //  | |                | |
-    //  | \----------------/ |
-    //  |      spacing       |
-    //  | [progressbar/text] |
-    //  |      spacing       |
-    //  \--------------------/
 
     PlasmaCore.IconItem {
         id: icon
-
-        height: parent.height - label.height
-                              - ((units.smallSpacing/2) * 3) //it's an svg
+        height: parent.height - label.height - ((units.smallSpacing/2) * 3)
         width: parent.width
-
         source: rootItem.icon
     }
 
@@ -68,10 +47,5 @@ Item {
         elide: Text.ElideLeft
         minimumPointSize: theme.defaultFont.pointSize
         fontSizeMode: Text.HorizontalFit
-    }
-
-    Component.onCompleted: {
-        print("Desktopw:" + Screen.desktopAvailableWidth)
-        print("Desktoph:" + Screen.desktopAvailableHeight)
     }
 }

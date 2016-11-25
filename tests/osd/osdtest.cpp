@@ -17,19 +17,9 @@
  *************************************************************************************/
 
 #include "osdtest.h"
-#include "../../kded/osd.h"
 #include "../../kded/osdmanager.h"
-#include "../../kcm/src/utils.h"
-
-#include <KScreen/Config>
-#include <KScreen/GetConfigOperation>
-#include <KScreen/Output>
 
 #include <QCoreApplication>
-#include <QStandardPaths>
-#include <QTimer>
-#include <QRect>
-
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(KSCREEN_KDED, "kscreen.kded")
@@ -48,7 +38,6 @@ void OsdTest::start()
 {
     QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
     KScreen::OsdManager::self()->showOutputIdentifiers();
-    //QTimer::singleShot(200, KScreen::OsdManager::self(), &KScreen::OsdManager::showOutputIdentifiers);
 }
 
 
