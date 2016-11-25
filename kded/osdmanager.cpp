@@ -54,7 +54,6 @@ OsdManager* OsdManager::self()
     if (!OsdManager::m_instance) {
         m_instance = new OsdManager();
     }
-
     return m_instance;
 }
 
