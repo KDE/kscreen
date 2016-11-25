@@ -1,5 +1,5 @@
 /*
- *  Copyright 2014 (c) Martin Klapetek <mklapetek@kde.org>
+ *  Copyright 2014 Martin Klapetek <mklapetek@kde.org>
  *  Copyright 2016 Sebastian Kügler <sebas@kde.org>
  *
  *  This program is free software; you can redistribute it and/or modify
