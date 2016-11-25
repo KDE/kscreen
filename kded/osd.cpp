@@ -1,5 +1,5 @@
 /*
- *  Copyright 2014 (c) Martin Klapetek <mklapetek@kde.org>
+ *  Copyright 2014 Martin Klapetek <mklapetek@kde.org>
  *  Copyright 2016 Sebastian Kügler <sebas@kde.org>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -19,17 +19,15 @@
 
 #include "osd.h"
 #include "utils.h"
+#include "debug.h"
 
 #include <KScreen/Mode>
 
 #include <QLoggingCategory>
 #include <QTimer>
-// #include <QWindow>
 #include <QStandardPaths>
-#include <QDebug>
-// #include <QUrl>
-// #include <QQuickItem>
 #include <KDeclarative/QmlObject>
+
 
 namespace KScreen {
 
@@ -39,13 +37,13 @@ Osd::Osd(QObject *parent)
     , m_osdObject(new KDeclarative::QmlObject(this))
 {
     if (m_osdPath.isEmpty()) {
-        qWarning() << "Failed to find OSD QML file" << m_osdPath;
+        qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << m_osdPath;
     }
 
     m_osdObject->setSource(QUrl::fromLocalFile(m_osdPath));
 
     if (m_osdObject->status() != QQmlComponent::Ready) {
-        qWarning() << "Failed to load OSD QML file" << m_osdPath;
+        qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << m_osdPath;
         return;
     }
 
@@ -78,7 +76,6 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
     rootObject->setProperty("outputName", Utils::outputName(output));
     rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
-    //QTimer::singleShot(200, this, &Osd::showOsd);
     showOsd();
 }
 
@@ -128,9 +125,7 @@ void Osd::hideOsd()
     if (!rootObject) {
         return;
     }
-
     rootObject->setProperty("visible", false);
-
     // this is needed to prevent fading from "old" values when the OSD shows up
     rootObject->setProperty("osdValue", 0);
 }

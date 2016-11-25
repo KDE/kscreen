@@ -18,8 +18,6 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.extras 2.0 as PlasmaExtra
 
 PlasmaCore.Dialog {
     id: root
@@ -39,20 +37,6 @@ PlasmaCore.Dialog {
 
     property string outputName
     property string modeName
-
-
-    Behavior on opacity {
-        SequentialAnimation {
-            // prevent press and hold from flickering
-            PauseAnimation { duration: root.timeout * 0.8 }
-
-            NumberAnimation {
-                duration: root.timeout * 0.2
-                easing.type: Easing.InQuad
-            }
-        }
-        enabled: root.animateOpacity
-    }
 
     mainItem: Loader {
         source: itemSource
