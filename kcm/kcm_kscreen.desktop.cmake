@@ -19,6 +19,7 @@ Name[el]=Οθόνες
 Name[en_GB]=Displays
 Name[es]=Pantallas
 Name[fi]=Näytöt
+Name[fr]=Affichages
 Name[it]=Schermi
 Name[ko]=디스플레이
 Name[lt]=Ekranai
