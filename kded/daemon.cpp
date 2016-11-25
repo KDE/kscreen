@@ -203,6 +203,7 @@ void KScreenDaemon::configChanged()
         if (output->isConnected() && output->isEnabled() && output->currentMode().isNull()) {
             qCDebug(KSCREEN_KDED) << "Current mode" << output->currentModeId() << "invalid, setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
+            doApplyConfig(m_monitoredConfig);
         }
     }
 
