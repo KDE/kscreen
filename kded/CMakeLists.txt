@@ -46,7 +46,6 @@ set(QML_FILES
     qml/Osd.qml
     qml/OsdItem.qml
     qml/OutputIdentifier.qml
-    qml/ConfigPicker.qml
 )
 
 install(FILES ${QML_FILES} DESTINATION ${DATA_INSTALL_DIR}/kded_kscreen/qml)
