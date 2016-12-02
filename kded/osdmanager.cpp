@@ -18,6 +18,7 @@
 
 #include "osdmanager.h"
 #include "osd.h"
+#include "debug.h"
 
 #include <KScreen/Config>
 #include <KScreen/GetConfigOperation>
@@ -79,12 +80,40 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         if (m_osds.keys().contains(output->name())) {
             osd = m_osds.value(output->name());
         } else {
-            osd = new KScreen::Osd(this);
+            osd = new KScreen::Osd(output, this);
             m_osds.insert(output->name(), osd);
         }
         osd->showOutputIdentifier(output);
     }
     m_cleanupTimer->start();
+}
+
+void OsdManager::showOsd(const QString& icon, const QString& text)
+{
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+            this, [this, icon, text] (KScreen::ConfigOperation *op) {
+                qCDebug(KSCREEN_KDED) << "whoooooopwhoooooopwhoooooop";
+                if (op->hasError()) {
+                    return;
+                }
+
+                const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+
+                Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
+                    if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
+                        continue;
+                    }
+                    KScreen::Osd* osd = nullptr;
+                    if (m_osds.keys().contains(output->name())) {
+                        osd = m_osds.value(output->name());
+                    } else {
+                        osd = new KScreen::Osd(output, this);
+                        m_osds.insert(output->name(), osd);
+                    }
+                    osd->showGenericOsd(icon, text);
+                }
+                m_cleanupTimer->start();
+            });
 }
 
 

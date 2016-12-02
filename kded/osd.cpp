@@ -31,8 +31,9 @@
 
 namespace KScreen {
 
-Osd::Osd(QObject *parent)
+Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
     : QObject(parent)
+    , m_output(output)
     , m_osdPath(QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml")))
     , m_osdObject(new KDeclarative::QmlObject(this))
 {
@@ -60,6 +61,18 @@ Osd::~Osd()
 {
 }
 
+void Osd::showGenericOsd(const QString &icon, const QString &text)
+{
+    m_outputGeometry = m_output->geometry();
+    auto *rootObject = m_osdObject->rootObject();
+    rootObject->setProperty("itemSource", QStringLiteral("OsdItem.qml"));
+    rootObject->setProperty("infoText", text);
+    rootObject->setProperty("icon", icon);
+    qCDebug(KSCREEN_KDED) << "icon / text:" << icon << text;
+
+    showOsd();
+}
+
 void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
 {
     m_outputGeometry = output->geometry();
@@ -75,7 +88,7 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     rootObject->setProperty("itemSource", QStringLiteral("OutputIdentifier.qml"));
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
     rootObject->setProperty("outputName", Utils::outputName(output));
-    rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
+    //rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
     showOsd();
 }
 
@@ -96,6 +109,8 @@ void Osd::updatePosition()
 
     rootObject->setProperty("x", pos_x);
     rootObject->setProperty("y", pos_y);
+
+    qCDebug(KSCREEN_KDED) << "pos:" << QPoint(pos_x, pos_y);
 }
 
 void Osd::showOsd()
@@ -107,6 +122,7 @@ void Osd::showOsd()
     // only animate on X11, wayland plugin doesn't support this and
     // pukes loads of warnings into our logs
     if (qGuiApp->platformName() == QStringLiteral("xcb")) {
+        qCDebug(KSCREEN_KDED) << "vibsible";
         rootObject->setProperty("animateOpacity", false);
         rootObject->setProperty("opacity", 1);
         rootObject->setProperty("visible", true);
@@ -126,8 +142,6 @@ void Osd::hideOsd()
         return;
     }
     rootObject->setProperty("visible", false);
-    // this is needed to prevent fading from "old" values when the OSD shows up
-    rootObject->setProperty("osdValue", 0);
 }
 
 } // ns
