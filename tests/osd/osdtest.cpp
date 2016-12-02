@@ -37,7 +37,8 @@ OsdTest::~OsdTest()
 void OsdTest::start()
 {
     QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-    KScreen::OsdManager::self()->showOutputIdentifiers();
+//     KScreen::OsdManager::self()->showOutputIdentifiers();
+    KScreen::OsdManager::self()->showOsd(QStringLiteral("preferences-desktop-display-randr"), QStringLiteral("OSD Showing Up"));
 }
 
 

@@ -42,6 +42,7 @@ public:
 
 public Q_SLOTS:
     void showOutputIdentifiers();
+    void showOsd(const QString &icon, const QString &text);
 
 private:
     OsdManager(QObject *parent = nullptr);

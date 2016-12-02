@@ -41,7 +41,7 @@ Item {
             margins: Math.floor(units.smallSpacing / 2)
         }
 
-        text: outputName
+        text: rootItem.infoText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         maximumLineCount: 2
@@ -49,4 +49,5 @@ Item {
         minimumPointSize: theme.defaultFont.pointSize
         fontSizeMode: Text.HorizontalFit
     }
+    Component.onCompleted: print("osditem loaded..." + root.infoText);
 }

@@ -31,6 +31,7 @@ PlasmaCore.Dialog {
 
     // Icon name to display
     property string icon
+    property string infoText
     property string outputName
     property string modeName
     property bool animateOpacity: false
