@@ -104,9 +104,9 @@ void Osd::showOsd()
 
     auto *rootObject = m_osdObject->rootObject();
 
-    // if our OSD understands animating the opacity, do it;
-    // otherwise just show it to not break existing lnf packages
-    if (rootObject->property("animateOpacity").isValid()) {
+    // only animate on X11, wayland plugin doesn't support this and
+    // pukes loads of warnings into our logs
+    if (qGuiApp->platformName() == QStringLiteral("xcb")) {
         rootObject->setProperty("animateOpacity", false);
         rootObject->setProperty("opacity", 1);
         rootObject->setProperty("visible", true);

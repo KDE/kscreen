@@ -31,13 +31,23 @@ PlasmaCore.Dialog {
 
     // Icon name to display
     property string icon
-
-    property bool animateOpacity: false
-
-    property string itemSource
-
     property string outputName
     property string modeName
+    property bool animateOpacity: false
+    property string itemSource
+
+    Behavior on opacity {
+        SequentialAnimation {
+            // prevent press and hold from flickering
+            PauseAnimation { duration: root.timeout * 0.8 }
+
+            NumberAnimation {
+                duration: root.timeout * 0.2
+                easing.type: Easing.InQuad
+            }
+        }
+        enabled: root.animateOpacity
+    }
 
     mainItem: Loader {
         source: itemSource
