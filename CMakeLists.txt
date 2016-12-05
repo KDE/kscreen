@@ -12,7 +12,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(Qt5 REQUIRED COMPONENTS QuickWidgets Test)
 find_package(KF5 REQUIRED COMPONENTS DBusAddons Config ConfigWidgets I18n XmlGui GlobalAccel WidgetsAddons
-                                     Declarative IconThemes Plasma WindowSystem
+                                     Declarative IconThemes Plasma
 )
 # WARNING PlasmaQuick provides unversioned CMake config
 find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
