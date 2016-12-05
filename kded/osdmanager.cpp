@@ -41,7 +41,10 @@ OsdManager::OsdManager(QObject *parent)
         qDeleteAll(m_osds.begin(), m_osds.end());
         m_osds.clear();
     });
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAllSlots | QDBusConnection::ExportAllSignals);
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kscreen.osdService"));
+    if (!QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAllSlots | QDBusConnection::ExportAllSignals)) {
+        qDebug() << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Failed to registerObject";
+    }
 }
 
 OsdManager::~OsdManager()
@@ -58,6 +61,7 @@ OsdManager* OsdManager::self()
 
 void OsdManager::showOutputIdentifiers()
 {
+    qDebug() << "SHOWOUTPUTIDENTIFIERS";
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
             this, &OsdManager::slotIdentifyOutputs);
 }
