@@ -20,7 +20,7 @@ import QtQuick 2.5
 import QtQuick.Window 2.2
 
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.extras 2.0 as PlasmaExtra
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     property QtObject rootItem
@@ -35,7 +35,7 @@ Item {
         source: rootItem.icon
     }
 
-    PlasmaExtra.Heading {
+    PlasmaExtras.Heading {
         id: label
         anchors {
             bottom: parent.bottom

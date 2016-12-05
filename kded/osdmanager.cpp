@@ -25,8 +25,6 @@
 #include <KScreen/Output>
 
 #include <QDBusConnection>
-#include <QLoggingCategory>
-#include <QDebug>
 
 namespace KScreen {
 
@@ -90,30 +88,32 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
 void OsdManager::showOsd(const QString& icon, const QString& text)
 {
+    qDeleteAll(m_osds);
+    m_osds.clear();
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-            this, [this, icon, text] (KScreen::ConfigOperation *op) {
-                qCDebug(KSCREEN_KDED) << "whoooooopwhoooooopwhoooooop";
-                if (op->hasError()) {
-                    return;
-                }
+        this, [this, icon, text] (KScreen::ConfigOperation *op) {
+            if (op->hasError()) {
+                return;
+            }
 
-                const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+            const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
 
-                Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
-                    if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
-                        continue;
-                    }
-                    KScreen::Osd* osd = nullptr;
-                    if (m_osds.keys().contains(output->name())) {
-                        osd = m_osds.value(output->name());
-                    } else {
-                        osd = new KScreen::Osd(output, this);
-                        m_osds.insert(output->name(), osd);
-                    }
-                    osd->showGenericOsd(icon, text);
+            Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
+                if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
+                    continue;
                 }
-                m_cleanupTimer->start();
-            });
+                KScreen::Osd* osd = nullptr;
+                if (m_osds.keys().contains(output->name())) {
+                    osd = m_osds.value(output->name());
+                } else {
+                    osd = new KScreen::Osd(output, this);
+                    m_osds.insert(output->name(), osd);
+                }
+                osd->showGenericOsd(icon, text);
+            }
+            m_cleanupTimer->start();
+        }
+    );
 }
 
 

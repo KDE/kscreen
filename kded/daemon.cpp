@@ -242,6 +242,8 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
     );
     msg << icon << text;
     QDBusConnection::sessionBus().asyncCall(msg);
+
+
 }
 
 void KScreenDaemon::showOutputIdentifier()
@@ -251,16 +253,12 @@ void KScreenDaemon::showOutputIdentifier()
 
 void KScreenDaemon::displayButton()
 {
-    showOutputIdentifier();
-    return;
-
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
     QString message = i18nc("OSD text after XF86Display button press", "No External Display");
     if (m_monitoredConfig && m_monitoredConfig->connectedOutputs().count() > 1) {
         message = i18nc("OSD text after XF86Display button press", "Changing Screen Layout");
     }
-    showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
 
     if (m_buttonTimer->isActive()) {
         qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
@@ -284,6 +282,23 @@ void KScreenDaemon::applyGenericConfig()
 
     m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
     qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
+
+    QHash<Generator::DisplaySwitchAction, QString> actionMessages({
+        {Generator::DisplaySwitchAction::None, i18nc("osd when displaybutton is pressed", "No Action")},
+        {Generator::DisplaySwitchAction::Clone, i18nc("osd when displaybutton is pressed", "Cloned Display")},
+        {Generator::DisplaySwitchAction::ExtendToLeft, i18nc("osd when displaybutton is pressed", "Extend Left")},
+        {Generator::DisplaySwitchAction::TurnOffEmbedded, i18nc("osd when displaybutton is pressed", "Embedded Off")},
+        {Generator::DisplaySwitchAction::TurnOffExternal, i18nc("osd when displaybutton is pressed", "External Off")},
+        {Generator::DisplaySwitchAction::ExtendToRight, i18nc("osd when displaybutton is pressed", "Extended Right")}
+    });
+    QString message = actionMessages.value(m_iteration);
+
+    // We delay the OSD for two seconds and hope that X and hardware are done setting everything up.
+    QTimer::singleShot(2000,
+        [message]() {
+            KScreen::OsdManager::self()->showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
+        }
+    );
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }

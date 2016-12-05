@@ -68,7 +68,6 @@ void Osd::showGenericOsd(const QString &icon, const QString &text)
     rootObject->setProperty("itemSource", QStringLiteral("OsdItem.qml"));
     rootObject->setProperty("infoText", text);
     rootObject->setProperty("icon", icon);
-    qCDebug(KSCREEN_KDED) << "icon / text:" << icon << text;
 
     showOsd();
 }
@@ -88,7 +87,6 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     rootObject->setProperty("itemSource", QStringLiteral("OutputIdentifier.qml"));
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
     rootObject->setProperty("outputName", Utils::outputName(output));
-    //rootObject->setProperty("icon", QStringLiteral("preferences-desktop-display-randr"));
     showOsd();
 }
 
@@ -109,8 +107,6 @@ void Osd::updatePosition()
 
     rootObject->setProperty("x", pos_x);
     rootObject->setProperty("y", pos_y);
-
-    qCDebug(KSCREEN_KDED) << "pos:" << QPoint(pos_x, pos_y);
 }
 
 void Osd::showOsd()
@@ -122,7 +118,6 @@ void Osd::showOsd()
     // only animate on X11, wayland plugin doesn't support this and
     // pukes loads of warnings into our logs
     if (qGuiApp->platformName() == QStringLiteral("xcb")) {
-        qCDebug(KSCREEN_KDED) << "vibsible";
         rootObject->setProperty("animateOpacity", false);
         rootObject->setProperty("opacity", 1);
         rootObject->setProperty("visible", true);
