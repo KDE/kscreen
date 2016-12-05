@@ -26,12 +26,8 @@ int main(int argc, char **argv)
     QGuiApplication app(argc, argv);
 
     KScreen::OsdTest osdtest;
-
-    QCommandLineOption config = QCommandLineOption(QStringList() << QStringLiteral("c") << "config",
-                                                  QStringLiteral("Config file"), "config");
     QCommandLineParser parser;
     parser.addHelpOption();
-    parser.addOption(config);
     parser.process(app);
 
     osdtest.start();
