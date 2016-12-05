@@ -34,11 +34,33 @@ OsdTest::~OsdTest()
 {
 }
 
-void OsdTest::start()
+void OsdTest::showOutputIdentifiers()
 {
-    QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-//     KScreen::OsdManager::self()->showOutputIdentifiers();
-    KScreen::OsdManager::self()->showOsd(QStringLiteral("preferences-desktop-display-randr"), QStringLiteral("OSD Showing Up"));
+    if (!m_useDBus) {
+        QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
+        KScreen::OsdManager::self()->showOutputIdentifiers();
+    } else {
+        qCWarning(KSCREEN_KDED) << "Implement me.";
+        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
+    }
+}
+
+
+void OsdTest::setUseDBus(bool yesno)
+{
+    m_useDBus = yesno;
+}
+
+void OsdTest::showGenericOsd(const QString& icon, const QString& message)
+{
+    if (!m_useDBus) {
+        QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
+        KScreen::OsdManager::self()->showOsd(!icon.isEmpty() ? icon : QStringLiteral("preferences-desktop-display-randr"),
+                                             !message.isEmpty() ? message : QStringLiteral("On-Screen-Display"));
+    } else {
+        qCWarning(KSCREEN_KDED) << "Implement me.";
+        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
+    }
 }
 
 
