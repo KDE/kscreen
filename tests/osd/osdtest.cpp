@@ -20,6 +20,9 @@
 #include "../../kded/osdmanager.h"
 
 #include <QCoreApplication>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(KSCREEN_KDED, "kscreen.kded")
@@ -40,8 +43,17 @@ void OsdTest::showOutputIdentifiers()
         QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
         KScreen::OsdManager::self()->showOutputIdentifiers();
     } else {
-        qCWarning(KSCREEN_KDED) << "Implement me.";
-        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
+        QDBusMessage msg = QDBusMessage::createMethodCall(
+            QLatin1Literal("org.kde.kscreen.osdService"),
+            QLatin1Literal("/org/kde/kscreen/osdService"),
+            QLatin1Literal("org.kde.kscreen.osdService"),
+            QLatin1Literal("showOutputIdentifiers")
+        );
+        //msg << icon << text;
+        QDBusConnection::sessionBus().asyncCall(msg);
+
+        qCWarning(KSCREEN_KDED) << "Sent dbus message.";
+        QTimer::singleShot(500, qApp, &QCoreApplication::quit);
     }
 }
 
