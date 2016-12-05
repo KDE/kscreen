@@ -25,6 +25,9 @@ import org.kde.plasma.extras 2.0 as PlasmaExtra
 Item {
     property QtObject rootItem
 
+    height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
+    width: height
+
     PlasmaCore.IconItem {
         id: icon
         height: parent.height - label.height - ((units.smallSpacing/2) * 3)
