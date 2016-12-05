@@ -45,16 +45,12 @@ public:
     void showGenericOsd(const QString &icon, const QString &text);
     void showOutputIdentifier(const KScreen::OutputPtr output);
 
-
-private Q_SLOTS:
-    void hideOsd();
-
 private:
+    void hideOsd();
     void showOsd();
     void updatePosition();
 
     KScreen::OutputPtr m_output;
-    QString m_osdPath;
     QRect m_outputGeometry;
     KDeclarative::QmlObject *m_osdObject = nullptr;
     QTimer *m_osdTimer = nullptr;

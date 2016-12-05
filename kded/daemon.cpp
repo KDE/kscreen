@@ -242,8 +242,6 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
     );
     msg << icon << text;
     QDBusConnection::sessionBus().asyncCall(msg);
-
-
 }
 
 void KScreenDaemon::showOutputIdentifier()
@@ -283,15 +281,15 @@ void KScreenDaemon::applyGenericConfig()
     m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
     qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
 
-    QHash<Generator::DisplaySwitchAction, QString> actionMessages({
+    static QHash<Generator::DisplaySwitchAction, QString> actionMessages({
         {Generator::DisplaySwitchAction::None, i18nc("osd when displaybutton is pressed", "No Action")},
         {Generator::DisplaySwitchAction::Clone, i18nc("osd when displaybutton is pressed", "Cloned Display")},
         {Generator::DisplaySwitchAction::ExtendToLeft, i18nc("osd when displaybutton is pressed", "Extend Left")},
-        {Generator::DisplaySwitchAction::TurnOffEmbedded, i18nc("osd when displaybutton is pressed", "Embedded Off")},
-        {Generator::DisplaySwitchAction::TurnOffExternal, i18nc("osd when displaybutton is pressed", "External Off")},
+        {Generator::DisplaySwitchAction::TurnOffEmbedded, i18nc("osd when displaybutton is pressed", "External Only")},
+        {Generator::DisplaySwitchAction::TurnOffExternal, i18nc("osd when displaybutton is pressed", "Internal Only")},
         {Generator::DisplaySwitchAction::ExtendToRight, i18nc("osd when displaybutton is pressed", "Extended Right")}
     });
-    QString message = actionMessages.value(m_iteration);
+    const QString &message = actionMessages.value(m_iteration);
 
     // We delay the OSD for two seconds and hope that X and hardware are done setting everything up.
     QTimer::singleShot(2000,

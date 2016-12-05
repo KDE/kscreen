@@ -29,32 +29,30 @@
 #include <KDeclarative/QmlObject>
 
 
-namespace KScreen {
+using namespace KScreen;
 
 Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
     : QObject(parent)
     , m_output(output)
-    , m_osdPath(QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml")))
     , m_osdObject(new KDeclarative::QmlObject(this))
 {
-    if (m_osdPath.isEmpty()) {
-        qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << m_osdPath;
+    const QString &osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml"));
+    if (osdPath.isEmpty()) {
+        qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << osdPath;
     }
 
-    m_osdObject->setSource(QUrl::fromLocalFile(m_osdPath));
+    m_osdObject->setSource(QUrl::fromLocalFile(osdPath));
 
     if (m_osdObject->status() != QQmlComponent::Ready) {
-        qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << m_osdPath;
+        qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << osdPath;
         return;
     }
 
     m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
 
-    if (!m_osdTimer) {
-        m_osdTimer = new QTimer(this);
-        m_osdTimer->setSingleShot(true);
-        connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
-    }
+    m_osdTimer = new QTimer(this);
+    m_osdTimer->setSingleShot(true);
+    connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
 }
 
 Osd::~Osd()
@@ -78,11 +76,9 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
 
     auto *rootObject = m_osdObject->rootObject();
     auto mode = output->currentMode();
-    QSize realSize;
-    if (output->isHorizontal()) {
-        realSize = mode->size();
-    } else {
-        realSize = QSize(mode->size().height(), mode->size().width());
+    QSize realSize = mode->size();
+    if (!output->isHorizontal()) {
+        realSize.transpose();
     }
     rootObject->setProperty("itemSource", QStringLiteral("OutputIdentifier.qml"));
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
@@ -117,7 +113,7 @@ void Osd::showOsd()
 
     // only animate on X11, wayland plugin doesn't support this and
     // pukes loads of warnings into our logs
-    if (qGuiApp->platformName() == QStringLiteral("xcb")) {
+    if (qGuiApp->platformName() == QLatin1String("xcb")) {
         rootObject->setProperty("animateOpacity", false);
         rootObject->setProperty("opacity", 1);
         rootObject->setProperty("visible", true);
@@ -139,4 +135,3 @@ void Osd::hideOsd()
     rootObject->setProperty("visible", false);
 }
 
-} // ns

@@ -49,7 +49,7 @@ private:
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     QMap<QString, KScreen::Osd*> m_osds;
 
-    static OsdManager* m_instance;
+    static OsdManager* s_instance;
     QTimer* m_cleanupTimer;
 };
 
