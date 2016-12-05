@@ -33,8 +33,13 @@ public:
     explicit OsdTest(QObject *parent = nullptr);
     virtual ~OsdTest();
 
-    void start();
+    void setUseDBus(bool yesno);
 
+    void showGenericOsd(const QString &icon, const QString &message);
+    void showOutputIdentifiers();
+
+private:
+    bool m_useDBus = false;
 };
 
 } // namespace

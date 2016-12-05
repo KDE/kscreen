@@ -25,11 +25,36 @@ int main(int argc, char **argv)
 {
     QGuiApplication app(argc, argv);
 
+    QCommandLineOption dbus = QCommandLineOption(QStringList() << QStringLiteral("d") << "dbus",
+                                                  QStringLiteral("Call over dbus"));
+    QCommandLineOption outputid = QCommandLineOption(QStringList() << QStringLiteral("o") << "outputidentifiers",
+                                                  QStringLiteral("Show output identifier"));
+    QCommandLineOption icon = QCommandLineOption(QStringList() << QStringLiteral("i") << "icon",
+                                                  QStringLiteral("Icon to use for OSD"), QStringLiteral("preferences-desktop-display-randr"));
+    QCommandLineOption message = QCommandLineOption(QStringList() << QStringLiteral("m") << "message",
+                                                  QStringLiteral("Icon to use for OSD"), QStringLiteral("OSD Test"));
     KScreen::OsdTest osdtest;
     QCommandLineParser parser;
     parser.addHelpOption();
+    parser.addOption(dbus);
+    parser.addOption(outputid);
+    parser.addOption(icon);
+    parser.addOption(message);
     parser.process(app);
 
-    osdtest.start();
+
+
+    if (parser.isSet(dbus)) {
+        osdtest.setUseDBus(true);
+    }
+    if (parser.isSet(outputid)) {
+
+        osdtest.showOutputIdentifiers();
+    } else {
+        osdtest.showGenericOsd(parser.value(icon), parser.value(message));
+    }
+    if (parser.isSet(outputid)) {
+    }
+
     return app.exec();
 }
