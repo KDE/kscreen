@@ -18,6 +18,7 @@ Name[de]=Anzeigen
 Name[el]=Οθόνες
 Name[en_GB]=Displays
 Name[es]=Pantallas
+Name[et]=Monitorid
 Name[fi]=Näytöt
 Name[fr]=Affichages
 Name[he]=תצוגות
