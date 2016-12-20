@@ -42,7 +42,6 @@ Name[zh_CN]=KScreen 2
 Name[zh_TW]=KScreen 2
 Comment=Screen management
 Comment[ar]=إدارة الشّاشة
-Comment[ast]=Xestión de pantalla 
 Comment[bs]=Upravljanje ekranom
 Comment[ca]=Gestió de pantalla
 Comment[ca@valencia]=Gestió de pantalla
