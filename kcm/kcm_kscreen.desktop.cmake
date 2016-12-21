@@ -28,6 +28,7 @@ Name[nl]=Schermen
 Name[nn]=Skjermar
 Name[pl]=Ekrany
 Name[pt]=Ecrãs
+Name[pt_BR]=Telas
 Name[ru]=Экраны
 Name[sk]=Obrazovky
 Name[sl]=Zasloni
