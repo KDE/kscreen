@@ -115,9 +115,9 @@ void OutputConfig::initUi()
 
     mRotation = new QComboBox(this);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Clockwise"), KScreen::Output::Left);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Clockwise"), KScreen::Output::Right);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Counterclockwise"), KScreen::Output::Right);
+    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Counterclockwise"), KScreen::Output::Left);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
