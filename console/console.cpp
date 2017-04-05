@@ -35,6 +35,8 @@
 #include <kscreen/getconfigoperation.h>
 
 
+static QTextStream cout(stdout);
+
 namespace KScreen
 {
 namespace ConfigSerializer
@@ -180,7 +182,7 @@ QString Console::typetoString(const Output::Type& type) const
 void Console::printJSONConfig()
 {
     QJsonDocument doc(KScreen::ConfigSerializer::serializeConfig(m_config));
-    qDebug() << doc.toJson(QJsonDocument::Indented);
+    cout << doc.toJson(QJsonDocument::Indented);
 }
 
 void Console::printSerializations()
