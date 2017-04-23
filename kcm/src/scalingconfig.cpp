@@ -119,9 +119,9 @@ void ScalingConfig::accept()
     QDialog::accept();
 }
 
-qreal ScalingConfig::scaleDPI() const
+int ScalingConfig::scaleDPI() const
 {
-    return scaleFactor() * 96.0;
+    return qRound(scaleFactor() * 96.0);
 }
 
 qreal ScalingConfig::scaleFactor() const
