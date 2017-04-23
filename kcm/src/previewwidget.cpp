@@ -68,16 +68,13 @@ qreal PreviewWidget::pointSizeToPixelSize(qreal pointSize) const
     //scale by our new factor
     pixelSize *= m_scale;
 
-    int dpr = qRound(m_scale);
-    return pixelSize / dpr; //as we are now dealing with pixels it will be scaled up in the paint(), so it needs dividing here
+    return pixelSize / m_scale; //as we are now dealing with pixels it will be scaled up in the paint(), so it needs dividing here
 }
 
 QPixmap PreviewWidget::updatePixmapCache()
 {
-   int dpr = qRound(m_scale);
-
-   QPixmap pixmap(m_internalPreview ->sizeHint() * dpr);
-   pixmap.setDevicePixelRatio(dpr);
+   QPixmap pixmap(m_internalPreview ->sizeHint() * m_scale);
+   pixmap.setDevicePixelRatio(m_scale);
    QPainter p(&pixmap);
    m_internalPreview ->render(&p);
 
