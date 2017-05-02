@@ -24,6 +24,7 @@
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QLoggingCategory>
+#include <QRect>
 
 #include <kscreen/config.h>
 
