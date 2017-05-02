@@ -104,6 +104,7 @@ void Console::printConfig()
         if (output->currentMode()) {
             qDebug() << "Size: " << output->size();
         }
+        qDebug() << "Scale: " << output->scale();
         if (output->clones().isEmpty()) {
             qDebug() << "Clones: " << "None";
         } else {
