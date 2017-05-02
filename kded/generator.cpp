@@ -202,7 +202,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         external->setCurrentModeId(extMode->id());
 
         Q_ASSERT(external->currentMode()); // we must have a mode now
-        const QSize size = external->currentMode()->size();
+        const QSize size = external->geometry().size();
         embedded->setPos(QPoint(size.width(), 0));
         embedded->setEnabled(true);
         embedded->setPrimary(true);
@@ -248,7 +248,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
 
         Q_ASSERT(embedded->currentMode()); // we must have a mode now
-        const QSize size = embedded->currentMode()->size();
+        const QSize size = embedded->geometry().size();
         external->setPos(QPoint(size.width(), 0));
         external->setEnabled(true);
         external->setPrimary(false);
@@ -424,12 +424,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     Q_ASSERT(embeddedMode);
     embedded->setCurrentModeId(embeddedMode->id());
 
-    int globalWidth;
-    if (embedded->isHorizontal()) {
-        globalWidth = embedded->currentMode()->size().width();
-    } else {
-        globalWidth = embedded->currentMode()->size().height();
-    }
+    int globalWidth = embedded->geometry().width();
     KScreen::OutputPtr biggest = biggestOutput(connectedOutputs);
     Q_ASSERT(biggest);
     connectedOutputs.remove(biggest->id());
@@ -440,11 +435,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     const KScreen::ModePtr mode = bestModeForOutput(biggest);
     biggest->setCurrentModeId(mode->id());
 
-    if (biggest->isHorizontal()) {
-        globalWidth += biggest->currentMode()->size().width();
-    } else {
-        globalWidth += biggest->currentMode()->size().height();
-    }
+    globalWidth += biggest->geometry().width();
     Q_FOREACH(KScreen::OutputPtr output, connectedOutputs) {
         output->setEnabled(true);
         output->setPrimary(false);
@@ -453,11 +444,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
         Q_ASSERT(mode);
         output->setCurrentModeId(mode->id());
 
-        if (output->isHorizontal()) {
-            globalWidth += output->currentMode()->size().width();
-        } else {
-            globalWidth += output->currentMode()->size().height();
-        }
+        globalWidth += output->geometry().width();
     }
 
     if (isDocked()) {
@@ -487,12 +474,7 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
     Q_ASSERT(mode);
     biggest->setCurrentModeId(mode->id());
 
-    int globalWidth;
-    if (biggest->isHorizontal()) {
-        globalWidth = biggest->currentMode()->size().width();
-    } else {
-        globalWidth = biggest->currentMode()->size().height();
-    }
+    int globalWidth = biggest->geometry().width();
 
     Q_FOREACH(KScreen::OutputPtr output, connectedOutputs) {
         output->setEnabled(true);
@@ -502,11 +484,7 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
         Q_ASSERT(mode);
         output->setCurrentModeId(mode->id());
 
-        if (output->isHorizontal()) {
-            globalWidth += output->currentMode()->size().width();
-        } else {
-            globalWidth += output->currentMode()->size().height();
-        }
+        globalWidth += output->geometry().width();
     }
 }
 
