@@ -80,6 +80,8 @@ void QMLOutput::setOutputPtr(const KScreen::OutputPtr &output)
             this, &QMLOutput::updateRootProperties);
     connect(m_output.data(), &KScreen::Output::currentModeIdChanged,
             this, &QMLOutput::currentModeIdChanged);
+    connect(m_output.data(), &KScreen::Output::scaleChanged,
+            this, &QMLOutput::currentModeIdChanged);
 }
 
 QMLScreen *QMLOutput::screen() const
@@ -209,7 +211,7 @@ int QMLOutput::currentOutputHeight() const
         }
     }
 
-    return mode->size().height();
+    return mode->size().height() / m_output->scale();
 }
 
 int QMLOutput::currentOutputWidth() const
@@ -231,7 +233,7 @@ int QMLOutput::currentOutputWidth() const
         }
     }
 
-    return mode->size().width();
+    return mode->size().width() / m_output->scale();
 }
 
 void QMLOutput::currentModeIdChanged()
