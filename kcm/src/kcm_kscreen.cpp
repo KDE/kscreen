@@ -70,6 +70,7 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
 void KCMKScreen::configReady(ConfigOperation* op)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setMargin(0);
 
     if (op->hasError()) {
         mKScreenWidget = 0;

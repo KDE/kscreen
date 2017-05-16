@@ -79,6 +79,8 @@ Widget::Widget(QWidget *parent):
     widget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(widget);
+    const int topMargin = style()->pixelMetric(QStyle::PM_LayoutTopMargin, 0, this);
+    vbox->setContentsMargins(0, topMargin, 0, 0);
     widget->setLayout(vbox);
 
     QHBoxLayout *hbox = new QHBoxLayout;
