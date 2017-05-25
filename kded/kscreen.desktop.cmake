@@ -16,6 +16,7 @@ Name[eu]=KScreen 2
 Name[fi]=KScreen 2
 Name[fr]=KScreen 2
 Name[gl]=KScreen 2
+Name[he]=KScreen 2
 Name[hu]=KScreen 2
 Name[ia]=Kscreen 2
 Name[it]=KScreen 2

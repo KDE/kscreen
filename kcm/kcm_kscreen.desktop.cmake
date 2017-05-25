@@ -102,6 +102,7 @@ X-KDE-Keywords[eu]=bistaratzaile,monitore,eskalatu,eskalatze,bereizmen,orientazi
 X-KDE-Keywords[fi]=display,monitor,scale,scaling,resolution,orientation,outputs,näyttö,monitori,skaalaus,resoluutio,tarkkuus,suunta,kierto,ulostulot
 X-KDE-Keywords[fr]=affichage,moniteur,échelle,mise à l'échelle,résolution,orientation,sorties
 X-KDE-Keywords[gl]=display,pantalla,monitor,scale,escala,scaling,escalar,resolution,resolución,orientation,orientación,outputs,saída,saídas
+X-KDE-Keywords[he]=display,monitor,scale,scaling,resolution,orientation,outputs,תצוגה,מוניטור,רצולוציה,כיוון
 X-KDE-Keywords[hu]=megjelenítés,monitor,skála,skálázás,felbontás,tájolás,kimenetek
 X-KDE-Keywords[ia]=monstrator, monitor, scala, scalar, resolution, orientation, exitos
 X-KDE-Keywords[it]=schermo,monitor,scala,riscalatura,risoluzione,orientazione,uscite
