@@ -47,6 +47,7 @@ private Q_SLOTS:
     void testNullConfig();
     void testIdenticalOutputs();
     void testMoveConfig();
+    void testFixedConfig();
 
 private:
     KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
@@ -458,6 +459,27 @@ void TestSerializer::testMoveConfig()
 
     Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
+
+void TestSerializer::testFixedConfig()
+{
+    // Load a dualhead config
+    KScreen::ConfigPtr config = createConfig(true, true);
+    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
+    QVERIFY(config);
+
+    // Make sure we don't write into TEST_DATA
+    QStandardPaths::setTestModeEnabled(true);
+    Serializer::setConfigPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    // save config as the current one, this is the config we don't want restored, and which we'll overwrite
+    Serializer::saveConfig(config, Serializer::sFixedConfig);
+
+    // Check if both files exist
+    QFile fixedCfg(Serializer::configFileName(Serializer::sFixedConfig));
+    QVERIFY(fixedCfg.exists());
+
+
+}
+
 
 QTEST_MAIN(TestSerializer)
 
