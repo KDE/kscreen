@@ -36,7 +36,7 @@
 #include <kscreen/edid.h>
 
 QString Serializer::sConfigPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
-
+QString Serializer::sFixedConfig = QStringLiteral("fixed-config");
 void Serializer::setConfigPath(const QString &path)
 {
     sConfigPath = path;
@@ -86,7 +86,7 @@ bool Serializer::configExists(const KScreen::ConfigPtr &config)
 
 bool Serializer::configExists(const QString &id)
 {
-    return QFile::exists(sConfigPath % id);
+    return (QFile::exists(sConfigPath % id) || QFile::exists(sConfigPath % sFixedConfig));
 }
 
 KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString &id)
