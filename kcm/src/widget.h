@@ -53,7 +53,7 @@ class Widget : public QWidget
     KScreen::ConfigPtr currentConfig() const;
 
   protected:
-    virtual bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
 
   Q_SIGNALS:
     void changed();

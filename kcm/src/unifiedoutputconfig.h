@@ -37,13 +37,13 @@ class UnifiedOutputConfig : public OutputConfig
     explicit UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent);
     virtual ~UnifiedOutputConfig();
 
-    void setOutput(const KScreen::OutputPtr &output);
+    void setOutput(const KScreen::OutputPtr &output) Q_DECL_OVERRIDE;
 
   private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
 
   private:
-    virtual void initUi();
+    void initUi() Q_DECL_OVERRIDE;
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
 

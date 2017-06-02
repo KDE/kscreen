@@ -38,9 +38,9 @@ class KCMKScreen : public KCModule
     virtual ~KCMKScreen();
 
   public Q_SLOTS:
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
     void changed();
 
   private:
