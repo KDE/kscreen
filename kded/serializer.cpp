@@ -93,9 +93,15 @@ KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, c
 {
     KScreen::ConfigPtr config = currentConfig->clone();
 
-    QFile file(configFileName(id));
+    QFile file;
+    if (QFile::exists(sConfigPath % sFixedConfig)) {
+        file.setFileName(sConfigPath % sFixedConfig);
+        qCDebug(KSCREEN_KDED) << "found a fixed config, will use " << file.fileName();
+    } else {
+        file.setFileName(configFileName(id));
+    }
     if (!file.open(QIODevice::ReadOnly)) {
-        qCDebug(KSCREEN_KDED) << "failed to open file" << id;
+        qCDebug(KSCREEN_KDED) << "failed to open file" << file.fileName();
         return KScreen::ConfigPtr();
     }
 

@@ -478,6 +478,7 @@ void TestSerializer::testFixedConfig()
     QVERIFY(fixedCfg.exists());
 
 
+
 }
 
 
