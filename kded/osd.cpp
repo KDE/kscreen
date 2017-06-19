@@ -86,25 +86,6 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     showOsd();
 }
 
-void Osd::updatePosition()
-{
-    if (!m_outputGeometry.isValid()) {
-        return;
-    }
-
-    auto *rootObject = m_osdObject->rootObject();
-
-    const int dialogWidth = rootObject->property("width").toInt();
-    const int dialogHeight = rootObject->property("height").toInt();
-    const int relx = m_outputGeometry.x();
-    const int rely = m_outputGeometry.y();
-    const int pos_x = relx + (m_outputGeometry.width() - dialogWidth) / 2;
-    const int pos_y = rely + (m_outputGeometry.height() - dialogHeight) / 2;
-
-    rootObject->setProperty("x", pos_x);
-    rootObject->setProperty("y", pos_y);
-}
-
 void Osd::showOsd()
 {
     m_osdTimer->stop();
@@ -122,7 +103,6 @@ void Osd::showOsd()
     } else {
         rootObject->setProperty("visible", true);
     }
-    updatePosition();
     m_osdTimer->start(m_timeout);
 }
 

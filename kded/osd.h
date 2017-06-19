@@ -48,7 +48,6 @@ public:
 private:
     void hideOsd();
     void showOsd();
-    void updatePosition();
 
     KScreen::OutputPtr m_output;
     QRect m_outputGeometry;
