@@ -22,6 +22,7 @@ Name[et]=Monitorid
 Name[eu]=Bistaratzaileak
 Name[fi]=Näytöt
 Name[fr]=Affichages
+Name[gl]=Pantallas
 Name[he]=תצוגות
 Name[hu]=Megjelenítők
 Name[ia]=Monstratores
