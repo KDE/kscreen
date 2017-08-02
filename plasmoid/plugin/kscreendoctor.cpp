@@ -20,31 +20,65 @@
 
 #include "kscreendoctor.h"
 
+#include <KScreen/Config>
+#include <KScreen/ConfigMonitor>
+#include <KScreen/GetConfigOperation>
+#include <KScreen/SetConfigOperation>
+#include <KScreen/Output>
+
 #include <QDebug>
 
 
 KScreenDoctor::KScreenDoctor(QObject *parent)
     : QObject(parent)
 {
-//     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
-//             this, &KScreenDaemon::configReady);
-// }
-//
-// void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
-// {
-//     if (op->hasError()) {
-//         return;
-//     }
-//
-//     m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-//     qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
-//     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, [=] (KScreen::ConfigOperation* op) {
+                if (op->hasError()) {
+                    return;
+                }
+
+                m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+                qDebug() << "Config" << m_monitoredConfig.data() << "is ready";
+                KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+                updateOutputs();
+            }
+    );
 
 }
 
+void KScreenDoctor::updateOutputs()
+{
+    m_outputNames.clear();
+    m_outputNames << QStringLiteral("Fake");
+    Q_ASSERT(m_monitoredConfig);
+    for (auto output: m_monitoredConfig->outputs()) {
+        if (output->isConnected()) {
+            m_outputNames << output->name();
+        }
+
+    }
+    qDebug() << "OUTPUTS:" << m_outputNames;
+    emit outputNamesChanged();
+
+    // Current output still valid?
+    if (m_currentOutput.isEmpty() || !m_outputNames.contains(m_currentOutput)) {
+        m_currentOutput = m_outputNames.at(0);
+        // Perhaps the primary output isn't the first, in that case, select the primary instead
+        for (auto output: m_monitoredConfig->outputs()) {
+            if (output->isConnected() && output->isPrimary()) {
+                m_currentOutput = output->name();
+            }
+        }
+        emit currentOutputChanged();
+    }
+    qDebug() << "CURRENT:" << m_currentOutput;
+}
+
+
 QStringList KScreenDoctor::outputNames() const
 {
-    return QStringList() << QStringLiteral("eDP-1") << QStringLiteral("4K Monster");
+    return m_outputNames;
 }
 
 QString KScreenDoctor::currentOutput() const
@@ -56,6 +90,7 @@ void KScreenDoctor::setCurrentOutput(const QString &currentOutput)
 {
     if (m_currentOutput != currentOutput) {
         m_currentOutput = currentOutput;
+            qDebug() << "Current output is now: " << m_currentOutput;
         emit currentOutputChanged();
     }
 }
@@ -65,7 +100,35 @@ int KScreenDoctor::currentOutputRotation() const
     return 0;
 }
 
-void KScreenDoctor::setRotation(const QString &outputName, int rotation)
+void KScreenDoctor::setRotation(int rotation)
 {
-    qDebug() << "Setting output" << outputName << "to" << rotation;
+    qDebug() << "Setting output" << m_currentOutput << "to" << rotation;
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, [=] (KScreen::ConfigOperation* op) {
+                if (op->hasError()) {
+                    return;
+                }
+
+                auto config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+                KScreen::OutputPtr currentOutput = nullptr;
+                for (auto output: config->outputs()) {
+                    if (output->name() == m_currentOutput) {
+                        qDebug() << "Setting output rotation on " << output->name();
+                        if (rotation == 0) {
+                            output->setRotation(KScreen::Output::None);
+                        } else if (rotation == 90) {
+                            output->setRotation(KScreen::Output::Right);
+                        } else if (rotation == 180) {
+                            output->setRotation(KScreen::Output::Inverted);
+                        } else if (rotation == 270) {
+                            output->setRotation(KScreen::Output::Left);
+                        }
+                        auto *op = new KScreen::SetConfigOperation(config);
+                        op->exec();
+
+
+                    }
+                }
+            }
+    );
 }

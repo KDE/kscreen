@@ -24,6 +24,9 @@
 #include <QObject>
 #include <QStringList>
 
+#include <KScreen/Config>
+
+
 class KScreenDoctor : public QObject
 {
     Q_OBJECT
@@ -41,7 +44,7 @@ public:
 
 public Q_SLOTS:
     void setCurrentOutput(const QString &outputName);
-    Q_INVOKABLE void setRotation(const QString &outputName, int rotation);
+    Q_INVOKABLE void setRotation(int rotation);
 
 Q_SIGNALS:
     void outputNamesChanged() const;
@@ -49,7 +52,11 @@ Q_SIGNALS:
     void currentOutputRotationChanged() const;
 
 private:
+    void updateOutputs();
+    QStringList m_outputNames;
     QString m_currentOutput;
+
+    KScreen::ConfigPtr m_monitoredConfig = nullptr;
 };
 
 #endif // KSCREENDOCIMPORT_H
