@@ -44,20 +44,57 @@ FocusScope {
 
     KScreenDoctor {
         id: doctor
+
+        onOutputNamesChanged: outputCombo.updateCurrent()
+        onCurrentOutputChanged: outputCombo.updateCurrent()
     }
 
     ComboBox {
-        model: doctor.screenNames
+        id: outputCombo
+        model: doctor.outputNames
         anchors {
             top: screensheading.bottom
             left: parent.left
             right: parent.right
 
         }
+        function updateCurrent() {
+            for (var i = 0; i < doctor.outputNames.length; i++) {
+                if (doctor.outputNames[i] == doctor.currentOutput) {
+                    outputCombo.currentIndex = i;
+                }
+            }
+        }
+        onActivated: {
+            print("Selected: " + doctor.outputNames[index])
+            doctor.currentOutput = doctor.outputNames[index]
+        }
     }
 
     ColumnLayout {
+        anchors {
+            top: outputCombo.bottom
+            left: parent.left
+            right: parent.right
+            //bottom: parent.bottom
+
+        }
+        Button {
+            text: i18n("Normal")
+            onClicked: doctor.setRotation(0);
+        }
+        Button {
+            text: i18n("90°")
+            onClicked: doctor.setRotation(90);
+        }
+        Button {
+            text: i18n("Upside down")
+            onClicked: doctor.setRotation(180);
+        }
+        Button {
+            text: i18n("270°")
+            onClicked: doctor.setRotation(270);
+        }
 
     }
-
 }
