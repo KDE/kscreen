@@ -73,17 +73,13 @@ void OutputConfig::initUi()
 
     connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
             this, [=]() {
-                mEnabled->blockSignals(true);
                 mEnabled->setChecked(mOutput->isEnabled());
-                mEnabled->blockSignals(false);
             });
 
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
             this, [=]() {
                 const int index = mRotation->findData(mOutput->rotation());
-                mRotation->blockSignals(true);
                 mRotation->setCurrentIndex(index);
-                mRotation->blockSignals(false);
             });
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -118,7 +114,7 @@ void OutputConfig::initUi()
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Clockwise"), KScreen::Output::Right);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Counterclockwise"), KScreen::Output::Left);
-    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
@@ -144,7 +140,7 @@ void OutputConfig::initUi()
     mRefreshRate->addItem(i18n("Auto"), -1);
     formLayout->addRow(i18n("Refresh rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
-    connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+    connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
 
     vbox->addStretch(2);
@@ -185,7 +181,6 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
-    mRefreshRate->blockSignals(true);
     for (int i = 1; i < mRefreshRate->count(); ++i) {
         mRefreshRate->removeItem(i);
     }
@@ -201,14 +196,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i);
         }
     }
-    mRefreshRate->blockSignals(false);
 
     Q_EMIT changed();
 }
 
 void OutputConfig::slotRotationChanged(int index)
 {
-    KScreen::Output::Rotation rotation = 
+    KScreen::Output::Rotation rotation =
         static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     mOutput->setRotation(rotation);
 
