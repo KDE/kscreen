@@ -47,10 +47,14 @@ class OutputConfig : public QWidget
     KScreen::OutputPtr output() const;
 
     void setTitle(const QString &title);
+    void setShowScaleOption(bool showScaleOption);
+    bool showScaleOption() const;
+
   protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
+    void slotScaleChanged(int index);
 
   Q_SIGNALS:
     void changed();
@@ -64,7 +68,9 @@ class OutputConfig : public QWidget
     QCheckBox *mEnabled;
     ResolutionSlider *mResolution;
     QComboBox *mRotation;
+    QComboBox *mScale;
     QComboBox *mRefreshRate;
+    bool mShowScaleOption  = false;
 };
 
 #endif // OUTPUTCONFIG_H

@@ -119,15 +119,16 @@ Widget::Widget(QWidget *parent):
 
     vbox->addWidget(mUnifyButton);
 
-    auto setScaleButton = new QPushButton(i18n("Scale Display"), this);
-    connect(setScaleButton, &QPushButton::released,
+    mScaleAllOutputsButton = new QPushButton(i18n("Scale Display"), this);
+    connect(mScaleAllOutputsButton, &QPushButton::released,
             [this] {
                 QPointer<ScalingConfig> dialog = new ScalingConfig(mConfig->outputs(), this);
                 dialog->exec();
                 delete dialog;
             });
-    
-    vbox->addWidget(setScaleButton);
+
+    vbox->addWidget(mScaleAllOutputsButton);
+
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,
@@ -174,6 +175,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mControlPanel->setConfig(mConfig);
     mPrimaryCombo->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
+    mScaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
+
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,

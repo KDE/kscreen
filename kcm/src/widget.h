@@ -91,6 +91,7 @@ class Widget : public QWidget
     PrimaryOutputCombo *mPrimaryCombo;
     QComboBox *mProfilesCombo;
 
+    QPushButton *mScaleAllOutputsButton;
     QPushButton *mUnifyButton;
     QPushButton *mSaveProfileButton;
 

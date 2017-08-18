@@ -82,6 +82,12 @@ void OutputConfig::initUi()
                 mRotation->setCurrentIndex(index);
             });
 
+    connect(mOutput.data(), &KScreen::Output::scaleChanged,
+            this, [=]() {
+                const int index = mScale->findData(mOutput->scale());
+                mScale->setCurrentIndex(index);
+            });
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
@@ -120,7 +126,18 @@ void OutputConfig::initUi()
 
     formLayout->addRow(i18n("Orientation:"), mRotation);
 
-    formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    if (mShowScaleOption) {
+        mScale = new QComboBox(this);
+        mScale->addItem(i18nc("Scale multiplier, show everything at 1 times normal scale", "1x"), 1);
+        mScale->addItem(i18nc("Scale multiplier, show everything at 2 times normal scale", "2x"), 2);
+        connect(mScale, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
+                this, &OutputConfig::slotScaleChanged);
+        mScale->setCurrentIndex(mScale->findData(mOutput->scale()));
+
+        formLayout->addRow(i18n("Scale:"), mScale);
+
+        formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    }
 
     CollapsableButton *advancedButton = new CollapsableButton(i18n("Advanced Settings"), this);
     advancedButton->setCollapsed(true);
@@ -223,4 +240,24 @@ void OutputConfig::slotRefreshRateChanged(int index)
     mOutput->setCurrentModeId(modeId);
 
     Q_EMIT changed();
+}
+
+void OutputConfig::slotScaleChanged(int index)
+{
+    auto scale = mScale->itemData(index).toInt();
+    mOutput->setScale(scale);
+    Q_EMIT changed();
+}
+
+void OutputConfig::setShowScaleOption(bool showScaleOption)
+{
+    mShowScaleOption = showScaleOption;
+    if (mOutput) {
+        initUi();
+    }
+}
+
+bool OutputConfig::showScaleOption() const
+{
+    return mShowScaleOption;
 }
