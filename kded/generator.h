@@ -73,6 +73,7 @@ class Generator : public QObject
 
         KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
         KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
+        qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
         KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
         KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);

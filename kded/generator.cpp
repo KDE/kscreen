@@ -155,6 +155,14 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     KScreen::OutputList connectedOutputs = config->connectedOutputs();
 
+    //the scale will generally be independent no matter where the output is
+    //scale will affect geometry, so do this first
+    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
+        for(auto output: qAsConst(connectedOutputs)) {
+            output->setScale(bestScaleForOutput(output));
+        }
+    }
+
     // There's not much else we can do with only one output
     if (connectedOutputs.count() < 2) {
         singleOutput(connectedOutputs);
@@ -534,6 +542,18 @@ KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, cons
     }
 
     return bestMode;
+}
+
+qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output) {
+    const auto mode = bestModeForOutput(output);
+    const qreal dpi = mode->size().height() / (output->sizeMm().height() / 25.4);
+
+    //if reported DPI is closer to two times normal DPI, followed by a sanity check of having the sort of vertical resolution
+    //you'd find in a high res screen
+    if (dpi > 96 * 1.5 && mode->size().height() >= 1440) {
+        return 2.0;
+    }
+    return 1.0;
 }
 
 KScreen::ModePtr Generator::bestModeForOutput(const KScreen::OutputPtr &output)
