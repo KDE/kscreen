@@ -98,6 +98,14 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
         return config;
     }
 
+    //the scale will generally be independent no matter where the output is
+    //scale will affect geometry, so do this first
+    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
+        for(auto output: qAsConst(connectedOutputs)) {
+            output->setScale(bestScaleForOutput(output));
+        }
+    }
+
     if (connectedOutputs.count() == 1) {
         singleOutput(connectedOutputs);
         return config;
