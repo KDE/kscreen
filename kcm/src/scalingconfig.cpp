@@ -24,6 +24,8 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
+#include <KScreen/GetConfigOperation>
+#include <KScreen/SetConfigOperation>
 #include <KScreen/Output>
 
 //we want a scale between 1 and 3.0 in intervals of 0.1
@@ -114,8 +116,19 @@ void ScalingConfig::accept()
         }
         fontConfigGroup.writeEntry("forceFontDPI", scaleDPI());
     }
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, [=] (KScreen::ConfigOperation* op) {
+            auto config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+            foreach (const KScreen::OutputPtr &output, m_outputList) {
+                output->setScale(scalingFactor);
+            }
+            connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
+                    [&]() {
+                        qDebug() << "Config saved";
+                    });
 
-
+        }
+    );
     QDialog::accept();
 }
 
