@@ -66,6 +66,7 @@ Comment[fr]=Gère et configure les moniteurs et les écrans
 Comment[ga]=Bainistigh agus cumraigh monatóirí agus scáileáin
 Comment[gl]=Xestiona a configura os monitores e a resolución
 Comment[hu]=Monitorok és kijelzők kezelése és beállítása
+Comment[id]=Kelola dan atur monitor dan display
 Comment[it]=Gestisci e configura monitor e schermi
 Comment[ko]=모니터와 디스플레이 설정 및 관리
 Comment[mr]=मॉनिटर्स व प्रदर्शक संयोजीत करा
