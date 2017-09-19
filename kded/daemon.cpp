@@ -195,7 +195,6 @@ void logConfig(const KScreen::ConfigPtr config) {
 
 void KScreenDaemon::configChanged()
 {
-    qCDebug(KSCREEN_KDED) << "Change detected";
     logConfig(m_monitoredConfig);
 
     // Modes may have changed, fix-up current mode id
@@ -215,17 +214,26 @@ void KScreenDaemon::saveCurrentConfig()
 {
     qCDebug(KSCREEN_KDED) << "Saving current config to file";
 
-    // We assume the config is valid, since it's what we got, but we are interested
-    // in the "at least one enabled screen" check
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
+            this, [=](KScreen::ConfigOperation* op) {
 
-    const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
-    if (valid) {
-        Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
-        logConfig(m_monitoredConfig);
-    } else {
-        qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
-        logConfig(m_monitoredConfig);
-    }
+                KScreen::ConfigMonitor::instance()->removeConfig(m_monitoredConfig);
+                m_monitoredConfig->deleteLater();
+                // We assume the config is valid, since it's what we got, but we are interested
+                // in the "at least one enabled screen" check
+                m_monitoredConfig = op->config();
+                const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
+                if (valid) {
+                    Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
+                    logConfig(m_monitoredConfig);
+                } else {
+                    qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
+                    logConfig(m_monitoredConfig);
+                }
+                monitorConnectedChange();
+                KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+            }
+    );
 }
 
 void KScreenDaemon::showOsd(const QString &icon, const QString &text)
