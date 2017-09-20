@@ -37,6 +37,8 @@ class KCMKScreen : public KCModule
     explicit KCMKScreen (QWidget* parent = 0, const QVariantList& args = QVariantList());
     virtual ~KCMKScreen();
 
+    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
+
   public Q_SLOTS:
     void load() Q_DECL_OVERRIDE;
     void save() Q_DECL_OVERRIDE;
