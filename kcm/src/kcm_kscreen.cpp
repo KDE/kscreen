@@ -95,6 +95,11 @@ KCMKScreen::~KCMKScreen()
 {
 }
 
+QSize KCMKScreen::sizeHint() const
+{
+    return QSize(0, 700);
+}
+
 void KCMKScreen::changed()
 {
     if (!m_blockChanges) {
