@@ -154,6 +154,7 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
         info[QStringLiteral("rotation")] = output->rotation();
+        info[QStringLiteral("scale")] = output->scale();
 
         QVariantMap pos;
         pos[QStringLiteral("x")] = output->pos().x();
