@@ -140,7 +140,6 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
     qCDebug(KSCREEN_KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
-    KScreen::ConfigMonitor::instance()->removeConfig(m_monitoredConfig);
     m_monitoredConfig = config;
     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
