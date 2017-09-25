@@ -553,6 +553,10 @@ KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, cons
 }
 
 qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output) {
+    //if we have no physical size, we can't determine the DPI properly. Fallback to scale 1
+    if (output->sizeMm().height() <= 0) {
+        return 1.0;
+    }
     const auto mode = bestModeForOutput(output);
     const qreal dpi = mode->size().height() / (output->sizeMm().height() / 25.4);
 
