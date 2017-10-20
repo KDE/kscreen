@@ -69,21 +69,22 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
 
 void KCMKScreen::configReady(ConfigOperation* op)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    delete mMainLayout;
+    mMainLayout = new QHBoxLayout(this);
+    mMainLayout->setMargin(0);
 
     if (op->hasError()) {
         mKScreenWidget = 0;
         delete mKScreenWidget;
         QLabel *errorLabel = new QLabel(this);
-        layout->addWidget(errorLabel);
+        mMainLayout->addWidget(errorLabel);
         errorLabel->setText(i18n("No kscreen backend found. Please check your kscreen installation."));
         return;
     }
 
     if (!mKScreenWidget) {
         mKScreenWidget = new Widget(this);
-        layout->addWidget(mKScreenWidget);
+        mMainLayout->addWidget(mKScreenWidget);
         QObject::connect(mKScreenWidget, &Widget::changed,
                 this, &KCMKScreen::changed);
     }

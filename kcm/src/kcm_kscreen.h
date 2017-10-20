@@ -23,7 +23,7 @@
 
 class Widget;
 class QTimer;
-
+class QHBoxLayout;
 namespace KScreen
 {
 class ConfigOperation;
@@ -50,6 +50,7 @@ class KCMKScreen : public KCModule
 
     Widget *mKScreenWidget;
     bool m_blockChanges = false;
+    QHBoxLayout *mMainLayout = nullptr;
 
 };
 
