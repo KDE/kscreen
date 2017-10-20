@@ -171,7 +171,7 @@ void KCMKScreen::save()
 
 void KCMKScreen::defaults()
 {
-    qCDebug(KSCREEN_KCM) << "LOAD";
+    qCDebug(KSCREEN_KCM) << "APPLY DEFAULT";
     load();
 }
 
