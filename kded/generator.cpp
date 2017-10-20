@@ -41,7 +41,7 @@
     }
 #endif
 
-Generator* Generator::instance = 0;
+Generator* Generator::instance = nullptr;
 
 bool operator<(const QSize &s1, const QSize &s2)
 {
@@ -69,7 +69,7 @@ Generator::Generator()
 void Generator::destroy()
 {
     delete Generator::instance;
-    Generator::instance = 0;
+    Generator::instance = nullptr;
 }
 
 Generator::~Generator()
@@ -298,7 +298,6 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
     QSet<QSize> commonSizes;
     const QSize maxScreenSize  = m_currentConfig->screen()->maxSize();
 
-    QList<QSet<QSize>> modes;
     Q_FOREACH(const KScreen::OutputPtr &output, connectedOutputs) {
         QSet<QSize> modeSizes;
         Q_FOREACH(const KScreen::ModePtr &mode, output->modes()) {

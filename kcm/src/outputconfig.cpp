@@ -42,7 +42,7 @@
 
 OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
-    , mOutput(0)
+    , mOutput(nullptr)
 {
 }
 

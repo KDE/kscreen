@@ -39,11 +39,11 @@ static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
 ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent)
     : QWidget(parent)
     , mOutput(output)
-    , mSmallestLabel(0)
-    , mBiggestLabel(0)
-    , mCurrentLabel(0)
-    , mSlider(0)
-    , mComboBox(0)
+    , mSmallestLabel(nullptr)
+    , mBiggestLabel(nullptr)
+    , mCurrentLabel(nullptr)
+    , mSlider(nullptr)
+    , mComboBox(nullptr)
 {
     connect(output.data(), &KScreen::Output::currentModeIdChanged,
             this, &ResolutionSlider::slotOutputModeChanged);

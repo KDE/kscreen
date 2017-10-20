@@ -53,9 +53,9 @@
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
-    mScreen(0),
-    mConfig(0),
-    mPrevConfig(0)
+    mScreen(nullptr),
+    mConfig(nullptr),
+    mPrevConfig(nullptr)
 {
     qRegisterMetaType<QQuickView*>();
 

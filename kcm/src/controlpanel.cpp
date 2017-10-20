@@ -30,7 +30,7 @@
 
 ControlPanel::ControlPanel(QWidget *parent)
     : QFrame(parent)
-    , mUnifiedOutputCfg(0)
+    , mUnifiedOutputCfg(nullptr)
 {
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -46,7 +46,7 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     qDeleteAll(mOutputConfigs);
     mOutputConfigs.clear();
     delete mUnifiedOutputCfg;
-    mUnifiedOutputCfg = 0;
+    mUnifiedOutputCfg = nullptr;
 
     if (mConfig) {
         mConfig->disconnect(this);
@@ -108,12 +108,12 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
             continue;
         }
 
-        config->setVisible(output == 0);
+        config->setVisible(output == nullptr);
     }
 
     if (output.isNull()) {
         mUnifiedOutputCfg->deleteLater();
-        mUnifiedOutputCfg = 0;
+        mUnifiedOutputCfg = nullptr;
     } else {
         mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, this);
         mUnifiedOutputCfg->setOutput(output);

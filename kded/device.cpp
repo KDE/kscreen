@@ -23,7 +23,7 @@
 
 #include <QLoggingCategory>
 
-Device* Device::m_instance = 0;
+Device* Device::m_instance = nullptr;
 
 Device* Device::self()
 {
@@ -37,7 +37,7 @@ Device* Device::self()
 void Device::destroy()
 {
     delete m_instance;
-    m_instance = 0;
+    m_instance = nullptr;
 }
 
 Device::Device(QObject* parent) 

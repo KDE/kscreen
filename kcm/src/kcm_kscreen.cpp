@@ -49,7 +49,7 @@ Q_DECLARE_METATYPE(KScreen::ScreenPtr)
 
 KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
     : KCModule(parent, args)
-    , mKScreenWidget(0)
+    , mKScreenWidget(nullptr)
 {
     Log::instance();
 
@@ -74,7 +74,7 @@ void KCMKScreen::configReady(ConfigOperation* op)
     mMainLayout->setMargin(0);
 
     if (op->hasError()) {
-        mKScreenWidget = 0;
+        mKScreenWidget = nullptr;
         delete mKScreenWidget;
         QLabel *errorLabel = new QLabel(this);
         mMainLayout->addWidget(errorLabel);

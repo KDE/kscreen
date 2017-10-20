@@ -46,7 +46,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
- , m_monitoredConfig(0)
+ , m_monitoredConfig(nullptr)
  , m_iteration(Generator::None)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
