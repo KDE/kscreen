@@ -242,18 +242,25 @@ void QMLOutput::currentModeIdChanged()
         return;
     }
 
-    if (m_rightDock) {
-        QMLOutput *rightDock = m_rightDock;
-        float newWidth = currentOutputWidth() * m_screen->outputScale();
-        setX(rightDock->x() - newWidth);
-        setRightDockedTo(rightDock);
-    }
+    if (isCloneMode()) {
+        const float newWidth = currentOutputWidth() * m_screen->outputScale();
+        setX((m_screen->width() - newWidth) / 2);
+        const float newHeight = currentOutputHeight() * m_screen->outputScale();
+        setY((m_screen->height() - newHeight) / 2);
+    } else {
+        if (m_rightDock) {
+            QMLOutput *rightDock = m_rightDock;
+            float newWidth = currentOutputWidth() * m_screen->outputScale();
+            setX(rightDock->x() - newWidth);
+            setRightDockedTo(rightDock);
+        }
 
-    if (m_bottomDock) {
-        QMLOutput *bottomDock = m_bottomDock;
-        float newHeight = currentOutputHeight() * m_screen->outputScale();
-        setY(bottomDock->y() - newHeight);
-        setBottomDockedTo(bottomDock);
+        if (m_bottomDock) {
+            QMLOutput *bottomDock = m_bottomDock;
+            float newHeight = currentOutputHeight() * m_screen->outputScale();
+            setY(bottomDock->y() - newHeight);
+            setBottomDockedTo(bottomDock);
+        }
     }
 
     Q_EMIT currentOutputSizeChanged();
