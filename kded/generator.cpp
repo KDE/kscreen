@@ -625,7 +625,7 @@ KScreen::OutputPtr Generator::embeddedOutput(const KScreen::OutputList &outputs)
     return KScreen::OutputPtr();
 }
 
-bool Generator::isLaptop()
+bool Generator::isLaptop() const
 {
     if (m_forceLaptop) {
         return true;
@@ -637,7 +637,7 @@ bool Generator::isLaptop()
     return Device::self()->isLaptop();
 }
 
-bool Generator::isLidClosed()
+bool Generator::isLidClosed() const
 {
     if (m_forceLidClosed) {
         return true;
@@ -649,7 +649,7 @@ bool Generator::isLidClosed()
     return Device::self()->isLidClosed();
 }
 
-bool Generator::isDocked()
+bool Generator::isDocked() const
 {
     if (m_forceDocked) {
         return true;

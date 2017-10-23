@@ -217,11 +217,12 @@ bool Serializer::moveConfig(const QString &srcId, const QString &destId)
 
 KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
-    KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
+    const KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     QStringList allIds;
-    Q_FOREACH (KScreen::OutputPtr output, outputs) {
+    allIds.reserve(outputs.count());
+    Q_FOREACH (const KScreen::OutputPtr &output, outputs) {
         const auto outputId = Serializer::outputId(output);
         if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
             duplicateIds << outputId;

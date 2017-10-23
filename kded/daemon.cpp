@@ -186,7 +186,7 @@ void KScreenDaemon::applyIdealConfig()
     doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
-void logConfig(const KScreen::ConfigPtr config) {
+void logConfig(const KScreen::ConfigPtr &config) {
     if (config) {
         foreach (auto o, config->outputs()) {
             if (o->isConnected()) {

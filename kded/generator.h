@@ -79,9 +79,9 @@ class Generator : public QObject
         KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
 
-        bool isLaptop();
-        bool isLidClosed();
-        bool isDocked();
+        bool isLaptop() const;
+        bool isLidClosed() const;
+        bool isDocked() const;
 
         bool m_forceLaptop;
         bool m_forceLidClosed;
