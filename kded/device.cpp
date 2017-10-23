@@ -100,22 +100,22 @@ void Device::setReady()
     Q_EMIT ready();
 }
 
-bool Device::isReady()
+bool Device::isReady() const
 {
     return m_isReady;
 }
 
-bool Device::isLaptop()
+bool Device::isLaptop() const
 {
     return m_isLaptop;
 }
 
-bool Device::isLidClosed()
+bool Device::isLidClosed() const
 {
     return m_isLidClosed;
 }
 
-bool Device::isDocked()
+bool Device::isDocked() const
 {
     return m_isDocked;
 }

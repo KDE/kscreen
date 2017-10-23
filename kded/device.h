@@ -32,10 +32,10 @@ public:
     static Device* self();
     static void destroy();
 
-    bool isReady();
-    bool isLaptop();
-    bool isLidClosed();
-    bool isDocked();
+    bool isReady() const;
+    bool isLaptop() const;
+    bool isLidClosed() const;
+    bool isDocked() const;
 
 private Q_SLOTS:
     void changed();
