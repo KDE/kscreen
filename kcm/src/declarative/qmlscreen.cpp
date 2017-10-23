@@ -33,13 +33,13 @@
 
 QMLScreen::QMLScreen(QQuickItem *parent):
     QQuickItem(parent),
-    m_config(0),
+    m_config(nullptr),
     m_connectedOutputsCount(0),
     m_enabledOutputsCount(0),
-    m_leftmost(0),
-    m_topmost(0),
-    m_rightmost(0),
-    m_bottommost(0)
+    m_leftmost(nullptr),
+    m_topmost(nullptr),
+    m_rightmost(nullptr),
+    m_bottommost(nullptr)
 {
     connect(this, &QMLScreen::widthChanged, this, &QMLScreen::viewSizeChanged);
     connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);

@@ -28,7 +28,7 @@ class PreviewWidget : public QLabel
 {
     Q_OBJECT
 public:
-    PreviewWidget(QWidget *parent=0);
+    explicit PreviewWidget(QWidget *parent=nullptr);
     ~PreviewWidget();
     void setScale(qreal scale);
 public Q_SLOTS:
@@ -36,7 +36,7 @@ public Q_SLOTS:
 private:
     qreal pointSizeToPixelSize(qreal pointSize) const;
     qreal m_scale;
-    QWidget *m_internalPreview;
+    QWidget *m_internalPreview = nullptr;
 };
 
 #endif // PREVIEWWIDGET_H

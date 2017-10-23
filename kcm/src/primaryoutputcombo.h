@@ -30,7 +30,7 @@ class PrimaryOutputCombo : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit PrimaryOutputCombo(QWidget *parent = 0);
+    explicit PrimaryOutputCombo(QWidget *parent = nullptr);
     virtual ~PrimaryOutputCombo();
 
     void setConfig(const KScreen::ConfigPtr &config);

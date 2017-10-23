@@ -36,7 +36,7 @@ class ResolutionSlider : public QWidget
     Q_OBJECT
 
   public:
-    explicit ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent = 0);
+    explicit ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
     virtual ~ResolutionSlider();
 
     QSize currentResolution() const;
@@ -53,11 +53,11 @@ class ResolutionSlider : public QWidget
 
     QList<QSize> mModes;
 
-    QLabel *mSmallestLabel;
-    QLabel *mBiggestLabel;
-    QLabel *mCurrentLabel;
-    QSlider *mSlider;
-    QComboBox *mComboBox;
+    QLabel *mSmallestLabel = nullptr;
+    QLabel *mBiggestLabel = nullptr;
+    QLabel *mCurrentLabel = nullptr;
+    QSlider *mSlider = nullptr;
+    QComboBox *mComboBox = nullptr;
 };
 
 #endif // RESOLUTIONSLIDER_H

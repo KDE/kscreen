@@ -40,7 +40,7 @@ class OutputConfig : public QWidget
 
   public:
     explicit OutputConfig(QWidget *parent);
-    explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = 0);
+    explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
     virtual ~OutputConfig();
 
     virtual void setOutput(const KScreen::OutputPtr &output);
@@ -63,13 +63,13 @@ class OutputConfig : public QWidget
     virtual void initUi();
 
   protected:
-    QLabel *mTitle;
+    QLabel *mTitle = nullptr;
     KScreen::OutputPtr mOutput;
-    QCheckBox *mEnabled;
-    ResolutionSlider *mResolution;
-    QComboBox *mRotation;
-    QComboBox *mScale;
-    QComboBox *mRefreshRate;
+    QCheckBox *mEnabled = nullptr;
+    ResolutionSlider *mResolution = nullptr;
+    QComboBox *mRotation = nullptr;
+    QComboBox *mScale = nullptr;
+    QComboBox *mRefreshRate = nullptr;
     bool mShowScaleOption  = false;
 };
 

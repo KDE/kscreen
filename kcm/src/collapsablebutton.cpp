@@ -30,7 +30,7 @@
 CollapsableButton::CollapsableButton(const QString &text, QWidget *parent)
     : QWidget(parent)
     , mCollapsed(false)
-    , mWidget(0)
+    , mWidget(nullptr)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
     mLabel = new QLabel(text, this);
