@@ -184,7 +184,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     KScreen::ModePtr selectedMode;
     QList<KScreen::ModePtr> modes;
-    Q_FOREACH (const KScreen::ModePtr mode, mOutput->modes()) {
+    Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
             modes << mode;
             if (!selectedMode || selectedMode->refreshRate() < mode->refreshRate()) {
@@ -202,7 +202,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
         mRefreshRate->removeItem(i);
     }
 
-    for (int i = 0; i < modes.count(); i++) {
+    for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
         mRefreshRate->addItem(i18n("%1 Hz", QLocale().toString(mode->refreshRate(), 'f', 2)), mode->id());
 
