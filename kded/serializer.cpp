@@ -17,7 +17,7 @@
  *************************************************************************************/
 
 #include "serializer.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 #include "generator.h"
 
 #include <QStringList>

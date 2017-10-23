@@ -22,7 +22,7 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 
 #include <QVBoxLayout>
 

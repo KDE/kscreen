@@ -18,8 +18,9 @@
 
 
 #include "kcm_kscreen.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 #include "widget.h"
+#include <kscreen/log.h>
 
 #include <KPluginFactory>
 #include <KAboutData>

@@ -23,7 +23,7 @@
 #include "collapsablebutton.h"
 #include "resolutionslider.h"
 #include "utils.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 
 #include <QComboBox>
 #include <QIcon>

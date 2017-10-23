@@ -23,7 +23,7 @@
 #include "resolutionslider.h"
 #include "collapsablebutton.h"
 #include "utils.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 
 #include <QtCore/QStringBuilder>
 #include <QFormLayout>

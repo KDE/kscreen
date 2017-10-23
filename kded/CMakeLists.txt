@@ -3,12 +3,13 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../)
 
 set(kscreen_daemon_SRCS
-    debug.cpp
     daemon.cpp
     serializer.cpp
     generator.cpp
     device.cpp
 )
+
+ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)
 
 qt5_add_dbus_interface(kscreen_daemon_SRCS
     org.freedesktop.DBus.Properties.xml

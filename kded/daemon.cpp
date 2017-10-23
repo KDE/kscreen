@@ -22,7 +22,7 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 
 #include <QTimer>
 #include <QAction>
@@ -34,6 +34,7 @@
 #include <KPluginFactory>
 #include <KGlobalAccel>
 
+#include <kscreen/log.h>
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/configmonitor.h>
