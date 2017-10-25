@@ -49,7 +49,7 @@ Q_SIGNALS:
     void aboutToSuspend();
 
 private:
-    explicit Device(QObject* parent = 0);
+    explicit Device(QObject* parent = nullptr);
     virtual ~Device();
 
     void setReady();

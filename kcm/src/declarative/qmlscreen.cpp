@@ -157,7 +157,7 @@ QMLOutput *QMLScreen::primaryOutput() const
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 QList<QMLOutput*> QMLScreen::outputs() const

@@ -40,12 +40,12 @@ bool operator>(const QSize &sizeA, const QSize &sizeB)
 
 QMLOutput::QMLOutput(QQuickItem *parent):
     QQuickItem(parent),
-    m_screen(0),
-    m_cloneOf(0),
-    m_leftDock(0),
-    m_topDock(0),
-    m_rightDock(0),
-    m_bottomDock(0),
+    m_screen(nullptr),
+    m_cloneOf(nullptr),
+    m_leftDock(nullptr),
+    m_topDock(nullptr),
+    m_rightDock(nullptr),
+    m_bottomDock(nullptr),
     m_isCloneMode(false)
 {
     connect(this, &QMLOutput::xChanged,
@@ -91,7 +91,7 @@ QMLScreen *QMLOutput::screen() const
 
 void QMLOutput::setScreen(QMLScreen *screen)
 {
-    Q_ASSERT(m_screen == 0);
+    Q_ASSERT(m_screen == nullptr);
 
     m_screen = screen;
     Q_EMIT screenChanged();
