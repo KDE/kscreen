@@ -233,6 +233,10 @@ void QMLScreen::outputPositionChanged()
 
 void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
 {
+    if (qmlOutput->isCloneMode()) {
+        return;
+    }
+
     updateCornerOutputs();
 
     if (m_leftmost) {
