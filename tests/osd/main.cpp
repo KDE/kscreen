@@ -33,6 +33,8 @@ int main(int argc, char **argv)
                                                   QStringLiteral("Icon to use for OSD"), QStringLiteral("preferences-desktop-display-randr"));
     QCommandLineOption message = QCommandLineOption(QStringList() << QStringLiteral("m") << "message",
                                                   QStringLiteral("Icon to use for OSD"), QStringLiteral("OSD Test"));
+    QCommandLineOption selector = QCommandLineOption({ QStringLiteral("s"), QStringLiteral("selector") },
+                                                  QStringLiteral("Show new screen action selector"));
     KScreen::OsdTest osdtest;
     QCommandLineParser parser;
     parser.addHelpOption();
@@ -40,6 +42,7 @@ int main(int argc, char **argv)
     parser.addOption(outputid);
     parser.addOption(icon);
     parser.addOption(message);
+    parser.addOption(selector);
     parser.process(app);
 
 
@@ -48,8 +51,9 @@ int main(int argc, char **argv)
         osdtest.setUseDBus(true);
     }
     if (parser.isSet(outputid)) {
-
         osdtest.showOutputIdentifiers();
+    } else if (parser.isSet(selector)) {
+        osdtest.showActionSelector();
     } else {
         osdtest.showGenericOsd(parser.value(icon), parser.value(message));
     }

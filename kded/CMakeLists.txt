@@ -46,6 +46,7 @@ install(TARGETS kscreen DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
 set(QML_FILES
     qml/Osd.qml
     qml/OsdItem.qml
+    qml/OsdSelector.qml
     qml/OutputIdentifier.qml
 )
 

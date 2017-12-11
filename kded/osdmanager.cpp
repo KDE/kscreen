@@ -119,5 +119,76 @@ void OsdManager::showOsd(const QString& icon, const QString& text)
     );
 }
 
+void OsdManager::showActionSelector()
+{
+    qDeleteAll(m_osds);
+    m_osds.clear();
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+        this, [this](const KScreen::ConfigOperation *op) {
+            if (op->hasError()) {
+                qCWarning(KSCREEN_KDED) << op->errorString();
+                return;
+            }
+
+            auto config = op->config();
+            const auto outputs = config->outputs();
+            // If we have a primary output, show the selector on that screen
+            auto output = config->primaryOutput();
+            if (!output) {
+                // no primary output, use the laptop output
+                auto it = std::find_if(outputs.cbegin(), outputs.cend(),
+                                        [](const OutputPtr &output) {
+                                            return output->type() == Output::Panel;
+                                        });
+                if (it != outputs.cend() && (*it)->isConnected() && (*it)->isEnabled()) {
+                    output = *it;
+                }
+            }
+            if (!output) {
+                // no primary or laptop output, use the biggest output
+                const auto end = outputs.cend();
+                auto largestIt = end;
+                for (auto it = outputs.cbegin(); it != end; ++it) {
+                    if (!(*it)->isConnected() || !(*it)->isEnabled() || !(*it)->currentMode()) {
+                        continue;
+                    }
+                    if (largestIt == end) {
+                        largestIt = it;
+                    } else {
+                        const auto itSize = (*it)->currentMode()->size();
+                        const auto largestSize = (*largestIt)->currentMode()->size();
+                        if (itSize.width() * itSize.height() > largestSize.width() * largestSize.height()) {
+                            largestIt = it;
+                        }
+                    }
+                }
+                if (largestIt != end) {
+                    output = *largestIt;
+                }
+            }
+            if (!output) {
+                // fallback to first active output
+                for (const auto &o : outputs) {
+                    if (o->isConnected() && o->isEnabled()) {
+                        output = o;
+                        break;
+                    }
+                }
+            }
+            if (!output) {
+                // no outputs? bail out...
+                qCDebug(KSCREEN_KDED) << "Found no usable outputs";
+                return;
+            }
+
+            auto osd = new KScreen::Osd(output, this);
+            connect(osd, &Osd::osdActionSelected, this, &OsdManager::osdActionSelected);
+            m_osds.insert(output->name(), osd);
+            osd->showActionSelector();
+            m_cleanupTimer->start();
+        }
+    );
+}
+
 
 }

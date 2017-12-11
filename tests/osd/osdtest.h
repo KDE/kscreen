@@ -37,6 +37,7 @@ public:
 
     void showGenericOsd(const QString &icon, const QString &message);
     void showOutputIdentifiers();
+    void showActionSelector();
 
 private:
     bool m_useDBus = false;

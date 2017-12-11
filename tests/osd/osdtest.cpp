@@ -75,5 +75,19 @@ void OsdTest::showGenericOsd(const QString& icon, const QString& message)
     }
 }
 
+void OsdTest::showActionSelector()
+{
+    if (!m_useDBus) {
+        connect(KScreen::OsdManager::self(), &KScreen::OsdManager::osdActionSelected,
+                [](const QString &action) {
+                    qCDebug(KSCREEN_KDED) << "Action selected:" << action;
+                    qApp->quit();
+                });
+        KScreen::OsdManager::self()->showActionSelector();
+    } else {
+        qCWarning(KSCREEN_KDED) << "Implement me.";
+        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
+    }
+}
 
 } // ns

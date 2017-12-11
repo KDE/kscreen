@@ -36,6 +36,7 @@ PlasmaCore.Dialog {
     property string modeName
     property bool animateOpacity: false
     property string itemSource
+    property QtObject osdItem
 
     Behavior on opacity {
         SequentialAnimation {
@@ -55,6 +56,7 @@ PlasmaCore.Dialog {
         onItemChanged: {
             if (item != undefined) {
                 item.rootItem = root;
+                root.osdItem = item
             }
         }
 

@@ -85,6 +85,24 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     showOsd();
 }
 
+void Osd::showActionSelector() {
+    m_outputGeometry = m_output->geometry();
+    auto *rootObject = m_osdObject->rootObject();
+    rootObject->setProperty("itemSource", QStringLiteral("OsdSelector.qml"));
+    rootObject->setProperty("timeout", 0);
+    rootObject->setProperty("outputOnly", false);
+    auto osdItem = rootObject->property("osdItem").value<QObject*>();
+    connect(osdItem, SIGNAL(clicked(QString)),
+            this, SLOT(onOsdActionSelected(QString)));
+    m_timeout = 0; // no timeout for this one
+    showOsd();
+}
+
+void Osd::onOsdActionSelected(const QString &action) {
+    Q_EMIT osdActionSelected(action);
+    hideOsd();
+}
+
 void Osd::updatePosition()
 {
     if (!m_outputGeometry.isValid()) {
