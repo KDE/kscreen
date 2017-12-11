@@ -47,7 +47,7 @@ PlasmaCore.Dialog {
                 easing.type: Easing.InQuad
             }
         }
-        enabled: root.animateOpacity
+        enabled: root.timeout > 0 && root.animateOpacity
     }
 
     mainItem: Loader {

@@ -49,7 +49,6 @@ Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
     }
 
     m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
-
     m_osdTimer = new QTimer(this);
     m_osdTimer->setSingleShot(true);
     connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
@@ -114,16 +113,22 @@ void Osd::showOsd()
     // only animate on X11, wayland plugin doesn't support this and
     // pukes loads of warnings into our logs
     if (qGuiApp->platformName() == QLatin1String("xcb")) {
-        rootObject->setProperty("animateOpacity", false);
-        rootObject->setProperty("opacity", 1);
-        rootObject->setProperty("visible", true);
-        rootObject->setProperty("animateOpacity", true);
-        rootObject->setProperty("opacity", 0);
+        if (rootObject->property("timeout").toInt() > 0) {
+            rootObject->setProperty("animateOpacity", false);
+            rootObject->setProperty("opacity", 1);
+            rootObject->setProperty("visible", true);
+            rootObject->setProperty("animateOpacity", true);
+            rootObject->setProperty("opacity", 0);
+        } else {
+            rootObject->setProperty("visible", true);
+        }
     } else {
         rootObject->setProperty("visible", true);
     }
     updatePosition();
-    m_osdTimer->start(m_timeout);
+    if (m_timeout > 0) {
+        m_osdTimer->start(m_timeout);
+    }
 }
 
 void Osd::hideOsd()
