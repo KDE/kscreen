@@ -18,7 +18,7 @@
 
 #include "osdmanager.h"
 #include "osd.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 
 #include <KScreen/Config>
 #include <KScreen/GetConfigOperation>
@@ -61,7 +61,6 @@ OsdManager* OsdManager::self()
 
 void OsdManager::showOutputIdentifiers()
 {
-    qDebug() << "SHOWOUTPUTIDENTIFIERS";
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
             this, &OsdManager::slotIdentifyOutputs);
 }

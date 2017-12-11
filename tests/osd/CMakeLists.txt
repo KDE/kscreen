@@ -1,4 +1,7 @@
-include_directories(${CMAKE_SOURCE_DIR}/kcm/src)
+include_directories(
+    ${CMAKE_SOURCE_DIR}/kcm/src
+    ${CMAKE_BINARY_DIR}/kded
+)
 
 add_executable(osdtest main.cpp
                        osdtest.cpp

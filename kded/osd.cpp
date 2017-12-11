@@ -19,7 +19,7 @@
 
 #include "osd.h"
 #include "utils.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 
 #include <KScreen/Mode>
 
