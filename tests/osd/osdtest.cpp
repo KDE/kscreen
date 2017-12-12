@@ -78,12 +78,13 @@ void OsdTest::showGenericOsd(const QString& icon, const QString& message)
 void OsdTest::showActionSelector()
 {
     if (!m_useDBus) {
-        connect(KScreen::OsdManager::self(), &KScreen::OsdManager::osdActionSelected,
-                [](const QString &action) {
-                    qCDebug(KSCREEN_KDED) << "Action selected:" << action;
+        auto action = KScreen::OsdManager::self()->showActionSelector();
+        connect(action, &KScreen::OsdAction::selected,
+                [](KScreen::OsdAction *self, KScreen::OsdAction::Action action) {
+                    self->deleteLater();
+                    qCDebug(KSCREEN_KDED) << "Selected action:" << action;
                     qApp->quit();
                 });
-        KScreen::OsdManager::self()->showActionSelector();
     } else {
         qCWarning(KSCREEN_KDED) << "Implement me.";
         QTimer::singleShot(100, qApp, &QCoreApplication::quit);

@@ -181,10 +181,49 @@ void KScreenDaemon::applyKnownConfig()
     doApplyConfig(config);
 }
 
+void KScreenDaemon::applyOsdAction(KScreen::OsdAction *self, KScreen::OsdAction::Action action)
+{
+    self->deleteLater();
+
+    switch (action) {
+    case KScreen::OsdAction::NoAction:
+        qCDebug(KSCREEN_KDED) << "OSD: no action";
+        return;
+    case KScreen::OsdAction::SwitchToInternal:
+        qCDebug(KSCREEN_KDED) << "OSD: swutch to internal";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffExternal));
+        return;
+    case KScreen::OsdAction::SwitchToExternal:
+        qCDebug(KSCREEN_KDED) << "OSD: switch to external";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffEmbedded));
+        return;
+    case KScreen::OsdAction::ExtendLeft:
+        qCDebug(KSCREEN_KDED) << "OSD: extend left";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToLeft));
+        return;
+    case KScreen::OsdAction::ExtendRight:
+        qCDebug(KSCREEN_KDED) << "OSD: extend right";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToRight));
+        return;
+    case KScreen::OsdAction::Clone:
+        qCDebug(KSCREEN_KDED) << "OSD: clone";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::Clone));
+        return;
+    }
+
+    Q_UNREACHABLE();
+}
+
 void KScreenDaemon::applyIdealConfig()
 {
-    qCDebug(KSCREEN_KDED) << "Applying ideal config";
-    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+    if (m_monitoredConfig->connectedOutputs().count() < 2) {
+        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+    } else {
+        qCDebug(KSCREEN_KDED) << "Getting ideal config from user...";
+        auto action = KScreen::OsdManager::self()->showActionSelector();
+        connect(action, &KScreen::OsdAction::selected,
+                this, &KScreenDaemon::applyOsdAction);
+    }
 }
 
 void logConfig(const KScreen::ConfigPtr &config) {

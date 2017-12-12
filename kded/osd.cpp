@@ -92,14 +92,15 @@ void Osd::showActionSelector() {
     rootObject->setProperty("timeout", 0);
     rootObject->setProperty("outputOnly", false);
     auto osdItem = rootObject->property("osdItem").value<QObject*>();
-    connect(osdItem, SIGNAL(clicked(QString)),
-            this, SLOT(onOsdActionSelected(QString)));
+    connect(osdItem, SIGNAL(clicked(int)),
+            this, SLOT(onOsdActionSelected(int)));
     m_timeout = 0; // no timeout for this one
     showOsd();
 }
 
-void Osd::onOsdActionSelected(const QString &action) {
-    Q_EMIT osdActionSelected(action);
+void Osd::onOsdActionSelected(int action)
+{
+    Q_EMIT osdActionSelected(static_cast<OsdAction::Action>(action));
     hideOsd();
 }
 

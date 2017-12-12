@@ -22,11 +22,13 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
+import org.kde.KScreen 1.0
+
 Item {
     id: root
     property QtObject rootItem
 
-    signal clicked(string actionId)
+    signal clicked(int actionId)
 
     height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
     width: buttonRow.width
@@ -45,32 +47,32 @@ Item {
                     {
                         iconSource: "osd-shutd-screen",
                         label: qsTr("Switch to external screen"),
-                        action: "external-only"
+                        action: OsdAction.SwitchToExternal
                     },
                     {
                         iconSource: "osd-shutd-laptop",
                         label: qsTr("Switch to laptop screen"),
-                        action: "internal-only"
+                        action: OsdAction.SwitchToInternal
                     },
                     {
                         iconSource: "osd-duplicate",
                         label: qsTr("Duplicate outputs"),
-                        action: "clone"
+                        action: OsdAction.Clonse
                     },
                     {
                         iconSource: "osd-sbs-left",
                         label: qsTr("Extend to left"),
-                        action: "extend-left"
+                        action: OsdAction.ExtendLeft
                     },
                     {
                         iconSource: "osd-sbs-sright",
                         label: qsTr("Extend to right"),
-                        action: "extend-right"
+                        action: OsdAction.ExtendRight
                     },
                     {
                         iconSource: "dialog-cancel",
                         label: qsTr("Do nothing"),
-                        action: "cancel"
+                        action: OsdAction.NoAction
                     }
             ]
             delegate: PlasmaComponents.Button {

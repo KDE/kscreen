@@ -32,6 +32,28 @@ class ConfigOperation;
 class Osd;
 class Output;
 
+class OsdAction : public QObject
+{
+    Q_OBJECT
+public:
+    enum Action {
+        NoAction,
+        SwitchToExternal,
+        SwitchToInternal,
+        Clone,
+        ExtendLeft,
+        ExtendRight
+    };
+    Q_ENUM(Action)
+
+Q_SIGNALS:
+    void selected(OsdAction *self, Action action);
+
+protected:
+    explicit OsdAction(QObject *parent = nullptr);
+};
+
+
 class OsdManager : public QObject {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kscreen.osdService")
@@ -43,10 +65,7 @@ public:
 public Q_SLOTS:
     void showOutputIdentifiers();
     void showOsd(const QString &icon, const QString &text);
-    void showActionSelector();
-
-Q_SIGNALS:
-    void osdActionSelected(const QString &action);
+    OsdAction *showActionSelector();
 
 private:
     OsdManager(QObject *parent = nullptr);

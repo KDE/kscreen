@@ -26,14 +26,39 @@
 
 #include <QDBusConnection>
 
+#include <QQmlEngine>
+
 namespace KScreen {
 
 OsdManager* OsdManager::s_instance = nullptr;
+
+OsdAction::OsdAction(QObject *parent)
+    : QObject(parent)
+{
+}
+
+class OsdActionImpl : public OsdAction
+{
+    Q_OBJECT
+public:
+    OsdActionImpl(QObject *parent = nullptr)
+        : OsdAction(parent)
+    {}
+
+    void setOsd(Osd *osd) {
+        connect(osd, &Osd::osdActionSelected,
+                this, [this](Action action) {
+                    Q_EMIT selected(this, action);
+                });
+    }
+};
 
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
     , m_cleanupTimer(new QTimer(this))
 {
+    qmlRegisterUncreatableType<OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", "You cannot create OsdAction");
+
     // free up memory when the osd hasn't been used for more than 1 minute
     m_cleanupTimer->setInterval(60000);
     m_cleanupTimer->setSingleShot(true);
@@ -119,12 +144,14 @@ void OsdManager::showOsd(const QString& icon, const QString& text)
     );
 }
 
-void OsdManager::showActionSelector()
+OsdAction *OsdManager::showActionSelector()
 {
     qDeleteAll(m_osds);
     m_osds.clear();
+
+    OsdActionImpl *action = new OsdActionImpl(this);
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-        this, [this](const KScreen::ConfigOperation *op) {
+        this, [this, action](const KScreen::ConfigOperation *op) {
             if (op->hasError()) {
                 qCWarning(KSCREEN_KDED) << op->errorString();
                 return;
@@ -135,17 +162,20 @@ void OsdManager::showActionSelector()
             // If we have a primary output, show the selector on that screen
             auto output = config->primaryOutput();
             if (!output) {
-                // no primary output, use the laptop output
-                auto it = std::find_if(outputs.cbegin(), outputs.cend(),
-                                        [](const OutputPtr &output) {
-                                            return output->type() == Output::Panel;
-                                        });
-                if (it != outputs.cend() && (*it)->isConnected() && (*it)->isEnabled()) {
-                    output = *it;
+                // no primary output, maybe we have only one output enabled?
+                int enabledCount = 0;
+                for (const auto &out : outputs) {
+                    if (out->isConnected() && out->isEnabled()) {
+                        enabledCount++;
+                        output = out;
+                    }
+                }
+                if (enabledCount > 1) {
+                    output.clear();
                 }
             }
             if (!output) {
-                // no primary or laptop output, use the biggest output
+                // multiple outputs, none primary, show on the biggest one
                 const auto end = outputs.cend();
                 auto largestIt = end;
                 for (auto it = outputs.cbegin(); it != end; ++it) {
@@ -167,7 +197,7 @@ void OsdManager::showActionSelector()
                 }
             }
             if (!output) {
-                // fallback to first active output
+                // fallback to the first active output
                 for (const auto &o : outputs) {
                     if (o->isConnected() && o->isEnabled()) {
                         output = o;
@@ -182,13 +212,17 @@ void OsdManager::showActionSelector()
             }
 
             auto osd = new KScreen::Osd(output, this);
-            connect(osd, &Osd::osdActionSelected, this, &OsdManager::osdActionSelected);
+            action->setOsd(osd);
             m_osds.insert(output->name(), osd);
             osd->showActionSelector();
             m_cleanupTimer->start();
         }
     );
+
+    return action;
 }
 
 
 }
+
+#include "osdmanager.moc"

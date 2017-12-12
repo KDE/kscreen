@@ -26,6 +26,8 @@
 
 #include <KScreen/Output>
 
+#include "osdmanager.h"
+
 namespace KDeclarative {
     class QmlObject;
 }
@@ -47,10 +49,10 @@ public:
     void showActionSelector();
 
 Q_SIGNALS:
-    void osdActionSelected(const QString &action);
+    void osdActionSelected(OsdAction::Action action);
 
 private Q_SLOTS:
-    void onOsdActionSelected(const QString &action);
+    void onOsdActionSelected(int action);
 
 private:
     void hideOsd();

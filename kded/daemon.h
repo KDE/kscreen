@@ -26,6 +26,7 @@
 #include <kscreen/config.h>
 
 #include "generator.h"
+#include "osdmanager.h"
 
 class QTimer;
 
@@ -61,6 +62,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void setMonitorForChanges(bool enabled);
         void outputConnectedChanged();
         void showOutputIdentifier();
+        void applyOsdAction(KScreen::OsdAction *self, KScreen::OsdAction::Action action);
 
     Q_SIGNALS:
         void outputConnected(const QString &outputName);
