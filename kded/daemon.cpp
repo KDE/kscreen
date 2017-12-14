@@ -96,6 +96,8 @@ void KScreenDaemon::init()
     connect(action, &QAction::triggered, [&](bool) { displayButton(); });
 
     new KScreenAdaptor(this);
+    // Initialize OSD manager to register its dbus interface
+    KScreen::OsdManager::self();
 
     m_buttonTimer->setInterval(300);
     m_buttonTimer->setSingleShot(true);
