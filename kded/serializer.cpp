@@ -256,6 +256,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
         output->setPrimary(info[QStringLiteral("primary")].toBool());
         output->setEnabled(info[QStringLiteral("enabled")].toBool());
         output->setRotation(static_cast<KScreen::Output::Rotation>(info[QStringLiteral("rotation")].toInt()));
+        output->setScale(info.value(QStringLiteral("scale"), 1).toInt());
 
         const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
         const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();

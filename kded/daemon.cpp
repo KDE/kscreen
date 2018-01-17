@@ -442,6 +442,9 @@ void KScreenDaemon::monitorConnectedChange()
                     Qt::UniqueConnection);
         }, Qt::UniqueConnection
     );
+    connect(m_monitoredConfig.data(), &KScreen::Config::outputRemoved,
+            this, &KScreenDaemon::applyConfig,
+            static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
 void KScreenDaemon::setMonitorForChanges(bool enabled)
