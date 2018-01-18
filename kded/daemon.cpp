@@ -192,7 +192,7 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction *self, KScreen::OsdAction:
         qCDebug(KSCREEN_KDED) << "OSD: no action";
         return;
     case KScreen::OsdAction::SwitchToInternal:
-        qCDebug(KSCREEN_KDED) << "OSD: swutch to internal";
+        qCDebug(KSCREEN_KDED) << "OSD: switch to internal";
         doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffExternal));
         return;
     case KScreen::OsdAction::SwitchToExternal:
