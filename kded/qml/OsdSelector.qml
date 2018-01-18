@@ -45,12 +45,12 @@ Item {
             id: actionRepeater
             model: [
                     {
-                        iconSource: "osd-shutd-screen",
+                        iconSource: "osd-shutd-laptop",
                         label: qsTr("Switch to external screen"),
                         action: OsdAction.SwitchToExternal
                     },
                     {
-                        iconSource: "osd-shutd-laptop",
+                        iconSource: "osd-shutd-screen",
                         label: qsTr("Switch to laptop screen"),
                         action: OsdAction.SwitchToInternal
                     },
