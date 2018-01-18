@@ -218,10 +218,12 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction *self, KScreen::OsdAction:
 
 void KScreenDaemon::applyIdealConfig()
 {
+
     if (m_monitoredConfig->connectedOutputs().count() < 2) {
+        KScreen::OsdManager::self()->hideOsd();
         doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
     } else {
-        qCDebug(KSCREEN_KDED) << "Getting ideal config from user...";
+        qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
         auto action = KScreen::OsdManager::self()->showActionSelector();
         connect(action, &KScreen::OsdAction::selected,
                 this, &KScreenDaemon::applyOsdAction);

@@ -63,13 +63,18 @@ OsdManager::OsdManager(QObject *parent)
     m_cleanupTimer->setInterval(60000);
     m_cleanupTimer->setSingleShot(true);
     connect(m_cleanupTimer, &QTimer::timeout, this, [this]() {
-        qDeleteAll(m_osds);
-        m_osds.clear();
+        hideOsd();
     });
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kscreen.osdService"));
     if (!QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAllSlots)) {
         qCWarning(KSCREEN_KDED) << "Failed to registerObject";
     }
+}
+
+void OsdManager::hideOsd()
+{
+    qDeleteAll(m_osds);
+    m_osds.clear();
 }
 
 OsdManager::~OsdManager()
@@ -146,8 +151,7 @@ void OsdManager::showOsd(const QString& icon, const QString& text)
 
 OsdAction *OsdManager::showActionSelector()
 {
-    qDeleteAll(m_osds);
-    m_osds.clear();
+    hideOsd();
 
     OsdActionImpl *action = new OsdActionImpl(this);
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
