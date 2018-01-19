@@ -48,7 +48,8 @@ public:
     void setOsd(Osd *osd) {
         connect(osd, &Osd::osdActionSelected,
                 this, [this](Action action) {
-                    Q_EMIT selected(this, action);
+                    Q_EMIT selected(action);
+                    deleteLater();
                 });
     }
 };

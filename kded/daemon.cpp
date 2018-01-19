@@ -183,10 +183,8 @@ void KScreenDaemon::applyKnownConfig()
     doApplyConfig(config);
 }
 
-void KScreenDaemon::applyOsdAction(KScreen::OsdAction *self, KScreen::OsdAction::Action action)
+void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 {
-    self->deleteLater();
-
     switch (action) {
     case KScreen::OsdAction::NoAction:
         qCDebug(KSCREEN_KDED) << "OSD: no action";

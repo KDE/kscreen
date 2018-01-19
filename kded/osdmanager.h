@@ -47,7 +47,7 @@ public:
     Q_ENUM(Action)
 
 Q_SIGNALS:
-    void selected(OsdAction *self, Action action);
+    void selected(Action action);
 
 protected:
     explicit OsdAction(QObject *parent = nullptr);

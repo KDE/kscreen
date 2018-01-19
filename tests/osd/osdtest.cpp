@@ -80,8 +80,7 @@ void OsdTest::showActionSelector()
     if (!m_useDBus) {
         auto action = KScreen::OsdManager::self()->showActionSelector();
         connect(action, &KScreen::OsdAction::selected,
-                [](KScreen::OsdAction *self, KScreen::OsdAction::Action action) {
-                    self->deleteLater();
+                [](KScreen::OsdAction::Action action) {
                     qCDebug(KSCREEN_KDED) << "Selected action:" << action;
                     qApp->quit();
                 });
