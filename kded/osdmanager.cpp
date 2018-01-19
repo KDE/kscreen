@@ -154,6 +154,12 @@ OsdAction *OsdManager::showActionSelector()
     hideOsd();
 
     OsdActionImpl *action = new OsdActionImpl(this);
+    connect(action, &OsdActionImpl::selected,
+            this, [this]() {
+                for (auto osd : qAsConst(m_osds)) {
+                    osd->hideOsd();
+                }
+            });
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
         this, [this, action](const KScreen::ConfigOperation *op) {
             if (op->hasError()) {
@@ -161,63 +167,49 @@ OsdAction *OsdManager::showActionSelector()
                 return;
             }
 
-            auto config = op->config();
-            const auto outputs = config->outputs();
-            // If we have a primary output, show the selector on that screen
-            auto output = config->primaryOutput();
-            if (!output) {
-                // no primary output, maybe we have only one output enabled?
-                int enabledCount = 0;
-                for (const auto &out : outputs) {
-                    if (out->isConnected() && out->isEnabled()) {
-                        enabledCount++;
-                        output = out;
-                    }
+            // Show selector on alll enabled screens
+            const auto outputs = op->config()->outputs();
+            KScreen::OutputPtr osdOutput;
+            for (const auto &output : outputs) {
+                if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
+                    continue;
                 }
-                if (enabledCount > 1) {
-                    output.clear();
+
+                // Prefer laptop screen
+                if (output->type() == KScreen::Output::Panel) {
+                    osdOutput = output;
+                    break;
                 }
-            }
-            if (!output) {
-                // multiple outputs, none primary, show on the biggest one
-                const auto end = outputs.cend();
-                auto largestIt = end;
-                for (auto it = outputs.cbegin(); it != end; ++it) {
-                    if (!(*it)->isConnected() || !(*it)->isEnabled() || !(*it)->currentMode()) {
-                        continue;
-                    }
-                    if (largestIt == end) {
-                        largestIt = it;
-                    } else {
-                        const auto itSize = (*it)->currentMode()->size();
-                        const auto largestSize = (*largestIt)->currentMode()->size();
-                        if (itSize.width() * itSize.height() > largestSize.width() * largestSize.height()) {
-                            largestIt = it;
-                        }
-                    }
-                }
-                if (largestIt != end) {
-                    output = *largestIt;
+
+                // Fallback to primary
+                if (output->isPrimary()) {
+                    osdOutput = output;
+                    break;
                 }
             }
-            if (!output) {
-                // fallback to the first active output
-                for (const auto &o : outputs) {
-                    if (o->isConnected() && o->isEnabled()) {
-                        output = o;
+            // no laptop or primary screen, just take the first usable one
+            if (!osdOutput) {
+                for (const auto &output : outputs) {
+                    if (output->isConnected() && output->isEnabled() && output->currentMode()) {
+                        osdOutput = output;
                         break;
                     }
                 }
             }
-            if (!output) {
-                // no outputs? bail out...
-                qCDebug(KSCREEN_KDED) << "Found no usable outputs";
+
+            if (!osdOutput) {
+                // huh!?
                 return;
             }
 
-            auto osd = new KScreen::Osd(output, this);
+            KScreen::Osd* osd = nullptr;
+            if (m_osds.contains(osdOutput->name())) {
+                osd = m_osds.value(osdOutput->name());
+            } else {
+                osd = new KScreen::Osd(osdOutput, this);
+                m_osds.insert(osdOutput->name(), osd);
+            }
             action->setOsd(osd);
-            m_osds.insert(output->name(), osd);
             osd->showActionSelector();
             m_cleanupTimer->start();
         }

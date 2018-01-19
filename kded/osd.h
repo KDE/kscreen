@@ -47,15 +47,16 @@ public:
     void showGenericOsd(const QString &icon, const QString &text);
     void showOutputIdentifier(const KScreen::OutputPtr output);
     void showActionSelector();
+    void hideOsd();
 
 Q_SIGNALS:
     void osdActionSelected(OsdAction::Action action);
 
 private Q_SLOTS:
     void onOsdActionSelected(int action);
+    void onOutputAvailabilityChanged();
 
 private:
-    void hideOsd();
     void showOsd();
     void updatePosition();
 

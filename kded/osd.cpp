@@ -52,6 +52,15 @@ Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
     m_osdTimer = new QTimer(this);
     m_osdTimer->setSingleShot(true);
     connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
+
+    connect(output.data(), &KScreen::Output::isConnectedChanged,
+            this, &Osd::onOutputAvailabilityChanged);
+    connect(output.data(), &KScreen::Output::isEnabledChanged,
+            this, &Osd::onOutputAvailabilityChanged);
+    connect(output.data(), &KScreen::Output::currentModeIdChanged,
+            this, &Osd::updatePosition);
+    connect(output.data(), &KScreen::Output::destroyed,
+            this, &Osd::hideOsd);
 }
 
 Osd::~Osd()
@@ -104,20 +113,32 @@ void Osd::onOsdActionSelected(int action)
     hideOsd();
 }
 
+void Osd::onOutputAvailabilityChanged()
+{
+    if (m_output) {
+        if (!m_output->isConnected() || !m_output->isEnabled() || !m_output->currentMode()) {
+            hideOsd();
+        }
+    } else {
+        hideOsd();
+    }
+}
+
 void Osd::updatePosition()
 {
-    if (!m_outputGeometry.isValid()) {
-        return;
+    const auto geometry = m_output->geometry();
+    if (!geometry.isValid()) {
+        hideOsd();
     }
 
     auto *rootObject = m_osdObject->rootObject();
 
     const int dialogWidth = rootObject->property("width").toInt();
     const int dialogHeight = rootObject->property("height").toInt();
-    const int relx = m_outputGeometry.x();
-    const int rely = m_outputGeometry.y();
-    const int pos_x = relx + (m_outputGeometry.width() - dialogWidth) / 2;
-    const int pos_y = rely + (m_outputGeometry.height() - dialogHeight) / 2;
+    const int relx = geometry.x();
+    const int rely = geometry.y();
+    const int pos_x = relx + (geometry.width() - dialogWidth) / 2;
+    const int pos_y = rely + (geometry.height() - dialogHeight) / 2;
 
     rootObject->setProperty("x", pos_x);
     rootObject->setProperty("y", pos_y);
@@ -144,7 +165,7 @@ void Osd::showOsd()
     } else {
         rootObject->setProperty("visible", true);
     }
-    updatePosition();
+    QTimer::singleShot(0, this, &Osd::updatePosition);
     if (m_timeout > 0) {
         m_osdTimer->start(m_timeout);
     }
