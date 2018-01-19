@@ -108,10 +108,8 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
             continue;
         }
-        KScreen::Osd* osd = nullptr;
-        if (m_osds.keys().contains(output->name())) {
-            osd = m_osds.value(output->name());
-        } else {
+        auto osd = m_osds.value(output->name());
+        if (!osd) {
             osd = new KScreen::Osd(output, this);
             m_osds.insert(output->name(), osd);
         }
@@ -136,10 +134,8 @@ void OsdManager::showOsd(const QString& icon, const QString& text)
                 if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
                     continue;
                 }
-                KScreen::Osd* osd = nullptr;
-                if (m_osds.keys().contains(output->name())) {
-                    osd = m_osds.value(output->name());
-                } else {
+                auto osd = m_osds.value(output->name());
+                if (!osd) {
                     osd = new KScreen::Osd(output, this);
                     m_osds.insert(output->name(), osd);
                 }

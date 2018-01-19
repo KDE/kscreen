@@ -137,11 +137,7 @@ void Osd::onOsdActionSelected(int action)
 
 void Osd::onOutputAvailabilityChanged()
 {
-    if (m_output) {
-        if (!m_output->isConnected() || !m_output->isEnabled() || !m_output->currentMode()) {
-            hideOsd();
-        }
-    } else {
+    if (!m_output || !m_output->isConnected() || !m_output->isEnabled() || !m_output->currentMode()) {
         hideOsd();
     }
 }
