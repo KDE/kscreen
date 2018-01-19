@@ -46,32 +46,32 @@ Item {
             model: [
                     {
                         iconSource: "osd-shutd-laptop",
-                        label: qsTr("Switch to external screen"),
+                        label: i18n("Switch to external screen"),
                         action: OsdAction.SwitchToExternal
                     },
                     {
                         iconSource: "osd-shutd-screen",
-                        label: qsTr("Switch to laptop screen"),
+                        label: i18n("Switch to laptop screen"),
                         action: OsdAction.SwitchToInternal
                     },
                     {
                         iconSource: "osd-duplicate",
-                        label: qsTr("Duplicate outputs"),
+                        label: i18n("Unify outputs"),
                         action: OsdAction.Clonse
                     },
                     {
                         iconSource: "osd-sbs-left",
-                        label: qsTr("Extend to left"),
+                        label: i18n("Extend to left"),
                         action: OsdAction.ExtendLeft
                     },
                     {
                         iconSource: "osd-sbs-sright",
-                        label: qsTr("Extend to right"),
+                        label: i18n("Extend to right"),
                         action: OsdAction.ExtendRight
                     },
                     {
                         iconSource: "dialog-cancel",
-                        label: qsTr("Do nothing"),
+                        label: i18n("Leave unchanged"),
                         action: OsdAction.NoAction
                     }
             ]
