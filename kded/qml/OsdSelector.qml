@@ -39,7 +39,7 @@ Item {
         exclusive: false
 
         height: parent.height - label.height - ((units.smallSpacing/2) * 3)
-        width: (actionRepeater.model.length * height) + ((actionRepeater.model.length - 1) * buttonRow.spacing);
+        width: (actionRepeater.count * height) + ((actionRepeater.count - 1) * buttonRow.spacing);
 
         Repeater {
             id: actionRepeater
