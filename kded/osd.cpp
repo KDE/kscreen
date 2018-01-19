@@ -34,25 +34,7 @@ using namespace KScreen;
 Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
     : QObject(parent)
     , m_output(output)
-    , m_osdObject(new KDeclarative::QmlObject(this))
 {
-    const QString &osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml"));
-    if (osdPath.isEmpty()) {
-        qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << osdPath;
-    }
-
-    m_osdObject->setSource(QUrl::fromLocalFile(osdPath));
-
-    if (m_osdObject->status() != QQmlComponent::Ready) {
-        qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << osdPath;
-        return;
-    }
-
-    m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
-    m_osdTimer = new QTimer(this);
-    m_osdTimer->setSingleShot(true);
-    connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
-
     connect(output.data(), &KScreen::Output::isConnectedChanged,
             this, &Osd::onOutputAvailabilityChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged,
@@ -67,8 +49,38 @@ Osd::~Osd()
 {
 }
 
+bool Osd::initOsd()
+{
+    const QString &osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml"));
+    if (osdPath.isEmpty()) {
+        qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << osdPath;
+        return false;
+    }
+
+    m_osdObject = new KDeclarative::QmlObject(this);
+    m_osdObject->setSource(QUrl::fromLocalFile(osdPath));
+
+    if (m_osdObject->status() != QQmlComponent::Ready) {
+        qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << osdPath;
+        delete m_osdObject;
+        m_osdObject = nullptr;
+        return false;
+    }
+
+    m_timeout = m_osdObject->rootObject()->property("timeout").toInt();
+    m_osdTimer = new QTimer(this);
+    m_osdTimer->setSingleShot(true);
+    connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
+    return true;
+
+}
+
 void Osd::showGenericOsd(const QString &icon, const QString &text)
 {
+    if (!initOsd()) {
+        return;
+    }
+
     m_outputGeometry = m_output->geometry();
     auto *rootObject = m_osdObject->rootObject();
     rootObject->setProperty("itemSource", QStringLiteral("OsdItem.qml"));
@@ -80,6 +92,10 @@ void Osd::showGenericOsd(const QString &icon, const QString &text)
 
 void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
 {
+    if (!initOsd()) {
+        return;
+    }
+
     m_outputGeometry = output->geometry();
 
     auto *rootObject = m_osdObject->rootObject();
@@ -94,7 +110,12 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
     showOsd();
 }
 
-void Osd::showActionSelector() {
+void Osd::showActionSelector()
+{
+    if (!initOsd()) {
+        return;
+    }
+
     m_outputGeometry = m_output->geometry();
     auto *rootObject = m_osdObject->rootObject();
     rootObject->setProperty("itemSource", QStringLiteral("OsdSelector.qml"));
@@ -104,6 +125,7 @@ void Osd::showActionSelector() {
     connect(osdItem, SIGNAL(clicked(int)),
             this, SLOT(onOsdActionSelected(int)));
     m_timeout = 0; // no timeout for this one
+
     showOsd();
 }
 
@@ -126,6 +148,10 @@ void Osd::onOutputAvailabilityChanged()
 
 void Osd::updatePosition()
 {
+    if (!initOsd()) {
+        return;
+    }
+
     const auto geometry = m_output->geometry();
     if (!geometry.isValid()) {
         hideOsd();
@@ -173,6 +199,10 @@ void Osd::showOsd()
 
 void Osd::hideOsd()
 {
+    if (!initOsd()) {
+        return;
+    }
+
     auto *rootObject = m_osdObject->rootObject();
     if (!rootObject) {
         return;

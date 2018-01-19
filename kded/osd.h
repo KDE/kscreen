@@ -57,6 +57,7 @@ private Q_SLOTS:
     void onOutputAvailabilityChanged();
 
 private:
+    bool initOsd();
     void showOsd();
     void updatePosition();
 
