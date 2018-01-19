@@ -51,6 +51,10 @@ Osd::~Osd()
 
 bool Osd::initOsd()
 {
+    if (m_osdObject) {
+        return true;
+    }
+
     const QString &osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/Osd.qml"));
     if (osdPath.isEmpty()) {
         qCWarning(KSCREEN_KDED) << "Failed to find OSD QML file" << osdPath;
