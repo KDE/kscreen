@@ -22,7 +22,7 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 
 #include <QTimer>
 #include <QAction>
@@ -34,6 +34,7 @@
 #include <KPluginFactory>
 #include <KGlobalAccel>
 
+#include <kscreen/log.h>
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/configmonitor.h>
@@ -46,7 +47,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
- , m_monitoredConfig(0)
+ , m_monitoredConfig(nullptr)
  , m_iteration(Generator::None)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
@@ -140,6 +141,8 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
     qCDebug(KSCREEN_KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
+    m_monitoredConfig = config;
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
             [&]() {
@@ -183,7 +186,7 @@ void KScreenDaemon::applyIdealConfig()
     doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
 }
 
-void logConfig(const KScreen::ConfigPtr config) {
+void logConfig(const KScreen::ConfigPtr &config) {
     if (config) {
         foreach (auto o, config->outputs()) {
             if (o->isConnected()) {
@@ -376,6 +379,9 @@ void KScreenDaemon::monitorConnectedChange()
                     Qt::UniqueConnection);
         }, Qt::UniqueConnection
     );
+    connect(m_monitoredConfig.data(), &KScreen::Config::outputRemoved,
+            this, &KScreenDaemon::applyConfig,
+            static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
 void KScreenDaemon::setMonitorForChanges(bool enabled)

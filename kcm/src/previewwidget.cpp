@@ -33,7 +33,7 @@ PreviewWidget::PreviewWidget(QWidget *parent):
     m_internalPreview(new QWidget) // deliberately no parent, we don't want it to have a screen
 {
     Ui::StylePreview ui;
-    ui.setupUi(m_internalPreview );
+    ui.setupUi(m_internalPreview);
 }
 
 PreviewWidget::~PreviewWidget()

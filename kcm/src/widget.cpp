@@ -53,9 +53,9 @@
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
-    mScreen(0),
-    mConfig(0),
-    mPrevConfig(0)
+    mScreen(nullptr),
+    mConfig(nullptr),
+    mPrevConfig(nullptr)
 {
     qRegisterMetaType<QQuickView*>();
 
@@ -119,15 +119,16 @@ Widget::Widget(QWidget *parent):
 
     vbox->addWidget(mUnifyButton);
 
-    auto setScaleButton = new QPushButton(i18n("Scale Display"), this);
-    connect(setScaleButton, &QPushButton::released,
+    mScaleAllOutputsButton = new QPushButton(i18n("Scale Display"), this);
+    connect(mScaleAllOutputsButton, &QPushButton::released,
             [this] {
                 QPointer<ScalingConfig> dialog = new ScalingConfig(mConfig->outputs(), this);
                 dialog->exec();
                 delete dialog;
             });
-    
-    vbox->addWidget(setScaleButton);
+
+    vbox->addWidget(mScaleAllOutputsButton);
+
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,
@@ -174,6 +175,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mControlPanel->setConfig(mConfig);
     mPrimaryCombo->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
+    mScaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
+
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,
@@ -187,7 +190,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     if (qmlOutput) {
         mScreen->setActiveOutput(qmlOutput);
     } else {
-        if (mScreen->outputs().count() > 0) {
+        if (!mScreen->outputs().isEmpty()) {
             mScreen->setActiveOutput(mScreen->outputs()[0]);
         }
     }

@@ -1,5 +1,5 @@
 project(KScreen)
-set(PROJECT_VERSION "5.10.90")
+set(PROJECT_VERSION "5.12.80")
 
 cmake_minimum_required(VERSION 2.8.12)
 
@@ -22,7 +22,7 @@ include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMMarkAsTest)
 include(FeatureSummary)
-
+include(ECMQtDeclareLoggingCategory)
 
 add_subdirectory(icons)
 add_subdirectory(kcm)
@@ -30,5 +30,7 @@ add_subdirectory(plasmoid)
 add_subdirectory(kded)
 add_subdirectory(tests)
 add_subdirectory(console)
+
+install( FILES kscreen.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

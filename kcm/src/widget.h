@@ -46,7 +46,7 @@ class Widget : public QWidget
     Q_OBJECT
 
   public:
-    explicit Widget(QWidget *parent = 0);
+    explicit Widget(QWidget *parent = nullptr);
     virtual ~Widget();
 
     void setConfig(const KScreen::ConfigPtr &config);
@@ -80,22 +80,23 @@ class Widget : public QWidget
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
   private:
-    QMLScreen *mScreen;
+    QMLScreen *mScreen = nullptr;
     KScreen::ConfigPtr mConfig;
     KScreen::ConfigPtr mPrevConfig;
 
-    QQuickView *mDeclarativeView;
-    ControlPanel *mControlPanel;
+    QQuickView *mDeclarativeView = nullptr;
+    ControlPanel *mControlPanel = nullptr;
 
-    ProfilesModel *mProfilesModel;
-    PrimaryOutputCombo *mPrimaryCombo;
-    QComboBox *mProfilesCombo;
+    ProfilesModel *mProfilesModel = nullptr;
+    PrimaryOutputCombo *mPrimaryCombo = nullptr;
+    QComboBox *mProfilesCombo = nullptr;
 
-    QPushButton *mUnifyButton;
-    QPushButton *mSaveProfileButton;
+    QPushButton *mScaleAllOutputsButton = nullptr;
+    QPushButton *mUnifyButton = nullptr;
+    QPushButton *mSaveProfileButton = nullptr;
 
     QList<QQuickView*> mOutputIdentifiers;
-    QTimer *mOutputTimer;
+    QTimer *mOutputTimer = nullptr;
 
 };
 

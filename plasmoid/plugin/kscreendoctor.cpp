@@ -95,6 +95,19 @@ void KScreenDoctor::setCurrentOutput(const QString &currentOutput)
     }
 }
 
+bool KScreenDoctor::autoRotate() const
+{
+    return m_autoRotate;
+}
+
+void KScreenDoctor::setAutoRotate(bool rotate)
+{
+    if (rotate != m_autoRotate) {
+        m_autoRotate = rotate;
+        emit autoRotateChanged();
+    }
+}
+
 int KScreenDoctor::currentOutputRotation() const
 {
     return 0;

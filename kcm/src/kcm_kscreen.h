@@ -23,7 +23,7 @@
 
 class Widget;
 class QTimer;
-
+class QHBoxLayout;
 namespace KScreen
 {
 class ConfigOperation;
@@ -34,8 +34,10 @@ class KCMKScreen : public KCModule
     Q_OBJECT
 
   public:
-    explicit KCMKScreen (QWidget* parent = 0, const QVariantList& args = QVariantList());
+    explicit KCMKScreen (QWidget* parent = nullptr, const QVariantList& args = QVariantList());
     virtual ~KCMKScreen();
+
+    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
 
   public Q_SLOTS:
     void load() Q_DECL_OVERRIDE;
@@ -46,8 +48,9 @@ class KCMKScreen : public KCModule
   private:
     void configReady(KScreen::ConfigOperation *op);
 
-    Widget *mKScreenWidget;
+    Widget *mKScreenWidget = nullptr;
     bool m_blockChanges = false;
+    QHBoxLayout *mMainLayout = nullptr;
 
 };
 

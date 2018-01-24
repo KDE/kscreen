@@ -22,7 +22,7 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 
 #include <QVBoxLayout>
 
@@ -30,7 +30,7 @@
 
 ControlPanel::ControlPanel(QWidget *parent)
     : QFrame(parent)
-    , mUnifiedOutputCfg(0)
+    , mUnifiedOutputCfg(nullptr)
 {
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -46,7 +46,7 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     qDeleteAll(mOutputConfigs);
     mOutputConfigs.clear();
     delete mUnifiedOutputCfg;
-    mUnifiedOutputCfg = 0;
+    mUnifiedOutputCfg = nullptr;
 
     if (mConfig) {
         mConfig->disconnect(this);
@@ -65,8 +65,10 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
 
 void ControlPanel::addOutput(const KScreen::OutputPtr &output)
 {
-    OutputConfig *outputCfg = new OutputConfig(output, this);
+    OutputConfig *outputCfg = new OutputConfig(this);
     outputCfg->setVisible(false);
+    outputCfg->setShowScaleOption(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
+    outputCfg->setOutput(output);
     connect(outputCfg, &OutputConfig::changed,
             this, &ControlPanel::changed);
 
@@ -106,12 +108,12 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
             continue;
         }
 
-        config->setVisible(output == 0);
+        config->setVisible(output == nullptr);
     }
 
     if (output.isNull()) {
         mUnifiedOutputCfg->deleteLater();
-        mUnifiedOutputCfg = 0;
+        mUnifiedOutputCfg = nullptr;
     } else {
         mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, this);
         mUnifiedOutputCfg->setOutput(output);

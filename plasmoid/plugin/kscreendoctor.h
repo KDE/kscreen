@@ -1,5 +1,5 @@
 /*
-    Copyright 2017 Sebastian Kügler <sebas@kde.org>
+    Copyright 2017-2018 Sebastian Kügler <sebas@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -34,25 +34,30 @@ class KScreenDoctor : public QObject
     Q_PROPERTY(QStringList outputNames READ outputNames NOTIFY outputNamesChanged)
     Q_PROPERTY(QString currentOutput READ currentOutput WRITE setCurrentOutput NOTIFY currentOutputChanged)
     Q_PROPERTY(int currentOutputRotation READ currentOutputRotation NOTIFY currentOutputRotationChanged)
+    Q_PROPERTY(bool autoRotate READ autoRotate WRITE setAutoRotate NOTIFY autoRotateChanged)
 
 public:
     explicit KScreenDoctor(QObject *parent = Q_NULLPTR);
 
+    bool autoRotate() const;
     QStringList outputNames() const;
     QString currentOutput() const;
     int currentOutputRotation() const;
 
 public Q_SLOTS:
+    void setAutoRotate(bool rotate);
     void setCurrentOutput(const QString &outputName);
     Q_INVOKABLE void setRotation(int rotation);
 
 Q_SIGNALS:
+    void autoRotateChanged() const;
     void outputNamesChanged() const;
     void currentOutputChanged() const;
     void currentOutputRotationChanged() const;
 
 private:
     void updateOutputs();
+    bool m_autoRotate;
     QStringList m_outputNames;
     QString m_currentOutput;
 

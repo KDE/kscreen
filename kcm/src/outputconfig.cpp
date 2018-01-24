@@ -23,7 +23,7 @@
 #include "resolutionslider.h"
 #include "collapsablebutton.h"
 #include "utils.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 
 #include <QtCore/QStringBuilder>
 #include <QFormLayout>
@@ -42,7 +42,7 @@
 
 OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
-    , mOutput(0)
+    , mOutput(nullptr)
 {
 }
 
@@ -73,17 +73,19 @@ void OutputConfig::initUi()
 
     connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
             this, [=]() {
-                mEnabled->blockSignals(true);
                 mEnabled->setChecked(mOutput->isEnabled());
-                mEnabled->blockSignals(false);
             });
 
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
             this, [=]() {
                 const int index = mRotation->findData(mOutput->rotation());
-                mRotation->blockSignals(true);
                 mRotation->setCurrentIndex(index);
-                mRotation->blockSignals(false);
+            });
+
+    connect(mOutput.data(), &KScreen::Output::scaleChanged,
+            this, [=]() {
+                const int index = mScale->findData(mOutput->scale());
+                mScale->setCurrentIndex(index);
             });
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -118,13 +120,24 @@ void OutputConfig::initUi()
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Clockwise"), KScreen::Output::Right);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
     mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Counterclockwise"), KScreen::Output::Left);
-    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
     formLayout->addRow(i18n("Orientation:"), mRotation);
 
-    formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    if (mShowScaleOption) {
+        mScale = new QComboBox(this);
+        mScale->addItem(i18nc("Scale multiplier, show everything at 1 times normal scale", "1x"), 1);
+        mScale->addItem(i18nc("Scale multiplier, show everything at 2 times normal scale", "2x"), 2);
+        connect(mScale, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
+                this, &OutputConfig::slotScaleChanged);
+        mScale->setCurrentIndex(mScale->findData(mOutput->scale()));
+
+        formLayout->addRow(i18n("Scale:"), mScale);
+
+        formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    }
 
     CollapsableButton *advancedButton = new CollapsableButton(i18n("Advanced Settings"), this);
     advancedButton->setCollapsed(true);
@@ -144,7 +157,7 @@ void OutputConfig::initUi()
     mRefreshRate->addItem(i18n("Auto"), -1);
     formLayout->addRow(i18n("Refresh rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
-    connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+    connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
 
     vbox->addStretch(2);
@@ -171,7 +184,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     KScreen::ModePtr selectedMode;
     QList<KScreen::ModePtr> modes;
-    Q_FOREACH (const KScreen::ModePtr mode, mOutput->modes()) {
+    Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
             modes << mode;
             if (!selectedMode || selectedMode->refreshRate() < mode->refreshRate()) {
@@ -185,14 +198,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
-    mRefreshRate->blockSignals(true);
     for (int i = 1; i < mRefreshRate->count(); ++i) {
         mRefreshRate->removeItem(i);
     }
 
-    for (int i = 0; i < modes.count(); i++) {
+    for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
-        mRefreshRate->addItem(i18n("%1 Hz", QString::fromLatin1("%1").arg(mode->refreshRate(), 0, 'f', 2)), mode->id());
+        mRefreshRate->addItem(i18n("%1 Hz", QLocale().toString(mode->refreshRate(), 'f', 2)), mode->id());
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
@@ -201,14 +213,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i);
         }
     }
-    mRefreshRate->blockSignals(false);
 
     Q_EMIT changed();
 }
 
 void OutputConfig::slotRotationChanged(int index)
 {
-    KScreen::Output::Rotation rotation = 
+    KScreen::Output::Rotation rotation =
         static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     mOutput->setRotation(rotation);
 
@@ -229,4 +240,24 @@ void OutputConfig::slotRefreshRateChanged(int index)
     mOutput->setCurrentModeId(modeId);
 
     Q_EMIT changed();
+}
+
+void OutputConfig::slotScaleChanged(int index)
+{
+    auto scale = mScale->itemData(index).toInt();
+    mOutput->setScale(scale);
+    Q_EMIT changed();
+}
+
+void OutputConfig::setShowScaleOption(bool showScaleOption)
+{
+    mShowScaleOption = showScaleOption;
+    if (mOutput) {
+        initUi();
+    }
+}
+
+bool OutputConfig::showScaleOption() const
+{
+    return mShowScaleOption;
 }

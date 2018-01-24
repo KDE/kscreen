@@ -29,7 +29,7 @@ class CollapsableButton : public QWidget
     Q_OBJECT
 
   public:
-    explicit CollapsableButton(const QString &text, QWidget *parent = 0);
+    explicit CollapsableButton(const QString &text, QWidget *parent = nullptr);
     virtual ~CollapsableButton();
 
     void setCollapsed(bool collapsed);
