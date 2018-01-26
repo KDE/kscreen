@@ -21,10 +21,14 @@
 #ifndef KSCREENDOCIMPORT_H
 #define KSCREENDOCIMPORT_H
 
+#include "xtouchscreen.h"
+
 #include <QObject>
 #include <QStringList>
 
 #include <KScreen/Config>
+
+#include <QOrientationSensor>
 
 
 class KScreenDoctor : public QObject
@@ -57,9 +61,14 @@ Q_SIGNALS:
 
 private:
     void updateOutputs();
+    void updateOrientation();
     bool m_autoRotate;
     QStringList m_outputNames;
     QString m_currentOutput;
+    QOrientationSensor *m_sensor = nullptr;
+    QOrientationReading::Orientation m_currentOrientation;
+
+    XTouchScreen *m_touchScreen;
 
     KScreen::ConfigPtr m_monitoredConfig = nullptr;
 };

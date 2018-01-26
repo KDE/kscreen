@@ -26,6 +26,8 @@
 #include <KScreen/SetConfigOperation>
 #include <KScreen/Output>
 
+#include <QOrientationSensor>
+
 #include <QDebug>
 
 
@@ -44,7 +46,6 @@ KScreenDoctor::KScreenDoctor(QObject *parent)
                 updateOutputs();
             }
     );
-
 }
 
 void KScreenDoctor::updateOutputs()
@@ -102,11 +103,47 @@ bool KScreenDoctor::autoRotate() const
 
 void KScreenDoctor::setAutoRotate(bool rotate)
 {
+    qDebug() << "Autorotate is now" << rotate;
     if (rotate != m_autoRotate) {
         m_autoRotate = rotate;
+
+        if (m_autoRotate && !m_sensor) {
+            m_sensor = new QOrientationSensor(this);
+            m_sensor->start();
+            connect(m_sensor, &QOrientationSensor::readingChanged, this, &KScreenDoctor::updateOrientation);
+        }
+
         emit autoRotateChanged();
     }
 }
+
+void KScreenDoctor::updateOrientation()
+{
+    if (m_sensor) {
+        if (!m_sensor->reading()) return;
+        m_currentOrientation = m_sensor->reading()->orientation();
+        QString o;
+        switch (m_currentOrientation) {
+            case QOrientationReading::TopUp:
+                o = "normal";
+                break;
+            case QOrientationReading::TopDown:
+                o = "bottom-up";
+                break;
+            case QOrientationReading::LeftUp:
+                o = "left-up";
+                break;
+            case QOrientationReading::RightUp:
+                o = "right-up";
+                break;
+            default:
+                o = "other";
+                return;
+        }
+        qDebug() << "Orientation is now: " << o;
+    }
+}
+
 
 int KScreenDoctor::currentOutputRotation() const
 {
@@ -138,8 +175,6 @@ void KScreenDoctor::setRotation(int rotation)
                         }
                         auto *op = new KScreen::SetConfigOperation(config);
                         op->exec();
-
-
                     }
                 }
             }
