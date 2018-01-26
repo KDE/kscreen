@@ -46,6 +46,7 @@ KScreenDoctor::KScreenDoctor(QObject *parent)
                 updateOutputs();
             }
     );
+    m_touchScreen = new KScreen::XTouchscreen(this);
 }
 
 void KScreenDoctor::updateOutputs()
@@ -112,6 +113,10 @@ void KScreenDoctor::setAutoRotate(bool rotate)
             m_sensor->start();
             connect(m_sensor, &QOrientationSensor::readingChanged, this, &KScreenDoctor::updateOrientation);
         }
+        if (!m_autoRotate) {
+            delete m_sensor;
+            m_sensor = nullptr;
+        }
 
         emit autoRotateChanged();
     }
@@ -126,18 +131,34 @@ void KScreenDoctor::updateOrientation()
         switch (m_currentOrientation) {
             case QOrientationReading::TopUp:
                 o = "normal";
+
+/*
+            None = 1,
+            Left = 2,
+            Inverted = 4,
+            Right = 8
+ */
+                setRotation(0);
+                m_touchScreen->setRotation(KScreen::Output::None);
                 break;
             case QOrientationReading::TopDown:
                 o = "bottom-up";
+                setRotation(180);
+                m_touchScreen->setRotation(KScreen::Output::Inverted);
                 break;
             case QOrientationReading::LeftUp:
                 o = "left-up";
+                setRotation(270);
+                m_touchScreen->setRotation(KScreen::Output::Left);
                 break;
             case QOrientationReading::RightUp:
                 o = "right-up";
+                setRotation(90);
+                m_touchScreen->setRotation(KScreen::Output::Right);
                 break;
             default:
                 o = "other";
+                qDebug() << "Weird Orientation, unhandled case.";
                 return;
         }
         qDebug() << "Orientation is now: " << o;

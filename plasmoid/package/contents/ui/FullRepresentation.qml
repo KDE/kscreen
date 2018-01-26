@@ -95,6 +95,10 @@ FocusScope {
             text: i18n("270°")
             onClicked: doctor.setRotation(270);
         }
+        CheckBox {
+            text: i18n("Auto rotate")
+            onClicked: doctor.autoRotate = checked
+        }
 
     }
 }

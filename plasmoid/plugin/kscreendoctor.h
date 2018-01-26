@@ -68,7 +68,7 @@ private:
     QOrientationSensor *m_sensor = nullptr;
     QOrientationReading::Orientation m_currentOrientation;
 
-    XTouchScreen *m_touchScreen;
+    KScreen::XTouchscreen *m_touchScreen = nullptr;
 
     KScreen::ConfigPtr m_monitoredConfig = nullptr;
 };

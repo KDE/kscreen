@@ -42,6 +42,7 @@ class XTouchscreen::Private
     int id;
     QString name;
     QString transformationMatrix;
+    QHash<Output::Rotation, QString> m_transformationMatrices;
     Output::Rotation rotation;
 };
 
