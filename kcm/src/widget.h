@@ -26,6 +26,7 @@
 #include <kscreen/config.h>
 
 class ProfilesModel;
+class QLabel;
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
@@ -89,6 +90,7 @@ class Widget : public QWidget
 
     ProfilesModel *mProfilesModel = nullptr;
     PrimaryOutputCombo *mPrimaryCombo = nullptr;
+    QLabel *mPrimaryLabel = nullptr;
     QComboBox *mProfilesCombo = nullptr;
 
     QPushButton *mScaleAllOutputsButton = nullptr;
