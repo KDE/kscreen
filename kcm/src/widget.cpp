@@ -89,7 +89,8 @@ Widget::Widget(QWidget *parent):
     mPrimaryCombo = new PrimaryOutputCombo(this);
     connect(mPrimaryCombo, &PrimaryOutputCombo::changed,
             this, &Widget::changed);
-    hbox->addWidget(new QLabel(i18n("Primary display:")));
+    mPrimaryLabel = new QLabel(i18n("Primary display:"));
+    hbox->addWidget(mPrimaryLabel);
     hbox->addWidget(mPrimaryCombo);
 
     hbox->addStretch();
@@ -176,7 +177,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mPrimaryCombo->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
     mScaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
-
+    mPrimaryCombo->setVisible(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay));
+    mPrimaryLabel->setVisible(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay));
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,
