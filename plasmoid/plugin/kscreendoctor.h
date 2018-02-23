@@ -61,12 +61,12 @@ Q_SIGNALS:
 
 private:
     void updateOutputs();
-    void updateOrientation();
+    void updateRotation();
     bool m_autoRotate;
     QStringList m_outputNames;
     QString m_currentOutput;
     QOrientationSensor *m_sensor = nullptr;
-    QOrientationReading::Orientation m_currentOrientation;
+    QOrientationReading::Orientation m_currentRotation;
 
     KScreen::XTouchscreen *m_touchScreen = nullptr;
 

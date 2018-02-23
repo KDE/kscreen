@@ -26,7 +26,7 @@
 #include <KScreen/SetConfigOperation>
 #include <KScreen/Output>
 
-#include <QOrientationSensor>
+#include <QRotationSensor>
 
 #include <QDebug>
 
@@ -111,7 +111,7 @@ void KScreenDoctor::setAutoRotate(bool rotate)
         if (m_autoRotate && !m_sensor) {
             m_sensor = new QOrientationSensor(this);
             m_sensor->start();
-            connect(m_sensor, &QOrientationSensor::readingChanged, this, &KScreenDoctor::updateOrientation);
+            connect(m_sensor, &QOrientationSensor::readingChanged, this, &KScreenDoctor::updateRotation);
         }
         if (!m_autoRotate) {
             delete m_sensor;
@@ -122,15 +122,15 @@ void KScreenDoctor::setAutoRotate(bool rotate)
     }
 }
 
-void KScreenDoctor::updateOrientation()
+void KScreenDoctor::updateRotation()
 {
     if (m_sensor) {
         if (!m_sensor->reading()) return;
-        m_currentOrientation = m_sensor->reading()->orientation();
+        m_currentRotation = m_sensor->reading()->orientation();
         QString o;
-        switch (m_currentOrientation) {
+        switch (m_currentRotation) {
             case QOrientationReading::TopUp:
-                o = "normal";
+                o = "none";
 
 /*
             None = 1,
@@ -142,26 +142,26 @@ void KScreenDoctor::updateOrientation()
                 m_touchScreen->setRotation(KScreen::Output::None);
                 break;
             case QOrientationReading::TopDown:
-                o = "bottom-up";
+                o = "inverted";
                 setRotation(180);
                 m_touchScreen->setRotation(KScreen::Output::Inverted);
                 break;
             case QOrientationReading::LeftUp:
-                o = "left-up";
+                o = "left";
                 setRotation(270);
                 m_touchScreen->setRotation(KScreen::Output::Left);
                 break;
             case QOrientationReading::RightUp:
-                o = "right-up";
+                o = "right";
                 setRotation(90);
                 m_touchScreen->setRotation(KScreen::Output::Right);
                 break;
             default:
                 o = "other";
-                qDebug() << "Weird Orientation, unhandled case.";
+                qDebug() << "Weird Rotation, unhandled case.";
                 return;
         }
-        qDebug() << "Orientation is now: " << o;
+        qDebug() << "Rotation is now: " << o;
     }
 }
 
