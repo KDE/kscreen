@@ -49,10 +49,8 @@ K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
  , m_monitoredConfig(nullptr)
- , m_iteration(Generator::None)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
- , m_buttonTimer(new QTimer(this))
  , m_saveTimer(new QTimer(this))
  , m_lidClosedTimer(new QTimer(this))
  
@@ -98,10 +96,6 @@ void KScreenDaemon::init()
     new KScreenAdaptor(this);
     // Initialize OSD manager to register its dbus interface
     KScreen::OsdManager::self();
-
-    m_buttonTimer->setInterval(300);
-    m_buttonTimer->setSingleShot(true);
-    connect(m_buttonTimer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
 
     m_saveTimer->setInterval(300);
     m_saveTimer->setSingleShot(true);
@@ -294,52 +288,9 @@ void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
-    QString message = i18nc("OSD text after XF86Display button press", "No External Display");
-    if (m_monitoredConfig && m_monitoredConfig->connectedOutputs().count() > 1) {
-        message = i18nc("OSD text after XF86Display button press", "Changing Screen Layout");
-    }
-
-    if (m_buttonTimer->isActive()) {
-        qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
-        return;
-    }
-
-    m_buttonTimer->start();
-}
-
-void KScreenDaemon::resetDisplaySwitch()
-{
-    qCDebug(KSCREEN_KDED) << "resetDisplaySwitch()";
-    m_iteration = Generator::None;
-}
-
-void KScreenDaemon::applyGenericConfig()
-{
-    if (m_iteration == Generator::ExtendToRight) {
-        m_iteration = Generator::None;
-    }
-
-    m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
-    qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
-
-    static QHash<Generator::DisplaySwitchAction, QString> actionMessages({
-        {Generator::DisplaySwitchAction::None, i18nc("osd when displaybutton is pressed", "No Action")},
-        {Generator::DisplaySwitchAction::Clone, i18nc("osd when displaybutton is pressed", "Cloned Display")},
-        {Generator::DisplaySwitchAction::ExtendToLeft, i18nc("osd when displaybutton is pressed", "Extend Left")},
-        {Generator::DisplaySwitchAction::TurnOffEmbedded, i18nc("osd when displaybutton is pressed", "External Only")},
-        {Generator::DisplaySwitchAction::TurnOffExternal, i18nc("osd when displaybutton is pressed", "Internal Only")},
-        {Generator::DisplaySwitchAction::ExtendToRight, i18nc("osd when displaybutton is pressed", "Extended Right")}
-    });
-    const QString &message = actionMessages.value(m_iteration);
-
-    // We delay the OSD for two seconds and hope that X and hardware are done setting everything up.
-    QTimer::singleShot(2000,
-        [message]() {
-            KScreen::OsdManager::self()->showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
-        }
-    );
-
-    doApplyConfig(Generator::self()->displaySwitch(m_iteration));
+    auto action = KScreen::OsdManager::self()->showActionSelector();
+    connect(action, &KScreen::OsdAction::selected,
+            this, &KScreenDaemon::applyOsdAction);
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -409,8 +360,6 @@ void KScreenDaemon::outputConnectedChanged()
     if (!m_changeCompressor->isActive()) {
         m_changeCompressor->start();
     }
-
-    resetDisplaySwitch();
 
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
     qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
