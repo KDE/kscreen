@@ -23,6 +23,7 @@
 #include "device.h"
 #include "kscreenadaptor.h"
 #include "kscreen_daemon_debug.h"
+#include "osdmanager.h"
 
 #include <QTimer>
 #include <QAction>
@@ -95,6 +96,8 @@ void KScreenDaemon::init()
     connect(action, &QAction::triggered, [&](bool) { displayButton(); });
 
     new KScreenAdaptor(this);
+    // Initialize OSD manager to register its dbus interface
+    KScreen::OsdManager::self();
 
     m_buttonTimer->setInterval(300);
     m_buttonTimer->setSingleShot(true);
@@ -180,10 +183,49 @@ void KScreenDaemon::applyKnownConfig()
     doApplyConfig(config);
 }
 
+void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
+{
+    switch (action) {
+    case KScreen::OsdAction::NoAction:
+        qCDebug(KSCREEN_KDED) << "OSD: no action";
+        return;
+    case KScreen::OsdAction::SwitchToInternal:
+        qCDebug(KSCREEN_KDED) << "OSD: switch to internal";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffExternal));
+        return;
+    case KScreen::OsdAction::SwitchToExternal:
+        qCDebug(KSCREEN_KDED) << "OSD: switch to external";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffEmbedded));
+        return;
+    case KScreen::OsdAction::ExtendLeft:
+        qCDebug(KSCREEN_KDED) << "OSD: extend left";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToLeft));
+        return;
+    case KScreen::OsdAction::ExtendRight:
+        qCDebug(KSCREEN_KDED) << "OSD: extend right";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToRight));
+        return;
+    case KScreen::OsdAction::Clone:
+        qCDebug(KSCREEN_KDED) << "OSD: clone";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::Clone));
+        return;
+    }
+
+    Q_UNREACHABLE();
+}
+
 void KScreenDaemon::applyIdealConfig()
 {
-    qCDebug(KSCREEN_KDED) << "Applying ideal config";
-    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+
+    if (m_monitoredConfig->connectedOutputs().count() < 2) {
+        KScreen::OsdManager::self()->hideOsd();
+        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+    } else {
+        qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
+        auto action = KScreen::OsdManager::self()->showActionSelector();
+        connect(action, &KScreen::OsdAction::selected,
+                this, &KScreenDaemon::applyOsdAction);
+    }
 }
 
 void logConfig(const KScreen::ConfigPtr &config) {
@@ -243,6 +285,11 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
+void KScreenDaemon::showOutputIdentifier()
+{
+    KScreen::OsdManager::self()->showOutputIdentifiers();
+}
+
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
@@ -251,7 +298,6 @@ void KScreenDaemon::displayButton()
     if (m_monitoredConfig && m_monitoredConfig->connectedOutputs().count() > 1) {
         message = i18nc("OSD text after XF86Display button press", "Changing Screen Layout");
     }
-    showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
 
     if (m_buttonTimer->isActive()) {
         qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
@@ -275,6 +321,23 @@ void KScreenDaemon::applyGenericConfig()
 
     m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
     qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
+
+    static QHash<Generator::DisplaySwitchAction, QString> actionMessages({
+        {Generator::DisplaySwitchAction::None, i18nc("osd when displaybutton is pressed", "No Action")},
+        {Generator::DisplaySwitchAction::Clone, i18nc("osd when displaybutton is pressed", "Cloned Display")},
+        {Generator::DisplaySwitchAction::ExtendToLeft, i18nc("osd when displaybutton is pressed", "Extend Left")},
+        {Generator::DisplaySwitchAction::TurnOffEmbedded, i18nc("osd when displaybutton is pressed", "External Only")},
+        {Generator::DisplaySwitchAction::TurnOffExternal, i18nc("osd when displaybutton is pressed", "Internal Only")},
+        {Generator::DisplaySwitchAction::ExtendToRight, i18nc("osd when displaybutton is pressed", "Extended Right")}
+    });
+    const QString &message = actionMessages.value(m_iteration);
+
+    // We delay the OSD for two seconds and hope that X and hardware are done setting everything up.
+    QTimer::singleShot(2000,
+        [message]() {
+            KScreen::OsdManager::self()->showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
+        }
+    );
 
     doApplyConfig(Generator::self()->displaySwitch(m_iteration));
 }
@@ -434,7 +497,6 @@ KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &c
 
     return KScreen::OutputPtr();
 }
-
 
 
 #include "daemon.moc"
