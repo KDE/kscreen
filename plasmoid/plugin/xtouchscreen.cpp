@@ -17,7 +17,9 @@
  *************************************************************************************/
 
 #include "xtouchscreen.h"
-// #include "../../src/debug_p.h"
+
+#include <QStandardPaths>
+#include <QProcess>
 
 #include <QStringList>
 
@@ -99,20 +101,56 @@ void XTouchscreen::setName(const QString& name)
     Q_EMIT nameChanged();
 }
 
-QString XTouchscreen::transformationMatrix() const
+QString XTouchscreen::transformationMatrix(KScreen::Output::Rotation rot)
 {
-    return d->transformationMatrix;
+    QString matrix;
+    switch (rot) {
+        case KScreen::Output::None:
+            matrix = QStringLiteral("1 0 0 0 1 0 0 0 1");
+            break;
+        case KScreen::Output::Left:
+            matrix = QStringLiteral("0 -1 1 1 0 0 0 0 1");
+            break;
+        case KScreen::Output::Right:
+            matrix = QStringLiteral("0 1 0 -1 0 1 0 0 1");
+            break;
+        case KScreen::Output::Inverted:
+            matrix = QStringLiteral("-1 0 1 0 -1 1 0 0 1");
+            break;
+        default:
+            Q_UNREACHABLE();
+            qDebug() << "Weird Rotation, unhandled case.";
+    }
+    return matrix;
 }
 
-void XTouchscreen::setTransformationMatrix(const QString& matrix)
+void XTouchscreen::rotate(KScreen::Output::Rotation rot)
 {
-    if (d->transformationMatrix == matrix) {
-        return;
-    }
+    const QString xinput = QStandardPaths::findExecutable("xinput");
+//     const QString xinput = QStandardPaths::findExecutable("uname");
 
-    d->transformationMatrix = matrix;
+    QStringList arguments;
+    arguments << QStringLiteral("set-prop")
+//               << QString("'%1'").arg(name())
+//               << QStringLiteral("'Coordinate Transformation Matrix'")
+              << name()
+              << QStringLiteral("Coordinate Transformation Matrix")
+              << transformationMatrix(rot);
+//     arguments << QStringLiteral("$DISPLAY");
+//     arguments << QStringLiteral("-a");
 
-    Q_EMIT transformationMatrixChanged();
+    qDebug() << "EXECUTE:" << xinput << arguments;
+
+    QProcess *myProcess = new QProcess(this);
+    auto env = QProcessEnvironment::systemEnvironment();
+//     env.insert(QStringLiteral("DISPLAY"), QStringLiteral(":0"));
+    myProcess->setProcessEnvironment(env);
+    myProcess->start(xinput, arguments);
+    myProcess->waitForFinished();
+    auto errors = myProcess->readAllStandardError();
+    auto out = myProcess->readAllStandardOutput();
+    qDebug() << QString::fromLocal8Bit(errors);
+    qDebug() << QString::fromLocal8Bit(out);
 }
 
 Output::Rotation XTouchscreen::rotation() const
@@ -122,10 +160,12 @@ Output::Rotation XTouchscreen::rotation() const
 
 void XTouchscreen::setRotation(Output::Rotation rotation)
 {
+    qDebug() << "setRotation" << rotation;
     if (d->rotation == rotation) {
         return;
     }
 
+    rotate(rotation);
     d->rotation = rotation;
 
     Q_EMIT rotationChanged();

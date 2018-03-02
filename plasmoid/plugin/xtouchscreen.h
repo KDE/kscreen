@@ -54,9 +54,8 @@ class XTouchscreen : public QObject
         Output::Rotation rotation() const;
         void setRotation(Output::Rotation rotation);
 
-        QString transformationMatrix() const;
-        void setTransformationMatrix(const QString& matrix);
-
+        static QString transformationMatrix(KScreen::Output::Rotation rot);
+        void rotate(KScreen::Output::Rotation rot);
 
 Q_SIGNALS:
         void nameChanged() const;

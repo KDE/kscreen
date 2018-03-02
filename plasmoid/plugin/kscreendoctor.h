@@ -63,12 +63,13 @@ private:
     void updateOutputs();
     void updateRotation();
     bool m_autoRotate;
+    void findTouchscreen();
     QStringList m_outputNames;
     QString m_currentOutput;
     QOrientationSensor *m_sensor = nullptr;
     QOrientationReading::Orientation m_currentRotation;
 
-    KScreen::XTouchscreen *m_touchScreen = nullptr;
+    KScreen::XTouchscreen *m_touchscreen = nullptr;
 
     KScreen::ConfigPtr m_monitoredConfig = nullptr;
 };

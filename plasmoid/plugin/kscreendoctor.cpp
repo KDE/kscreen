@@ -19,6 +19,7 @@
 */
 
 #include "kscreendoctor.h"
+#include "xtouchscreen.h"
 
 #include <KScreen/Config>
 #include <KScreen/ConfigMonitor>
@@ -27,8 +28,10 @@
 #include <KScreen/Output>
 
 #include <QRotationSensor>
-
 #include <QDebug>
+
+#include <X11/Xlib.h>
+#include <X11/extensions/XInput.h>
 
 
 KScreenDoctor::KScreenDoctor(QObject *parent)
@@ -44,9 +47,9 @@ KScreenDoctor::KScreenDoctor(QObject *parent)
                 qDebug() << "Config" << m_monitoredConfig.data() << "is ready";
                 KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
                 updateOutputs();
+                findTouchscreen();
             }
     );
-    m_touchScreen = new KScreen::XTouchscreen(this);
 }
 
 void KScreenDoctor::updateOutputs()
@@ -139,22 +142,24 @@ void KScreenDoctor::updateRotation()
             Right = 8
  */
                 setRotation(0);
-                m_touchScreen->setRotation(KScreen::Output::None);
+                // X.h #defines None, so we can't use this enum here, work around it
+                // by using its numeric value. Yes, really ugly.
+                //m_touchscreen->setRotation(static_cast<KScreen::Output::Rotation>(1));
                 break;
             case QOrientationReading::TopDown:
                 o = "inverted";
                 setRotation(180);
-                m_touchScreen->setRotation(KScreen::Output::Inverted);
+                //m_touchscreen->setRotation(KScreen::Output::Inverted);
                 break;
             case QOrientationReading::LeftUp:
                 o = "left";
                 setRotation(270);
-                m_touchScreen->setRotation(KScreen::Output::Left);
+                //m_touchscreen->setRotation(KScreen::Output::Left);
                 break;
             case QOrientationReading::RightUp:
                 o = "right";
                 setRotation(90);
-                m_touchScreen->setRotation(KScreen::Output::Right);
+                //m_touchscreen->setRotation(KScreen::Output::Right);
                 break;
             default:
                 o = "other";
@@ -186,7 +191,9 @@ void KScreenDoctor::setRotation(int rotation)
                     if (output->name() == m_currentOutput) {
                         qDebug() << "Setting output rotation on " << output->name();
                         if (rotation == 0) {
-                            output->setRotation(KScreen::Output::None);
+                            // X.h #defines None, so we can't use this enum here, work around it
+                            // by using its numeric value. Yes, really ugly.
+                            output->setRotation(static_cast<KScreen::Output::Rotation>(1));
                         } else if (rotation == 90) {
                             output->setRotation(KScreen::Output::Right);
                         } else if (rotation == 180) {
@@ -194,10 +201,37 @@ void KScreenDoctor::setRotation(int rotation)
                         } else if (rotation == 270) {
                             output->setRotation(KScreen::Output::Left);
                         }
-                        auto *op = new KScreen::SetConfigOperation(config);
-                        op->exec();
+//                         auto *op = new KScreen::SetConfigOperation(config);
+//                         op->exec();
+                        m_touchscreen->setRotation(output->rotation());
                     }
                 }
             }
     );
 }
+
+void KScreenDoctor::findTouchscreen()
+{
+    Display *display = XOpenDisplay(0);
+    int nDevices = 0;
+    XDeviceInfo *devices = XListInputDevices(display, &nDevices);
+    for (int i = 0; i < nDevices; i++) {
+        const char *name = devices[i].name;
+        char *type = 0;
+        if (devices[i].type) {
+            type = XGetAtomName(display, devices[i].type);
+        }
+        if (QString::fromLocal8Bit(type) == QStringLiteral("TOUCH")) {
+            m_touchscreen = new KScreen::XTouchscreen(this);
+            m_touchscreen->setName(name);
+            qDebug() << "Found touchscreen with NAME:" << name;
+            XFree(type);
+            break;
+        }
+        XFree(type);
+    }
+    XFreeDeviceList(devices);
+    XCloseDisplay(display);
+}
+
+
