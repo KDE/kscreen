@@ -48,6 +48,7 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QQuickView>
+#include <QQuickWidget>
 
 #define QML_PATH "kcm_kscreen/qml/"
 
@@ -66,12 +67,10 @@ Widget::Widget(QWidget *parent):
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
     layout->addWidget(splitter);
 
-    mDeclarativeView = new QQuickView();
-    QWidget *container = QWidget::createWindowContainer(mDeclarativeView, this);
-    mDeclarativeView->setResizeMode(QQuickView::SizeRootObjectToView);
+    mDeclarativeView = new QQuickWidget();
+    mDeclarativeView->setResizeMode(QQuickWidget::SizeRootObjectToView);
     mDeclarativeView->setMinimumHeight(280);
-    container->setMinimumHeight(280);
-    splitter->addWidget(container);
+    splitter->addWidget(mDeclarativeView);
 
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);

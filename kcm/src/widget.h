@@ -36,6 +36,7 @@ class QPushButton;
 class QComboBox;
 
 class QQuickView;
+class QQuickWidget;
 
 namespace KScreen
 {
@@ -85,7 +86,7 @@ class Widget : public QWidget
     KScreen::ConfigPtr mConfig;
     KScreen::ConfigPtr mPrevConfig;
 
-    QQuickView *mDeclarativeView = nullptr;
+    QQuickWidget *mDeclarativeView = nullptr;
     ControlPanel *mControlPanel = nullptr;
 
     ProfilesModel *mProfilesModel = nullptr;
