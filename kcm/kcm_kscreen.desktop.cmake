@@ -10,7 +10,6 @@ X-KDE-Weight=40
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 
 Name=Displays
-Name[ar]=العروض
 Name[ca]=Pantalles
 Name[ca@valencia]=Pantalles
 Name[cs]=Obrazovky
