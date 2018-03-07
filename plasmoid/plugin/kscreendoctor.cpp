@@ -201,8 +201,8 @@ void KScreenDoctor::setRotation(int rotation)
                         } else if (rotation == 270) {
                             output->setRotation(KScreen::Output::Left);
                         }
-//                         auto *op = new KScreen::SetConfigOperation(config);
-//                         op->exec();
+                        auto *op = new KScreen::SetConfigOperation(config);
+                        op->exec();
                         m_touchscreen->setRotation(output->rotation());
                     }
                 }

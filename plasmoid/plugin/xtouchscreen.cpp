@@ -101,7 +101,7 @@ void XTouchscreen::setName(const QString& name)
     Q_EMIT nameChanged();
 }
 
-QString XTouchscreen::transformationMatrix(KScreen::Output::Rotation rot)
+QStringList XTouchscreen::transformationMatrix(KScreen::Output::Rotation rot)
 {
     QString matrix;
     switch (rot) {
@@ -121,7 +121,7 @@ QString XTouchscreen::transformationMatrix(KScreen::Output::Rotation rot)
             Q_UNREACHABLE();
             qDebug() << "Weird Rotation, unhandled case.";
     }
-    return matrix;
+    return matrix.split(" ");
 }
 
 void XTouchscreen::rotate(KScreen::Output::Rotation rot)
@@ -131,11 +131,22 @@ void XTouchscreen::rotate(KScreen::Output::Rotation rot)
 
     QStringList arguments;
     arguments << QStringLiteral("set-prop")
-//               << QString("'%1'").arg(name())
-//               << QStringLiteral("'Coordinate Transformation Matrix'")
               << name()
               << QStringLiteral("Coordinate Transformation Matrix")
+//               << name()
+//               << QStringLiteral("Coordinate Transformation Matrix")
               << transformationMatrix(rot);
+//               << QStringLiteral("-1")
+//               << QStringLiteral("0")
+//               << QStringLiteral("1")
+//               << QStringLiteral("0")
+//               << QStringLiteral("-1")
+//               << QStringLiteral("1")
+//               << QStringLiteral("0")
+//               << QStringLiteral("0")
+//               << QStringLiteral("1");
+
+//               ("-1 0 1 0 -1 1 0 0 1")
 //     arguments << QStringLiteral("$DISPLAY");
 //     arguments << QStringLiteral("-a");
 
