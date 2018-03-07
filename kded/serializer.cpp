@@ -17,7 +17,7 @@
  *************************************************************************************/
 
 #include "serializer.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 #include "generator.h"
 
 #include <QStringList>
@@ -154,6 +154,7 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
         info[QStringLiteral("rotation")] = output->rotation();
+        info[QStringLiteral("scale")] = output->scale();
 
         QVariantMap pos;
         pos[QStringLiteral("x")] = output->pos().x();
@@ -216,11 +217,12 @@ bool Serializer::moveConfig(const QString &srcId, const QString &destId)
 
 KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
-    KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
+    const KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     QStringList allIds;
-    Q_FOREACH (KScreen::OutputPtr output, outputs) {
+    allIds.reserve(outputs.count());
+    Q_FOREACH (const KScreen::OutputPtr &output, outputs) {
         const auto outputId = Serializer::outputId(output);
         if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
             duplicateIds << outputId;
@@ -254,6 +256,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
         output->setPrimary(info[QStringLiteral("primary")].toBool());
         output->setEnabled(info[QStringLiteral("enabled")].toBool());
         output->setRotation(static_cast<KScreen::Output::Rotation>(info[QStringLiteral("rotation")].toInt()));
+        output->setScale(info.value(QStringLiteral("scale"), 1).toInt());
 
         const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
         const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();

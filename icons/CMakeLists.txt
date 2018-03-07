@@ -1,1 +1,9 @@
-ecm_install_icons( ${ICON_INSTALL_DIR} )
+ecm_install_icons(
+    ICONS
+        48-actions-kdocumentinfo.png
+        sc-actions-kdocumentinfo.svgz
+    DESTINATION
+        ${KDE_INSTALL_ICONDIR}
+    THEME
+        hicolor
+)

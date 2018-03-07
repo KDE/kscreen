@@ -40,12 +40,12 @@ bool operator>(const QSize &sizeA, const QSize &sizeB)
 
 QMLOutput::QMLOutput(QQuickItem *parent):
     QQuickItem(parent),
-    m_screen(0),
-    m_cloneOf(0),
-    m_leftDock(0),
-    m_topDock(0),
-    m_rightDock(0),
-    m_bottomDock(0),
+    m_screen(nullptr),
+    m_cloneOf(nullptr),
+    m_leftDock(nullptr),
+    m_topDock(nullptr),
+    m_rightDock(nullptr),
+    m_bottomDock(nullptr),
     m_isCloneMode(false)
 {
     connect(this, &QMLOutput::xChanged,
@@ -80,6 +80,8 @@ void QMLOutput::setOutputPtr(const KScreen::OutputPtr &output)
             this, &QMLOutput::updateRootProperties);
     connect(m_output.data(), &KScreen::Output::currentModeIdChanged,
             this, &QMLOutput::currentModeIdChanged);
+    connect(m_output.data(), &KScreen::Output::scaleChanged,
+            this, &QMLOutput::currentModeIdChanged);
 }
 
 QMLScreen *QMLOutput::screen() const
@@ -89,7 +91,7 @@ QMLScreen *QMLOutput::screen() const
 
 void QMLOutput::setScreen(QMLScreen *screen)
 {
-    Q_ASSERT(m_screen == 0);
+    Q_ASSERT(m_screen == nullptr);
 
     m_screen = screen;
     Q_EMIT screenChanged();
@@ -209,7 +211,7 @@ int QMLOutput::currentOutputHeight() const
         }
     }
 
-    return mode->size().height();
+    return mode->size().height() / m_output->scale();
 }
 
 int QMLOutput::currentOutputWidth() const
@@ -231,7 +233,7 @@ int QMLOutput::currentOutputWidth() const
         }
     }
 
-    return mode->size().width();
+    return mode->size().width() / m_output->scale();
 }
 
 void QMLOutput::currentModeIdChanged()
@@ -240,18 +242,25 @@ void QMLOutput::currentModeIdChanged()
         return;
     }
 
-    if (m_rightDock) {
-        QMLOutput *rightDock = m_rightDock;
-        float newWidth = currentOutputWidth() * m_screen->outputScale();
-        setX(rightDock->x() - newWidth);
-        setRightDockedTo(rightDock);
-    }
+    if (isCloneMode()) {
+        const float newWidth = currentOutputWidth() * m_screen->outputScale();
+        setX((m_screen->width() - newWidth) / 2);
+        const float newHeight = currentOutputHeight() * m_screen->outputScale();
+        setY((m_screen->height() - newHeight) / 2);
+    } else {
+        if (m_rightDock) {
+            QMLOutput *rightDock = m_rightDock;
+            float newWidth = currentOutputWidth() * m_screen->outputScale();
+            setX(rightDock->x() - newWidth);
+            setRightDockedTo(rightDock);
+        }
 
-    if (m_bottomDock) {
-        QMLOutput *bottomDock = m_bottomDock;
-        float newHeight = currentOutputHeight() * m_screen->outputScale();
-        setY(bottomDock->y() - newHeight);
-        setBottomDockedTo(bottomDock);
+        if (m_bottomDock) {
+            QMLOutput *bottomDock = m_bottomDock;
+            float newHeight = currentOutputHeight() * m_screen->outputScale();
+            setY(bottomDock->y() - newHeight);
+            setBottomDockedTo(bottomDock);
+        }
     }
 
     Q_EMIT currentOutputSizeChanged();

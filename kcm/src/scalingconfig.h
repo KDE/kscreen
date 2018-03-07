@@ -38,7 +38,7 @@ protected:
 private:
     void load();
     qreal scaleFactor() const;
-    qreal scaleDPI() const;
+    int scaleDPI() const;
     Ui::Scaling ui;
     qreal m_initialScalingFactor = 1.0;
     KScreen::OutputList m_outputList;

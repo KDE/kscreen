@@ -29,7 +29,7 @@ class CollapsableButton : public QWidget
     Q_OBJECT
 
   public:
-    explicit CollapsableButton(const QString &text, QWidget *parent = 0);
+    explicit CollapsableButton(const QString &text, QWidget *parent = nullptr);
     virtual ~CollapsableButton();
 
     void setCollapsed(bool collapsed);
@@ -47,8 +47,8 @@ class CollapsableButton : public QWidget
     void toggled();
 
   protected:
-    virtual void paintEvent(QPaintEvent *ev);
-    virtual void mouseReleaseEvent(QMouseEvent *ev);
+    void paintEvent(QPaintEvent *ev) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *ev) Q_DECL_OVERRIDE;
 
   private:
     bool mCollapsed;

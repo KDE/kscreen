@@ -31,8 +31,6 @@ Item {
     objectName: "root";
     focus: true;
 
-    anchors.fill: parent;
-
     SystemPalette {
         id: palette;
     }

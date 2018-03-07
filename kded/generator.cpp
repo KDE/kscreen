@@ -18,12 +18,13 @@
 
 #include "generator.h"
 #include "device.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 
 #include <QDBusReply>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QLoggingCategory>
+#include <QRect>
 
 #include <kscreen/config.h>
 
@@ -40,7 +41,7 @@
     }
 #endif
 
-Generator* Generator::instance = 0;
+Generator* Generator::instance = nullptr;
 
 bool operator<(const QSize &s1, const QSize &s2)
 {
@@ -68,7 +69,7 @@ Generator::Generator()
 void Generator::destroy()
 {
     delete Generator::instance;
-    Generator::instance = 0;
+    Generator::instance = nullptr;
 }
 
 Generator::~Generator()
@@ -95,6 +96,14 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
 
     if (connectedOutputs.isEmpty()) {
         return config;
+    }
+
+    //the scale will generally be independent no matter where the output is
+    //scale will affect geometry, so do this first
+    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
+        for(auto output: qAsConst(connectedOutputs)) {
+            output->setScale(bestScaleForOutput(output));
+        }
     }
 
     if (connectedOutputs.count() == 1) {
@@ -154,6 +163,14 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     KScreen::OutputList connectedOutputs = config->connectedOutputs();
 
+    //the scale will generally be independent no matter where the output is
+    //scale will affect geometry, so do this first
+    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
+        for(auto output: qAsConst(connectedOutputs)) {
+            output->setScale(bestScaleForOutput(output));
+        }
+    }
+
     // There's not much else we can do with only one output
     if (connectedOutputs.count() < 2) {
         singleOutput(connectedOutputs);
@@ -202,7 +219,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         external->setCurrentModeId(extMode->id());
 
         Q_ASSERT(external->currentMode()); // we must have a mode now
-        const QSize size = external->currentMode()->size();
+        const QSize size = external->geometry().size();
         embedded->setPos(QPoint(size.width(), 0));
         embedded->setEnabled(true);
         embedded->setPrimary(true);
@@ -248,7 +265,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
 
         Q_ASSERT(embedded->currentMode()); // we must have a mode now
-        const QSize size = embedded->currentMode()->size();
+        const QSize size = embedded->geometry().size();
         external->setPos(QPoint(size.width(), 0));
         external->setEnabled(true);
         external->setPrimary(false);
@@ -281,7 +298,6 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
     QSet<QSize> commonSizes;
     const QSize maxScreenSize  = m_currentConfig->screen()->maxSize();
 
-    QList<QSet<QSize>> modes;
     Q_FOREACH(const KScreen::OutputPtr &output, connectedOutputs) {
         QSet<QSize> modeSizes;
         Q_FOREACH(const KScreen::ModePtr &mode, output->modes()) {
@@ -424,12 +440,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     Q_ASSERT(embeddedMode);
     embedded->setCurrentModeId(embeddedMode->id());
 
-    int globalWidth;
-    if (embedded->isHorizontal()) {
-        globalWidth = embedded->currentMode()->size().width();
-    } else {
-        globalWidth = embedded->currentMode()->size().height();
-    }
+    int globalWidth = embedded->geometry().width();
     KScreen::OutputPtr biggest = biggestOutput(connectedOutputs);
     Q_ASSERT(biggest);
     connectedOutputs.remove(biggest->id());
@@ -440,11 +451,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     const KScreen::ModePtr mode = bestModeForOutput(biggest);
     biggest->setCurrentModeId(mode->id());
 
-    if (biggest->isHorizontal()) {
-        globalWidth += biggest->currentMode()->size().width();
-    } else {
-        globalWidth += biggest->currentMode()->size().height();
-    }
+    globalWidth += biggest->geometry().width();
     Q_FOREACH(KScreen::OutputPtr output, connectedOutputs) {
         output->setEnabled(true);
         output->setPrimary(false);
@@ -453,11 +460,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
         Q_ASSERT(mode);
         output->setCurrentModeId(mode->id());
 
-        if (output->isHorizontal()) {
-            globalWidth += output->currentMode()->size().width();
-        } else {
-            globalWidth += output->currentMode()->size().height();
-        }
+        globalWidth += output->geometry().width();
     }
 
     if (isDocked()) {
@@ -487,12 +490,7 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
     Q_ASSERT(mode);
     biggest->setCurrentModeId(mode->id());
 
-    int globalWidth;
-    if (biggest->isHorizontal()) {
-        globalWidth = biggest->currentMode()->size().width();
-    } else {
-        globalWidth = biggest->currentMode()->size().height();
-    }
+    int globalWidth = biggest->geometry().width();
 
     Q_FOREACH(KScreen::OutputPtr output, connectedOutputs) {
         output->setEnabled(true);
@@ -502,11 +500,7 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
         Q_ASSERT(mode);
         output->setCurrentModeId(mode->id());
 
-        if (output->isHorizontal()) {
-            globalWidth += output->currentMode()->size().width();
-        } else {
-            globalWidth += output->currentMode()->size().height();
-        }
+        globalWidth += output->geometry().width();
     }
 }
 
@@ -555,6 +549,22 @@ KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, cons
     }
 
     return bestMode;
+}
+
+qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output) {
+    //if we have no physical size, we can't determine the DPI properly. Fallback to scale 1
+    if (output->sizeMm().height() <= 0) {
+        return 1.0;
+    }
+    const auto mode = bestModeForOutput(output);
+    const qreal dpi = mode->size().height() / (output->sizeMm().height() / 25.4);
+
+    //if reported DPI is closer to two times normal DPI, followed by a sanity check of having the sort of vertical resolution
+    //you'd find in a high res screen
+    if (dpi > 96 * 1.5 && mode->size().height() >= 1440) {
+        return 2.0;
+    }
+    return 1.0;
 }
 
 KScreen::ModePtr Generator::bestModeForOutput(const KScreen::OutputPtr &output)
@@ -615,7 +625,7 @@ KScreen::OutputPtr Generator::embeddedOutput(const KScreen::OutputList &outputs)
     return KScreen::OutputPtr();
 }
 
-bool Generator::isLaptop()
+bool Generator::isLaptop() const
 {
     if (m_forceLaptop) {
         return true;
@@ -627,7 +637,7 @@ bool Generator::isLaptop()
     return Device::self()->isLaptop();
 }
 
-bool Generator::isLidClosed()
+bool Generator::isLidClosed() const
 {
     if (m_forceLidClosed) {
         return true;
@@ -639,7 +649,7 @@ bool Generator::isLidClosed()
     return Device::self()->isLidClosed();
 }
 
-bool Generator::isDocked()
+bool Generator::isDocked() const
 {
     if (m_forceDocked) {
         return true;

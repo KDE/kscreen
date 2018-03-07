@@ -26,6 +26,7 @@
 #include <kscreen/config.h>
 
 class ProfilesModel;
+class QLabel;
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
@@ -35,6 +36,7 @@ class QPushButton;
 class QComboBox;
 
 class QQuickView;
+class QQuickWidget;
 
 namespace KScreen
 {
@@ -46,14 +48,14 @@ class Widget : public QWidget
     Q_OBJECT
 
   public:
-    explicit Widget(QWidget *parent = 0);
+    explicit Widget(QWidget *parent = nullptr);
     virtual ~Widget();
 
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::ConfigPtr currentConfig() const;
 
   protected:
-    virtual bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
 
   Q_SIGNALS:
     void changed();
@@ -80,22 +82,24 @@ class Widget : public QWidget
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
   private:
-    QMLScreen *mScreen;
+    QMLScreen *mScreen = nullptr;
     KScreen::ConfigPtr mConfig;
     KScreen::ConfigPtr mPrevConfig;
 
-    QQuickView *mDeclarativeView;
-    ControlPanel *mControlPanel;
+    QQuickWidget *mDeclarativeView = nullptr;
+    ControlPanel *mControlPanel = nullptr;
 
-    ProfilesModel *mProfilesModel;
-    PrimaryOutputCombo *mPrimaryCombo;
-    QComboBox *mProfilesCombo;
+    ProfilesModel *mProfilesModel = nullptr;
+    PrimaryOutputCombo *mPrimaryCombo = nullptr;
+    QLabel *mPrimaryLabel = nullptr;
+    QComboBox *mProfilesCombo = nullptr;
 
-    QPushButton *mUnifyButton;
-    QPushButton *mSaveProfileButton;
+    QPushButton *mScaleAllOutputsButton = nullptr;
+    QPushButton *mUnifyButton = nullptr;
+    QPushButton *mSaveProfileButton = nullptr;
 
     QList<QQuickView*> mOutputIdentifiers;
-    QTimer *mOutputTimer;
+    QTimer *mOutputTimer = nullptr;
 
 };
 

@@ -26,6 +26,7 @@
 #include <kscreen/config.h>
 
 #include "generator.h"
+#include "osdmanager.h"
 
 class QTimer;
 
@@ -54,12 +55,12 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void configChanged();
         void saveCurrentConfig();
         void displayButton();
-        void resetDisplaySwitch();
-        void applyGenericConfig();
         void lidClosedChanged(bool lidIsClosed);
         void lidClosedTimeout();
         void setMonitorForChanges(bool enabled);
         void outputConnectedChanged();
+        void showOutputIdentifier();
+        void applyOsdAction(KScreen::OsdAction::Action action);
 
     Q_SIGNALS:
         void outputConnected(const QString &outputName);
@@ -74,10 +75,8 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void showOsd(const QString &icon, const QString &text);
 
         KScreen::ConfigPtr m_monitoredConfig;
-        Generator::DisplaySwitchAction m_iteration;
         bool m_monitoring;
         QTimer* m_changeCompressor;
-        QTimer* m_buttonTimer;
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
 };

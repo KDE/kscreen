@@ -35,6 +35,8 @@
 #include <kscreen/getconfigoperation.h>
 
 
+static QTextStream cout(stdout);
+
 namespace KScreen
 {
 namespace ConfigSerializer
@@ -71,7 +73,12 @@ void Console::printConfig()
 
     connect(m_config.data(), &Config::primaryOutputChanged,
             [&](const OutputPtr &output) {
-                qDebug() << "New primary output: " << output->id() << output->name();
+                if (output) {
+                    qDebug() << "New primary output: "
+                             << output->id() << output->name();
+                } else {
+                    qDebug() << "No primary output.";
+                }
             });
 
     qDebug() << "Screen:";
@@ -97,6 +104,7 @@ void Console::printConfig()
         if (output->currentMode()) {
             qDebug() << "Size: " << output->size();
         }
+        qDebug() << "Scale: " << output->scale();
         if (output->clones().isEmpty()) {
             qDebug() << "Clones: " << "None";
         } else {
@@ -175,7 +183,7 @@ QString Console::typetoString(const Output::Type& type) const
 void Console::printJSONConfig()
 {
     QJsonDocument doc(KScreen::ConfigSerializer::serializeConfig(m_config));
-    qDebug() << doc.toJson(QJsonDocument::Indented);
+    cout << doc.toJson(QJsonDocument::Indented);
 }
 
 void Console::printSerializations()

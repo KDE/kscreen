@@ -73,14 +73,15 @@ class Generator : public QObject
 
         KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
         KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
+        qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
         KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
         KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
         void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
 
-        bool isLaptop();
-        bool isLidClosed();
-        bool isDocked();
+        bool isLaptop() const;
+        bool isLidClosed() const;
+        bool isDocked() const;
 
         bool m_forceLaptop;
         bool m_forceLidClosed;

@@ -64,13 +64,13 @@ QMLOutput {
         transformOrigin: Item.Center;
         rotation: {
             if (output.rotation == KScreenOutput.None) {
-                return 0
+                return 0;
             } else if (output.rotation == KScreenOutput.Left) {
-                return 90
+                return 270;
             } else if (output.rotation == KScreenOutput.Inverted) {
                 return 180;
             } else {
-                return 270;
+                return 90;
             }
         }
 

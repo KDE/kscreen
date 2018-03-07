@@ -2,6 +2,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_displayconfiguration\")
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/declarative")
 
+
 set(kcm_kscreen_SRCS
     declarative/qmloutput.cpp
     declarative/qmloutputcomponent.cpp
@@ -9,7 +10,6 @@ set(kcm_kscreen_SRCS
 
     collapsablebutton.cpp
     controlpanel.cpp
-    debug.cpp
     outputconfig.cpp
     primaryoutputcombo.cpp
     unifiedoutputconfig.cpp
@@ -19,6 +19,9 @@ set(kcm_kscreen_SRCS
     previewwidget.cpp
     scalingconfig.cpp
 )
+
+ecm_qt_declare_logging_category(kcm_kscreen_SRCS HEADER kcm_screen_debug.h IDENTIFIER KSCREEN_KCM CATEGORY_NAME kscreen.kcm)
+
 
 ki18n_wrap_ui(kcm_kscreen_SRCS stylepreview.ui scaling.ui)
 

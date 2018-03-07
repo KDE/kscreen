@@ -86,7 +86,7 @@ void ScalingConfig::accept()
 
     QString screenFactors;
     foreach (const KScreen::OutputPtr &output, m_outputList) {
-        screenFactors.append(output->name() + '=' + QString::number(scalingFactor) + ';');
+        screenFactors.append(output->name() + QLatin1Char('=') + QString::number(scalingFactor) + QLatin1Char(';'));
     }
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
 
@@ -119,9 +119,9 @@ void ScalingConfig::accept()
     QDialog::accept();
 }
 
-qreal ScalingConfig::scaleDPI() const
+int ScalingConfig::scaleDPI() const
 {
-    return scaleFactor() * 96.0;
+    return qRound(scaleFactor() * 96.0);
 }
 
 qreal ScalingConfig::scaleFactor() const

@@ -44,16 +44,13 @@ QMLOutputComponent::~QMLOutputComponent()
 
 QMLOutput* QMLOutputComponent::createForOutput(const KScreen::OutputPtr &output)
 {
-    QObject *instance;
-
-    instance = beginCreate(m_engine->rootContext());
+    QObject *instance = beginCreate(m_engine->rootContext());
     if (!instance) {
         qWarning() << errorString();
-        return 0;
+        return nullptr;
     }
 
-    bool success = false;
-    success = instance->setProperty("outputPtr", QVariant::fromValue(output));
+    bool success = instance->setProperty("outputPtr", QVariant::fromValue(output));
     Q_ASSERT(success);
     success = instance->setProperty("screen", QVariant::fromValue(qobject_cast<QMLScreen*>(parent())));
     Q_ASSERT(success);

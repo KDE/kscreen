@@ -56,7 +56,7 @@ class QMLScreen : public QQuickItem
                MEMBER m_engine)
 
   public:
-    explicit QMLScreen(QQuickItem *parent = 0);
+    explicit QMLScreen(QQuickItem *parent = nullptr);
     virtual ~QMLScreen();
 
 
@@ -111,8 +111,11 @@ class QMLScreen : public QQuickItem
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;
 
-    QQmlEngine* m_engine;
-    QMLOutput *m_leftmost, *m_topmost, *m_rightmost, *m_bottommost;
+    QQmlEngine* m_engine = nullptr;
+    QMLOutput *m_leftmost = nullptr;
+    QMLOutput *m_topmost = nullptr;
+    QMLOutput *m_rightmost = nullptr;
+    QMLOutput *m_bottommost = nullptr;
 
 };
 

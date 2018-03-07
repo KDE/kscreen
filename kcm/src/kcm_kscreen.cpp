@@ -18,8 +18,9 @@
 
 
 #include "kcm_kscreen.h"
-#include "debug.h"
+#include "kcm_screen_debug.h"
 #include "widget.h"
+#include <kscreen/log.h>
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -49,7 +50,7 @@ Q_DECLARE_METATYPE(KScreen::ScreenPtr)
 
 KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
     : KCModule(parent, args)
-    , mKScreenWidget(0)
+    , mKScreenWidget(nullptr)
 {
     Log::instance();
 
@@ -69,20 +70,22 @@ KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
 
 void KCMKScreen::configReady(ConfigOperation* op)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    delete mMainLayout;
+    mMainLayout = new QHBoxLayout(this);
+    mMainLayout->setMargin(0);
 
     if (op->hasError()) {
-        mKScreenWidget = 0;
+        mKScreenWidget = nullptr;
         delete mKScreenWidget;
         QLabel *errorLabel = new QLabel(this);
-        layout->addWidget(errorLabel);
+        mMainLayout->addWidget(errorLabel);
         errorLabel->setText(i18n("No kscreen backend found. Please check your kscreen installation."));
         return;
     }
 
     if (!mKScreenWidget) {
         mKScreenWidget = new Widget(this);
-        layout->addWidget(mKScreenWidget);
+        mMainLayout->addWidget(mKScreenWidget);
         QObject::connect(mKScreenWidget, &Widget::changed,
                 this, &KCMKScreen::changed);
     }
@@ -92,6 +95,11 @@ void KCMKScreen::configReady(ConfigOperation* op)
 
 KCMKScreen::~KCMKScreen()
 {
+}
+
+QSize KCMKScreen::sizeHint() const
+{
+    return QSize(0, 700);
 }
 
 void KCMKScreen::changed()
@@ -165,7 +173,7 @@ void KCMKScreen::save()
 
 void KCMKScreen::defaults()
 {
-    qCDebug(KSCREEN_KCM) << "LOAD";
+    qCDebug(KSCREEN_KCM) << "APPLY DEFAULT";
     load();
 }
 

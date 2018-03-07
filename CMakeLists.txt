@@ -1,5 +1,5 @@
 project(KScreen)
-set(PROJECT_VERSION "5.8.90")
+set(PROJECT_VERSION "5.12.80")
 
 cmake_minimum_required(VERSION 2.8.12)
 
@@ -11,7 +11,10 @@ find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(Qt5 REQUIRED COMPONENTS QuickWidgets Test)
-find_package(KF5 REQUIRED COMPONENTS DBusAddons Config ConfigWidgets I18n XmlGui GlobalAccel WidgetsAddons Package Plasma PlasmaQuick Declarative)
+
+find_package(KF5 REQUIRED COMPONENTS DBusAddons Config ConfigWidgets I18n XmlGui GlobalAccel WidgetsAddons
+                                     Declarative IconThemes Plasma PlasmaQuick
+)
 
 set(MIN_LIBKSCREEN_VERSION "5.2.91")
 find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
@@ -23,7 +26,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMInstallIcons)
 include(ECMMarkAsTest)
 include(FeatureSummary)
-
+include(ECMQtDeclareLoggingCategory)
 
 add_subdirectory(icons)
 add_subdirectory(kcm)
@@ -32,5 +35,7 @@ add_subdirectory(configmodule)
 add_subdirectory(kded)
 add_subdirectory(tests)
 add_subdirectory(console)
+
+install( FILES kscreen.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

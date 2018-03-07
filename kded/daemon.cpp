@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright 2016 by Sebastian Kügler <sebas@kde.org>                               *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -21,7 +22,8 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
+#include "osdmanager.h"
 
 #include <QTimer>
 #include <QAction>
@@ -33,6 +35,7 @@
 #include <KPluginFactory>
 #include <KGlobalAccel>
 
+#include <kscreen/log.h>
 #include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/configmonitor.h>
@@ -45,11 +48,9 @@ K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
- , m_monitoredConfig(0)
- , m_iteration(Generator::None)
+ , m_monitoredConfig(nullptr)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
- , m_buttonTimer(new QTimer(this))
  , m_saveTimer(new QTimer(this))
  , m_lidClosedTimer(new QTimer(this))
  
@@ -93,10 +94,8 @@ void KScreenDaemon::init()
     connect(action, &QAction::triggered, [&](bool) { displayButton(); });
 
     new KScreenAdaptor(this);
-
-    m_buttonTimer->setInterval(300);
-    m_buttonTimer->setSingleShot(true);
-    connect(m_buttonTimer, &QTimer::timeout, this, &KScreenDaemon::applyGenericConfig);
+    // Initialize OSD manager to register its dbus interface
+    KScreen::OsdManager::self();
 
     m_saveTimer->setInterval(300);
     m_saveTimer->setSingleShot(true);
@@ -139,6 +138,8 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
     qCDebug(KSCREEN_KDED) << "doApplyConfig()";
     setMonitorForChanges(false);
+    m_monitoredConfig = config;
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
     connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
             [&]() {
@@ -176,13 +177,52 @@ void KScreenDaemon::applyKnownConfig()
     doApplyConfig(config);
 }
 
-void KScreenDaemon::applyIdealConfig()
+void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 {
-    qCDebug(KSCREEN_KDED) << "Applying ideal config";
-    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+    switch (action) {
+    case KScreen::OsdAction::NoAction:
+        qCDebug(KSCREEN_KDED) << "OSD: no action";
+        return;
+    case KScreen::OsdAction::SwitchToInternal:
+        qCDebug(KSCREEN_KDED) << "OSD: switch to internal";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffExternal));
+        return;
+    case KScreen::OsdAction::SwitchToExternal:
+        qCDebug(KSCREEN_KDED) << "OSD: switch to external";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffEmbedded));
+        return;
+    case KScreen::OsdAction::ExtendLeft:
+        qCDebug(KSCREEN_KDED) << "OSD: extend left";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToLeft));
+        return;
+    case KScreen::OsdAction::ExtendRight:
+        qCDebug(KSCREEN_KDED) << "OSD: extend right";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToRight));
+        return;
+    case KScreen::OsdAction::Clone:
+        qCDebug(KSCREEN_KDED) << "OSD: clone";
+        doApplyConfig(Generator::self()->displaySwitch(Generator::Clone));
+        return;
+    }
+
+    Q_UNREACHABLE();
 }
 
-void logConfig(const KScreen::ConfigPtr config) {
+void KScreenDaemon::applyIdealConfig()
+{
+
+    if (m_monitoredConfig->connectedOutputs().count() < 2) {
+        KScreen::OsdManager::self()->hideOsd();
+        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+    } else {
+        qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
+        auto action = KScreen::OsdManager::self()->showActionSelector();
+        connect(action, &KScreen::OsdAction::selected,
+                this, &KScreenDaemon::applyOsdAction);
+    }
+}
+
+void logConfig(const KScreen::ConfigPtr &config) {
     if (config) {
         foreach (auto o, config->outputs()) {
             if (o->isConnected()) {
@@ -196,6 +236,16 @@ void KScreenDaemon::configChanged()
 {
     qCDebug(KSCREEN_KDED) << "Change detected";
     logConfig(m_monitoredConfig);
+
+    // Modes may have changed, fix-up current mode id
+    Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->outputs()) {
+        if (output->isConnected() && output->isEnabled() && output->currentMode().isNull()) {
+            qCDebug(KSCREEN_KDED) << "Current mode" << output->currentModeId() << "invalid, setting preferred mode" << output->preferredModeId();
+            output->setCurrentModeId(output->preferredModeId());
+            doApplyConfig(m_monitoredConfig);
+        }
+    }
+
     // Reset timer, delay the writeback
     m_saveTimer->start();
 }
@@ -206,6 +256,7 @@ void KScreenDaemon::saveCurrentConfig()
 
     // We assume the config is valid, since it's what we got, but we are interested
     // in the "at least one enabled screen" check
+
     const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
     if (valid) {
         Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
@@ -228,40 +279,18 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
+void KScreenDaemon::showOutputIdentifier()
+{
+    KScreen::OsdManager::self()->showOutputIdentifiers();
+}
+
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
-    QString message = i18nc("OSD text after XF86Display button press", "No External Display");
-    if (m_monitoredConfig && m_monitoredConfig->connectedOutputs().count() > 1) {
-        message = i18nc("OSD text after XF86Display button press", "Changing Screen Layout");
-    }
-    showOsd(QStringLiteral("preferences-desktop-display-randr"), message);
-
-    if (m_buttonTimer->isActive()) {
-        qCDebug(KSCREEN_KDED) << "Too fast, cowboy";
-        return;
-    }
-
-    m_buttonTimer->start();
-}
-
-void KScreenDaemon::resetDisplaySwitch()
-{
-    qCDebug(KSCREEN_KDED) << "resetDisplaySwitch()";
-    m_iteration = Generator::None;
-}
-
-void KScreenDaemon::applyGenericConfig()
-{
-    if (m_iteration == Generator::ExtendToRight) {
-        m_iteration = Generator::None;
-    }
-
-    m_iteration = Generator::DisplaySwitchAction(static_cast<int>(m_iteration) + 1);
-    qCDebug(KSCREEN_KDED) << "displayButton: " << m_iteration;
-
-    doApplyConfig(Generator::self()->displaySwitch(m_iteration));
+    auto action = KScreen::OsdManager::self()->showActionSelector();
+    connect(action, &KScreen::OsdAction::selected,
+            this, &KScreenDaemon::applyOsdAction);
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -332,8 +361,6 @@ void KScreenDaemon::outputConnectedChanged()
         m_changeCompressor->start();
     }
 
-    resetDisplaySwitch();
-
     KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
     qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
 
@@ -364,6 +391,9 @@ void KScreenDaemon::monitorConnectedChange()
                     Qt::UniqueConnection);
         }, Qt::UniqueConnection
     );
+    connect(m_monitoredConfig.data(), &KScreen::Config::outputRemoved,
+            this, &KScreenDaemon::applyConfig,
+            static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
 void KScreenDaemon::setMonitorForChanges(bool enabled)
@@ -416,7 +446,6 @@ KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &c
 
     return KScreen::OutputPtr();
 }
-
 
 
 #include "daemon.moc"

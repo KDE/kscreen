@@ -18,12 +18,12 @@
  *************************************************************************************/
 
 #include "device.h"
-#include "debug.h"
+#include "kscreen_daemon_debug.h"
 #include "kded/freedesktop_interface.h"
 
 #include <QLoggingCategory>
 
-Device* Device::m_instance = 0;
+Device* Device::m_instance = nullptr;
 
 Device* Device::self()
 {
@@ -37,7 +37,7 @@ Device* Device::self()
 void Device::destroy()
 {
     delete m_instance;
-    m_instance = 0;
+    m_instance = nullptr;
 }
 
 Device::Device(QObject* parent) 
@@ -100,22 +100,22 @@ void Device::setReady()
     Q_EMIT ready();
 }
 
-bool Device::isReady()
+bool Device::isReady() const
 {
     return m_isReady;
 }
 
-bool Device::isLaptop()
+bool Device::isLaptop() const
 {
     return m_isLaptop;
 }
 
-bool Device::isLidClosed()
+bool Device::isLidClosed() const
 {
     return m_isLidClosed;
 }
 
-bool Device::isDocked()
+bool Device::isDocked() const
 {
     return m_isDocked;
 }

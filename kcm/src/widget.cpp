@@ -48,14 +48,15 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QQuickView>
+#include <QQuickWidget>
 
 #define QML_PATH "kcm_kscreen/qml/"
 
 Widget::Widget(QWidget *parent):
     QWidget(parent),
-    mScreen(0),
-    mConfig(0),
-    mPrevConfig(0)
+    mScreen(nullptr),
+    mConfig(nullptr),
+    mPrevConfig(nullptr)
 {
     qRegisterMetaType<QQuickView*>();
 
@@ -66,12 +67,10 @@ Widget::Widget(QWidget *parent):
     QSplitter *splitter = new QSplitter(Qt::Vertical, this);
     layout->addWidget(splitter);
 
-    mDeclarativeView = new QQuickView();
-    QWidget *container = QWidget::createWindowContainer(mDeclarativeView, this);
-    mDeclarativeView->setResizeMode(QQuickView::SizeRootObjectToView);
+    mDeclarativeView = new QQuickWidget();
+    mDeclarativeView->setResizeMode(QQuickWidget::SizeRootObjectToView);
     mDeclarativeView->setMinimumHeight(280);
-    container->setMinimumHeight(280);
-    splitter->addWidget(container);
+    splitter->addWidget(mDeclarativeView);
 
     QWidget *widget = new QWidget(this);
     splitter->addWidget(widget);
@@ -79,6 +78,8 @@ Widget::Widget(QWidget *parent):
     widget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(widget);
+    const int topMargin = style()->pixelMetric(QStyle::PM_LayoutTopMargin, 0, this);
+    vbox->setContentsMargins(0, topMargin, 0, 0);
     widget->setLayout(vbox);
 
     QHBoxLayout *hbox = new QHBoxLayout;
@@ -87,7 +88,8 @@ Widget::Widget(QWidget *parent):
     mPrimaryCombo = new PrimaryOutputCombo(this);
     connect(mPrimaryCombo, &PrimaryOutputCombo::changed,
             this, &Widget::changed);
-    hbox->addWidget(new QLabel(i18n("Primary display:")));
+    mPrimaryLabel = new QLabel(i18n("Primary display:"));
+    hbox->addWidget(mPrimaryLabel);
     hbox->addWidget(mPrimaryCombo);
 
     hbox->addStretch();
@@ -117,15 +119,16 @@ Widget::Widget(QWidget *parent):
 
     vbox->addWidget(mUnifyButton);
 
-    auto setScaleButton = new QPushButton(i18n("Scale Display"), this);
-    connect(setScaleButton, &QPushButton::released,
+    mScaleAllOutputsButton = new QPushButton(i18n("Scale Display"), this);
+    connect(mScaleAllOutputsButton, &QPushButton::released,
             [this] {
                 QPointer<ScalingConfig> dialog = new ScalingConfig(mConfig->outputs(), this);
                 dialog->exec();
                 delete dialog;
             });
-    
-    vbox->addWidget(setScaleButton);
+
+    vbox->addWidget(mScaleAllOutputsButton);
+
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,
@@ -172,6 +175,9 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mControlPanel->setConfig(mConfig);
     mPrimaryCombo->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
+    mScaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
+    mPrimaryCombo->setVisible(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay));
+    mPrimaryLabel->setVisible(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay));
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         connect(output.data(), &KScreen::Output::isEnabledChanged,
@@ -185,7 +191,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     if (qmlOutput) {
         mScreen->setActiveOutput(qmlOutput);
     } else {
-        if (mScreen->outputs().count() > 0) {
+        if (!mScreen->outputs().isEmpty()) {
             mScreen->setActiveOutput(mScreen->outputs()[0]);
         }
     }
