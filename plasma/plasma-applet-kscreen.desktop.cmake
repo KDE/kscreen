@@ -92,7 +92,6 @@ Icon=preferences-desktop-display-randr
 Type=Service
 X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 
-X-Plasma-DefaultSize=290,150
 X-Plasma-NotificationArea=true
 X-Plasma-ConfigPlugins=kscreen
 
