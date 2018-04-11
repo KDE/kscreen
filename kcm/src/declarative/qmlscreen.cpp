@@ -58,7 +58,7 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
 {
     qDeleteAll(m_outputMap);
     m_outputMap.clear();
-    m_bottommost = m_leftmost = m_rightmost = m_topmost = 0;
+    m_bottommost = m_leftmost = m_rightmost = m_topmost = nullptr;
     m_connectedOutputsCount = 0;
     m_enabledOutputsCount = 0;
 
@@ -286,10 +286,10 @@ void QMLScreen::viewSizeChanged()
 
 void QMLScreen::updateCornerOutputs()
 {
-    m_leftmost = 0;
-    m_topmost = 0;
-    m_rightmost = 0;
-    m_bottommost = 0;
+    m_leftmost = nullptr;
+    m_topmost = nullptr;
+    m_rightmost = nullptr;
+    m_bottommost = nullptr;
 
     Q_FOREACH (QMLOutput *output, m_outputMap) {
         if (!output->output()->isConnected() || !output->output()->isEnabled()) {

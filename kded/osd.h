@@ -41,7 +41,7 @@ class Osd : public QObject {
     Q_OBJECT
 
 public:
-    Osd(const KScreen::OutputPtr output, QObject *parent = nullptr);
+    Osd(const OutputPtr &output, QObject *parent = nullptr);
     ~Osd() override;
 
     void showGenericOsd(const QString &icon, const QString &text);

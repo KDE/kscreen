@@ -31,7 +31,7 @@
 
 using namespace KScreen;
 
-Osd::Osd(const KScreen::OutputPtr output, QObject *parent)
+Osd::Osd(const KScreen::OutputPtr &output, QObject *parent)
     : QObject(parent)
     , m_output(output)
 {

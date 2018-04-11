@@ -79,7 +79,7 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
         mCurrentLabel->setAlignment(Qt::AlignCenter);
         layout->addWidget(mCurrentLabel, 1, 0, 1, 3);
 
-        if (mModes.count() == 0) {
+        if (mModes.isEmpty()) {
             mCurrentLabel->setText(i18n("No available resolutions"));
         } else if (mModes.count() == 1) {
             mCurrentLabel->setText(Utils::sizeToString(mModes.first()));

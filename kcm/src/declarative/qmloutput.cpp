@@ -114,7 +114,7 @@ QMLOutput *QMLOutput::leftDockedTo() const
 
 void QMLOutput::undockLeft()
 {
-    setLeftDockedTo(0);
+    setLeftDockedTo(nullptr);
 }
 
 void QMLOutput::setTopDockedTo(QMLOutput *output)
@@ -134,7 +134,7 @@ QMLOutput *QMLOutput::topDockedTo() const
 
 void QMLOutput::undockTop()
 {
-    setTopDockedTo(0);
+    setTopDockedTo(nullptr);
 }
 
 void QMLOutput::setRightDockedTo(QMLOutput *output)
@@ -154,7 +154,7 @@ QMLOutput *QMLOutput::rightDockedTo() const
 
 void QMLOutput::undockRight()
 {
-    setRightDockedTo(0);
+    setRightDockedTo(nullptr);
 }
 
 void QMLOutput::setBottomDockedTo(QMLOutput *output)
@@ -174,7 +174,7 @@ QMLOutput *QMLOutput::bottomDockedTo() const
 
 void QMLOutput::undockBottom()
 {
-    setBottomDockedTo(0);
+    setBottomDockedTo(nullptr);
 }
 
 void QMLOutput::setCloneOf(QMLOutput* other)
@@ -536,7 +536,7 @@ void QMLOutput::moved()
     const QList<QQuickItem*> siblings = screen()->childItems();
 
     // First, if we have moved, then unset the "cloneOf" flag
-    setCloneOf(0);
+    setCloneOf(nullptr);
 
     disconnect(this, &QMLOutput::xChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
     disconnect(this, &QMLOutput::yChanged, this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));

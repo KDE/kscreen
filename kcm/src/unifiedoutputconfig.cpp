@@ -66,6 +66,7 @@ void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output)
     mOutput = output;
 
     mClones.clear();
+    mClones.reserve(mOutput->clones().count());
     Q_FOREACH (int id, mOutput->clones()) {
         mClones << mConfig->output(id);
     }

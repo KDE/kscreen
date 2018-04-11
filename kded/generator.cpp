@@ -569,8 +569,8 @@ qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output) {
 
 KScreen::ModePtr Generator::bestModeForOutput(const KScreen::OutputPtr &output)
 {
-    if (output->preferredMode()) {
-        return output->preferredMode();
+    if (KScreen::ModePtr outputMode = output->preferredMode()) {
+        return outputMode;
     }
 
     return biggestMode(output->modes());

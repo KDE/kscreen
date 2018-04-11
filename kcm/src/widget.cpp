@@ -78,7 +78,7 @@ Widget::Widget(QWidget *parent):
     widget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
 
     QVBoxLayout *vbox = new QVBoxLayout(widget);
-    const int topMargin = style()->pixelMetric(QStyle::PM_LayoutTopMargin, 0, this);
+    const int topMargin = style()->pixelMetric(QStyle::PM_LayoutTopMargin, nullptr, this);
     vbox->setContentsMargins(0, topMargin, 0, 0);
     widget->setLayout(vbox);
 
@@ -291,7 +291,7 @@ void Widget::slotUnifyOutputs()
                 continue;
             }
 
-            if (base == 0) {
+            if (!base) {
                 base = output;
             }
 
