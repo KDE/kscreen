@@ -94,7 +94,7 @@ void Osd::showGenericOsd(const QString &icon, const QString &text)
     showOsd();
 }
 
-void Osd::showOutputIdentifier(const KScreen::OutputPtr output)
+void Osd::showOutputIdentifier(const KScreen::OutputPtr &output)
 {
     if (!initOsd()) {
         return;

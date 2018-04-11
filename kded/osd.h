@@ -45,7 +45,7 @@ public:
     ~Osd() override;
 
     void showGenericOsd(const QString &icon, const QString &text);
-    void showOutputIdentifier(const KScreen::OutputPtr output);
+    void showOutputIdentifier(const KScreen::OutputPtr &output);
     void showActionSelector();
     void hideOsd();
 
