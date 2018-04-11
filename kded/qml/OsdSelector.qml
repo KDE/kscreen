@@ -57,7 +57,7 @@ Item {
                     {
                         iconSource: "osd-duplicate",
                         label: i18n("Unify outputs"),
-                        action: OsdAction.Clonse
+                        action: OsdAction.Clone
                     },
                     {
                         iconSource: "osd-sbs-left",
