@@ -45,6 +45,7 @@ private:
     static QString configFileName(const QString &configId);
 
     static QString sConfigPath;
+    static QString sFixedConfig;
 };
 
 #endif //KDED_SERIALIZER_H

@@ -36,7 +36,7 @@
 #include <kscreen/edid.h>
 
 QString Serializer::sConfigPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
-
+QString Serializer::sFixedConfig = QStringLiteral("fixed-config");
 void Serializer::setConfigPath(const QString &path)
 {
     sConfigPath = path;
@@ -86,16 +86,22 @@ bool Serializer::configExists(const KScreen::ConfigPtr &config)
 
 bool Serializer::configExists(const QString &id)
 {
-    return QFile::exists(sConfigPath % id);
+    return (QFile::exists(sConfigPath % id) || QFile::exists(sConfigPath % sFixedConfig));
 }
 
 KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString &id)
 {
     KScreen::ConfigPtr config = currentConfig->clone();
 
-    QFile file(configFileName(id));
+    QFile file;
+    if (QFile::exists(sConfigPath % sFixedConfig)) {
+        file.setFileName(sConfigPath % sFixedConfig);
+        qCDebug(KSCREEN_KDED) << "found a fixed config, will use " << file.fileName();
+    } else {
+        file.setFileName(configFileName(id));
+    }
     if (!file.open(QIODevice::ReadOnly)) {
-        qCDebug(KSCREEN_KDED) << "failed to open file" << id;
+        qCDebug(KSCREEN_KDED) << "failed to open file" << file.fileName();
         return KScreen::ConfigPtr();
     }
 
