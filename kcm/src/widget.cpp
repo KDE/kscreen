@@ -465,15 +465,23 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
             qWarning() << "Failed to obtain root item";
             continue;
         }
-        QSize realSize;
+
+        QSize deviceSize, logicalSize;
         if (output->isHorizontal()) {
-            realSize = mode->size();
+            deviceSize = mode->size();
         } else {
-            realSize = QSize(mode->size().height(), mode->size().width());
+            deviceSize = QSize(mode->size().height(), mode->size().width());
         }
+        if (config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
+            // no scale adjustment needed on Wayland
+            logicalSize = deviceSize;
+        } else {
+            logicalSize = deviceSize / devicePixelRatioF();
+        }
+
         rootObj->setProperty("outputName", Utils::outputName(output));
-        rootObj->setProperty("modeName", Utils::sizeToString(realSize));
-        view->setProperty("screenSize", QRect(output->pos(), realSize));
+        rootObj->setProperty("modeName", Utils::sizeToString(deviceSize));
+        view->setProperty("screenSize", QRect(output->pos(), logicalSize));
         mOutputIdentifiers << view;
     }
 
