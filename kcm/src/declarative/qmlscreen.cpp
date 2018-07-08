@@ -29,8 +29,6 @@
 #include <QTimer>
 #include <sys/socket.h>
 
-//static void NullDeleter(KScreen::Output */*output*/) { }
-
 QMLScreen::QMLScreen(QQuickItem *parent):
     QQuickItem(parent),
     m_config(nullptr),
