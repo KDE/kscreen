@@ -49,48 +49,20 @@
 #include <QQuickView>
 #include <QQuickWidget>
 
+#include "ui_kscreen_widget.h"
+
 #define QML_PATH "kcm_kscreen/qml/"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
+    , ui(new Ui::KScreenWidget())
 {
     qRegisterMetaType<QQuickView*>();
 
-    setMinimumHeight(550);
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
-
-    QSplitter *splitter = new QSplitter(Qt::Vertical, this);
-    layout->addWidget(splitter);
-
-    mDeclarativeView = new QQuickWidget();
-    mDeclarativeView->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    mDeclarativeView->setMinimumHeight(280);
-    splitter->addWidget(mDeclarativeView);
-
-    QWidget *widget = new QWidget(this);
-    splitter->addWidget(widget);
-    splitter->setStretchFactor(1, 1);
-    widget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
-
-    QVBoxLayout *vbox = new QVBoxLayout(widget);
-    const int topMargin = style()->pixelMetric(QStyle::PM_LayoutTopMargin, nullptr, this);
-    vbox->setContentsMargins(0, topMargin, 0, 0);
-    widget->setLayout(vbox);
-
-    QHBoxLayout *hbox = new QHBoxLayout;
-    vbox->addLayout(hbox);
-
-    mPrimaryCombo = new QComboBox(this);
-    mPrimaryCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    mPrimaryCombo->addItem(i18n("No Primary Output"));
-    connect(mPrimaryCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+    ui->setupUi(this);
+    ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    connect(ui->primaryCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &Widget::primaryOutputSelected);
-    mPrimaryLabel = new QLabel(i18n("Primary display:"));
-    hbox->addWidget(mPrimaryLabel);
-    hbox->addWidget(mPrimaryCombo);
-
-    hbox->addStretch();
 
 #ifdef WITH_PROFILES
     mProfilesModel = new ProfilesModel(this);
@@ -107,26 +79,19 @@ Widget::Widget(QWidget *parent)
     mControlPanel = new ControlPanel(this);
     connect(mControlPanel, &ControlPanel::changed,
             this, &Widget::changed);
-    vbox->addWidget(mControlPanel);
+    ui->controlPanelLayout->addWidget(mControlPanel);
 
-    mUnifyButton = new QPushButton(i18n("Unify Outputs"), this);
-    connect(mUnifyButton, &QPushButton::released,
+    connect(ui->unifyButton, &QPushButton::released,
             [this]{
                 slotUnifyOutputs();
             });
 
-    vbox->addWidget(mUnifyButton);
-
-    mScaleAllOutputsButton = new QPushButton(i18n("Scale Display"), this);
-    connect(mScaleAllOutputsButton, &QPushButton::released,
+    connect(ui->scaleAllOutputsButton, &QPushButton::released,
             [this] {
                 QPointer<ScalingConfig> dialog = new ScalingConfig(mConfig->outputs(), this);
                 dialog->exec();
                 delete dialog;
             });
-
-    vbox->addWidget(mScaleAllOutputsButton);
-
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,
@@ -179,8 +144,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
 
     mScreen->setConfig(mConfig);
     mControlPanel->setConfig(mConfig);
-    mUnifyButton->setEnabled(mConfig->outputs().count() > 1);
-    mScaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
+    ui->unifyButton->setEnabled(mConfig->outputs().count() > 1);
+    ui->scaleAllOutputsButton->setVisible(!mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         outputAdded(output);
@@ -215,14 +180,14 @@ void Widget::loadQml()
 
     //const QString file = QDir::currentPath() + "/main.qml";
     const QString file = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kcm_kscreen/qml/main.qml"));
-    mDeclarativeView->setSource(QUrl::fromLocalFile(file));
+    ui->quickWidget->setSource(QUrl::fromLocalFile(file));
 
-    QQuickItem* rootObject = mDeclarativeView->rootObject();
+    QQuickItem* rootObject = ui->quickWidget->rootObject();
     mScreen = rootObject->findChild<QMLScreen*>(QStringLiteral("outputView"));
     if (!mScreen) {
         return;
     }
-    mScreen->setEngine(mDeclarativeView->engine());
+    mScreen->setEngine(ui->quickWidget->engine());
 
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
@@ -233,14 +198,14 @@ void Widget::loadQml()
 void Widget::resetPrimaryCombo()
 {
     bool isPrimaryDisplaySupported = mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay);
-    mPrimaryLabel->setVisible(isPrimaryDisplaySupported);
-    mPrimaryCombo->setVisible(isPrimaryDisplaySupported);
+    ui->primaryLabel->setVisible(isPrimaryDisplaySupported);
+    ui->primaryCombo->setVisible(isPrimaryDisplaySupported);
 
     // Don't emit currentIndexChanged when resetting
-    bool blocked = mPrimaryCombo->blockSignals(true);
-    mPrimaryCombo->clear();
-    mPrimaryCombo->addItem(i18n("No Primary Output"));
-    mPrimaryCombo->blockSignals(blocked);
+    bool blocked = ui->primaryCombo->blockSignals(true);
+    ui->primaryCombo->clear();
+    ui->primaryCombo->addItem(i18n("No Primary Output"));
+    ui->primaryCombo->blockSignals(blocked);
 
     if (!mConfig) {
         return;
@@ -256,11 +221,11 @@ void Widget::addOutputToPrimaryCombo(const KScreen::OutputPtr &output)
     if (!output->isConnected() || !output->isEnabled()) {
         return;
     }
-    mPrimaryCombo->addItem(Utils::outputName(output), output->id());
+    ui->primaryCombo->addItem(Utils::outputName(output), output->id());
     if (output->isPrimary()) {
         Q_ASSERT(mConfig);
-        int lastIndex = mPrimaryCombo->count() - 1;
-        mPrimaryCombo->setCurrentIndex(lastIndex);
+        int lastIndex = ui->primaryCombo->count() - 1;
+        ui->primaryCombo->setCurrentIndex(lastIndex);
     }
 }
 
@@ -282,7 +247,7 @@ void Widget::slotOutputEnabledChanged()
             break;
         }
     }
-    mUnifyButton->setEnabled(enabledOutputsCount > 1);
+    ui->unifyButton->setEnabled(enabledOutputsCount > 1);
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -313,8 +278,8 @@ void Widget::slotUnifyOutputs()
         setConfig(mPrevConfig);
         mPrevConfig.clear();
 
-        mPrimaryCombo->setEnabled(true);
-        mUnifyButton->setText(i18n("Unify Outputs"));
+        ui->primaryCombo->setEnabled(true);
+        ui->unifyButton->setText(i18n("Unify Outputs"));
     } else {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
@@ -351,10 +316,9 @@ void Widget::slotUnifyOutputs()
 
         mScreen->updateOutputsPlacement();
 
-        mPrimaryCombo->setEnabled(false);
+        ui->primaryCombo->setEnabled(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
-
-        mUnifyButton->setText(i18n("Break Unified Outputs"));
+        ui->unifyButton->setText(i18n("Break Unified Outputs"));
     }
 
     Q_EMIT changed();
@@ -483,19 +447,19 @@ void Widget::outputRemoved(int outputId)
         output->disconnect(this);
     }
 
-    const int index = mPrimaryCombo->findData(outputId);
+    const int index = ui->primaryCombo->findData(outputId);
     if (index == -1) {
         return;
     }
 
-    if (index == mPrimaryCombo->currentIndex()) {
+    if (index == ui->primaryCombo->currentIndex()) {
         // We'll get the actual primary update signal eventually
         // Don't emit currentIndexChanged
-        const bool blocked = mPrimaryCombo->blockSignals(true);
-        mPrimaryCombo->setCurrentIndex(0);
-        mPrimaryCombo->blockSignals(blocked);
+        const bool blocked = ui->primaryCombo->blockSignals(true);
+        ui->primaryCombo->setCurrentIndex(0);
+        ui->primaryCombo->blockSignals(blocked);
     }
-    mPrimaryCombo->removeItem(index);
+    ui->primaryCombo->removeItem(index);
 }
 
 void Widget::primaryOutputSelected(int index)
@@ -504,7 +468,7 @@ void Widget::primaryOutputSelected(int index)
         return;
     }
 
-    const KScreen::OutputPtr newPrimary = index == 0 ? KScreen::OutputPtr() : mConfig->output(mPrimaryCombo->itemData(index).toInt());
+    const KScreen::OutputPtr newPrimary = index == 0 ? KScreen::OutputPtr() : mConfig->output(ui->primaryCombo->itemData(index).toInt());
     if (newPrimary == mConfig->primaryOutput()) {
         return;
     }
@@ -516,11 +480,11 @@ void Widget::primaryOutputSelected(int index)
 void Widget::primaryOutputChanged(const KScreen::OutputPtr &output)
 {
     Q_ASSERT(mConfig);
-    int index = output.isNull() ? 0 : mPrimaryCombo->findData(output->id());
-    if (index == -1 || index == mPrimaryCombo->currentIndex()) {
+    int index = output.isNull() ? 0 : ui->primaryCombo->findData(output->id());
+    if (index == -1 || index == ui->primaryCombo->currentIndex()) {
         return;
     }
-    mPrimaryCombo->setCurrentIndex(index);
+    ui->primaryCombo->setCurrentIndex(index);
 }
 
 void Widget::slotIdentifyButtonClicked(bool checked)

@@ -43,6 +43,11 @@ namespace KScreen
 class ConfigOperation;
 }
 
+namespace Ui
+{
+class KScreenWidget;
+}
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -89,25 +94,19 @@ class Widget : public QWidget
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
   private:
+    Ui::KScreenWidget *ui;
     QMLScreen *mScreen = nullptr;
     KScreen::ConfigPtr mConfig = nullptr;
     KScreen::ConfigPtr mPrevConfig = nullptr;
 
-    QQuickWidget *mDeclarativeView = nullptr;
     ControlPanel *mControlPanel = nullptr;
 
     ProfilesModel *mProfilesModel = nullptr;
-    QComboBox *mPrimaryCombo = nullptr;
-    QLabel *mPrimaryLabel = nullptr;
     QComboBox *mProfilesCombo = nullptr;
-
-    QPushButton *mScaleAllOutputsButton = nullptr;
-    QPushButton *mUnifyButton = nullptr;
     QPushButton *mSaveProfileButton = nullptr;
 
     QList<QQuickView*> mOutputIdentifiers;
     QTimer *mOutputTimer = nullptr;
-
 };
 
 #endif // WIDGET_H

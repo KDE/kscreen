@@ -22,7 +22,7 @@ set(kcm_kscreen_SRCS
 ecm_qt_declare_logging_category(kcm_kscreen_SRCS HEADER kcm_screen_debug.h IDENTIFIER KSCREEN_KCM CATEGORY_NAME kscreen.kcm)
 
 
-ki18n_wrap_ui(kcm_kscreen_SRCS stylepreview.ui scaling.ui)
+ki18n_wrap_ui(kcm_kscreen_SRCS kscreen_widget.ui stylepreview.ui scaling.ui)
 
 add_library(kcm_kscreen MODULE kcm_kscreen.cpp ${kcm_kscreen_SRCS})
 

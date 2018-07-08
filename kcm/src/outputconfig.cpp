@@ -88,7 +88,7 @@ void OutputConfig::initUi()
                 mScale->setCurrentIndex(index);
             });
 
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
     mTitle = new QLabel(this);
@@ -159,8 +159,6 @@ void OutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
-
-    vbox->addStretch(2);
 }
 
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)

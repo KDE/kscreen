@@ -32,7 +32,7 @@ ControlPanel::ControlPanel(QWidget *parent)
     : QFrame(parent)
     , mUnifiedOutputCfg(nullptr)
 {
-    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     mLayout = new QVBoxLayout(this);
 }
