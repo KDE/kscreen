@@ -24,8 +24,6 @@
 #include <kscreen/output.h>
 #include <kscreen/config.h>
 
-#include <QGraphicsScene>
-
 #include <QTimer>
 #include <sys/socket.h>
 
