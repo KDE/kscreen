@@ -24,7 +24,6 @@
 #include <QCryptographicHash>
 #include <QFile>
 #include <QStandardPaths>
-#include <QStandardPaths>
 #include <QRect>
 #include <QStringBuilder>
 #include <QJsonDocument>
