@@ -50,7 +50,6 @@ Q_DECLARE_METATYPE(KScreen::ScreenPtr)
 
 KCMKScreen::KCMKScreen(QWidget* parent, const QVariantList& args)
     : KCModule(parent, args)
-    , mKScreenWidget(nullptr)
 {
     Log::instance();
 
