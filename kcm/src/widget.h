@@ -83,8 +83,8 @@ class Widget : public QWidget
 
   private:
     QMLScreen *mScreen = nullptr;
-    KScreen::ConfigPtr mConfig;
-    KScreen::ConfigPtr mPrevConfig;
+    KScreen::ConfigPtr mConfig = nullptr;
+    KScreen::ConfigPtr mPrevConfig = nullptr;
 
     QQuickWidget *mDeclarativeView = nullptr;
     ControlPanel *mControlPanel = nullptr;

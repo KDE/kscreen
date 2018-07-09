@@ -52,11 +52,8 @@
 
 #define QML_PATH "kcm_kscreen/qml/"
 
-Widget::Widget(QWidget *parent):
-    QWidget(parent),
-    mScreen(nullptr),
-    mConfig(nullptr),
-    mPrevConfig(nullptr)
+Widget::Widget(QWidget *parent)
+    : QWidget(parent)
 {
     qRegisterMetaType<QQuickView*>();
 
