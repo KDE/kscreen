@@ -70,12 +70,12 @@ void ScalingConfig::load()
 
 void ScalingConfig::accept()
 {
-    if (scaleFactor() == m_initialScalingFactor) {
+    if (qFuzzyCompare(scaleFactor(), m_initialScalingFactor)) {
         QDialog::accept();
         return;
     }
     const qreal scalingFactor = scaleFactor();
-    
+
     //save to config
     auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
     config->group("KScreen").writeEntry("ScaleFactor", scalingFactor);
@@ -90,8 +90,8 @@ void ScalingConfig::accept()
     }
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
 
-        
-    KConfig fontConfig("kcmfonts");
+
+    KConfig fontConfig(QStringLiteral("kcmfonts"));
     auto fontConfigGroup = fontConfig.group("General");
 
     if (qFuzzyCompare(scalingFactor, 1.0)) {

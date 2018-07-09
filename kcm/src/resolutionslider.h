@@ -37,7 +37,7 @@ class ResolutionSlider : public QWidget
 
   public:
     explicit ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
-    virtual ~ResolutionSlider();
+    ~ResolutionSlider() override;
 
     QSize currentResolution() const;
 

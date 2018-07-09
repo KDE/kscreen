@@ -31,7 +31,7 @@ class ScalingConfig : public QDialog
     Q_OBJECT
 public:
     explicit ScalingConfig(const KScreen::OutputList &outputList, QWidget* parent = 0);
-    virtual ~ScalingConfig();
+    ~ScalingConfig() override;
     
 protected:
     void accept() Q_DECL_OVERRIDE;
