@@ -36,18 +36,22 @@ QString Utils::outputName(const KScreen::Output *output)
     if (output->type() == KScreen::Output::Panel) {
         return i18n("Laptop Screen");
     }
-    if (output->edid() && !output->edid()->vendor().isEmpty()) {
-        if (output->edid()->name().isEmpty()) {
-            return QStringLiteral("%1 (%2)").arg(output->edid()->vendor(),
-                                                        output->name());
-        } else {
-            return QStringLiteral("%1 %2 (%3)").arg(output->edid()->vendor(),
-                                                            output->edid()->name(),
-                                                            output->name());
+
+    if (output->edid()) {
+        // The name will be "VendorName ModelName (ConnectorName)",
+        // but some components may be empty.
+        QString name;
+        if (!(output->edid()->vendor().isEmpty())) {
+            name = output->edid()->vendor() + QLatin1Char(' ');
         }
-    } else {
-        return output->name();
+        if (!output->edid()->name().isEmpty()) {
+            name += output->edid()->name() + QLatin1Char(' ');
+        }
+        if (!name.trimmed().isEmpty()) {
+            return name + QStringLiteral("(%1)").arg(output->name());
+        }
     }
+    return output->name();
 }
 
 QString Utils::sizeToString(const QSize &size)
