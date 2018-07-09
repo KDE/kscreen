@@ -37,7 +37,7 @@ target_link_libraries(kcm_kscreen
     KF5::WidgetsAddons
 )
 
-install(TARGETS kcm_kscreen DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(TARGETS kcm_kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR} )
 
 add_executable(kcm_testapp kcm_testapp.cpp ${kcm_kscreen_SRCS})
 set_target_properties(kcm_testapp PROPERTIES COMPILE_FLAGS "-DQT_DECLARATIVE_DEBUG")

@@ -5,4 +5,4 @@ set(QML_FILES
     Tip.qml
 )
 
-install(FILES ${QML_FILES} DESTINATION ${DATA_INSTALL_DIR}/kcm_kscreen/qml)
+install(FILES ${QML_FILES} DESTINATION ${KDE_INSTALL_DATADIR}/kcm_kscreen/qml)
