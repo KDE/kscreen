@@ -110,8 +110,7 @@ class QMLOutput : public QQuickItem
       RefreshRateRole
     };
 
-    explicit QMLOutput(QQuickItem *parent = 0);
-    virtual ~QMLOutput();
+    explicit QMLOutput(QQuickItem *parent = nullptr);
 
     KScreen::Output* output() const; // For QML
 

@@ -54,11 +54,6 @@ QMLOutput::QMLOutput(QQuickItem *parent):
             this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
 }
 
-QMLOutput::~QMLOutput()
-{
-
-}
-
 KScreen::Output* QMLOutput::output() const
 {
     return m_output.data();

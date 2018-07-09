@@ -41,10 +41,6 @@ QMLScreen::QMLScreen(QQuickItem *parent):
     connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);
 }
 
-QMLScreen::~QMLScreen()
-{
-}
-
 KScreen::ConfigPtr QMLScreen::config() const
 {
     return m_config;
