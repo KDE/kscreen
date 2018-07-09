@@ -30,7 +30,7 @@ class ScalingConfig : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ScalingConfig(const KScreen::OutputList &outputList, QWidget* parent = 0);
+    explicit ScalingConfig(const KScreen::OutputList &outputList, QWidget* parent = nullptr);
     ~ScalingConfig() override;
     
 protected:
