@@ -35,7 +35,7 @@ class KCMKScreen : public KCModule
 
   public:
     explicit KCMKScreen (QWidget* parent = nullptr, const QVariantList& args = QVariantList());
-    virtual ~KCMKScreen();
+     ~KCMKScreen() override;
 
     virtual QSize sizeHint() const Q_DECL_OVERRIDE;
 
