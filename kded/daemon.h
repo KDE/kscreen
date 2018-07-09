@@ -42,7 +42,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
 
     public:
         KScreenDaemon(QObject *parent, const QList<QVariant>&);
-        virtual ~KScreenDaemon();
+        ~KScreenDaemon() override;
 
     public Q_SLOTS:
         virtual void requestConfig();

@@ -34,7 +34,7 @@ public:
     ~ScalingConfig() override;
     
 protected:
-    void accept() Q_DECL_OVERRIDE;
+    void accept() override;
 private:
     void load();
     qreal scaleFactor() const;

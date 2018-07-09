@@ -49,13 +49,13 @@ class Widget : public QWidget
 
   public:
     explicit Widget(QWidget *parent = nullptr);
-    virtual ~Widget();
+    ~Widget() override;
 
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::ConfigPtr currentConfig() const;
 
   protected:
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *object, QEvent *event) override;
 
   Q_SIGNALS:
     void changed();

@@ -41,7 +41,7 @@ class OutputConfig : public QWidget
   public:
     explicit OutputConfig(QWidget *parent);
     explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
-    virtual ~OutputConfig();
+    ~OutputConfig() override;
 
     virtual void setOutput(const KScreen::OutputPtr &output);
     KScreen::OutputPtr output() const;

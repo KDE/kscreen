@@ -32,7 +32,7 @@ class Console : public QObject
     Q_OBJECT
     public:
         explicit Console(const KScreen::ConfigPtr &config);
-        virtual ~Console();
+        ~Console() override;
 
     public Q_SLOTS:
         void printConfig();

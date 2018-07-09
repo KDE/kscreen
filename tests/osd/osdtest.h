@@ -31,7 +31,7 @@ class OsdTest : public QObject
 
 public:
     explicit OsdTest(QObject *parent = nullptr);
-    virtual ~OsdTest();
+    ~OsdTest() override;
 
     void setUseDBus(bool yesno);
 

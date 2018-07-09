@@ -29,7 +29,7 @@ class PreviewWidget : public QLabel
     Q_OBJECT
 public:
     explicit PreviewWidget(QWidget *parent=nullptr);
-    ~PreviewWidget();
+    ~PreviewWidget() override;
     void setScale(qreal scale);
 public Q_SLOTS:
     QPixmap updatePixmapCache();

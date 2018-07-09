@@ -33,7 +33,7 @@ class QMLOutputComponent : public QQmlComponent
 
   public:
     explicit QMLOutputComponent(QQmlEngine *engine, QMLScreen *parent);
-    virtual ~QMLOutputComponent();
+    ~QMLOutputComponent() override;
 
     QMLOutput* createForOutput(const KScreen::OutputPtr &output);
 

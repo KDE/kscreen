@@ -35,15 +35,15 @@ class UnifiedOutputConfig : public OutputConfig
     Q_OBJECT
   public:
     explicit UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent);
-    virtual ~UnifiedOutputConfig();
+    ~UnifiedOutputConfig() override;
 
-    void setOutput(const KScreen::OutputPtr &output) Q_DECL_OVERRIDE;
+    void setOutput(const KScreen::OutputPtr &output) override;
 
   private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
 
   private:
-    void initUi() Q_DECL_OVERRIDE;
+    void initUi() override;
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
 

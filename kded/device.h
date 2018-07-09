@@ -50,7 +50,7 @@ Q_SIGNALS:
 
 private:
     explicit Device(QObject* parent = nullptr);
-    virtual ~Device();
+    ~Device() override;
 
     void setReady();
     void fetchIsLaptop();

@@ -41,7 +41,7 @@ class ControlPanel : public QFrame
 
   public:
     explicit ControlPanel(QWidget *parent = nullptr);
-    virtual ~ControlPanel();
+    ~ControlPanel() override;
 
     void setConfig(const KScreen::ConfigPtr &config);
 

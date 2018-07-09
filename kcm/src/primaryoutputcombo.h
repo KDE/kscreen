@@ -31,7 +31,7 @@ class PrimaryOutputCombo : public QComboBox
     Q_OBJECT
 public:
     explicit PrimaryOutputCombo(QWidget *parent = nullptr);
-    virtual ~PrimaryOutputCombo();
+    ~PrimaryOutputCombo() override;
 
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::OutputPtr primaryOutput() const;

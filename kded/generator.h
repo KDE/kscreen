@@ -62,7 +62,7 @@ class Generator : public QObject
 
     private:
         explicit Generator();
-        virtual ~Generator();
+        ~Generator() override;
 
         KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
 
