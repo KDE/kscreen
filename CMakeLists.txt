@@ -7,12 +7,24 @@ set(KSCREEN_VERSION ${PROJECT_VERSION})
 
 add_definitions("-DKSCREEN_VERSION=\"${KSCREEN_VERSION}\"")
 
+set(QT_MIN_VERSION "5.9.0")
+set(KF5_MIN_VERSION "5.42.0")
+
 find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-find_package(Qt5 REQUIRED COMPONENTS QuickWidgets Test)
-find_package(KF5 REQUIRED COMPONENTS DBusAddons Config ConfigWidgets I18n XmlGui GlobalAccel WidgetsAddons
-                                     Declarative IconThemes Plasma
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS QuickWidgets Test)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    DBusAddons
+    Config
+    ConfigWidgets
+    I18n
+    XmlGui
+    GlobalAccel
+    WidgetsAddons
+    Declarative
+    IconThemes
+    Plasma
 )
 # WARNING PlasmaQuick provides unversioned CMake config
 find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
