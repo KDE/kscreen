@@ -1,5 +1,3 @@
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
-
 add_executable(kscreen-console main.cpp console.cpp)
 
 target_link_libraries(kscreen-console
