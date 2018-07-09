@@ -27,15 +27,8 @@
 #include <QTimer>
 #include <sys/socket.h>
 
-QMLScreen::QMLScreen(QQuickItem *parent):
-    QQuickItem(parent),
-    m_config(nullptr),
-    m_connectedOutputsCount(0),
-    m_enabledOutputsCount(0),
-    m_leftmost(nullptr),
-    m_topmost(nullptr),
-    m_rightmost(nullptr),
-    m_bottommost(nullptr)
+QMLScreen::QMLScreen(QQuickItem *parent)
+    : QQuickItem(parent)
 {
     connect(this, &QMLScreen::widthChanged, this, &QMLScreen::viewSizeChanged);
     connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);

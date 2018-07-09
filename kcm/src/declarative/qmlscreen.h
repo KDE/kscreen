@@ -106,8 +106,8 @@ class QMLScreen : public QQuickItem
 
     KScreen::ConfigPtr m_config;
     QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
-    int m_connectedOutputsCount;
-    int m_enabledOutputsCount;
+    int m_connectedOutputsCount = 0;
+    int m_enabledOutputsCount = 0;
 
     QQmlEngine* m_engine = nullptr;
     QMLOutput *m_leftmost = nullptr;
