@@ -16,8 +16,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#ifndef LOOP2
-#define LOOP2
+#ifndef CONSOLE_H
+#define CONSOLE_H
 
 #include <QObject>
 
