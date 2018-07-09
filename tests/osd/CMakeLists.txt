@@ -19,5 +19,5 @@ target_link_libraries(osdtest Qt5::Core
                               KF5::Declarative
 )
 
-add_test(kscreen-kded-osdtest osdtest)
+add_test(NAME kscreen-kded-osdtest COMMAND osdtest)
 ecm_mark_as_test(osdtest)
