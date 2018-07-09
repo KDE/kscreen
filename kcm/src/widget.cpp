@@ -28,7 +28,7 @@
 #include <QSplitter>
 #include <QLabel>
 #include <QTimer>
-#include <QtCore/qglobal.h>
+#include <QtGlobal>
 
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
@@ -42,7 +42,7 @@
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/configmonitor.h>
 
-#include <QtCore/QDir>
+#include <QDir>
 #include <QStandardPaths>
 #include <KLocalizedString>
 #include <QComboBox>

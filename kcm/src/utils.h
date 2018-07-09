@@ -22,8 +22,8 @@
 #ifndef KSCREEN_KCM_UTILS_H
 #define KSCREEN_KCM_UTILS_H
 
-#include <QtCore/QString>
-#include <QtCore/QSize>
+#include <QString>
+#include <QSize>
 
 #include <kscreen/types.h>
 #include <kscreen/output.h>

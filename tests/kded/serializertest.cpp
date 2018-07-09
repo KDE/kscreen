@@ -19,7 +19,7 @@
 #include "../../kded/serializer.h"
 
 #include <QtTest>
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <KScreen/Config>
 #include <KScreen/EDID>

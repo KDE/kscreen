@@ -18,10 +18,10 @@
 
 #include "console.h"
 
-#include <QtCore/QDebug>
-#include <QtCore/QDateTime>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
+#include <QDebug>
+#include <QDateTime>
+#include <QDir>
+#include <QTextStream>
 #include <QStandardPaths>
 #include <QJsonDocument>
 #include <QJsonObject>

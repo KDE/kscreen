@@ -23,7 +23,7 @@
 #define RESOLUTIONSLIDER_H
 
 #include <QWidget>
-#include <QtCore/QSet>
+#include <QSet>
 
 #include <kscreen/output.h>
 

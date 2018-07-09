@@ -21,7 +21,7 @@
 #include <QProcess>
 #include <QCommandLineParser>
 #include <QGuiApplication>
-#include <QtCore/QDateTime>
+#include <QDateTime>
 #include <KAboutData>
 #include <KLocalizedString>
 

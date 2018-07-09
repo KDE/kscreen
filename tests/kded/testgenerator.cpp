@@ -19,7 +19,7 @@
 #include "../../kded/generator.h"
 
 #include <QtTest>
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <kscreen/config.h>
 #include <kscreen/getconfigoperation.h>
