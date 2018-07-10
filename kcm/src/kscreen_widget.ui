@@ -68,24 +68,24 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QPushButton" name="unifyButton">
+       <property name="text">
+        <string>Unify Outputs</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="scaleAllOutputsButton">
+       <property name="text">
+        <string>Scale Display</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
     <layout class="QHBoxLayout" name="controlPanelLayout"/>
-   </item>
-   <item>
-    <widget class="QPushButton" name="unifyButton">
-     <property name="text">
-      <string>Unify Outputs</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="scaleAllOutputsButton">
-     <property name="text">
-      <string>Scale Display</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
