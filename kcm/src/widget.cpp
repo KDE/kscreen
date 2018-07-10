@@ -189,7 +189,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
         mScreen->setActiveOutput(qmlOutput);
     } else {
         if (!mScreen->outputs().isEmpty()) {
-            mScreen->setActiveOutput(mScreen->outputs()[0]);
+            mScreen->setActiveOutput(mScreen->outputs().at(0));
         }
     }
 
