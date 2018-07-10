@@ -254,7 +254,7 @@ void Widget::slotUnifyOutputs()
     QList<int> clones;
 
     if (!base) {
-        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
+        for (QMLOutput *output: mScreen->outputs()) {
             if (output->output()->isConnected() && output->output()->isEnabled()) {
                 base = output;
                 break;
@@ -278,7 +278,7 @@ void Widget::slotUnifyOutputs()
         // breaks the cloning
         mPrevConfig = mConfig->clone();
 
-        Q_FOREACH (QMLOutput *output, mScreen->outputs()) {
+        for (QMLOutput *output: mScreen->outputs()) {
             if (!output->output()->isConnected()) {
                 continue;
             }
@@ -327,7 +327,7 @@ void Widget::slotProfileChanged(int index)
     // FIXME: Copy-pasted from KDED's Serializer::config()
     KScreen::Config *config = KScreen::Config::current();
     KScreen::OutputList outputList = config->outputs();
-    Q_FOREACH(KScreen::Output * output, outputList) {
+    for (KScreen::Output: output, outputList) {
         if (!output->isConnected() && output->isEnabled()) {
             output->setEnabled(false);
         }
@@ -482,7 +482,7 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         mOutputIdentifiers << view;
     }
 
-    Q_FOREACH (QQuickView *view, mOutputIdentifiers) {
+    for (QQuickView *view: mOutputIdentifiers) {
         view->show();
     }
 
