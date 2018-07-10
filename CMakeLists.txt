@@ -13,6 +13,14 @@ set(KF5_MIN_VERSION "5.42.0")
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(ECMInstallIcons)
+include(ECMMarkAsTest)
+include(ECMQtDeclareLoggingCategory)
+include(FeatureSummary)
+
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS QuickWidgets Test)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
@@ -31,14 +39,6 @@ find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
 
 set(MIN_LIBKSCREEN_VERSION "5.2.91")
 find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
-
-include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(ECMInstallIcons)
-include(ECMMarkAsTest)
-include(FeatureSummary)
-include(ECMQtDeclareLoggingCategory)
 
 add_subdirectory(icons)
 add_subdirectory(kcm)
