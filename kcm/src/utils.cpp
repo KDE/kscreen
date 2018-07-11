@@ -48,7 +48,7 @@ QString Utils::outputName(const KScreen::Output *output)
             name += output->edid()->name() + QLatin1Char(' ');
         }
         if (!name.trimmed().isEmpty()) {
-            return name + QStringLiteral("(%1)").arg(output->name());
+            return name + QLatin1Char('(') + output->name() + QLatin1Char(')');
         }
     }
     return output->name();

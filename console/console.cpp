@@ -188,7 +188,7 @@ void Console::printJSONConfig()
 
 void Console::printSerializations()
 {
-    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kscreen/";
+    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kscreen/");
     qDebug() << "Configs in: " << path;
 
     QDir dir(path);
@@ -199,7 +199,7 @@ void Console::printSerializations()
     Q_FOREACH(const QString fileName, files) {
         QJsonParseError error;
         qDebug() << fileName;
-        QFile file(path + "/" + fileName);
+        QFile file(path + QLatin1Char('/') + fileName);
         file.open(QFile::ReadOnly);
         QVariant data = parser.fromJson(file.readAll(), &error);
         if (error.error != QJsonParseError::NoError) {

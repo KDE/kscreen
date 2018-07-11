@@ -113,7 +113,7 @@ void KScreenDaemon::init()
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this,
             [&]() {
-                KScreen::Log::instance()->setContext("resuming");
+                KScreen::Log::instance()->setContext(QLatin1String("resuming"));
                 qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
                 // We don't care about the result, we just want to force the backend
                 // to query XRandR so that it will detect possible changes that happened
@@ -166,7 +166,7 @@ void KScreenDaemon::applyKnownConfig()
 
     // We may look for a config that has been set when the lid was closed, Bug: 353029
     if (Device::self()->isLaptop() && !Device::self()->isLidClosed()) {
-        Serializer::moveConfig(configId  + QStringLiteral("_lidOpened"), configId);
+        Serializer::moveConfig(configId  + QLatin1String("_lidOpened"), configId);
     }
 
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
@@ -314,7 +314,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
         // then the configuration has changed while the lid was closed and we just
         // use applyConfig() and see what we can do ...
 
-        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QStringLiteral("_lidOpened");
+        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
         if (Serializer::configExists(openConfigId)) {
             const KScreen::ConfigPtr openedConfig = Serializer::config(m_monitoredConfig, openConfigId);
             Serializer::removeConfig(openConfigId);
@@ -344,7 +344,7 @@ void KScreenDaemon::lidClosedTimeout()
             if (output->isConnected() && output->isEnabled()) {
                 // Save the current config with opened lid, just so that we know
                 // how to restore it later
-                const QString configId = Serializer::configId(m_monitoredConfig) + QStringLiteral("_lidOpened");
+                const QString configId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
                 Serializer::saveConfig(m_monitoredConfig, configId);
                 disableOutput(m_monitoredConfig, output);
                 doApplyConfig(m_monitoredConfig);

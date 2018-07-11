@@ -75,7 +75,7 @@ QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
     const QByteArray hash = QCryptographicHash::hash(hashList.join(QString()).toLatin1(),
                                                      QCryptographicHash::Md5).toHex();
     //qCDebug(KSCREEN_KDED) << "\tConfig ID:" << hash;
-    return hash;
+    return QString::fromLatin1(hash);
 }
 
 bool Serializer::configExists(const KScreen::ConfigPtr &config)

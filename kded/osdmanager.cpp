@@ -58,7 +58,7 @@ OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
     , m_cleanupTimer(new QTimer(this))
 {
-    qmlRegisterUncreatableType<OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", "You cannot create OsdAction");
+    qmlRegisterUncreatableType<OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", QStringLiteral("You cannot create OsdAction"));
 
     // free up memory when the osd hasn't been used for more than 1 minute
     m_cleanupTimer->setInterval(60000);

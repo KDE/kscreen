@@ -25,13 +25,13 @@ int main(int argc, char **argv)
 {
     QGuiApplication app(argc, argv);
 
-    QCommandLineOption dbus = QCommandLineOption(QStringList() << QStringLiteral("d") << "dbus",
+    QCommandLineOption dbus = QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("dbus"),
                                                   QStringLiteral("Call over dbus"));
-    QCommandLineOption outputid = QCommandLineOption(QStringList() << QStringLiteral("o") << "outputidentifiers",
+    QCommandLineOption outputid = QCommandLineOption(QStringList() << QStringLiteral("o") << QStringLiteral("outputidentifiers"),
                                                   QStringLiteral("Show output identifier"));
-    QCommandLineOption icon = QCommandLineOption(QStringList() << QStringLiteral("i") << "icon",
+    QCommandLineOption icon = QCommandLineOption(QStringList() << QStringLiteral("i") << QStringLiteral("icon"),
                                                   QStringLiteral("Icon to use for OSD"), QStringLiteral("preferences-desktop-display-randr"));
-    QCommandLineOption message = QCommandLineOption(QStringList() << QStringLiteral("m") << "message",
+    QCommandLineOption message = QCommandLineOption(QStringList() << QStringLiteral("m") << QStringLiteral("message"),
                                                   QStringLiteral("Icon to use for OSD"), QStringLiteral("OSD Test"));
     QCommandLineOption selector = QCommandLineOption({ QStringLiteral("s"), QStringLiteral("selector") },
                                                   QStringLiteral("Show new screen action selector"));
