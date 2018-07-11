@@ -11,7 +11,6 @@ set(kcm_kscreen_SRCS
     collapsablebutton.cpp
     controlpanel.cpp
     outputconfig.cpp
-    primaryoutputcombo.cpp
     unifiedoutputconfig.cpp
     resolutionslider.cpp
     utils.cpp

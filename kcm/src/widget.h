@@ -64,6 +64,7 @@ class Widget : public QWidget
     void slotFocusedOutputChanged(QMLOutput *output);
 
     void slotOutputEnabledChanged();
+    void slotOutputConnectedChanged();
 
     void slotUnifyOutputs();
     void slotProfileChanged(int index);
@@ -75,9 +76,15 @@ class Widget : public QWidget
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     void clearOutputIdentifiers();
 
+    void outputAdded(const KScreen::OutputPtr &output);
+    void outputRemoved(int outputId);
+    void primaryOutputSelected(int index);
+    void primaryOutputChanged(const KScreen::OutputPtr &output);
+
   private:
     void loadQml();
-    void initPrimaryCombo();
+    void resetPrimaryCombo();
+    void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
 
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
@@ -90,7 +97,7 @@ class Widget : public QWidget
     ControlPanel *mControlPanel = nullptr;
 
     ProfilesModel *mProfilesModel = nullptr;
-    PrimaryOutputCombo *mPrimaryCombo = nullptr;
+    QComboBox *mPrimaryCombo = nullptr;
     QLabel *mPrimaryLabel = nullptr;
     QComboBox *mProfilesCombo = nullptr;
 
