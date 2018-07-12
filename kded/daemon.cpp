@@ -172,7 +172,8 @@ void KScreenDaemon::applyKnownConfig()
     KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
     // It's possible that the Serializer returned a nullptr
     if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
-        return applyIdealConfig();
+        applyIdealConfig();
+        return;
     }
     doApplyConfig(config);
 }
