@@ -113,7 +113,7 @@ void KScreenDaemon::init()
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this,
             [&]() {
-                KScreen::Log::instance()->setContext(QLatin1String("resuming"));
+                KScreen::Log::instance()->setContext(QStringLiteral("resuming"));
                 qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
                 // We don't care about the result, we just want to force the backend
                 // to query XRandR so that it will detect possible changes that happened
