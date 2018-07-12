@@ -333,10 +333,10 @@ void KScreenDaemon::lidClosedTimeout()
 
     // If we are here, it means that closing the lid did not result in suspend
     // action.
-    // FIXME: This could be simply because the suspend took longer than m_lidClosedTimer
+    // FIXME: This could be because the suspend took longer than m_lidClosedTimer
     // timeout. Ideally we need to be able to look into PowerDevil config to see
     // what's the configured action for lid events, but there's no API to do that
-    // and I'm no parsing PowerDevil's configs...
+    // and I'm not parsing PowerDevil's configs...
 
     qCDebug(KSCREEN_KDED) << "Lid closed without system going to suspend -> turning off the screen";
     for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
