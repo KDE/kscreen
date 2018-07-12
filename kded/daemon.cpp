@@ -91,7 +91,7 @@ void KScreenDaemon::init()
     action->setText(i18n("Switch Display" ));
     QList<QKeySequence> switchDisplayShortcuts({Qt::Key_Display, Qt::MetaModifier + Qt::Key_P});
     KGlobalAccel::self()->setGlobalShortcut(action, switchDisplayShortcuts);
-    connect(action, &QAction::triggered, [&](bool) { displayButton(); });
+    connect(action, &QAction::triggered, this, [&](bool) { displayButton(); });
 
     new KScreenAdaptor(this);
     // Initialize OSD manager to register its dbus interface
