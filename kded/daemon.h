@@ -79,6 +79,7 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         QTimer* m_changeCompressor;
         QTimer* m_saveTimer;
         QTimer* m_lidClosedTimer;
+        KScreen::OsdManager *m_osdManager;
 };
 
 #endif /*KSCREEN_DAEMON_H*/

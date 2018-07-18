@@ -24,6 +24,7 @@
 
 namespace KScreen
 {
+class OsdManager;
 
 class OsdTest : public QObject
 {
@@ -40,6 +41,8 @@ public:
     void showActionSelector();
 
 private:
+    OsdManager *getOsdManager();
+    OsdManager *m_osdManager = nullptr;
     bool m_useDBus = false;
 };
 

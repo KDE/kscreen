@@ -37,11 +37,19 @@ OsdTest::~OsdTest()
 {
 }
 
+OsdManager *OsdTest::getOsdManager()
+{
+    if (m_osdManager)
+        return m_osdManager;
+    m_osdManager = new OsdManager(this);
+    return m_osdManager;
+}
+
 void OsdTest::showOutputIdentifiers()
 {
     if (!m_useDBus) {
         QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-        KScreen::OsdManager::self()->showOutputIdentifiers();
+        getOsdManager()->showOutputIdentifiers();
     } else {
         QDBusMessage msg = QDBusMessage::createMethodCall(
             QLatin1Literal("org.kde.kscreen.osdService"),
@@ -67,7 +75,7 @@ void OsdTest::showGenericOsd(const QString& icon, const QString& message)
 {
     if (!m_useDBus) {
         QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-        KScreen::OsdManager::self()->showOsd(!icon.isEmpty() ? icon : QStringLiteral("preferences-desktop-display-randr"),
+        getOsdManager()->showOsd(!icon.isEmpty() ? icon : QStringLiteral("preferences-desktop-display-randr"),
                                              !message.isEmpty() ? message : QStringLiteral("On-Screen-Display"));
     } else {
         qCWarning(KSCREEN_KDED) << "Implement me.";
@@ -78,7 +86,7 @@ void OsdTest::showGenericOsd(const QString& icon, const QString& message)
 void OsdTest::showActionSelector()
 {
     if (!m_useDBus) {
-        auto action = KScreen::OsdManager::self()->showActionSelector();
+        auto action = getOsdManager()->showActionSelector();
         connect(action, &KScreen::OsdAction::selected,
                 [](KScreen::OsdAction::Action action) {
                     qCDebug(KSCREEN_KDED) << "Selected action:" << action;

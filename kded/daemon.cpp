@@ -95,7 +95,7 @@ void KScreenDaemon::init()
 
     new KScreenAdaptor(this);
     // Initialize OSD manager to register its dbus interface
-    KScreen::OsdManager::self();
+    m_osdManager = new KScreen::OsdManager(this);
 
     m_saveTimer->setInterval(300);
     m_saveTimer->setSingleShot(true);
@@ -213,11 +213,11 @@ void KScreenDaemon::applyIdealConfig()
 {
 
     if (m_monitoredConfig->connectedOutputs().count() < 2) {
-        KScreen::OsdManager::self()->hideOsd();
+        m_osdManager->hideOsd();
         doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
     } else {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
-        auto action = KScreen::OsdManager::self()->showActionSelector();
+        auto action = m_osdManager->showActionSelector();
         connect(action, &KScreen::OsdAction::selected,
                 this, &KScreenDaemon::applyOsdAction);
     }
@@ -282,14 +282,14 @@ void KScreenDaemon::showOsd(const QString &icon, const QString &text)
 
 void KScreenDaemon::showOutputIdentifier()
 {
-    KScreen::OsdManager::self()->showOutputIdentifiers();
+    m_osdManager->showOutputIdentifiers();
 }
 
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
-    auto action = KScreen::OsdManager::self()->showActionSelector();
+    auto action = m_osdManager->showActionSelector();
     connect(action, &KScreen::OsdAction::selected,
             this, &KScreenDaemon::applyOsdAction);
 }

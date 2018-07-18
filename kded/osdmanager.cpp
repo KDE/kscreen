@@ -30,8 +30,6 @@
 
 namespace KScreen {
 
-OsdManager* OsdManager::s_instance = nullptr;
-
 OsdAction::OsdAction(QObject *parent)
     : QObject(parent)
 {
@@ -80,14 +78,6 @@ void OsdManager::hideOsd()
 
 OsdManager::~OsdManager()
 {
-}
-
-OsdManager* OsdManager::self()
-{
-    if (!OsdManager::s_instance) {
-        s_instance = new OsdManager();
-    }
-    return s_instance;
 }
 
 void OsdManager::showOutputIdentifiers()
