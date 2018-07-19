@@ -182,15 +182,11 @@ void Osd::showOsd()
         if (rootObject->property("timeout").toInt() > 0) {
             rootObject->setProperty("animateOpacity", false);
             rootObject->setProperty("opacity", 1);
-            rootObject->setProperty("visible", true);
             rootObject->setProperty("animateOpacity", true);
             rootObject->setProperty("opacity", 0);
-        } else {
-            rootObject->setProperty("visible", true);
         }
-    } else {
-        rootObject->setProperty("visible", true);
     }
+    rootObject->setProperty("visible", true);
     QTimer::singleShot(0, this, &Osd::updatePosition);
     if (m_timeout > 0) {
         m_osdTimer->start(m_timeout);
