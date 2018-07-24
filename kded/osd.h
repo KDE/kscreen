@@ -64,9 +64,9 @@ private:
     KScreen::OutputPtr m_output;
     QRect m_outputGeometry;
     KDeclarative::QmlObject *m_osdObject = nullptr;
+    KDeclarative::QmlObject *m_osdActionSelector = nullptr;
     QTimer *m_osdTimer = nullptr;
     int m_timeout = 0;
-
 };
 
 } // ns

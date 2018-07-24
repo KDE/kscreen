@@ -24,94 +24,96 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 import org.kde.KScreen 1.0
 
-Item {
+PlasmaCore.Dialog {
     id: root
-    property QtObject rootItem
+    location: PlasmaCore.Types.Floating
+    type: PlasmaCore.Dialog.Normal
+    property string infoText
 
     signal clicked(int actionId)
 
-    height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
-    width: buttonRow.width
+    mainItem: Item {
+        height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
+        width: buttonRow.width
 
-    PlasmaComponents.ButtonRow {
-        id: buttonRow
+        PlasmaComponents.ButtonRow {
+            id: buttonRow
+            exclusive: false
 
-        exclusive: false
+            height: parent.height - label.height - ((units.smallSpacing/2) * 3)
+            width: (actionRepeater.count * height) + ((actionRepeater.count - 1) * buttonRow.spacing);
 
-        height: parent.height - label.height - ((units.smallSpacing/2) * 3)
-        width: (actionRepeater.count * height) + ((actionRepeater.count - 1) * buttonRow.spacing);
-
-        Repeater {
-            id: actionRepeater
-            model: [
-                    {
-                        iconSource: "osd-shutd-laptop",
-                        label: i18n("Switch to external screen"),
-                        action: OsdAction.SwitchToExternal
-                    },
-                    {
-                        iconSource: "osd-shutd-screen",
-                        label: i18n("Switch to laptop screen"),
-                        action: OsdAction.SwitchToInternal
-                    },
-                    {
-                        iconSource: "osd-duplicate",
-                        label: i18n("Unify outputs"),
-                        action: OsdAction.Clone
-                    },
-                    {
-                        iconSource: "osd-sbs-left",
-                        label: i18n("Extend to left"),
-                        action: OsdAction.ExtendLeft
-                    },
-                    {
-                        iconSource: "osd-sbs-sright",
-                        label: i18n("Extend to right"),
-                        action: OsdAction.ExtendRight
-                    },
-                    {
-                        iconSource: "dialog-cancel",
-                        label: i18n("Leave unchanged"),
-                        action: OsdAction.NoAction
+            Repeater {
+                id: actionRepeater
+                model: [
+                        {
+                            iconSource: "osd-shutd-laptop",
+                            label: i18n("Switch to external screen"),
+                            action: OsdAction.SwitchToExternal
+                        },
+                        {
+                            iconSource: "osd-shutd-screen",
+                            label: i18n("Switch to laptop screen"),
+                            action: OsdAction.SwitchToInternal
+                        },
+                        {
+                            iconSource: "osd-duplicate",
+                            label: i18n("Unify outputs"),
+                            action: OsdAction.Clone
+                        },
+                        {
+                            iconSource: "osd-sbs-left",
+                            label: i18n("Extend to left"),
+                            action: OsdAction.ExtendLeft
+                        },
+                        {
+                            iconSource: "osd-sbs-sright",
+                            label: i18n("Extend to right"),
+                            action: OsdAction.ExtendRight
+                        },
+                        {
+                            iconSource: "dialog-cancel",
+                            label: i18n("Leave unchanged"),
+                            action: OsdAction.NoAction
+                        }
+                ]
+                delegate: PlasmaComponents.Button {
+                    Accessible.name: modelData.label
+                    PlasmaCore.IconItem {
+                        source: modelData.iconSource
+                        height: buttonRow.height - ((units.smallSpacing / 2) * 3)
+                        width: height
+                        anchors.centerIn: parent
                     }
-            ]
-            delegate: PlasmaComponents.Button {
-                Accessible.name: modelData.label
-                PlasmaCore.IconItem {
-                    source: modelData.iconSource
-                    height: buttonRow.height - ((units.smallSpacing / 2) * 3)
+                    height: parent.height
                     width: height
-                    anchors.centerIn: parent
+
+                    onHoveredChanged: root.infoText = (hovered ? modelData.label : "")
+
+                    onClicked: root.clicked(modelData.action)
                 }
-                height: parent.height
-                width: height
-
-                onHoveredChanged: rootItem.infoText = (hovered ? modelData.label : "")
-
-                onClicked: root.clicked(modelData.action)
             }
         }
-    }
 
-    // TODO: keep? remove?
-    PlasmaExtras.Heading {
-        id: label
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            margins: Math.floor(units.smallSpacing / 2)
+        PlasmaExtras.Heading {
+            id: label
+            anchors {
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+                margins: Math.floor(units.smallSpacing / 2)
+            }
+
+            text: root.infoText
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+            maximumLineCount: 2
+            elide: Text.ElideLeft
+            minimumPointSize: theme.defaultFont.pointSize
+            fontSizeMode: Text.HorizontalFit
         }
 
-        text: rootItem.infoText
-        horizontalAlignment: Text.AlignHCenter
-        wrapMode: Text.WordWrap
-        maximumLineCount: 2
-        elide: Text.ElideLeft
-        minimumPointSize: theme.defaultFont.pointSize
-        fontSizeMode: Text.HorizontalFit
+        Component.onCompleted: print("OsdSelector loaded...");
     }
-
-    Component.onCompleted: print("OsdSelector loaded...");
 }
 

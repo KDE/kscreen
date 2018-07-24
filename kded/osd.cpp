@@ -26,7 +26,7 @@
 #include <QLoggingCategory>
 #include <QTimer>
 #include <QStandardPaths>
-#include <KDeclarative/QmlObject>
+#include <KDeclarative/QmlObjectSharedEngine>
 
 
 using namespace KScreen;
@@ -61,7 +61,7 @@ bool Osd::initOsd()
         return false;
     }
 
-    m_osdObject = new KDeclarative::QmlObject(this);
+    m_osdObject = new KDeclarative::QmlObjectSharedEngine(this);
     m_osdObject->setSource(QUrl::fromLocalFile(osdPath));
 
     if (m_osdObject->status() != QQmlComponent::Ready) {
@@ -116,21 +116,31 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr &output)
 
 void Osd::showActionSelector()
 {
-    if (!initOsd()) {
-        return;
+    if (!m_osdActionSelector) {
+        const QString osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/OsdSelector.qml"));
+        if (osdPath.isEmpty()) {
+            qCWarning(KSCREEN_KDED) << "Failed to find action selector OSD QML file" << osdPath;
+            return;
+        }
+        m_osdActionSelector = new KDeclarative::QmlObjectSharedEngine(this);
+        m_osdActionSelector->setSource(QUrl::fromLocalFile(osdPath));
+
+        if (m_osdActionSelector->status() != QQmlComponent::Ready) {
+            qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << osdPath;
+            delete m_osdActionSelector;
+            m_osdActionSelector = nullptr;
+            return;
+        }
+
+        auto *rootObject = m_osdActionSelector->rootObject();
+        connect(rootObject, SIGNAL(clicked(int)),
+                this, SLOT(onOsdActionSelected(int)));
     }
-
-    m_outputGeometry = m_output->geometry();
-    auto *rootObject = m_osdObject->rootObject();
-    rootObject->setProperty("itemSource", QStringLiteral("OsdSelector.qml"));
-    rootObject->setProperty("timeout", 0);
-    rootObject->setProperty("outputOnly", false);
-    auto osdItem = rootObject->property("osdItem").value<QObject*>();
-    connect(osdItem, SIGNAL(clicked(int)),
-            this, SLOT(onOsdActionSelected(int)));
-    m_timeout = 0; // no timeout for this one
-
-    showOsd();
+    if (auto *rootObject = m_osdActionSelector->rootObject()) {
+        rootObject->setProperty("visible", true);
+    } else {
+        qCWarning(KSCREEN_KDED) << "Could not get root object for action selector.";
+    }
 }
 
 void Osd::onOsdActionSelected(int action)
@@ -195,14 +205,14 @@ void Osd::showOsd()
 
 void Osd::hideOsd()
 {
-    if (!initOsd()) {
-        return;
+    if (m_osdActionSelector) {
+        if (auto *rootObject = m_osdActionSelector->rootObject()) {
+            rootObject->setProperty("visible", false);
+        }
     }
-
-    auto *rootObject = m_osdObject->rootObject();
-    if (!rootObject) {
-        return;
+    if (m_osdObject) {
+        if (auto *rootObject = m_osdObject->rootObject()) {
+            rootObject->setProperty("visible", false);
+        }
     }
-    rootObject->setProperty("visible", false);
 }
-
