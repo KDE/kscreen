@@ -36,15 +36,16 @@ PlasmaCore.Dialog {
         height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
         width: buttonRow.width
 
-        PlasmaComponents.ButtonRow {
+        Row {
             id: buttonRow
-            exclusive: false
+            spacing: theme.defaultFont.pointSize
 
             height: parent.height - label.height - ((units.smallSpacing/2) * 3)
             width: (actionRepeater.count * height) + ((actionRepeater.count - 1) * buttonRow.spacing);
 
             Repeater {
                 id: actionRepeater
+                property int currentIndex: 0
                 model: [
                         {
                             iconSource: "osd-shutd-laptop",
@@ -78,6 +79,7 @@ PlasmaCore.Dialog {
                         }
                 ]
                 delegate: PlasmaComponents.Button {
+                    property var action: modelData.action
                     Accessible.name: modelData.label
                     PlasmaCore.IconItem {
                         source: modelData.iconSource
@@ -88,9 +90,29 @@ PlasmaCore.Dialog {
                     height: parent.height
                     width: height
 
-                    onHoveredChanged: root.infoText = (hovered ? modelData.label : "")
+                    onHoveredChanged: {
+                        actionRepeater.currentIndex = index
+                    }
 
-                    onClicked: root.clicked(modelData.action)
+                    onClicked: root.clicked(action)
+                    activeFocusOnTab: true
+
+                    // use checked only indirectly, since its binding will break
+                    property bool current: index == actionRepeater.currentIndex
+                    onCurrentChanged: {
+                        if (current) {
+                            checked = true
+                            root.infoText = modelData.label
+                            forceActiveFocus()
+                        } else {
+                            checked = false
+                        }
+                    }
+                    onActiveFocusChanged: {
+                        if (activeFocus) {
+                            actionRepeater.currentIndex = index
+                        }
+                    }
                 }
             }
         }
@@ -114,6 +136,44 @@ PlasmaCore.Dialog {
         }
 
         Component.onCompleted: print("OsdSelector loaded...");
+
+        function next() {
+            var index = actionRepeater.currentIndex + 1
+            if (index >= actionRepeater.count) {
+                index = 0
+            }
+            actionRepeater.currentIndex = index
+        }
+        function previous() {
+            var index = actionRepeater.currentIndex - 1
+            if (index < 0) {
+                index = actionRepeater.count - 1
+            }
+            actionRepeater.currentIndex = index
+        }
+
+        Keys.onPressed: {
+            if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                event.accepted = true
+                clicked(buttonRow.children[actionRepeater.currentIndex].action)
+                return
+            }
+            if (event.key === Qt.Key_Right) {
+                event.accepted = true
+                next()
+                return
+            }
+            if (event.key === Qt.Key_Left) {
+                event.accepted = true
+                previous()
+                return
+            }
+            if (event.key === Qt.Key_Escape) {
+                event.accepted = true
+                clicked(OsdAction.NoAction)
+                return
+            }
+        }
     }
 }
 
