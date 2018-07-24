@@ -8,7 +8,6 @@ set(kcm_kscreen_SRCS
     declarative/qmloutputcomponent.cpp
     declarative/qmlscreen.cpp
 
-    collapsablebutton.cpp
     controlpanel.cpp
     outputconfig.cpp
     unifiedoutputconfig.cpp

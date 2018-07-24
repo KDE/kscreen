@@ -20,7 +20,6 @@
  */
 
 #include "unifiedoutputconfig.h"
-#include "collapsablebutton.h"
 #include "resolutionslider.h"
 #include "utils.h"
 #include "kcm_screen_debug.h"
@@ -29,6 +28,7 @@
 #include <QIcon>
 #include <KLocalizedString>
 
+#include <QLabel>
 #include <QGridLayout>
 #include <QSpacerItem>
 #include <QCheckBox>

@@ -28,7 +28,6 @@
 
 #include <kscreen/output.h>
 
-class CollapsableButton;
 class QCheckBox;
 class ResolutionSlider;
 class QLabel;

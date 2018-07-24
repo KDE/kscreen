@@ -21,7 +21,6 @@
 
 #include "outputconfig.h"
 #include "resolutionslider.h"
-#include "collapsablebutton.h"
 #include "utils.h"
 #include "kcm_screen_debug.h"
 
@@ -139,21 +138,7 @@ void OutputConfig::initUi()
         formLayout->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum));
     }
 
-    CollapsableButton *advancedButton = new CollapsableButton(i18n("Advanced Settings"), this);
-    advancedButton->setCollapsed(true);
-    vbox->addWidget(advancedButton);
-
-    QWidget *advancedWidget = new QWidget(this);
-    int leftMargin, topMargin, rightMargin, bottomMargin;
-    advancedWidget->getContentsMargins(&leftMargin, &topMargin, &rightMargin, &bottomMargin);
-    advancedWidget->setContentsMargins(25, topMargin, rightMargin, bottomMargin);
-    vbox->addWidget(advancedWidget);
-    advancedButton->setWidget(advancedWidget);
-
-    formLayout = new QFormLayout(advancedWidget);
-    advancedWidget->setLayout(formLayout);
-
-    mRefreshRate = new QComboBox(advancedWidget);
+    mRefreshRate = new QComboBox(this);
     mRefreshRate->addItem(i18n("Auto"), -1);
     formLayout->addRow(i18n("Refresh rate:"), mRefreshRate);
     slotResolutionChanged(mResolution->currentResolution());
