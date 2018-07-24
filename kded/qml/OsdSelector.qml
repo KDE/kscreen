@@ -76,6 +76,7 @@ Item {
                     }
             ]
             delegate: PlasmaComponents.Button {
+                Accessible.name: modelData.label
                 PlasmaCore.IconItem {
                     source: modelData.iconSource
                     height: buttonRow.height - ((units.smallSpacing / 2) * 3)
