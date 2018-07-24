@@ -79,7 +79,7 @@ QPixmap PreviewWidget::updatePixmapCache()
    m_internalPreview ->render(&p);
 
    //render back at whatever the native DPR of the KCM is
-   pixmap.setDevicePixelRatio(devicePixelRatio());
+   pixmap.setDevicePixelRatio(devicePixelRatioF());
 
    return pixmap;
 }
