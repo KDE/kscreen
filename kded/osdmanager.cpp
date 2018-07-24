@@ -110,8 +110,8 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
 void OsdManager::showOsd(const QString& icon, const QString& text)
 {
-    qDeleteAll(m_osds);
-    m_osds.clear();
+    hideOsd();
+
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
         this, [this, icon, text] (KScreen::ConfigOperation *op) {
             if (op->hasError()) {
