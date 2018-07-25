@@ -52,12 +52,12 @@ QString Serializer::configFileName(const QString &configId)
     return sConfigPath % configId;
 }
 
-QString Serializer::configId(const KScreen::ConfigPtr &currentConfig)
+QString Serializer::configId(const KScreen::ConfigPtr &config)
 {
-    if (!currentConfig) {
+    if (!config) {
         return QString();
     }
-    KScreen::OutputList outputs = currentConfig->outputs();
+    KScreen::OutputList outputs = config->outputs();
 
     QStringList hashList;
     //qCDebug(KSCREEN_KDED) << "Calculating config ID for" << currentConfig.data();
