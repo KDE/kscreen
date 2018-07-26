@@ -120,7 +120,7 @@ void OutputConfig::initUi()
     QIcon previewRotatedCounterClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, 1.0, 1.0, 0.0, 0.0, 0.0)));
     QIcon previewRotatedClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, -1.0, -1.0, 0.0, 0.0, 0.0)));
     QIcon previewRotatedUpSideDown = QIcon(previewPixmap.transformed(QMatrix(-1.0, 0.0, 0.0, -1.0, 0.0, 0.0)));
-    mRotation->addItem(previewIcon, i18n("Normal"), KScreen::Output::None);
+    mRotation->addItem(previewIcon, i18n("No Rotation"), KScreen::Output::None);
     mRotation->addItem(previewRotatedClockwise, i18n("90° Clockwise"), KScreen::Output::Right);
     mRotation->addItem(previewRotatedUpSideDown, i18n("Upside Down"), KScreen::Output::Inverted);
     mRotation->addItem(previewRotatedCounterClockwise, i18n("90° Counterclockwise"), KScreen::Output::Left);
