@@ -115,10 +115,15 @@ void OutputConfig::initUi()
     formLayout->addRow(i18n("Resolution:"), mResolution);
 
     mRotation = new QComboBox(this);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-up")), i18n("Normal"), KScreen::Output::None);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-right")), i18n("90° Clockwise"), KScreen::Output::Right);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-down")), i18n("Upside Down"), KScreen::Output::Inverted);
-    mRotation->addItem(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("90° Counterclockwise"), KScreen::Output::Left);
+    QIcon previewIcon = QIcon::fromTheme(QStringLiteral("view-preview"));
+    QPixmap previewPixmap = previewIcon.pixmap(mRotation->iconSize());
+    QIcon previewRotatedCounterClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, 1.0, 1.0, 0.0, 0.0, 0.0)));
+    QIcon previewRotatedClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, -1.0, -1.0, 0.0, 0.0, 0.0)));
+    QIcon previewRotatedUpSideDown = QIcon(previewPixmap.transformed(QMatrix(-1.0, 0.0, 0.0, -1.0, 0.0, 0.0)));
+    mRotation->addItem(previewIcon, i18n("Normal"), KScreen::Output::None);
+    mRotation->addItem(previewRotatedClockwise, i18n("90° Clockwise"), KScreen::Output::Right);
+    mRotation->addItem(previewRotatedUpSideDown, i18n("Upside Down"), KScreen::Output::Inverted);
+    mRotation->addItem(previewRotatedCounterClockwise, i18n("90° Counterclockwise"), KScreen::Output::Left);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
