@@ -439,16 +439,5 @@ void KScreenDaemon::disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr
     output->setEnabled(false);
 }
 
-KScreen::OutputPtr KScreenDaemon::findEmbeddedOutput(const KScreen::ConfigPtr &config)
-{
-    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
-        if (output->type() == KScreen::Output::Panel) {
-            return output;
-        }
-    }
-
-    return KScreen::OutputPtr();
-}
-
 
 #include "daemon.moc"
