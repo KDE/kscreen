@@ -51,7 +51,7 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_monitoredConfig(nullptr)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
- , m_saveTimer(new QTimer(this))
+ , m_saveTimer(nullptr)
  , m_lidClosedTimer(new QTimer(this))
  
 {
@@ -96,10 +96,6 @@ void KScreenDaemon::init()
     new KScreenAdaptor(this);
     // Initialize OSD manager to register its dbus interface
     m_osdManager = new KScreen::OsdManager(this);
-
-    m_saveTimer->setInterval(300);
-    m_saveTimer->setSingleShot(true);
-    connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
 
     m_changeCompressor->setInterval(10);
     m_changeCompressor->setSingleShot(true);
@@ -248,6 +244,12 @@ void KScreenDaemon::configChanged()
     }
 
     // Reset timer, delay the writeback
+    if (!m_saveTimer) {
+        m_saveTimer = new QTimer(this);
+        m_saveTimer->setInterval(300);
+        m_saveTimer->setSingleShot(true);
+        connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
+    }
     m_saveTimer->start();
 }
 
