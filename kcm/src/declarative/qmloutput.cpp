@@ -574,7 +574,7 @@ void QMLOutput::moved()
  *
  * This method calculates the real-visual coordinates and dimensions of
  * the MouseArea and updates root item to match them. This makes snapping
- * works correctly regardless on visual rotation of the output
+ * work correctly regardless off visual rotation of the output
  */
 void QMLOutput::updateRootProperties()
 {
