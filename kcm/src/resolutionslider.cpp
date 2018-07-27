@@ -53,6 +53,9 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
     qSort(mModes.begin(), mModes.end(), sizeLessThan);
 
     QGridLayout *layout = new QGridLayout(this);
+    int margin = layout->margin();
+    // Avoid double margins
+    layout->setMargin(0);
 
     if (mModes.count() > 15) {
         std::reverse(mModes.begin(), mModes.end());
@@ -79,6 +82,8 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
         } else if (mModes.count() == 1) {
             mCurrentLabel->setText(Utils::sizeToString(mModes.first()));
         } else {
+            // No double margins left and right, but they are needed on top and bottom
+            layout->setContentsMargins(0, margin, 0, margin);
             mSlider = new QSlider(Qt::Horizontal, this);
             mSlider->setTickInterval(1);
             mSlider->setTickPosition(QSlider::TicksBelow);
