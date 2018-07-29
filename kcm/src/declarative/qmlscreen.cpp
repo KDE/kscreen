@@ -115,8 +115,8 @@ void QMLScreen::removeOutput(int outputId)
     for (const KScreen::OutputPtr &output : m_outputMap.keys()) {
         if (output->id() == outputId) {
             QMLOutput *qmlOutput = m_outputMap.take(output);
-            qmlOutput->setParentItem(Q_NULLPTR);
-            qmlOutput->setParent(Q_NULLPTR);
+            qmlOutput->setParentItem(nullptr);
+            qmlOutput->setParent(nullptr);
             qmlOutput->deleteLater();
             return;
         }
