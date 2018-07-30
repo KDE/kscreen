@@ -103,6 +103,7 @@ Widget::Widget(QWidget *parent)
 Widget::~Widget()
 {
     clearOutputIdentifiers();
+    delete ui;
 }
 
 bool Widget::eventFilter(QObject* object, QEvent* event)
