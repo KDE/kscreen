@@ -34,6 +34,12 @@ QMLScreen::QMLScreen(QQuickItem *parent)
     connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);
 }
 
+QMLScreen::~QMLScreen()
+{
+    qDeleteAll(m_outputMap);
+    m_outputMap.clear();
+}
+
 KScreen::ConfigPtr QMLScreen::config() const
 {
     return m_config;

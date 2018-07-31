@@ -57,6 +57,7 @@ class QMLScreen : public QQuickItem
 
   public:
     explicit QMLScreen(QQuickItem *parent = nullptr);
+    ~QMLScreen() override;
 
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
