@@ -82,9 +82,7 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
 
 void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 {
-    //QQuickItem *container = findChild<QQuickItem*>(QLatin1String("outputContainer"));
-
-    QMLOutputComponent comp(m_engine, this);
+    QMLOutputComponent comp(qmlEngine(this), this);
     QMLOutput *qmloutput = comp.createForOutput(output);
     if (!qmloutput) {
         qWarning() << "Failed to create QMLOutput";
@@ -349,9 +347,4 @@ void QMLScreen::updateOutputsPlacement()
                           offset.y() + (qmlOutput->outputY() * outputScale())));
         qmlOutput->blockSignals(false);
     }
-}
-
-void QMLScreen::setEngine(QQmlEngine* engine)
-{
-    m_engine = engine;
 }

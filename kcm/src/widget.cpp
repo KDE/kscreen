@@ -188,8 +188,6 @@ void Widget::loadQml()
     if (!mScreen) {
         return;
     }
-    mScreen->setEngine(ui->quickWidget->engine());
-
     connect(mScreen, &QMLScreen::focusedOutputChanged,
             this, &Widget::slotFocusedOutputChanged);
     connect(rootObject->findChild<QObject*>(QStringLiteral("identifyButton")), SIGNAL(clicked()),

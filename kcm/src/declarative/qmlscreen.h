@@ -52,9 +52,6 @@ class QMLScreen : public QQuickItem
                READ outputScale
                NOTIFY outputScaleChanged)
 
-    Q_PROPERTY(QQmlEngine* engine
-               MEMBER m_engine)
-
   public:
     explicit QMLScreen(QQuickItem *parent = nullptr);
     ~QMLScreen() override;
@@ -73,7 +70,6 @@ class QMLScreen : public QQuickItem
     void setConfig(const KScreen::ConfigPtr &config);
 
     void updateOutputsPlacement();
-    void setEngine(QQmlEngine* engine);
 
     void setActiveOutput(QMLOutput *output);
 
@@ -110,7 +106,6 @@ class QMLScreen : public QQuickItem
     int m_connectedOutputsCount = 0;
     int m_enabledOutputsCount = 0;
 
-    QQmlEngine* m_engine = nullptr;
     QMLOutput *m_leftmost = nullptr;
     QMLOutput *m_topmost = nullptr;
     QMLOutput *m_rightmost = nullptr;
