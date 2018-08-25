@@ -1,6 +1,9 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
  *  Copyright 2016 by Sebastian Kügler <sebas@kde.org>                               *
+ *  Copyright (c) 2018 Kai Uwe Broulik <kde@broulik.de>                              *
+ *                    Work sponsored by the LiMux project of                         *
+ *                    the city of Munich.                                            *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -172,6 +175,20 @@ void KScreenDaemon::applyKnownConfig()
         return;
     }
     doApplyConfig(config);
+}
+
+void KScreenDaemon::applyLayoutPreset(const QString &presetName)
+{
+    const QMetaEnum actionEnum = QMetaEnum::fromType<KScreen::OsdAction::Action>();
+    Q_ASSERT(actionEnum.isValid());
+
+    bool ok;
+    auto action = static_cast<KScreen::OsdAction::Action>(actionEnum.keyToValue(qPrintable(presetName), &ok));
+    if (!ok) {
+        qCWarning(KSCREEN_KDED) << "Cannot apply unknown screen layout preset named" << presetName;
+        return;
+    }
+    applyOsdAction(action);
 }
 
 void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)

@@ -52,6 +52,7 @@ find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
 add_subdirectory(icons)
 add_subdirectory(kcm)
 add_subdirectory(kded)
+add_subdirectory(plasmoid)
 add_subdirectory(tests)
 add_subdirectory(console)
 

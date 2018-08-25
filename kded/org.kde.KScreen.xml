@@ -2,6 +2,9 @@
 "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
     <interface name="org.kde.KScreen">
+        <method name="applyLayoutPreset">
+            <arg type="s" name="presetName" direction="in" />
+        </method>
         <signal name="outputConnected">
             <arg type="s" name="outputName" direction="out" />
         </signal>

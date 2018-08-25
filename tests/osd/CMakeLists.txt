@@ -7,6 +7,7 @@ add_executable(osdtest main.cpp
                        osdtest.cpp
                        ../../kded/osd.cpp
                        ../../kded/osdmanager.cpp
+                       ../../kded/osdaction.cpp
                        ../../kcm/src/utils.cpp
 )
 

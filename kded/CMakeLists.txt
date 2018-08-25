@@ -9,6 +9,7 @@ set(kscreen_daemon_SRCS
     device.cpp
     osd.cpp
     osdmanager.cpp
+    osdaction.cpp
     ${CMAKE_SOURCE_DIR}/kcm/src/utils.cpp
 )
 

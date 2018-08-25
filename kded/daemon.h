@@ -62,7 +62,10 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
         void showOutputIdentifier();
         void applyOsdAction(KScreen::OsdAction::Action action);
 
+        // DBus
+        void applyLayoutPreset(const QString &presetName);
     Q_SIGNALS:
+        // DBus
         void outputConnected(const QString &outputName);
         void unknownOutputConnected(const QString &outputName);
 
