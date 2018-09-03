@@ -16,7 +16,7 @@ add_definitions(
     -DQT_NO_CAST_FROM_BYTEARRAY
 )
 
-set(QT_MIN_VERSION "5.9.0")
+set(QT_MIN_VERSION "5.11.0")
 set(KF5_MIN_VERSION "5.42.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
