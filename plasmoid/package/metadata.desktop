@@ -35,6 +35,7 @@ Name[tr]=Ekran Yapılandırması
 Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
 Name[zh_CN]=显示配置
+Name[zh_TW]=顯示組態設定
 Comment=Quickly switch between screen layouts and presentation mode
 Comment[ca]=Canvia ràpidament les disposicions de la pantalla i el mode de presentació
 Comment[ca@valencia]=Canvia ràpidament les disposicions de la pantalla i el mode de presentació
@@ -51,6 +52,7 @@ Comment[sv]=Byt snabbt mellan skärmlayouter och presentationsläge
 Comment[uk]=Швидке перемикання між компонуваннями екрана та режимом презентації
 Comment[x-test]=xxQuickly switch between screen layouts and presentation modexx
 Comment[zh_CN]=在屏幕布局和演示模式之间快速切换
+Comment[zh_TW]=快速切換螢幕配置和簡報模式
 Icon=preferences-desktop-display-randr
 
 X-KDE-ServiceTypes=Plasma/Applet
