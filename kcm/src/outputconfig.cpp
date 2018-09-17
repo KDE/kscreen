@@ -117,8 +117,8 @@ void OutputConfig::initUi()
     mRotation = new QComboBox(this);
     QIcon previewIcon = QIcon::fromTheme(QStringLiteral("view-preview"));
     QPixmap previewPixmap = previewIcon.pixmap(mRotation->iconSize());
-    QIcon previewRotatedCounterClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, 1.0, 1.0, 0.0, 0.0, 0.0)));
-    QIcon previewRotatedClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, -1.0, -1.0, 0.0, 0.0, 0.0)));
+    QIcon previewRotatedCounterClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, -1.0, 1.0, 0.0, 0.0, 0.0)));
+    QIcon previewRotatedClockwise = QIcon(previewPixmap.transformed(QMatrix(0.0, 1.0, -1.0, 0.0, 0.0, 0.0)));
     QIcon previewRotatedUpSideDown = QIcon(previewPixmap.transformed(QMatrix(-1.0, 0.0, 0.0, -1.0, 0.0, 0.0)));
     mRotation->addItem(previewIcon, i18n("No Rotation"), KScreen::Output::None);
     mRotation->addItem(previewRotatedClockwise, i18n("90° Clockwise"), KScreen::Output::Right);
