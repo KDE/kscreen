@@ -55,7 +55,7 @@ public:
 
     Q_INVOKABLE void applyLayoutPreset(Action action);
 
-signals:
+Q_SIGNALS:
     void connectedOutputCountChanged();
 
 private:
