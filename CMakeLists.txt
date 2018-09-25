@@ -1,5 +1,5 @@
 project(KScreen)
-set(PROJECT_VERSION "5.12.6")
+set(PROJECT_VERSION "5.12.7")
 
 cmake_minimum_required(VERSION 2.8.12)
 
