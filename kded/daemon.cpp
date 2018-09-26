@@ -224,7 +224,6 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 
 void KScreenDaemon::applyIdealConfig()
 {
-
     if (m_monitoredConfig->connectedOutputs().count() < 2) {
         m_osdManager->hideOsd();
         doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
@@ -254,8 +253,8 @@ void KScreenDaemon::configChanged()
     // Modes may have changed, fix-up current mode id
     bool changed = false;
     Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->outputs()) {
-        if (output->isConnected() && output->isEnabled() && output->currentMode().isNull()) {
-            qCDebug(KSCREEN_KDED) << "Current mode" << output->currentModeId() << "invalid, setting preferred mode" << output->preferredModeId();
+        if (output->isConnected() && output->isEnabled() && (output->currentMode().isNull() || (output->followPreferredMode() && output->currentModeId() != output->preferredModeId()))) {
+            qCDebug(KSCREEN_KDED) << "Current mode was" << output->currentModeId() << ", setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
             changed = true;
         }
