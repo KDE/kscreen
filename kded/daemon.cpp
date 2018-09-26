@@ -252,12 +252,16 @@ void KScreenDaemon::configChanged()
     logConfig(m_monitoredConfig);
 
     // Modes may have changed, fix-up current mode id
+    bool changed = false;
     Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->outputs()) {
         if (output->isConnected() && output->isEnabled() && output->currentMode().isNull()) {
             qCDebug(KSCREEN_KDED) << "Current mode" << output->currentModeId() << "invalid, setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
-            doApplyConfig(m_monitoredConfig);
+            changed = true;
         }
+    }
+    if (changed) {
+        doApplyConfig(m_monitoredConfig);
     }
 
     // Reset timer, delay the writeback
