@@ -72,5 +72,3 @@ QString OsdAction::actionIconName(OsdAction::Action action) const
     Q_UNREACHABLE();
     return QString();
 }
-
-#include "osdaction.moc"
