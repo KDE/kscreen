@@ -63,10 +63,13 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
         mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
         mComboBox->setEditable(false);
         Q_FOREACH (const QSize &size, mModes) {
-            mComboBox->addItem(Utils::sizeToString(size));
-            if ((output->currentMode() && (output->currentMode()->size() == size))
-                || (output->preferredMode() && (output->preferredMode()->size() == size))) {
-                    mComboBox->setCurrentIndex(mComboBox->count() - 1);
+            const bool isCurrentMode = output->currentMode() && (output->currentMode()->size() == size);
+            const bool isPreferredMode = output->preferredMode() && (output->preferredMode()->size() == size);
+            const QIcon icon = isPreferredMode ? QIcon::fromTheme(QStringLiteral("favorite")) : QIcon();
+
+            mComboBox->addItem(icon, Utils::sizeToString(size));
+            if (isCurrentMode || isPreferredMode) {
+                mComboBox->setCurrentIndex(mComboBox->count() - 1);
             }
         }
         layout->addWidget(mComboBox, 0, 0, 1, 1);
