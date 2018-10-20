@@ -96,6 +96,7 @@ X-KDE-Keywords=display,monitor,scale,scaling,resolution,orientation,outputs,scre
 X-KDE-Keywords[ca]=pantalla,monitor,escala,escalat,resolució,orientació,sortides,pantalla,refresc
 X-KDE-Keywords[ca@valencia]=pantalla,monitor,escala,escalat,resolució,orientació,eixides,pantalla,refresc
 X-KDE-Keywords[de]=Anzeige,Monitor,Bildschirm,Skalierung,Auflösung,Ausrichtung,Ausgabe,Aktualisieren
+X-KDE-Keywords[el]=απεικόνιση,οθόνη,κλίμακα,κλιμάκωση,ανάλυση,προσανατολισμός,έξοδοι,οθόνη,ανανέωση
 X-KDE-Keywords[es]=pantalla,monitor,escala,escalado,resolución,orientación,salidas,refresco
 X-KDE-Keywords[eu]=bistaratzailea,monitorea,eskalatu,eskalatze,bereizmen,orientazioa,irteerak,pantaila,freskatu
 X-KDE-Keywords[fi]=näyttö,monitori,mittakaava,skaalaus,tarkkuus,suunta,ulostulot,virkistys
