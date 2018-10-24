@@ -62,12 +62,20 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
         mComboBox = new QComboBox(this);
         mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
         mComboBox->setEditable(false);
+        int currentModeIndex = -1;
+        int preferredModeIndex = -1;
         Q_FOREACH (const QSize &size, mModes) {
             mComboBox->addItem(Utils::sizeToString(size));
-            if ((output->currentMode() && (output->currentMode()->size() == size))
-                || (output->preferredMode() && (output->preferredMode()->size() == size))) {
-                    mComboBox->setCurrentIndex(mComboBox->count() - 1);
+            if (output->currentMode() && (output->currentMode()->size() == size)) {
+                currentModeIndex = mComboBox->count() - 1;
+            } else if (output->preferredMode() && (output->preferredMode()->size() == size)) {
+                preferredModeIndex = mComboBox->count() - 1;
             }
+        }
+        if (currentModeIndex != -1) {
+            mComboBox->setCurrentIndex(currentModeIndex);
+        } else if (preferredModeIndex != -1) {
+            mComboBox->setCurrentIndex(preferredModeIndex);
         }
         layout->addWidget(mComboBox, 0, 0, 1, 1);
         connect(mComboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
