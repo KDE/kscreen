@@ -57,25 +57,7 @@ QString Serializer::configId(const KScreen::ConfigPtr &config)
     if (!config) {
         return QString();
     }
-    KScreen::OutputList outputs = config->outputs();
-
-    QStringList hashList;
-    //qCDebug(KSCREEN_KDED) << "Calculating config ID for" << currentConfig.data();
-    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
-        if (!output->isConnected()) {
-            continue;
-        }
-
-        //qCDebug(KSCREEN_KDED) << "\tPart of the Id: " << Serializer::outputId(output);
-        hashList.insert(0, Serializer::outputId(output));
-    }
-
-    qSort(hashList.begin(), hashList.end());
-
-    const QByteArray hash = QCryptographicHash::hash(hashList.join(QString()).toLatin1(),
-                                                     QCryptographicHash::Md5).toHex();
-    //qCDebug(KSCREEN_KDED) << "\tConfig ID:" << hash;
-    return QString::fromLatin1(hash);
+    return config->connectedOutputsHash();
 }
 
 bool Serializer::configExists(const KScreen::ConfigPtr &config)
@@ -155,7 +137,7 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
 
         QVariantMap info;
 
-        info[QStringLiteral("id")] = Serializer::outputId(output);
+        info[QStringLiteral("id")] = output->hash();
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
         info[QStringLiteral("rotation")] = output->rotation();
@@ -228,7 +210,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
     QStringList allIds;
     allIds.reserve(outputs.count());
     Q_FOREACH (const KScreen::OutputPtr &output, outputs) {
-        const auto outputId = Serializer::outputId(output);
+        const auto outputId = output->hash();
         if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
             duplicateIds << outputId;
         }
@@ -240,7 +222,7 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
         if (!output->isConnected()) {
             continue;
         }
-        const auto outputId = Serializer::outputId(output);
+        const auto outputId = output->hash();
         if (outputId != info[QStringLiteral("id")].toString()) {
             continue;
         }
@@ -309,15 +291,6 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
     qCWarning(KSCREEN_KDED) << "\tFailed to find a matching output in the current config - this means that our config is corrupted"
                                "or a different device with the same serial number has been connected (very unlikely).";
     return KScreen::OutputPtr();
-}
-
-QString Serializer::outputId(const KScreen::OutputPtr &output)
-{
-    if (output->edid() && output->edid()->isValid()) {
-        return output->edid()->hash();
-    }
-
-    return output->name();
 }
 
 QVariantMap Serializer::metadata(const KScreen::OutputPtr &output)

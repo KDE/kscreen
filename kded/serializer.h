@@ -36,7 +36,6 @@ public:
     static bool moveConfig(const QString &srcId, const QString &destId);
 
     static KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
-    static QString outputId(const KScreen::OutputPtr &output);
     static QVariantMap metadata(const KScreen::OutputPtr &output);
 
     static void setConfigPath(const QString &path);

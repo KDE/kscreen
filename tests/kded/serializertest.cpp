@@ -365,7 +365,7 @@ void TestSerializer::testIdenticalOutputs()
     QCOMPARE(config->connectedOutputs().count(), 6);
     Q_FOREACH (auto output, config->connectedOutputs()) {
         QVERIFY(positions.keys().contains(output->name()));
-        QVERIFY(output->name() != Serializer::outputId(output));
+        QVERIFY(output->name() != output->hash());
         QCOMPARE(positions[output->name()], output->pos());
         QCOMPARE(output->currentMode()->size(), QSize(1920, 1080));
         QCOMPARE(output->currentMode()->refreshRate(), 60.0);
