@@ -160,7 +160,7 @@ void KScreenDaemon::applyKnownConfig()
         Serializer::moveConfig(configId  + QLatin1String("_lidOpened"), configId);
     }
 
-    KScreen::ConfigPtr config = Serializer::config(m_monitoredConfig, configId);
+    KScreen::ConfigPtr config = Serializer::loadConfig(m_monitoredConfig, configId);
     // It's possible that the Serializer returned a nullptr
     if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
         applyIdealConfig();
@@ -331,7 +331,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 
         const QString openConfigId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
         if (Serializer::configExists(openConfigId)) {
-            const KScreen::ConfigPtr openedConfig = Serializer::config(m_monitoredConfig, openConfigId);
+            const KScreen::ConfigPtr openedConfig = Serializer::loadConfig(m_monitoredConfig, openConfigId);
             Serializer::removeConfig(openConfigId);
 
             doApplyConfig(openedConfig);

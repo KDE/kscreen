@@ -70,7 +70,7 @@ bool Serializer::configExists(const QString &id)
     return (QFile::exists(sConfigPath % id) || QFile::exists(sConfigPath % sFixedConfig));
 }
 
-KScreen::ConfigPtr Serializer::config(const KScreen::ConfigPtr &currentConfig, const QString &id)
+KScreen::ConfigPtr Serializer::loadConfig(const KScreen::ConfigPtr &currentConfig, const QString &id)
 {
     KScreen::ConfigPtr config = currentConfig->clone();
 

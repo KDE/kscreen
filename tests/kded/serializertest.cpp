@@ -108,7 +108,7 @@ void TestSerializer::initTestCase()
 void TestSerializer::testSimpleConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, false);
-    config = Serializer::config(config, QStringLiteral("simpleConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("simpleConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 1);
@@ -129,7 +129,7 @@ void TestSerializer::testSimpleConfig()
 void TestSerializer::testTwoScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -159,7 +159,7 @@ void TestSerializer::testTwoScreenConfig()
 void TestSerializer::testRotatedScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("rotatedScreenConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("rotatedScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -189,7 +189,7 @@ void TestSerializer::testRotatedScreenConfig()
 void TestSerializer::testDisabledScreenConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("disabledScreenConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("disabledScreenConfig.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -214,7 +214,7 @@ void TestSerializer::testDisabledScreenConfig()
 void TestSerializer::testConfig404()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("filenotfoundConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("filenotfoundConfig.json"));
     QVERIFY(!config);
     QVERIFY(config.isNull());
 }
@@ -222,7 +222,7 @@ void TestSerializer::testConfig404()
 void TestSerializer::testCorruptConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("corruptConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("corruptConfig.json"));
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
@@ -231,7 +231,7 @@ void TestSerializer::testCorruptConfig()
 void TestSerializer::testCorruptEmptyConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("corruptEmptyConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("corruptEmptyConfig.json"));
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
@@ -240,7 +240,7 @@ void TestSerializer::testCorruptEmptyConfig()
 void TestSerializer::testCorruptUselessConfig()
 {
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("corruptUselessConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("corruptUselessConfig.json"));
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
@@ -256,7 +256,7 @@ void TestSerializer::testNullConfig()
 
     // Load config from a file not found results in a nullptr
     KScreen::ConfigPtr config = createConfig(true, true);
-    QVERIFY(!Serializer::config(config, QString()));
+    QVERIFY(!Serializer::loadConfig(config, QString()));
 
     // Wrong config file name should fail to save
     QCOMPARE(Serializer::saveConfig(config, QString()), false);
@@ -359,7 +359,7 @@ void TestSerializer::testIdenticalOutputs()
     positions[QStringLiteral("DVI-0")] = QPoint(4020, 1080);
     positions[QStringLiteral("DVI-1")] = QPoint(0, 0);
 
-    config = Serializer::config(config, QStringLiteral("outputgrid_2x3.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("outputgrid_2x3.json"));
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 6);
@@ -381,7 +381,7 @@ void TestSerializer::testMoveConfig()
 
     // Load a dualhead config
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
     QVERIFY(config);
 
     // Make sure we don't write into TEST_DATA
@@ -430,7 +430,7 @@ void TestSerializer::testMoveConfig()
     QVERIFY(closedCfg.exists());
 
     // Now load the resulting config and make sure the laptop panel is enabled and primary again
-    config = Serializer::config(config, QStringLiteral("0xdeadbeef"));
+    config = Serializer::loadConfig(config, QStringLiteral("0xdeadbeef"));
 
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
@@ -445,7 +445,7 @@ void TestSerializer::testMoveConfig()
     // Make sure we don't screw up when there's no _lidOpened config
     QVERIFY(!Serializer::moveConfig(QStringLiteral("0xdeadbeef_lidOpened"), QStringLiteral("0xdeadbeef")));
 
-    config = Serializer::config(config, QStringLiteral("0xdeadbeef"));
+    config = Serializer::loadConfig(config, QStringLiteral("0xdeadbeef"));
 
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
@@ -464,7 +464,7 @@ void TestSerializer::testFixedConfig()
 {
     // Load a dualhead config
     KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::config(config, QStringLiteral("twoScreenConfig.json"));
+    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
     QVERIFY(config);
 
     // Make sure we don't write into TEST_DATA
