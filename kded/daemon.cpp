@@ -65,20 +65,17 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
 void KScreenDaemon::requestConfig()
 {
     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
-            this, &KScreenDaemon::configReady);
-}
+            this, [this](KScreen::ConfigOperation* op) {
+        if (op->hasError()) {
+            return;
+        }
 
-void KScreenDaemon::configReady(KScreen::ConfigOperation* op)
-{
-    if (op->hasError()) {
-        return;
-    }
+        m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+        qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
+        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
 
-    m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-    qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
-    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
-
-    init();
+        init();
+    });
 }
 
 KScreenDaemon::~KScreenDaemon()

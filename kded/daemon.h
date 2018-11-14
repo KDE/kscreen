@@ -46,7 +46,6 @@ class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
 
     public Q_SLOTS:
         virtual void requestConfig();
-        void configReady(KScreen::ConfigOperation *op);
 
         void init();
         void applyConfig();
