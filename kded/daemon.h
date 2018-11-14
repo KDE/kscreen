@@ -1,5 +1,6 @@
-/*************************************************************************************
+/************************************************************************************
 *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+*  Copyright 2018 Roman Gilg <subdiff@gmail.com>                                    *
 *                                                                                   *
 *  This program is free software; you can redistribute it and/or                    *
 *  modify it under the terms of the GNU General Public License                      *
@@ -15,72 +16,72 @@
 *  along with this program; if not, write to the Free Software                      *
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
 *************************************************************************************/
-
 #ifndef KSCREEN_DAEMON_H
 #define KSCREEN_DAEMON_H
 
-#include <QVariant>
+#include "osdaction.h"
+#include <kscreen/config.h>
 
 #include <kdedmodule.h>
 
-#include <kscreen/config.h>
-
-#include "generator.h"
-#include "osdmanager.h"
-
-class QTimer;
+#include <QVariant>
 
 namespace KScreen
 {
 class ConfigOperation;
+class OsdManager;
 }
 
-class Q_DECL_EXPORT KScreenDaemon : public KDEDModule
+class QTimer;
+
+class KScreenDaemon : public KDEDModule
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KScreen")
 
-    public:
-        KScreenDaemon(QObject *parent, const QList<QVariant>&);
-        ~KScreenDaemon() override;
+public:
+    KScreenDaemon(QObject *parent, const QList<QVariant>&);
+    ~KScreenDaemon() override;
 
-    public Q_SLOTS:
-        virtual void requestConfig();
+public Q_SLOTS:
+    // DBus
+    void applyLayoutPreset(const QString &presetName);
 
-        void init();
-        void applyConfig();
-        void applyKnownConfig();
-        void applyIdealConfig();
-        void configChanged();
-        void saveCurrentConfig();
-        void displayButton();
-        void lidClosedChanged(bool lidIsClosed);
-        void lidClosedTimeout();
-        void setMonitorForChanges(bool enabled);
-        void outputConnectedChanged();
-        void showOutputIdentifier();
-        void applyOsdAction(KScreen::OsdAction::Action action);
+Q_SIGNALS:
+    // DBus
+    void outputConnected(const QString &outputName);
+    void unknownOutputConnected(const QString &outputName);
 
-        // DBus
-        void applyLayoutPreset(const QString &presetName);
-    Q_SIGNALS:
-        // DBus
-        void outputConnected(const QString &outputName);
-        void unknownOutputConnected(const QString &outputName);
+private:
+    Q_INVOKABLE void getInitialConfig();
+    void init();
 
-    protected:
-        virtual void doApplyConfig(const KScreen::ConfigPtr &config);
+    void applyConfig();
+    void applyKnownConfig();
+    void applyIdealConfig();
+    void configChanged();
+    void saveCurrentConfig();
+    void displayButton();
+    void lidClosedChanged(bool lidIsClosed);
+    void lidClosedTimeout();
+    void setMonitorForChanges(bool enabled);
 
-        void monitorConnectedChange();
-        void disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output);
-        void showOsd(const QString &icon, const QString &text);
+    void outputConnectedChanged();
+    void showOutputIdentifier();
+    void applyOsdAction(KScreen::OsdAction::Action action);
 
-        KScreen::ConfigPtr m_monitoredConfig;
-        bool m_monitoring;
-        QTimer* m_changeCompressor;
-        QTimer* m_saveTimer;
-        QTimer* m_lidClosedTimer;
-        KScreen::OsdManager *m_osdManager;
+    void doApplyConfig(const KScreen::ConfigPtr &config);
+
+    void monitorConnectedChange();
+    void disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output);
+    void showOsd(const QString &icon, const QString &text);
+
+    KScreen::ConfigPtr m_monitoredConfig;
+    bool m_monitoring;
+    QTimer* m_changeCompressor;
+    QTimer* m_saveTimer;
+    QTimer* m_lidClosedTimer;
+    KScreen::OsdManager *m_osdManager;
 };
 
 #endif /*KSCREEN_DAEMON_H*/

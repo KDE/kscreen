@@ -19,7 +19,6 @@
  *  along with this program; if not, write to the Free Software                      *
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
-
 #include "daemon.h"
 #include "serializer.h"
 #include "generator.h"
@@ -28,22 +27,20 @@
 #include "kscreen_daemon_debug.h"
 #include "osdmanager.h"
 
-#include <QTimer>
-#include <QAction>
-#include <QShortcut>
-#include <QLoggingCategory>
+#include <kscreen/log.h>
+#include <kscreen/output.h>
+#include <kscreen/configmonitor.h>
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/setconfigoperation.h>
 
 #include <KLocalizedString>
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KGlobalAccel>
 
-#include <kscreen/log.h>
-#include <kscreen/config.h>
-#include <kscreen/output.h>
-#include <kscreen/configmonitor.h>
-#include <kscreen/getconfigoperation.h>
-#include <kscreen/setconfigoperation.h>
+#include <QTimer>
+#include <QAction>
+#include <QShortcut>
 
 K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
                            "kscreen.json",
@@ -59,10 +56,10 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  
 {
     KScreen::Log::instance();
-    QMetaObject::invokeMethod(this, "requestConfig", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
 }
 
-void KScreenDaemon::requestConfig()
+void KScreenDaemon::getInitialConfig()
 {
     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
             this, [this](KScreen::ConfigOperation* op) {
@@ -105,7 +102,6 @@ void KScreenDaemon::init()
     m_lidClosedTimer->setSingleShot(true);
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
 
-
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this,
             [&]() {
@@ -121,7 +117,6 @@ void KScreenDaemon::init()
                 qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for " << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
                 m_lidClosedTimer->stop();
             });
-
 
     connect(Generator::self(), &Generator::ready,
             this, &KScreenDaemon::applyConfig);
@@ -215,7 +210,6 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
         doApplyConfig(Generator::self()->displaySwitch(Generator::Clone));
         return;
     }
-
     Q_UNREACHABLE();
 }
 
@@ -232,7 +226,8 @@ void KScreenDaemon::applyIdealConfig()
     }
 }
 
-void logConfig(const KScreen::ConfigPtr &config) {
+void logConfig(const KScreen::ConfigPtr &config)
+{
     if (config) {
         foreach (auto o, config->outputs()) {
             if (o->isConnected()) {
