@@ -19,9 +19,6 @@
 
 #include "widget.h"
 #include "controlpanel.h"
-#ifdef WITH_PROFILES
-#include "profilesmodel.h"
-#endif
 
 #include <QVBoxLayout>
 #include <QSplitter>
@@ -63,18 +60,6 @@ Widget::Widget(QWidget *parent)
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     connect(ui->primaryCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &Widget::primaryOutputSelected);
-
-#ifdef WITH_PROFILES
-    mProfilesModel = new ProfilesModel(this);
-
-    connect(mProfilesModel, &ProfilesModel::modelUpdated()),
-            this, &Widget::slotProfilesUpdated);
-    mProfilesCombo = new QComboBox(this);
-    mProfilesCombo->setModel(mProfilesModel);
-    mProfilesCombo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    hbox->addWidget(new QLabel(i18n("Active profile")));
-    hbox->addWidget(mProfilesCombo);
-#endif
 
     mControlPanel = new ControlPanel(this);
     connect(mControlPanel, &ControlPanel::changed,
@@ -323,40 +308,6 @@ void Widget::slotUnifyOutputs()
     Q_EMIT changed();
 }
 
-void Widget::slotProfileChanged(int index)
-{
-#ifdef WITH_PROFILES
-    const QVariantMap profile = mProfilesCombo->itemData(index, ProfilesModel::ProfileRole).toMap();
-    const QVariantList outputs = profile[QLatin1String("outputs")].toList();
-
-    // FIXME: Copy-pasted from KDED's Serializer::config()
-    KScreen::Config *config = KScreen::Config::current();
-    KScreen::OutputList outputList = config->outputs();
-    for (KScreen::Output: output, outputList) {
-        if (!output->isConnected() && output->isEnabled()) {
-            output->setEnabled(false);
-        }
-    }
-
-    KScreen::Config *outputsConfig = config->clone();
-    Q_FOREACH(const QVariant & info, outputs) {
-        KScreen::Output *output = findOutput(outputsConfig, info.toMap());
-        if (!output) {
-            continue;
-        }
-
-        delete outputList.take(output->id());
-        outputList.insert(output->id(), output);
-    }
-
-    config->setOutputs(outputList);
-
-    setConfig(config);
-#else
-    Q_UNUSED(index)
-#endif
-}
-
 // FIXME: Copy-pasted from KDED's Serializer::findOutput()
 KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info)
 {
@@ -399,26 +350,6 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 
     return KScreen::OutputPtr();
 }
-
-void Widget::slotProfilesAboutToUpdate()
-{
-#ifdef WITH_PROFILES
-    disconnect(mProfilesCombo, &QComboBox::currentIndexChanged,
-               this, &Widget::slotProfileChanged);
-#endif
-}
-
-void Widget::slotProfilesUpdated()
-{
-#ifdef WITH_PROFILES
-    connect(mProfilesCombo, &QComboBox::currentIndexChanged,
-            this, &Widget::slotProfileChanged);
-
-    const int index = mProfilesModel->activeProfileIndex();
-    mProfilesCombo->setCurrentIndex(index);
-#endif
-}
-
 
 void Widget::clearOutputIdentifiers()
 {

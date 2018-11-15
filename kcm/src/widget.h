@@ -25,7 +25,6 @@
 
 #include <kscreen/config.h>
 
-class ProfilesModel;
 class QLabel;
 class QMLOutput;
 class QMLScreen;
@@ -72,10 +71,6 @@ class Widget : public QWidget
     void slotOutputConnectedChanged();
 
     void slotUnifyOutputs();
-    void slotProfileChanged(int index);
-
-    void slotProfilesAboutToUpdate();
-    void slotProfilesUpdated();
 
     void slotIdentifyButtonClicked(bool checked = true);
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
@@ -100,10 +95,6 @@ class Widget : public QWidget
     KScreen::ConfigPtr mPrevConfig = nullptr;
 
     ControlPanel *mControlPanel = nullptr;
-
-    ProfilesModel *mProfilesModel = nullptr;
-    QComboBox *mProfilesCombo = nullptr;
-    QPushButton *mSaveProfileButton = nullptr;
 
     QList<QQuickView*> mOutputIdentifiers;
     QTimer *mOutputTimer = nullptr;
