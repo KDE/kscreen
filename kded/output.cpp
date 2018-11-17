@@ -130,8 +130,10 @@ void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control:
     readInGlobalPartFromInfo(output, info);
 }
 
-void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outputsInfo, const QMap<QString, Control::OutputRetention> &retentions)
+void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo)
 {
+    KScreen::OutputList outputs = config->outputs();
+    ControlConfig control(config);
     // As global outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
@@ -154,7 +156,6 @@ void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outp
             continue;
         }
         const auto outputId = output->hash();
-        const auto retention = Control::getOutputRetention(outputId, retentions);
         bool infoFound = false;
         for (const auto &variantInfo : outputsInfo) {
             const QVariantMap info = variantInfo.toMap();
@@ -171,9 +172,8 @@ void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outp
                     continue;
                 }
             }
-
             infoFound = true;
-            readIn(output, info, retention);
+            readIn(output, info, control.getOutputRetention(output));
             break;
         }
         if (!infoFound) {

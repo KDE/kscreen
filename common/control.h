@@ -32,8 +32,6 @@ public:
 
     virtual ~Control() = default;
 
-    static OutputRetention getOutputRetention(const QString &outputId, const QMap<QString, OutputRetention> &retentions);
-
     virtual QString filePath() = 0;
 
 protected:
@@ -49,13 +47,16 @@ class ControlConfig : public Control
 public:
     ControlConfig(KScreen::ConfigPtr config);
 
-    QMap<QString, OutputRetention> readInOutputRetentionValues();
+    OutputRetention getOutputRetention(const KScreen::OutputPtr &output) const;
+    OutputRetention getOutputRetention(const QString &outputId, const QString &outputName) const;
 
     QString filePath() override;
     static QString filePath(const QString &hash);
 
 private:
     KScreen::ConfigPtr m_config;
+    QVariantMap m_info;
+    QStringList m_duplicateOutputIds;
 };
 
 class ControlOutput : public Control

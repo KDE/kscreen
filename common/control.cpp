@@ -31,18 +31,52 @@ QString Control::dirPath()
     return Globals::dirPath() % s_dirName;
 }
 
-Control::OutputRetention Control::getOutputRetention(const QString &outputId, const QMap<QString, Control::OutputRetention> &retentions)
+Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
 {
-    if (retentions.contains(outputId)) {
-        return retentions[outputId];
+    if (variant.canConvert<int>()) {
+        const auto retention = variant.toInt();
+        if (retention == (int)OutputRetention::Global) {
+            return OutputRetention::Global;
+        }
+        if (retention == (int)OutputRetention::Individual) {
+            return OutputRetention::Individual;
+        }
     }
-    // info for output not found
     return OutputRetention::Undefined;
 }
 
 ControlConfig::ControlConfig(KScreen::ConfigPtr config)
     : m_config(config)
 {
+//    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
+    QFile file(filePath(config->connectedOutputsHash()));
+    if (file.open(QIODevice::ReadOnly)) {
+        QJsonDocument parser;
+        m_info = parser.fromJson(file.readAll()).toVariant().toMap();
+    }
+
+    // TODO: use a file watcher in case of changes to the control file while
+    //       object exists?
+
+    // As global outputs are indexed by a hash of their edid, which is not unique,
+    // to be able to tell apart multiple identical outputs, these need special treatment
+    {
+    QStringList allIds;
+    const auto outputs = config->outputs();
+    allIds.reserve(outputs.count());
+    for (const KScreen::OutputPtr &output : outputs) {
+        const auto outputId = output->hash();
+        if (allIds.contains(outputId) && !m_duplicateOutputIds.contains(outputId)) {
+            m_duplicateOutputIds << outputId;
+        }
+        allIds << outputId;
+    }
+    }
+
+    // TODO: this is same in Output::readInOutputs of the daemon. Combine?
+
+    // TODO: connect to outputs added/removed signals and reevaluate duplicate ids
+    //       in case of such a change while object exists?
 }
 
 QString ControlConfig::filePath(const QString &hash)
@@ -62,47 +96,39 @@ QString ControlConfig::filePath()
     return ControlConfig::filePath(m_config->connectedOutputsHash());
 }
 
-Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
+Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::OutputPtr &output) const
 {
-    if (variant.canConvert<int>()) {
-        const auto retention = variant.toInt();
-        if (retention == (int)OutputRetention::Global) {
-            return OutputRetention::Global;
-        }
-        if (retention == (int)OutputRetention::Individual) {
-            return OutputRetention::Individual;
-        }
-    }
-    return OutputRetention::Undefined;
+    return getOutputRetention(output->hash(), output->name());
 }
 
-QMap<QString, Control::OutputRetention> ControlConfig::readInOutputRetentionValues()
+Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
 {
-//    qDebug() << "Looking for control file:" << m_config->connectedOutputsHash();
-    QFile file(filePath(m_config->connectedOutputsHash()));
-    if (!file.open(QIODevice::ReadOnly)) {
-        // TODO: have a logging category
-//        qCDebug(KSCREEN_COMMON) << "Failed to open file" << file.fileName();
-        return QMap<QString, Control::OutputRetention>();
-    }
-
-    QJsonDocument parser;
-    const QVariantMap controlInfo = parser.fromJson(file.readAll()).toVariant().toMap();
-    const QVariantList outputsInfo = controlInfo[QStringLiteral("outputs")].toList();
-    QMap<QString, Control::OutputRetention> retentions;
-
+    const QVariantList outputsInfo = m_info[QStringLiteral("outputs")].toList();
     for (const auto variantInfo : outputsInfo) {
         const QVariantMap info = variantInfo.toMap();
 
-        // TODO: this does not yet consider the output name (i.e. connector). Necessary?
-        const QString outputHash = info[QStringLiteral("id")].toString();
-        if (outputHash.isEmpty()) {
+        const QString outputIdInfo = info[QStringLiteral("id")].toString();
+        if (outputIdInfo.isEmpty()) {
             continue;
         }
-        retentions[outputHash] = convertVariantToOutputRetention(info[QStringLiteral("retention")]);
-    }
+        if (outputId != outputIdInfo) {
+            continue;
+        }
 
-    return retentions;
+        if (!outputName.isEmpty() && m_duplicateOutputIds.contains(outputId)) {
+            // We may have identical outputs connected, these will have the same id in the config
+            // in order to find the right one, also check the output's name (usually the connector)
+            const auto metadata = info[QStringLiteral("metadata")].toMap();
+            const auto outputNameInfo = metadata[QStringLiteral("name")].toString();
+            if (outputName != outputNameInfo) {
+                // was a duplicate id, but info not for this output
+                continue;
+            }
+        }
+        return convertVariantToOutputRetention(info[QStringLiteral("retention")]);
+    }
+    // info for output not found
+    return OutputRetention::Undefined;
 }
 
 ControlOutput::ControlOutput(KScreen::OutputPtr output)

@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 class Output
 {
 public:
-    static void readInOutputs(KScreen::OutputList outputs, const QVariantList &outputsInfo, const QMap<QString, Control::OutputRetention> &retentions);
+    static void readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo);
 
     static void writeGlobal(const KScreen::OutputPtr &output);
     static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info);

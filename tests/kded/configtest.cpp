@@ -34,6 +34,7 @@ class TestConfig : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void init();
     void initTestCase();
 
     void testSimpleConfig();
@@ -101,10 +102,14 @@ std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool out
     return configWrapper;
 }
 
+void TestConfig::init()
+{
+    Globals::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
+}
+
 void TestConfig::initTestCase()
 {
     qputenv("KSCREEN_LOGGING", "false");
-    Globals::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
 }
 
 void TestConfig::testSimpleConfig()
@@ -481,8 +486,6 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
     QCOMPARE(output2->isEnabled(), true);
     QCOMPARE(output2->isPrimary(), false);
-
-    Globals::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 void TestConfig::testFixedConfig()
@@ -505,8 +508,6 @@ void TestConfig::testFixedConfig()
     // Check if both files exist
     QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
-
-    Globals::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 
