@@ -147,6 +147,11 @@ static QVariantMap metadata(const QString &outputName)
     return metadata;
 }
 
+void ControlConfig::setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value)
+{
+    setOutputRetention(output->hash(), output->name(), value);
+}
+
 void ControlConfig::setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value)
 {
     QList<QVariant>::iterator it;

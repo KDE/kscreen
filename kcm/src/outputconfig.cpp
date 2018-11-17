@@ -105,6 +105,7 @@ void OutputConfig::initUi()
             this, [=](bool checked) {
                   mOutput->setEnabled(checked);
                   qCDebug(KSCREEN_KCM) << mOutput.data() << mOutput->name() << mOutput->isEnabled();
+                  mChanged = true;
                   Q_EMIT changed();
             });
     formLayout->addRow(i18n("Display:"), mEnabled);
@@ -149,11 +150,27 @@ void OutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
+
+
+    mRetentionGroupBox = new QGroupBox(i18n("Retention of values"), this);
+    mGlobalRetentionButton = new QRadioButton(i18n("Save as new global values for this display."), this);
+    mIndividualRetentionButton = new QRadioButton(i18n("Save values only for display in this specific configuration."), this);
+    mIndividualRetentionButton->setChecked(mRetention == Control::OutputRetention::Individual);
+    mGlobalRetentionButton->setChecked(!mIndividualRetentionButton->isChecked());
+
+    QVBoxLayout *vbox2 = new QVBoxLayout(mRetentionGroupBox);
+    vbox2->addWidget(mGlobalRetentionButton);
+    vbox2->addWidget(mIndividualRetentionButton);
+    mRetentionGroupBox->setLayout(vbox2);
+
+    vbox->addWidget(mRetentionGroupBox);
 }
 
-void OutputConfig::setOutput(const KScreen::OutputPtr &output)
+void OutputConfig::setOutput(const KScreen::OutputPtr &output, Control::OutputRetention retention)
 {
     mOutput = output;
+    mRetention = retention;
+
     initUi();
 }
 
@@ -201,7 +218,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i + 1);
         }
     }
-
+    mChanged = true;
     Q_EMIT changed();
 }
 
@@ -211,6 +228,7 @@ void OutputConfig::slotRotationChanged(int index)
         static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     mOutput->setRotation(rotation);
 
+    mChanged = true;
     Q_EMIT changed();
 }
 
@@ -227,6 +245,7 @@ void OutputConfig::slotRefreshRateChanged(int index)
     }
     mOutput->setCurrentModeId(modeId);
 
+    mChanged = true;
     Q_EMIT changed();
 }
 
@@ -234,6 +253,7 @@ void OutputConfig::slotScaleChanged(int index)
 {
     auto scale = mScale->itemData(index).toInt();
     mOutput->setScale(scale);
+    mChanged = true;
     Q_EMIT changed();
 }
 
@@ -248,4 +268,19 @@ void OutputConfig::setShowScaleOption(bool showScaleOption)
 bool OutputConfig::showScaleOption() const
 {
     return mShowScaleOption;
+}
+
+Control::OutputRetention OutputConfig::applyRetention()
+{
+    if (mIndividualRetentionButton->isChecked()) {
+        mRetention = Control::OutputRetention::Individual;
+    } else {
+        mRetention = Control::OutputRetention::Global;
+    }
+    return mRetention;
+}
+
+bool OutputConfig::hasChange() const
+{
+    return mChanged;
 }

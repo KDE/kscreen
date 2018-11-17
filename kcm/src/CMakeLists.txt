@@ -16,6 +16,8 @@ set(kcm_kscreen_SRCS
     widget.cpp
     previewwidget.cpp
     scalingconfig.cpp
+    ../../common/globals.cpp
+    ../../common/control.cpp
 )
 
 ecm_qt_declare_logging_category(kcm_kscreen_SRCS HEADER kcm_screen_debug.h IDENTIFIER KSCREEN_KCM CATEGORY_NAME kscreen.kcm)

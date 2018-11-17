@@ -53,6 +53,7 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     }
 
     mConfig = config;
+    mControlConfig = std::unique_ptr<ControlConfig>(new ControlConfig(config));
     connect(mConfig.data(), &KScreen::Config::outputAdded,
             this, &ControlPanel::addOutput);
     connect(mConfig.data(), &KScreen::Config::outputRemoved,
@@ -68,10 +69,9 @@ void ControlPanel::addOutput(const KScreen::OutputPtr &output)
     OutputConfig *outputCfg = new OutputConfig(this);
     outputCfg->setVisible(false);
     outputCfg->setShowScaleOption(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
-    outputCfg->setOutput(output);
+    outputCfg->setOutput(output, mControlConfig->getOutputRetention(output));
     connect(outputCfg, &OutputConfig::changed,
             this, &ControlPanel::changed);
-
     mLayout->addWidget(outputCfg);
     mOutputConfigs << outputCfg;
 }
@@ -122,4 +122,22 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         connect(mUnifiedOutputCfg, &UnifiedOutputConfig::changed,
                 this, &ControlPanel::changed);
     }
+}
+
+void ControlPanel::save()
+{
+    if (!mControlConfig) {
+        return;
+    }
+    for (const auto outputConfig : mOutputConfigs) {
+        if (!outputConfig->hasChange()) {
+            continue;
+        }
+        mControlConfig->setOutputRetention(outputConfig->output(), outputConfig->applyRetention());
+    }
+
+    if (!mControlConfig->writeFile()) {
+        // TODO: error handling
+    }
+    // TODO: write output controls in the future
 }

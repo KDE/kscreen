@@ -118,6 +118,7 @@ void KCMKScreen::save()
         return;
     }
 
+    mKScreenWidget->saveControls();
     const KScreen::ConfigPtr &config = mKScreenWidget->currentConfig();
 
     bool atLeastOneEnabledOutput = false;

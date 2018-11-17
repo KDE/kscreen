@@ -37,7 +37,7 @@ class UnifiedOutputConfig : public OutputConfig
     explicit UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent);
     ~UnifiedOutputConfig() override;
 
-    void setOutput(const KScreen::OutputPtr &output) override;
+    void setOutput(const KScreen::OutputPtr &output, Control::OutputRetention retention = Control::OutputRetention::Undefined) override;
 
   private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);

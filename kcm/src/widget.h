@@ -28,7 +28,7 @@
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
-
+class ControlConfig;
 
 class QQuickView;
 
@@ -58,6 +58,7 @@ class Widget : public QWidget
 
   Q_SIGNALS:
     void changed();
+    void saveControls();
 
   private Q_SLOTS:
     void slotFocusedOutputChanged(QMLOutput *output);

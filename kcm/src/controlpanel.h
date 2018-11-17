@@ -22,6 +22,8 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
 
+#include "../../common/control.h"
+
 #include <QFrame>
 
 #include <kscreen/output.h>
@@ -30,6 +32,8 @@ class QVBoxLayout;
 class OutputConfig;
 class UnifiedOutputConfig;
 
+
+#include <memory>
 
 class ControlPanel : public QFrame
 {
@@ -42,6 +46,8 @@ class ControlPanel : public QFrame
     void setConfig(const KScreen::ConfigPtr &config);
 
     void setUnifiedOutput(const KScreen::OutputPtr &output);
+
+    void save();
 
   public Q_SLOTS:
     void activateOutput(const KScreen::OutputPtr &output);
@@ -59,6 +65,8 @@ private Q_SLOTS:
 
     QVBoxLayout *mLayout;
     UnifiedOutputConfig *mUnifiedOutputCfg;
+
+    std::unique_ptr<ControlConfig> mControlConfig = nullptr;
 };
 
 #endif // CONTROLPANEL_H

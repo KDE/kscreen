@@ -49,6 +49,7 @@ public:
 
     OutputRetention getOutputRetention(const KScreen::OutputPtr &output) const;
     OutputRetention getOutputRetention(const QString &outputId, const QString &outputName) const;
+    void setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value);
     void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
     bool writeFile();

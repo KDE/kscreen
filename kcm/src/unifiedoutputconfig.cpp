@@ -61,8 +61,10 @@ UnifiedOutputConfig::~UnifiedOutputConfig()
 {
 }
 
-void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output)
+void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output, Control::OutputRetention retention)
 {
+    Q_UNUSED(retention); // TODO: use?
+
     mOutput = output;
 
     mClones.clear();

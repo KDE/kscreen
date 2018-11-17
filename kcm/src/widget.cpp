@@ -30,6 +30,7 @@
 #include "declarative/qmlscreen.h"
 #include "utils.h"
 #include "scalingconfig.h"
+#include "../../common/control.h"
 
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
@@ -77,6 +78,7 @@ Widget::Widget(QWidget *parent)
                 dialog->exec();
                 delete dialog;
             });
+    connect(this, &Widget::saveControls, mControlPanel, &ControlPanel::save);
 
     mOutputTimer = new QTimer(this);
     connect(mOutputTimer, &QTimer::timeout,

@@ -22,13 +22,16 @@
 #ifndef OUTPUTCONFIG_H
 #define OUTPUTCONFIG_H
 
-#include <QGroupBox>
+#include "../../common/control.h"
+
 #include <QComboBox>
 #include <QWidget>
+#include <QRadioButton>
 
 #include <kscreen/output.h>
 
 class QCheckBox;
+class QGroupBox;
 class ResolutionSlider;
 class QLabel;
 
@@ -42,12 +45,16 @@ class OutputConfig : public QWidget
     explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
     ~OutputConfig() override;
 
-    virtual void setOutput(const KScreen::OutputPtr &output);
+    virtual void setOutput(const KScreen::OutputPtr &output, Control::OutputRetention retention = Control::OutputRetention::Undefined);
     KScreen::OutputPtr output() const;
 
     void setTitle(const QString &title);
     void setShowScaleOption(bool showScaleOption);
     bool showScaleOption() const;
+
+    bool hasChange() const;
+
+    Control::OutputRetention applyRetention();
 
   protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
@@ -70,6 +77,15 @@ class OutputConfig : public QWidget
     QComboBox *mScale = nullptr;
     QComboBox *mRefreshRate = nullptr;
     bool mShowScaleOption  = false;
+
+    QGroupBox *mRetentionGroupBox = nullptr;
+    QRadioButton *mGlobalRetentionButton = nullptr;
+    QRadioButton *mIndividualRetentionButton = nullptr;
+
+    Control::OutputRetention mRetention = Control::OutputRetention::Undefined;
+
+    // TODO: we should do this instead with a separate config being watched
+    bool mChanged = false;
 };
 
 #endif // OUTPUTCONFIG_H
