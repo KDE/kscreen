@@ -105,11 +105,13 @@ class QMLScreen : public QQuickItem
   private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
+    void setOutputScale(float scale);
 
     KScreen::ConfigPtr m_config;
     QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
     int m_connectedOutputsCount;
     int m_enabledOutputsCount;
+    float m_outputScale = 1.0 / 8.0;
 
     QQmlEngine* m_engine = nullptr;
     QMLOutput *m_leftmost = nullptr;
