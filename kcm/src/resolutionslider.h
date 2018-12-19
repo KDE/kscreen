@@ -49,6 +49,8 @@ class ResolutionSlider : public QWidget
     void slotOutputModeChanged();
 
   private:
+    void init();
+
     KScreen::OutputPtr mOutput;
 
     QList<QSize> mModes;
