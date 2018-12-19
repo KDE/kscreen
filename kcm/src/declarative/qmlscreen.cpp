@@ -175,7 +175,7 @@ QSize QMLScreen::maxScreenSize() const
 
 float QMLScreen::outputScale() const
 {
-    return 1.0 / 8.0;
+    return 1.0 / 12.0;
 }
 
 void QMLScreen::outputConnectedChanged()
@@ -306,20 +306,11 @@ void QMLScreen::updateCornerOutputs()
 
 void QMLScreen::updateOutputsPlacement()
 {
-    int disabledOffsetX = width();
     QSizeF activeScreenSize;
 
     Q_FOREACH (QQuickItem *item, childItems()) {
         QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
-        if (!qmlOutput->output()->isConnected()) {
-            continue;
-        }
-
-        if (!qmlOutput->output()->isEnabled()) {
-            qmlOutput->blockSignals(true);
-            disabledOffsetX -= qmlOutput->width();
-            qmlOutput->setPosition(QPoint(disabledOffsetX, 0));
-            qmlOutput->blockSignals(false);
+        if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
             continue;
         }
 
@@ -336,6 +327,8 @@ void QMLScreen::updateOutputsPlacement()
     const QPointF offset((width() - activeScreenSize.width()) / 2.0,
                          (height() - activeScreenSize.height()) / 2.0);
 
+    qreal lastX = -1.0;
+    qreal lastY = -1.0;
     Q_FOREACH (QQuickItem *item, childItems()) {
         QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
         if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
@@ -345,6 +338,17 @@ void QMLScreen::updateOutputsPlacement()
         qmlOutput->blockSignals(true);
         qmlOutput->setPosition(QPointF(offset.x() + (qmlOutput->outputX() * outputScale()),
                           offset.y() + (qmlOutput->outputY() * outputScale())));
+        lastX = qMax(lastX, qmlOutput->position().x() + qmlOutput->size().width());
+        lastY = qMax(lastY, qmlOutput->position().y());
         qmlOutput->blockSignals(false);
     }
-}
+
+    Q_FOREACH (QQuickItem *item, childItems()) {
+        QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
+        if (qmlOutput->output()->isConnected() && !qmlOutput->output()->isEnabled()) {
+            qmlOutput->blockSignals(true);
+            qmlOutput->setPosition(QPointF(lastX, lastY));
+            lastX += qmlOutput->size().width();
+            qmlOutput->blockSignals(false);
+        }
+    }}
