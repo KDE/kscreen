@@ -27,6 +27,7 @@ Name[sl]=Hitre nastavitve zaslona
 Name[sv]=Snabbinställning av skärm
 Name[tr]=Hızlı Ekran Yapılandırması
 Name[uk]=Швидке налаштовування дисплея
+Name[x-test]=xxQuick Display Configurationxx
 Comment=Quick configuration of a new display
 Comment[ar]=ضبط سريع لعرض جديد
 Comment[bs]=Brza konfiguracija novog ekrana
@@ -59,6 +60,7 @@ Comment[sl]=Hitre nastavitve novega zaslona
 Comment[sv]=Snabbinställning av en ny skärm
 Comment[tr]=Yeni bir ekranın hızlı yapılandırması
 Comment[uk]=Швидке налаштовування нового дисплея
+Comment[x-test]=xxQuick configuration of a new displayxx
 
 Icon=preferences-desktop-display-randr
 Type=Service
