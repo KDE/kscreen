@@ -31,6 +31,7 @@ Name[sv]=Snabbinställning av skärm
 Name[tr]=Hızlı Ekran Yapılandırması
 Name[uk]=Швидке налаштовування дисплея
 Name[x-test]=xxQuick Display Configurationxx
+Name[zh_CN]=快捷显示配置
 Name[zh_TW]=快速設定顯示器
 Comment=Quick configuration of a new display
 Comment[ar]=ضبط سريع لعرض جديد
@@ -68,6 +69,7 @@ Comment[sv]=Snabbinställning av en ny skärm
 Comment[tr]=Yeni bir ekranın hızlı yapılandırması
 Comment[uk]=Швидке налаштовування нового дисплея
 Comment[x-test]=xxQuick configuration of a new displayxx
+Comment[zh_CN]=快速配置新显示器
 Comment[zh_TW]=快速設定新的顯示器
 
 Icon=preferences-desktop-display-randr
