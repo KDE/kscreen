@@ -42,9 +42,7 @@
 #include <QAction>
 #include <QShortcut>
 
-K_PLUGIN_FACTORY_WITH_JSON(KScreenDaemonFactory,
-                           "kscreen.json",
-                           registerPlugin<KScreenDaemon>();)
+K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
