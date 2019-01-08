@@ -351,4 +351,5 @@ void QMLScreen::updateOutputsPlacement()
             lastX += qmlOutput->size().width();
             qmlOutput->blockSignals(false);
         }
-    }}
+    }
+}
