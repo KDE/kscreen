@@ -49,6 +49,7 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
 {
     qDeleteAll(m_outputMap);
     m_outputMap.clear();
+    m_manuallyMovedOutputs.clear();
     m_bottommost = m_leftmost = m_rightmost = m_topmost = nullptr;
     m_connectedOutputsCount = 0;
     m_enabledOutputsCount = 0;
@@ -225,6 +226,8 @@ void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
     if (qmlOutput->isCloneMode()) {
         return;
     }
+    if (!m_manuallyMovedOutputs.contains(qmlOutput))
+        m_manuallyMovedOutputs.append(qmlOutput);
 
     updateCornerOutputs();
 
@@ -346,7 +349,8 @@ void QMLScreen::updateOutputsPlacement()
         qreal lastY = -1.0;
         Q_FOREACH (QQuickItem *item, childItems()) {
             QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
-            if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
+            if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled() ||
+                 m_manuallyMovedOutputs.contains(qmlOutput)) {
                 continue;
             }
 
@@ -360,7 +364,8 @@ void QMLScreen::updateOutputsPlacement()
 
         Q_FOREACH (QQuickItem *item, childItems()) {
             QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
-            if (qmlOutput->output()->isConnected() && !qmlOutput->output()->isEnabled()) {
+            if (qmlOutput->output()->isConnected() && !qmlOutput->output()->isEnabled() &&
+                !m_manuallyMovedOutputs.contains(qmlOutput)) {
                 qmlOutput->blockSignals(true);
                 qmlOutput->setPosition(QPointF(lastX, lastY));
                 lastX += qmlOutput->width() / initialScale * scale;

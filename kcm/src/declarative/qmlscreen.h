@@ -104,6 +104,7 @@ class QMLScreen : public QQuickItem
 
     KScreen::ConfigPtr m_config;
     QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
+    QVector<QMLOutput*> m_manuallyMovedOutputs;
     int m_connectedOutputsCount = 0;
     int m_enabledOutputsCount = 0;
     float m_outputScale = 1.0 / 8.0;
