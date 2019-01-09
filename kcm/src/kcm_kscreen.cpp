@@ -87,6 +87,8 @@ void KCMKScreen::configReady(ConfigOperation* op)
         mMainLayout->addWidget(mKScreenWidget);
         QObject::connect(mKScreenWidget, &Widget::changed,
                 this, &KCMKScreen::changed);
+    } else {
+        mMainLayout->addWidget(mKScreenWidget);
     }
 
     mKScreenWidget->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
