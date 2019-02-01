@@ -175,7 +175,7 @@ QSize QMLScreen::maxScreenSize() const
 
 float QMLScreen::outputScale() const
 {
-    return 1.0 / 8.0;
+    return m_outputScale;
 }
 
 void QMLScreen::outputConnectedChanged()
@@ -304,37 +304,20 @@ void QMLScreen::updateCornerOutputs()
     }
 }
 
+void QMLScreen::setOutputScale(float scale)
+{
+    if (qFuzzyCompare(scale, m_outputScale))
+        return;
+    m_outputScale = scale;
+    emit outputScaleChanged();
+}
+
 void QMLScreen::updateOutputsPlacement()
 {
-    int disabledOffsetX = width();
-    QSizeF activeScreenSize;
+    if (width() <= 0)
+        return;
 
-    Q_FOREACH (QQuickItem *item, childItems()) {
-        QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
-        if (!qmlOutput->output()->isConnected()) {
-            continue;
-        }
-
-        if (!qmlOutput->output()->isEnabled()) {
-            qmlOutput->blockSignals(true);
-            disabledOffsetX -= qmlOutput->width();
-            qmlOutput->setPosition(QPoint(disabledOffsetX, 0));
-            qmlOutput->blockSignals(false);
-            continue;
-        }
-
-        if (qmlOutput->outputX() + qmlOutput->currentOutputWidth() > activeScreenSize.width()) {
-            activeScreenSize.setWidth(qmlOutput->outputX() + qmlOutput->currentOutputWidth());
-        }
-        if (qmlOutput->outputY() + qmlOutput->currentOutputHeight() > activeScreenSize.height()) {
-            activeScreenSize.setHeight(qmlOutput->outputY() + qmlOutput->currentOutputHeight());
-        }
-    }
-
-    activeScreenSize *= outputScale();
-
-    const QPointF offset((width() - activeScreenSize.width()) / 2.0,
-                         (height() - activeScreenSize.height()) / 2.0);
+    QSizeF initialActiveScreenSize;
 
     Q_FOREACH (QQuickItem *item, childItems()) {
         QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
@@ -342,9 +325,55 @@ void QMLScreen::updateOutputsPlacement()
             continue;
         }
 
-        qmlOutput->blockSignals(true);
-        qmlOutput->setPosition(QPointF(offset.x() + (qmlOutput->outputX() * outputScale()),
-                          offset.y() + (qmlOutput->outputY() * outputScale())));
-        qmlOutput->blockSignals(false);
+        if (qmlOutput->outputX() + qmlOutput->currentOutputWidth() > initialActiveScreenSize.width()) {
+            initialActiveScreenSize.setWidth(qmlOutput->outputX() + qmlOutput->currentOutputWidth());
+        }
+        if (qmlOutput->outputY() + qmlOutput->currentOutputHeight() > initialActiveScreenSize.height()) {
+            initialActiveScreenSize.setHeight(qmlOutput->outputY() + qmlOutput->currentOutputHeight());
+        }
     }
+
+    auto initialScale = outputScale();
+    auto scale = initialScale;
+    qreal lastX = -1.0;
+    do {
+        auto activeScreenSize = initialActiveScreenSize * scale;
+
+        const QPointF offset((width() - activeScreenSize.width()) / 2.0,
+                             (height() - activeScreenSize.height()) / 2.0);
+
+        lastX = -1.0;
+        qreal lastY = -1.0;
+        Q_FOREACH (QQuickItem *item, childItems()) {
+            QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
+            if (!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()) {
+                continue;
+            }
+
+            qmlOutput->blockSignals(true);
+            qmlOutput->setPosition(QPointF(offset.x() + (qmlOutput->outputX() * scale),
+                              offset.y() + (qmlOutput->outputY() * scale)));
+            lastX = qMax(lastX, qmlOutput->position().x() + qmlOutput->width() / initialScale * scale);
+            lastY = qMax(lastY, qmlOutput->position().y());
+            qmlOutput->blockSignals(false);
+        }
+
+        Q_FOREACH (QQuickItem *item, childItems()) {
+            QMLOutput *qmlOutput = qobject_cast<QMLOutput*>(item);
+            if (qmlOutput->output()->isConnected() && !qmlOutput->output()->isEnabled()) {
+                qmlOutput->blockSignals(true);
+                qmlOutput->setPosition(QPointF(lastX, lastY));
+                lastX += qmlOutput->width() / initialScale * scale;
+                qmlOutput->blockSignals(false);
+            }
+        }
+        // calculate the scale dynamically, so all screens fit to the dialog
+        if (lastX > width()) {
+            scale *= 0.8;
+        }
+    } while (lastX > width());
+    // Use a timer to avoid binding loop on width()
+    QTimer::singleShot(0, this, [scale, this] {
+        setOutputScale(scale);
+    });
 }
