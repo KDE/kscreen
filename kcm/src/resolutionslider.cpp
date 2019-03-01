@@ -79,7 +79,7 @@ void ResolutionSlider::init()
     QGridLayout *layout = new QGridLayout(this);
     int margin = layout->margin();
     // Avoid double margins
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     if (mModes.count() > 15) {
         std::reverse(mModes.begin(), mModes.end());

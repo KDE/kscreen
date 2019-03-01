@@ -71,7 +71,7 @@ void KCMKScreen::configReady(ConfigOperation* op)
 {
     delete mMainLayout;
     mMainLayout = new QHBoxLayout(this);
-    mMainLayout->setMargin(0);
+    mMainLayout->setContentsMargins(0, 0, 0, 0);
 
     if (op->hasError()) {
         mKScreenWidget = nullptr;
