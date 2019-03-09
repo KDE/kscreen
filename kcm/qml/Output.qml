@@ -63,11 +63,11 @@ QMLOutput {
         opacity: root.output.enabled ? 1.0 : 0.5;
         transformOrigin: Item.Center;
         rotation: {
-            if (output.rotation == KScreenOutput.None) {
+            if (output.rotation === KScreenOutput.None) {
                 return 0;
-            } else if (output.rotation == KScreenOutput.Left) {
+            } else if (output.rotation === KScreenOutput.Left) {
                 return 270;
-            } else if (output.rotation == KScreenOutput.Inverted) {
+            } else if (output.rotation === KScreenOutput.Inverted) {
                 return 180;
             } else {
                 return 90;
@@ -209,7 +209,7 @@ QMLOutput {
                     id: nameLabel
                     text: if (root.isCloneMode === true) {
                             return "";
-                          } else if (root.output.type != KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
+                          } else if (root.output.type !== KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
                             return root.output.edid.name;
                           } else {
                             return "";
@@ -229,7 +229,7 @@ QMLOutput {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
                             return i18n("Unified Outputs");
-                          } else if (root.output.type == KScreenOutput.Panel) {
+                          } else if (root.output.type === KScreenOutput.Panel) {
                             return i18n("Laptop Screen");
                           } else if (root.output.edid && root.output.edid.vendor) {
                             return root.output.edid.vendor;
