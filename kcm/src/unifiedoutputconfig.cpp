@@ -147,7 +147,7 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
         }
         commonResults << smallestMode;
     }
-    qSort(commonResults);
+    std::sort(commonResults.begin(), commonResults.end());
 
     KScreen::ModeList modes;
     Q_FOREACH (const QSize &size, commonResults) {

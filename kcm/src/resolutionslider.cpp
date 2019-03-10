@@ -62,7 +62,7 @@ void ResolutionSlider::init()
 
         mModes << mode->size();
     }
-    qSort(mModes.begin(), mModes.end(), sizeLessThan);
+    std::sort(mModes.begin(), mModes.end(), sizeLessThan);
 
     delete layout();
     delete mSmallestLabel;

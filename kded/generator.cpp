@@ -336,7 +336,7 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
 
     //At this point, we know we have common sizes, let's get the biggest on
     QList<QSize> commonSizeList = commonSizes.toList();
-    qSort(commonSizeList.begin(), commonSizeList.end());
+    std::sort(commonSizeList.begin(), commonSizeList.end());
     const QSize biggestSize = commonSizeList.last();
 
     //Finally, look for the mode with biggestSize and biggest refreshRate and set it
@@ -392,7 +392,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
      */
     if (!embedded) {
         QList<int> keys = connectedOutputs.keys();
-        qSort(keys);
+        std::sort(keys.begin(), keys.end());
         embedded = connectedOutputs.value(keys.first());
     }
     connectedOutputs.remove(embedded->id());
