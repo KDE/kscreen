@@ -26,6 +26,10 @@
 
 #include <QVariant>
 
+#include <memory>
+
+class Config;
+
 namespace KScreen
 {
 class OsdManager;
@@ -70,12 +74,14 @@ private:
     void applyOsdAction(KScreen::OsdAction::Action action);
 
     void doApplyConfig(const KScreen::ConfigPtr &config);
+    void doApplyConfig(std::unique_ptr<Config> config);
+    void refreshConfig();
 
     void monitorConnectedChange();
-    void disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output);
+    void disableOutput(KScreen::OutputPtr &output);
     void showOsd(const QString &icon, const QString &text);
 
-    KScreen::ConfigPtr m_monitoredConfig;
+    std::unique_ptr<Config> m_monitoredConfig;
     bool m_monitoring;
     QTimer* m_changeCompressor;
     QTimer* m_saveTimer;

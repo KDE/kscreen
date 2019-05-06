@@ -1,22 +1,21 @@
-/*************************************************************************************
- *  Copyright (C) 2015 by Daniel Vrátil <dvratil@redhat.com>                         *
- *                                                                                   *
- *  This program is free software; you can redistribute it and/or                    *
- *  modify it under the terms of the GNU General Public License                      *
- *  as published by the Free Software Foundation; either version 2                   *
- *  of the License, or (at your option) any later version.                           *
- *                                                                                   *
- *  This program is distributed in the hope that it will be useful,                  *
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of                   *
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                    *
- *  GNU General Public License for more details.                                     *
- *                                                                                   *
- *  You should have received a copy of the GNU General Public License                *
- *  along with this program; if not, write to the Free Software                      *
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
- *************************************************************************************/
+/********************************************************************
+Copyright 2015 Daniel Vrátil <dvratil@redhat.com>
+Copyright 2018 Roman Gilg <subdiff@gmail.com>
 
-#include "../../kded/serializer.h"
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************/
+#include "../../kded/config.h"
 
 #include <QtTest>
 #include <QObject>
@@ -27,9 +26,9 @@
 #include <KScreen/Mode>
 #include <KScreen/Output>
 
-using namespace KScreen;
+#include <memory>
 
-class TestSerializer : public QObject
+class TestConfig : public QObject
 {
     Q_OBJECT
 
@@ -50,10 +49,10 @@ private Q_SLOTS:
     void testFixedConfig();
 
 private:
-    KScreen::ConfigPtr createConfig(bool output1Connected, bool output2Conected);
+    std::unique_ptr<Config> createConfig(bool output1Connected, bool output2Conected);
 };
 
-ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connected)
+std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool output2Connected)
 {
     KScreen::ScreenPtr screen = KScreen::ScreenPtr::create();
     screen->setCurrentSize(QSize(1920, 1080));
@@ -96,21 +95,24 @@ ConfigPtr TestSerializer::createConfig(bool output1Connected, bool output2Connec
     config->addOutput(output1);
     config->addOutput(output2);
 
-    return config;
+    auto configWrapper = std::unique_ptr<Config>(new Config(config));
+
+    return configWrapper;
 }
 
-void TestSerializer::initTestCase()
+void TestConfig::initTestCase()
 {
     qputenv("KSCREEN_LOGGING", "false");
-    Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
+    Config::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
 }
 
-void TestSerializer::testSimpleConfig()
+void TestConfig::testSimpleConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, false);
-    config = Serializer::loadConfig(config, QStringLiteral("simpleConfig.json"));
-    QVERIFY(config);
+    auto configWrapper = createConfig(true, false);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("simpleConfig.json")));
 
+    auto config = configWrapper->data();
+    QVERIFY(config);
     QCOMPARE(config->connectedOutputs().count(), 1);
 
     auto output = config->connectedOutputs().first();
@@ -126,10 +128,12 @@ void TestSerializer::testSimpleConfig()
     QCOMPARE(screen->currentSize(), QSize(1920, 1280));
 }
 
-void TestSerializer::testTwoScreenConfig()
+void TestConfig::testTwoScreenConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+
+    auto config = configWrapper->data();
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -156,10 +160,12 @@ void TestSerializer::testTwoScreenConfig()
     QCOMPARE(screen->currentSize(), QSize(3200, 1280));
 }
 
-void TestSerializer::testRotatedScreenConfig()
+void TestConfig::testRotatedScreenConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("rotatedScreenConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("rotatedScreenConfig.json")));
+
+    auto config = configWrapper->data();
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -186,10 +192,12 @@ void TestSerializer::testRotatedScreenConfig()
     QCOMPARE(screen->currentSize(), QSize(2944, 1280));
 }
 
-void TestSerializer::testDisabledScreenConfig()
+void TestConfig::testDisabledScreenConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("disabledScreenConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("disabledScreenConfig.json")));
+
+    auto config = configWrapper->data();
     QVERIFY(config);
 
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -211,58 +219,64 @@ void TestSerializer::testDisabledScreenConfig()
     QCOMPARE(screen->currentSize(), QSize(1920, 1280));
 }
 
-void TestSerializer::testConfig404()
+void TestConfig::testConfig404()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("filenotfoundConfig.json"));
-    QVERIFY(!config);
-    QVERIFY(config.isNull());
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("filenotfoundConfig.json")));
+
+    QVERIFY(!configWrapper);
 }
 
-void TestSerializer::testCorruptConfig()
+void TestConfig::testCorruptConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("corruptConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptConfig.json")));
+    auto config = configWrapper->data();
+
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
 }
 
-void TestSerializer::testCorruptEmptyConfig()
+void TestConfig::testCorruptEmptyConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("corruptEmptyConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptEmptyConfig.json")));
+    auto config = configWrapper->data();
+
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
 }
 
-void TestSerializer::testCorruptUselessConfig()
+void TestConfig::testCorruptUselessConfig()
 {
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("corruptUselessConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptUselessConfig.json")));
+    auto config = configWrapper->data();
+
     QVERIFY(config);
     QCOMPARE(config->outputs().count(), 2);
     QVERIFY(config->isValid());
 }
 
-void TestSerializer::testNullConfig()
+void TestConfig::testNullConfig()
 {
-    KScreen::ConfigPtr nullConfig;
-    QVERIFY(!nullConfig);
+    Config nullConfig(nullptr);
+    QVERIFY(!nullConfig.data());
 
     // Null configs have empty configIds
-    QVERIFY(Serializer::configId(nullConfig).isEmpty());
+    QVERIFY(nullConfig.id().isEmpty());
 
     // Load config from a file not found results in a nullptr
-    KScreen::ConfigPtr config = createConfig(true, true);
-    QVERIFY(!Serializer::loadConfig(config, QString()));
+    auto config = createConfig(true, true);
+    QVERIFY(!config->readFile(QString()));
 
     // Wrong config file name should fail to save
-    QCOMPARE(Serializer::saveConfig(config, QString()), false);
+    QVERIFY(!config->writeFile(QString()));
 }
 
-void TestSerializer::testIdenticalOutputs()
+void TestConfig::testIdenticalOutputs()
 {
     // Test configuration of a video wall with 6 identical outputs connected
     // this is the autotest for https://bugs.kde.org/show_bug.cgi?id=325277
@@ -351,6 +365,9 @@ void TestSerializer::testIdenticalOutputs()
     config->addOutput(output3);
     config->addOutput(output1);
 
+    Config configWrapper(config);
+    configWrapper.setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
+
     QHash<QString, QPoint> positions;
     positions[QStringLiteral("DisplayPort-0")] = QPoint(0, 1080);
     positions[QStringLiteral("DisplayPort-1")] = QPoint(2100, 30);
@@ -359,11 +376,13 @@ void TestSerializer::testIdenticalOutputs()
     positions[QStringLiteral("DVI-0")] = QPoint(4020, 1080);
     positions[QStringLiteral("DVI-1")] = QPoint(0, 0);
 
-    config = Serializer::loadConfig(config, QStringLiteral("outputgrid_2x3.json"));
-    QVERIFY(config);
+    auto configWrapper2 = std::move(configWrapper.readFile(QStringLiteral("outputgrid_2x3.json")));
+    KScreen::ConfigPtr config2 = configWrapper2->data();
+    QVERIFY(config2);
+    QVERIFY(config != config2);
 
-    QCOMPARE(config->connectedOutputs().count(), 6);
-    Q_FOREACH (auto output, config->connectedOutputs()) {
+    QCOMPARE(config2->connectedOutputs().count(), 6);
+    Q_FOREACH (auto output, config2->connectedOutputs()) {
         QVERIFY(positions.keys().contains(output->name()));
         QVERIFY(output->name() != output->hash());
         QCOMPARE(positions[output->name()], output->pos());
@@ -371,22 +390,24 @@ void TestSerializer::testIdenticalOutputs()
         QCOMPARE(output->currentMode()->refreshRate(), 60.0);
         QVERIFY(output->isEnabled());
     }
-    QCOMPARE(config->screen()->currentSize(), QSize(5940, 2160));
+    QCOMPARE(config2->screen()->currentSize(), QSize(5940, 2160));
 }
 
-void TestSerializer::testMoveConfig()
+void TestConfig::testMoveConfig()
 {
     // Test if restoring a config using Serializer::moveConfig(src, dest) works
     // https://bugs.kde.org/show_bug.cgi?id=353029
 
     // Load a dualhead config
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+
+    auto config = configWrapper->data();
     QVERIFY(config);
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    Serializer::setConfigPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    configWrapper->setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
 
     // Basic assumptions for the remainder of our tests, this is the situation where the lid is opened
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -402,7 +423,7 @@ void TestSerializer::testMoveConfig()
     QCOMPARE(output2->isPrimary(), false);
 
     // we fake the lid being closed, first save our current config to _lidOpened
-    Serializer::saveConfig(config, QStringLiteral("0xdeadbeef_lidOpened"));
+    configWrapper->writeOpenLidFile();
 
     // ... then switch off the panel, set primary to the other output
     output->setEnabled(false);
@@ -410,27 +431,31 @@ void TestSerializer::testMoveConfig()
     output2->setPrimary(true);
 
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
-    Serializer::saveConfig(config, QStringLiteral("0xdeadbeef"));
+    configWrapper->writeFile();
 
     QCOMPARE(output->isEnabled(), false);
     QCOMPARE(output->isPrimary(), false);
     QCOMPARE(output2->isPrimary(), true);
 
     // Check if both files exist
-    QFile openCfg(Serializer::configFileName(QStringLiteral("0xdeadbeef_lidOpened")));
-    QFile closedCfg(Serializer::configFileName(QStringLiteral("0xdeadbeef")));
+    const QString closedPath = configWrapper->s_dirPath % configWrapper->id();
+    const QString openedPath = closedPath % QStringLiteral("_lidOpened");
+
+    QFile openCfg(openedPath);
+    QFile closedCfg(closedPath);
     QVERIFY(openCfg.exists());
     QVERIFY(closedCfg.exists());
 
-    // Switcheroo...
-    QVERIFY(Serializer::moveConfig(QStringLiteral("0xdeadbeef_lidOpened"), QStringLiteral("0xdeadbeef")));
+    // Switcheroolooloo...
+    configWrapper = std::move(configWrapper->readOpenLidFile());
+    QVERIFY(configWrapper);
 
     // Check actual files, src should be gone, dest must exist
     QVERIFY(!openCfg.exists());
     QVERIFY(closedCfg.exists());
 
-    // Now load the resulting config and make sure the laptop panel is enabled and primary again
-    config = Serializer::loadConfig(config, QStringLiteral("0xdeadbeef"));
+    // Make sure the laptop panel is enabled and primary again
+    config = configWrapper->data();
 
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
@@ -443,9 +468,8 @@ void TestSerializer::testMoveConfig()
     QCOMPARE(output2->isPrimary(), false);
 
     // Make sure we don't screw up when there's no _lidOpened config
-    QVERIFY(!Serializer::moveConfig(QStringLiteral("0xdeadbeef_lidOpened"), QStringLiteral("0xdeadbeef")));
-
-    config = Serializer::loadConfig(config, QStringLiteral("0xdeadbeef"));
+    configWrapper = std::move(configWrapper->readOpenLidFile());
+    config = configWrapper->data();
 
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
@@ -457,28 +481,31 @@ void TestSerializer::testMoveConfig()
     QCOMPARE(output2->isEnabled(), true);
     QCOMPARE(output2->isPrimary(), false);
 
-    Serializer::setConfigPath(QStringLiteral(TEST_DATA "/serializerdata/"));
+    configWrapper->setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
-void TestSerializer::testFixedConfig()
+void TestConfig::testFixedConfig()
 {
     // Load a dualhead config
-    KScreen::ConfigPtr config = createConfig(true, true);
-    config = Serializer::loadConfig(config, QStringLiteral("twoScreenConfig.json"));
+    auto configWrapper = createConfig(true, true);
+    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+    auto config = configWrapper->data();
+
     QVERIFY(config);
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    Serializer::setConfigPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    configWrapper->setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    const auto fixedCfgPath = configWrapper->s_dirPath % configWrapper->s_fixedConfigFileName;
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
-    Serializer::saveConfig(config, Serializer::sFixedConfig);
+    configWrapper->writeFile(fixedCfgPath);
 
     // Check if both files exist
-    QFile fixedCfg(Serializer::configFileName(Serializer::sFixedConfig));
+    QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
 }
 
 
-QTEST_MAIN(TestSerializer)
+QTEST_MAIN(TestConfig)
 
-#include "serializertest.moc"
+#include "configtest.moc"

@@ -20,7 +20,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 #include "daemon.h"
-#include "serializer.h"
+#include "config.h"
 #include "generator.h"
 #include "device.h"
 #include "kscreenadaptor.h"
@@ -46,7 +46,6 @@ K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
 
 KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  : KDEDModule(parent)
- , m_monitoredConfig(nullptr)
  , m_monitoring(false)
  , m_changeCompressor(new QTimer(this))
  , m_saveTimer(nullptr)
@@ -65,9 +64,10 @@ void KScreenDaemon::getInitialConfig()
             return;
         }
 
-        m_monitoredConfig = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
-        qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig.data() << "is ready";
-        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+        m_monitoredConfig = std::unique_ptr<Config>(new Config(qobject_cast<KScreen::GetConfigOperation*>(op)->config()));
+        m_monitoredConfig->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
+        qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig->data().data() << "is ready";
+        KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig->data());
 
         init();
     });
@@ -119,18 +119,31 @@ void KScreenDaemon::init()
     connect(Generator::self(), &Generator::ready,
             this, &KScreenDaemon::applyConfig);
 
-    Generator::self()->setCurrentConfig(m_monitoredConfig);
+    Generator::self()->setCurrentConfig(m_monitoredConfig->data());
     monitorConnectedChange();
 }
 
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
-    qCDebug(KSCREEN_KDED) << "doApplyConfig()";
-    setMonitorForChanges(false);
-    m_monitoredConfig = config;
-    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig);
+    qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
+    auto configWrapper = std::unique_ptr<Config>(new Config(config));
+    configWrapper->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
+    doApplyConfig(std::move(configWrapper));
+}
 
-    connect(new KScreen::SetConfigOperation(config), &KScreen::SetConfigOperation::finished, this,
+void KScreenDaemon::doApplyConfig(std::unique_ptr<Config> config)
+{
+    setMonitorForChanges(false); // TODO: remove?
+    m_monitoredConfig = std::move(config);
+    refreshConfig();
+}
+
+void KScreenDaemon::refreshConfig()
+{
+    setMonitorForChanges(false);
+    KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig->data());
+
+    connect(new KScreen::SetConfigOperation(m_monitoredConfig->data()), &KScreen::SetConfigOperation::finished, this,
             [&]() {
                 qCDebug(KSCREEN_KDED) << "Config applied";
                 setMonitorForChanges(true);
@@ -140,31 +153,24 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 void KScreenDaemon::applyConfig()
 {
     qCDebug(KSCREEN_KDED) << "Applying config";
-    if (Serializer::configExists(m_monitoredConfig)) {
+    if (m_monitoredConfig->fileExists()) {
         applyKnownConfig();
         return;
     }
-
     applyIdealConfig();
 }
 
 void KScreenDaemon::applyKnownConfig()
 {
-    const QString configId = Serializer::configId(m_monitoredConfig);
-    qCDebug(KSCREEN_KDED) << "Applying known config" << configId;
+    qCDebug(KSCREEN_KDED) << "Applying known config";
 
-    // We may look for a config that has been set when the lid was closed, Bug: 353029
-    if (Device::self()->isLaptop() && !Device::self()->isLidClosed()) {
-        Serializer::moveConfig(configId  + QLatin1String("_lidOpened"), configId);
-    }
-
-    KScreen::ConfigPtr config = Serializer::loadConfig(m_monitoredConfig, configId);
-    // It's possible that the Serializer returned a nullptr
-    if (!config || !KScreen::Config::canBeApplied(config, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen)) {
+    std::unique_ptr<Config> readInConfig = m_monitoredConfig->readFile();
+    if (readInConfig) {
+        doApplyConfig(std::move(readInConfig));
+    } else {
+        // loading not succesful, fall back to ideal config
         applyIdealConfig();
-        return;
     }
-    doApplyConfig(config);
 }
 
 void KScreenDaemon::applyLayoutPreset(const QString &presetName)
@@ -213,9 +219,9 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 
 void KScreenDaemon::applyIdealConfig()
 {
-    if (m_monitoredConfig->connectedOutputs().count() < 2) {
+    if (m_monitoredConfig->data()->connectedOutputs().count() < 2) {
         m_osdManager->hideOsd();
-        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig));
+        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig->data()));
     } else {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
         auto action = m_osdManager->showActionSelector();
@@ -224,25 +230,14 @@ void KScreenDaemon::applyIdealConfig()
     }
 }
 
-void logConfig(const KScreen::ConfigPtr &config)
-{
-    if (config) {
-        foreach (auto o, config->outputs()) {
-            if (o->isConnected()) {
-                qCDebug(KSCREEN_KDED) << o;
-            }
-        }
-    }
-}
-
 void KScreenDaemon::configChanged()
 {
     qCDebug(KSCREEN_KDED) << "Change detected";
-    logConfig(m_monitoredConfig);
+    m_monitoredConfig->log();
 
     // Modes may have changed, fix-up current mode id
     bool changed = false;
-    Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->outputs()) {
+    Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->data()->outputs()) {
         if (output->isConnected() && output->isEnabled() && (output->currentMode().isNull() || (output->followPreferredMode() && output->currentModeId() != output->preferredModeId()))) {
             qCDebug(KSCREEN_KDED) << "Current mode was" << output->currentModeId() << ", setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
@@ -250,7 +245,7 @@ void KScreenDaemon::configChanged()
         }
     }
     if (changed) {
-        doApplyConfig(m_monitoredConfig);
+        refreshConfig();
     }
 
     // Reset timer, delay the writeback
@@ -270,13 +265,12 @@ void KScreenDaemon::saveCurrentConfig()
     // We assume the config is valid, since it's what we got, but we are interested
     // in the "at least one enabled screen" check
 
-    const bool valid = KScreen::Config::canBeApplied(m_monitoredConfig, KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
-    if (valid) {
-        Serializer::saveConfig(m_monitoredConfig, Serializer::configId(m_monitoredConfig));
-        logConfig(m_monitoredConfig);
+    if (m_monitoredConfig->canBeApplied()) {
+        m_monitoredConfig->writeFile();
+        m_monitoredConfig->log();
     } else {
         qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
-        logConfig(m_monitoredConfig);
+        m_monitoredConfig->log();
     }
 }
 
@@ -310,7 +304,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
 {
     // Ignore this when we don't have any external monitors, we can't turn off our
     // only screen
-    if (m_monitoredConfig->connectedOutputs().count() == 1) {
+    if (m_monitoredConfig->data()->connectedOutputs().count() == 1) {
         return;
     }
 
@@ -326,13 +320,8 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
         // We should have a config with "_lidOpened" suffix lying around. If not,
         // then the configuration has changed while the lid was closed and we just
         // use applyConfig() and see what we can do ...
-
-        const QString openConfigId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
-        if (Serializer::configExists(openConfigId)) {
-            const KScreen::ConfigPtr openedConfig = Serializer::loadConfig(m_monitoredConfig, openConfigId);
-            Serializer::removeConfig(openConfigId);
-
-            doApplyConfig(openedConfig);
+        if (auto openCfg = m_monitoredConfig->readOpenLidFile()) {
+            doApplyConfig(std::move(openCfg));
         }
     }
 }
@@ -352,15 +341,14 @@ void KScreenDaemon::lidClosedTimeout()
     // and I'm not parsing PowerDevil's configs...
 
     qCDebug(KSCREEN_KDED) << "Lid closed without system going to suspend -> turning off the screen";
-    for (KScreen::OutputPtr &output : m_monitoredConfig->outputs()) {
+    for (KScreen::OutputPtr &output : m_monitoredConfig->data()->outputs()) {
         if (output->type() == KScreen::Output::Panel) {
             if (output->isConnected() && output->isEnabled()) {
                 // Save the current config with opened lid, just so that we know
                 // how to restore it later
-                const QString configId = Serializer::configId(m_monitoredConfig) + QLatin1String("_lidOpened");
-                Serializer::saveConfig(m_monitoredConfig, configId);
-                disableOutput(m_monitoredConfig, output);
-                doApplyConfig(m_monitoredConfig);
+                m_monitoredConfig->writeOpenLidFile();
+                disableOutput(output);
+                refreshConfig();
                 return;
             }
         }
@@ -380,7 +368,7 @@ void KScreenDaemon::outputConnectedChanged()
     if (output->isConnected()) {
         Q_EMIT outputConnected(output->name());
 
-        if (!Serializer::configExists(m_monitoredConfig)) {
+        if (!m_monitoredConfig->fileExists()) {
             Q_EMIT unknownOutputConnected(output->name());
         }
     }
@@ -388,13 +376,13 @@ void KScreenDaemon::outputConnectedChanged()
 
 void KScreenDaemon::monitorConnectedChange()
 {
-    KScreen::OutputList outputs = m_monitoredConfig->outputs();
+    KScreen::OutputList outputs = m_monitoredConfig->data()->outputs();
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::outputConnectedChanged,
                 Qt::UniqueConnection);
     }
-    connect(m_monitoredConfig.data(), &KScreen::Config::outputAdded, this,
+    connect(m_monitoredConfig->data().data(), &KScreen::Config::outputAdded, this,
         [this] (const KScreen::OutputPtr output) {
             if (output->isConnected()) {
                 m_changeCompressor->start();
@@ -404,7 +392,7 @@ void KScreenDaemon::monitorConnectedChange()
                     Qt::UniqueConnection);
         }, Qt::UniqueConnection
     );
-    connect(m_monitoredConfig.data(), &KScreen::Config::outputRemoved,
+    connect(m_monitoredConfig->data().data(), &KScreen::Config::outputRemoved,
             this, &KScreenDaemon::applyConfig,
             static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
@@ -426,13 +414,13 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     }
 }
 
-void KScreenDaemon::disableOutput(KScreen::ConfigPtr &config, KScreen::OutputPtr &output)
+void KScreenDaemon::disableOutput(KScreen::OutputPtr &output)
 {
     const QRect geom = output->geometry();
     qCDebug(KSCREEN_KDED) << "Laptop geometry:" << geom << output->pos() << (output->currentMode() ? output->currentMode()->size() : QSize());
 
     // Move all outputs right from the @p output to left
-    for (KScreen::OutputPtr &otherOutput : config->outputs()) {
+    for (KScreen::OutputPtr &otherOutput : m_monitoredConfig->data()->outputs()) {
         if (otherOutput == output || !otherOutput->isConnected() || !otherOutput->isEnabled()) {
             continue;
         }

@@ -4,7 +4,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../ ${CMAKE_SOURCE_DIR}/kcm/src)
 
 set(kscreen_daemon_SRCS
     daemon.cpp
-    serializer.cpp
+    config.cpp
     generator.cpp
     device.cpp
     osd.cpp

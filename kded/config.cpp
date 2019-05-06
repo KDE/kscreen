@@ -1,24 +1,24 @@
-/*************************************************************************************
- *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
- *                                                                                   *
- *  This program is free software; you can redistribute it and/or                    *
- *  modify it under the terms of the GNU General Public License                      *
- *  as published by the Free Software Foundation; either version 2                   *
- *  of the License, or (at your option) any later version.                           *
- *                                                                                   *
- *  This program is distributed in the hope that it will be useful,                  *
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of                   *
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                    *
- *  GNU General Public License for more details.                                     *
- *                                                                                   *
- *  You should have received a copy of the GNU General Public License                *
- *  along with this program; if not, write to the Free Software                      *
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
- *************************************************************************************/
+/********************************************************************
+Copyright 2012 Alejandro Fiestas Olivares <afiestas@kde.org>
+Copyright 2019 Roman Gilg <subdiff@gmail.com>
 
-#include "serializer.h"
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************/
+#include "config.h"
 #include "kscreen_daemon_debug.h"
 #include "generator.h"
+#include "device.h"
 
 #include <QStringList>
 #include <QCryptographicHash>
@@ -34,56 +34,86 @@
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
 
-QString Serializer::sConfigPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
-QString Serializer::sFixedConfig = QStringLiteral("fixed-config");
-void Serializer::setConfigPath(const QString &path)
+QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
+QString Config::s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
+
+Config::Config(KScreen::ConfigPtr config)
+    : m_data(config)
 {
-    sConfigPath = path;
-    if (!sConfigPath.endsWith(QLatin1Char('/'))) {
-        sConfigPath += QLatin1Char('/');
+}
+
+void Config::setDirPath(const QString &path)
+{
+    s_dirPath = path;
+    if (!s_dirPath.endsWith(QLatin1Char('/'))) {
+        s_dirPath += QLatin1Char('/');
     }
 }
 
-QString Serializer::configFileName(const QString &configId)
+QString Config::filePath()
 {
-    if (!QDir().mkpath(sConfigPath)) {
+    if (!QDir().mkpath(s_dirPath)) {
         return QString();
     }
-    return sConfigPath % configId;
+    return s_dirPath % id();
 }
 
-QString Serializer::configId(const KScreen::ConfigPtr &config)
+QString Config::id() const
 {
-    if (!config) {
+    if (!m_data) {
         return QString();
     }
-    return config->connectedOutputsHash();
+    return m_data->connectedOutputsHash();
 }
 
-bool Serializer::configExists(const KScreen::ConfigPtr &config)
+bool Config::fileExists() const
 {
-    return Serializer::configExists(Serializer::configId(config));
+    return (QFile::exists(s_dirPath % id()) || QFile::exists(s_dirPath % s_fixedConfigFileName));
 }
 
-bool Serializer::configExists(const QString &id)
+std::unique_ptr<Config> Config::readFile()
 {
-    return (QFile::exists(sConfigPath % id) || QFile::exists(sConfigPath % sFixedConfig));
+    if (Device::self()->isLaptop() && !Device::self()->isLidClosed()) {
+        // We may look for a config that has been set when the lid was closed, Bug: 353029
+        const QString lidOpenedFilePath(filePath() % QStringLiteral("_lidOpened"));
+        const QFile srcFile(lidOpenedFilePath);
+
+        if (srcFile.exists()) {
+            QFile::remove(filePath());
+            if (QFile::copy(lidOpenedFilePath, filePath())) {
+                QFile::remove(lidOpenedFilePath);
+                qCDebug(KSCREEN_KDED) << "Restored lid opened config to" << id();
+            }
+        }
+    }
+    return readFile(id());
 }
 
-KScreen::ConfigPtr Serializer::loadConfig(const KScreen::ConfigPtr &currentConfig, const QString &id)
+std::unique_ptr<Config> Config::readOpenLidFile()
 {
-    KScreen::ConfigPtr config = currentConfig->clone();
+    const QString openLidFilePath = filePath() % QStringLiteral("_lidOpened");
+    auto config = readFile(openLidFilePath);
+    QFile::remove(openLidFilePath);
+    return config;
+}
+
+std::unique_ptr<Config> Config::readFile(const QString &fileName)
+{
+    if (!m_data) {
+        return nullptr;
+    }
+    KScreen::ConfigPtr config = m_data->clone();
 
     QFile file;
-    if (QFile::exists(sConfigPath % sFixedConfig)) {
-        file.setFileName(sConfigPath % sFixedConfig);
+    if (QFile::exists(s_dirPath % s_fixedConfigFileName)) {
+        file.setFileName(s_dirPath % s_fixedConfigFileName);
         qCDebug(KSCREEN_KDED) << "found a fixed config, will use " << file.fileName();
     } else {
-        file.setFileName(configFileName(id));
+        file.setFileName(s_dirPath % fileName);
     }
     if (!file.open(QIODevice::ReadOnly)) {
         qCDebug(KSCREEN_KDED) << "failed to open file" << file.fileName();
-        return KScreen::ConfigPtr();
+        return nullptr;
     }
 
     KScreen::OutputList outputList = config->outputs();
@@ -97,7 +127,7 @@ KScreen::ConfigPtr Serializer::loadConfig(const KScreen::ConfigPtr &currentConfi
 
     QSize screenSize;
     Q_FOREACH(const QVariant &info, outputs) {
-        KScreen::OutputPtr output = Serializer::findOutput(config, info.toMap());
+        KScreen::OutputPtr output = findOutput(config, info.toMap());
         if (!output) {
             continue;
         }
@@ -118,16 +148,57 @@ KScreen::ConfigPtr Serializer::loadConfig(const KScreen::ConfigPtr &currentConfi
     config->setOutputs(outputList);
     config->screen()->setCurrentSize(screenSize);
 
-
-    return config;
+    if (!canBeApplied(config)) {
+        return nullptr;
+    }
+    auto cfg = std::unique_ptr<Config>(new Config(config));
+    cfg->setValidityFlags(m_validityFlags);
+    return cfg;
 }
 
-bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &configId)
+bool Config::canBeApplied() const
 {
-    if (!config || configId.isEmpty()) {
+    return canBeApplied(m_data);
+}
+
+bool Config::canBeApplied(KScreen::ConfigPtr config) const
+{
+#ifdef KDED_UNIT_TEST
+    Q_UNUSED(config);
+    return true;
+#else
+    return KScreen::Config::canBeApplied(config, m_validityFlags);
+#endif
+}
+
+bool Config::writeFile()
+{
+    return writeFile(filePath());
+}
+
+bool Config::writeOpenLidFile()
+{
+    return writeFile(filePath() % QStringLiteral("_lidOpened"));
+}
+
+static QVariantMap metadata(const KScreen::OutputPtr &output)
+{
+    QVariantMap metadata;
+    metadata[QStringLiteral("name")] = output->name();
+    if (!output->edid() || !output->edid()->isValid()) {
+        return metadata;
+    }
+
+    metadata[QStringLiteral("fullname")] = output->edid()->deviceId();
+    return metadata;
+}
+
+bool Config::writeFile(const QString &filePath)
+{
+    if (!m_data) {
         return false;
     }
-    const KScreen::OutputList outputs = config->outputs();
+    const KScreen::OutputList outputs = m_data->outputs();
 
     QVariantList outputList;
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
@@ -166,43 +237,23 @@ bool Serializer::saveConfig(const KScreen::ConfigPtr &config, const QString &con
             info[QStringLiteral("mode")] = modeInfo;
         }
 
-        info[QStringLiteral("metadata")] = Serializer::metadata(output);
+        info[QStringLiteral("metadata")] = metadata(output);
 
         outputList.append(info);
     }
 
-    QFile file(configFileName(configId));
+    QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly)) {
         qCWarning(KSCREEN_KDED) << "Failed to open config file for writing! " << file.errorString();
         return false;
     }
-
     file.write(QJsonDocument::fromVariant(outputList).toJson());
     qCDebug(KSCREEN_KDED) << "Config saved on: " << file.fileName();
 
     return true;
 }
 
-void Serializer::removeConfig(const QString &id)
-{
-    QFile::remove(configFileName(id));
-}
-
-bool Serializer::moveConfig(const QString &srcId, const QString &destId)
-{
-    const QFile srcFile(configFileName(srcId));
-    if (srcFile.exists()) {
-        removeConfig(destId);
-        if (QFile::copy(configFileName(srcId), configFileName(destId))) {
-            removeConfig(srcId);
-            qCDebug(KSCREEN_KDED) << "Restored config" << srcId << "to" << destId;
-            return true;
-        }
-    }
-    return false;
-}
-
-KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
+KScreen::OutputPtr Config::findOutput(const KScreen::ConfigPtr &config, const QVariantMap& info)
 {
     const KScreen::OutputList outputs = config->outputs();    // As individual outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
@@ -293,14 +344,15 @@ KScreen::OutputPtr Serializer::findOutput(const KScreen::ConfigPtr &config, cons
     return KScreen::OutputPtr();
 }
 
-QVariantMap Serializer::metadata(const KScreen::OutputPtr &output)
+void Config::log()
 {
-    QVariantMap metadata;
-    metadata[QStringLiteral("name")] = output->name();
-    if (!output->edid() || !output->edid()->isValid()) {
-        return metadata;
+    if (!m_data) {
+        return;
     }
-
-    metadata[QStringLiteral("fullname")] = output->edid()->deviceId();
-    return metadata;
+    const auto outputs = m_data->outputs();
+    for (const auto o : outputs) {
+        if (o->isConnected()) {
+            qCDebug(KSCREEN_KDED) << o;
+        }
+    }
 }

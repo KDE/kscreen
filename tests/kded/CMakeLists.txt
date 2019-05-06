@@ -1,11 +1,13 @@
 include_directories(${CMAKE_BINARY_DIR})
 
+add_definitions(-DKDED_UNIT_TEST)
+
 macro(ADD_KDED_TEST testname)
     set(test_SRCS
         ${testname}.cpp
         ${CMAKE_SOURCE_DIR}/kded/generator.cpp
         ${CMAKE_SOURCE_DIR}/kded/device.cpp
-        ${CMAKE_SOURCE_DIR}/kded/serializer.cpp
+        ${CMAKE_SOURCE_DIR}/kded/config.cpp
         #${CMAKE_SOURCE_DIR}/kded/daemon.cpp
     )
     ecm_qt_declare_logging_category(test_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)
@@ -24,5 +26,5 @@ macro(ADD_KDED_TEST testname)
 endmacro()
 
 add_kded_test(testgenerator)
-add_kded_test(serializertest)
+add_kded_test(configtest)
 #add_kded_test(testdaemon)
