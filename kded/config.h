@@ -31,6 +31,9 @@ public:
     ~Config() = default;
 
     static void setDirPath(const QString &path);
+    static QString dirPath() {
+        return s_dirPath;
+    }
 
     QString id() const;
 
@@ -61,11 +64,7 @@ private:
 
     bool canBeApplied(KScreen::ConfigPtr config) const;
 
-    // this could probably be done on m_data
-    KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
-
     KScreen::ConfigPtr m_data;
-
     KScreen::Config::ValidityFlags m_validityFlags;
 
     static QString s_dirPath;
