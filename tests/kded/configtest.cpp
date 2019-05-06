@@ -408,6 +408,7 @@ void TestConfig::testMoveConfig()
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
     configWrapper->setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    // TODO: this needs setup of the control directory
 
     // Basic assumptions for the remainder of our tests, this is the situation where the lid is opened
     QCOMPARE(config->connectedOutputs().count(), 2);
@@ -490,12 +491,13 @@ void TestConfig::testFixedConfig()
     auto configWrapper = createConfig(true, true);
     configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
     auto config = configWrapper->data();
-
     QVERIFY(config);
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
     Config::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    // TODO: this needs setup of the control directory
+
     const QString fixedCfgPath = Config::configsDirPath() % Config::s_fixedConfigFileName;
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
     configWrapper->writeFile(fixedCfgPath);

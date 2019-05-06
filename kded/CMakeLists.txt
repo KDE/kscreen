@@ -6,6 +6,7 @@ set(kscreen_daemon_SRCS
     daemon.cpp
     config.cpp
     output.cpp
+    control.cpp
     generator.cpp
     device.cpp
     osd.cpp

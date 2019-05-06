@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "config.h"
 #include "output.h"
+#include "control.h"
 #include "kscreen_daemon_debug.h"
 #include "device.h"
 
@@ -104,7 +105,8 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
     if (!m_data) {
         return nullptr;
     }
-    KScreen::ConfigPtr config = m_data->clone();
+    auto config = std::unique_ptr<Config>(new Config(m_data->clone()));
+    config->setValidityFlags(m_validityFlags);
 
     QFile file;
     if (QFile::exists(configsDirPath() % s_fixedConfigFileName)) {
@@ -120,10 +122,10 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
 
     QJsonDocument parser;
     QVariantList outputs = parser.fromJson(file.readAll()).toVariant().toList();
-    Output::readInOutputs(config->outputs(), outputs);
+    Output::readInOutputs(config->data()->outputs(), outputs, Control::readInOutputRetentionValues(config->id()));
 
     QSize screenSize;
-    for (const auto &output : config->outputs()) {
+    for (const auto &output : config->data()->outputs()) {
         if (!output->isConnected() || !output->isEnabled()) {
             continue;
         }
@@ -136,14 +138,12 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
             screenSize.setHeight(geom.y() + geom.height());
         }
     }
-    config->screen()->setCurrentSize(screenSize);
+    config->data()->screen()->setCurrentSize(screenSize);
 
-    if (!canBeApplied(config)) {
+    if (!canBeApplied(config->data())) {
         return nullptr;
     }
-    auto cfg = std::unique_ptr<Config>(new Config(config));
-    cfg->setValidityFlags(m_validityFlags);
-    return cfg;
+    return config;
 }
 
 bool Config::canBeApplied() const
@@ -173,10 +173,12 @@ bool Config::writeOpenLidFile()
 
 bool Config::writeFile(const QString &filePath)
 {
-    if (!m_data) {
+    if (id().isEmpty()) {
         return false;
     }
     const KScreen::OutputList outputs = m_data->outputs();
+
+    const auto retentions = Control::readInOutputRetentionValues(id());
 
     QVariantList outputList;
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
@@ -197,8 +199,10 @@ bool Config::writeFile(const QString &filePath)
         pos[QStringLiteral("y")] = output->pos().y();
         info[QStringLiteral("pos")] = pos;
 
-        // try to update global output data
-        Output::writeGlobal(output);
+        if (Control::getOutputRetention(output->hash(), retentions) != Control::OutputRetention::Individual) {
+            // try to update global output data
+            Output::writeGlobal(output);
+        }
 
         outputList.append(info);
     }

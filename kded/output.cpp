@@ -113,7 +113,7 @@ bool Output::readInGlobal(KScreen::OutputPtr output)
     return true;
 }
 
-void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info)
+void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention)
 {
     const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
     QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
@@ -121,13 +121,15 @@ void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info)
     output->setPrimary(info[QStringLiteral("primary")].toBool());
     output->setEnabled(info[QStringLiteral("enabled")].toBool());
 
-    if (!readInGlobal(output)) {
-        // read in global part from config info instead
-        readInGlobalPartFromInfo(output, info);
+    if (retention != Control::OutputRetention::Individual && readInGlobal(output)) {
+        // output data read from global output file
+        return;
     }
+    // output data read directly from info
+    readInGlobalPartFromInfo(output, info);
 }
 
-void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outputsInfo)
+void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outputsInfo, const QMap<QString, Control::OutputRetention> &retentions)
 {
     // As global outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
@@ -151,26 +153,27 @@ void Output::readInOutputs(KScreen::OutputList outputs, const QVariantList &outp
             continue;
         }
         const auto outputId = output->hash();
+        const auto retention = Control::getOutputRetention(outputId, retentions);
         bool infoFound = false;
         for (const auto &variantInfo : outputsInfo) {
             const QVariantMap info = variantInfo.toMap();
-            if (outputId == info[QStringLiteral("id")].toString()) {
-
+            if (outputId != info[QStringLiteral("id")].toString()) {
+                continue;
+            }
+            if (!output->name().isEmpty() && duplicateIds.contains(outputId)) {
                 // We may have identical outputs connected, these will have the same id in the config
                 // in order to find the right one, also check the output's name (usually the connector)
-                if (!output->name().isEmpty() && duplicateIds.contains(outputId)) {
-                    const auto metadata = info[QStringLiteral("metadata")].toMap();
-                    const auto outputName = metadata[QStringLiteral("name")].toString();
-                    if (output->name() != outputName) {
-                        infoFound = true;
-                        readIn(output, info);
-                    }
+                const auto metadata = info[QStringLiteral("metadata")].toMap();
+                const auto outputName = metadata[QStringLiteral("name")].toString();
+                if (output->name() != outputName) {
                     // was a duplicate id, but info not for this output
                     continue;
                 }
-                infoFound = true;
-                readIn(output, info);
             }
+
+            infoFound = true;
+            readIn(output, info, retention);
+            break;
         }
         if (!infoFound) {
             // no info in info for this output, try reading in global output info atleast or set some default values
