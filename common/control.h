@@ -14,32 +14,31 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
-#ifndef KDED_OUTPUT_H
-#define KDED_OUTPUT_H
-
-#include "../common/control.h"
+#ifndef COMMON_CONTROL_H
+#define COMMON_CONTROL_H
 
 #include <kscreen/types.h>
 
 #include <QVariantMap>
 
-class Output
+class Control
 {
 public:
-    static void readInOutputs(KScreen::OutputList outputs, const QVariantList &outputsInfo, const QMap<QString, Control::OutputRetention> &retentions);
+    enum class OutputRetention {
+        Undefined = -1,
+        Global = 0,
+        Individual = 1,
+    };
 
-    static void writeGlobal(const KScreen::OutputPtr &output);
-    static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info);
+    static QMap<QString, OutputRetention> readInOutputRetentionValues(const QString &configId);
+    static OutputRetention getOutputRetention(const QString &outputId, const QMap<QString, OutputRetention> &retentions);
 
-    static QString dirPath();
+    static QString configFilePath(const QString &hash);
+    static QString outputFilePath(const QString &hash);
 
 private:
-    static QString globalFileName(const QString &hash);
-    static QVariantMap getGlobalData(KScreen::OutputPtr output);
-
-    static void readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention);
-    static bool readInGlobal(KScreen::OutputPtr output);
-    static void readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info);
+    static QString dirPath();
+    static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
     static QString s_dirName;
 };

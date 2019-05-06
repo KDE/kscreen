@@ -6,12 +6,13 @@ set(kscreen_daemon_SRCS
     daemon.cpp
     config.cpp
     output.cpp
-    control.cpp
     generator.cpp
     device.cpp
     osd.cpp
     osdmanager.cpp
     osdaction.cpp
+    ${CMAKE_SOURCE_DIR}/common/globals.cpp
+    ${CMAKE_SOURCE_DIR}/common/control.cpp
     ${CMAKE_SOURCE_DIR}/kcm/src/utils.cpp
 )
 

@@ -17,7 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "config.h"
 #include "output.h"
-#include "control.h"
+#include "../common/globals.h"
+#include "../common/control.h"
 #include "kscreen_daemon_debug.h"
 #include "device.h"
 
@@ -32,25 +33,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <kscreen/output.h>
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
-QString Config::s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
 QString Config::s_configsDirName = QStringLiteral("" /*"configs/"*/); // TODO: KDE6 - move these files into the subfolder
 
 QString Config::configsDirPath()
 {
-    return s_dirPath % s_configsDirName;
+    return Globals::dirPath() % s_configsDirName;
 }
 
 Config::Config(KScreen::ConfigPtr config)
     : m_data(config)
 {
-}
-
-void Config::setDirPath(const QString &path)
-{
-    s_dirPath = path;
-    if (!s_dirPath.endsWith(QLatin1Char('/'))) {
-        s_dirPath += QLatin1Char('/');
-    }
 }
 
 QString Config::filePath()

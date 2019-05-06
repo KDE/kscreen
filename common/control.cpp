@@ -15,26 +15,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "control.h"
-#include "config.h"
+#include "globals.h"
 
-#include "kscreen_daemon_debug.h"
-#include "generator.h"
-
-#include <QStringList>
 #include <QFile>
-#include <QStringBuilder>
 #include <QJsonDocument>
 #include <QDir>
-#include <QLoggingCategory>
-
-#include <kscreen/output.h>
-#include <kscreen/edid.h>
 
 QString Control::s_dirName = QStringLiteral("control/");
 
 QString Control::dirPath()
 {
-    return Config::dirPath() % s_dirName;
+    return Globals::dirPath() % s_dirName;
 }
 
 QString Control::outputFilePath(const QString &hash)
@@ -74,7 +65,8 @@ QMap<QString, Control::OutputRetention> Control::readInOutputRetentionValues(con
 //    qDebug() << "Looking for control file:" << configId;
     QFile file(configFilePath(configId));
     if (!file.open(QIODevice::ReadOnly)) {
-        qCDebug(KSCREEN_KDED) << "Failed to open file" << file.fileName();
+        // TODO: have a logging category
+//        qCDebug(KSCREEN_COMMON) << "Failed to open file" << file.fileName();
         return QMap<QString, Control::OutputRetention>();
     }
 

@@ -1,5 +1,5 @@
 /********************************************************************
-Copyright 2019 Roman Gilg <subdiff@gmail.com>
+Copyright 2018 Roman Gilg <subdiff@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -14,33 +14,19 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
-#ifndef KDED_CONTROL_H
-#define KDED_CONTROL_H
+#ifndef COMMON_GLOBALS_H
+#define COMMON_GLOBALS_H
 
-#include <kscreen/types.h>
+#include <QString>
 
-#include <QVariantMap>
-
-class Control
+class Globals
 {
 public:
-    enum class OutputRetention {
-        Undefined = -1,
-        Global = 0,
-        Individual = 1,
-    };
-
-    static QMap<QString, OutputRetention> readInOutputRetentionValues(const QString &configId);
-    static OutputRetention getOutputRetention(const QString &outputId, const QMap<QString, OutputRetention> &retentions);
-
-    static QString configFilePath(const QString &hash);
-    static QString outputFilePath(const QString &hash);
+    static void setDirPath(const QString &path);
+    static QString dirPath();
 
 private:
-    static QString dirPath();
-    static OutputRetention convertVariantToOutputRetention(QVariant variant);
-
-    static QString s_dirName;
+    static QString s_dirPath;
 };
 
 #endif

@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "../../kded/config.h"
+#include "../../common/globals.h"
 
 #include <QtTest>
 #include <QObject>
@@ -103,7 +104,7 @@ std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool out
 void TestConfig::initTestCase()
 {
     qputenv("KSCREEN_LOGGING", "false");
-    Config::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
+    Globals::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
 }
 
 void TestConfig::testSimpleConfig()
@@ -366,7 +367,6 @@ void TestConfig::testIdenticalOutputs()
     config->addOutput(output1);
 
     Config configWrapper(config);
-    configWrapper.setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
 
     QHash<QString, QPoint> positions;
     positions[QStringLiteral("DisplayPort-0")] = QPoint(0, 1080);
@@ -407,7 +407,7 @@ void TestConfig::testMoveConfig()
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    configWrapper->setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    Globals::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
     // TODO: this needs setup of the control directory
 
     // Basic assumptions for the remainder of our tests, this is the situation where the lid is opened
@@ -482,7 +482,7 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->isEnabled(), true);
     QCOMPARE(output2->isPrimary(), false);
 
-    Config::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
+    Globals::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 void TestConfig::testFixedConfig()
@@ -495,7 +495,7 @@ void TestConfig::testFixedConfig()
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    Config::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    Globals::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
     // TODO: this needs setup of the control directory
 
     const QString fixedCfgPath = Config::configsDirPath() % Config::s_fixedConfigFileName;
@@ -506,7 +506,7 @@ void TestConfig::testFixedConfig()
     QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
 
-    Config::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
+    Globals::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 

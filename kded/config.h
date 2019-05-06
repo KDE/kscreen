@@ -30,11 +30,6 @@ public:
     explicit Config(KScreen::ConfigPtr config);
     ~Config() = default;
 
-    static void setDirPath(const QString &path);
-    static QString dirPath() {
-        return s_dirPath;
-    }
-
     QString id() const;
 
     bool fileExists() const;
@@ -67,7 +62,6 @@ private:
     KScreen::ConfigPtr m_data;
     KScreen::Config::ValidityFlags m_validityFlags;
 
-    static QString s_dirPath;
     static QString s_configsDirName;
     static QString s_fixedConfigFileName;
 

@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "output.h"
 #include "config.h"
+#include "../common/globals.h"
 
 #include "kscreen_daemon_debug.h"
 #include "generator.h"
@@ -34,7 +35,7 @@ QString Output::s_dirName = QStringLiteral("outputs/");
 
 QString Output::dirPath()
 {
-    return Config::dirPath() % s_dirName;
+    return Globals::dirPath() % s_dirName;
 }
 
 QString Output::globalFileName(const QString &hash)
