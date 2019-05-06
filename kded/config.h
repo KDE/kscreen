@@ -69,7 +69,10 @@ private:
     KScreen::Config::ValidityFlags m_validityFlags;
 
     static QString s_dirPath;
+    static QString s_configsDirName;
     static QString s_fixedConfigFileName;
+
+    static QString configsDirPath();
 };
 
 #endif

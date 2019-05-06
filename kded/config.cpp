@@ -36,6 +36,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
 QString Config::s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
+QString Config::s_configsDirName = QStringLiteral("" /*"configs/"*/); // TODO: KDE6 - move these files into the subfolder
+
+QString Config::configsDirPath()
+{
+    return s_dirPath % s_configsDirName;
+}
 
 Config::Config(KScreen::ConfigPtr config)
     : m_data(config)
@@ -52,10 +58,10 @@ void Config::setDirPath(const QString &path)
 
 QString Config::filePath()
 {
-    if (!QDir().mkpath(s_dirPath)) {
+    if (!QDir().mkpath(configsDirPath())) {
         return QString();
     }
-    return s_dirPath % id();
+    return configsDirPath() % id();
 }
 
 QString Config::id() const
@@ -68,7 +74,7 @@ QString Config::id() const
 
 bool Config::fileExists() const
 {
-    return (QFile::exists(s_dirPath % id()) || QFile::exists(s_dirPath % s_fixedConfigFileName));
+    return (QFile::exists(configsDirPath() % id()) || QFile::exists(configsDirPath() % s_fixedConfigFileName));
 }
 
 std::unique_ptr<Config> Config::readFile()
@@ -105,11 +111,11 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
     KScreen::ConfigPtr config = m_data->clone();
 
     QFile file;
-    if (QFile::exists(s_dirPath % s_fixedConfigFileName)) {
-        file.setFileName(s_dirPath % s_fixedConfigFileName);
+    if (QFile::exists(configsDirPath() % s_fixedConfigFileName)) {
+        file.setFileName(configsDirPath() % s_fixedConfigFileName);
         qCDebug(KSCREEN_KDED) << "found a fixed config, will use " << file.fileName();
     } else {
-        file.setFileName(s_dirPath % fileName);
+        file.setFileName(configsDirPath() % fileName);
     }
     if (!file.open(QIODevice::ReadOnly)) {
         qCDebug(KSCREEN_KDED) << "failed to open file" << file.fileName();

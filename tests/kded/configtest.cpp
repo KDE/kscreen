@@ -438,7 +438,7 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->isPrimary(), true);
 
     // Check if both files exist
-    const QString closedPath = configWrapper->s_dirPath % configWrapper->id();
+    const QString closedPath = Config::configsDirPath() % configWrapper->id();
     const QString openedPath = closedPath % QStringLiteral("_lidOpened");
 
     QFile openCfg(openedPath);
@@ -481,7 +481,7 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->isEnabled(), true);
     QCOMPARE(output2->isPrimary(), false);
 
-    configWrapper->setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
+    Config::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 void TestConfig::testFixedConfig()
@@ -495,14 +495,16 @@ void TestConfig::testFixedConfig()
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    configWrapper->setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
-    const auto fixedCfgPath = configWrapper->s_dirPath % configWrapper->s_fixedConfigFileName;
+    Config::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
+    const QString fixedCfgPath = Config::configsDirPath() % Config::s_fixedConfigFileName;
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
     configWrapper->writeFile(fixedCfgPath);
 
     // Check if both files exist
     QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
+
+    Config::setDirPath(QStringLiteral(TEST_DATA "/serializerdata/"));
 }
 
 
