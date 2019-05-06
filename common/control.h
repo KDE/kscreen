@@ -30,17 +30,46 @@ public:
         Individual = 1,
     };
 
-    static QMap<QString, OutputRetention> readInOutputRetentionValues(const QString &configId);
+    virtual ~Control() = default;
+
     static OutputRetention getOutputRetention(const QString &outputId, const QMap<QString, OutputRetention> &retentions);
 
-    static QString configFilePath(const QString &hash);
-    static QString outputFilePath(const QString &hash);
+    virtual QString filePath() = 0;
 
-private:
+protected:
     static QString dirPath();
     static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
+private:
     static QString s_dirName;
+};
+
+class ControlConfig : public Control
+{
+public:
+    ControlConfig(KScreen::ConfigPtr config);
+
+    QMap<QString, OutputRetention> readInOutputRetentionValues();
+
+    QString filePath() override;
+    static QString filePath(const QString &hash);
+
+private:
+    KScreen::ConfigPtr m_config;
+};
+
+class ControlOutput : public Control
+{
+public:
+    ControlOutput(KScreen::OutputPtr output);
+
+    // TODO: scale auto value
+
+    QString filePath() override;
+    static QString filePath(const QString &hash);
+
+private:
+    KScreen::OutputPtr m_output;
 };
 
 #endif

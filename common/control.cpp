@@ -21,6 +21,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QDir>
 
+#include <kscreen/config.h>
+#include <kscreen/output.h>
+
 QString Control::s_dirName = QStringLiteral("control/");
 
 QString Control::dirPath()
@@ -28,22 +31,35 @@ QString Control::dirPath()
     return Globals::dirPath() % s_dirName;
 }
 
-QString Control::outputFilePath(const QString &hash)
+Control::OutputRetention Control::getOutputRetention(const QString &outputId, const QMap<QString, Control::OutputRetention> &retentions)
 {
-    const QString dir = dirPath() % QStringLiteral("outputs/");
-    if (!QDir().mkpath(dir)) {
-        return QString();
+    if (retentions.contains(outputId)) {
+        return retentions[outputId];
     }
-    return dir % hash;
+    // info for output not found
+    return OutputRetention::Undefined;
 }
 
-QString Control::configFilePath(const QString &hash)
+ControlConfig::ControlConfig(KScreen::ConfigPtr config)
+    : m_config(config)
+{
+}
+
+QString ControlConfig::filePath(const QString &hash)
 {
     const QString dir = dirPath() % QStringLiteral("configs/");
     if (!QDir().mkpath(dir)) {
         return QString();
     }
     return dir % hash;
+}
+
+QString ControlConfig::filePath()
+{
+    if (!m_config) {
+        return QString();
+    }
+    return ControlConfig::filePath(m_config->connectedOutputsHash());
 }
 
 Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
@@ -60,10 +76,10 @@ Control::OutputRetention Control::convertVariantToOutputRetention(QVariant varia
     return OutputRetention::Undefined;
 }
 
-QMap<QString, Control::OutputRetention> Control::readInOutputRetentionValues(const QString &configId)
+QMap<QString, Control::OutputRetention> ControlConfig::readInOutputRetentionValues()
 {
-//    qDebug() << "Looking for control file:" << configId;
-    QFile file(configFilePath(configId));
+//    qDebug() << "Looking for control file:" << m_config->connectedOutputsHash();
+    QFile file(filePath(m_config->connectedOutputsHash()));
     if (!file.open(QIODevice::ReadOnly)) {
         // TODO: have a logging category
 //        qCDebug(KSCREEN_COMMON) << "Failed to open file" << file.fileName();
@@ -89,11 +105,24 @@ QMap<QString, Control::OutputRetention> Control::readInOutputRetentionValues(con
     return retentions;
 }
 
-Control::OutputRetention Control::getOutputRetention(const QString &outputId, const QMap<QString, Control::OutputRetention> &retentions)
+ControlOutput::ControlOutput(KScreen::OutputPtr output)
+    : m_output(output)
 {
-    if (retentions.contains(outputId)) {
-        return retentions[outputId];
+}
+
+QString ControlOutput::filePath(const QString &hash)
+{
+    const QString dir = dirPath() % QStringLiteral("outputs/");
+    if (!QDir().mkpath(dir)) {
+        return QString();
     }
-    // info for output not found
-    return OutputRetention::Undefined;
+    return dir % hash;
+}
+
+QString ControlOutput::filePath()
+{
+    if (!m_output) {
+        return QString();
+    }
+    return ControlOutput::filePath(m_output->hash());
 }

@@ -114,7 +114,7 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
 
     QJsonDocument parser;
     QVariantList outputs = parser.fromJson(file.readAll()).toVariant().toList();
-    Output::readInOutputs(config->data()->outputs(), outputs, Control::readInOutputRetentionValues(config->id()));
+    Output::readInOutputs(config->data()->outputs(), outputs, ControlConfig(config->data()).readInOutputRetentionValues());
 
     QSize screenSize;
     for (const auto &output : config->data()->outputs()) {
@@ -170,7 +170,7 @@ bool Config::writeFile(const QString &filePath)
     }
     const KScreen::OutputList outputs = m_data->outputs();
 
-    const auto retentions = Control::readInOutputRetentionValues(id());
+    const auto retentions = ControlConfig(m_data).readInOutputRetentionValues();
 
     QVariantList outputList;
     Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
