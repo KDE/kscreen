@@ -49,11 +49,18 @@ public:
 
     OutputRetention getOutputRetention(const KScreen::OutputPtr &output) const;
     OutputRetention getOutputRetention(const QString &outputId, const QString &outputName) const;
+    void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
+
+    bool writeFile();
 
     QString filePath() override;
     static QString filePath(const QString &hash);
 
 private:
+    QVariantList getOutputs() const;
+    void setOutputs(QVariantList outputsInfo);
+    bool infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const;
+
     KScreen::ConfigPtr m_config;
     QVariantMap m_info;
     QStringList m_duplicateOutputIds;

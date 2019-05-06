@@ -51,6 +51,8 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config)
 //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
     QFile file(filePath(config->connectedOutputsHash()));
     if (file.open(QIODevice::ReadOnly)) {
+        // This might not be reached, bus this is ok. The control file will
+        // eventually be created on first write later on.
         QJsonDocument parser;
         m_info = parser.fromJson(file.readAll()).toVariant().toMap();
     }
@@ -96,6 +98,29 @@ QString ControlConfig::filePath()
     return ControlConfig::filePath(m_config->connectedOutputsHash());
 }
 
+bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const
+{
+    const QString outputIdInfo = info[QStringLiteral("id")].toString();
+    if (outputIdInfo.isEmpty()) {
+        return false;
+    }
+    if (outputId != outputIdInfo) {
+        return false;
+    }
+
+    if (!outputName.isEmpty() && m_duplicateOutputIds.contains(outputId)) {
+        // We may have identical outputs connected, these will have the same id in the config
+        // in order to find the right one, also check the output's name (usually the connector)
+        const auto metadata = info[QStringLiteral("metadata")].toMap();
+        const auto outputNameInfo = metadata[QStringLiteral("name")].toString();
+        if (outputName != outputNameInfo) {
+            // was a duplicate id, but info not for this output
+            return false;
+        }
+    }
+    return true;
+}
+
 Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::OutputPtr &output) const
 {
     return getOutputRetention(output->hash(), output->name());
@@ -103,32 +128,72 @@ Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::Output
 
 Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
 {
-    const QVariantList outputsInfo = m_info[QStringLiteral("outputs")].toList();
+    const QVariantList outputsInfo = getOutputs();
     for (const auto variantInfo : outputsInfo) {
         const QVariantMap info = variantInfo.toMap();
-
-        const QString outputIdInfo = info[QStringLiteral("id")].toString();
-        if (outputIdInfo.isEmpty()) {
+        if (!infoIsOutput(info, outputId, outputName)) {
             continue;
-        }
-        if (outputId != outputIdInfo) {
-            continue;
-        }
-
-        if (!outputName.isEmpty() && m_duplicateOutputIds.contains(outputId)) {
-            // We may have identical outputs connected, these will have the same id in the config
-            // in order to find the right one, also check the output's name (usually the connector)
-            const auto metadata = info[QStringLiteral("metadata")].toMap();
-            const auto outputNameInfo = metadata[QStringLiteral("name")].toString();
-            if (outputName != outputNameInfo) {
-                // was a duplicate id, but info not for this output
-                continue;
-            }
         }
         return convertVariantToOutputRetention(info[QStringLiteral("retention")]);
     }
     // info for output not found
     return OutputRetention::Undefined;
+}
+
+static QVariantMap metadata(const QString &outputName)
+{
+    QVariantMap metadata;
+    metadata[QStringLiteral("name")] = outputName;
+    return metadata;
+}
+
+void ControlConfig::setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("retention")] = (int)value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        return;
+    }
+    // no entry yet, create one
+    QVariantMap outputInfo;
+    outputInfo[QStringLiteral("id")] = outputId;
+    outputInfo[QStringLiteral("metadata")] = metadata(outputName);
+    outputInfo[QStringLiteral("retention")] = (int)value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+}
+
+bool ControlConfig::writeFile()
+{
+    // write updated data to file
+    QFile file(filePath());
+    if (!file.open(QIODevice::WriteOnly)) {
+        // TODO: logging category?
+//        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
+        return false;
+    }
+    file.write(QJsonDocument::fromVariant(m_info).toJson());
+//    qCDebug(KSCREEN_COMMON) << "Config control saved on: " << file.fileName();
+    return true;
+}
+
+QVariantList ControlConfig::getOutputs() const
+{
+    return m_info[QStringLiteral("outputs")].toList();
+}
+
+void ControlConfig::setOutputs(QVariantList outputsInfo)
+{
+    m_info[QStringLiteral("outputs")] = outputsInfo;
 }
 
 ControlOutput::ControlOutput(KScreen::OutputPtr output)
