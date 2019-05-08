@@ -95,6 +95,7 @@ Comment[zh_TW]=管理與設定螢幕與顯示
 X-KDE-Keywords=display,monitor,scale,scaling,resolution,orientation,outputs,screen,refresh
 X-KDE-Keywords[ca]=pantalla,monitor,escala,escalat,resolució,orientació,sortides,pantalla,refresc
 X-KDE-Keywords[ca@valencia]=pantalla,monitor,escala,escalat,resolució,orientació,eixides,pantalla,refresc
+X-KDE-Keywords[da]=skærm,monitor,skaler,opløsning,orientering,output,genopfriskning
 X-KDE-Keywords[de]=Anzeige,Monitor,Bildschirm,Skalierung,Auflösung,Ausrichtung,Ausgabe,Aktualisieren
 X-KDE-Keywords[el]=απεικόνιση,οθόνη,κλίμακα,κλιμάκωση,ανάλυση,προσανατολισμός,έξοδοι,οθόνη,ανανέωση
 X-KDE-Keywords[en_GB]=display,monitor,scale,scaling,resolution,orientation,outputs,screen,refresh
