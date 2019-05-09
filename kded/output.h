@@ -41,6 +41,12 @@ private:
     static bool readInGlobal(KScreen::OutputPtr output);
     static void readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info);
 
+    /*
+     * When a global output value (scale, rotation) is changed we might
+     * need to reposition the outputs when another config is read.
+     */
+    static void adjustPositions(KScreen::ConfigPtr config, const QVariantList &outputsInfo);
+
     static QString s_dirName;
 };
 

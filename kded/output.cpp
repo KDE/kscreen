@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QDir>
 #include <QLoggingCategory>
+#include <QRect>
 
 #include <kscreen/output.h>
 #include <kscreen/edid.h>
@@ -114,6 +115,137 @@ bool Output::readInGlobal(KScreen::OutputPtr output)
     return true;
 }
 
+void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outputsInfo)
+{
+    typedef QPair<int, QPoint> Out;
+
+    KScreen::OutputList outputs = config->outputs();
+    QVector<Out> sortedOutputs; // <id, pos>
+    for (const KScreen::OutputPtr output : outputs) {
+        sortedOutputs.append(Out(output->id(), output->pos()));
+    }
+
+    // go from left to right, top to bottom
+    std::sort(sortedOutputs.begin(), sortedOutputs.end(), [](const Out &o1, const Out &o2) {
+        const int x1 = o1.second.x();
+        const int x2 = o2.second.x();
+        return x1 < x2 || (x1 == x2 && o1.second.y() < o2.second.y());
+    });
+
+    for (int cnt = 1; cnt < sortedOutputs.length(); cnt++) {
+        auto getOutputInfoProperties = [outputsInfo](KScreen::OutputPtr output, QRect &geo) -> bool {
+            if (!output) {
+                return false;
+            }
+            const auto hash = output->hash();
+
+            auto it = std::find_if(outputsInfo.begin(), outputsInfo.end(),
+                [hash](QVariant v) {
+                    const QVariantMap info = v.toMap();
+                    return info[QStringLiteral("id")].toString() == hash;
+                }
+            );
+            if (it == outputsInfo.end()) {
+                return false;
+            }
+            const QVariantMap outputInfo = it->toMap();
+
+            const QVariantMap posInfo = outputInfo[QStringLiteral("pos")].toMap();
+            const QVariant scaleInfo = outputInfo[QStringLiteral("scale")];
+            const QVariantMap modeInfo = outputInfo[QStringLiteral("mode")].toMap();
+            const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
+            if (posInfo.isEmpty() || modeSize.isEmpty() || !scaleInfo.canConvert<int>()) {
+                return false;
+            }
+
+            const int scale = scaleInfo.toInt();
+            if (scale <= 0) {
+                return false;
+            }
+            const QPoint pos = QPoint(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
+            const QSize size = QSize(modeSize[QStringLiteral("width")].toInt() / scale, modeSize[QStringLiteral("height")].toInt() / scale);
+            geo = QRect(pos, size);
+
+            return true;
+        };
+
+        // it's guaranteed that we find the following values in the QMap
+        KScreen::OutputPtr prevPtr = outputs.find(sortedOutputs[cnt - 1].first).value();
+        KScreen::OutputPtr curPtr = outputs.find(sortedOutputs[cnt].first).value();
+
+        QRect prevInfoGeo, curInfoGeo;
+        if (!getOutputInfoProperties(prevPtr, prevInfoGeo) ||
+                !getOutputInfoProperties(curPtr, curInfoGeo)) {
+            // no info found, nothing can be adjusted for the next output
+            continue;
+        }
+
+        const QRect prevGeo = prevPtr->geometry();
+        const QRect curGeo = curPtr->geometry();
+
+        // the old difference between previous and current output read from the config file
+        const int xInfoDiff = curInfoGeo.x() - (prevInfoGeo.x() + prevInfoGeo.width());
+
+        // the proposed new difference
+        const int prevRight = prevGeo.x() + prevGeo.width();
+        const int xCorrected = prevRight + prevGeo.width() * xInfoDiff / (double)prevInfoGeo.width();
+        const int xDiff = curGeo.x() - prevRight;
+
+        // In the following calculate the y-coorection. This is more involved since we
+        // differentiate between overlapping and non-overlapping pairs and align either
+        // top to top/bottom or bottom to top/bottom
+        const bool yOverlap = prevInfoGeo.y() + prevInfoGeo.height() > curInfoGeo.y() &&
+                prevInfoGeo.y() < curInfoGeo.y() + curInfoGeo.height();
+
+        // these values determine which horizontal edge of previous output we align with
+        const int topToTopDiffAbs = qAbs(prevInfoGeo.y() - curInfoGeo.y());
+        const int topToBottomDiffAbs = qAbs(prevInfoGeo.y() - curInfoGeo.y() - curInfoGeo.height());
+        const int bottomToBottomDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y() - curInfoGeo.height());
+        const int bottomToTopDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y());
+
+        const bool yTopAligned = topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs ||
+                topToBottomDiffAbs < bottomToBottomDiffAbs;
+
+        int yInfoDiff = curInfoGeo.y() - prevInfoGeo.y();
+        int yDiff = curGeo.y() - prevGeo.y();
+        int yCorrected;
+
+        if (yTopAligned) {
+            // align to previous top
+            if (!yOverlap) {
+                // align previous top with current bottom
+                yInfoDiff += curInfoGeo.height();
+                yDiff += curGeo.height();
+            }
+            // When we align with previous top we are interested in the changes to the
+            // current geometry and not in the ones of the previous one.
+            const double yInfoRel = yInfoDiff / (double)curInfoGeo.height();
+            yCorrected = prevGeo.y() + yInfoRel * curGeo.height();
+        } else {
+            // align previous bottom...
+            yInfoDiff -= prevInfoGeo.height();
+            yDiff -= prevGeo.height();
+            yCorrected = prevGeo.y() + prevGeo.height();
+
+            if (yOverlap) {
+                // ... with current bottom
+                yInfoDiff += curInfoGeo.height();
+                yDiff += curGeo.height();
+                yCorrected -= curGeo.height();
+            } // ... else with current top
+
+            // When we align with previous bottom we are interested in changes to the
+            // previous geometry.
+            const double yInfoRel = yInfoDiff / (double)prevInfoGeo.height();
+            yCorrected += yInfoRel * prevGeo.height();
+        }
+
+        const int x = xDiff == xInfoDiff ? curGeo.x() : xCorrected;
+        const int y = yDiff == yInfoDiff ? curGeo.y() : yCorrected;
+        curPtr->setPos(QPoint(x, y));
+    }
+}
+
 void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention)
 {
     const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
@@ -187,6 +319,8 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
         }
     }
+    // correct positional config regressions on global output data changes
+    adjustPositions(config, outputsInfo);
 }
 
 static QVariantMap metadata(const KScreen::OutputPtr &output)
