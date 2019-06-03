@@ -25,17 +25,12 @@
 
 #include <kscreen/config.h>
 
-class QLabel;
 class QMLOutput;
 class QMLScreen;
 class ControlPanel;
-class PrimaryOutputCombo;
 
-class QPushButton;
-class QComboBox;
 
 class QQuickView;
-class QQuickWidget;
 
 namespace KScreen
 {

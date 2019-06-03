@@ -28,7 +28,6 @@
 
 namespace KScreen
 {
-class ConfigOperation;
 class OsdManager;
 }
 

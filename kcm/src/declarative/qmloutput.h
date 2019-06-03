@@ -23,10 +23,7 @@
 #include <QQuickItem>
 #include <kscreen/mode.h>
 
-class QStandardItemModel;
-class QAbstractItemModel;
 
-class ModesProxyModel;
 class QMLScreen;
 
 

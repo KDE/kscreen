@@ -30,10 +30,6 @@ class QVBoxLayout;
 class OutputConfig;
 class UnifiedOutputConfig;
 
-class QLabel;
-class QCheckBox;
-class QSlider;
-class QComboBox;
 
 class ControlPanel : public QFrame
 {

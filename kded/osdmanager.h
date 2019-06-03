@@ -26,7 +26,6 @@
 
 #include "osdaction.h"
 
-class QmlObject;
 
 namespace KScreen {
 

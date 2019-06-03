@@ -22,7 +22,6 @@
 #include <KCModule>
 
 class Widget;
-class QTimer;
 class QHBoxLayout;
 namespace KScreen
 {

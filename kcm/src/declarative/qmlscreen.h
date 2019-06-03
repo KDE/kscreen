@@ -25,7 +25,6 @@
 #include <kscreen/output.h>
 #include "qmloutput.h"
 
-class QQmlEngine;
 
 namespace KScreen {
 class Output;
