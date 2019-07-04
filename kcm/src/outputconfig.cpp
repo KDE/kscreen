@@ -24,11 +24,9 @@
 #include "utils.h"
 #include "kcm_screen_debug.h"
 
-#include <QStringBuilder>
 #include <QFormLayout>
 #include <QComboBox>
 #include <QCheckBox>
-#include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QGroupBox>

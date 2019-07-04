@@ -17,8 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef KDED_CONFIG_H
 #define KDED_CONFIG_H
 
-#include <QObject>
-#include <QVariantMap>
 
 #include <kscreen/config.h>
 

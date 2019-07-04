@@ -20,7 +20,6 @@
 #define KDED_GENERATOR_H
 
 #include <QObject>
-#include <QString>
 
 #include <kscreen/output.h>
 #include <kscreen/mode.h>

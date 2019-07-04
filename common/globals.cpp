@@ -16,9 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "globals.h"
 
-#include <QFile>
 #include <QStandardPaths>
-#include <QDir>
 
 QString Globals::s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
 

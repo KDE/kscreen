@@ -19,11 +19,6 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreen_daemon_debug.h"
-
-#include <QDBusReply>
-#include <QDBusMessage>
-#include <QDBusConnection>
-#include <QLoggingCategory>
 #include <QRect>
 
 #include <kscreen/config.h>

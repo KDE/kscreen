@@ -23,7 +23,6 @@
 #include <kscreen/output.h>
 
 #include <QStandardItem>
-#include <QStandardItemModel>
 #include <qquickitem.h>
 #include <QRect>
 

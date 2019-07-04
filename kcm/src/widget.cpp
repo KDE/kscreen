@@ -20,11 +20,7 @@
 #include "widget.h"
 #include "controlpanel.h"
 
-#include <QVBoxLayout>
-#include <QSplitter>
-#include <QLabel>
 #include <QTimer>
-#include <QtGlobal>
 
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"

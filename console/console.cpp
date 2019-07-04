@@ -19,7 +19,6 @@
 #include "console.h"
 
 #include <QDebug>
-#include <QDateTime>
 #include <QDir>
 #include <QTextStream>
 #include <QStandardPaths>
@@ -59,7 +58,6 @@ Console::~Console()
 
 }
 
-#include <QRect>
 void Console::printConfig()
 {
     if (!m_config) {

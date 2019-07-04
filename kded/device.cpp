@@ -21,7 +21,6 @@
 #include "kscreen_daemon_debug.h"
 #include "kded/freedesktop_interface.h"
 
-#include <QLoggingCategory>
 
 Device* Device::m_instance = nullptr;
 

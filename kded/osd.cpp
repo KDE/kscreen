@@ -23,7 +23,6 @@
 
 #include <KScreen/Mode>
 
-#include <QLoggingCategory>
 #include <QTimer>
 #include <QStandardPaths>
 #include <KDeclarative/QmlObjectSharedEngine>

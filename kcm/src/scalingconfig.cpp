@@ -20,10 +20,8 @@
 #include "scalingconfig.h"
 
 #include <QProcess>
-#include <QDebug>
 #include <KSharedConfig>
 #include <KConfigGroup>
-
 #include <KScreen/Output>
 
 //we want a scale between 1 and 3.0 in intervals of 0.1

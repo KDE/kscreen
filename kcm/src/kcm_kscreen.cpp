@@ -32,7 +32,6 @@
 #include <qstandardpaths.h>
 #include <QLabel>
 
-#include <QQuickView>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>

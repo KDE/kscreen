@@ -21,7 +21,6 @@
 
 #include "previewwidget.h"
 
-#include <QDebug>
 #include <QPainter>
 
 #include "ui_stylepreview.h"

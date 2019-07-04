@@ -23,7 +23,6 @@
 
 #include <kscreen/output.h>
 
-#include <QDir>
 #include <QStandardPaths>
 #include <QQmlEngine>
 
