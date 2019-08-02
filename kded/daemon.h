@@ -87,6 +87,7 @@ private:
     QTimer* m_saveTimer;
     QTimer* m_lidClosedTimer;
     KScreen::OsdManager *m_osdManager;
+    bool m_startingUp = true;
 };
 
 #endif /*KSCREEN_DAEMON_H*/

@@ -116,8 +116,10 @@ void KScreenDaemon::init()
                 m_lidClosedTimer->stop();
             });
 
-    connect(Generator::self(), &Generator::ready,
-            this, &KScreenDaemon::applyConfig);
+    connect(Generator::self(), &Generator::ready, this, [this] {
+        applyConfig();
+        m_startingUp = false;
+    });
 
     Generator::self()->setCurrentConfig(m_monitoredConfig->data());
     monitorConnectedChange();
@@ -219,14 +221,17 @@ void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 
 void KScreenDaemon::applyIdealConfig()
 {
-    if (m_monitoredConfig->data()->connectedOutputs().count() < 2) {
-        m_osdManager->hideOsd();
-        doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig->data()));
-    } else {
+    const bool showOsd = m_monitoredConfig->data()->connectedOutputs().count() > 1 && !m_startingUp;
+
+    doApplyConfig(Generator::self()->idealConfig(m_monitoredConfig->data()));
+
+    if (showOsd) {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
         auto action = m_osdManager->showActionSelector();
         connect(action, &KScreen::OsdAction::selected,
                 this, &KScreenDaemon::applyOsdAction);
+    } else {
+        m_osdManager->hideOsd();
     }
 }
 
