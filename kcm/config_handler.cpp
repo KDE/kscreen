@@ -120,7 +120,8 @@ void ConfigHandler::checkNeedsSave()
                                 initialOutput->currentModeId()
                              || output->pos() != initialOutput->pos()
                              || output->scale() != initialOutput->scale()
-                             || output->rotation() != initialOutput->rotation();
+                             || output->rotation() != initialOutput->rotation()
+                             || output->replicationSource() != initialOutput->replicationSource();
             }
             if (needsSave) {
                 Q_EMIT needsSaveChecked(true);
@@ -138,7 +139,7 @@ QSize ConfigHandler::screenSize() const
     QSize size;
 
     for (const auto &output : m_config->connectedOutputs()) {
-        if (!output->isEnabled()) {
+        if (!output->isPositionable()) {
             continue;
         }
         const int outputRight = output->geometry().right();

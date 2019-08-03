@@ -41,7 +41,10 @@ public:
         ResolutionIndexRole,
         ResolutionsRole,
         RefreshRateIndexRole,
-        RefreshRatesRole
+        RefreshRatesRole,
+        ReplicationSourceModelRole,
+        ReplicationSourceIndexRole,
+        ReplicasModelRole
     };
 
     explicit OutputModel (ConfigHandler *configHandler);
@@ -87,6 +90,7 @@ private:
         {}
         KScreen::OutputPtr ptr;
         QPoint pos;
+        QPoint replicaReset;
     };
 
     void roleChanged(int outputId, OutputRoles role);
@@ -112,6 +116,12 @@ private:
     QVector<float> refreshRates(const KScreen::OutputPtr &output) const;
 
     bool positionable(const Output &output) const;
+
+    QStringList replicationSourceModel(const KScreen::OutputPtr &output) const;
+    bool setReplicationSourceIndex(int outputIndex, int sourceIndex);
+    int replicationSourceIndex(int outputIndex, int sourceId) const;
+
+    QVariantList replicasModel(const KScreen::OutputPtr &output) const;
 
     QVector<Output> m_outputs;
 

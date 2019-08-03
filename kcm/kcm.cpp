@@ -79,6 +79,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     m_config->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
     Q_EMIT perOutputScalingChanged();
     Q_EMIT primaryOutputSupportedChanged();
+    Q_EMIT outputReplicationSupportedChanged();
 }
 
 void KCMKScreen::forceSave()
@@ -117,7 +118,8 @@ void KCMKScreen::doSave(bool force)
                 << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz" << "\n"
                 << "    Position:" << output->pos().x() << "x" << output->pos().y() << "\n"
                 << "    Scale:" << (perOutputScaling() ? QString::number(output->scale()) :
-                                                         QStringLiteral("global"));
+                                                         QStringLiteral("global")) << "\n"
+                << "    Replicates:" << (output->replicationSource() == 0 ? "no" : "yes");
     }
 
     if (!atLeastOneEnabledOutput && !force) {
@@ -220,6 +222,15 @@ bool KCMKScreen::primaryOutputSupported() const
     }
     return m_config->config()->supportedFeatures().testFlag(Config::Feature::
                                                             PrimaryDisplay);
+}
+
+bool KCMKScreen::outputReplicationSupported() const
+{
+    if (!m_config || !m_config->config()) {
+        return false;
+    }
+    return m_config->config()->supportedFeatures().testFlag(Config::Feature::
+                                                            OutputReplication);
 }
 
 void KCMKScreen::setScreenNormalized(bool normalized)

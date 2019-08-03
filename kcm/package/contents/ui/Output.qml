@@ -38,7 +38,7 @@ Rectangle {
                         (pos.y - screen.yOffset) * screen.relativeFactor) ;
     }
 
-    visible: model.enabled
+    visible: model.enabled && model.replicationSourceIndex === 0
     onVisibleChanged: screen.resetTotalSize()
 
     x: model.position.x / screen.relativeFactor + screen.xOffset
@@ -128,6 +128,36 @@ Rectangle {
                 duration: 100;
             }
         }
+    }
+
+    Controls.ToolButton {
+        id: replicas
+
+        property int selectedReplica: -1
+
+        height: output.height / 4
+        width: output.width / 5
+        anchors.top: output.top
+        anchors.right: output.right
+        anchors.margins: 5
+
+        visible: model.replicasModel.length > 0
+        icon.name: "osd-duplicate"
+
+        Controls.ToolTip {
+            text: i18n("Replicas")
+        }
+
+        onClicked: {
+            var index = selectedReplica + 1;
+            if (index >= model.replicasModel.length) {
+                index = 0;
+            }
+            if (root.selectedOutput !== model.replicasModel[index]) {
+                root.selectedOutput = model.replicasModel[index];
+            }
+        }
+
     }
 
     Item {

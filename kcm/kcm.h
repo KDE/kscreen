@@ -41,6 +41,8 @@ class KCMKScreen : public KQuickAddons::ConfigModule
                NOTIFY perOutputScalingChanged)
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported
                NOTIFY primaryOutputSupportedChanged)
+    Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported
+               NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale
                NOTIFY globalScaleChanged)
     Q_PROPERTY(int outputRetention READ outputRetention WRITE setOutputRetention
@@ -66,6 +68,7 @@ public:
 
     bool perOutputScaling() const;
     bool primaryOutputSupported() const;
+    bool outputReplicationSupported() const;
 
     qreal globalScale() const;
     void setGlobalScale(qreal scale);
@@ -83,6 +86,7 @@ Q_SIGNALS:
     void screenNormalizedChanged();
     void perOutputScalingChanged();
     void primaryOutputSupportedChanged();
+    void outputReplicationSupportedChanged();
     void globalScaleChanged();
     void outputRetentionChanged();
     void dangerousSave();

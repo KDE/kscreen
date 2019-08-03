@@ -65,6 +65,12 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return resolutionsStrings(output);
     case RefreshRateIndexRole:
         return refreshRateIndex(output);
+    case ReplicationSourceModelRole:
+        return replicationSourceModel(output);
+    case ReplicationSourceIndexRole:
+        return replicationSourceIndex(index.row(), output->replicationSource());
+    case ReplicasModelRole:
+        return replicasModel(output);
     case RefreshRatesRole:
         QVariantList ret;
         for (const auto rate : refreshRates(output)) {
@@ -138,6 +144,11 @@ bool OutputModel::setData(const QModelIndex &index,
                                value.value<KScreen::Output::Rotation>());
         }
         break;
+    case ReplicationSourceIndexRole:
+        if (value.canConvert<int>()) {
+            return setReplicationSourceIndex(index.row(), value.toInt() - 1);
+        }
+        break;
     case ScaleRole:
         bool ok;
         const qreal scale = value.toReal(&ok);
@@ -165,6 +176,9 @@ QHash<int, QByteArray> OutputModel::roleNames() const {
     roles[ResolutionsRole] = "resolutions";
     roles[RefreshRateIndexRole] = "refreshRateIndex";
     roles[RefreshRatesRole] = "refreshRates";
+    roles[ReplicationSourceModelRole] = "replicationSourceModel";
+    roles[ReplicationSourceIndexRole] = "replicationSourceIndex";
+    roles[ReplicasModelRole] = "replicasModel";
     return roles;
 }
 
@@ -199,6 +213,18 @@ void OutputModel::add(const KScreen::OutputPtr &output)
         roleChanged(output->id(), {PrimaryRole});
     });
     Q_EMIT endInsertRows();
+
+    // Update replications.
+    for (int j = 0; j < m_outputs.size(); j++) {
+        if (i == j) {
+            continue;
+        }
+        QModelIndex index = createIndex(j, 0);
+        // Calling this directly ignores possible optimization when the
+        // refresh rate hasn't changed in fact. But that's ok.
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole,
+                                          ReplicationSourceIndexRole});
+    }
 }
 
 void OutputModel::remove(int outputId)
@@ -420,6 +446,116 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr
     return hits;
 }
 
+QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
+{
+    QStringList ret = { i18n("None") };
+
+    for (const auto &out : m_outputs) {
+        if (out.ptr->id() != output->id()) {
+            if (out.ptr->replicationSource() == output->id()) {
+                // 'output' is already source for replication, can't be replica itself
+                return { i18n("Replicated by other output") };
+            }
+            if (out.ptr->replicationSource()) {
+                // This 'out' is a replica. Can't be a replication source.
+                continue;
+            }
+            ret.append(out.ptr->name());
+        }
+    }
+    return ret;
+}
+
+bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
+{
+    if (outputIndex <= sourceIndex) {
+        sourceIndex++;
+    }
+    if (sourceIndex >= m_outputs.count()) {
+        return false;
+    }
+
+    Output &output = m_outputs[outputIndex];
+    const int oldSourceId = output.ptr->replicationSource();
+
+    if (sourceIndex < 0) {
+        if (oldSourceId == 0) {
+            // no change
+            return false;
+        }
+        output.ptr->setReplicationSource(0);
+
+        if (output.replicaReset.isNull()) {
+            // KCM was closed in between.
+            for (const Output &out : m_outputs) {
+                if (out.ptr->id() == output.ptr->id()) {
+                    continue;
+                }
+                if (out.ptr->geometry().right() > output.ptr->pos().x()) {
+                    output.ptr->setPos(out.ptr->geometry().topRight());
+                }
+            }
+        } else {
+            output.ptr->setPos(output.ptr->pos() - output.replicaReset);
+        }
+    } else {
+        const int sourceId = m_outputs[sourceIndex].ptr->id();
+        if (oldSourceId == sourceId) {
+            // no change
+            return false;
+        }
+        output.ptr->setReplicationSource(sourceId);
+        output.replicaReset = m_outputs[sourceIndex].ptr->pos() - output.ptr->pos();
+        output.ptr->setPos(m_outputs[sourceIndex].ptr->pos());
+    }
+
+    reposition();
+
+    QModelIndex index = createIndex(outputIndex, 0);
+    Q_EMIT dataChanged(index, index, {ReplicationSourceIndexRole});
+
+    if (oldSourceId != 0) {
+        auto it = std::find_if(m_outputs.begin(), m_outputs.end(),
+                               [oldSourceId](const Output &out) {
+            return out.ptr->id() == oldSourceId;
+        });
+        if (it != m_outputs.end()) {
+            QModelIndex index = createIndex(it - m_outputs.begin(), 0);
+            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+        }
+    }
+    if (sourceIndex >= 0) {
+        QModelIndex index = createIndex(sourceIndex, 0);
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+    }
+    return true;
+}
+
+int OutputModel::replicationSourceIndex(int outputIndex, int sourceId) const
+{
+    for (int i = 0; i < m_outputs.size(); i++) {
+        const Output &output = m_outputs[i];
+        if (output.ptr->id() == sourceId) {
+            return i + (outputIndex > i ? 1 : 0);
+        }
+    }
+    return 0;
+}
+
+QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
+{
+    QVariantList ret;
+    for (int i = 0; i < m_outputs.size(); i++) {
+        const Output &out = m_outputs[i];
+        if (out.ptr->id() != output->id()) {
+            if (out.ptr->replicationSource() == output->id()) {
+                ret << i;
+            }
+        }
+    }
+    return ret;
+}
+
 void OutputModel::roleChanged(int outputId, OutputRoles role)
 {
     for (int i = 0; i < m_outputs.size(); i++) {
@@ -434,7 +570,7 @@ void OutputModel::roleChanged(int outputId, OutputRoles role)
 
 bool OutputModel::positionable(const Output &output) const
 {
-    return output.ptr->isEnabled();
+    return output.ptr->isPositionable();
 }
 
 void OutputModel::reposition()
@@ -554,6 +690,12 @@ void OutputModel::updateOrder()
             }
             break;
         }
+    }
+
+    // TODO: Could this be optimized by only outputs updating where replica indices changed?
+    for (int i = 0; i < m_outputs.size(); i++) {
+        QModelIndex index = createIndex(i, 0);
+        Q_EMIT dataChanged(index, index, { ReplicasModelRole });
     }
 }
 

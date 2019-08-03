@@ -102,5 +102,17 @@ ColumnLayout {
                               element.refreshRateIndex : 0
             onActivated: element.refreshRateIndex = currentIndex
         }
+
+        Controls.ComboBox {
+            Kirigami.FormData.label: i18n("Replica of:")
+            model: element.replicationSourceModel
+            visible: kcm.outputReplicationSupported
+
+            onModelChanged: enabled = (count > 1);
+            onCountChanged: enabled = (count > 1);
+
+            currentIndex: element.replicationSourceIndex
+            onActivated: element.replicationSourceIndex = currentIndex
+        }
     }
 }
