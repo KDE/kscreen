@@ -26,7 +26,7 @@
 #include <QTimer>
 #include <QStandardPaths>
 #include <KDeclarative/QmlObjectSharedEngine>
-
+#include <QGuiApplication>
 
 using namespace KScreen;
 
