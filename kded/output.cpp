@@ -50,7 +50,12 @@ QString Output::globalFileName(const QString &hash)
 void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info)
 {
     output->setRotation(static_cast<KScreen::Output::Rotation>(info.value(QStringLiteral("rotation"), 1).toInt()));
-    output->setScale(info.value(QStringLiteral("scale"), 1).toInt());
+
+    bool scaleOk;
+    const qreal scale = info.value(QStringLiteral("scale"), 1.).toDouble(&scaleOk);
+    if (scaleOk) {
+        output->setScale(scale);
+    }
 
     const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
     const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
@@ -157,7 +162,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
                 return false;
             }
 
-            const int scale = scaleInfo.toInt();
+            const qreal scale = scaleInfo.toDouble();
             if (scale <= 0) {
                 return false;
             }
@@ -347,7 +352,10 @@ bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info
 
     info[QStringLiteral("id")] = output->hash();
     info[QStringLiteral("rotation")] = output->rotation();
-    info[QStringLiteral("scale")] = output->scale();
+
+    // Round scale to one digit.
+    info[QStringLiteral("scale")] = int(output->scale() * 10 + 0.5) / 10.;
+
     info[QStringLiteral("metadata")] = metadata(output);
 
     QVariantMap modeInfo;
