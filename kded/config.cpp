@@ -185,6 +185,12 @@ bool Config::writeFile(const QString &filePath)
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
+        QString replicationSourceHash;
+        if (int sourceId = output->replicationSource()) {
+            replicationSourceHash = m_data->output(sourceId)->hashMd5();
+        }
+        info[QStringLiteral("replicate")] = replicationSourceHash;
+
         QVariantMap pos;
         pos[QStringLiteral("x")] = output->pos().x();
         pos[QStringLiteral("y")] = output->pos().y();

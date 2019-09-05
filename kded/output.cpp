@@ -310,6 +310,18 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
             infoFound = true;
             readIn(output, info, control.getOutputRetention(output));
+
+            const QString replicationSourceHash = info[QStringLiteral("replicate")].toString();
+            if (replicationSourceHash.isEmpty()) {
+                output->setReplicationSource(0);
+            } else {
+                for (const KScreen::OutputPtr out : outputs) {
+                    if (out != output && out->hashMd5() == replicationSourceHash) {
+                        output->setReplicationSource(out->id());
+                        break;
+                    }
+                }
+            }
             break;
         }
         if (!infoFound) {
