@@ -1,8 +1,39 @@
-add_subdirectory(src)
-add_subdirectory(qml)
+add_definitions(-DTRANSLATION_DOMAIN=\"kcm_displayconfiguration\")
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kcm_kscreen.desktop.cmake
-               ${CMAKE_CURRENT_BINARY_DIR}/kcm_kscreen.desktop
-               @ONLY)
+set(kcm_kscreen_SRCS
+    config_handler.cpp
+    kcm.cpp
+    output_identifier.cpp
+    output_model.cpp
+    ${CMAKE_SOURCE_DIR}/common/utils.cpp
+    ${CMAKE_SOURCE_DIR}/common/control.cpp
+    ${CMAKE_SOURCE_DIR}/common/globals.cpp
+)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_kscreen.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )
+ecm_qt_declare_logging_category(kcm_kscreen_SRCS
+    HEADER
+        kcm_screen_debug.h
+    IDENTIFIER
+        KSCREEN_KCM
+    CATEGORY_NAME
+        kscreen.kcm
+)
+
+add_library(kcm_kscreen MODULE ${kcm_kscreen_SRCS})
+
+target_link_libraries(kcm_kscreen
+    KF5::ConfigCore
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::QuickAddons
+    KF5::Screen
+)
+
+kcoreaddons_desktop_to_json(kcm_kscreen "kcm_kscreen.desktop" SERVICE_TYPES kcmodule.desktop)
+
+#this desktop file is installed only for retrocompatibility with sycoca
+install(FILES kcm_kscreen.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+
+install(TARGETS kcm_kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/kcms)
+
+kpackage_install_package(package kcm_kscreen kcms)

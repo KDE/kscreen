@@ -19,16 +19,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <kscreen/types.h>
 
+#include <QObject>
 #include <QVariantMap>
 
 class Control
 {
+    Q_GADGET
 public:
     enum class OutputRetention {
         Undefined = -1,
         Global = 0,
         Individual = 1,
     };
+    Q_ENUM(OutputRetention)
+
 
     virtual ~Control() = default;
 
@@ -44,6 +48,7 @@ private:
 
 class ControlConfig : public Control
 {
+    Q_GADGET
 public:
     ControlConfig(KScreen::ConfigPtr config);
 
@@ -69,6 +74,7 @@ private:
 
 class ControlOutput : public Control
 {
+    Q_GADGET
 public:
     ControlOutput(KScreen::OutputPtr output);
 

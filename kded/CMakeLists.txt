@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/../ ${CMAKE_SOURCE_DIR}/kcm/src)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../)
 
 set(kscreen_daemon_SRCS
     daemon.cpp
@@ -13,7 +13,7 @@ set(kscreen_daemon_SRCS
     osdaction.cpp
     ${CMAKE_SOURCE_DIR}/common/globals.cpp
     ${CMAKE_SOURCE_DIR}/common/control.cpp
-    ${CMAKE_SOURCE_DIR}/kcm/src/utils.cpp
+    ${CMAKE_SOURCE_DIR}/common/utils.cpp
 )
 
 ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)

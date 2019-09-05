@@ -1,5 +1,4 @@
 include_directories(
-    ${CMAKE_SOURCE_DIR}/kcm/src
     ${CMAKE_BINARY_DIR}/kded
 )
 
@@ -8,7 +7,7 @@ add_executable(osdtest main.cpp
                        ../../kded/osd.cpp
                        ../../kded/osdmanager.cpp
                        ../../kded/osdaction.cpp
-                       ../../kcm/src/utils.cpp
+                       ../../common/utils.cpp
 )
 
 target_link_libraries(osdtest Qt5::Core

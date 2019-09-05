@@ -21,15 +21,13 @@ include(ECMMarkAsTest)
 include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS QuickWidgets Test)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     Config
-    ConfigWidgets
     I18n
     XmlGui
     GlobalAccel
-    WidgetsAddons
     Declarative
     IconThemes
     Plasma
@@ -40,7 +38,6 @@ find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
 set(MIN_LIBKSCREEN_VERSION "5.2.91")
 find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
 
-add_subdirectory(icons)
 add_subdirectory(kcm)
 add_subdirectory(kded)
 add_subdirectory(plasmoid)

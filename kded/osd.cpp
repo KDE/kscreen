@@ -18,8 +18,10 @@
  */
 
 #include "osd.h"
-#include "utils.h"
+
 #include "kscreen_daemon_debug.h"
+
+#include "../common/utils.h"
 
 #include <KScreen/Mode>
 

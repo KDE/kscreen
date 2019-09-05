@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=Displays
+Comment=Manage and configure monitors and displays
+
+Icon=preferences-desktop-display-randr
+Keywords=
+Type=Service
+X-KDE-ParentApp=
+X-KDE-PluginInfo-Author=Roman Gilg
+X-KDE-PluginInfo-Email=subdiff@gmail.com
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Name=kcm_kscreen
+X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
+X-KDE-PluginInfo-Website=https://www.kde.org/plasma-desktop
+X-KDE-ServiceTypes=Plasma/Generic
+X-Plasma-API=declarativeappletscript
+
+X-Plasma-MainScript=ui/main.qml
