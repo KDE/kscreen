@@ -23,15 +23,15 @@ include(FeatureSummary)
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-    DBusAddons
     Config
-    I18n
-    KCMUtils
-    XmlGui
-    GlobalAccel
+    DBusAddons
     Declarative
+    GlobalAccel
+    I18n
     IconThemes
+    KCMUtils
     Plasma
+    XmlGui
 )
 # WARNING PlasmaQuick provides unversioned CMake config
 find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
