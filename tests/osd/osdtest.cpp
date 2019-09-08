@@ -52,10 +52,10 @@ void OsdTest::showOutputIdentifiers()
         getOsdManager()->showOutputIdentifiers();
     } else {
         QDBusMessage msg = QDBusMessage::createMethodCall(
-            QLatin1Literal("org.kde.kscreen.osdService"),
-            QLatin1Literal("/org/kde/kscreen/osdService"),
-            QLatin1Literal("org.kde.kscreen.osdService"),
-            QLatin1Literal("showOutputIdentifiers")
+            QLatin1String("org.kde.kscreen.osdService"),
+            QLatin1String("/org/kde/kscreen/osdService"),
+            QLatin1String("org.kde.kscreen.osdService"),
+            QLatin1String("showOutputIdentifiers")
         );
         //msg << icon << text;
         QDBusConnection::sessionBus().asyncCall(msg);

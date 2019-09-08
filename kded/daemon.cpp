@@ -282,10 +282,10 @@ void KScreenDaemon::saveCurrentConfig()
 void KScreenDaemon::showOsd(const QString &icon, const QString &text)
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(
-        QLatin1Literal("org.kde.plasmashell"),
-        QLatin1Literal("/org/kde/osdService"),
-        QLatin1Literal("org.kde.osdService"),
-        QLatin1Literal("showText")
+        QLatin1String("org.kde.plasmashell"),
+        QLatin1String("/org/kde/osdService"),
+        QLatin1String("org.kde.osdService"),
+        QLatin1String("showText")
     );
     msg << icon << text;
     QDBusConnection::sessionBus().asyncCall(msg);
