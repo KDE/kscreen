@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
+import org.kde.kirigami 2.5 as Kirigami
 
 Rectangle {
     property var outputs
@@ -30,8 +31,8 @@ Rectangle {
     onHeightChanged: resetTotalSize()
 
     property real relativeFactor: {
-        var relativeSize = Qt.size(totalSize.width / (0.6 * width),
-                                   totalSize.height / (0.6 * height));
+        var relativeSize = Qt.size(totalSize.width / (0.35 * width),
+                                   totalSize.height / (0.35 * height));
         if (relativeSize.width > relativeSize.height) {
             // Available width smaller than height, optimize for width (we have
             // '>' because the available width, height is in the denominator).
@@ -44,8 +45,11 @@ Rectangle {
     property int xOffset: (width - totalSize.width / relativeFactor) / 2;
     property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
-    implicitHeight: root.height * 0.45
+    implicitHeight: Math.max(root.height * 0.4, units.gridUnit * 13)
+    radius: units.smallSpacing
     color: "white"
+    border.color: Qt.tint(Kirigami.Theme.textColor, Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.8))
+    border.width: 1
     clip: true
 
     Row {
@@ -59,13 +63,17 @@ Rectangle {
         Controls.Button {
             onClicked: kcm.identifyOutputs()
             text: i18n("Identify")
+            icon.name: "documentinfo"
             focusPolicy: Qt.NoFocus
+            visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
         }
         Controls.Button {
             enabled: !kcm.screenNormalized
             onClicked: resetTotalSize()
-            text: i18n("Center view")
+            text: i18n("Center View")
+            icon.name: "zoom-original"
             focusPolicy: Qt.NoFocus
+            visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
         }
     }
 

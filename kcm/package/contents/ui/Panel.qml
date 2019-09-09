@@ -22,19 +22,6 @@ import org.kde.kirigami 2.4 as Kirigami
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
-    Kirigami.FormLayout {
-        twinFormLayouts: globalSettingsLayout
-        Item {
-            Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Output settings")
-
-            Rectangle {
-                anchors.fill: parent
-                opacity: 0.5
-            }
-        }
-    }
-
     Controls.SwipeView {
         id: panelView
         currentIndex: root.selectedOutput
@@ -54,7 +41,7 @@ ColumnLayout {
         id: indicator
 
         Layout.alignment: Qt.AlignHCenter
-        opacity: count > 1 ? 1 : 0
+        visible: count > 1
 
         count: panelView.count
         currentIndex: panelView.currentIndex
@@ -65,18 +52,13 @@ ColumnLayout {
     Kirigami.FormLayout {
         id: globalSettingsLayout
         Layout.fillWidth: true
-        Layout.topMargin: 20
+
         Kirigami.Separator {
             Layout.fillWidth: true
             Kirigami.FormData.isSection: true
         }
-        Item {
-            Layout.fillWidth: true
-            Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Arrangement settings")
-        }
 
-        ColumnLayout {
+        RowLayout {
             Layout.fillWidth: true
             Kirigami.FormData.label: i18n("Global scale:")
 
@@ -94,8 +76,7 @@ ColumnLayout {
                 onMoved: kcm.globalScale = value
             }
             Controls.Label {
-                Layout.alignment: Qt.AlignHCenter
-                text: globalScaleSlider.value.toLocaleString(Qt.locale(), "f", 1)
+                text: i18nc("Scale factor (e.g. 1.0x, 1.5x, 2.0x)","%1x", globalScaleSlider.value.toLocaleString(Qt.locale(), "f", 1))
             }
         }
 
@@ -106,20 +87,20 @@ ColumnLayout {
         ColumnLayout {
             id: retentionSelector
 
-            Kirigami.FormData.label: i18n("Save values of an output:")
+            Kirigami.FormData.label: i18n("Save displays' properties:")
             Kirigami.FormData.buddyFor: globalRetentionRadio
             spacing: Kirigami.Units.smallSpacing
 
             Controls.RadioButton {
                 id: globalRetentionRadio
-                text: i18n("For this and other combination of outputs")
+                text: i18n("For any display arrangement")
                 checked: !individualRetentionRadio.checked
                 onClicked: kcm.outputRetention = KScreen.Control.Global
             }
 
             Controls.RadioButton {
                 id: individualRetentionRadio
-                text: i18n("For this specific setup independently of others")
+                text: i18n("For only this specific display arrangement")
                 checked: kcm.outputRetention === KScreen.Control.Individual
                 onClicked: kcm.outputRetention = KScreen.Control.Individual
             }

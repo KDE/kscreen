@@ -19,27 +19,35 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.4 as Kirigami
 
+import org.kde.kcm 1.2 as KCM
+
 ColumnLayout {
     id: outputPanel
     property var element: model
 
+    Kirigami.Heading {
+        Layout.fillWidth: true
+        horizontalAlignment: Text.AlignHCenter
+        level: 2
+        text: i18n("Settings for %1", element.display)
+        visible: kcm.outputModel.rowCount() > 1
+    }
+
     Kirigami.FormLayout {
-        Controls.Label {
-//          Kirigami.FormData.label: i18n("Name")
-            text: element.display
-        }
+        twinFormLayouts: globalSettingsLayout
 
         Controls.CheckBox {
            text: i18n("Enabled")
            checked: element.enabled
            onClicked: element.enabled = checked
+           visible: kcm.outputModel.rowCount() > 1
         }
 
         Controls.CheckBox {
            text: i18n("Primary")
            checked: element.primary
            onClicked: element.primary = checked
-           visible: kcm.primaryOutputSupported
+           visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
         }
 
         Controls.ComboBox {
@@ -50,11 +58,12 @@ ColumnLayout {
             onActivated: element.resolutionIndex = currentIndex
         }
 
-        ColumnLayout {
+        RowLayout {
             Layout.fillWidth: true
 
             visible: kcm.perOutputScaling
             Kirigami.FormData.label: i18n("Scale:")
+
             Controls.Slider {
                 id: scaleSlider
 
@@ -68,7 +77,7 @@ ColumnLayout {
             }
             Controls.Label {
                 Layout.alignment: Qt.AlignHCenter
-                text: scaleSlider.value.toLocaleString(Qt.locale(), "f", 1)
+                text: i18nc("Scale factor (e.g. 1.0x, 1.5x, 2.0x)","%1x", scaleSlider.value.toLocaleString(Qt.locale(), "f", 1))
             }
         }
 
@@ -79,7 +88,6 @@ ColumnLayout {
         RowLayout {
            id: orientation
            Kirigami.FormData.label: i18n("Orientation:")
-           Layout.fillWidth: true
 
            RotationButton {
                value: 0
@@ -106,7 +114,7 @@ ColumnLayout {
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Replica of:")
             model: element.replicationSourceModel
-            visible: kcm.outputReplicationSupported
+            visible: kcm.outputReplicationSupported && kcm.outputModel && kcm.outputModel.rowCount() > 1
 
             onModelChanged: enabled = (count > 1);
             onCountChanged: enabled = (count > 1);

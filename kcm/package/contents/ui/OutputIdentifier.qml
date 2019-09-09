@@ -28,8 +28,8 @@ Rectangle {
 
     color: theme.backgroundColor
     border {
-        color: theme.textColor
-        width: Math.ceil(units.gridUnit / 20)
+        color: "red"
+        width: units.smallSpacing * 2
     }
 
     width: childrenRect.width + 2 * childrenRect.x

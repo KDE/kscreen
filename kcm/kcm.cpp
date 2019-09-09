@@ -57,7 +57,7 @@ KCMKScreen::KCMKScreen(QObject *parent, const QVariantList &args)
     KAboutData *about = new KAboutData(QStringLiteral("kcm_kscreen"),
                                        i18n("Display Configuration"),
                                        QStringLiteral(KSCREEN_VERSION),
-                                       i18n("Configuration for displays"),
+                                       i18n("Manage and configure monitors and displays"),
                                        KAboutLicense::GPL,
                                        i18n("Copyright © 2019 Roman Gilg"));
     about->addAuthor(i18n("Roman Gilg"),

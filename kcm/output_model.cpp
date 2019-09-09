@@ -16,6 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "output_model.h"
 
+#include "../common/utils.h"
+
 #include "config_handler.h"
 
 #include <KLocalizedString>
@@ -44,7 +46,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     const KScreen::OutputPtr &output = m_outputs[index.row()].ptr;
     switch (role) {
     case Qt::DisplayRole:
-        return output->name();
+        return Utils::outputName(output);
     case EnabledRole:
         return output->isEnabled();
     case PrimaryRole:

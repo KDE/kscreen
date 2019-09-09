@@ -24,8 +24,8 @@ import org.kde.kcm 1.2 as KCM
 KCM.SimpleKCM {
     id: root
 
-    implicitWidth: units.gridUnit * 40
-    implicitHeight: units.gridUnit * 50
+    implicitWidth: units.gridUnit * 30
+    implicitHeight: units.gridUnit * 38
 
     property int selectedOutput: 0
 
@@ -115,7 +115,11 @@ KCM.SimpleKCM {
 
         Screen {
             id: screen
-            Layout.fillWidth: true
+
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: Math.max(root.width * 0.8, units.gridUnit * 26)
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
             enabled: kcm.outputModel && !kcm.backendError
             outputs: kcm.outputModel
         }

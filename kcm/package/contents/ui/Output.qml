@@ -255,6 +255,7 @@ Rectangle {
     }
     DragHandler {
         id: dragHandler
+        enabled: kcm.outputModel && kcm.outputModel.rowCount() > 1
         acceptedButtons: Qt.LeftButton
         target: null
 
