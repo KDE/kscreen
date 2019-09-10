@@ -45,6 +45,10 @@ add_subdirectory(plasmoid)
 add_subdirectory(tests)
 add_subdirectory(console)
 
-install(FILES kscreen.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+if (${ECM_VERSION} STRGREATER "5.58.0")
+    install(FILES kscreen.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+else()
+    install(FILES kscreen.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
