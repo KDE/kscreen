@@ -33,8 +33,8 @@ class KCMKScreen : public KQuickAddons::ConfigModule
 
     Q_PROPERTY(OutputModel *outputModel READ outputModel
                NOTIFY outputModelChanged)
-    Q_PROPERTY(bool backendError READ backendError
-               NOTIFY backendErrorChanged)
+    Q_PROPERTY(bool backendReady READ backendReady
+               NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized
                NOTIFY screenNormalizedChanged)
     Q_PROPERTY(bool perOutputScaling READ perOutputScaling
@@ -61,7 +61,7 @@ public:
 
     Q_INVOKABLE void identifyOutputs();
 
-    bool backendError() const;
+    bool backendReady() const;
 
     Q_INVOKABLE QSize normalizeScreen() const;
     bool screenNormalized() const;
@@ -80,7 +80,8 @@ public:
     void doSave(bool force);
 
 Q_SIGNALS:
-    void backendErrorChanged();
+    void backendReadyChanged();
+    void backendError();
     void outputModelChanged();
     void changed();
     void screenNormalizedChanged();
@@ -95,7 +96,7 @@ Q_SIGNALS:
     void outputConnect(bool connected);
 
 private:
-    void setBackendError(bool error);
+    void setBackendReady(bool error);
     void setScreenNormalized(bool normalized);
 
     void fetchGlobalScale();
@@ -106,8 +107,10 @@ private:
 
     std::unique_ptr<OutputIdentifier> m_outputIdentifier;
     std::unique_ptr<ConfigHandler> m_config;
-    bool m_backendError = false;
+    bool m_backendReady = false;
     bool m_screenNormalized = true;
     double m_globalScale = 1.;
     double m_initialGlobalScale = 1.;
+
+    QTimer *m_loadCompressor;
 };

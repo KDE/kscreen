@@ -65,6 +65,11 @@ KCMKScreen::KCMKScreen(QObject *parent, const QVariantList &args)
                     QStringLiteral("subdiff@gmail.com"));
     setAboutData(about);
     setButtons(Apply);
+
+    m_loadCompressor = new QTimer(this);
+    m_loadCompressor->setInterval(1000);
+    m_loadCompressor->setSingleShot(true);
+    connect (m_loadCompressor, &QTimer::timeout, this, &KCMKScreen::load);
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -73,10 +78,11 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     if (op->hasError()) {
         m_config.reset();
-        setBackendError(true);
+        Q_EMIT backendError();
         return;
     }
     m_config->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+    setBackendReady(true);
     Q_EMIT perOutputScalingChanged();
     Q_EMIT primaryOutputSupportedChanged();
     Q_EMIT outputReplicationSupportedChanged();
@@ -158,18 +164,18 @@ void KCMKScreen::doSave(bool force)
     );
 }
 
-bool KCMKScreen::backendError() const
+bool KCMKScreen::backendReady() const
 {
-    return m_backendError;
+    return m_backendReady;
 }
 
-void KCMKScreen::setBackendError(bool error)
+void KCMKScreen::setBackendReady(bool ready)
 {
-    if (m_backendError == error) {
+    if (m_backendReady == ready) {
         return;
     }
-    m_backendError = error;
-    Q_EMIT backendErrorChanged();
+    m_backendReady = ready;
+    Q_EMIT backendReadyChanged();
 }
 
 OutputModel* KCMKScreen::outputModel() const
@@ -252,7 +258,7 @@ void KCMKScreen::load()
 {
     qCDebug(KSCREEN_KCM) << "About to read in config.";
 
-    setBackendError(false);
+    setBackendReady(false);
     setNeedsSave(false);
     if (!screenNormalized()) {
         Q_EMIT screenNormalizedChanged();
@@ -265,8 +271,12 @@ void KCMKScreen::load()
              this, &KCMKScreen::outputModelChanged);
     connect (m_config.get(), &ConfigHandler::outputConnect,
              this, [this](bool connected) {
-        load();
+
         Q_EMIT outputConnect(connected);
+        setBackendReady(false);
+
+        // Reload settings delayed such that daemon can update output values.
+        m_loadCompressor->start();
     });
     connect (m_config.get(), &ConfigHandler::screenNormalizationUpdate,
              this, &KCMKScreen::setScreenNormalized);

@@ -41,11 +41,11 @@ Rectangle {
     visible: model.enabled && model.replicationSourceIndex === 0
     onVisibleChanged: screen.resetTotalSize()
 
-    x: model.position.x / screen.relativeFactor + screen.xOffset
-    y: model.position.y / screen.relativeFactor + screen.yOffset
+    x: model.position ? model.position.x / screen.relativeFactor + screen.xOffset : 0
+    y: model.position ? model.position.y / screen.relativeFactor + screen.yOffset : 0
 
-    width: model.size.width / screen.relativeFactor
-    height: model.size.height / screen.relativeFactor
+    width: model.size ? model.size.width / screen.relativeFactor : 1
+    height: model.size ? model.size.height / screen.relativeFactor : 1
 
     SystemPalette {
         id: palette

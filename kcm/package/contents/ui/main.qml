@@ -104,7 +104,7 @@ KCM.SimpleKCM {
                 }
                 connectMsg.visible = true;
             }
-            onBackendErrorChanged: errBackendMsg.visible = kcm.backendError
+            onBackendError: errBackendMsg.visible = true;
 
             onChanged: {
                 dangerousSaveMsg.visible = false;
@@ -120,12 +120,13 @@ KCM.SimpleKCM {
             Layout.preferredWidth: Math.max(root.width * 0.8, units.gridUnit * 26)
             Layout.topMargin: Kirigami.Units.smallSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-            enabled: kcm.outputModel && !kcm.backendError
+
+            enabled: kcm.outputModel && kcm.backendReady
             outputs: kcm.outputModel
         }
 
         Panel {
-            enabled: kcm.outputModel && !kcm.backendError
+            enabled: kcm.outputModel && kcm.backendReady
             Layout.fillWidth: true
         }
     }
