@@ -44,11 +44,6 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
             this, &ConfigHandler::checkScreenNormalization);
     connect(m_outputs, &OutputModel::sizeChanged,
             this, &ConfigHandler::checkScreenNormalization);
-    connect(m_outputs, &OutputModel::changed,
-            this, [this]() {
-                checkNeedsSave();
-                Q_EMIT changed();
-    });
 
     for (const KScreen::OutputPtr &output : config->outputs()) {
         initOutput(output);
@@ -57,6 +52,11 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     m_initialRetention = getRetention();
     Q_EMIT retentionChanged();
 
+    connect(m_outputs, &OutputModel::changed,
+            this, [this]() {
+                checkNeedsSave();
+                Q_EMIT changed();
+    });
     connect(m_config.data(), &KScreen::Config::outputAdded,
             this, [this]() { Q_EMIT outputConnect(true); });
     connect(m_config.data(), &KScreen::Config::outputRemoved,
@@ -95,16 +95,23 @@ void ConfigHandler::checkNeedsSave()
 {
     if (m_config->supportedFeatures() &
             KScreen::Config::Feature::PrimaryDisplay) {
-        if (m_config->primaryOutput()->hashMd5() !=
-                m_initialConfig->primaryOutput()->hashMd5() ) {
+        if (m_config->primaryOutput() && m_initialConfig->primaryOutput()) {
+            if (m_config->primaryOutput()->hashMd5() !=
+                    m_initialConfig->primaryOutput()->hashMd5() ) {
+                Q_EMIT needsSaveChecked(true);
+                return;
+            }
+        } else if ((bool)m_config->primaryOutput() != (bool)m_initialConfig->primaryOutput()) {
             Q_EMIT needsSaveChecked(true);
             return;
         }
     }
+
     if (m_initialRetention != getRetention()) {
         Q_EMIT needsSaveChecked(true);
         return;
     }
+
     for (const auto &output : m_config->connectedOutputs()) {
         const QString hash = output->hashMd5();
         for (const auto &initialOutput : m_initialConfig->outputs()) {

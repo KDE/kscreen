@@ -29,7 +29,8 @@ public:
     static void readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo);
 
     static void writeGlobal(const KScreen::OutputPtr &output);
-    static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info);
+    static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info,
+                                const KScreen::OutputPtr &fallback);
 
     static QString dirPath();
 

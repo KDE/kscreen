@@ -109,14 +109,7 @@ bool OutputModel::setData(const QModelIndex &index,
         break;
     case EnabledRole:
         if (value.canConvert<bool>()) {
-            bool enable = value.toBool();
-            if (output.ptr->isEnabled() == enable) {
-                return false;
-            }
-            output.ptr->setEnabled(enable);
-            reposition();
-            Q_EMIT dataChanged(index, index, {role});
-            return true;
+            return setEnabled(index.row(), value.toBool());
         }
         break;
     case PrimaryRole:
@@ -243,6 +236,47 @@ void OutputModel::remove(int outputId)
     }
 }
 
+void OutputModel::resetPosition(const Output &output)
+{
+    if (output.posReset.x() < 0) {
+        // KCM was closed in between.
+        for (const Output &out : m_outputs) {
+            if (out.ptr->id() == output.ptr->id()) {
+                continue;
+            }
+            if (out.ptr->geometry().right() > output.ptr->pos().x()) {
+                output.ptr->setPos(out.ptr->geometry().topRight());
+            }
+        }
+    } else {
+        output.ptr->setPos(/*output.ptr->pos() - */output.posReset);
+    }
+}
+
+bool OutputModel::setEnabled(int outputIndex, bool enable)
+{
+    Output &output = m_outputs[outputIndex];
+
+    if (output.ptr->isEnabled() == enable) {
+        return false;
+    }
+
+    output.ptr->setEnabled(enable);
+
+    if (enable) {
+        resetPosition(output);
+
+        setResolution(outputIndex, resolutionIndex(output.ptr));
+        reposition();
+    } else {
+        output.posReset = output.ptr->pos();
+    }
+
+    QModelIndex index = createIndex(outputIndex, 0);
+    Q_EMIT dataChanged(index, index, {EnabledRole});
+    return true;
+}
+
 inline
 bool refreshRateCompare(float rate1, float rate2)
 {
@@ -258,15 +292,16 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     }
     const QSize size = resolutionList[resIndex];
 
-    const float oldRefreshRate = output.ptr->currentMode()->refreshRate();
+    const float oldRate = output.ptr->currentMode() ? output.ptr->currentMode()->refreshRate() :
+                                                      -1;
     const auto modes = output.ptr->modes();
 
     auto modeIt = std::find_if(modes.begin(), modes.end(),
-                 [size, oldRefreshRate](const KScreen::ModePtr &mode) {
+                 [size, oldRate](const KScreen::ModePtr &mode) {
         // TODO: we don't want to compare against old refresh rate if
         //       refresh rate selection is auto.
         return mode->size() == size &&
-                refreshRateCompare(mode->refreshRate(), oldRefreshRate);
+                refreshRateCompare(mode->refreshRate(), oldRate);
     });
 
     if (modeIt == modes.end()) {
@@ -354,11 +389,13 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
 
 int OutputModel::resolutionIndex(const KScreen::OutputPtr &output) const
 {
-    if (!output->currentMode()) {
+    const QSize currentResolution = output->enforcedModeSize();
+
+    if (!currentResolution.isValid()) {
         return 0;
     }
+
     const auto sizes = resolutions(output);
-    const QSize currentResolution = output->currentMode()->size();
 
     const auto it = std::find_if(sizes.begin(),
                                  sizes.end(),
@@ -427,10 +464,16 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr
                                                   &output) const
 {
     QVector<float> hits;
-    if (!output->currentMode()) {
+
+    QSize baseSize;
+    if (output->currentMode()) {
+        baseSize = output->currentMode()->size();
+    } else if (output->preferredMode()) {
+        baseSize = output->preferredMode()->size();
+    }
+    if (!baseSize.isValid()) {
         return hits;
     }
-    const auto baseSize = output->currentMode()->size();
 
     for (const auto &mode : output->modes()) {
         if (mode->size() != baseSize) {
@@ -486,20 +529,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             return false;
         }
         output.ptr->setReplicationSource(0);
-
-        if (output.replicaReset.isNull()) {
-            // KCM was closed in between.
-            for (const Output &out : m_outputs) {
-                if (out.ptr->id() == output.ptr->id()) {
-                    continue;
-                }
-                if (out.ptr->geometry().right() > output.ptr->pos().x()) {
-                    output.ptr->setPos(out.ptr->geometry().topRight());
-                }
-            }
-        } else {
-            output.ptr->setPos(output.ptr->pos() - output.replicaReset);
-        }
+        resetPosition(output);
     } else {
         const int sourceId = m_outputs[sourceIndex].ptr->id();
         if (oldSourceId == sourceId) {
@@ -507,7 +537,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             return false;
         }
         output.ptr->setReplicationSource(sourceId);
-        output.replicaReset = m_outputs[sourceIndex].ptr->pos() - output.ptr->pos();
+        output.posReset = output.ptr->pos();
         output.ptr->setPos(m_outputs[sourceIndex].ptr->pos());
     }
 

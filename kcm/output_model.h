@@ -90,10 +90,12 @@ private:
         {}
         KScreen::OutputPtr ptr;
         QPoint pos;
-        QPoint replicaReset;
+        QPoint posReset = QPoint(-1, -1);
     };
 
     void roleChanged(int outputId, OutputRoles role);
+
+    void resetPosition(const Output &output);
     void reposition();
     void updatePositions();
     void updateOrder();
@@ -106,9 +108,12 @@ private:
      */
     void snap(const Output &output, QPoint &dest);
 
+    bool setEnabled(int outputIndex, bool enable);
+
     bool setResolution(int outputIndex, int resIndex);
     bool setRefreshRate(int outputIndex, int refIndex);
     bool setRotation(int outputIndex, KScreen::Output::Rotation rotation);
+
     int resolutionIndex(const KScreen::OutputPtr &output) const;
     int refreshRateIndex(const KScreen::OutputPtr &output) const;
     QVariantList resolutionsStrings(const KScreen::OutputPtr &output) const;

@@ -117,7 +117,7 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
 
     QSize screenSize;
     for (const auto &output : config->data()->outputs()) {
-        if (!output->isConnected() || !output->isEnabled()) {
+        if (!output->isPositionable()) {
             continue;
         }
 
@@ -171,32 +171,52 @@ bool Config::writeFile(const QString &filePath)
 
     const auto control = ControlConfig(m_data);
 
+    const auto oldConfig = readFile();
+    KScreen::OutputList oldOutputs;
+    if (oldConfig) {
+        oldOutputs = oldConfig->data()->outputs();
+    }
+
     QVariantList outputList;
-    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         QVariantMap info;
+
+        const auto oldOutputIt = std::find_if(oldOutputs.constBegin(), oldOutputs.constEnd(),
+                                              [output](const KScreen::OutputPtr &out) {
+                                                  return out->hashMd5() == output->hashMd5();
+                                               }
+        );
+        const KScreen::OutputPtr oldOutput = oldOutputIt != oldOutputs.constEnd() ? *oldOutputIt :
+                                                                                    nullptr;
 
         if (!output->isConnected()) {
             continue;
         }
-        if (!Output::writeGlobalPart(output, info)) {
-            continue;
-        }
 
+        Output::writeGlobalPart(output, info, oldOutput);
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
-        QString replicationSourceHash;
-        if (int sourceId = output->replicationSource()) {
-            replicationSourceHash = m_data->output(sourceId)->hashMd5();
-        }
-        info[QStringLiteral("replicate")] = replicationSourceHash;
+        auto setOutputConfigInfo = [this, &info](const KScreen::OutputPtr &out) {
+            if (!out) {
+                return;
+            }
+            QString replicationSourceHash;
+            if (int sourceId = out->replicationSource()) {
+                replicationSourceHash = m_data->output(sourceId)->hashMd5();
+            }
+            info[QStringLiteral("replicate")] = replicationSourceHash;
 
-        QVariantMap pos;
-        pos[QStringLiteral("x")] = output->pos().x();
-        pos[QStringLiteral("y")] = output->pos().y();
-        info[QStringLiteral("pos")] = pos;
+            QVariantMap pos;
+            pos[QStringLiteral("x")] = out->pos().x();
+            pos[QStringLiteral("y")] = out->pos().y();
+            info[QStringLiteral("pos")] = pos;
+        };
+        setOutputConfigInfo(output->isEnabled() ? output : oldOutput);
 
-        if (control.getOutputRetention(output->hash(), output->name()) != Control::OutputRetention::Individual) {
+        if (output->isEnabled() &&
+                control.getOutputRetention(output->hash(), output->name()) !=
+                    Control::OutputRetention::Individual) {
             // try to update global output data
             Output::writeGlobal(output);
         }

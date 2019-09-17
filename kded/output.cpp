@@ -351,32 +351,38 @@ static QVariantMap metadata(const KScreen::OutputPtr &output)
     return metadata;
 }
 
-bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info)
+bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info,
+                             const KScreen::OutputPtr &fallback)
 {
-    if (!output->isEnabled()) {
-        return false;
-    }
-    const KScreen::ModePtr mode = output->currentMode();
-    if (!mode) {
-        qWarning() << "CurrentMode is null" << output->name();
-        return false;
-    }
 
     info[QStringLiteral("id")] = output->hash();
+    info[QStringLiteral("metadata")] = metadata(output);
     info[QStringLiteral("rotation")] = output->rotation();
 
     // Round scale to one digit.
     info[QStringLiteral("scale")] = int(output->scale() * 10 + 0.5) / 10.;
 
-    info[QStringLiteral("metadata")] = metadata(output);
-
     QVariantMap modeInfo;
-    modeInfo[QStringLiteral("refresh")] = mode->refreshRate();
+    float refreshRate = -1.;
+    QSize modeSize;
+    if (output->currentMode() && output->isEnabled()) {
+        refreshRate = output->currentMode()->refreshRate();
+        modeSize = output->currentMode()->size();
+    } else if (fallback && fallback->currentMode()) {
+        refreshRate = fallback->currentMode()->refreshRate();
+        modeSize = fallback->currentMode()->size();
+    }
 
-    QVariantMap modeSize;
-    modeSize[QStringLiteral("width")] = mode->size().width();
-    modeSize[QStringLiteral("height")] = mode->size().height();
-    modeInfo[QStringLiteral("size")] = modeSize;
+    if (refreshRate < 0 || !modeSize.isValid()) {
+        return false;
+    }
+
+    modeInfo[QStringLiteral("refresh")] = refreshRate;
+
+    QVariantMap modeSizeMap;
+    modeSizeMap[QStringLiteral("width")] = modeSize.width();
+    modeSizeMap[QStringLiteral("height")] = modeSize.height();
+    modeInfo[QStringLiteral("size")] = modeSizeMap;
 
     info[QStringLiteral("mode")] = modeInfo;
 
@@ -387,7 +393,7 @@ void Output::writeGlobal(const KScreen::OutputPtr &output)
 {
     // get old values and subsequently override
     QVariantMap info = getGlobalData(output);
-    if (!writeGlobalPart(output, info)) {
+    if (!writeGlobalPart(output, info, nullptr)) {
         return;
     }
 
