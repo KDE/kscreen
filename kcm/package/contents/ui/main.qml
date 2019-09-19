@@ -41,14 +41,13 @@ KCM.SimpleKCM {
 
             Layout.fillWidth: true
             type: Kirigami.MessageType.Warning
-            text: i18n("Are you sure you want to disable all outputs? " +
-                       "This might render the device unusable.")
+            text: i18n("Are you sure you want to disable all outputs? This might render the device unusable.")
             showCloseButton: true
 
             actions: [
                 Kirigami.Action {
                     iconName: "dialog-ok"
-                    text: i18n("Disable all outputs")
+                    text: i18n("Disable All Outputs")
                     onTriggered: {
                         dangerousSaveMsg.visible = false;
                         kcm.forceSave();
@@ -76,8 +75,7 @@ KCM.SimpleKCM {
             id: scaleMsg
             Layout.fillWidth: true
             type: Kirigami.MessageType.Positive
-            text: i18n("New global scale applied. " +
-                       "Change will come into effect after restart.")
+            text: i18n("New global scale applied. Change will come into effect after restart.")
             visible: false
             showCloseButton: true
         }
@@ -96,11 +94,9 @@ KCM.SimpleKCM {
             onGlobalScaleWritten: scaleMsg.visible = true;
             onOutputConnect: {
                 if (connected) {
-                    connectMsg.text = i18n("A new output has been added. " +
-                                           " Settings have been reloaded.");
+                    connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
                 } else {
-                    connectMsg.text = i18n("An output has been removed. " +
-                                           " Settings have been reloaded.");
+                    connectMsg.text = i18n("An output has been removed. Settings have been reloaded.");
                 }
                 connectMsg.visible = true;
             }
