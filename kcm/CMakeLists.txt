@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"kcm_displayconfiguration\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kcm_kscreen\")
 
 set(kcm_kscreen_SRCS
     config_handler.cpp
