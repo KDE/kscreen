@@ -19,7 +19,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.5 as Kirigami
 
-Rectangle {
+Controls.ScrollView {
     property var outputs
     property size totalSize
 
@@ -46,11 +46,8 @@ Rectangle {
     property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
     implicitHeight: Math.max(root.height * 0.4, units.gridUnit * 13)
-    radius: units.smallSpacing
-    color: "white"
-    border.color: Qt.tint(Kirigami.Theme.textColor, Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.8))
-    border.width: 1
-    clip: true
+
+    Component.onCompleted: background.visible = true;
 
     Row {
         z: 90
