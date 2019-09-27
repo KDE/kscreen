@@ -54,7 +54,6 @@ Rectangle {
     radius: 4
     color: palette.window
     smooth: true
-    clip: true
 
     border {
         color: isSelected ? palette.highlight : palette.shadow
