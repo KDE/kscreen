@@ -24,7 +24,7 @@ import org.kde.kcm 1.2 as KCM
 KCM.SimpleKCM {
     id: root
 
-    implicitWidth: units.gridUnit * 30
+    implicitWidth: units.gridUnit * 32
     implicitHeight: units.gridUnit * 38
 
     property int selectedOutput: 0

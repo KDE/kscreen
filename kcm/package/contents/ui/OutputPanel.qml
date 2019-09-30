@@ -75,9 +75,28 @@ ColumnLayout {
                 value: element.scale
                 onMoved: element.scale = value
             }
-            Controls.Label {
-                Layout.alignment: Qt.AlignHCenter
-                text: i18nc("Scale factor (e.g. 1.0x, 1.5x, 2.0x)","%1x", scaleSlider.value.toLocaleString(Qt.locale(), "f", 1))
+            Controls.SpinBox {
+                id: spinbox
+                // Because QQC2 SpinBox doesn't natively support decimal step
+                // sizes: https://bugreports.qt.io/browse/QTBUG-67349
+                property real factor: 20.0
+                property real realValue: value / factor
+
+                from : 0.5 * factor
+                to : 3.0 * factor
+                stepSize: 0.05 * factor
+                value: element.scale * factor
+                validator: DoubleValidator {
+                    bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
+                    top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
+                }
+                textFromValue: function(value, locale) {
+                    return parseFloat(value * 1.0 / factor).toFixed(2);
+                }
+                valueFromText: function(text, locale) {
+                    return Number.fromLocaleString(locale, text) * factor
+                }
+                onValueModified: element.scale = realValue
             }
         }
 

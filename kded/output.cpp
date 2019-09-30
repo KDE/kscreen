@@ -359,8 +359,8 @@ bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info
     info[QStringLiteral("metadata")] = metadata(output);
     info[QStringLiteral("rotation")] = output->rotation();
 
-    // Round scale to one digit.
-    info[QStringLiteral("scale")] = int(output->scale() * 10 + 0.5) / 10.;
+    // Round scale to two digits
+    info[QStringLiteral("scale")] = int(output->scale() * 100 + 0.5) / 100.;
 
     QVariantMap modeInfo;
     float refreshRate = -1.;

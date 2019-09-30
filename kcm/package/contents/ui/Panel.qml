@@ -70,14 +70,50 @@ ColumnLayout {
                 Layout.fillWidth: true
                 from: 1
                 to: 3
-                stepSize: 0.1
+                stepSize: 0.25
                 live: true
                 value: kcm.globalScale
-                onMoved: kcm.globalScale = value
+                onMoved: kcm.globalScale = value;
             }
-            Controls.Label {
-                text: i18nc("Scale factor (e.g. 1.0x, 1.5x, 2.0x)","%1x", globalScaleSlider.value.toLocaleString(Qt.locale(), "f", 1))
+            Controls.SpinBox {
+                id: spinbox
+                // Because QQC2 SpinBox doesn't natively support decimal step
+                // sizes: https://bugreports.qt.io/browse/QTBUG-67349
+                property real factor: 20.0
+                property real realValue: value / factor
+
+                from : 1.0 * factor
+                to : 3.0 * factor
+                stepSize: 0.05 * factor
+                value: kcm.globalScale * factor
+                validator: DoubleValidator {
+                    bottom: Math.min(spinbox.from, spinbox.to)*spinbox.factor
+                    top:  Math.max(spinbox.from, spinbox.to)*spinbox.factor
+                }
+                textFromValue: function(value, locale) {
+                    return parseFloat(value * 1.0 / factor).toFixed(2);
+                }
+                valueFromText: function(text, locale) {
+                    return Number.fromLocaleString(locale, text) * factor
+                }
+                onValueModified: {
+                    kcm.globalScale = realValue;
+                    if (kcm.globalScale % 0.25) {
+                        weirdScaleFactorMsg.visible = true;
+                    } else {
+                        weirdScaleFactorMsg.visible = false;
+                    }
+                }
             }
+        }
+
+        Kirigami.InlineMessage {
+            id: weirdScaleFactorMsg
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Warning
+            text: i18n("Scale factors that are not a multiple of 0.25 may cause visual glitches in applications. Consider setting the scale factor to a multiple of 0.25 and adjusting the font size instead.")
+            visible: false
+            showCloseButton: true
         }
 
         Controls.ButtonGroup {
