@@ -109,6 +109,7 @@ ColumnLayout {
 
         Kirigami.InlineMessage {
             id: weirdScaleFactorMsg
+            Kirigami.FormData.isSection: true
             Layout.fillWidth: true
             type: Kirigami.MessageType.Warning
             text: i18n("Scale factors that are not a multiple of 0.25 may cause visual glitches in applications. Consider setting the scale factor to a multiple of 0.25 and adjusting the font size instead.")
