@@ -77,14 +77,19 @@ ColumnLayout {
             }
             Controls.SpinBox {
                 id: spinbox
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 6
+
                 // Because QQC2 SpinBox doesn't natively support decimal step
                 // sizes: https://bugreports.qt.io/browse/QTBUG-67349
-                property real factor: 20.0
+                property real factor: 16.0
                 property real realValue: value / factor
 
                 from : 1.0 * factor
                 to : 3.0 * factor
-                stepSize: 0.05 * factor
+                // On X11 We set the increment to this weird value to compensate
+                // for inherent difficulties with floating-point math and this
+                // Qt bug: https://bugreports.qt.io/browse/QTBUG-66036
+                stepSize: 0.0625 * factor
                 value: kcm.globalScale * factor
                 validator: DoubleValidator {
                     bottom: Math.min(spinbox.from, spinbox.to)*spinbox.factor
@@ -111,8 +116,8 @@ ColumnLayout {
             id: weirdScaleFactorMsg
             Kirigami.FormData.isSection: true
             Layout.fillWidth: true
-            type: Kirigami.MessageType.Warning
-            text: i18n("Scale factors that are not a multiple of 25% may cause visual glitches in applications. Consider setting the scale factor to a multiple of 25% and adjusting the font size instead.")
+            type: Kirigami.MessageType.Info
+            text: i18n("The global scale factor is limited to multiples of 6.25% to minimize visual glitches in applications using the X11 windowing system.")
             visible: false
             showCloseButton: true
         }
