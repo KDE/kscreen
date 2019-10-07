@@ -49,6 +49,21 @@ Controls.ScrollView {
 
     Component.onCompleted: background.visible = true;
 
+    Kirigami.Heading {
+        z: 90
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: units.smallSpacing
+        }
+        level: 4
+        opacity: 0.6
+        horizontalAlignment: Text.AlignHCenter
+        text: i18n("Drag screens to re-arrange them")
+        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+    }
+
     Row {
         z: 90
         anchors {

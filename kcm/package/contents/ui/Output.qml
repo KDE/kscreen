@@ -264,5 +264,13 @@ Rectangle {
             model.position = getAbsolutePosition(Qt.point(newX, newY));
         }
     }
+
+    // So we can show a grabby hand cursor when hovered over
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.SizeAllCursor
+        acceptedButtons: Qt.NoButton // Otherwise it interferes with the drag handler
+        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+    }
 }
 
