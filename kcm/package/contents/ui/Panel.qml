@@ -91,10 +91,10 @@ ColumnLayout {
                     top:  Math.max(spinbox.from, spinbox.to)*spinbox.factor
                 }
                 textFromValue: function(value, locale) {
-                    return parseFloat(value * 1.0 / factor).toFixed(2);
+                    return i18nc("Global scale factor expressed in percentage form", "%1%", parseFloat(value * 1.0 / factor * 100.0));
                 }
                 valueFromText: function(text, locale) {
-                    return Number.fromLocaleString(locale, text) * factor
+                    return Number.fromLocaleString(locale, text) * factor / 100.0
                 }
                 onValueModified: {
                     kcm.globalScale = realValue;
@@ -112,7 +112,7 @@ ColumnLayout {
             Kirigami.FormData.isSection: true
             Layout.fillWidth: true
             type: Kirigami.MessageType.Warning
-            text: i18n("Scale factors that are not a multiple of 0.25 may cause visual glitches in applications. Consider setting the scale factor to a multiple of 0.25 and adjusting the font size instead.")
+            text: i18n("Scale factors that are not a multiple of 25% may cause visual glitches in applications. Consider setting the scale factor to a multiple of 25% and adjusting the font size instead.")
             visible: false
             showCloseButton: true
         }

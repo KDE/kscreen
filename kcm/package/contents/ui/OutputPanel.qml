@@ -91,10 +91,10 @@ ColumnLayout {
                     top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
                 }
                 textFromValue: function(value, locale) {
-                    return parseFloat(value * 1.0 / factor).toFixed(2);
+                    return i18nc("Global scale factor expressed in percentage form", "%1%", parseFloat(value * 1.0 / factor * 100.0));
                 }
                 valueFromText: function(text, locale) {
-                    return Number.fromLocaleString(locale, text) * factor
+                    return Number.fromLocaleString(locale, text) * factor / 100.0
                 }
                 onValueModified: element.scale = realValue
             }
