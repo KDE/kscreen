@@ -505,7 +505,7 @@ QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output
                 // This 'out' is a replica. Can't be a replication source.
                 continue;
             }
-            ret.append(out.ptr->name());
+            ret.append(Utils::outputName(out.ptr));
         }
     }
     return ret;
