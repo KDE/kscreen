@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.4 as Controls
+import org.kde.kirigami 2.4 as Kirigami
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 Controls.ToolButton {
@@ -29,11 +30,15 @@ Controls.ToolButton {
     Layout.fillWidth: true
     height: childrenRect.height
 
-    icon.name: "view-preview"
     checked: element.rotation === rot
 
     Controls.ToolTip {
         text: tooltip
+    }
+
+    contentItem: Kirigami.Icon {
+        source: "view-preview"
+        rotation: root.value
     }
 
     onClicked: {
@@ -45,16 +50,9 @@ Controls.ToolButton {
         screen.resetTotalSize();
     }
 
-    implicitWidth: 45
-    implicitHeight: 45
+    implicitWidth: contentItem.implicitWidth + 2 * Kirigami.Units.smallSpacing
+    implicitHeight: contentItem.implicitHeight + 2 * Kirigami.Units.smallSpacing
 
-    transform: Rotation {
-        origin {
-            x: root.width / 2
-            y: root.height / 2
-        }
-        angle: root.value
-    }
     Component.onCompleted: {
         switch(value) {
         case 90:
