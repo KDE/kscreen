@@ -265,6 +265,16 @@ void KCMKScreen::load()
     }
     fetchGlobalScale();
 
+    // Don't pull away the outputModel under QML's feet
+    // signal its disappearance first before deleting and replacing it.
+    // We take the m_config pointer so outputModel() will return null,
+    // gracefully cleaning up the QML side and only then we will delete it.
+    auto *oldConfig = m_config.release();
+    if (oldConfig) {
+        emit outputModelChanged();
+        delete oldConfig;
+    }
+
     m_config.reset(new ConfigHandler(this));
     Q_EMIT perOutputScalingChanged();
     connect (m_config.get(), &ConfigHandler::outputModelChanged,
