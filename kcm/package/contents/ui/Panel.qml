@@ -22,6 +22,31 @@ import org.kde.kirigami 2.4 as Kirigami
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
+    RowLayout {
+        Layout.alignment: Qt.AlignHCenter
+        spacing: 0
+        visible: kcm.outputModel.rowCount() > 1
+
+        Kirigami.Heading {
+            horizontalAlignment: Text.AlignHCenter
+            level: 2
+            // FIXME i18n change text in master
+            text: i18n("Settings for %1", " ")
+        }
+
+        Controls.ComboBox {
+            model: kcm.outputModel
+            textRole: "display"
+            currentIndex: root.selectedOutput
+            onActivated: {
+                root.selectedOutput = index
+                currentIndex = Qt.binding(function() {
+                    return root.selectedOutput;
+                });
+            }
+        }
+    }
+
     Controls.SwipeView {
         id: panelView
         currentIndex: root.selectedOutput
@@ -44,7 +69,7 @@ ColumnLayout {
         visible: count > 1
 
         count: panelView.count
-        currentIndex: panelView.currentIndex
+        currentIndex: root.selectedOutput
         interactive: true
         onCurrentIndexChanged: root.selectedOutput = currentIndex
     }

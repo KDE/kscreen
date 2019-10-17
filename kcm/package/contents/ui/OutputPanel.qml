@@ -25,14 +25,6 @@ ColumnLayout {
     id: outputPanel
     property var element: model
 
-    Kirigami.Heading {
-        Layout.fillWidth: true
-        horizontalAlignment: Text.AlignHCenter
-        level: 2
-        text: i18n("Settings for %1", element.display)
-        visible: kcm.outputModel.rowCount() > 1
-    }
-
     Kirigami.FormLayout {
         twinFormLayouts: globalSettingsLayout
 
