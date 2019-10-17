@@ -25,7 +25,7 @@ ColumnLayout {
     RowLayout {
         Layout.alignment: Qt.AlignHCenter
         spacing: 0
-        visible: kcm.outputModel.rowCount() > 1
+        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
 
         Kirigami.Heading {
             horizontalAlignment: Text.AlignHCenter
