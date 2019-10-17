@@ -85,9 +85,9 @@ std::unique_ptr<Config> Config::readFile()
 
 std::unique_ptr<Config> Config::readOpenLidFile()
 {
-    const QString openLidFilePath = filePath() % QStringLiteral("_lidOpened");
-    auto config = readFile(openLidFilePath);
-    QFile::remove(openLidFilePath);
+    const QString openLidFile = id() % QStringLiteral("_lidOpened");
+    auto config = readFile(openLidFile);
+    QFile::remove(configsDirPath() % openLidFile);
     return config;
 }
 
