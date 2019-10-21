@@ -71,7 +71,7 @@ Rectangle {
 
         ColumnLayout {
             anchors.centerIn: parent
-            spacing: units.smallSpacing
+            spacing: 0
             width: parent.width
             Layout.maximumHeight: parent.height
 
@@ -80,19 +80,18 @@ Rectangle {
                 Layout.margins: units.smallSpacing
 
                 text: model.display
+                wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
-                color: palette.text
             }
 
             Controls.Label {
                 Layout.fillWidth: true
-                Layout.margins: units.smallSpacing
+                Layout.bottomMargin: units.smallSpacing
 
                 text: "(" + model.size.width + "x" + model.size.height + ")"
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
-                color: palette.text
             }
         }
     }
