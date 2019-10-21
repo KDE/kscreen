@@ -31,8 +31,8 @@ Controls.ScrollView {
     onHeightChanged: resetTotalSize()
 
     property real relativeFactor: {
-        var relativeSize = Qt.size(totalSize.width / (0.35 * width),
-                                   totalSize.height / (0.35 * height));
+        var relativeSize = Qt.size(totalSize.width / (0.6 * width),
+                                   totalSize.height / (0.6 * height));
         if (relativeSize.width > relativeSize.height) {
             // Available width smaller than height, optimize for width (we have
             // '>' because the available width, height is in the denominator).
