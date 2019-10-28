@@ -72,7 +72,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config)
     const auto outputs = config->outputs();
     allIds.reserve(outputs.count());
     for (const KScreen::OutputPtr &output : outputs) {
-        const auto outputId = output->hash();
+        const auto outputId = output->hashMd5();
         if (allIds.contains(outputId) && !m_duplicateOutputIds.contains(outputId)) {
             m_duplicateOutputIds << outputId;
         }
@@ -124,7 +124,7 @@ bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputI
 
 Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::OutputPtr &output) const
 {
-    return getOutputRetention(output->hash(), output->name());
+    return getOutputRetention(output->hashMd5(), output->name());
 }
 
 Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
@@ -150,7 +150,7 @@ static QVariantMap metadata(const QString &outputName)
 
 void ControlConfig::setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value)
 {
-    setOutputRetention(output->hash(), output->name(), value);
+    setOutputRetention(output->hashMd5(), output->name(), value);
 }
 
 void ControlConfig::setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value)
@@ -229,5 +229,5 @@ QString ControlOutput::filePath() const
     if (!m_output) {
         return QString();
     }
-    return filePathFromHash(m_output->hash());
+    return filePathFromHash(m_output->hashMd5());
 }
