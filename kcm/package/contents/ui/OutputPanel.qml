@@ -62,7 +62,7 @@ ColumnLayout {
                 Layout.fillWidth: true
                 from: 0.5
                 to: 3
-                stepSize: 0.1
+                stepSize: 0.25
                 live: true
                 value: element.scale
                 onMoved: element.scale = value
