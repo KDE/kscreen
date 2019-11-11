@@ -24,6 +24,7 @@ Rectangle {
     id: output
 
     property bool isSelected: root.selectedOutput === model.index
+    property size outputSize: model.size
 
     onIsSelectedChanged: {
         if (isSelected) {
@@ -39,7 +40,9 @@ Rectangle {
     }
 
     visible: model.enabled && model.replicationSourceIndex === 0
+
     onVisibleChanged: screen.resetTotalSize()
+    onOutputSizeChanged: screen.resetTotalSize()
 
     x: model.position ? model.position.x / screen.relativeFactor + screen.xOffset : 0
     y: model.position ? model.position.y / screen.relativeFactor + screen.yOffset : 0
@@ -261,6 +264,11 @@ Rectangle {
             var newX = dragStartPosition.x + translation.x;
             var newY = dragStartPosition.y + translation.y;
             model.position = getAbsolutePosition(Qt.point(newX, newY));
+        }
+        onActiveChanged: {
+            if (!active) {
+                screen.resetTotalSize();
+            }
         }
     }
 

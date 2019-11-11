@@ -64,29 +64,19 @@ Controls.ScrollView {
         visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
     }
 
-    Row {
-        z: 90
+    Controls.Button {
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
             margins: units.smallSpacing
         }
-        spacing: units.smallSpacing
-        Controls.Button {
-            onClicked: kcm.identifyOutputs()
-            text: i18n("Identify")
-            icon.name: "documentinfo"
-            focusPolicy: Qt.NoFocus
-            visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
-        }
-        Controls.Button {
-            enabled: !kcm.screenNormalized
-            onClicked: resetTotalSize()
-            text: i18n("Center View")
-            icon.name: "zoom-original"
-            focusPolicy: Qt.NoFocus
-            visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
-        }
+        z: 90
+
+        onClicked: kcm.identifyOutputs()
+        text: i18n("Identify")
+        icon.name: "documentinfo"
+        focusPolicy: Qt.NoFocus
+        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
     }
 
     Repeater {
