@@ -36,10 +36,11 @@ public:
 
     virtual ~Control() = default;
 
-    virtual QString filePath() = 0;
-
 protected:
-    static QString dirPath();
+    virtual QString dirPath() const;
+    virtual QString filePath() const = 0;
+    QString filePathFromHash(const QString &hash) const;
+
     static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
 private:
@@ -59,8 +60,8 @@ public:
 
     bool writeFile();
 
-    QString filePath() override;
-    static QString filePath(const QString &hash);
+    QString dirPath() const override;
+    QString filePath() const override;
 
 private:
     QVariantList getOutputs() const;
@@ -80,8 +81,8 @@ public:
 
     // TODO: scale auto value
 
-    QString filePath() override;
-    static QString filePath(const QString &hash);
+    QString dirPath() const override;
+    QString filePath() const override;
 
 private:
     KScreen::OutputPtr m_output;

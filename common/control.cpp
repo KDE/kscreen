@@ -26,9 +26,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 QString Control::s_dirName = QStringLiteral("control/");
 
-QString Control::dirPath()
+QString Control::dirPath() const
 {
     return Globals::dirPath() % s_dirName;
+}
+
+QString Control::filePathFromHash(const QString &hash) const
+{
+    return dirPath() % hash;
 }
 
 Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
@@ -49,7 +54,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config)
     : m_config(config)
 {
 //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
-    QFile file(filePath(config->connectedOutputsHash()));
+    QFile file(filePathFromHash(config->connectedOutputsHash()));
     if (file.open(QIODevice::ReadOnly)) {
         // This might not be reached, bus this is ok. The control file will
         // eventually be created on first write later on.
@@ -67,7 +72,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config)
     const auto outputs = config->outputs();
     allIds.reserve(outputs.count());
     for (const KScreen::OutputPtr &output : outputs) {
-        const auto outputId = output->hash();
+        const auto outputId = output->hashMd5();
         if (allIds.contains(outputId) && !m_duplicateOutputIds.contains(outputId)) {
             m_duplicateOutputIds << outputId;
         }
@@ -81,21 +86,17 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config)
     //       in case of such a change while object exists?
 }
 
-QString ControlConfig::filePath(const QString &hash)
+QString ControlConfig::dirPath() const
 {
-    const QString dir = dirPath() % QStringLiteral("configs/");
-    if (!QDir().mkpath(dir)) {
-        return QString();
-    }
-    return dir % hash;
+    return Control::dirPath() % QStringLiteral("configs/");
 }
 
-QString ControlConfig::filePath()
+QString ControlConfig::filePath() const
 {
     if (!m_config) {
         return QString();
     }
-    return ControlConfig::filePath(m_config->connectedOutputsHash());
+    return filePathFromHash(m_config->connectedOutputsHash());
 }
 
 bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const
@@ -123,7 +124,7 @@ bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputI
 
 Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::OutputPtr &output) const
 {
-    return getOutputRetention(output->hash(), output->name());
+    return getOutputRetention(output->hashMd5(), output->name());
 }
 
 Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
@@ -149,7 +150,7 @@ static QVariantMap metadata(const QString &outputName)
 
 void ControlConfig::setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value)
 {
-    setOutputRetention(output->hash(), output->name(), value);
+    setOutputRetention(output->hashMd5(), output->name(), value);
 }
 
 void ControlConfig::setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value)
@@ -179,8 +180,20 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
 
 bool ControlConfig::writeFile()
 {
+    const QString path = filePath();
+
+    if (m_info.isEmpty()) {
+        // Nothing to write. Default control. Remove file if it exists.
+        QFile::remove(path);
+        return true;
+    }
+    if (!QDir().mkpath(dirPath())) {
+        // TODO: error message
+        return false;
+    }
+
     // write updated data to file
-    QFile file(filePath());
+    QFile file(path);
     if (!file.open(QIODevice::WriteOnly)) {
         // TODO: logging category?
 //        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
@@ -206,19 +219,15 @@ ControlOutput::ControlOutput(KScreen::OutputPtr output)
 {
 }
 
-QString ControlOutput::filePath(const QString &hash)
+QString ControlOutput::dirPath() const
 {
-    const QString dir = dirPath() % QStringLiteral("outputs/");
-    if (!QDir().mkpath(dir)) {
-        return QString();
-    }
-    return dir % hash;
+    return Control::dirPath() % QStringLiteral("outputs/");
 }
 
-QString ControlOutput::filePath()
+QString ControlOutput::filePath() const
 {
     if (!m_output) {
         return QString();
     }
-    return ControlOutput::filePath(m_output->hash());
+    return filePathFromHash(m_output->hashMd5());
 }

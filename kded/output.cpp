@@ -152,12 +152,25 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
             if (it == outputsInfo.end()) {
                 return false;
             }
+
+            auto isPortrait = [](const QVariant &info) {
+                bool ok;
+                const int rot = info.toInt(&ok);
+                if (!ok) {
+                    return false;
+                }
+                return rot & KScreen::Output::Rotation::Left ||
+                        rot & KScreen::Output::Rotation::Right;
+            };
+
             const QVariantMap outputInfo = it->toMap();
 
             const QVariantMap posInfo = outputInfo[QStringLiteral("pos")].toMap();
             const QVariant scaleInfo = outputInfo[QStringLiteral("scale")];
             const QVariantMap modeInfo = outputInfo[QStringLiteral("mode")].toMap();
             const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
+            const bool portrait = isPortrait(outputInfo[QStringLiteral("rotation")]);
+
             if (posInfo.isEmpty() || modeSize.isEmpty() || !scaleInfo.canConvert<int>()) {
                 return false;
             }
@@ -167,7 +180,11 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
                 return false;
             }
             const QPoint pos = QPoint(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
-            const QSize size = QSize(modeSize[QStringLiteral("width")].toInt() / scale, modeSize[QStringLiteral("height")].toInt() / scale);
+            QSize size = QSize(modeSize[QStringLiteral("width")].toInt() / scale,
+                               modeSize[QStringLiteral("height")].toInt() / scale);
+            if (portrait) {
+                size.transpose();
+            }
             geo = QRect(pos, size);
 
             return true;
