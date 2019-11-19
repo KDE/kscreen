@@ -34,6 +34,7 @@ Controls.ToolButton {
 
     Controls.ToolTip {
         text: tooltip
+        timeout: 5000
     }
 
     contentItem: Kirigami.Icon {
