@@ -212,7 +212,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         const int xCorrected = prevRight + prevGeo.width() * xInfoDiff / (double)prevInfoGeo.width();
         const int xDiff = curGeo.x() - prevRight;
 
-        // In the following calculate the y-correction. This is more involved since we
+        // In the following calculate the y-coorection. This is more involved since we
         // differentiate between overlapping and non-overlapping pairs and align either
         // top to top/bottom or bottom to top/bottom
         const bool yOverlap = prevInfoGeo.y() + prevInfoGeo.height() > curInfoGeo.y() &&
@@ -342,7 +342,7 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             break;
         }
         if (!infoFound) {
-            // no info in info for this output, try reading in global output info at least or set some default values
+            // no info in info for this output, try reading in global output info atleast or set some default values
 
             qCWarning(KSCREEN_KDED) << "\tFailed to find a matching output in the current info data - this means that our info is corrupted"
                                        "or a different device with the same serial number has been connected (very unlikely).";

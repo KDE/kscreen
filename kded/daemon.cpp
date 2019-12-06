@@ -170,7 +170,7 @@ void KScreenDaemon::applyKnownConfig()
     if (readInConfig) {
         doApplyConfig(std::move(readInConfig));
     } else {
-        // loading not successful, fall back to ideal config
+        // loading not succesful, fall back to ideal config
         applyIdealConfig();
     }
 }

@@ -32,7 +32,7 @@ KCM.SimpleKCM {
     ColumnLayout {
         Kirigami.InlineMessage {
             // Note1: There is an implicit height binding loop error on
-            //        first invocation. Seems to be an issue in Kirigami.
+            //        first invokation. Seems to be an issue in Kirigami.
             // Note2: This should maybe go in header component of the KCM,
             //        but there seems to be another issue in Kirigami then
             //        being always hidden. Compare Night Color KCM with
