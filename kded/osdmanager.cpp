@@ -151,7 +151,7 @@ OsdAction *OsdManager::showActionSelector()
                 return;
             }
 
-            // Show selector on alll enabled screens
+            // Show selector on all enabled screens
             const auto outputs = op->config()->outputs();
             KScreen::OutputPtr osdOutput;
             for (const auto &output : outputs) {

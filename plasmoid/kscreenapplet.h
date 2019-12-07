@@ -32,7 +32,7 @@ class KScreenApplet : public Plasma::Applet
     Q_OBJECT
 
     /**
-     * The number of currently connected (not neccessarily enabled) outputs
+     * The number of currently connected (not necessarily enabled) outputs
      */
     Q_PROPERTY(int connectedOutputCount READ connectedOutputCount NOTIFY connectedOutputCountChanged)
 

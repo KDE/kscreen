@@ -427,7 +427,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     }
 
     qCDebug(KSCREEN_KDED) << "Lid is open";
-    //If lid is open, laptop screen shuold be primary
+    //If lid is open, laptop screen should be primary
     embedded->setPos(QPoint(0,0));
     embedded->setPrimary(true);
     embedded->setEnabled(true);
