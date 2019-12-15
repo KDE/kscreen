@@ -92,27 +92,7 @@ ColumnLayout {
             }
         }
 
-        Controls.ButtonGroup {
-            buttons: orientation.children
-        }
-
-        RowLayout {
-           id: orientation
-           Kirigami.FormData.label: i18n("Orientation:")
-
-           RotationButton {
-               value: 0
-           }
-           RotationButton {
-               value: 90
-           }
-           RotationButton {
-               value: 180
-           }
-           RotationButton {
-               value: 270
-           }
-        }
+        Orientation {}
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Refresh rate:")
