@@ -68,6 +68,11 @@ public:
     void setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value);
     void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
+    bool getAutoRotate(const KScreen::OutputPtr &output) const;
+    bool getAutoRotate(const QString &outputId, const QString &outputName) const;
+    void setAutoRotate(const KScreen::OutputPtr &output, bool value);
+    void setAutoRotate(const QString &outputId, const QString &outputName, bool value);
+
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -94,6 +99,9 @@ public:
     QString name() const;
 
     // TODO: scale auto value
+
+    bool getAutoRotate() const;
+    void setAutoRotate(bool value);
 
     QString dirPath() const override;
     QString filePath() const override;

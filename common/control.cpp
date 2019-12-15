@@ -211,6 +211,14 @@ static QVariantMap metadata(const QString &outputName)
     return metadata;
 }
 
+QVariantMap createOutputInfo(const QString &outputId, const QString &outputName)
+{
+    QVariantMap outputInfo;
+    outputInfo[QStringLiteral("id")] = outputId;
+    outputInfo[QStringLiteral("metadata")] = metadata(outputName);
+    return outputInfo;
+}
+
 void ControlConfig::setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value)
 {
     setOutputRetention(output->hashMd5(), output->name(), value);
@@ -232,13 +240,78 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
         return;
     }
     // no entry yet, create one
-    QVariantMap outputInfo;
-    outputInfo[QStringLiteral("id")] = outputId;
-    outputInfo[QStringLiteral("metadata")] = metadata(outputName);
+    auto outputInfo = createOutputInfo(outputId, outputName);
     outputInfo[QStringLiteral("retention")] = (int)value;
 
     outputsInfo << outputInfo;
     setOutputs(outputsInfo);
+}
+
+bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
+{
+    return getAutoRotate(output->hashMd5(), output->name());
+}
+
+bool ControlConfig::getAutoRotate(const QString &outputId, const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("autorotate")];
+            return !val.canConvert<bool>() || val.toBool();
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->getAutoRotate();
+    }
+
+    // Info for output not found.
+    // TODO: make this return value depend on the device having a tablet state?
+     return true;
+ }
+
+void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
+{
+    setAutoRotate(output->hashMd5(), output->name(), value);
+}
+
+// TODO: combine methods (templated functions)
+void ControlConfig::setAutoRotate(const QString &outputId, const QString &outputName, bool value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    auto setOutputAutoRotate = [&outputId, &outputName, value, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setAutoRotate(value);
+        }
+
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("autorotate")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputAutoRotate();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("autorotate")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputAutoRotate();
 }
 
 QVariantList ControlConfig::getOutputs() const
@@ -290,4 +363,19 @@ QString ControlOutput::filePath() const
         return QString();
     }
     return filePathFromHash(m_output->hashMd5());
+}
+
+bool ControlOutput::getAutoRotate() const
+{
+    const auto val = constInfo()[QStringLiteral("autorotate")];
+    return !val.canConvert<bool>() || val.toBool();
+}
+
+void ControlOutput::setAutoRotate(bool value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("autorotate")] = value;
 }
