@@ -115,7 +115,6 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
 
     // As global outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
-    {
     QStringList allIds;
     const auto outputs = config->outputs();
     allIds.reserve(outputs.count());
@@ -126,6 +125,9 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
         }
         allIds << outputId;
     }
+
+    for (auto output : outputs) {
+        m_outputsControls << new ControlOutput(output, this);
     }
 
     // TODO: this is same in Output::readInOutputs of the daemon. Combine?
@@ -145,6 +147,19 @@ QString ControlConfig::filePath() const
         return QString();
     }
     return filePathFromHash(m_config->connectedOutputsHash());
+}
+
+bool ControlConfig::writeFile()
+{
+    bool success = true;
+    for (auto *outputControl : m_outputsControls) {
+        if (getOutputRetention(outputControl->id(), outputControl->name())
+                == OutputRetention::Individual) {
+            continue;
+        }
+        success &= outputControl->writeFile();
+    }
+    return success && Control::writeFile();
 }
 
 bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const
@@ -236,12 +251,32 @@ void ControlConfig::setOutputs(QVariantList outputsInfo)
     auto &infoMap = info();
     infoMap[QStringLiteral("outputs")] = outputsInfo;
 }
+ControlOutput* ControlConfig::getOutputControl(const QString &outputId,
+                                               const QString &outputName) const
+{
+    for (auto *control : m_outputsControls) {
+        if (control->id() == outputId && control->name() == outputName) {
+            return control;
+        }
+    }
+    return nullptr;
+}
 
 ControlOutput::ControlOutput(KScreen::OutputPtr output, QObject *parent)
     : Control(parent)
     , m_output(output)
 {
     readFile();
+}
+
+QString ControlOutput::id() const
+{
+    return m_output->hashMd5();
+}
+
+QString ControlOutput::name() const
+{
+    return m_output->name();
 }
 
 QString ControlOutput::dirPath() const

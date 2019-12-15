@@ -38,7 +38,7 @@ public:
 
     ~Control() override = default;
 
-    bool writeFile();
+    virtual bool writeFile();
 
 protected:
     virtual QString dirPath() const;
@@ -55,6 +55,8 @@ private:
     QVariantMap m_info;
 };
 
+class ControlOutput;
+
 class ControlConfig : public Control
 {
     Q_OBJECT
@@ -69,13 +71,17 @@ public:
     QString dirPath() const override;
     QString filePath() const override;
 
+    bool writeFile() override;
+
 private:
     QVariantList getOutputs() const;
     void setOutputs(QVariantList outputsInfo);
     bool infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const;
+    ControlOutput* getOutputControl(const QString &outputId, const QString &outputName) const;
 
     KScreen::ConfigPtr m_config;
     QStringList m_duplicateOutputIds;
+    QVector<ControlOutput*> m_outputsControls;
 };
 
 class ControlOutput : public Control
@@ -83,6 +89,9 @@ class ControlOutput : public Control
     Q_OBJECT
 public:
     explicit ControlOutput(KScreen::OutputPtr output, QObject *parent = nullptr);
+
+    QString id() const;
+    QString name() const;
 
     // TODO: scale auto value
 
