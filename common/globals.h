@@ -19,14 +19,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QString>
 
-class Globals
+namespace Globals
 {
-public:
-    static void setDirPath(const QString &path);
-    static QString dirPath();
-
-private:
-    static QString s_dirPath;
-};
+    void setDirPath(const QString &path);
+    QString dirPath();
+}
 
 #endif

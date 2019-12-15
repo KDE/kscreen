@@ -18,16 +18,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QStandardPaths>
 
-QString Globals::s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
+namespace Globals
+{
 
-QString Globals::dirPath() {
+QString s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
+                                                     QStringLiteral("/kscreen/");
+
+QString dirPath() {
     return s_dirPath;
 }
 
-void Globals::setDirPath(const QString &path)
+void setDirPath(const QString &path)
 {
     s_dirPath = path;
     if (!s_dirPath.endsWith(QLatin1Char('/'))) {
         s_dirPath += QLatin1Char('/');
     }
+}
+
 }
