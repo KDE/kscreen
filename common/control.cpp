@@ -368,9 +368,8 @@ bool ControlConfig::getAutoRotate(const QString &outputId, const QString &output
     }
 
     // Info for output not found.
-    // TODO: make this return value depend on the device having a tablet state?
-     return true;
- }
+    return true;
+}
 
 void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
 {
@@ -409,6 +408,74 @@ void ControlConfig::setAutoRotate(const QString &outputId, const QString &output
     setOutputs(outputsInfo);
     setOutputAutoRotate();
 }
+
+bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
+{
+    return getAutoRotateOnlyInTabletMode(output->hashMd5(), output->name());
+}
+
+bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId,
+                                                  const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("autorotate-tablet-only")];
+            return !val.canConvert<bool>() || val.toBool();
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->getAutoRotateOnlyInTabletMode();
+    }
+
+    // Info for output not found.
+    return true;
+}
+
+void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value)
+{
+    setAutoRotateOnlyInTabletMode(output->hashMd5(), output->name(), value);
+}
+
+// TODO: combine methods (templated functions)
+void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId,
+                                                  const QString &outputName, bool value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    auto setOutputAutoRotateOnlyInTabletMode = [&outputId, &outputName, value, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setAutoRotateOnlyInTabletMode(value);
+        }
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("autorotate-tablet-only")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputAutoRotateOnlyInTabletMode();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("autorotate-tablet-only")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputAutoRotateOnlyInTabletMode();
+}
+
 
 KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
 {
@@ -559,4 +626,19 @@ void ControlOutput::setAutoRotate(bool value)
         infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
     }
     infoMap[QStringLiteral("autorotate")] = value;
+}
+
+bool ControlOutput::getAutoRotateOnlyInTabletMode() const
+{
+    const auto val = constInfo()[QStringLiteral("autorotate-tablet-only")];
+    return !val.canConvert<bool>() || val.toBool();
+}
+
+void ControlOutput::setAutoRotateOnlyInTabletMode(bool value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("autorotate-tablet-only")] = value;
 }

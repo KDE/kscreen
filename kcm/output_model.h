@@ -30,12 +30,15 @@ class OutputModel : public QAbstractListModel
 public:
     enum OutputRoles {
         EnabledRole = Qt::UserRole + 1,
+        InternalRole,
         PrimaryRole,
         SizeRole,
         /** Position in the graphical view relative to some arbitrary but fixed origin. */
         PositionRole,
         /** Position for backend relative to most northwest display corner. */
         NormalizedPositionRole,
+        AutoRotateRole,
+        AutoRotateOnlyInTabletModeRole,
         RotationRole,
         ScaleRole,
         ResolutionIndexRole,
@@ -113,6 +116,8 @@ private:
     bool setResolution(int outputIndex, int resIndex);
     bool setRefreshRate(int outputIndex, int refIndex);
     bool setRotation(int outputIndex, KScreen::Output::Rotation rotation);
+    bool setAutoRotate(int outputIndex, bool value);
+    bool setAutoRotateOnlyInTabletMode(int outputIndex, bool value);
 
     int resolutionIndex(const KScreen::OutputPtr &output) const;
     int refreshRateIndex(const KScreen::OutputPtr &output) const;

@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "output_identifier.h"
 #include "output_model.h"
 #include "../common/control.h"
+#include "../common/orientation_sensor.h"
 
 #include <kscreen/config.h>
 #include <kscreen/getconfigoperation.h>
@@ -70,22 +71,34 @@ KCMKScreen::KCMKScreen(QObject *parent, const QVariantList &args)
     m_loadCompressor->setInterval(1000);
     m_loadCompressor->setSingleShot(true);
     connect (m_loadCompressor, &QTimer::timeout, this, &KCMKScreen::load);
+
+    m_orientationSensor = new OrientationSensor(this);
+    connect(m_orientationSensor, &OrientationSensor::availableChanged,
+            this, &KCMKScreen::orientationSensorAvailableChanged);
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
 {
     qCDebug(KSCREEN_KCM) << "Reading in config now.";
-
     if (op->hasError()) {
         m_config.reset();
         Q_EMIT backendError();
         return;
     }
-    m_config->setConfig(qobject_cast<GetConfigOperation*>(op)->config());
+
+    KScreen::ConfigPtr config = qobject_cast<GetConfigOperation*>(op)->config();
+    const bool autoRotationSupported =
+            config->supportedFeatures() & (KScreen::Config::Feature::AutoRotation
+                                           | KScreen::Config::Feature::TabletMode);
+    m_orientationSensor->setEnabled(autoRotationSupported);
+
+    m_config->setConfig(config);
     setBackendReady(true);
     Q_EMIT perOutputScalingChanged();
     Q_EMIT primaryOutputSupportedChanged();
     Q_EMIT outputReplicationSupportedChanged();
+    Q_EMIT tabletModeAvailableChanged();
+    Q_EMIT autoRotationSupportedChanged();
 }
 
 void KCMKScreen::forceSave()
@@ -159,7 +172,7 @@ void KCMKScreen::doSave(bool force)
                 setNeedsSave(false);
                 return;
             }
-            m_config->updateInitialConfig();
+            m_config->updateInitialData();
         }
     );
 }
@@ -237,6 +250,28 @@ bool KCMKScreen::outputReplicationSupported() const
     }
     return m_config->config()->supportedFeatures().testFlag(Config::Feature::
                                                             OutputReplication);
+}
+
+bool KCMKScreen::autoRotationSupported() const
+{
+    if (!m_config || !m_config->config()) {
+        return false;
+    }
+    return m_config->config()->supportedFeatures() & (KScreen::Config::Feature::AutoRotation
+                                                      | KScreen::Config::Feature::TabletMode);
+}
+
+bool KCMKScreen::orientationSensorAvailable() const
+{
+    return m_orientationSensor->available();
+}
+
+bool KCMKScreen::tabletModeAvailable() const
+{
+    if (!m_config || !m_config->config()) {
+        return false;
+    }
+    return m_config->config()->tabletModeAvailable();
 }
 
 void KCMKScreen::setScreenNormalized(bool normalized)

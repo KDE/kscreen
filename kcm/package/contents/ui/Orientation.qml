@@ -19,24 +19,64 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.4 as Kirigami
 
-RowLayout {
-   id: orientation
-   Kirigami.FormData.label: i18n("Orientation:")
+ColumnLayout {
+    Kirigami.FormData.label: i18n("Orientation:")
+    Kirigami.FormData.buddyFor: autoRotateRadio
+    spacing: Kirigami.Units.smallSpacing
 
-   Controls.ButtonGroup {
-       buttons: orientation.children
-   }
+    ColumnLayout {
+        id: autoRotateColumn
 
-   RotationButton {
-       value: 0
-   }
-   RotationButton {
-       value: 90
-   }
-   RotationButton {
-       value: 180
-   }
-   RotationButton {
-       value: 270
-   }
+        // TODO: Make this dependend on tablet mode being available
+        enabled: kcm.orientationSensorAvailable && element.internal
+        visible: kcm.autoRotationSupported
+
+        ColumnLayout {
+            Controls.RadioButton {
+                id: autoRotateRadio
+                text: i18n("Automatic")
+                checked: autoRotateColumn.enabled && element.autoRotate
+                onClicked: element.autoRotate = true
+            }
+
+            Controls.CheckBox {
+                id: autoRotateOnlyInTabletMode
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+
+                text: i18n("Only when in tablet mode.")
+                enabled: autoRotateRadio.checked
+                checked: enabled && element.autoRotateOnlyInTabletMode
+                onClicked: element.autoRotateOnlyInTabletMode = checked
+            }
+        }
+
+        Controls.RadioButton {
+            id: manualRotateRadio
+            text: i18n("Manual")
+            checked: !element.autoRotate || !autoRotateColumn.enabled
+            onClicked: element.autoRotate = false
+        }
+    }
+
+    RowLayout {
+       id: orientation
+       enabled: !element.autoRotate || !autoRotateColumn.enabled || !autoRotateColumn.visible
+
+       Controls.ButtonGroup {
+           buttons: orientation.children
+       }
+
+       RotationButton {
+           value: 0
+       }
+       RotationButton {
+           value: 90
+       }
+       RotationButton {
+           value: 180
+       }
+       RotationButton {
+           value: 270
+       }
+    }
 }

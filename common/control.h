@@ -87,6 +87,12 @@ public:
     void setAutoRotate(const KScreen::OutputPtr &output, bool value);
     void setAutoRotate(const QString &outputId, const QString &outputName, bool value);
 
+    bool getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
+    bool getAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName) const;
+    void setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value);
+    void setAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName,
+                                       bool value);
+
     KScreen::OutputPtr getReplicationSource(const KScreen::OutputPtr &output) const;
     KScreen::OutputPtr getReplicationSource(const QString &outputId,
                                             const QString &outputName) const;
@@ -127,6 +133,9 @@ public:
 
     bool getAutoRotate() const;
     void setAutoRotate(bool value);
+
+    bool getAutoRotateOnlyInTabletMode() const;
+    void setAutoRotateOnlyInTabletMode(bool value);
 
     QString dirPath() const override;
     QString filePath() const override;

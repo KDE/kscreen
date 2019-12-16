@@ -36,6 +36,8 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
 {
     m_config = config;
     m_initialConfig = m_config->clone();
+    m_initialControl.reset(new ControlConfig(m_initialConfig));
+
     KScreen::ConfigMonitor::instance()->addConfig(m_config);
     m_control.reset(new ControlConfig(config));
 
@@ -49,6 +51,8 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
         initOutput(output);
     }
     m_lastNormalizedScreenSize = screenSize();
+
+    // TODO: put this into m_initialControl
     m_initialRetention = getRetention();
     Q_EMIT retentionChanged();
 
@@ -94,7 +98,7 @@ void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
     });
 }
 
-void ConfigHandler::updateInitialConfig()
+void ConfigHandler::updateInitialData()
 {
     m_initialRetention = getRetention();
     connect(new GetConfigOperation(), &GetConfigOperation::finished,
@@ -106,6 +110,7 @@ void ConfigHandler::updateInitialConfig()
         for (auto output : m_config->outputs()) {
             resetScale(output);
         }
+        m_initialControl.reset(new ControlConfig(m_initialConfig));
         checkNeedsSave();
     });
 }
@@ -147,7 +152,10 @@ void ConfigHandler::checkNeedsSave()
                              || output->pos() != initialOutput->pos()
                              || output->scale() != initialOutput->scale()
                              || output->rotation() != initialOutput->rotation()
-                             || output->replicationSource() != initialOutput->replicationSource();
+                             || output->replicationSource() != initialOutput->replicationSource()
+                             || autoRotate(output) != m_initialControl->getAutoRotate(output)
+                             || autoRotateOnlyInTabletMode(output)
+                                    != m_initialControl->getAutoRotateOnlyInTabletMode(output);
             }
             if (needsSave) {
                 Q_EMIT needsSaveChecked(true);
@@ -300,6 +308,26 @@ void ConfigHandler::setReplicationSource(KScreen::OutputPtr &output,
                                          const KScreen::OutputPtr &source)
 {
     m_control->setReplicationSource(output, source);
+}
+
+bool ConfigHandler::autoRotate(const KScreen::OutputPtr &output) const
+{
+    return m_control->getAutoRotate(output);
+}
+
+void ConfigHandler::setAutoRotate(KScreen::OutputPtr &output, bool autoRotate)
+{
+    m_control->setAutoRotate(output, autoRotate);
+}
+
+bool ConfigHandler::autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
+{
+    return m_control->getAutoRotateOnlyInTabletMode(output);
+}
+
+void ConfigHandler::setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value)
+{
+    m_control->setAutoRotateOnlyInTabletMode(output, value);
 }
 
 void ConfigHandler::writeControl()

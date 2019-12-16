@@ -24,6 +24,7 @@ class ConfigOperation;
 }
 
 class ConfigHandler;
+class OrientationSensor;
 class OutputIdentifier;
 class OutputModel;
 
@@ -47,6 +48,13 @@ class KCMKScreen : public KQuickAddons::ConfigModule
                NOTIFY globalScaleChanged)
     Q_PROPERTY(int outputRetention READ outputRetention WRITE setOutputRetention
                NOTIFY outputRetentionChanged)
+    Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported
+               NOTIFY autoRotationSupportedChanged)
+    Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable
+               NOTIFY orientationSensorAvailableChanged)
+    Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable
+               NOTIFY tabletModeAvailableChanged)
+
 
 public:
     explicit KCMKScreen (QObject *parent = nullptr,
@@ -76,6 +84,10 @@ public:
     int outputRetention() const;
     void setOutputRetention(int retention);
 
+    bool autoRotationSupported() const;
+    bool orientationSensorAvailable() const;
+    bool tabletModeAvailable() const;
+
     Q_INVOKABLE void forceSave();
     void doSave(bool force);
 
@@ -90,6 +102,9 @@ Q_SIGNALS:
     void outputReplicationSupportedChanged();
     void globalScaleChanged();
     void outputRetentionChanged();
+    void autoRotationSupportedChanged();
+    void orientationSensorAvailableChanged();
+    void tabletModeAvailableChanged();
     void dangerousSave();
     void errorOnSave();
     void globalScaleWritten();
@@ -107,6 +122,7 @@ private:
 
     std::unique_ptr<OutputIdentifier> m_outputIdentifier;
     std::unique_ptr<ConfigHandler> m_config;
+    OrientationSensor *m_orientationSensor;
     bool m_backendReady = false;
     bool m_screenNormalized = true;
     double m_globalScale = 1.;

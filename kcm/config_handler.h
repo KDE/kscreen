@@ -32,7 +32,7 @@ public:
     ~ConfigHandler() override = default;
 
     void setConfig(KScreen::ConfigPtr config);
-    void updateInitialConfig();
+    void updateInitialData();
 
     OutputModel* outputModel() const {
         return m_outputs;
@@ -52,6 +52,11 @@ public:
 
     KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
+
+    bool autoRotate(const KScreen::OutputPtr &output) const;
+    void setAutoRotate(KScreen::OutputPtr &output, bool autoRotate);
+    bool autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
+    void setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value);
 
     void writeControl();
 
@@ -79,6 +84,7 @@ private:
     OutputModel *m_outputs = nullptr;
 
     std::unique_ptr<ControlConfig> m_control;
+    std::unique_ptr<ControlConfig> m_initialControl;
     Control::OutputRetention m_initialRetention = Control::OutputRetention::
                                                   Undefined;
     QSize m_lastNormalizedScreenSize;

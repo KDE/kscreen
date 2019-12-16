@@ -83,7 +83,11 @@ void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
         if (!m_control->getAutoRotate(output)) {
             continue;
         }
-        if (Output::updateOrientation(output, orientation)) {
+        auto finalOrientation = orientation;
+        if (m_control->getAutoRotateOnlyInTabletMode(output) && !m_data->tabletModeEngaged()) {
+            finalOrientation = QOrientationReading::Orientation::TopUp;
+        }
+        if (Output::updateOrientation(output, finalOrientation)) {
             // TODO: call Layouter to find fitting positions for other outputs again
             return;
         }
