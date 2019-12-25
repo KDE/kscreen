@@ -38,15 +38,21 @@ public:
 
     ~Control() override = default;
 
+    bool writeFile();
+
 protected:
     virtual QString dirPath() const;
     virtual QString filePath() const = 0;
     QString filePathFromHash(const QString &hash) const;
+    void readFile();
+    QVariantMap& info();
+    const QVariantMap& constInfo() const;
 
     static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
 private:
     static QString s_dirName;
+    QVariantMap m_info;
 };
 
 class ControlConfig : public Control
@@ -60,8 +66,6 @@ public:
     void setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value);
     void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
-    bool writeFile();
-
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -71,7 +75,6 @@ private:
     bool infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const;
 
     KScreen::ConfigPtr m_config;
-    QVariantMap m_info;
     QStringList m_duplicateOutputIds;
 };
 

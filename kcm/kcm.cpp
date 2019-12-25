@@ -406,7 +406,7 @@ void KCMKScreen::setOutputRetention(int retention)
     if (!m_config) {
         return;
     }
-    return m_config->setRetention(retention);
+    m_config->setRetention(retention);
 }
 
 

@@ -1,4 +1,4 @@
-/********************************************************************
+﻿/********************************************************************
 Copyright 2019 Roman Gilg <subdiff@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
@@ -31,14 +31,62 @@ Control::Control(QObject *parent)
 {
 }
 
+bool Control::writeFile()
+{
+    const QString path = filePath();
+    const auto infoMap = constInfo();
+
+    if (infoMap.isEmpty()) {
+        // Nothing to write. Default control. Remove file if it exists.
+        QFile::remove(path);
+        return true;
+    }
+    if (!QDir().mkpath(dirPath())) {
+        // TODO: error message
+        return false;
+    }
+
+    // write updated data to file
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly)) {
+        // TODO: logging category?
+//        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
+        return false;
+    }
+    file.write(QJsonDocument::fromVariant(infoMap).toJson());
+//    qCDebug(KSCREEN_COMMON) << "Control saved on: " << file.fileName();
+    return true;
+}
+
 QString Control::dirPath() const
 {
     return Globals::dirPath() % s_dirName;
 }
 
+void Control::readFile()
+{
+    QFile file(filePath());
+    if (file.open(QIODevice::ReadOnly)) {
+        // This might not be reached, bus this is ok. The control file will
+        // eventually be created on first write later on.
+        QJsonDocument parser;
+        m_info = parser.fromJson(file.readAll()).toVariant().toMap();
+    }
+}
+
 QString Control::filePathFromHash(const QString &hash) const
 {
     return dirPath() % hash;
+}
+
+QVariantMap& Control::info()
+{
+    return m_info;
+}
+
+const QVariantMap& Control::constInfo() const
+{
+    return m_info;
 }
 
 Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
@@ -60,13 +108,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
     , m_config(config)
 {
 //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
-    QFile file(filePathFromHash(config->connectedOutputsHash()));
-    if (file.open(QIODevice::ReadOnly)) {
-        // This might not be reached, bus this is ok. The control file will
-        // eventually be created on first write later on.
-        QJsonDocument parser;
-        m_info = parser.fromJson(file.readAll()).toVariant().toMap();
-    }
+    readFile();
 
     // TODO: use a file watcher in case of changes to the control file while
     //       object exists?
@@ -184,46 +226,22 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
     setOutputs(outputsInfo);
 }
 
-bool ControlConfig::writeFile()
-{
-    const QString path = filePath();
-
-    if (m_info.isEmpty()) {
-        // Nothing to write. Default control. Remove file if it exists.
-        QFile::remove(path);
-        return true;
-    }
-    if (!QDir().mkpath(dirPath())) {
-        // TODO: error message
-        return false;
-    }
-
-    // write updated data to file
-    QFile file(path);
-    if (!file.open(QIODevice::WriteOnly)) {
-        // TODO: logging category?
-//        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
-        return false;
-    }
-    file.write(QJsonDocument::fromVariant(m_info).toJson());
-//    qCDebug(KSCREEN_COMMON) << "Config control saved on: " << file.fileName();
-    return true;
-}
-
 QVariantList ControlConfig::getOutputs() const
 {
-    return m_info[QStringLiteral("outputs")].toList();
+    return constInfo()[QStringLiteral("outputs")].toList();
 }
 
 void ControlConfig::setOutputs(QVariantList outputsInfo)
 {
-    m_info[QStringLiteral("outputs")] = outputsInfo;
+    auto &infoMap = info();
+    infoMap[QStringLiteral("outputs")] = outputsInfo;
 }
 
 ControlOutput::ControlOutput(KScreen::OutputPtr output, QObject *parent)
     : Control(parent)
     , m_output(output)
 {
+    readFile();
 }
 
 QString ControlOutput::dirPath() const
