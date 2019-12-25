@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <kscreen/types.h>
 
 #include <QObject>
+#include <QVector>
 #include <QVariantMap>
 
 class QFileSystemWatcher;
