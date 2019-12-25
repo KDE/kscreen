@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "globals.h"
 
 #include <QFile>
+#include <QFileSystemWatcher>
 #include <QJsonDocument>
 #include <QDir>
 
@@ -29,6 +30,23 @@ QString Control::s_dirName = QStringLiteral("control/");
 Control::Control(QObject *parent)
     : QObject(parent)
 {
+}
+
+void Control::activateWatcher()
+{
+    if (m_watcher) {
+        return;
+    }
+    m_watcher = new QFileSystemWatcher({filePath()}, this);
+    connect(m_watcher, &QFileSystemWatcher::fileChanged, this, [this]() {
+        readFile();
+        Q_EMIT changed();
+    });
+}
+
+QFileSystemWatcher* Control::watcher() const
+{
+    return m_watcher;
 }
 
 bool Control::writeFile()
@@ -134,6 +152,18 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
 
     // TODO: connect to outputs added/removed signals and reevaluate duplicate ids
     //       in case of such a change while object exists?
+}
+
+void ControlConfig::activateWatcher()
+{
+    if (watcher()) {
+        // Watcher was already activated.
+        return;
+    }
+    for (auto *output : m_outputsControls) {
+        output->activateWatcher();
+        connect(output, &ControlOutput::changed, this, &ControlConfig::changed);
+    }
 }
 
 QString ControlConfig::dirPath() const

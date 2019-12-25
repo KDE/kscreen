@@ -130,6 +130,10 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
     qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
     auto configWrapper = std::unique_ptr<Config>(new Config(config));
     configWrapper->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
+    configWrapper->activateControlWatching();
+    connect(configWrapper.get(), &Config::controlChanged, this, [this]() {
+        // TODO
+    });
     doApplyConfig(std::move(configWrapper));
 }
 

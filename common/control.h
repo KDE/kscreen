@@ -22,6 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include <QVariantMap>
 
+class QFileSystemWatcher;
+
 class Control : public QObject
 {
     Q_OBJECT
@@ -39,6 +41,10 @@ public:
     ~Control() override = default;
 
     virtual bool writeFile();
+    virtual void activateWatcher();
+
+Q_SIGNALS:
+    void changed();
 
 protected:
     virtual QString dirPath() const;
@@ -47,12 +53,14 @@ protected:
     void readFile();
     QVariantMap& info();
     const QVariantMap& constInfo() const;
+    QFileSystemWatcher* watcher() const;
 
     static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
 private:
     static QString s_dirName;
     QVariantMap m_info;
+    QFileSystemWatcher *m_watcher = nullptr;
 };
 
 class ControlOutput;
@@ -77,6 +85,7 @@ public:
     QString filePath() const override;
 
     bool writeFile() override;
+    void activateWatcher() override;
 
 private:
     QVariantList getOutputs() const;

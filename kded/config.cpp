@@ -62,6 +62,12 @@ QString Config::id() const
     return m_data->connectedOutputsHash();
 }
 
+void Config::activateControlWatching()
+{
+    connect(m_control, &ControlConfig::changed, this, &Config::controlChanged);
+    m_control->activateWatcher();
+}
+
 bool Config::fileExists() const
 {
     return (QFile::exists(configsDirPath() % id()) || QFile::exists(configsDirPath() % s_fixedConfigFileName));
@@ -170,10 +176,6 @@ bool Config::writeFile(const QString &filePath)
         return false;
     }
     const KScreen::OutputList outputs = m_data->outputs();
-
-    // TODO: until we have the file watcher this is necessary to reload control files.
-    delete m_control;
-    m_control = new ControlConfig(m_data, this);
 
     const auto oldConfig = readFile();
     KScreen::OutputList oldOutputs;

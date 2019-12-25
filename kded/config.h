@@ -43,6 +43,7 @@ public:
         return m_data;
     }
 
+    void activateControlWatching();
     void log();
 
     void setValidityFlags(KScreen::Config::ValidityFlags flags) {
@@ -50,6 +51,9 @@ public:
     }
 
     bool canBeApplied() const;
+
+Q_SIGNALS:
+    void controlChanged();
 
 private:
     friend class TestConfig;
