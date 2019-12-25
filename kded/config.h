@@ -22,10 +22,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <memory>
 
-class Config
+class ControlConfig;
+
+class Config : public QObject
 {
+    Q_OBJECT
 public:
-    explicit Config(KScreen::ConfigPtr config);
+    explicit Config(KScreen::ConfigPtr config, QObject *parent = nullptr);
     ~Config() = default;
 
     QString id() const;
@@ -59,6 +62,7 @@ private:
 
     KScreen::ConfigPtr m_data;
     KScreen::Config::ValidityFlags m_validityFlags;
+    ControlConfig *m_control;
 
     static QString s_configsDirName;
     static QString s_fixedConfigFileName;

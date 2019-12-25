@@ -26,6 +26,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 QString Control::s_dirName = QStringLiteral("control/");
 
+Control::Control(QObject *parent)
+    : QObject(parent)
+{
+}
+
 QString Control::dirPath() const
 {
     return Globals::dirPath() % s_dirName;
@@ -50,8 +55,9 @@ Control::OutputRetention Control::convertVariantToOutputRetention(QVariant varia
     return OutputRetention::Undefined;
 }
 
-ControlConfig::ControlConfig(KScreen::ConfigPtr config)
-    : m_config(config)
+ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
+    : Control(parent)
+    , m_config(config)
 {
 //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
     QFile file(filePathFromHash(config->connectedOutputsHash()));
@@ -214,8 +220,9 @@ void ControlConfig::setOutputs(QVariantList outputsInfo)
     m_info[QStringLiteral("outputs")] = outputsInfo;
 }
 
-ControlOutput::ControlOutput(KScreen::OutputPtr output)
-    : m_output(output)
+ControlOutput::ControlOutput(KScreen::OutputPtr output, QObject *parent)
+    : Control(parent)
+    , m_output(output)
 {
 }
 

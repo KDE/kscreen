@@ -39,8 +39,10 @@ QString Config::configsDirPath()
     return Globals::dirPath() % s_configsDirName;
 }
 
-Config::Config(KScreen::ConfigPtr config)
-    : m_data(config)
+Config::Config(KScreen::ConfigPtr config, QObject *parent)
+    : QObject(parent)
+    , m_data(config)
+    , m_control(new ControlConfig(config, this))
 {
 }
 
@@ -169,7 +171,9 @@ bool Config::writeFile(const QString &filePath)
     }
     const KScreen::OutputList outputs = m_data->outputs();
 
-    const auto control = ControlConfig(m_data);
+    // TODO: until we have the file watcher this is necessary to reload control files.
+    delete m_control;
+    m_control = new ControlConfig(m_data, this);
 
     const auto oldConfig = readFile();
     KScreen::OutputList oldOutputs;
@@ -215,7 +219,7 @@ bool Config::writeFile(const QString &filePath)
         setOutputConfigInfo(output->isEnabled() ? output : oldOutput);
 
         if (output->isEnabled() &&
-                control.getOutputRetention(output->hash(), output->name()) !=
+                m_control->getOutputRetention(output->hash(), output->name()) !=
                     Control::OutputRetention::Individual) {
             // try to update global output data
             Output::writeGlobal(output);

@@ -22,9 +22,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include <QVariantMap>
 
-class Control
+class Control : public QObject
 {
-    Q_GADGET
+    Q_OBJECT
 public:
     enum class OutputRetention {
         Undefined = -1,
@@ -33,8 +33,10 @@ public:
     };
     Q_ENUM(OutputRetention)
 
+    explicit Control(QObject *parent = nullptr);
 
-    virtual ~Control() = default;
+
+    ~Control() override = default;
 
 protected:
     virtual QString dirPath() const;
@@ -49,9 +51,9 @@ private:
 
 class ControlConfig : public Control
 {
-    Q_GADGET
+    Q_OBJECT
 public:
-    ControlConfig(KScreen::ConfigPtr config);
+    explicit ControlConfig(KScreen::ConfigPtr config, QObject *parent = nullptr);
 
     OutputRetention getOutputRetention(const KScreen::OutputPtr &output) const;
     OutputRetention getOutputRetention(const QString &outputId, const QString &outputName) const;
@@ -75,9 +77,9 @@ private:
 
 class ControlOutput : public Control
 {
-    Q_GADGET
+    Q_OBJECT
 public:
-    ControlOutput(KScreen::OutputPtr output);
+    explicit ControlOutput(KScreen::OutputPtr output, QObject *parent = nullptr);
 
     // TODO: scale auto value
 
