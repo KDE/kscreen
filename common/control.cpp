@@ -344,6 +344,76 @@ void ControlConfig::setAutoRotate(const QString &outputId, const QString &output
     setOutputAutoRotate();
 }
 
+KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
+{
+    return getReplicationSource(output->hashMd5(), output->name());
+}
+
+KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId,
+                                                       const QString &outputName) const
+{
+    const QVariantList outputsInfo = getOutputs();
+    for (const auto variantInfo : outputsInfo) {
+        const QVariantMap info = variantInfo.toMap();
+        if (!infoIsOutput(info, outputId, outputName)) {
+            continue;
+        }
+        const QString sourceHash = info[QStringLiteral("replicate-hash")].toString();
+        const QString sourceName = info[QStringLiteral("replicate-name")].toString();
+
+        if (sourceHash.isEmpty() && sourceName.isEmpty()) {
+            // Common case when the replication source has been unset.
+            return nullptr;
+        }
+
+        for (auto output : m_config->outputs()) {
+            if (output->hashMd5() == sourceHash && output->name() == sourceName) {
+                return output;
+            }
+        }
+        // No match.
+        return nullptr;
+    }
+    // Info for output not found.
+    return nullptr;
+}
+
+void ControlConfig::setReplicationSource(const KScreen::OutputPtr &output,
+                                         const KScreen::OutputPtr &source)
+{
+    setReplicationSource(output->hashMd5(), output->name(), source);
+}
+
+void ControlConfig::setReplicationSource(const QString &outputId, const QString &outputName,
+                                         const KScreen::OutputPtr &source)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+    const QString sourceHash = source->hashMd5();
+    const QString sourceName = source->name();
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("replicate-hash")] = sourceHash;
+        outputInfo[QStringLiteral("replicate-name")] = sourceName;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        // TODO: shall we set this information also as new global value (like with auto-rotate)?
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("replicate-hash")] = sourceHash;
+    outputInfo[QStringLiteral("replicate-name")] = sourceName;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    // TODO: shall we set this information also as new global value (like with auto-rotate)?
+}
+
 QVariantList ControlConfig::getOutputs() const
 {
     return constInfo()[QStringLiteral("outputs")].toList();

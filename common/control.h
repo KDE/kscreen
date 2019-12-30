@@ -82,6 +82,13 @@ public:
     void setAutoRotate(const KScreen::OutputPtr &output, bool value);
     void setAutoRotate(const QString &outputId, const QString &outputName, bool value);
 
+    KScreen::OutputPtr getReplicationSource(const KScreen::OutputPtr &output) const;
+    KScreen::OutputPtr getReplicationSource(const QString &outputId,
+                                            const QString &outputName) const;
+    void setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
+    void setReplicationSource(const QString &outputId, const QString &outputName,
+                              const KScreen::OutputPtr &source);
+
     QString dirPath() const override;
     QString filePath() const override;
 
