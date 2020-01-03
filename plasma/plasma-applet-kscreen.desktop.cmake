@@ -16,6 +16,7 @@ Name[fi]=Näyttöasetusten pikasäätö
 Name[fr]=Configuration rapide de l'affichage
 Name[gl]=Configuración rápida da pantalla
 Name[hu]=Gyors megjelenítő-beállítás
+Name[ia]=Configuration rapide de monstrator
 Name[id]=Konfigurasi Displai Lekas
 Name[it]=Configurazione rapida dello schermo
 Name[ko]=빠른 화면 설정
