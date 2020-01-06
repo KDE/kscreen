@@ -77,6 +77,11 @@ public:
     void setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value);
     void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
+    qreal getScale(const KScreen::OutputPtr &output) const;
+    qreal getScale(const QString &outputId, const QString &outputName) const;
+    void setScale(const KScreen::OutputPtr &output, qreal value);
+    void setScale(const QString &outputId, const QString &outputName, qreal value);
+
     bool getAutoRotate(const KScreen::OutputPtr &output) const;
     bool getAutoRotate(const QString &outputId, const QString &outputName) const;
     void setAutoRotate(const KScreen::OutputPtr &output, bool value);
@@ -116,6 +121,9 @@ public:
     QString name() const;
 
     // TODO: scale auto value
+
+    qreal getScale() const;
+    void setScale(qreal value);
 
     bool getAutoRotate() const;
     void setAutoRotate(bool value);

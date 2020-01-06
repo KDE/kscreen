@@ -277,6 +277,72 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
     setOutputs(outputsInfo);
 }
 
+qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
+{
+    return getScale(output->hashMd5(), output->name());
+}
+
+qreal ControlConfig::getScale(const QString &outputId, const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("scale")];
+            return val.canConvert<qreal>() ? val.toReal() : -1;
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->getScale();
+    }
+
+    // Info for output not found.
+     return -1;
+ }
+
+void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
+{
+    setScale(output->hashMd5(), output->name(), value);
+}
+
+// TODO: combine methods (templated functions)
+void ControlConfig::setScale(const QString &outputId, const QString &outputName, qreal value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    auto setOutputScale = [&outputId, &outputName, value, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setScale(value);
+        }
+
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("scale")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputScale();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("scale")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputScale();
+}
+
 bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
 {
     return getAutoRotate(output->hashMd5(), output->name());
@@ -463,6 +529,21 @@ QString ControlOutput::filePath() const
         return QString();
     }
     return filePathFromHash(m_output->hashMd5());
+}
+
+qreal ControlOutput::getScale() const
+{
+    const auto val = constInfo()[QStringLiteral("scale")];
+    return val.canConvert<qreal>() ? val.toReal() : -1;
+}
+
+void ControlOutput::setScale(qreal value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("scale")] = value;
 }
 
 bool ControlOutput::getAutoRotate() const

@@ -47,6 +47,9 @@ public:
     int retention() const;
     void setRetention(int retention);
 
+    qreal scale(const KScreen::OutputPtr &output) const;
+    void setScale(KScreen::OutputPtr &output, qreal scale);
+
     KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
@@ -69,6 +72,7 @@ private:
     void primaryOutputSelected(int index);
     void primaryOutputChanged(const KScreen::OutputPtr &output);
     void initOutput(const KScreen::OutputPtr &output);
+    void resetScale(const KScreen::OutputPtr &output);
 
     KScreen::ConfigPtr m_config = nullptr;
     KScreen::ConfigPtr m_initialConfig;

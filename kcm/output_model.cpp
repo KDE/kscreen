@@ -90,7 +90,7 @@ bool OutputModel::setData(const QModelIndex &index,
         return false;
     }
 
-    const Output &output = m_outputs[index.row()];
+    Output &output = m_outputs[index.row()];
     switch (role) {
     case PositionRole:
         if (value.canConvert<QPoint>()) {
@@ -149,6 +149,7 @@ bool OutputModel::setData(const QModelIndex &index,
         const qreal scale = value.toReal(&ok);
         if (ok && !qFuzzyCompare(output.ptr->scale(), scale)) {
             output.ptr->setScale(scale);
+            m_config->setScale(output.ptr, scale);
             Q_EMIT sizeChanged();
             Q_EMIT dataChanged(index, index, {role, SizeRole});
             return true;

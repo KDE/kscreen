@@ -67,9 +67,25 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     Q_EMIT outputModelChanged();
 }
 
+void ConfigHandler::resetScale(const KScreen::OutputPtr &output)
+{
+    // Load scale control (either not set, same or windowing system does not transmit scale).
+    const qreal scale = m_control->getScale(output);
+    if (scale > 0) {
+        output->setScale(scale);
+        for (auto initialOutput : m_initialConfig->outputs()) {
+            if (initialOutput->id() == output->id()) {
+                initialOutput->setScale(scale);
+                break;
+            }
+        }
+    }
+}
+
 void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
 {
     if (output->isConnected()) {
+        resetScale(output);
         m_outputs->add(output);
     }
     connect(output.data(), &KScreen::Output::isConnectedChanged,
@@ -87,6 +103,9 @@ void ConfigHandler::updateInitialConfig()
             return;
         }
         m_initialConfig = qobject_cast<GetConfigOperation*>(op)->config();
+        for (auto output : m_config->outputs()) {
+            resetScale(output);
+        }
         checkNeedsSave();
     });
 }
@@ -260,6 +279,16 @@ void ConfigHandler::setRetention(int retention)
     checkNeedsSave();
     Q_EMIT retentionChanged();
     Q_EMIT changed();
+}
+
+qreal ConfigHandler::scale(const KScreen::OutputPtr &output) const
+{
+    return m_control->getScale(output);
+}
+
+void ConfigHandler::setScale(KScreen::OutputPtr &output, qreal scale)
+{
+    m_control->setScale(output, scale);
 }
 
 KScreen::OutputPtr ConfigHandler::replicationSource(const KScreen::OutputPtr &output) const
