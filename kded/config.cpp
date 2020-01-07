@@ -207,11 +207,6 @@ bool Config::writeFile(const QString &filePath)
             if (!out) {
                 return;
             }
-            QString replicationSourceHash;
-            if (int sourceId = out->replicationSource()) {
-                replicationSourceHash = m_data->output(sourceId)->hashMd5();
-            }
-            info[QStringLiteral("replicate")] = replicationSourceHash;
 
             QVariantMap pos;
             pos[QStringLiteral("x")] = out->pos().x();

@@ -47,6 +47,9 @@ public:
     int retention() const;
     void setRetention(int retention);
 
+    KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
+    void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
+
     void writeControl();
 
     void checkNeedsSave();

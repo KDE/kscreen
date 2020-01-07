@@ -327,18 +327,6 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
             infoFound = true;
             readIn(output, info, control.getOutputRetention(output));
-
-            const QString replicationSourceHash = info[QStringLiteral("replicate")].toString();
-            if (replicationSourceHash.isEmpty()) {
-                output->setReplicationSource(0);
-            } else {
-                for (const KScreen::OutputPtr out : outputs) {
-                    if (out != output && out->hashMd5() == replicationSourceHash) {
-                        output->setReplicationSource(out->id());
-                        break;
-                    }
-                }
-            }
             break;
         }
         if (!infoFound) {
@@ -352,8 +340,22 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
         }
     }
+
+    for (KScreen::OutputPtr output : outputs) {
+        auto replicationSource = control.getReplicationSource(output);
+        if (replicationSource) {
+            output->setPos(replicationSource->pos());
+            output->setLogicalSize(replicationSource->logicalSize());
+        } else {
+            output->setLogicalSize(QSizeF());
+        }
+    }
+
+    // TODO: this does not work at the moment with logical size replication. Deactivate for now.
     // correct positional config regressions on global output data changes
+#if 0
     adjustPositions(config, outputsInfo);
+#endif
 }
 
 static QVariantMap metadata(const KScreen::OutputPtr &output)

@@ -70,7 +70,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     case ReplicationSourceModelRole:
         return replicationSourceModel(output);
     case ReplicationSourceIndexRole:
-        return replicationSourceIndex(index.row(), output->replicationSource());
+        return replicationSourceIndex(index.row());
     case ReplicasModelRole:
         return replicasModel(output);
     case RefreshRatesRole:
@@ -491,17 +491,27 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr
     return hits;
 }
 
+int OutputModel::replicationSourceId(const Output &output) const
+{
+    const KScreen::OutputPtr source = m_config->replicationSource(output.ptr);
+    if (!source) {
+        return 0;
+    }
+    return source->id();
+}
+
 QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
 {
     QStringList ret = { i18n("None") };
 
     for (const auto &out : m_outputs) {
         if (out.ptr->id() != output->id()) {
-            if (out.ptr->replicationSource() == output->id()) {
+            const int outSourceId = replicationSourceId(out);
+            if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
                 return { i18n("Replicated by other output") };
             }
-            if (out.ptr->replicationSource()) {
+            if (outSourceId) {
                 // This 'out' is a replica. Can't be a replication source.
                 continue;
             }
@@ -521,24 +531,26 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     }
 
     Output &output = m_outputs[outputIndex];
-    const int oldSourceId = output.ptr->replicationSource();
+    const int oldSourceId = replicationSourceId(output);
 
     if (sourceIndex < 0) {
         if (oldSourceId == 0) {
             // no change
             return false;
         }
-        output.ptr->setReplicationSource(0);
+        m_config->setReplicationSource(output.ptr, nullptr);
+        output.ptr->setLogicalSize(QSizeF());
         resetPosition(output);
     } else {
-        const int sourceId = m_outputs[sourceIndex].ptr->id();
-        if (oldSourceId == sourceId) {
+        const auto source = m_outputs[sourceIndex].ptr;
+        if (oldSourceId == source->id()) {
             // no change
             return false;
         }
-        output.ptr->setReplicationSource(sourceId);
+        m_config->setReplicationSource(output.ptr, source);
         output.posReset = output.ptr->pos();
-        output.ptr->setPos(m_outputs[sourceIndex].ptr->pos());
+        output.ptr->setPos(source->pos());
+        output.ptr->setLogicalSize(source->logicalSize());
     }
 
     reposition();
@@ -563,8 +575,12 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     return true;
 }
 
-int OutputModel::replicationSourceIndex(int outputIndex, int sourceId) const
+int OutputModel::replicationSourceIndex(int outputIndex) const
 {
+    const int sourceId = replicationSourceId(m_outputs[outputIndex]);
+    if (!sourceId) {
+        return 0;
+    }
     for (int i = 0; i < m_outputs.size(); i++) {
         const Output &output = m_outputs[i];
         if (output.ptr->id() == sourceId) {
@@ -580,7 +596,7 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
     for (int i = 0; i < m_outputs.size(); i++) {
         const Output &out = m_outputs[i];
         if (out.ptr->id() != output->id()) {
-            if (out.ptr->replicationSource() == output->id()) {
+            if (replicationSourceId(out) == output->id()) {
                 ret << i;
             }
         }

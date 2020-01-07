@@ -262,6 +262,17 @@ void ConfigHandler::setRetention(int retention)
     Q_EMIT changed();
 }
 
+KScreen::OutputPtr ConfigHandler::replicationSource(const KScreen::OutputPtr &output) const
+{
+    return m_control->getReplicationSource(output);
+}
+
+void ConfigHandler::setReplicationSource(KScreen::OutputPtr &output,
+                                         const KScreen::OutputPtr &source)
+{
+    m_control->setReplicationSource(output, source);
+}
+
 void ConfigHandler::writeControl()
 {
     if (!m_control) {
