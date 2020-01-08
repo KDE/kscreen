@@ -101,6 +101,7 @@ int main (int argc, char *argv[])
              "  outputs         Show output information\n"
              "  monitor         Monitor for changes\n"
              "  json            Show current KScreen config"));
+    parser.addHelpOption();
     parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"),
                                  QStringLiteral("bug|config|outputs|monitor|json"));
     parser.addPositionalArgument(QStringLiteral("[args...]"), i18n("Arguments for the specified command"));
