@@ -20,6 +20,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 #include "daemon.h"
+
+#include "../common/orientation_sensor.h"
 #include "config.h"
 #include "generator.h"
 #include "device.h"
@@ -40,6 +42,7 @@
 
 #include <QTimer>
 #include <QAction>
+#include <QOrientationReading>
 #include <QShortcut>
 
 K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
@@ -50,8 +53,13 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
  , m_changeCompressor(new QTimer(this))
  , m_saveTimer(nullptr)
  , m_lidClosedTimer(new QTimer(this))
- 
+ , m_orientationSensor(new OrientationSensor(this))
 {
+    connect(m_orientationSensor, &OrientationSensor::availableChanged,
+            this, &KScreenDaemon::updateOrientation);
+    connect(m_orientationSensor, &OrientationSensor::valueChanged,
+            this, &KScreenDaemon::updateOrientation);
+
     KScreen::Log::instance();
     QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
 }
@@ -125,35 +133,80 @@ void KScreenDaemon::init()
     monitorConnectedChange();
 }
 
+void KScreenDaemon::updateOrientation()
+{
+    if (!m_monitoredConfig) {
+        return;
+    }
+    const auto features = m_monitoredConfig->data()->supportedFeatures();
+    if (!features.testFlag(KScreen::Config::Feature::AutoRotation)
+          || !features.testFlag(KScreen::Config::Feature::TabletMode) ) {
+        return;
+    }
+
+    if (!m_orientationSensor->available() || !m_orientationSensor->enabled()) {
+        return;
+    }
+
+    const auto orientation = m_orientationSensor->value();
+    if (orientation == QOrientationReading::Undefined) {
+        // Orientation sensor went off. Do not change current orientation.
+        return;
+    }
+    if (orientation == QOrientationReading::FaceUp ||
+               orientation == QOrientationReading::FaceDown) {
+        // We currently don't do anything with FaceUp/FaceDown, but in the future we could use them
+        // to shut off and switch on again a display when display is facing downwards/upwards.
+        return;
+    }
+
+    m_monitoredConfig->setDeviceOrientation(orientation);
+    if (m_monitoring) {
+        doApplyConfig(m_monitoredConfig->data());
+    } else {
+        m_configDirty = true;
+    }
+}
+
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
 {
     qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
     auto configWrapper = std::unique_ptr<Config>(new Config(config));
     configWrapper->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
     configWrapper->activateControlWatching();
-    connect(configWrapper.get(), &Config::controlChanged, this, [this]() {
-        // TODO
-    });
     doApplyConfig(std::move(configWrapper));
 }
 
 void KScreenDaemon::doApplyConfig(std::unique_ptr<Config> config)
 {
-    setMonitorForChanges(false); // TODO: remove?
     m_monitoredConfig = std::move(config);
+
+    m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
+    connect(m_monitoredConfig.get(), &Config::controlChanged, this, [this]() {
+            m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
+        updateOrientation();
+    });
+
     refreshConfig();
 }
 
 void KScreenDaemon::refreshConfig()
 {
     setMonitorForChanges(false);
+    m_configDirty = false;
     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig->data());
 
-    connect(new KScreen::SetConfigOperation(m_monitoredConfig->data()), &KScreen::SetConfigOperation::finished, this,
-            [&]() {
-                qCDebug(KSCREEN_KDED) << "Config applied";
-                setMonitorForChanges(true);
-            });
+    connect(new KScreen::SetConfigOperation(m_monitoredConfig->data()),
+                &KScreen::SetConfigOperation::finished,
+            this, [this]() {
+        qCDebug(KSCREEN_KDED) << "Config applied";
+        if (m_configDirty) {
+            // Config changed in the meantime again, apply.
+            doApplyConfig(m_monitoredConfig->data());
+        } else {
+            setMonitorForChanges(true);
+        }
+    });
 }
 
 void KScreenDaemon::applyConfig()

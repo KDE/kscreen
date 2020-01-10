@@ -17,8 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef KDED_CONFIG_H
 #define KDED_CONFIG_H
 
-
 #include <kscreen/config.h>
+
+#include <QOrientationReading>
 
 #include <memory>
 
@@ -44,6 +45,8 @@ public:
     }
 
     void activateControlWatching();
+    bool autoRotationRequested() const;
+    void setDeviceOrientation(QOrientationReading::Orientation orientation);
     void log();
 
     void setValidityFlags(KScreen::Config::ValidityFlags flags) {

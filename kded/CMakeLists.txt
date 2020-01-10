@@ -13,6 +13,7 @@ set(kscreen_daemon_SRCS
     osdaction.cpp
     ${CMAKE_SOURCE_DIR}/common/globals.cpp
     ${CMAKE_SOURCE_DIR}/common/control.cpp
+    ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp
     ${CMAKE_SOURCE_DIR}/common/utils.cpp
 )
 
@@ -32,6 +33,7 @@ add_library(kscreen MODULE ${kscreen_daemon_SRCS})
 target_link_libraries(kscreen Qt5::Widgets
                               Qt5::DBus
                               Qt5::Quick
+                              Qt5::Sensors
                               KF5::Declarative
                               KF5::Screen
                               KF5::DBusAddons

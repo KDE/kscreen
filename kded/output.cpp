@@ -16,7 +16,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "output.h"
 #include "config.h"
-#include "../common/globals.h"
 
 #include "kscreen_daemon_debug.h"
 #include "generator.h"
@@ -119,6 +118,45 @@ bool Output::readInGlobal(KScreen::OutputPtr output)
     return true;
 }
 
+KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation orientation,
+                                                KScreen::Output::Rotation fallback)
+{
+    using Orientation = QOrientationReading::Orientation;
+
+    switch (orientation) {
+    case Orientation::TopUp:
+        return KScreen::Output::Rotation::None;
+    case Orientation::TopDown:
+        return KScreen::Output::Rotation::Inverted;
+    case Orientation::LeftUp:
+        return KScreen::Output::Rotation::Right;
+    case Orientation::RightUp:
+        return KScreen::Output::Rotation::Left;
+    case Orientation::Undefined:
+    case Orientation::FaceUp:
+    case Orientation::FaceDown:
+        return fallback;
+    default:
+        Q_UNREACHABLE();
+    }
+}
+
+bool Output::updateOrientation(KScreen::OutputPtr &output,
+                               QOrientationReading::Orientation orientation)
+{
+    if (output->type() != KScreen::Output::Type::Panel) {
+        return false;
+    }
+    const auto currentRotation = output->rotation();
+    const auto rotation = orientationToRotation(orientation, currentRotation);
+    if (rotation == currentRotation) {
+        return true;
+    }
+    output->setRotation(rotation);
+    return true;
+}
+
+// TODO: move this into the Layouter class.
 void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outputsInfo)
 {
     typedef QPair<int, QPoint> Out;

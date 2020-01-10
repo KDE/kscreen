@@ -18,9 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KDED_OUTPUT_H
 
 #include "../common/control.h"
+#include "../common/globals.h"
 
 #include <kscreen/types.h>
 
+#include <QOrientationReading>
 #include <QVariantMap>
 
 class Output
@@ -34,6 +36,9 @@ public:
 
     static QString dirPath();
 
+    static bool updateOrientation(KScreen::OutputPtr &output,
+                                  QOrientationReading::Orientation orientation);
+
 private:
     static QString globalFileName(const QString &hash);
     static QVariantMap getGlobalData(KScreen::OutputPtr output);
@@ -41,7 +46,6 @@ private:
     static void readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention);
     static bool readInGlobal(KScreen::OutputPtr output);
     static void readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info);
-
     /*
      * When a global output value (scale, rotation) is changed we might
      * need to reposition the outputs when another config is read.

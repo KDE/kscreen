@@ -19,7 +19,9 @@
 #ifndef KSCREEN_DAEMON_H
 #define KSCREEN_DAEMON_H
 
+#include "../common/globals.h"
 #include "osdaction.h"
+
 #include <kscreen/config.h>
 
 #include <kdedmodule.h>
@@ -29,6 +31,7 @@
 #include <memory>
 
 class Config;
+class OrientationSensor;
 
 namespace KScreen
 {
@@ -81,12 +84,16 @@ private:
     void disableOutput(KScreen::OutputPtr &output);
     void showOsd(const QString &icon, const QString &text);
 
+    void updateOrientation();
+
     std::unique_ptr<Config> m_monitoredConfig;
     bool m_monitoring;
+    bool m_configDirty = true;
     QTimer* m_changeCompressor;
     QTimer* m_saveTimer;
     QTimer* m_lidClosedTimer;
     KScreen::OsdManager *m_osdManager;
+    OrientationSensor *m_orientationSensor;
     bool m_startingUp = true;
 };
 

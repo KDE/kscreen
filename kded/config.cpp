@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "config.h"
 #include "output.h"
-#include "../common/globals.h"
 #include "../common/control.h"
 #include "kscreen_daemon_debug.h"
 #include "device.h"
@@ -66,6 +65,29 @@ void Config::activateControlWatching()
 {
     connect(m_control, &ControlConfig::changed, this, &Config::controlChanged);
     m_control->activateWatcher();
+}
+
+bool Config::autoRotationRequested() const
+{
+    for (KScreen::OutputPtr &output : m_data->outputs()) {
+        if (m_control->getAutoRotate(output)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
+{
+    for (KScreen::OutputPtr &output : m_data->outputs()) {
+        if (!m_control->getAutoRotate(output)) {
+            continue;
+        }
+        if (Output::updateOrientation(output, orientation)) {
+            // TODO: call Layouter to find fitting positions for other outputs again
+            return;
+        }
+    }
 }
 
 bool Config::fileExists() const
