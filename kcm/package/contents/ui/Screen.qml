@@ -45,7 +45,7 @@ Controls.ScrollView {
     property int xOffset: (width - totalSize.width / relativeFactor) / 2;
     property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
-    implicitHeight: Math.max(root.height * 0.4, units.gridUnit * 13)
+    implicitHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
 
     Component.onCompleted: background.visible = true;
 
@@ -55,7 +55,7 @@ Controls.ScrollView {
             top: parent.top
             left: parent.left
             right: parent.right
-            margins: units.smallSpacing
+            margins: Kirigami.Units.smallSpacing
         }
         level: 4
         opacity: 0.6
@@ -68,7 +68,7 @@ Controls.ScrollView {
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
-            margins: units.smallSpacing
+            margins: Kirigami.Units.smallSpacing
         }
         z: 90
 
