@@ -109,12 +109,14 @@ Item {
         Layout.preferredWidth: units.gridUnit * 15
 
         ScreenLayoutSelection {
+            Layout.leftMargin: units.smallSpacing
             Layout.fillWidth: true
         }
 
         PresentationModeItem {
             Layout.fillWidth: true
             Layout.topMargin: units.largeSpacing
+            Layout.leftMargin: units.smallSpacing
         }
 
         // compact the layout, push settings button to the bottom
