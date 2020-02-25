@@ -330,7 +330,7 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
 
 
     //At this point, we know we have common sizes, let's get the biggest on
-    QList<QSize> commonSizeList = commonSizes.toList();
+    QList<QSize> commonSizeList = commonSizes.values();
     std::sort(commonSizeList.begin(), commonSizeList.end());
     const QSize biggestSize = commonSizeList.last();
 

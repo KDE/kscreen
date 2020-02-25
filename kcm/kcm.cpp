@@ -374,7 +374,7 @@ void KCMKScreen::writeGlobalScale()
     // Scaling the fonts makes sense if you don't also set a font DPI, but we NEED to set a font
     // DPI for both PlasmaShell which does it's own thing, and for KDE4/GTK2 applications.
     QString screenFactors;
-    for (const KScreen::OutputPtr output : m_config->config()->outputs()) {
+    for (const auto &output: m_config->config()->outputs()) {
         screenFactors.append(output->name() + QLatin1Char('=') + QString::number(m_globalScale) + QLatin1Char(';'));
     }
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);

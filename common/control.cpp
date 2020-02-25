@@ -223,7 +223,7 @@ Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::Output
 Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
 {
     const QVariantList outputsInfo = getOutputs();
-    for (const auto variantInfo : outputsInfo) {
+    for (const auto &variantInfo : outputsInfo) {
         const QVariantMap info = variantInfo.toMap();
         if (!infoIsOutput(info, outputId, outputName)) {
             continue;
@@ -287,7 +287,7 @@ qreal ControlConfig::getScale(const QString &outputId, const QString &outputName
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
         const QVariantList outputsInfo = getOutputs();
-        for (const auto variantInfo : outputsInfo) {
+        for (const auto &variantInfo : outputsInfo) {
             const QVariantMap info = variantInfo.toMap();
             if (!infoIsOutput(info, outputId, outputName)) {
                 continue;
@@ -353,7 +353,7 @@ bool ControlConfig::getAutoRotate(const QString &outputId, const QString &output
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
         const QVariantList outputsInfo = getOutputs();
-        for (const auto variantInfo : outputsInfo) {
+        for (const auto &variantInfo : outputsInfo) {
             const QVariantMap info = variantInfo.toMap();
             if (!infoIsOutput(info, outputId, outputName)) {
                 continue;
@@ -420,7 +420,7 @@ bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId,
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
         const QVariantList outputsInfo = getOutputs();
-        for (const auto variantInfo : outputsInfo) {
+        for (const auto &variantInfo : outputsInfo) {
             const QVariantMap info = variantInfo.toMap();
             if (!infoIsOutput(info, outputId, outputName)) {
                 continue;
@@ -486,7 +486,7 @@ KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId,
                                                        const QString &outputName) const
 {
     const QVariantList outputsInfo = getOutputs();
-    for (const auto variantInfo : outputsInfo) {
+    for (const auto &variantInfo : outputsInfo) {
         const QVariantMap info = variantInfo.toMap();
         if (!infoIsOutput(info, outputId, outputName)) {
             continue;
@@ -499,7 +499,7 @@ KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId,
             return nullptr;
         }
 
-        for (auto output : m_config->outputs()) {
+        for (const auto &output : m_config->outputs()) {
             if (output->hashMd5() == sourceHash && output->name() == sourceName) {
                 return output;
             }

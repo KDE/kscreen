@@ -229,7 +229,7 @@ bool Config::writeFile(const QString &filePath)
         info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
-        auto setOutputConfigInfo = [this, &info](const KScreen::OutputPtr &out) {
+        auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
             if (!out) {
                 return;
             }
@@ -268,7 +268,7 @@ void Config::log()
         return;
     }
     const auto outputs = m_data->outputs();
-    for (const auto o : outputs) {
+    for (const auto &o : outputs) {
         if (o->isConnected()) {
             qCDebug(KSCREEN_KDED) << o;
         }

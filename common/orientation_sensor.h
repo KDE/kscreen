@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include <QOrientationReading>
 
-class OrientationSensor : public QObject
+class OrientationSensor final : public QObject
 {
     Q_OBJECT
 public:

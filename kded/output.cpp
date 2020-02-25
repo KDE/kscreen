@@ -163,7 +163,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
 
     KScreen::OutputList outputs = config->outputs();
     QVector<Out> sortedOutputs; // <id, pos>
-    for (const KScreen::OutputPtr output : outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         sortedOutputs.append(Out(output->id(), output->pos()));
     }
 
@@ -262,7 +262,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         const int bottomToBottomDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y() - curInfoGeo.height());
         const int bottomToTopDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y());
 
-        const bool yTopAligned = topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs ||
+        const bool yTopAligned = (topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs) ||
                 topToBottomDiffAbs < bottomToBottomDiffAbs;
 
         int yInfoDiff = curInfoGeo.y() - prevInfoGeo.y();

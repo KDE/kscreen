@@ -225,7 +225,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
 
     connect(output.data(), &KScreen::Output::isPrimaryChanged,
             this, [this, output](){
-        roleChanged(output->id(), {PrimaryRole});
+        roleChanged(output->id(), PrimaryRole);
     });
     Q_EMIT endInsertRows();
 

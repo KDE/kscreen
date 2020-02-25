@@ -115,7 +115,7 @@ void TestConfig::initTestCase()
 void TestConfig::testSimpleConfig()
 {
     auto configWrapper = createConfig(true, false);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("simpleConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("simpleConfig.json"));
 
     auto config = configWrapper->data();
     QVERIFY(config);
@@ -137,7 +137,7 @@ void TestConfig::testSimpleConfig()
 void TestConfig::testTwoScreenConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("twoScreenConfig.json"));
 
     auto config = configWrapper->data();
     QVERIFY(config);
@@ -169,7 +169,7 @@ void TestConfig::testTwoScreenConfig()
 void TestConfig::testRotatedScreenConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("rotatedScreenConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("rotatedScreenConfig.json"));
 
     auto config = configWrapper->data();
     QVERIFY(config);
@@ -201,7 +201,7 @@ void TestConfig::testRotatedScreenConfig()
 void TestConfig::testDisabledScreenConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("disabledScreenConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("disabledScreenConfig.json"));
 
     auto config = configWrapper->data();
     QVERIFY(config);
@@ -228,7 +228,7 @@ void TestConfig::testDisabledScreenConfig()
 void TestConfig::testConfig404()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("filenotfoundConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("filenotfoundConfig.json"));
 
     QVERIFY(!configWrapper);
 }
@@ -236,7 +236,7 @@ void TestConfig::testConfig404()
 void TestConfig::testCorruptConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("corruptConfig.json"));
     auto config = configWrapper->data();
 
     QVERIFY(config);
@@ -247,7 +247,7 @@ void TestConfig::testCorruptConfig()
 void TestConfig::testCorruptEmptyConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptEmptyConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("corruptEmptyConfig.json"));
     auto config = configWrapper->data();
 
     QVERIFY(config);
@@ -258,7 +258,7 @@ void TestConfig::testCorruptEmptyConfig()
 void TestConfig::testCorruptUselessConfig()
 {
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("corruptUselessConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("corruptUselessConfig.json"));
     auto config = configWrapper->data();
 
     QVERIFY(config);
@@ -381,7 +381,7 @@ void TestConfig::testIdenticalOutputs()
     positions[QStringLiteral("DVI-0")] = QPoint(4020, 1080);
     positions[QStringLiteral("DVI-1")] = QPoint(0, 0);
 
-    auto configWrapper2 = std::move(configWrapper.readFile(QStringLiteral("outputgrid_2x3.json")));
+    auto configWrapper2 = configWrapper.readFile(QStringLiteral("outputgrid_2x3.json"));
     KScreen::ConfigPtr config2 = configWrapper2->data();
     QVERIFY(config2);
     QVERIFY(config != config2);
@@ -405,7 +405,7 @@ void TestConfig::testMoveConfig()
 
     // Load a dualhead config
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("twoScreenConfig.json"));
 
     auto config = configWrapper->data();
     QVERIFY(config);
@@ -453,7 +453,7 @@ void TestConfig::testMoveConfig()
     QVERIFY(closedCfg.exists());
 
     // Switcheroolooloo...
-    configWrapper = std::move(configWrapper->readOpenLidFile());
+    configWrapper = configWrapper->readOpenLidFile();
     QVERIFY(configWrapper);
 
     // Check actual files, src should be gone, dest must exist
@@ -474,7 +474,7 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->isPrimary(), false);
 
     // Make sure we don't screw up when there's no _lidOpened config
-    configWrapper = std::move(configWrapper->readOpenLidFile());
+    configWrapper = configWrapper->readOpenLidFile();
     config = configWrapper->data();
 
     output = config->connectedOutputs().first();
@@ -492,7 +492,7 @@ void TestConfig::testFixedConfig()
 {
     // Load a dualhead config
     auto configWrapper = createConfig(true, true);
-    configWrapper = std::move(configWrapper->readFile(QStringLiteral("twoScreenConfig.json")));
+    configWrapper = configWrapper->readFile(QStringLiteral("twoScreenConfig.json"));
     auto config = configWrapper->data();
     QVERIFY(config);
 

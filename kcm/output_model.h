@@ -87,10 +87,19 @@ private:
             : ptr(output.ptr)
             , pos(output.pos)
         {}
+        Output(Output &&) noexcept = default;
         Output(KScreen::OutputPtr _ptr, const QPoint &_pos)
             : ptr(_ptr)
             , pos(_pos)
         {}
+        Output &operator=(const Output &output) {
+            ptr = output.ptr;
+            pos = output.pos;
+            posReset = QPoint(-1, -1);
+            return *this;
+        }
+        Output &operator=(Output &&) noexcept = default;
+
         KScreen::OutputPtr ptr;
         QPoint pos;
         QPoint posReset = QPoint(-1, -1);
