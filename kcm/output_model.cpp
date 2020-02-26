@@ -475,12 +475,31 @@ int OutputModel::refreshRateIndex(const KScreen::OutputPtr &output) const
     return it - rates.begin();
 }
 
+static int greatestCommonDivisor(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return greatestCommonDivisor(b, a % b);
+}
+
 QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) const
 {
     QVariantList ret;
     for (const QSize &size : resolutions(output)) {
-        const QString text = QString::number(size.width()) + QStringLiteral("x") +
-                QString::number(size.height());
+        int divisor = greatestCommonDivisor(size.width(), size.height());
+
+        // Prefer "16:10" over "8:5"
+        if (size.height() / divisor == 5) {
+            divisor /= 2;
+        }
+
+        const QString text = i18nc("Width x height (aspect ratio)", "%1x%2 (%3:%4)",
+                                   // Explicitly not have it add thousand-separators.
+                                   QString::number(size.width()),
+                                   QString::number(size.height()),
+                                   size.width() / divisor,
+                                   size.height() / divisor);
+
         ret << text;
     }
     return ret;
