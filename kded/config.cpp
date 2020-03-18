@@ -94,6 +94,19 @@ void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
     }
 }
 
+void Config::setAutoRotate(bool value)
+{
+    for (KScreen::OutputPtr &output : m_data->outputs()) {
+        if (output->type() != KScreen::Output::Type::Panel) {
+            continue;
+        }
+        if (m_control->getAutoRotate(output) != value) {
+            m_control->setAutoRotate(output, value);
+        }
+    }
+    m_control->writeFile();
+}
+
 bool Config::fileExists() const
 {
     return (QFile::exists(configsDirPath() % id()) || QFile::exists(configsDirPath() % s_fixedConfigFileName));

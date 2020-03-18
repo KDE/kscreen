@@ -5,6 +5,9 @@
         <method name="applyLayoutPreset">
             <arg type="s" name="presetName" direction="in" />
         </method>
+        <method name="lockAutoRotate">
+            <arg type="b" name="lock" direction="in" />
+        </method>
         <signal name="outputConnected">
             <arg type="s" name="outputName" direction="out" />
         </signal>

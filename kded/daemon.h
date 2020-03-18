@@ -52,6 +52,7 @@ public:
 public Q_SLOTS:
     // DBus
     void applyLayoutPreset(const QString &presetName);
+    void lockAutoRotate(bool value);
 
 Q_SIGNALS:
     // DBus
