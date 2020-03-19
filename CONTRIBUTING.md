@@ -20,7 +20,7 @@ Commits are applied directly on top of master or a bug-fix branch and without me
 KScreen is released as part of Plasma. See the [Plasma schedule][plasma-schedule] for information on when the next new major version is released from master branch or a minor release with changes from one of the bug-fix branches.
 
 ## Commit Message Guideline
-Besides the [KDE Commit Policy][commit-policy] the [Conventional Commits 1.0.0-beta.4][conventional-commits] specification is applied with the following amendments:
+Besides the [KDE Commit Policy][commit-policy] the [Conventional Commits 1.0.0][conventional-commits] specification is applied with the following amendments:
 
 * Only the following types are allowed:
   * build: changes to the CMake build system, dependencies or other build-related tooling
@@ -63,7 +63,7 @@ Emails about the project can be sent to the [plasma-devel][plasma-devel] mailing
 [phab-reviews]: https://phabricator.kde.org/differential
 [plasma-schedule]: https://community.kde.org/Schedules/Plasma_5
 [commit-policy]: https://community.kde.org/Policies/Commit_Policy
-[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0-beta.4/#specification
+[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/#specification
 [angular-revert]: https://github.com/angular/angular/blob/3cf2005a936bec2058610b0786dd0671dae3d358/CONTRIBUTING.md#revert
 [angular-subject]: https://github.com/angular/angular/blob/3cf2005a936bec2058610b0786dd0671dae3d358/CONTRIBUTING.md#subject
 [bugzilla]: https://bugs.kde.org/describecomponents.cgi?product=KScreen
