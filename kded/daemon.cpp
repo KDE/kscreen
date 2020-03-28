@@ -173,7 +173,7 @@ void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
     qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
     auto configWrapper = std::unique_ptr<Config>(new Config(config));
     configWrapper->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
-    configWrapper->activateControlWatching();
+
     doApplyConfig(std::move(configWrapper));
 }
 
@@ -181,7 +181,9 @@ void KScreenDaemon::doApplyConfig(std::unique_ptr<Config> config)
 {
     m_monitoredConfig = std::move(config);
 
+    m_monitoredConfig->activateControlWatching();
     m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
+
     connect(m_monitoredConfig.get(), &Config::controlChanged, this, [this]() {
             m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
         updateOrientation();
