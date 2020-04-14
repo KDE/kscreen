@@ -201,10 +201,10 @@ OutputModel* KCMKScreen::outputModel() const
 
 void KCMKScreen::identifyOutputs()
 {
-    if (!m_config || !m_config->config() || m_outputIdentifier) {
+    if (!m_config || !m_config->initialConfig() || m_outputIdentifier) {
         return;
     }
-    m_outputIdentifier.reset(new OutputIdentifier(m_config->config(), this));
+    m_outputIdentifier.reset(new OutputIdentifier(m_config->initialConfig(), this));
     connect(m_outputIdentifier.get(), &OutputIdentifier::identifiersFinished,
             this, [this]() {
         m_outputIdentifier.reset();

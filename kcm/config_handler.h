@@ -44,6 +44,10 @@ public:
         return m_config;
     }
 
+    KScreen::ConfigPtr initialConfig() const {
+        return m_initialConfig;
+    }
+
     int retention() const;
     void setRetention(int retention);
 
