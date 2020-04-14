@@ -23,7 +23,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStandardPaths>
 #include <QTimer>
 #include <QQuickItem>
-#include <QQuickView>
+
+#include <KDeclarative/kdeclarative/qmlobject.h>
+#include <PlasmaQuick/Dialog>
 
 #define QML_PATH "kpackage/kcms/kcm_kscreen/contents/ui/"
 
@@ -42,16 +44,21 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
         }
 
         const KScreen::ModePtr mode = output->currentMode();
+        auto *view = new PlasmaQuick::Dialog();
 
-        auto *view = new QQuickView();
+        auto qmlObject = new KDeclarative::QmlObject(view);
+        qmlObject->setSource(QUrl::fromLocalFile(qmlPath));
+        qmlObject->completeInitialization();
 
+        auto rootObj = qobject_cast<QQuickItem *>(qmlObject->rootObject());
+
+        view->setMainItem(rootObj);
         view->setFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
-        view->setResizeMode(QQuickView::SizeViewToRootObject);
-        view->setSource(QUrl::fromLocalFile(qmlPath));
+        view->setBackgroundHints(PlasmaQuick::Dialog::NoBackground);
         view->installEventFilter(this);
 
-        QQuickItem *rootObj = view->rootObject();
         if (!rootObj) {
+            delete view;
             continue;
         }
 
@@ -62,12 +69,11 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
             deviceSize = QSize(mode->size().height(), mode->size().width());
         }
         if (config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-            // no scale adjustment needed on Wayland
-            logicalSize = deviceSize;
+            // Scale adjustment is not needed on Wayland, we use logical size.
+            logicalSize = output->logicalSize().toSize();
         } else {
             logicalSize = deviceSize / view->effectiveDevicePixelRatio();
         }
-
         rootObj->setProperty("outputName", Utils::outputName(output));
         rootObj->setProperty("modeName", Utils::sizeToString(deviceSize));
         view->setProperty("screenSize", QRect(output->pos(), logicalSize));
@@ -88,12 +94,12 @@ OutputIdentifier::~OutputIdentifier()
 bool OutputIdentifier::eventFilter(QObject* object, QEvent* event)
 {
     if (event->type() == QEvent::Resize) {
-        if (m_views.contains(qobject_cast<QQuickView*>(object))) {
+        if (m_views.contains(qobject_cast<PlasmaQuick::Dialog*>(object))) {
             QResizeEvent *e = static_cast<QResizeEvent*>(event);
             const QRect screenSize = object->property("screenSize").toRect();
             QRect geometry(QPoint(0, 0), e->size());
             geometry.moveCenter(screenSize.center());
-            static_cast<QQuickView*>(object)->setGeometry(geometry);
+            static_cast<PlasmaQuick::Dialog*>(object)->setGeometry(geometry);
         }
     }
     return QObject::eventFilter(object, event);

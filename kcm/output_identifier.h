@@ -21,7 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTimer>
 #include <QVector>
 
-class QQuickView;
+namespace PlasmaQuick
+{
+    class Dialog;
+}
 
 class OutputIdentifier : public QObject
 {
@@ -38,6 +41,6 @@ protected:
   bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
-    QVector<QQuickView*> m_views;
+    QVector<PlasmaQuick::Dialog*> m_views;
     QTimer m_timer;
 };

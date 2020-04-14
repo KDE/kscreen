@@ -26,7 +26,9 @@ target_link_libraries(kcm_kscreen
     Qt5::Sensors
     KF5::ConfigCore
     KF5::CoreAddons
+    KF5::Declarative
     KF5::I18n
+    KF5::PlasmaQuick
     KF5::QuickAddons
     KF5::Screen
 )
