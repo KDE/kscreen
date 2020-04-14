@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <kscreen/config.h>
 
-#include <QTimer>
 #include <QVector>
 
 namespace PlasmaQuick
@@ -42,5 +41,4 @@ protected:
 
 private:
     QVector<PlasmaQuick::Dialog*> m_views;
-    QTimer m_timer;
 };
