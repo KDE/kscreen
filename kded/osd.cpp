@@ -25,10 +25,13 @@
 
 #include <KScreen/Mode>
 
-#include <QTimer>
-#include <QStandardPaths>
-#include <KDeclarative/QmlObjectSharedEngine>
+#include <QCursor>
 #include <QGuiApplication>
+#include <QScreen>
+#include <QStandardPaths>
+#include <QTimer>
+
+#include <KDeclarative/QmlObjectSharedEngine>
 
 using namespace KScreen;
 
@@ -138,6 +141,10 @@ void Osd::showActionSelector()
                 this, SLOT(onOsdActionSelected(int)));
     }
     if (auto *rootObject = m_osdActionSelector->rootObject()) {
+        // On wayland, we use m_output to set an action on OSD position
+        if (qGuiApp->platformName() == QLatin1String("wayland")) {
+            rootObject->setProperty("screenGeometry", m_output->geometry());
+        }
         rootObject->setProperty("visible", true);
     } else {
         qCWarning(KSCREEN_KDED) << "Could not get root object for action selector.";

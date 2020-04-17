@@ -29,6 +29,12 @@ PlasmaCore.Dialog {
     location: PlasmaCore.Types.Floating
     type: PlasmaCore.Dialog.Normal
     property string infoText
+    property var screenGeometry
+
+    onScreenGeometryChanged: {
+        root.x = screenGeometry.x + (screenGeometry.width - mainItem.width) / 2
+        root.y = screenGeometry.y + (screenGeometry.height - mainItem.height) / 2
+    }
 
     signal clicked(int actionId)
 
