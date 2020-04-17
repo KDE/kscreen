@@ -94,6 +94,18 @@ void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
     }
 }
 
+bool Config::getAutoRotate() const
+{
+    const auto outputs = m_data->outputs();
+    return std::all_of(outputs.cbegin(), outputs.cend(),
+        [this](KScreen::OutputPtr output) {
+            if (output->type() != KScreen::Output::Type::Panel) {
+                return true;
+            }
+            return m_control->getAutoRotate(output);
+        });
+}
+
 void Config::setAutoRotate(bool value)
 {
     for (KScreen::OutputPtr &output : m_data->outputs()) {

@@ -248,7 +248,12 @@ void KScreenDaemon::applyLayoutPreset(const QString &presetName)
     applyOsdAction(action);
 }
 
-void KScreenDaemon::lockAutoRotate(bool value)
+bool KScreenDaemon::getAutoRotate()
+{
+    return m_monitoredConfig->getAutoRotate();
+}
+
+void KScreenDaemon::setAutoRotate(bool value)
 {
     if (!m_monitoredConfig) {
         return;
