@@ -21,7 +21,7 @@ import QtQuick.Controls 2.3 as Controls
 import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.4 as Kirigami
 
-Rectangle {
+Item {
     id: output
 
     property bool isSelected: root.selectedOutput === model.index
@@ -55,17 +55,21 @@ Rectangle {
         id: palette
     }
 
-    radius: 4
-    color: palette.window
-    smooth: true
+    Rectangle {
+        id: outline
+        radius: 4
+        color: palette.window
 
-    border {
-        color: isSelected ? palette.highlight : palette.shadow
-        width: 1
+        anchors.fill: parent
 
-        Behavior on color {
-            PropertyAnimation {
-                duration: 150
+        border {
+            color: isSelected ? palette.highlight : palette.shadow
+            width: 1
+
+            Behavior on color {
+                PropertyAnimation {
+                    duration: 150
+                }
             }
         }
     }
@@ -231,7 +235,7 @@ Rectangle {
     OpacityMask {
         anchors.fill: orientationPanelContainer
         source: orientationPanelContainer
-        maskSource: output
+        maskSource: outline
     }
 
     property point dragStartPosition
