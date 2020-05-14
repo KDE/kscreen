@@ -62,7 +62,7 @@ KCMKScreen::KCMKScreen(QObject *parent, const QVariantList &args)
                                        KAboutLicense::GPL,
                                        i18n("Copyright © 2019 Roman Gilg"));
     about->addAuthor(i18n("Roman Gilg"),
-                    i18n("Maintainer"),
+                    i18n("Developer"),
                     QStringLiteral("subdiff@gmail.com"));
     setAboutData(about);
     setButtons(Apply);
