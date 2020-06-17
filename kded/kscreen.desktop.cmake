@@ -43,7 +43,6 @@ Name[sv]=Kscreen 2
 Name[tg]=KScreen 2
 Name[tr]=KScreen 2
 Name[uk]=KScreen 2
-Name[x-test]=xxKScreen 2xx
 Name[zh_CN]=KScreen 2
 Name[zh_TW]=KScreen 2
 Comment=Screen management
@@ -90,7 +89,6 @@ Comment[sv]=Skärmhantering
 Comment[tg]=Идоракунии экран
 Comment[tr]=Ekran yönetimi
 Comment[uk]=Керування екраном
-Comment[x-test]=xxScreen managementxx
 Comment[zh_CN]=屏幕管理
 Comment[zh_TW]=螢幕管理
 
