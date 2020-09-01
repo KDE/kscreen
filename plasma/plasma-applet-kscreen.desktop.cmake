@@ -100,6 +100,5 @@ X-KDE-PluginInfo-Name=org.kde.plasma.kscreen
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 X-KDE-PluginInfo-Website=http://www.kde.org
 X-KDE-PluginInfo-Category=System Information
-X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
