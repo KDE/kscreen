@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QVector>
 #include <QVariantMap>
 
-class QFileSystemWatcher;
+class KDirWatch;
 
 class Control : public QObject
 {
@@ -54,14 +54,14 @@ protected:
     void readFile();
     QVariantMap& info();
     const QVariantMap& constInfo() const;
-    QFileSystemWatcher* watcher() const;
+    KDirWatch* watcher() const;
 
     static OutputRetention convertVariantToOutputRetention(QVariant variant);
 
 private:
     static QString s_dirName;
     QVariantMap m_info;
-    QFileSystemWatcher *m_watcher = nullptr;
+    KDirWatch *m_watcher = nullptr;
 };
 
 class ControlOutput;
