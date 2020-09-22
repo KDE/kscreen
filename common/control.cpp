@@ -18,9 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "globals.h"
 
 #include <QFile>
-#include <QFileSystemWatcher>
 #include <QJsonDocument>
 #include <QDir>
+#include <KDirWatch>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -37,14 +37,15 @@ void Control::activateWatcher()
     if (m_watcher) {
         return;
     }
-    m_watcher = new QFileSystemWatcher({filePath()}, this);
-    connect(m_watcher, &QFileSystemWatcher::fileChanged, this, [this]() {
+    m_watcher = new KDirWatch(this);
+    m_watcher->addFile(filePath());
+    connect(m_watcher, &KDirWatch::dirty, this, [this]() {
         readFile();
         Q_EMIT changed();
     });
 }
 
-QFileSystemWatcher* Control::watcher() const
+KDirWatch* Control::watcher() const
 {
     return m_watcher;
 }
