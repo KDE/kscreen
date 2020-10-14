@@ -17,10 +17,11 @@
 
 import QtQuick 2.5
 import QtQuick.Window 2.2
+import QtQuick.Layouts 1.10
 
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.components 3.0 as PlasmaComponents
 
 import org.kde.KScreen 1.0
 
@@ -38,17 +39,8 @@ PlasmaCore.Dialog {
 
     signal clicked(int actionId)
 
-    mainItem: Item {
-        height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
-        width: buttonRow.width
-
-        Row {
-            id: buttonRow
-            spacing: theme.defaultFont.pointSize
-
-            height: parent.height - label.height - ((units.smallSpacing/2) * 3)
-            width: (actionRepeater.count * height) + ((actionRepeater.count - 1) * buttonRow.spacing);
-
+    mainItem: ColumnLayout {
+        RowLayout {
             Repeater {
                 id: actionRepeater
                 property int currentIndex: 0
@@ -59,25 +51,21 @@ PlasmaCore.Dialog {
                             label: OsdAction.actionLabel(layout),
                             action: layout
                         }
-                    });
+                    })
                 }
                 delegate: PlasmaComponents.Button {
-                    property var action: modelData.action
+                    action: modelData.action
                     Accessible.name: modelData.label
-                    PlasmaCore.IconItem {
-                        source: modelData.iconSource
-                        height: buttonRow.height - ((units.smallSpacing / 2) * 3)
-                        width: height
-                        anchors.centerIn: parent
-                    }
-                    height: parent.height
-                    width: height
 
+                    icon.name: modelData.iconSource
+                    icon.height: PlasmaCore.Units.gridUnit * 8
+                    icon.width: PlasmaCore.Units.gridUnit * 8
+
+                    onClicked: root.clicked(action)
                     onHoveredChanged: {
                         actionRepeater.currentIndex = index
                     }
 
-                    onClicked: root.clicked(action)
                     activeFocusOnTab: true
 
                     // use checked only indirectly, since its binding will break
@@ -99,62 +87,35 @@ PlasmaCore.Dialog {
                 }
             }
         }
-
         PlasmaExtras.Heading {
-            id: label
-            anchors {
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-                margins: Math.floor(units.smallSpacing / 2)
-            }
-
             text: root.infoText
             horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
             maximumLineCount: 2
-            elide: Text.ElideLeft
-            minimumPointSize: theme.defaultFont.pointSize
-            fontSizeMode: Text.HorizontalFit
+            wrapMode: Text.WordWrap
+
+            Layout.fillWidth: true
+            Layout.margins: Math.floor(PlasmaCore.Units.smallSpacing / 2)
         }
 
-        Component.onCompleted: print("OsdSelector loaded...");
-
-        function next() {
-            var index = actionRepeater.currentIndex + 1
-            if (index >= actionRepeater.count) {
-                index = 0
-            }
-            actionRepeater.currentIndex = index
-        }
-        function previous() {
-            var index = actionRepeater.currentIndex - 1
-            if (index < 0) {
-                index = actionRepeater.count - 1
-            }
-            actionRepeater.currentIndex = index
+        function move(delta) {
+            actionRepeater.currentIndex = ((actionRepeater.currentIndex + delta) + actionRepeater.count) % actionRepeater.count
         }
 
         Keys.onPressed: {
-            if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                event.accepted = true
-                clicked(buttonRow.children[actionRepeater.currentIndex].action)
-                return
-            }
-            if (event.key === Qt.Key_Right) {
-                event.accepted = true
-                next()
-                return
-            }
-            if (event.key === Qt.Key_Left) {
-                event.accepted = true
-                previous()
-                return
-            }
-            if (event.key === Qt.Key_Escape) {
-                event.accepted = true
-                clicked(OsdAction.NoAction)
-                return
+            switch (event.key) {
+                case Qt.Key_Return:
+                case Qt.Key_Enter:
+                    clicked(actionRepeater.itemAt(actionRepeater.currentIndex).action)
+                    break
+                case Qt.Key_Right:
+                    move(1)
+                    break
+                case Qt.Key_Left:
+                    move(-1)
+                    break
+                case Qt.Key_Escape:
+                    clicked(OsdAction.NoAction)
+                    break
             }
         }
     }

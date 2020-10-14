@@ -18,39 +18,26 @@
 
 import QtQuick 2.5
 import QtQuick.Window 2.2
+import QtQuick.Layouts 1.10
 
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-Item {
-    property QtObject rootItem
-
-    height: Math.min(units.gridUnit * 15, Screen.desktopAvailableHeight / 5)
-    width: height
-
+ColumnLayout {
     PlasmaCore.IconItem {
-        id: icon
-        height: parent.height - label.height - ((units.smallSpacing/2) * 3)
-        width: parent.width
         source: rootItem.icon
+
+        Layout.preferredHeight: PlasmaCore.Units.gridUnit * 10
+        Layout.preferredWidth: implicitHeight
     }
 
     PlasmaExtras.Heading {
-        id: label
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            margins: Math.floor(units.smallSpacing / 2)
-        }
-
         text: rootItem.infoText
+
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         maximumLineCount: 2
-        elide: Text.ElideLeft
-        minimumPointSize: theme.defaultFont.pointSize
-        fontSizeMode: Text.HorizontalFit
+
+        Layout.fillWidth: true
     }
-    Component.onCompleted: print("osditem loaded..." + root.infoText);
 }
