@@ -27,7 +27,6 @@
 
 #include <kscreen/types.h>
 #include <kscreen/config.h>
-#include <kscreen/output.h>
 #include <kscreen/mode.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/edid.h>

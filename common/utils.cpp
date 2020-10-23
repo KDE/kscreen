@@ -21,7 +21,6 @@
 
 #include "utils.h"
 
-#include <kscreen/output.h>
 #include <kscreen/edid.h>
 
 #include <KLocalizedString>

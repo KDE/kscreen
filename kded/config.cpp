@@ -27,7 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QDir>
 
-#include <kscreen/config.h>
 #include <kscreen/output.h>
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
