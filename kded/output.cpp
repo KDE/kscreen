@@ -62,7 +62,7 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 
     qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo[QStringLiteral("refresh")].toFloat();
 
-    KScreen::ModeList modes = output->modes();
+    const KScreen::ModeList modes = output->modes();
     KScreen::ModePtr matchingMode;
     for(const KScreen::ModePtr &mode : modes) {
         if (mode->size() != size) {
@@ -323,7 +323,7 @@ void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control:
 
 void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo)
 {
-    KScreen::OutputList outputs = config->outputs();
+    const KScreen::OutputList outputs = config->outputs();
     ControlConfig control(config);
     // As global outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
@@ -338,10 +338,9 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
         }
         allIds << outputId;
     }
-    allIds.clear();
     }
 
-    for (KScreen::OutputPtr output : outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected()) {
             output->setEnabled(false);
             continue;

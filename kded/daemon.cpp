@@ -455,14 +455,14 @@ void KScreenDaemon::outputConnectedChanged()
 
 void KScreenDaemon::monitorConnectedChange()
 {
-    KScreen::OutputList outputs = m_monitoredConfig->data()->outputs();
-    Q_FOREACH(const KScreen::OutputPtr &output, outputs) {
+    const KScreen::OutputList outputs = m_monitoredConfig->data()->outputs();
+    for (const KScreen::OutputPtr &output : outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
                 this, &KScreenDaemon::outputConnectedChanged,
                 Qt::UniqueConnection);
     }
     connect(m_monitoredConfig->data().data(), &KScreen::Config::outputAdded, this,
-        [this] (const KScreen::OutputPtr output) {
+        [this] (const KScreen::OutputPtr &output) {
             if (output->isConnected()) {
                 m_changeCompressor->start();
             }

@@ -63,7 +63,7 @@ Q_SIGNALS:
 private:
     friend class TestConfig;
 
-    QString filePath();
+    QString filePath() const;
     std::unique_ptr<Config> readFile(const QString &fileName);
     bool writeFile(const QString &filePath);
 

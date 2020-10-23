@@ -44,7 +44,7 @@ Config::Config(KScreen::ConfigPtr config, QObject *parent)
 {
 }
 
-QString Config::filePath()
+QString Config::filePath() const
 {
     if (!QDir().mkpath(configsDirPath())) {
         return QString();
