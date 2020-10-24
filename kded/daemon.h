@@ -71,7 +71,7 @@ private:
     void saveCurrentConfig();
     void displayButton();
     void lidClosedChanged(bool lidIsClosed);
-    void lidClosedTimeout();
+    void disableLidOutput();
     void setMonitorForChanges(bool enabled);
 
     void outputConnectedChanged();

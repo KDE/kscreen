@@ -106,7 +106,7 @@ void KScreenDaemon::init()
 
     m_lidClosedTimer->setInterval(1000);
     m_lidClosedTimer->setSingleShot(true);
-    connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::lidClosedTimeout);
+    connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::disableLidOutput);
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this,
@@ -126,6 +126,11 @@ void KScreenDaemon::init()
 
     connect(Generator::self(), &Generator::ready, this, [this] {
         applyConfig();
+
+        if (Device::self()->isLaptop() && Device::self()->isLidClosed()) {
+            disableLidOutput();
+        }
+
         m_startingUp = false;
     });
 
@@ -405,7 +410,7 @@ void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
     }
 }
 
-void KScreenDaemon::lidClosedTimeout()
+void KScreenDaemon::disableLidOutput()
 {
     // Make sure nothing has changed in the past second... :-)
     if (!Device::self()->isLidClosed()) {
@@ -419,7 +424,7 @@ void KScreenDaemon::lidClosedTimeout()
     // what's the configured action for lid events, but there's no API to do that
     // and I'm not parsing PowerDevil's configs...
 
-    qCDebug(KSCREEN_KDED) << "Lid closed without system going to suspend -> turning off the screen";
+    qCDebug(KSCREEN_KDED) << "Lid closed, finding lid to disable";
     for (KScreen::OutputPtr &output : m_monitoredConfig->data()->outputs()) {
         if (output->type() == KScreen::Output::Panel) {
             if (output->isConnected() && output->isEnabled()) {
