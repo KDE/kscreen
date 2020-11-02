@@ -69,6 +69,7 @@ void KScreenDaemon::getInitialConfig()
     connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
             this, [this](KScreen::ConfigOperation* op) {
         if (op->hasError()) {
+            qCDebug(KSCREEN_KDED) << "Error getting initial configuration" << op->errorString();
             return;
         }
 
@@ -234,7 +235,7 @@ void KScreenDaemon::applyKnownConfig()
     if (readInConfig) {
         doApplyConfig(std::move(readInConfig));
     } else {
-        // loading not successful, fall back to ideal config
+        qCDebug(KSCREEN_KDED) << "Loading failed, falling back to the ideal config" << m_monitoredConfig->id();
         applyIdealConfig();
     }
 }
