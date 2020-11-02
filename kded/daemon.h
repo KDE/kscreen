@@ -83,7 +83,7 @@ private:
     void refreshConfig();
 
     void monitorConnectedChange();
-    void disableOutput(KScreen::OutputPtr &output);
+    void disableOutput(const KScreen::OutputPtr &output);
     void showOsd(const QString &icon, const QString &text);
 
     void updateOrientation();

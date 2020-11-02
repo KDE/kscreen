@@ -321,7 +321,8 @@ void KScreenDaemon::configChanged()
 
     // Modes may have changed, fix-up current mode id
     bool changed = false;
-    Q_FOREACH(const KScreen::OutputPtr &output, m_monitoredConfig->data()->outputs()) {
+    const auto outputs = m_monitoredConfig->data()->outputs();
+    for (const KScreen::OutputPtr &output : outputs) {
         if (output->isConnected() && output->isEnabled() && (output->currentMode().isNull() || (output->followPreferredMode() && output->currentModeId() != output->preferredModeId()))) {
             qCDebug(KSCREEN_KDED) << "Current mode was" << output->currentModeId() << ", setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
@@ -498,7 +499,7 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     }
 }
 
-void KScreenDaemon::disableOutput(KScreen::OutputPtr &output)
+void KScreenDaemon::disableOutput(const KScreen::OutputPtr &output)
 {
     const QRect geom = output->geometry();
     qCDebug(KSCREEN_KDED) << "Laptop geometry:" << geom << output->pos() << (output->currentMode() ? output->currentMode()->size() : QSize());
