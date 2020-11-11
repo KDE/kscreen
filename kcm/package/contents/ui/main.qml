@@ -89,10 +89,16 @@ KCM.SimpleKCM {
 
         Connections {
             target: kcm
-            onDangerousSave: dangerousSaveMsg.visible = true;
-            onErrorOnSave: errSaveMsg.visible = true;
-            onGlobalScaleWritten: scaleMsg.visible = true;
-            onOutputConnect: {
+            function onDangerousSave() {
+                dangerousSaveMsg.visible = true;
+            }
+            function onErrorOnSave() {
+                errSaveMsg.visible = true;
+            }
+            function onGlobalScaleWritten() {
+                scaleMsg.visible = true;
+            }
+            function onOutputConnect(connected) {
                 if (connected) {
                     connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
                 } else {
@@ -100,9 +106,11 @@ KCM.SimpleKCM {
                 }
                 connectMsg.visible = true;
             }
-            onBackendError: errBackendMsg.visible = true;
+            function onBackendError() {
+                errBackendMsg.visible = true;
+            }
 
-            onChanged: {
+            function onChanged() {
                 dangerousSaveMsg.visible = false;
                 errSaveMsg.visible = false;
                 scaleMsg.visible = false;
