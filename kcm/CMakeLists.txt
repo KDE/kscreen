@@ -18,6 +18,7 @@ ecm_qt_declare_logging_category(kcm_kscreen_SRCS
         KSCREEN_KCM
     CATEGORY_NAME
         kscreen.kcm
+     DESCRIPTION "kscreen kcm (kscreen)" EXPORT KSCREEN
 )
 
 add_library(kcm_kscreen MODULE ${kcm_kscreen_SRCS})

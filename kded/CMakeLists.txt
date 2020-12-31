@@ -17,7 +17,7 @@ set(kscreen_daemon_SRCS
     ${CMAKE_SOURCE_DIR}/common/utils.cpp
 )
 
-ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)
+ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
 
 qt5_add_dbus_interface(kscreen_daemon_SRCS
     org.freedesktop.DBus.Properties.xml
