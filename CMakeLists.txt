@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 project(KScreen)
-set(PROJECT_VERSION "5.20.4")
+set(PROJECT_VERSION "5.20.5")
 set(KSCREEN_VERSION ${PROJECT_VERSION})
 
 add_definitions("-DKSCREEN_VERSION=\"${KSCREEN_VERSION}\"")
