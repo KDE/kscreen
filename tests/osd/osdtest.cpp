@@ -40,8 +40,9 @@ OsdTest::~OsdTest()
 
 OsdManager *OsdTest::getOsdManager()
 {
-    if (m_osdManager)
+    if (m_osdManager) {
         return m_osdManager;
+    }
     m_osdManager = new OsdManager(this);
     return m_osdManager;
 }
