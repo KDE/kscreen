@@ -21,75 +21,75 @@
 
 #include <QObject>
 
-#include <kscreen/output.h>
 #include <kscreen/mode.h>
+#include <kscreen/output.h>
 
 namespace KScreen
 {
-    class Config;
+class Config;
 }
 class Generator : public QObject
 {
     Q_OBJECT
-    public:
-        enum DisplaySwitchAction {
-            None = 0,
-            Clone = 1,
-            ExtendToLeft = 2,
-            TurnOffEmbedded = 3,
-            TurnOffExternal = 4,
-            ExtendToRight = 5,
-        };
+public:
+    enum DisplaySwitchAction {
+        None = 0,
+        Clone = 1,
+        ExtendToLeft = 2,
+        TurnOffEmbedded = 3,
+        TurnOffExternal = 4,
+        ExtendToRight = 5,
+    };
 
-        static Generator* self();
-        static void destroy();
+    static Generator *self();
+    static void destroy();
 
-        void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
+    void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
 
-        KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
-        KScreen::ConfigPtr displaySwitch(DisplaySwitchAction iteration);
+    KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
+    KScreen::ConfigPtr displaySwitch(DisplaySwitchAction iteration);
 
-        void setForceLaptop(bool force);
-        void setForceLidClosed(bool force);
-        void setForceDocked(bool force);
-        void setForceNotLaptop(bool force);
+    void setForceLaptop(bool force);
+    void setForceLidClosed(bool force);
+    void setForceDocked(bool force);
+    void setForceNotLaptop(bool force);
 
-        static KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
+    static KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
 
-    Q_SIGNALS:
-        void ready();
+Q_SIGNALS:
+    void ready();
 
-    private:
-        explicit Generator();
-        ~Generator() override;
+private:
+    explicit Generator();
+    ~Generator() override;
 
-        KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
+    KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
 
-        void cloneScreens(KScreen::OutputList &connectedOutputs);
-        void laptop(KScreen::OutputList &connectedOutputs);
-        void singleOutput(KScreen::OutputList &connectedOutputs);
-        void extendToRight(KScreen::OutputList &connectedOutputs);
+    void cloneScreens(KScreen::OutputList &connectedOutputs);
+    void laptop(KScreen::OutputList &connectedOutputs);
+    void singleOutput(KScreen::OutputList &connectedOutputs);
+    void extendToRight(KScreen::OutputList &connectedOutputs);
 
-        KScreen::ModePtr bestModeForSize(const KScreen::ModeList& modes, const QSize &size);
-        KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
-        qreal bestScaleForOutput(const KScreen::OutputPtr &output);
+    KScreen::ModePtr bestModeForSize(const KScreen::ModeList &modes, const QSize &size);
+    KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
+    qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
-        KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
-        KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
-        void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
+    KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
+    KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
+    void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
 
-        bool isLaptop() const;
-        bool isLidClosed() const;
-        bool isDocked() const;
+    bool isLaptop() const;
+    bool isLidClosed() const;
+    bool isDocked() const;
 
-        bool m_forceLaptop;
-        bool m_forceLidClosed;
-        bool m_forceNotLaptop;
-        bool m_forceDocked;
+    bool m_forceLaptop;
+    bool m_forceLidClosed;
+    bool m_forceNotLaptop;
+    bool m_forceDocked;
 
-        KScreen::ConfigPtr m_currentConfig;
+    KScreen::ConfigPtr m_currentConfig;
 
-        static Generator* instance;
+    static Generator *instance;
 };
 
-#endif //KDED_GENERATOR_H
+#endif // KDED_GENERATOR_H

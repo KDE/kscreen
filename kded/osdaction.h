@@ -25,8 +25,8 @@
 #include <QString>
 #include <QVector>
 
-namespace KScreen {
-
+namespace KScreen
+{
 class OsdAction : public QObject
 {
     Q_OBJECT
@@ -49,7 +49,6 @@ public:
 
 Q_SIGNALS:
     void selected(Action action);
-
 };
 
 } // namespace KScreen

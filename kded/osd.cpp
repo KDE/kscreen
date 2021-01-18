@@ -39,14 +39,10 @@ Osd::Osd(const KScreen::OutputPtr &output, QObject *parent)
     : QObject(parent)
     , m_output(output)
 {
-    connect(output.data(), &KScreen::Output::isConnectedChanged,
-            this, &Osd::onOutputAvailabilityChanged);
-    connect(output.data(), &KScreen::Output::isEnabledChanged,
-            this, &Osd::onOutputAvailabilityChanged);
-    connect(output.data(), &KScreen::Output::currentModeIdChanged,
-            this, &Osd::updatePosition);
-    connect(output.data(), &KScreen::Output::destroyed,
-            this, &Osd::hideOsd);
+    connect(output.data(), &KScreen::Output::isConnectedChanged, this, &Osd::onOutputAvailabilityChanged);
+    connect(output.data(), &KScreen::Output::isEnabledChanged, this, &Osd::onOutputAvailabilityChanged);
+    connect(output.data(), &KScreen::Output::currentModeIdChanged, this, &Osd::updatePosition);
+    connect(output.data(), &KScreen::Output::destroyed, this, &Osd::hideOsd);
 }
 
 Osd::~Osd()
@@ -80,7 +76,6 @@ bool Osd::initOsd()
     m_osdTimer->setSingleShot(true);
     connect(m_osdTimer, &QTimer::timeout, this, &Osd::hideOsd);
     return true;
-
 }
 
 void Osd::showGenericOsd(const QString &icon, const QString &text)
@@ -137,8 +132,7 @@ void Osd::showActionSelector()
         }
 
         auto *rootObject = m_osdActionSelector->rootObject();
-        connect(rootObject, SIGNAL(clicked(int)),
-                this, SLOT(onOsdActionSelected(int)));
+        connect(rootObject, SIGNAL(clicked(int)), this, SLOT(onOsdActionSelected(int)));
     }
     if (auto *rootObject = m_osdActionSelector->rootObject()) {
         // On wayland, we use m_output to set an action on OSD position

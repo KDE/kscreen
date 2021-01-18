@@ -50,15 +50,12 @@ public:
         ReplicasModelRole,
     };
 
-    explicit OutputModel (ConfigHandler *configHandler);
+    explicit OutputModel(ConfigHandler *configHandler);
     ~OutputModel() override = default;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index,
-                  int role = Qt::DisplayRole) const override;
-    bool setData(const QModelIndex &index,
-                 const QVariant &value,
-                 int role = Qt::EditRole) override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     void add(const KScreen::OutputPtr &output);
     void remove(int outputId);
@@ -82,17 +79,22 @@ protected:
 
 private:
     struct Output {
-        Output() {}
+        Output()
+        {
+        }
         Output(const Output &output)
             : ptr(output.ptr)
             , pos(output.pos)
-        {}
+        {
+        }
         Output(Output &&) noexcept = default;
         Output(KScreen::OutputPtr _ptr, const QPoint &_pos)
             : ptr(_ptr)
             , pos(_pos)
-        {}
-        Output &operator=(const Output &output) {
+        {
+        }
+        Output &operator=(const Output &output)
+        {
             ptr = output.ptr;
             pos = output.pos;
             posReset = QPoint(-1, -1);

@@ -25,7 +25,7 @@
 
 #include <KLocalizedString>
 
-QString Utils::outputName(const KScreen::OutputPtr& output)
+QString Utils::outputName(const KScreen::OutputPtr &output)
 {
     return outputName(output.data());
 }
@@ -57,4 +57,3 @@ QString Utils::sizeToString(const QSize &size)
 {
     return QStringLiteral("%1x%2").arg(size.width()).arg(size.height());
 }
-

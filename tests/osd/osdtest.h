@@ -21,7 +21,6 @@
 
 #include <QObject>
 
-
 namespace KScreen
 {
 class OsdManager;

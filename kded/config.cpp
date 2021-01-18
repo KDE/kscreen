@@ -16,16 +16,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 #include "config.h"
-#include "output.h"
 #include "../common/control.h"
-#include "kscreen_daemon_debug.h"
 #include "device.h"
+#include "kscreen_daemon_debug.h"
+#include "output.h"
 
-#include <QFile>
-#include <QStandardPaths>
-#include <QRect>
-#include <QJsonDocument>
 #include <QDir>
+#include <QFile>
+#include <QJsonDocument>
+#include <QRect>
+#include <QStandardPaths>
 
 #include <kscreen/output.h>
 
@@ -96,13 +96,12 @@ void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
 bool Config::getAutoRotate() const
 {
     const auto outputs = m_data->outputs();
-    return std::all_of(outputs.cbegin(), outputs.cend(),
-        [this](KScreen::OutputPtr output) {
-            if (output->type() != KScreen::Output::Type::Panel) {
-                return true;
-            }
-            return m_control->getAutoRotate(output);
-        });
+    return std::all_of(outputs.cbegin(), outputs.cend(), [this](KScreen::OutputPtr output) {
+        if (output->type() != KScreen::Output::Type::Panel) {
+            return true;
+        }
+        return m_control->getAutoRotate(output);
+    });
 }
 
 void Config::setAutoRotate(bool value)
@@ -237,13 +236,10 @@ bool Config::writeFile(const QString &filePath)
     for (const KScreen::OutputPtr &output : outputs) {
         QVariantMap info;
 
-        const auto oldOutputIt = std::find_if(oldOutputs.constBegin(), oldOutputs.constEnd(),
-                                              [output](const KScreen::OutputPtr &out) {
-                                                  return out->hashMd5() == output->hashMd5();
-                                               }
-        );
-        const KScreen::OutputPtr oldOutput = oldOutputIt != oldOutputs.constEnd() ? *oldOutputIt :
-                                                                                    nullptr;
+        const auto oldOutputIt = std::find_if(oldOutputs.constBegin(), oldOutputs.constEnd(), [output](const KScreen::OutputPtr &out) {
+            return out->hashMd5() == output->hashMd5();
+        });
+        const KScreen::OutputPtr oldOutput = oldOutputIt != oldOutputs.constEnd() ? *oldOutputIt : nullptr;
 
         if (!output->isConnected()) {
             continue;
@@ -265,9 +261,7 @@ bool Config::writeFile(const QString &filePath)
         };
         setOutputConfigInfo(output->isEnabled() ? output : oldOutput);
 
-        if (output->isEnabled() &&
-                m_control->getOutputRetention(output->hash(), output->name()) !=
-                    Control::OutputRetention::Individual) {
+        if (output->isEnabled() && m_control->getOutputRetention(output->hash(), output->name()) != Control::OutputRetention::Individual) {
             // try to update global output data
             Output::writeGlobal(output);
         }

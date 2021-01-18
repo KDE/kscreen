@@ -17,18 +17,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "output.h"
 #include "config.h"
 
-#include "kscreen_daemon_debug.h"
 #include "generator.h"
+#include "kscreen_daemon_debug.h"
 
-#include <QStringList>
+#include <QDir>
 #include <QFile>
 #include <QJsonDocument>
-#include <QDir>
 #include <QLoggingCategory>
 #include <QRect>
+#include <QStringList>
 
-#include <kscreen/output.h>
 #include <kscreen/edid.h>
+#include <kscreen/output.h>
 
 QString Output::s_dirName = QStringLiteral("outputs/");
 
@@ -64,7 +64,7 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 
     const KScreen::ModeList modes = output->modes();
     KScreen::ModePtr matchingMode;
-    for(const KScreen::ModePtr &mode : modes) {
+    for (const KScreen::ModePtr &mode : modes) {
         if (mode->size() != size) {
             continue;
         }
@@ -118,8 +118,7 @@ bool Output::readInGlobal(KScreen::OutputPtr output)
     return true;
 }
 
-KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation orientation,
-                                                KScreen::Output::Rotation fallback)
+KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation orientation, KScreen::Output::Rotation fallback)
 {
     using Orientation = QOrientationReading::Orientation;
 
@@ -141,8 +140,7 @@ KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation
     }
 }
 
-bool Output::updateOrientation(KScreen::OutputPtr &output,
-                               QOrientationReading::Orientation orientation)
+bool Output::updateOrientation(KScreen::OutputPtr &output, QOrientationReading::Orientation orientation)
 {
     if (output->type() != KScreen::Output::Type::Panel) {
         return false;
@@ -181,12 +179,10 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
             }
             const auto hash = output->hash();
 
-            auto it = std::find_if(outputsInfo.begin(), outputsInfo.end(),
-                [hash](QVariant v) {
-                    const QVariantMap info = v.toMap();
-                    return info[QStringLiteral("id")].toString() == hash;
-                }
-            );
+            auto it = std::find_if(outputsInfo.begin(), outputsInfo.end(), [hash](QVariant v) {
+                const QVariantMap info = v.toMap();
+                return info[QStringLiteral("id")].toString() == hash;
+            });
             if (it == outputsInfo.end()) {
                 return false;
             }
@@ -197,8 +193,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
                 if (!ok) {
                     return false;
                 }
-                return rot & KScreen::Output::Rotation::Left ||
-                        rot & KScreen::Output::Rotation::Right;
+                return rot & KScreen::Output::Rotation::Left || rot & KScreen::Output::Rotation::Right;
             };
 
             const QVariantMap outputInfo = it->toMap();
@@ -218,8 +213,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
                 return false;
             }
             const QPoint pos = QPoint(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
-            QSize size = QSize(modeSize[QStringLiteral("width")].toInt() / scale,
-                               modeSize[QStringLiteral("height")].toInt() / scale);
+            QSize size = QSize(modeSize[QStringLiteral("width")].toInt() / scale, modeSize[QStringLiteral("height")].toInt() / scale);
             if (portrait) {
                 size.transpose();
             }
@@ -233,8 +227,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         KScreen::OutputPtr curPtr = outputs.find(sortedOutputs[cnt].first).value();
 
         QRect prevInfoGeo, curInfoGeo;
-        if (!getOutputInfoProperties(prevPtr, prevInfoGeo) ||
-                !getOutputInfoProperties(curPtr, curInfoGeo)) {
+        if (!getOutputInfoProperties(prevPtr, prevInfoGeo) || !getOutputInfoProperties(curPtr, curInfoGeo)) {
             // no info found, nothing can be adjusted for the next output
             continue;
         }
@@ -253,8 +246,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         // In the following calculate the y-correction. This is more involved since we
         // differentiate between overlapping and non-overlapping pairs and align either
         // top to top/bottom or bottom to top/bottom
-        const bool yOverlap = prevInfoGeo.y() + prevInfoGeo.height() > curInfoGeo.y() &&
-                prevInfoGeo.y() < curInfoGeo.y() + curInfoGeo.height();
+        const bool yOverlap = prevInfoGeo.y() + prevInfoGeo.height() > curInfoGeo.y() && prevInfoGeo.y() < curInfoGeo.y() + curInfoGeo.height();
 
         // these values determine which horizontal edge of previous output we align with
         const int topToTopDiffAbs = qAbs(prevInfoGeo.y() - curInfoGeo.y());
@@ -262,8 +254,8 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         const int bottomToBottomDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y() - curInfoGeo.height());
         const int bottomToTopDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y());
 
-        const bool yTopAligned = (topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs) ||
-                topToBottomDiffAbs < bottomToBottomDiffAbs;
+        const bool yTopAligned = (topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs) //
+            || topToBottomDiffAbs < bottomToBottomDiffAbs;
 
         int yInfoDiff = curInfoGeo.y() - prevInfoGeo.y();
         int yDiff = curGeo.y() - prevGeo.y();
@@ -329,15 +321,15 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     {
-    QStringList allIds;
-    allIds.reserve(outputs.count());
-    for (const KScreen::OutputPtr &output : outputs) {
-        const auto outputId = output->hash();
-        if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
-            duplicateIds << outputId;
+        QStringList allIds;
+        allIds.reserve(outputs.count());
+        for (const KScreen::OutputPtr &output : outputs) {
+            const auto outputId = output->hash();
+            if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
+                duplicateIds << outputId;
+            }
+            allIds << outputId;
         }
-        allIds << outputId;
-    }
     }
 
     for (const KScreen::OutputPtr &output : outputs) {
@@ -407,10 +399,8 @@ static QVariantMap metadata(const KScreen::OutputPtr &output)
     return metadata;
 }
 
-bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info,
-                             const KScreen::OutputPtr &fallback)
+bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info, const KScreen::OutputPtr &fallback)
 {
-
     info[QStringLiteral("id")] = output->hash();
     info[QStringLiteral("metadata")] = metadata(output);
     info[QStringLiteral("rotation")] = output->rotation();

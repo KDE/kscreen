@@ -20,18 +20,17 @@
 
 #include <QDebug>
 #include <QDir>
-#include <QTextStream>
-#include <QStandardPaths>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QStandardPaths>
+#include <QTextStream>
 
-#include <kscreen/types.h>
 #include <kscreen/config.h>
-#include <kscreen/mode.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/edid.h>
 #include <kscreen/getconfigoperation.h>
-
+#include <kscreen/mode.h>
+#include <kscreen/types.h>
 
 static QTextStream cout(stdout);
 
@@ -54,7 +53,6 @@ Console::Console(const ConfigPtr &config)
 
 Console::~Console()
 {
-
 }
 
 void Console::printConfig()
@@ -68,15 +66,13 @@ void Console::printConfig()
         return;
     }
 
-    connect(m_config.data(), &Config::primaryOutputChanged,
-            [&](const OutputPtr &output) {
-                if (output) {
-                    qDebug() << "New primary output: "
-                             << output->id() << output->name();
-                } else {
-                    qDebug() << "No primary output.";
-                }
-            });
+    connect(m_config.data(), &Config::primaryOutputChanged, [&](const OutputPtr &output) {
+        if (output) {
+            qDebug() << "New primary output: " << output->id() << output->name();
+        } else {
+            qDebug() << "No primary output.";
+        }
+    });
 
     qDebug() << "Screen:";
     qDebug() << "\tmaxSize:" << m_config->screen()->maxSize();
@@ -84,7 +80,7 @@ void Console::printConfig()
     qDebug() << "\tcurrentSize:" << m_config->screen()->currentSize();
 
     OutputList outputs = m_config->outputs();
-    Q_FOREACH(const OutputPtr &output, outputs) {
+    Q_FOREACH (const OutputPtr &output, outputs) {
         qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
         qDebug() << "Name: " << output->name();
@@ -104,7 +100,8 @@ void Console::printConfig()
         }
         qDebug() << "Scale: " << output->scale();
         if (output->clones().isEmpty()) {
-            qDebug() << "Clones: " << "None";
+            qDebug() << "Clones: "
+                     << "None";
         } else {
             qDebug() << "Clones: " << output->clones().count();
         }
@@ -114,11 +111,11 @@ void Console::printConfig()
         qDebug() << "Modes: ";
 
         ModeList modes = output->modes();
-        Q_FOREACH(const ModePtr &mode, modes) {
+        Q_FOREACH (const ModePtr &mode, modes) {
             qDebug() << "\t" << mode->id() << "  " << mode->name() << " " << mode->size() << " " << mode->refreshRate();
         }
 
-        Edid* edid = output->edid();
+        Edid *edid = output->edid();
         qDebug() << "EDID Info: ";
         if (edid && edid->isValid()) {
             qDebug() << "\tDevice ID: " << edid->deviceId();
@@ -140,40 +137,39 @@ void Console::printConfig()
     }
 }
 
-QString Console::typetoString(const Output::Type& type) const
+QString Console::typetoString(const Output::Type &type) const
 {
     switch (type) {
-        case Output::Unknown:
-            return QStringLiteral("Unknown");
-        case Output::Panel:
-            return QStringLiteral("Panel (Laptop)");
-        case Output::VGA:
-            return QStringLiteral("VGA");
-        case Output::DVI:
-            return QStringLiteral("DVI");
-        case Output::DVII:
-            return QStringLiteral("DVI-I");
-        case Output::DVIA:
-            return QStringLiteral("DVI-A");
-        case Output::DVID:
-            return QStringLiteral("DVI-D");
-        case Output::HDMI:
-            return QStringLiteral("HDMI");
-        case Output::TV:
-            return QStringLiteral("TV");
-        case Output::TVComposite:
-            return QStringLiteral("TV-Composite");
-        case Output::TVSVideo:
-            return QStringLiteral("TV-SVideo");
-        case Output::TVComponent:
-            return QStringLiteral("TV-Component");
-        case Output::TVSCART:
-            return QStringLiteral("TV-SCART");
-        case Output::TVC4:
-            return QStringLiteral("TV-C4");
-        case Output::DisplayPort:
-            return QStringLiteral("DisplayPort");
-
+    case Output::Unknown:
+        return QStringLiteral("Unknown");
+    case Output::Panel:
+        return QStringLiteral("Panel (Laptop)");
+    case Output::VGA:
+        return QStringLiteral("VGA");
+    case Output::DVI:
+        return QStringLiteral("DVI");
+    case Output::DVII:
+        return QStringLiteral("DVI-I");
+    case Output::DVIA:
+        return QStringLiteral("DVI-A");
+    case Output::DVID:
+        return QStringLiteral("DVI-D");
+    case Output::HDMI:
+        return QStringLiteral("HDMI");
+    case Output::TV:
+        return QStringLiteral("TV");
+    case Output::TVComposite:
+        return QStringLiteral("TV-Composite");
+    case Output::TVSVideo:
+        return QStringLiteral("TV-SVideo");
+    case Output::TVComponent:
+        return QStringLiteral("TV-Component");
+    case Output::TVSCART:
+        return QStringLiteral("TV-SCART");
+    case Output::TVC4:
+        return QStringLiteral("TV-C4");
+    case Output::DisplayPort:
+        return QStringLiteral("DisplayPort");
     };
     return QStringLiteral("Invalid Type") + QString::number(type);
 }
@@ -194,14 +190,15 @@ void Console::printSerializations()
     qDebug() << "Number of files: " << files.count() << endl;
 
     QJsonDocument parser;
-    Q_FOREACH(const QString fileName, files) {
+    Q_FOREACH (const QString fileName, files) {
         QJsonParseError error;
         qDebug() << fileName;
         QFile file(path + QLatin1Char('/') + fileName);
         file.open(QFile::ReadOnly);
         QVariant data = parser.fromJson(file.readAll(), &error);
         if (error.error != QJsonParseError::NoError) {
-            qDebug() << "    " << "can't parse file";
+            qDebug() << "    "
+                     << "can't parse file";
             qDebug() << "    " << error.errorString();
             continue;
         }

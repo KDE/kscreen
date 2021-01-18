@@ -19,21 +19,21 @@
 #ifndef OSDM_H
 #define OSDM_H
 
+#include <QMap>
 #include <QObject>
 #include <QString>
-#include <QMap>
 #include <QTimer>
 
 #include "osdaction.h"
 
-
-namespace KScreen {
-
+namespace KScreen
+{
 class ConfigOperation;
 class Osd;
 class Output;
 
-class OsdManager : public QObject {
+class OsdManager : public QObject
+{
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kscreen.osdService")
 
@@ -49,8 +49,8 @@ public Q_SLOTS:
 
 private:
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
-    QMap<QString, KScreen::Osd*> m_osds;
-    QTimer* m_cleanupTimer;
+    QMap<QString, KScreen::Osd *> m_osds;
+    QTimer *m_cleanupTimer;
 };
 
 } // ns

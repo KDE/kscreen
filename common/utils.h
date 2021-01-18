@@ -22,19 +22,18 @@
 #ifndef KSCREEN_KCM_UTILS_H
 #define KSCREEN_KCM_UTILS_H
 
-#include <QString>
 #include <QSize>
+#include <QString>
 
-#include <kscreen/types.h>
 #include <kscreen/output.h>
+#include <kscreen/types.h>
 
 namespace Utils
 {
+QString outputName(const KScreen::Output *output);
+QString outputName(const KScreen::OutputPtr &output);
 
-    QString outputName(const KScreen::Output *output);
-    QString outputName(const KScreen::OutputPtr &output);
-
-    QString sizeToString(const QSize &size);
+QString sizeToString(const QSize &size);
 }
 
 #endif

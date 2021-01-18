@@ -30,20 +30,20 @@ class Config;
 class Console : public QObject
 {
     Q_OBJECT
-    public:
-        explicit Console(const KScreen::ConfigPtr &config);
-        ~Console() override;
+public:
+    explicit Console(const KScreen::ConfigPtr &config);
+    ~Console() override;
 
-    public Q_SLOTS:
-        void printConfig();
-        void printJSONConfig();
-        QString typetoString(const KScreen::Output::Type &type) const;
-        void printSerializations();
-        void monitor();
-        void monitorAndPrint();
+public Q_SLOTS:
+    void printConfig();
+    void printJSONConfig();
+    QString typetoString(const KScreen::Output::Type &type) const;
+    void printSerializations();
+    void monitor();
+    void monitorAndPrint();
 
-    private:
-        KScreen::ConfigPtr m_config;
+private:
+    KScreen::ConfigPtr m_config;
 };
 
 #endif

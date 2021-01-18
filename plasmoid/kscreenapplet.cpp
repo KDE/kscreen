@@ -23,8 +23,8 @@
 
 #include "kscreenapplet.h"
 
-#include <QQmlEngine> // for qmlRegisterType
 #include <QMetaEnum>
+#include <QQmlEngine> // for qmlRegisterType
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -41,26 +41,27 @@
 KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &data)
     : Plasma::Applet(parent, data)
 {
-
 }
 
 KScreenApplet::~KScreenApplet() = default;
 
 void KScreenApplet::init()
 {
-    qmlRegisterSingletonType<KScreen::OsdAction>("org.kde.private.kscreen", 1, 0, "OsdAction", [](QQmlEngine *, QJSEngine *) -> QObject* {
+    qmlRegisterSingletonType<KScreen::OsdAction>("org.kde.private.kscreen", 1, 0, "OsdAction", [](QQmlEngine *, QJSEngine *) -> QObject * {
         return new KScreen::OsdAction();
     });
 
-    connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID), &KScreen::ConfigOperation::finished,
-            this, [this](KScreen::ConfigOperation *op) {
+    connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID),
+            &KScreen::ConfigOperation::finished,
+            this,
+            [this](KScreen::ConfigOperation *op) {
                 m_screenConfiguration = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
 
                 KScreen::ConfigMonitor::instance()->addConfig(m_screenConfiguration);
                 connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KScreenApplet::checkOutputs);
 
                 checkOutputs();
-    });
+            });
 }
 
 int KScreenApplet::connectedOutputCount() const
@@ -78,12 +79,10 @@ void KScreenApplet::applyLayoutPreset(Action action)
         return;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall(
-        QStringLiteral("org.kde.kded5"),
-        QStringLiteral("/modules/kscreen"),
-        QStringLiteral("org.kde.KScreen"),
-        QStringLiteral("applyLayoutPreset")
-    );
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded5"),
+                                                      QStringLiteral("/modules/kscreen"),
+                                                      QStringLiteral("org.kde.KScreen"),
+                                                      QStringLiteral("applyLayoutPreset"));
 
     msg.setArguments({presetName});
 

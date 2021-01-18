@@ -23,42 +23,40 @@
 
 #include "../common/orientation_sensor.h"
 #include "config.h"
-#include "generator.h"
 #include "device.h"
-#include "kscreenadaptor.h"
+#include "generator.h"
 #include "kscreen_daemon_debug.h"
+#include "kscreenadaptor.h"
 #include "osdmanager.h"
 
-#include <kscreen/log.h>
-#include <kscreen/output.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
+#include <kscreen/log.h>
+#include <kscreen/output.h>
 #include <kscreen/setconfigoperation.h>
 
-#include <KLocalizedString>
 #include <KActionCollection>
-#include <KPluginFactory>
 #include <KGlobalAccel>
+#include <KLocalizedString>
+#include <KPluginFactory>
 
-#include <QTimer>
 #include <QAction>
 #include <QOrientationReading>
 #include <QShortcut>
+#include <QTimer>
 
 K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
 
-KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
- : KDEDModule(parent)
- , m_monitoring(false)
- , m_changeCompressor(new QTimer(this))
- , m_saveTimer(nullptr)
- , m_lidClosedTimer(new QTimer(this))
- , m_orientationSensor(new OrientationSensor(this))
+KScreenDaemon::KScreenDaemon(QObject *parent, const QList<QVariant> &)
+    : KDEDModule(parent)
+    , m_monitoring(false)
+    , m_changeCompressor(new QTimer(this))
+    , m_saveTimer(nullptr)
+    , m_lidClosedTimer(new QTimer(this))
+    , m_orientationSensor(new OrientationSensor(this))
 {
-    connect(m_orientationSensor, &OrientationSensor::availableChanged,
-            this, &KScreenDaemon::updateOrientation);
-    connect(m_orientationSensor, &OrientationSensor::valueChanged,
-            this, &KScreenDaemon::updateOrientation);
+    connect(m_orientationSensor, &OrientationSensor::availableChanged, this, &KScreenDaemon::updateOrientation);
+    connect(m_orientationSensor, &OrientationSensor::valueChanged, this, &KScreenDaemon::updateOrientation);
 
     KScreen::Log::instance();
     QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
@@ -66,14 +64,13 @@ KScreenDaemon::KScreenDaemon(QObject* parent, const QList< QVariant >& )
 
 void KScreenDaemon::getInitialConfig()
 {
-    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
-            this, [this](KScreen::ConfigOperation* op) {
+    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished, this, [this](KScreen::ConfigOperation *op) {
         if (op->hasError()) {
             qCDebug(KSCREEN_KDED) << "Error getting initial configuration" << op->errorString();
             return;
         }
 
-        m_monitoredConfig = std::unique_ptr<Config>(new Config(qobject_cast<KScreen::GetConfigOperation*>(op)->config()));
+        m_monitoredConfig = std::unique_ptr<Config>(new Config(qobject_cast<KScreen::GetConfigOperation *>(op)->config()));
         m_monitoredConfig->setValidityFlags(KScreen::Config::ValidityFlag::RequireAtLeastOneEnabledScreen);
         qCDebug(KSCREEN_KDED) << "Config" << m_monitoredConfig->data().data() << "is ready";
         KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig->data());
@@ -91,8 +88,8 @@ KScreenDaemon::~KScreenDaemon()
 void KScreenDaemon::init()
 {
     KActionCollection *coll = new KActionCollection(this);
-    QAction* action = coll->addAction(QStringLiteral("display"));
-    action->setText(i18n("Switch Display" ));
+    QAction *action = coll->addAction(QStringLiteral("display"));
+    action->setText(i18n("Switch Display"));
     QList<QKeySequence> switchDisplayShortcuts({Qt::Key_Display, Qt::MetaModifier + Qt::Key_P});
     KGlobalAccel::self()->setGlobalShortcut(action, switchDisplayShortcuts);
     connect(action, &QAction::triggered, this, &KScreenDaemon::displayButton);
@@ -110,20 +107,19 @@ void KScreenDaemon::init()
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::disableLidOutput);
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
-    connect(Device::self(), &Device::resumingFromSuspend, this,
-            [&]() {
-                KScreen::Log::instance()->setContext(QStringLiteral("resuming"));
-                qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
-                // We don't care about the result, we just want to force the backend
-                // to query XRandR so that it will detect possible changes that happened
-                // while the computer was suspended, and will emit the change events.
-                new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
-            });
-    connect(Device::self(), &Device::aboutToSuspend, this,
-            [&]() {
-                qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for " << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
-                m_lidClosedTimer->stop();
-            });
+    connect(Device::self(), &Device::resumingFromSuspend, this, [&]() {
+        KScreen::Log::instance()->setContext(QStringLiteral("resuming"));
+        qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
+        // We don't care about the result, we just want to force the backend
+        // to query XRandR so that it will detect possible changes that happened
+        // while the computer was suspended, and will emit the change events.
+        new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
+    });
+    connect(Device::self(), &Device::aboutToSuspend, this, [&]() {
+        qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for "
+                              << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
+        m_lidClosedTimer->stop();
+    });
 
     connect(Generator::self(), &Generator::ready, this, [this] {
         applyConfig();
@@ -145,8 +141,7 @@ void KScreenDaemon::updateOrientation()
         return;
     }
     const auto features = m_monitoredConfig->data()->supportedFeatures();
-    if (!features.testFlag(KScreen::Config::Feature::AutoRotation)
-          || !features.testFlag(KScreen::Config::Feature::TabletMode) ) {
+    if (!features.testFlag(KScreen::Config::Feature::AutoRotation) || !features.testFlag(KScreen::Config::Feature::TabletMode)) {
         return;
     }
 
@@ -159,8 +154,7 @@ void KScreenDaemon::updateOrientation()
         // Orientation sensor went off. Do not change current orientation.
         return;
     }
-    if (orientation == QOrientationReading::FaceUp ||
-               orientation == QOrientationReading::FaceDown) {
+    if (orientation == QOrientationReading::FaceUp || orientation == QOrientationReading::FaceDown) {
         // We currently don't do anything with FaceUp/FaceDown, but in the future we could use them
         // to shut off and switch on again a display when display is facing downwards/upwards.
         return;
@@ -174,7 +168,7 @@ void KScreenDaemon::updateOrientation()
     }
 }
 
-void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr& config)
+void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr &config)
 {
     qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
     auto configWrapper = std::unique_ptr<Config>(new Config(config));
@@ -191,7 +185,7 @@ void KScreenDaemon::doApplyConfig(std::unique_ptr<Config> config)
     m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
 
     connect(m_monitoredConfig.get(), &Config::controlChanged, this, [this]() {
-            m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
+        m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
         updateOrientation();
     });
 
@@ -204,9 +198,7 @@ void KScreenDaemon::refreshConfig()
     m_configDirty = false;
     KScreen::ConfigMonitor::instance()->addConfig(m_monitoredConfig->data());
 
-    connect(new KScreen::SetConfigOperation(m_monitoredConfig->data()),
-                &KScreen::SetConfigOperation::finished,
-            this, [this]() {
+    connect(new KScreen::SetConfigOperation(m_monitoredConfig->data()), &KScreen::SetConfigOperation::finished, this, [this]() {
         qCDebug(KSCREEN_KDED) << "Config applied";
         if (m_configDirty) {
             // Config changed in the meantime again, apply.
@@ -268,7 +260,6 @@ void KScreenDaemon::setAutoRotate(bool value)
     m_orientationSensor->setEnabled(value);
 }
 
-
 void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 {
     switch (action) {
@@ -308,8 +299,7 @@ void KScreenDaemon::applyIdealConfig()
     if (showOsd) {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
         auto action = m_osdManager->showActionSelector();
-        connect(action, &KScreen::OsdAction::selected,
-                this, &KScreenDaemon::applyOsdAction);
+        connect(action, &KScreen::OsdAction::selected, this, &KScreenDaemon::applyOsdAction);
     } else {
         m_osdManager->hideOsd();
     }
@@ -324,7 +314,8 @@ void KScreenDaemon::configChanged()
     bool changed = false;
     const auto outputs = m_monitoredConfig->data()->outputs();
     for (const KScreen::OutputPtr &output : outputs) {
-        if (output->isConnected() && output->isEnabled() && (output->currentMode().isNull() || (output->followPreferredMode() && output->currentModeId() != output->preferredModeId()))) {
+        if (output->isConnected() && output->isEnabled()
+            && (output->currentMode().isNull() || (output->followPreferredMode() && output->currentModeId() != output->preferredModeId()))) {
             qCDebug(KSCREEN_KDED) << "Current mode was" << output->currentModeId() << ", setting preferred mode" << output->preferredModeId();
             output->setCurrentModeId(output->preferredModeId());
             changed = true;
@@ -362,12 +353,10 @@ void KScreenDaemon::saveCurrentConfig()
 
 void KScreenDaemon::showOsd(const QString &icon, const QString &text)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(
-        QLatin1String("org.kde.plasmashell"),
-        QLatin1String("/org/kde/osdService"),
-        QLatin1String("org.kde.osdService"),
-        QLatin1String("showText")
-    );
+    QDBusMessage msg = QDBusMessage::createMethodCall(QLatin1String("org.kde.plasmashell"),
+                                                      QLatin1String("/org/kde/osdService"),
+                                                      QLatin1String("org.kde.osdService"),
+                                                      QLatin1String("showText"));
     msg << icon << text;
     QDBusConnection::sessionBus().asyncCall(msg);
 }
@@ -382,8 +371,7 @@ void KScreenDaemon::displayButton()
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
     auto action = m_osdManager->showActionSelector();
-    connect(action, &KScreen::OsdAction::selected,
-            this, &KScreenDaemon::applyOsdAction);
+    connect(action, &KScreen::OsdAction::selected, this, &KScreenDaemon::applyOsdAction);
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
@@ -441,14 +429,13 @@ void KScreenDaemon::disableLidOutput()
     }
 }
 
-
 void KScreenDaemon::outputConnectedChanged()
 {
     if (!m_changeCompressor->isActive()) {
         m_changeCompressor->start();
     }
 
-    KScreen::Output *output = qobject_cast<KScreen::Output*>(sender());
+    KScreen::Output *output = qobject_cast<KScreen::Output *>(sender());
     qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
 
     if (output->isConnected()) {
@@ -464,22 +451,23 @@ void KScreenDaemon::monitorConnectedChange()
 {
     const KScreen::OutputList outputs = m_monitoredConfig->data()->outputs();
     for (const KScreen::OutputPtr &output : outputs) {
-        connect(output.data(), &KScreen::Output::isConnectedChanged,
-                this, &KScreenDaemon::outputConnectedChanged,
-                Qt::UniqueConnection);
+        connect(output.data(), &KScreen::Output::isConnectedChanged, this, &KScreenDaemon::outputConnectedChanged, Qt::UniqueConnection);
     }
-    connect(m_monitoredConfig->data().data(), &KScreen::Config::outputAdded, this,
-        [this] (const KScreen::OutputPtr &output) {
+    connect(
+        m_monitoredConfig->data().data(),
+        &KScreen::Config::outputAdded,
+        this,
+        [this](const KScreen::OutputPtr &output) {
             if (output->isConnected()) {
                 m_changeCompressor->start();
             }
-            connect(output.data(), &KScreen::Output::isConnectedChanged,
-                    this, &KScreenDaemon::outputConnectedChanged,
-                    Qt::UniqueConnection);
-        }, Qt::UniqueConnection
-    );
-    connect(m_monitoredConfig->data().data(), &KScreen::Config::outputRemoved,
-            this, &KScreenDaemon::applyConfig,
+            connect(output.data(), &KScreen::Output::isConnectedChanged, this, &KScreenDaemon::outputConnectedChanged, Qt::UniqueConnection);
+        },
+        Qt::UniqueConnection);
+    connect(m_monitoredConfig->data().data(),
+            &KScreen::Config::outputRemoved,
+            this,
+            &KScreenDaemon::applyConfig,
             static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
@@ -492,11 +480,9 @@ void KScreenDaemon::setMonitorForChanges(bool enabled)
     qCDebug(KSCREEN_KDED) << "Monitor for changes: " << enabled;
     m_monitoring = enabled;
     if (m_monitoring) {
-        connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged,
-                this, &KScreenDaemon::configChanged, Qt::UniqueConnection);
+        connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KScreenDaemon::configChanged, Qt::UniqueConnection);
     } else {
-        disconnect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged,
-                   this, &KScreenDaemon::configChanged);
+        disconnect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KScreenDaemon::configChanged);
     }
 }
 
@@ -522,6 +508,5 @@ void KScreenDaemon::disableOutput(const KScreen::OutputPtr &output)
     // Disable the output
     output->setEnabled(false);
 }
-
 
 #include "daemon.moc"

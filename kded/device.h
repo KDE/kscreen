@@ -27,9 +27,9 @@ class OrgFreedesktopDBusPropertiesInterface;
 
 class Device : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    static Device* self();
+    static Device *self();
     static void destroy();
 
     bool isReady() const;
@@ -39,8 +39,8 @@ public:
 
 private Q_SLOTS:
     void changed();
-    void isLaptopFetched(QDBusPendingCallWatcher* watcher);
-    void isLidClosedFetched(QDBusPendingCallWatcher* watcher);
+    void isLaptopFetched(QDBusPendingCallWatcher *watcher);
+    void isLidClosedFetched(QDBusPendingCallWatcher *watcher);
 
 Q_SIGNALS:
     void ready();
@@ -49,7 +49,7 @@ Q_SIGNALS:
     void aboutToSuspend();
 
 private:
-    explicit Device(QObject* parent = nullptr);
+    explicit Device(QObject *parent = nullptr);
     ~Device() override;
 
     void setReady();
@@ -62,10 +62,10 @@ private:
     bool m_isLidClosed;
     bool m_isDocked;
 
-    static Device* m_instance;
+    static Device *m_instance;
 
     OrgFreedesktopDBusPropertiesInterface *m_freedesktop;
     QDBusInterface *m_suspendSession;
 };
 
-#endif //KDED_DEVICE_H
+#endif // KDED_DEVICE_H

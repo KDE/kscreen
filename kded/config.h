@@ -40,7 +40,8 @@ public:
     bool writeFile();
     bool writeOpenLidFile();
 
-    KScreen::ConfigPtr data() const {
+    KScreen::ConfigPtr data() const
+    {
         return m_data;
     }
 
@@ -51,7 +52,8 @@ public:
     void setAutoRotate(bool value);
     void log();
 
-    void setValidityFlags(KScreen::Config::ValidityFlags flags) {
+    void setValidityFlags(KScreen::Config::ValidityFlags flags)
+    {
         m_validityFlags = flags;
     }
 

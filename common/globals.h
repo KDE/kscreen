@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace Globals
 {
-    void setDirPath(const QString &path);
-    QString dirPath();
+void setDirPath(const QString &path);
+QString dirPath();
 }
 
 #endif

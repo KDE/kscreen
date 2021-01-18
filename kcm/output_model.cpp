@@ -89,8 +89,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-bool OutputModel::setData(const QModelIndex &index,
-                          const QVariant &value, int role)
+bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (index.row() < 0 || index.row() >= m_outputs.count()) {
         return false;
@@ -151,8 +150,7 @@ bool OutputModel::setData(const QModelIndex &index,
         break;
     case RotationRole:
         if (value.canConvert<KScreen::Output::Rotation>()) {
-            return setRotation(index.row(),
-                               value.value<KScreen::Output::Rotation>());
+            return setRotation(index.row(), value.value<KScreen::Output::Rotation>());
         }
         break;
     case ReplicationSourceIndexRole:
@@ -175,7 +173,8 @@ bool OutputModel::setData(const QModelIndex &index,
     return false;
 }
 
-QHash<int, QByteArray> OutputModel::roleNames() const {
+QHash<int, QByteArray> OutputModel::roleNames() const
+{
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[EnabledRole] = "enabled";
     roles[InternalRole] = "internal";
@@ -208,8 +207,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
         if (output->pos().x() < pos.x()) {
             break;
         }
-        if (output->pos().x() == pos.x() &&
-                output->pos().y() < pos.y()) {
+        if (output->pos().x() == pos.x() && output->pos().y() < pos.y()) {
             break;
         }
         i++;
@@ -223,8 +221,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     }
     m_outputs.insert(i, Output(output, pos));
 
-    connect(output.data(), &KScreen::Output::isPrimaryChanged,
-            this, [this, output](){
+    connect(output.data(), &KScreen::Output::isPrimaryChanged, this, [this, output]() {
         roleChanged(output->id(), PrimaryRole);
     });
     Q_EMIT endInsertRows();
@@ -237,16 +234,14 @@ void OutputModel::add(const KScreen::OutputPtr &output)
         QModelIndex index = createIndex(j, 0);
         // Calling this directly ignores possible optimization when the
         // refresh rate hasn't changed in fact. But that's ok.
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole,
-                                          ReplicationSourceIndexRole});
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceIndexRole});
     }
 }
 
 void OutputModel::remove(int outputId)
 {
-    auto it = std::find_if(m_outputs.begin(), m_outputs.end(),
-                           [outputId](const Output &output) {
-            return output.ptr->id() == outputId;
+    auto it = std::find_if(m_outputs.begin(), m_outputs.end(), [outputId](const Output &output) {
+        return output.ptr->id() == outputId;
     });
     if (it != m_outputs.end()) {
         const int index = it - m_outputs.begin();
@@ -269,7 +264,7 @@ void OutputModel::resetPosition(const Output &output)
             }
         }
     } else {
-        output.ptr->setPos(/*output.ptr->pos() - */output.posReset);
+        output.ptr->setPos(/*output.ptr->pos() - */ output.posReset);
     }
 }
 
@@ -297,8 +292,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
     return true;
 }
 
-inline
-bool refreshRateCompare(float rate1, float rate2)
+inline bool refreshRateCompare(float rate1, float rate2)
 {
     return qAbs(rate1 - rate2) < 0.5;
 }
@@ -312,16 +306,13 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     }
     const QSize size = resolutionList[resIndex];
 
-    const float oldRate = output.ptr->currentMode() ? output.ptr->currentMode()->refreshRate() :
-                                                      -1;
+    const float oldRate = output.ptr->currentMode() ? output.ptr->currentMode()->refreshRate() : -1;
     const auto modes = output.ptr->modes();
 
-    auto modeIt = std::find_if(modes.begin(), modes.end(),
-                 [size, oldRate](const KScreen::ModePtr &mode) {
+    auto modeIt = std::find_if(modes.begin(), modes.end(), [size, oldRate](const KScreen::ModePtr &mode) {
         // TODO: we don't want to compare against old refresh rate if
         //       refresh rate selection is auto.
-        return mode->size() == size &&
-                refreshRateCompare(mode->refreshRate(), oldRate);
+        return mode->size() == size && refreshRateCompare(mode->refreshRate(), oldRate);
     });
 
     if (modeIt == modes.end()) {
@@ -347,9 +338,7 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     QModelIndex index = createIndex(outputIndex, 0);
     // Calling this directly ignores possible optimization when the
     // refresh rate hasn't changed in fact. But that's ok.
-    Q_EMIT dataChanged(index, index, {ResolutionIndexRole,
-                                      SizeRole,
-                                      RefreshRateIndexRole});
+    Q_EMIT dataChanged(index, index, {ResolutionIndexRole, SizeRole, RefreshRateIndexRole});
     Q_EMIT sizeChanged();
     return true;
 }
@@ -366,12 +355,10 @@ bool OutputModel::setRefreshRate(int outputIndex, int refIndex)
     const auto modes = output.ptr->modes();
     const auto oldMode = output.ptr->currentMode();
 
-    auto modeIt = std::find_if(modes.begin(), modes.end(),
-                 [oldMode, refreshRate](const KScreen::ModePtr &mode) {
+    auto modeIt = std::find_if(modes.begin(), modes.end(), [oldMode, refreshRate](const KScreen::ModePtr &mode) {
         // TODO: we don't want to compare against old refresh rate if
         //       refresh rate selection is auto.
-        return mode->size() == oldMode->size() &&
-                refreshRateCompare(mode->refreshRate(), refreshRate);
+        return mode->size() == oldMode->size() && refreshRateCompare(mode->refreshRate(), refreshRate);
     });
     Q_ASSERT(modeIt != modes.end());
 
@@ -417,10 +404,7 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
 {
     const Output &output = m_outputs[outputIndex];
 
-    if (rotation != KScreen::Output::None
-            && rotation != KScreen::Output::Left
-            && rotation != KScreen::Output::Inverted
-            && rotation != KScreen::Output::Right) {
+    if (rotation != KScreen::Output::None && rotation != KScreen::Output::Left && rotation != KScreen::Output::Inverted && rotation != KScreen::Output::Right) {
         return false;
     }
     if (output.ptr->rotation() == rotation) {
@@ -432,7 +416,6 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
     Q_EMIT dataChanged(index, index, {RotationRole, SizeRole});
     Q_EMIT sizeChanged();
     return true;
-
 }
 
 int OutputModel::resolutionIndex(const KScreen::OutputPtr &output) const
@@ -445,9 +428,7 @@ int OutputModel::resolutionIndex(const KScreen::OutputPtr &output) const
 
     const auto sizes = resolutions(output);
 
-    const auto it = std::find_if(sizes.begin(),
-                                 sizes.end(),
-                                 [currentResolution](const QSize &size) {
+    const auto it = std::find_if(sizes.begin(), sizes.end(), [currentResolution](const QSize &size) {
         return size == currentResolution;
     });
     if (it == sizes.end()) {
@@ -464,9 +445,7 @@ int OutputModel::refreshRateIndex(const KScreen::OutputPtr &output) const
     const auto rates = refreshRates(output);
     const float currentRate = output->currentMode()->refreshRate();
 
-    const auto it = std::find_if(rates.begin(),
-                                 rates.end(),
-                                 [currentRate](float rate) {
+    const auto it = std::find_if(rates.begin(), rates.end(), [currentRate](float rate) {
         return refreshRateCompare(rate, currentRate);
     });
     if (it == rates.end()) {
@@ -475,7 +454,8 @@ int OutputModel::refreshRateIndex(const KScreen::OutputPtr &output) const
     return it - rates.begin();
 }
 
-static int greatestCommonDivisor(int a, int b) {
+static int greatestCommonDivisor(int a, int b)
+{
     if (b == 0) {
         return a;
     }
@@ -493,7 +473,8 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
             divisor /= 2;
         }
 
-        const QString text = i18nc("Width x height (aspect ratio)", "%1x%2 (%3:%4)",
+        const QString text = i18nc("Width x height (aspect ratio)",
+                                   "%1x%2 (%3:%4)",
                                    // Explicitly not have it add thousand-separators.
                                    QString::number(size.width()),
                                    QString::number(size.height()),
@@ -527,8 +508,7 @@ QVector<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
     return hits;
 }
 
-QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr
-                                                  &output) const
+QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
 {
     QVector<float> hits;
 
@@ -547,10 +527,12 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr
             continue;
         }
         const float rate = mode->refreshRate();
-        if (std::find_if(hits.begin(), hits.end(),
+        if (std::find_if(hits.begin(),
+                         hits.end(),
                          [rate](float r) {
                              return refreshRateCompare(r, rate);
-                         }) != hits.end()) {
+                         })
+            != hits.end()) {
             continue;
         }
         hits << rate;
@@ -569,14 +551,14 @@ int OutputModel::replicationSourceId(const Output &output) const
 
 QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
 {
-    QStringList ret = { i18n("None") };
+    QStringList ret = {i18n("None")};
 
     for (const auto &out : m_outputs) {
         if (out.ptr->id() != output->id()) {
             const int outSourceId = replicationSourceId(out);
             if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
-                return { i18n("Replicated by other output") };
+                return {i18n("Replicated by other output")};
             }
             if (outSourceId) {
                 // This 'out' is a replica. Can't be a replication source.
@@ -626,8 +608,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     Q_EMIT dataChanged(index, index, {ReplicationSourceIndexRole});
 
     if (oldSourceId != 0) {
-        auto it = std::find_if(m_outputs.begin(), m_outputs.end(),
-                               [oldSourceId](const Output &out) {
+        auto it = std::find_if(m_outputs.begin(), m_outputs.end(), [oldSourceId](const Output &out) {
             return out.ptr->id() == oldSourceId;
         });
         if (it != m_outputs.end()) {
@@ -810,7 +791,7 @@ void OutputModel::updateOrder()
     // TODO: Could this be optimized by only outputs updating where replica indices changed?
     for (int i = 0; i < m_outputs.size(); i++) {
         QModelIndex index = createIndex(i, 0);
-        Q_EMIT dataChanged(index, index, { ReplicasModelRole });
+        Q_EMIT dataChanged(index, index, {ReplicasModelRole});
     }
 }
 
@@ -843,18 +824,16 @@ const int s_snapArea = 80;
 
 bool isVerticalClose(const QRect &rect1, const QRect &rect2)
 {
-    if (rect2.top() - rect1.bottom() > s_snapArea ) {
+    if (rect2.top() - rect1.bottom() > s_snapArea) {
         return false;
     }
-    if (rect1.top() - rect2.bottom() > s_snapArea ) {
+    if (rect1.top() - rect2.bottom() > s_snapArea) {
         return false;
     }
     return true;
 }
 
-bool snapToRight(const QRect &target,
-                              const QSize &size,
-                              QPoint &dest)
+bool snapToRight(const QRect &target, const QSize &size, QPoint &dest)
 {
     if (qAbs(target.right() - dest.x()) < s_snapArea) {
         // In snap zone for left to right snap.
@@ -869,9 +848,7 @@ bool snapToRight(const QRect &target,
     return false;
 }
 
-bool snapToLeft(const QRect &target,
-                             const QSize &size,
-                             QPoint &dest)
+bool snapToLeft(const QRect &target, const QSize &size, QPoint &dest)
 {
     if (qAbs(target.left() - dest.x()) < s_snapArea) {
         // In snap zone for left to left snap.
@@ -886,9 +863,7 @@ bool snapToLeft(const QRect &target,
     return false;
 }
 
-bool snapToMiddle(const QRect &target,
-                               const QSize &size,
-                               QPoint &dest)
+bool snapToMiddle(const QRect &target, const QSize &size, QPoint &dest)
 {
     const int outputMid = dest.y() + size.height() / 2;
     const int targetMid = target.top() + target.height() / 2;
@@ -900,9 +875,7 @@ bool snapToMiddle(const QRect &target,
     return false;
 }
 
-bool snapToTop(const QRect &target,
-                            const QSize &size,
-                            QPoint &dest)
+bool snapToTop(const QRect &target, const QSize &size, QPoint &dest)
 {
     if (qAbs(target.top() - dest.y()) < s_snapArea) {
         // In snap zone for bottom to top snap.
@@ -917,9 +890,7 @@ bool snapToTop(const QRect &target,
     return false;
 }
 
-bool snapToBottom(const QRect &target,
-                               const QSize &size,
-                               QPoint &dest)
+bool snapToBottom(const QRect &target, const QSize &size, QPoint &dest)
 {
     if (qAbs(target.bottom() - dest.y()) < s_snapArea) {
         // In snap zone for top to bottom snap.
@@ -934,9 +905,7 @@ bool snapToBottom(const QRect &target,
     return false;
 }
 
-bool snapVertical(const QRect &target,
-                               const QSize &size,
-                               QPoint &dest)
+bool snapVertical(const QRect &target, const QSize &size, QPoint &dest)
 {
     if (snapToMiddle(target, size, dest)) {
         return true;

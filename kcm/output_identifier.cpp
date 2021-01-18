@@ -20,9 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <kscreen/output.h>
 
+#include <QQuickItem>
 #include <QStandardPaths>
 #include <QTimer>
-#include <QQuickItem>
 
 #include <KDeclarative/kdeclarative/qmlobject.h>
 #include <PlasmaQuick/Dialog>
@@ -32,11 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
     : QObject(parent)
 {
-
-    const QString qmlPath =
-            QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                   QStringLiteral(QML_PATH
-                                                  "OutputIdentifier.qml"));
+    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral(QML_PATH "OutputIdentifier.qml"));
 
     for (const auto &output : config->connectedOutputs()) {
         if (!output->currentMode()) {
@@ -91,15 +87,15 @@ OutputIdentifier::~OutputIdentifier()
     qDeleteAll(m_views);
 }
 
-bool OutputIdentifier::eventFilter(QObject* object, QEvent* event)
+bool OutputIdentifier::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::Resize) {
-        if (m_views.contains(qobject_cast<PlasmaQuick::Dialog*>(object))) {
-            QResizeEvent *e = static_cast<QResizeEvent*>(event);
+        if (m_views.contains(qobject_cast<PlasmaQuick::Dialog *>(object))) {
+            QResizeEvent *e = static_cast<QResizeEvent *>(event);
             const QRect screenSize = object->property("screenSize").toRect();
             QRect geometry(QPoint(0, 0), e->size());
             geometry.moveCenter(screenSize.center());
-            static_cast<PlasmaQuick::Dialog*>(object)->setGeometry(geometry);
+            static_cast<PlasmaQuick::Dialog *>(object)->setGeometry(geometry);
         }
     }
     return QObject::eventFilter(object, event);

@@ -28,16 +28,17 @@
 
 #include "osdmanager.h"
 
-namespace KDeclarative {
-    class QmlObject;
+namespace KDeclarative
+{
+class QmlObject;
 }
 
 class QTimer;
 
-namespace KScreen {
-
-class Osd : public QObject {
-
+namespace KScreen
+{
+class Osd : public QObject
+{
     Q_OBJECT
 
 public:

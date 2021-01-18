@@ -20,11 +20,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace Globals
 {
+QString s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
 
-QString s_dirPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
-                                                     QStringLiteral("/kscreen/");
-
-QString dirPath() {
+QString dirPath()
+{
     return s_dirPath;
 }
 

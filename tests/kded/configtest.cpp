@@ -18,14 +18,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "../../kded/config.h"
 #include "../../common/globals.h"
 
-#include <QtTest>
 #include <QObject>
+#include <QtTest>
 
 #include <KScreen/Config>
 #include <KScreen/EDID>
-#include <KScreen/Screen>
 #include <KScreen/Mode>
 #include <KScreen/Output>
+#include <KScreen/Screen>
 
 #include <memory>
 
@@ -61,7 +61,7 @@ std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool out
     screen->setMaxSize(QSize(32768, 32768));
     screen->setMinSize(QSize(8, 8));
 
-    QList<QSize> sizes({ QSize(320, 240), QSize(640, 480), QSize(1024, 768), QSize(1280, 1024), QSize(1920, 1280) });
+    QList<QSize> sizes({QSize(320, 240), QSize(640, 480), QSize(1024, 768), QSize(1280, 1024), QSize(1920, 1280)});
     KScreen::ModeList modes;
     for (int i = 0; i < sizes.count(); ++i) {
         const QSize &size = sizes[i];
@@ -291,7 +291,7 @@ void TestConfig::testIdenticalOutputs()
     screen->setMaxSize(QSize(32768, 32768));
     screen->setMinSize(QSize(8, 8));
 
-    QList<QSize> sizes({ QSize(640, 480), QSize(1024, 768), QSize(1920, 1080), QSize(1280, 1024), QSize(1920, 1280) });
+    QList<QSize> sizes({QSize(640, 480), QSize(1024, 768), QSize(1920, 1080), QSize(1280, 1024), QSize(1920, 1280)});
     KScreen::ModeList modes;
     for (int i = 0; i < sizes.count(); ++i) {
         const QSize &size = sizes[i];
@@ -303,7 +303,10 @@ void TestConfig::testIdenticalOutputs()
         modes.insert(mode->id(), mode);
     }
     // This one is important, the output id in the config file is a hash of it
-    QByteArray data = QByteArray::fromBase64("AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg==");
+    QByteArray data = QByteArray::fromBase64(
+        "AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/"
+        "QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHow"
+        "K0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg==");
 
     // When setting up the outputs, make sure they're not added in alphabetical order
     // or in the same order of the config file, as that makes the tests accidentally pass
@@ -509,7 +512,6 @@ void TestConfig::testFixedConfig()
     QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
 }
-
 
 QTEST_MAIN(TestConfig)
 

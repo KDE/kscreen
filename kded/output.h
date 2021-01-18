@@ -31,13 +31,11 @@ public:
     static void readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo);
 
     static void writeGlobal(const KScreen::OutputPtr &output);
-    static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info,
-                                const KScreen::OutputPtr &fallback);
+    static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info, const KScreen::OutputPtr &fallback);
 
     static QString dirPath();
 
-    static bool updateOrientation(KScreen::OutputPtr &output,
-                                  QOrientationReading::Orientation orientation);
+    static bool updateOrientation(KScreen::OutputPtr &output, QOrientationReading::Orientation orientation);
 
 private:
     static QString globalFileName(const QString &hash);

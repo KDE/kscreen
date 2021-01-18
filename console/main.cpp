@@ -18,15 +18,15 @@
 
 #include <unistd.h>
 
-#include <QProcess>
-#include <QCommandLineParser>
-#include <QGuiApplication>
-#include <QDateTime>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <QCommandLineParser>
+#include <QDateTime>
+#include <QGuiApplication>
+#include <QProcess>
 
-#include <kscreen/getconfigoperation.h>
 #include <kscreen/config.h>
+#include <kscreen/getconfigoperation.h>
 
 #include "console.h"
 
@@ -34,8 +34,7 @@ using namespace std;
 
 void configReceived(KScreen::ConfigOperation *op)
 {
-
-    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation*>(op)->config();
+    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
 
     const QString command = op->property("command").toString();
     const qint64 msecs = QDateTime::currentMSecsSinceEpoch() - op->property("start").toLongLong();
@@ -48,10 +47,10 @@ void configReceived(KScreen::ConfigOperation *op)
         console->monitorAndPrint();
     } else if (command == QLatin1String("monitor")) {
         QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
-        //Print config so that we have some pivot data
+        // Print config so that we have some pivot data
         console->printConfig();
         console->monitor();
-        //Do nothing, enable backend output to see debug
+        // Do nothing, enable backend output to see debug
     } else if (command == QLatin1String("outputs")) {
         console->printConfig();
         qApp->quit();
@@ -74,23 +73,24 @@ void configReceived(KScreen::ConfigOperation *op)
         console->printJSONConfig();
         qApp->quit();
     } else {
-
         qApp->quit();
     }
 }
 
-
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     dup2(1, 2);
 
     QGuiApplication app(argc, argv);
-    KAboutData aboutData(QStringLiteral("kscreen-console"), i18n("KScreen Console"), QStringLiteral("1.0"), i18n("KScreen Console"),
-    KAboutLicense::GPL, i18n("(c) 2012 KScreen Team"));
+    KAboutData aboutData(QStringLiteral("kscreen-console"),
+                         i18n("KScreen Console"),
+                         QStringLiteral("1.0"),
+                         i18n("KScreen Console"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2012 KScreen Team"));
     KAboutData::setApplicationData(aboutData);
 
-    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), QStringLiteral("afiestas@kde.org"),
-        QStringLiteral("http://www.afiestas.org/"));
+    aboutData.addAuthor(i18n("Alejandro Fiestas Olivares"), i18n("Maintainer"), QStringLiteral("afiestas@kde.org"), QStringLiteral("http://www.afiestas.org/"));
 
     QCommandLineParser parser;
     parser.setApplicationDescription(
@@ -102,8 +102,7 @@ int main (int argc, char *argv[])
              "  monitor         Monitor for changes\n"
              "  json            Show current KScreen config"));
     parser.addHelpOption();
-    parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"),
-                                 QStringLiteral("bug|config|outputs|monitor|json"));
+    parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"), QStringLiteral("bug|config|outputs|monitor|json"));
     parser.addPositionalArgument(QStringLiteral("[args...]"), i18n("Arguments for the specified command"));
 
     parser.process(app);
@@ -118,10 +117,9 @@ int main (int argc, char *argv[])
     KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation();
     op->setProperty("command", command);
     op->setProperty("start", QDateTime::currentMSecsSinceEpoch());
-    QObject::connect(op, &KScreen::GetConfigOperation::finished,
-                     [&](KScreen::ConfigOperation *op) {
-                          configReceived(op);
-                      });
+    QObject::connect(op, &KScreen::GetConfigOperation::finished, [&](KScreen::ConfigOperation *op) {
+        configReceived(op);
+    });
 
     app.exec();
 }

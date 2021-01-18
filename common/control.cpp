@@ -17,10 +17,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "control.h"
 #include "globals.h"
 
+#include <KDirWatch>
+#include <QDir>
 #include <QFile>
 #include <QJsonDocument>
-#include <QDir>
-#include <KDirWatch>
 
 #include <kscreen/config.h>
 #include <kscreen/output.h>
@@ -45,7 +45,7 @@ void Control::activateWatcher()
     });
 }
 
-KDirWatch* Control::watcher() const
+KDirWatch *Control::watcher() const
 {
     return m_watcher;
 }
@@ -69,11 +69,11 @@ bool Control::writeFile()
     QFile file(path);
     if (!file.open(QIODevice::WriteOnly)) {
         // TODO: logging category?
-//        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
+        //        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
         return false;
     }
     file.write(QJsonDocument::fromVariant(infoMap).toJson());
-//    qCDebug(KSCREEN_COMMON) << "Control saved on: " << file.fileName();
+    //    qCDebug(KSCREEN_COMMON) << "Control saved on: " << file.fileName();
     return true;
 }
 
@@ -98,12 +98,12 @@ QString Control::filePathFromHash(const QString &hash) const
     return dirPath() % hash;
 }
 
-QVariantMap& Control::info()
+QVariantMap &Control::info()
 {
     return m_info;
 }
 
-const QVariantMap& Control::constInfo() const
+const QVariantMap &Control::constInfo() const
 {
     return m_info;
 }
@@ -126,7 +126,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
     : Control(parent)
     , m_config(config)
 {
-//    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
+    //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
     readFile();
 
     // TODO: use a file watcher in case of changes to the control file while
@@ -184,8 +184,7 @@ bool ControlConfig::writeFile()
 {
     bool success = true;
     for (auto *outputControl : m_outputsControls) {
-        if (getOutputRetention(outputControl->id(), outputControl->name())
-                == OutputRetention::Individual) {
+        if (getOutputRetention(outputControl->id(), outputControl->name()) == OutputRetention::Individual) {
             continue;
         }
         success &= outputControl->writeFile();
@@ -303,8 +302,8 @@ qreal ControlConfig::getScale(const QString &outputId, const QString &outputName
     }
 
     // Info for output not found.
-     return -1;
- }
+    return -1;
+}
 
 void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
 {
@@ -321,7 +320,6 @@ void ControlConfig::setScale(const QString &outputId, const QString &outputName,
         if (auto *control = getOutputControl(outputId, outputName)) {
             control->setScale(value);
         }
-
     };
 
     for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
@@ -387,7 +385,6 @@ void ControlConfig::setAutoRotate(const QString &outputId, const QString &output
         if (auto *control = getOutputControl(outputId, outputName)) {
             control->setAutoRotate(value);
         }
-
     };
 
     for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
@@ -415,8 +412,7 @@ bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &outp
     return getAutoRotateOnlyInTabletMode(output->hashMd5(), output->name());
 }
 
-bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId,
-                                                  const QString &outputName) const
+bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName) const
 {
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
@@ -445,8 +441,7 @@ void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &outp
 }
 
 // TODO: combine methods (templated functions)
-void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId,
-                                                  const QString &outputName, bool value)
+void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName, bool value)
 {
     QList<QVariant>::iterator it;
     QVariantList outputsInfo = getOutputs();
@@ -477,14 +472,12 @@ void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId,
     setOutputAutoRotateOnlyInTabletMode();
 }
 
-
 KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
 {
     return getReplicationSource(output->hashMd5(), output->name());
 }
 
-KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId,
-                                                       const QString &outputName) const
+KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId, const QString &outputName) const
 {
     const QVariantList outputsInfo = getOutputs();
     for (const auto &variantInfo : outputsInfo) {
@@ -512,14 +505,12 @@ KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId,
     return nullptr;
 }
 
-void ControlConfig::setReplicationSource(const KScreen::OutputPtr &output,
-                                         const KScreen::OutputPtr &source)
+void ControlConfig::setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
 {
     setReplicationSource(output->hashMd5(), output->name(), source);
 }
 
-void ControlConfig::setReplicationSource(const QString &outputId, const QString &outputName,
-                                         const KScreen::OutputPtr &source)
+void ControlConfig::setReplicationSource(const QString &outputId, const QString &outputName, const KScreen::OutputPtr &source)
 {
     QList<QVariant>::iterator it;
     QVariantList outputsInfo = getOutputs();
@@ -558,8 +549,7 @@ void ControlConfig::setOutputs(QVariantList outputsInfo)
     auto &infoMap = info();
     infoMap[QStringLiteral("outputs")] = outputsInfo;
 }
-ControlOutput* ControlConfig::getOutputControl(const QString &outputId,
-                                               const QString &outputName) const
+ControlOutput *ControlConfig::getOutputControl(const QString &outputId, const QString &outputName) const
 {
     for (auto *control : m_outputsControls) {
         if (control->id() == outputId && control->name() == outputName) {

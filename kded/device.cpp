@@ -18,13 +18,12 @@
  *************************************************************************************/
 
 #include "device.h"
-#include "kscreen_daemon_debug.h"
 #include "kded/freedesktop_interface.h"
+#include "kscreen_daemon_debug.h"
 
+Device *Device::m_instance = nullptr;
 
-Device* Device::m_instance = nullptr;
-
-Device* Device::self()
+Device *Device::self()
 {
     if (!Device::m_instance) {
         m_instance = new Device();
@@ -39,12 +38,12 @@ void Device::destroy()
     m_instance = nullptr;
 }
 
-Device::Device(QObject* parent) 
-   : QObject(parent)
-   , m_isReady(false)
-   , m_isLaptop(false)
-   , m_isLidClosed(false)
-   , m_isDocked(false)
+Device::Device(QObject *parent)
+    : QObject(parent)
+    , m_isReady(false)
+    , m_isLaptop(false)
+    , m_isLidClosed(false)
+    , m_isDocked(false)
 {
     m_freedesktop = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.freedesktop.UPower"),
                                                               QStringLiteral("/org/freedesktop/UPower"),
@@ -58,7 +57,8 @@ Device::Device(QObject* parent)
                                              QStringLiteral("/org/freedesktop/UPower"),
                                              QStringLiteral("org.freedesktop.DBus.Properties"),
                                              QStringLiteral("PropertiesChanged"),
-                                             this, SLOT(changed()));
+                                             this,
+                                             SLOT(changed()));
         fetchIsLaptop();
     }
 
@@ -68,10 +68,8 @@ Device::Device(QObject* parent)
                                           QDBusConnection::sessionBus(),
                                           this);
     if (m_suspendSession->isValid()) {
-        connect(m_suspendSession, SIGNAL(resumingFromSuspend()),
-                this, SIGNAL(resumingFromSuspend()));
-        connect(m_suspendSession, SIGNAL(aboutToSuspend()),
-                this, SIGNAL(aboutToSuspend()));
+        connect(m_suspendSession, SIGNAL(resumingFromSuspend()), this, SIGNAL(resumingFromSuspend()));
+        connect(m_suspendSession, SIGNAL(aboutToSuspend()), this, SIGNAL(aboutToSuspend()));
     } else {
         qCWarning(KSCREEN_KDED) << "PowerDevil SuspendSession action not available!";
         qCDebug(KSCREEN_KDED) << m_suspendSession->lastError().message();
@@ -126,7 +124,7 @@ void Device::fetchIsLaptop()
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &Device::isLaptopFetched);
 }
 
-void Device::isLaptopFetched(QDBusPendingCallWatcher* watcher)
+void Device::isLaptopFetched(QDBusPendingCallWatcher *watcher)
 {
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
@@ -152,7 +150,7 @@ void Device::fetchLidIsClosed()
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &Device::isLidClosedFetched);
 }
 
-void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
+void Device::isLidClosedFetched(QDBusPendingCallWatcher *watcher)
 {
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
@@ -163,7 +161,8 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher* watcher)
     if (reply.argumentAt<0>() != m_isLidClosed) {
         m_isLidClosed = reply.value().toBool();
         if (m_isReady) {
-            Q_EMIT lidClosedChanged(m_isLidClosed);;
+            Q_EMIT lidClosedChanged(m_isLidClosed);
+            ;
         }
     }
     watcher->deleteLater();

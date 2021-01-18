@@ -63,5 +63,4 @@ private:
 
     KScreen::ConfigPtr m_screenConfiguration;
     int m_connectedOutputCount = 0;
-
 };
