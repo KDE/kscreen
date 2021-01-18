@@ -47,7 +47,7 @@ public:
         RefreshRatesRole,
         ReplicationSourceModelRole,
         ReplicationSourceIndexRole,
-        ReplicasModelRole
+        ReplicasModelRole,
     };
 
     explicit OutputModel (ConfigHandler *configHandler);

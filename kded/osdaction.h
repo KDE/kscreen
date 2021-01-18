@@ -37,7 +37,7 @@ public:
         SwitchToInternal,
         Clone,
         ExtendLeft,
-        ExtendRight
+        ExtendRight,
     };
     Q_ENUM(Action)
 
