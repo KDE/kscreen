@@ -38,7 +38,7 @@ Controls.ToolButton {
     }
 
     contentItem: Kirigami.Icon {
-        source: "view-preview"
+        source: "tv"
         rotation: root.value
     }
 
