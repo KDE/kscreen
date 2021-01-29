@@ -28,6 +28,7 @@ ColumnLayout {
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Device:")
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 16
             model: kcm.outputModel
             textRole: "display"
             currentIndex: root.selectedOutput
