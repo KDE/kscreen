@@ -7,4 +7,4 @@ target_link_libraries(kscreen-console
             KF5::I18n
             KF5::Screen)
 
-install(TARGETS kscreen-console ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kscreen-console ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
