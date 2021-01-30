@@ -30,10 +30,10 @@ qt5_add_dbus_adaptor(kscreen_daemon_SRCS
 
 add_library(kscreen MODULE ${kscreen_daemon_SRCS})
 
-target_link_libraries(kscreen Qt5::Widgets
-                              Qt5::DBus
-                              Qt5::Quick
-                              Qt5::Sensors
+target_link_libraries(kscreen Qt::Widgets
+                              Qt::DBus
+                              Qt::Quick
+                              Qt::Sensors
                               KF5::Declarative
                               KF5::Screen
                               KF5::DBusAddons

@@ -24,7 +24,7 @@ ecm_qt_declare_logging_category(kcm_kscreen_SRCS
 add_library(kcm_kscreen MODULE ${kcm_kscreen_SRCS})
 
 target_link_libraries(kcm_kscreen
-    Qt5::Sensors
+    Qt::Sensors
     KF5::ConfigCore
     KF5::CoreAddons
     KF5::Declarative

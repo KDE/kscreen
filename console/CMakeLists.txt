@@ -1,8 +1,8 @@
 add_executable(kscreen-console main.cpp console.cpp)
 
 target_link_libraries(kscreen-console
-            Qt5::DBus
-            Qt5::Gui
+            Qt::DBus
+            Qt::Gui
             KF5::CoreAddons
             KF5::I18n
             KF5::Screen)

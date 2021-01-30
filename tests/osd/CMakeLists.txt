@@ -10,10 +10,10 @@ add_executable(osdtest main.cpp
                        ../../common/utils.cpp
 )
 
-target_link_libraries(osdtest Qt5::Core
-                              Qt5::DBus
-                              Qt5::Quick
-                              Qt5::Qml
+target_link_libraries(osdtest Qt::Core
+                              Qt::DBus
+                              Qt::Quick
+                              Qt::Qml
                               KF5::Screen
                               KF5::I18n
                               KF5::Declarative

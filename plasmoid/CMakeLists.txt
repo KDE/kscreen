@@ -10,8 +10,8 @@ add_library(plasma_applet_kscreen MODULE ${kscreenapplet_SRCS})
 kcoreaddons_desktop_to_json(plasma_applet_kscreen package/metadata.desktop)
 
 target_link_libraries(plasma_applet_kscreen
-                      Qt5::Qml
-                      Qt5::DBus
+                      Qt::Qml
+                      Qt::DBus
                       KF5::I18n
                       KF5::Plasma
                       KF5::Screen)
