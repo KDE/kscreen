@@ -128,9 +128,9 @@ KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation
     case Orientation::TopDown:
         return KScreen::Output::Rotation::Inverted;
     case Orientation::LeftUp:
-        return KScreen::Output::Rotation::Right;
-    case Orientation::RightUp:
         return KScreen::Output::Rotation::Left;
+    case Orientation::RightUp:
+        return KScreen::Output::Rotation::Right;
     case Orientation::Undefined:
     case Orientation::FaceUp:
     case Orientation::FaceDown:
