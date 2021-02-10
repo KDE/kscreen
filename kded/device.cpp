@@ -18,7 +18,7 @@
  *************************************************************************************/
 
 #include "device.h"
-#include "kded/freedesktop_interface.h"
+#include "freedesktop_interface.h"
 #include "kscreen_daemon_debug.h"
 
 Device *Device::m_instance = nullptr;
