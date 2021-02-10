@@ -42,8 +42,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 # WARNING PlasmaQuick provides unversioned CMake config
 find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
 
-set(MIN_LIBKSCREEN_VERSION "5.2.91")
-find_package(KF5Screen ${MIN_LIBKSCREEN_VERSION} REQUIRED)
+find_package(KF5Screen ${PROJECT_VERSION} REQUIRED)
 
 add_subdirectory(kcm)
 add_subdirectory(kded)
