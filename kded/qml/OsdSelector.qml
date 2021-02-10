@@ -54,14 +54,13 @@ PlasmaCore.Dialog {
                     })
                 }
                 delegate: PlasmaComponents.Button {
-                    action: modelData.action
                     Accessible.name: modelData.label
 
                     icon.name: modelData.iconSource
                     icon.height: PlasmaCore.Units.gridUnit * 8
                     icon.width: PlasmaCore.Units.gridUnit * 8
 
-                    onClicked: root.clicked(action)
+                    onClicked: root.clicked(modelData.action)
                     onHoveredChanged: {
                         actionRepeater.currentIndex = index
                     }
