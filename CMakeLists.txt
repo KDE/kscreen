@@ -37,10 +37,9 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     IconThemes
     KCMUtils
     Plasma
+    PlasmaQuick
     XmlGui
 )
-# WARNING PlasmaQuick provides unversioned CMake config
-find_package(KF5 REQUIRED COMPONENTS PlasmaQuick)
 
 find_package(KF5Screen ${PROJECT_VERSION} REQUIRED)
 
