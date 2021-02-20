@@ -54,13 +54,15 @@ PlasmaCore.Dialog {
                     })
                 }
                 delegate: PlasmaComponents.Button {
+                    property int actionId: modelData.action
+
                     Accessible.name: modelData.label
 
                     icon.name: modelData.iconSource
                     icon.height: PlasmaCore.Units.gridUnit * 8
                     icon.width: PlasmaCore.Units.gridUnit * 8
 
-                    onClicked: root.clicked(modelData.action)
+                    onClicked: root.clicked(actionId)
                     onHoveredChanged: {
                         actionRepeater.currentIndex = index
                     }
@@ -104,7 +106,7 @@ PlasmaCore.Dialog {
             switch (event.key) {
                 case Qt.Key_Return:
                 case Qt.Key_Enter:
-                    clicked(actionRepeater.itemAt(actionRepeater.currentIndex).action)
+                    clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId)
                     break
                 case Qt.Key_Right:
                     move(1)
