@@ -52,6 +52,8 @@ ColumnLayout {
 
         RowLayout {
             Layout.fillWidth: true
+            // Set the same limit as the device ComboBox
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 16
 
             visible: kcm.perOutputScaling
             Kirigami.FormData.label: i18n("Scale:")
