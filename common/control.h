@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef COMMON_CONTROL_H
 #define COMMON_CONTROL_H
 
+#include <kscreen/output.h>
 #include <kscreen/types.h>
 
 #include <QObject>
@@ -101,6 +102,11 @@ public:
     void setOverscan(const KScreen::OutputPtr &output, const uint32_t value);
     void setOverscan(const QString &outputId, const QString &outputName, const uint32_t value);
 
+    KScreen::Output::VrrPolicy getVrrPolicy(const KScreen::OutputPtr &output) const;
+    KScreen::Output::VrrPolicy getVrrPolicy(const QString &outputId, const QString &outputName) const;
+    void setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value);
+    void setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy value);
+
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -140,6 +146,9 @@ public:
 
     uint32_t overscan() const;
     void setOverscan(uint32_t value);
+
+    KScreen::Output::VrrPolicy vrrPolicy() const;
+    void setVrrPolicy(KScreen::Output::VrrPolicy value);
 
     QString dirPath() const override;
     QString filePath() const override;

@@ -151,7 +151,8 @@ void ConfigHandler::checkNeedsSave()
                              || autoRotate(output) != m_initialControl->getAutoRotate(output)
                              || autoRotateOnlyInTabletMode(output)
                                     != m_initialControl->getAutoRotateOnlyInTabletMode(output)
-                             || output->overscan() != initialOutput->overscan();
+                             || output->overscan() != initialOutput->overscan()
+                             || output->vrrPolicy() != initialOutput->vrrPolicy();
             }
             // clang-format on
             if (needsSave) {
@@ -330,6 +331,16 @@ uint32_t ConfigHandler::overscan(const KScreen::OutputPtr &output) const
 void ConfigHandler::setOverscan(const KScreen::OutputPtr &output, uint32_t value)
 {
     m_control->setOverscan(output, value);
+}
+
+KScreen::Output::VrrPolicy ConfigHandler::vrrPolicy(const KScreen::OutputPtr &output) const
+{
+    return m_control->getVrrPolicy(output);
+}
+
+void ConfigHandler::setVrrPolicy(const KScreen::OutputPtr &output, KScreen::Output::VrrPolicy value)
+{
+    m_control->setVrrPolicy(output, value);
 }
 
 void ConfigHandler::writeControl()

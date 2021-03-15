@@ -68,6 +68,9 @@ public:
     uint32_t overscan(const KScreen::OutputPtr &output) const;
     void setOverscan(const KScreen::OutputPtr &output, uint32_t value);
 
+    KScreen::Output::VrrPolicy vrrPolicy(const KScreen::OutputPtr &output) const;
+    void setVrrPolicy(const KScreen::OutputPtr &output, KScreen::Output::VrrPolicy value);
+
     void writeControl();
 
     void checkNeedsSave();

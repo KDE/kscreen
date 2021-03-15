@@ -105,6 +105,21 @@ ColumnLayout {
             onActivated: element.refreshRateIndex = currentIndex
         }
 
+        Controls.ComboBox {
+            Kirigami.FormData.label: i18n("Adaptive sync:")
+            model: [
+                { label: i18n("Never"), value: KScreen.Output.VrrPolicy.Never },
+                { label: i18n("Always"), value: KScreen.Output.VrrPolicy.Always },
+                { label: i18n("Automatic"), value: KScreen.Output.VrrPolicy.Automatic }
+            ]
+            textRole: "label"
+            valueRole: "value"
+            visible: element.capabilities & KScreen.Output.Capability.Vrr
+
+            onActivated: element.vrrPolicy = currentValue
+            Component.onCompleted: currentIndex = indexOfValue(element.vrrPolicy);
+        }
+
         Controls.SpinBox {
             Kirigami.FormData.label: i18n("Overscan:")
             from: 0

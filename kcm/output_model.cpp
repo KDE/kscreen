@@ -90,6 +90,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->capabilities());
     case OverscanRole:
         return output->overscan();
+    case VrrPolicyRole:
+        return static_cast<uint32_t>(output->vrrPolicy());
     }
     return QVariant();
 }
@@ -193,6 +195,19 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return true;
         }
         break;
+    case VrrPolicyRole:
+        if (value.canConvert<uint32_t>()) {
+            Output &output = m_outputs[index.row()];
+            const auto policy = static_cast<KScreen::Output::VrrPolicy>(value.toUInt());
+            if (output.ptr->vrrPolicy() == policy) {
+                return false;
+            }
+            output.ptr->setVrrPolicy(policy);
+            m_config->setVrrPolicy(output.ptr, policy);
+            Q_EMIT dataChanged(index, index, {role});
+            return true;
+        }
+        break;
     }
     return false;
 }
@@ -219,6 +234,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ReplicasModelRole] = "replicasModel";
     roles[CapabilitiesRole] = "capabilities";
     roles[OverscanRole] = "overscan";
+    roles[VrrPolicyRole] = "vrrPolicy";
     return roles;
 }
 

@@ -23,7 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 
 #include <kscreen/config.h>
-#include <kscreen/output.h>
 
 QString Control::s_dirName = QStringLiteral("control/");
 
@@ -607,6 +606,75 @@ void ControlConfig::setOverscan(const QString &outputId, const QString &outputNa
     setOutputOverscan();
 }
 
+KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const KScreen::OutputPtr &output) const
+{
+    return getVrrPolicy(output->hashMd5(), output->name());
+}
+
+KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const QString &outputId, const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto &variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("vrrpolicy")];
+            if (val.canConvert<uint>()) {
+                return static_cast<KScreen::Output::VrrPolicy>(val.toUInt());
+            } else {
+                return KScreen::Output::VrrPolicy::Automatic;
+            }
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->vrrPolicy();
+    }
+
+    // Info for output not found.
+    return KScreen::Output::VrrPolicy::Automatic;
+}
+
+void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value)
+{
+    setVrrPolicy(output->hashMd5(), output->name(), value);
+}
+
+void ControlConfig::setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy enumValue)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+    uint value = static_cast<uint>(enumValue);
+
+    auto setOutputVrr = [&outputId, &outputName, enumValue, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setVrrPolicy(enumValue);
+        }
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("vrrpolicy")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputVrr();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("vrrpolicy")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputVrr();
+}
+
 QVariantList ControlConfig::getOutputs() const
 {
     return constInfo()[QStringLiteral("outputs")].toList();
@@ -718,4 +786,22 @@ void ControlOutput::setOverscan(uint32_t value)
         infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
     }
     infoMap[QStringLiteral("overscan")] = static_cast<uint>(value);
+}
+
+KScreen::Output::VrrPolicy ControlOutput::vrrPolicy() const
+{
+    const auto val = constInfo()[QStringLiteral("vrrpolicy")];
+    if (val.canConvert<uint>()) {
+        return static_cast<KScreen::Output::VrrPolicy>(val.toUInt());
+    }
+    return KScreen::Output::VrrPolicy::Automatic;
+}
+
+void ControlOutput::setVrrPolicy(KScreen::Output::VrrPolicy value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("vrrpolicy")] = static_cast<uint>(value);
 }

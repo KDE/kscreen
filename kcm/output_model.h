@@ -50,6 +50,7 @@ public:
         ReplicasModelRole,
         CapabilitiesRole,
         OverscanRole,
+        VrrPolicyRole,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);
