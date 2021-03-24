@@ -34,7 +34,6 @@ class TestConfig : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
-    void init();
     void initTestCase();
 
     void testSimpleConfig();
@@ -51,6 +50,7 @@ private Q_SLOTS:
     void testFixedConfig();
 
 private:
+    QTemporaryDir m_temporaryDir;
     std::unique_ptr<Config> createConfig(bool output1Connected, bool output2Conected);
 };
 
@@ -102,13 +102,10 @@ std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool out
     return configWrapper;
 }
 
-void TestConfig::init()
-{
-    Globals::setDirPath(QStringLiteral(TEST_DATA "serializerdata/"));
-}
-
 void TestConfig::initTestCase()
 {
+    qputenv("XDG_DATA_HOME", m_temporaryDir.path().toUtf8());
+    QFile::link(QStringLiteral(TEST_DATA "serializerdata"), Config::configsDirPath().chopped(1));
     qputenv("KSCREEN_LOGGING", "false");
 }
 
@@ -417,7 +414,6 @@ void TestConfig::testMoveConfig()
 
     // Make sure we don't write into TEST_DATA
     QStandardPaths::setTestModeEnabled(true);
-    Globals::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
     // TODO: this needs setup of the control directory
 
     // Basic assumptions for the remainder of our tests, this is the situation where the lid is opened
@@ -501,9 +497,6 @@ void TestConfig::testFixedConfig()
     auto config = configWrapper->data();
     QVERIFY(config);
 
-    // Make sure we don't write into TEST_DATA
-    QStandardPaths::setTestModeEnabled(true);
-    Globals::setDirPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/"));
     // TODO: this needs setup of the control directory
 
     const QString fixedCfgPath = Config::configsDirPath() % Config::s_fixedConfigFileName;
@@ -513,6 +506,8 @@ void TestConfig::testFixedConfig()
     // Check if both files exist
     QFile fixedCfg(fixedCfgPath);
     QVERIFY(fixedCfg.exists());
+    // Cleanup
+    fixedCfg.remove();
 }
 
 QTEST_MAIN(TestConfig)
