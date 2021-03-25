@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright (C) 2021 David Redondo <kde@david-redondo.de>                          *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -19,6 +20,7 @@
 #include "generator.h"
 #include "device.h"
 #include "kscreen_daemon_debug.h"
+#include "output.h"
 #include <QRect>
 
 #include <kscreen/config.h>
@@ -93,12 +95,8 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
         return config;
     }
 
-    // the scale will generally be independent no matter where the output is
-    // scale will affect geometry, so do this first
-    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
-        for (auto output : qAsConst(connectedOutputs)) {
-            output->setScale(bestScaleForOutput(output));
-        }
+    for (const auto output : connectedOutputs) {
+        initializeOutput(output, config->supportedFeatures());
     }
 
     if (connectedOutputs.count() == 1) {
@@ -157,12 +155,8 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     KScreen::OutputList connectedOutputs = config->connectedOutputs();
 
-    // the scale will generally be independent no matter where the output is
-    // scale will affect geometry, so do this first
-    if (config->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
-        for (auto output : qAsConst(connectedOutputs)) {
-            output->setScale(bestScaleForOutput(output));
-        }
+    for (const auto output : connectedOutputs) {
+        initializeOutput(output, config->supportedFeatures());
     }
 
     // There's not much else we can do with only one output
@@ -203,23 +197,19 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         return config;
     }
 
+    Q_ASSERT(embedded->currentMode());
+    Q_ASSERT(external->currentMode());
+
     switch (action) {
     case Generator::ExtendToLeft: {
         qCDebug(KSCREEN_KDED) << "Extend to left";
         external->setPos(QPoint(0, 0));
         external->setEnabled(true);
-        const KScreen::ModePtr extMode = bestModeForOutput(external);
-        Q_ASSERT(extMode);
-        external->setCurrentModeId(extMode->id());
 
-        Q_ASSERT(external->currentMode()); // we must have a mode now
         const QSize size = external->geometry().size();
         embedded->setPos(QPoint(size.width(), 0));
         embedded->setEnabled(true);
         embedded->setPrimary(true);
-        const KScreen::ModePtr embeddedMode = bestModeForOutput(embedded);
-        Q_ASSERT(embeddedMode);
-        embedded->setCurrentModeId(embeddedMode->id());
 
         return config;
     }
@@ -230,9 +220,6 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
         external->setEnabled(true);
         external->setPrimary(true);
-        const KScreen::ModePtr extMode = bestModeForOutput(external);
-        Q_ASSERT(extMode);
-        external->setCurrentModeId(extMode->id());
         return config;
     }
     case Generator::TurnOffExternal: {
@@ -240,9 +227,6 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         embedded->setPos(QPoint(0, 0));
         embedded->setEnabled(true);
         embedded->setPrimary(true);
-        const KScreen::ModePtr embeddedMode = bestModeForOutput(embedded);
-        Q_ASSERT(embeddedMode);
-        embedded->setCurrentModeId(embeddedMode->id());
 
         external->setEnabled(false);
         external->setPrimary(false);
@@ -253,18 +237,12 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         embedded->setPos(QPoint(0, 0));
         embedded->setEnabled(true);
         embedded->setPrimary(true);
-        const KScreen::ModePtr embeddedMode = bestModeForOutput(embedded);
-        Q_ASSERT(embeddedMode);
-        embedded->setCurrentModeId(embeddedMode->id());
 
         Q_ASSERT(embedded->currentMode()); // we must have a mode now
         const QSize size = embedded->geometry().size();
         external->setPos(QPoint(size.width(), 0));
         external->setEnabled(true);
         external->setPrimary(false);
-        const KScreen::ModePtr extMode = bestModeForOutput(external);
-        Q_ASSERT(extMode);
-        external->setCurrentModeId(extMode->id());
 
         return config;
     }
@@ -357,10 +335,6 @@ void Generator::singleOutput(KScreen::OutputList &connectedOutputs)
     if (output->modes().isEmpty()) {
         return;
     }
-
-    const KScreen::ModePtr bestMode = bestModeForOutput(output);
-    Q_ASSERT(bestMode);
-    output->setCurrentModeId(bestMode->id());
     output->setEnabled(true);
     output->setPrimary(true);
     output->setPos(QPoint(0, 0));
@@ -406,9 +380,6 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
         }
         external->setEnabled(true);
         external->setPrimary(true);
-        const KScreen::ModePtr bestMode = bestModeForOutput(external);
-        Q_ASSERT(bestMode);
-        external->setCurrentModeId(bestMode->id());
         external->setPos(QPoint(0, 0));
 
         return;
@@ -428,9 +399,6 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     embedded->setPos(QPoint(0, 0));
     embedded->setPrimary(true);
     embedded->setEnabled(true);
-    const KScreen::ModePtr embeddedMode = bestModeForOutput(embedded);
-    Q_ASSERT(embeddedMode);
-    embedded->setCurrentModeId(embeddedMode->id());
 
     int globalWidth = embedded->geometry().width();
     KScreen::OutputPtr biggest = biggestOutput(connectedOutputs);
@@ -440,17 +408,12 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     biggest->setPos(QPoint(globalWidth, 0));
     biggest->setEnabled(true);
     biggest->setPrimary(false);
-    const KScreen::ModePtr mode = bestModeForOutput(biggest);
-    biggest->setCurrentModeId(mode->id());
 
     globalWidth += biggest->geometry().width();
     Q_FOREACH (KScreen::OutputPtr output, connectedOutputs) {
         output->setEnabled(true);
         output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
-        const KScreen::ModePtr mode = bestModeForOutput(output);
-        Q_ASSERT(mode);
-        output->setCurrentModeId(mode->id());
 
         globalWidth += output->geometry().width();
     }
@@ -478,9 +441,6 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
     biggest->setEnabled(true);
     biggest->setPrimary(true);
     biggest->setPos(QPoint(0, 0));
-    const KScreen::ModePtr mode = bestModeForOutput(biggest);
-    Q_ASSERT(mode);
-    biggest->setCurrentModeId(mode->id());
 
     int globalWidth = biggest->geometry().width();
 
@@ -488,11 +448,18 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
         output->setEnabled(true);
         output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
-        const KScreen::ModePtr mode = bestModeForOutput(output);
-        Q_ASSERT(mode);
-        output->setCurrentModeId(mode->id());
 
         globalWidth += output->geometry().width();
+    }
+}
+
+void Generator::initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features)
+{
+    Output::GlobalConfig config = Output::readGlobal(output);
+    output->setCurrentModeId(config.modeId.value_or(bestModeForOutput(output)->id()));
+    output->setRotation(config.rotation.value_or(output->rotation()));
+    if (features & KScreen::Config::Feature::PerOutputScaling) {
+        output->setScale(config.scale.value_or(bestScaleForOutput(output)));
     }
 }
 
@@ -549,7 +516,7 @@ qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output)
     if (output->sizeMm().height() <= 0) {
         return 1.0;
     }
-    const auto mode = bestModeForOutput(output);
+    const auto mode = output->currentMode();
     const qreal dpi = mode->size().height() / (output->sizeMm().height() / 25.4);
 
     // if reported DPI is closer to two times normal DPI, followed by a sanity check of having the sort of vertical resolution

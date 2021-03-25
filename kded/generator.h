@@ -21,6 +21,7 @@
 
 #include <QObject>
 
+#include <kscreen/config.h>
 #include <kscreen/mode.h>
 #include <kscreen/output.h>
 
@@ -70,6 +71,7 @@ private:
     void singleOutput(KScreen::OutputList &connectedOutputs);
     void extendToRight(KScreen::OutputList &connectedOutputs);
 
+    void initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features);
     KScreen::ModePtr bestModeForSize(const KScreen::ModeList &modes, const QSize &size);
     KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
     qreal bestScaleForOutput(const KScreen::OutputPtr &output);

@@ -1,5 +1,6 @@
 /********************************************************************
 Copyright 2019 Roman Gilg <subdiff@gmail.com>
+Copyright 2021 David Redondo <kde@david-redondo.de>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,10 +21,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "../common/control.h"
 #include "../common/globals.h"
 
+#include <kscreen/output.h>
 #include <kscreen/types.h>
 
 #include <QOrientationReading>
 #include <QVariantMap>
+
+#include <optional>
 
 class Output
 {
@@ -36,6 +40,13 @@ public:
     static QString dirPath();
 
     static bool updateOrientation(KScreen::OutputPtr &output, QOrientationReading::Orientation orientation);
+
+    struct GlobalConfig {
+        std::optional<qreal> scale;
+        std::optional<QString> modeId;
+        std::optional<KScreen::Output::Rotation> rotation;
+    };
+    static GlobalConfig readGlobal(const KScreen::OutputPtr &output);
 
 private:
     static QString globalFileName(const QString &hash);

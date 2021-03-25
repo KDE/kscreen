@@ -1,5 +1,6 @@
 /*************************************************************************************
  *  Copyright (C) 2012 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
+ *  Copyright (C) 2021 David Redondo <kde@david-redondo.de>                          *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -17,6 +18,7 @@
  *************************************************************************************/
 
 #include "../../kded/generator.h"
+#include "../../kded/output.h"
 
 #include <QObject>
 #include <QtTest>
@@ -51,8 +53,8 @@ private Q_SLOTS:
     void workstationTwoExternalSameSize();
     void workstationFallbackMode();
     void workstationTwoExternalDiferentSize();
-
     void switchDisplayTwoScreens();
+    void globalOutputData();
 };
 
 KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray &fileName)
@@ -73,6 +75,7 @@ KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray &fileName)
 
 void testScreenConfig::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     qputenv("KSCREEN_LOGGING", "false");
     setenv("KSCREEN_BACKEND", "Fake", 1);
 }
@@ -464,6 +467,40 @@ void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
     QCOMPARE(external->isPrimary(), false);
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->pos(), QPoint(0, 0));
+}
+
+void testScreenConfig::globalOutputData()
+{
+    const ConfigPtr currentConfig = loadConfig("singleOutput.json");
+
+    auto config = Generator::self()->idealConfig(currentConfig);
+    auto output = config->connectedOutputs().first();
+    QCOMPARE(output->currentModeId(), QLatin1String("3"));
+    QCOMPARE(output->rotation(), KScreen::Output::None);
+    QCOMPARE(output->scale(), 1.0);
+
+    output->setCurrentModeId(QStringLiteral("2"));
+    output->setRotation(KScreen::Output::Left);
+    output->setScale(2.0);
+    ::Output::writeGlobal(output);
+
+    config = Generator::self()->idealConfig(currentConfig);
+    output = config->connectedOutputs().first();
+    QCOMPARE(output->currentModeId(), QLatin1String("2"));
+    QCOMPARE(output->rotation(), KScreen::Output::Left);
+    // Fake backend does not support perOutputScale
+    QCOMPARE(output->scale(), 1.0);
+
+    // But simulate it now
+    currentConfig->setSupportedFeatures(currentConfig->supportedFeatures() | KScreen::Config::Feature::PerOutputScaling);
+    config = Generator::self()->idealConfig(currentConfig);
+    output = config->connectedOutputs().first();
+    QCOMPARE(output->currentModeId(), QLatin1String("2"));
+    QCOMPARE(output->rotation(), KScreen::Output::Left);
+    QCOMPARE(output->scale(), 2.0);
+
+    // cleanup
+    QFile::remove(::Output::dirPath() + output->hashMd5());
 }
 
 QTEST_MAIN(testScreenConfig)

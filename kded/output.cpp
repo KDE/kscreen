@@ -1,5 +1,6 @@
 /********************************************************************
 Copyright 2019 Roman Gilg <subdiff@gmail.com>
+Copyright 2021 David Redondo <kde@david-redondo.de>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,14 +47,16 @@ QString Output::globalFileName(const QString &hash)
     return dir % hash;
 }
 
-void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info)
+static Output::GlobalConfig fromInfo(const KScreen::OutputPtr output, const QVariantMap &info)
 {
-    output->setRotation(static_cast<KScreen::Output::Rotation>(info.value(QStringLiteral("rotation"), 1).toInt()));
+    Output::GlobalConfig config;
+    bool ok = false;
+    if (int rotation = info.value(QStringLiteral("rotation"), 1).toInt(&ok); ok) {
+        config.rotation = static_cast<KScreen::Output::Rotation>(rotation);
+    }
 
-    bool scaleOk;
-    const qreal scale = info.value(QStringLiteral("scale"), 1.).toDouble(&scaleOk);
-    if (scaleOk) {
-        output->setScale(scale);
+    if (qreal scale = info.value(QStringLiteral("scale"), 1.).toDouble(&ok); ok) {
+        config.scale = scale;
     }
 
     const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
@@ -63,7 +66,6 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
     qCDebug(KSCREEN_KDED) << "Finding a mode for" << size << "@" << modeInfo[QStringLiteral("refresh")].toFloat();
 
     const KScreen::ModeList modes = output->modes();
-    KScreen::ModePtr matchingMode;
     for (const KScreen::ModePtr &mode : modes) {
         if (mode->size() != size) {
             continue;
@@ -73,10 +75,23 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
         }
 
         qCDebug(KSCREEN_KDED) << "\tFound: " << mode->id() << " " << mode->size() << "@" << mode->refreshRate();
-        matchingMode = mode;
+        config.modeId = mode->id();
         break;
     }
+    return config;
+}
 
+void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info)
+{
+    GlobalConfig config = fromInfo(output, info);
+    output->setRotation(config.rotation.value_or(KScreen::Output::Rotation::None));
+
+    output->setScale(config.scale.value_or(1.0));
+
+    KScreen::ModePtr matchingMode;
+    if (config.modeId) {
+        matchingMode = output->mode(config.modeId.value());
+    }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to find a matching mode - this means that our config is corrupted"
                                    "or a different device with the same serial number has been connected (very unlikely)."
@@ -85,7 +100,7 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
     }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to get a preferred mode, falling back to biggest mode.";
-        matchingMode = Generator::biggestMode(modes);
+        matchingMode = Generator::biggestMode(output->modes());
     }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to get biggest mode. Which means there are no modes. Turning off the screen.";
@@ -116,6 +131,11 @@ bool Output::readInGlobal(KScreen::OutputPtr output)
     }
     readInGlobalPartFromInfo(output, info);
     return true;
+}
+
+Output::GlobalConfig Output::readGlobal(const KScreen::OutputPtr &output)
+{
+    return fromInfo(output, getGlobalData(output));
 }
 
 KScreen::Output::Rotation orientationToRotation(QOrientationReading::Orientation orientation, KScreen::Output::Rotation fallback)
