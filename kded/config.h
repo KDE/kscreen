@@ -39,6 +39,7 @@ public:
     std::unique_ptr<Config> readOpenLidFile();
     bool writeFile();
     bool writeOpenLidFile();
+    static QString configsDirPath();
 
     KScreen::ConfigPtr data() const
     {
@@ -78,7 +79,6 @@ private:
     static QString s_configsDirName;
     static QString s_fixedConfigFileName;
 
-    static QString configsDirPath();
 };
 
 #endif

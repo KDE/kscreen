@@ -55,6 +55,7 @@ private Q_SLOTS:
     void workstationTwoExternalDiferentSize();
     void switchDisplayTwoScreens();
     void globalOutputData();
+    void outputPreset();
 };
 
 KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray &fileName)
@@ -501,6 +502,45 @@ void testScreenConfig::globalOutputData()
 
     // cleanup
     QFile::remove(::Output::dirPath() + output->hashMd5());
+}
+
+void testScreenConfig::outputPreset()
+{
+    const ConfigPtr currentConfig = loadConfig("singleOutput.json");
+    currentConfig->setSupportedFeatures(currentConfig->supportedFeatures() | KScreen::Config::Feature::PerOutputScaling);
+    auto defaultOutput = Generator::self()->idealConfig(currentConfig)->connectedOutputs().first();
+    QCOMPARE(defaultOutput->currentModeId(), QLatin1String("3"));
+    QCOMPARE(defaultOutput->rotation(), KScreen::Output::None);
+    QCOMPARE(defaultOutput->scale(), 1.0);
+
+    // Create the preset
+    QTemporaryDir dataDir;
+    qputenv("XDG_DATA_DIRS", dataDir.path().toUtf8());
+    QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+    auto presetOutput = defaultOutput->clone();
+    presetOutput->setCurrentModeId(QStringLiteral("2"));
+    presetOutput->setRotation(KScreen::Output::Left);
+    presetOutput->setScale(2.0);
+    ::Output::writeGlobal(presetOutput);
+    QDir(dataDir.path()).mkpath(QStringLiteral("kscreen/outputs"));
+    QFile::copy(::Output::dirPath() + presetOutput->hashMd5(), dataDir.filePath(QStringLiteral("kscreen/outputs/") % presetOutput->hashMd5()));
+    QFile::remove(::Output::dirPath() + presetOutput->hashMd5());
+
+    auto config = Generator::self()->idealConfig(currentConfig);
+    auto output = config->connectedOutputs().first();
+    QCOMPARE(output->currentModeId(), QLatin1String("2"));
+    QCOMPARE(output->rotation(), KScreen::Output::Left);
+    QCOMPARE(output->scale(), 2.0);
+
+    // But local global settings should still overwrite
+    ::Output::writeGlobal(defaultOutput);
+    config = Generator::self()->idealConfig(currentConfig);
+    output = config->connectedOutputs().first();
+    QCOMPARE(output->currentModeId(), QLatin1String("3"));
+    QCOMPARE(output->rotation(), KScreen::Output::None);
+    QCOMPARE(output->scale(), 1.0);
+
+    QFile::remove(::Output::dirPath() + defaultOutput->hashMd5());
 }
 
 QTEST_MAIN(testScreenConfig)

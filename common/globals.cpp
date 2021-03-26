@@ -1,5 +1,6 @@
 /********************************************************************
 Copyright 2018 Roman Gilg <subdiff@gmail.com>
+Copyright 2021 David Redondo <kde@david-redondo.de>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -26,4 +27,8 @@ QString dirPath()
     return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
 }
 
+QString findFile(const QString &filePath)
+{
+    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kscreen/") % filePath);
+}
 }

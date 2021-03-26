@@ -113,11 +113,17 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 
 QVariantMap Output::getGlobalData(KScreen::OutputPtr output)
 {
-    QFile file(globalFileName(output->hashMd5()));
+    QString fileName = Globals::findFile(s_dirName % output->hashMd5());
+    if (fileName.isEmpty()) {
+        qCDebug(KSCREEN_KDED) << "No file for" << s_dirName % output->hashMd5();
+        return QVariantMap();
+    }
+    QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
         qCDebug(KSCREEN_KDED) << "Failed to open file" << file.fileName();
         return QVariantMap();
     }
+    qCDebug(KSCREEN_KDED) << "Found global data at" << file.fileName();
     QJsonDocument parser;
     return parser.fromJson(file.readAll()).toVariant().toMap();
 }
