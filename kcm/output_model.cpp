@@ -951,3 +951,33 @@ void OutputModel::snap(const Output &output, QPoint &dest)
         }
     }
 }
+
+void OutputModel::maintainSnapping(const OutputModel::Output &changedOutput, const QSize &oldSize, const QSize &newSize)
+{
+    const auto changedCenter = QRect(changedOutput.ptr->pos(), oldSize).center();
+
+    const auto dSize = newSize - oldSize;
+    const auto delta = QPoint(dSize.width(), dSize.height());
+
+    auto updated = false;
+    for (auto &output : m_outputs) {
+        if (output.ptr->id() == changedOutput.ptr->id()) {
+            continue;
+        }
+
+        const auto pos = output.ptr->pos();
+        const auto isXTranslate = pos.x() >= changedCenter.x();
+        const auto isYTranslate = pos.y() >= changedCenter.y();
+        const auto translation = QPoint(isXTranslate ? delta.x() : 0, isYTranslate ? delta.y() : 0);
+        if (translation.isNull()) {
+            continue;
+        }
+
+        output.pos = pos + translation;
+        updated = true;
+    }
+
+    if (updated) {
+        updatePositions();
+    }
+}

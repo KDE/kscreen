@@ -121,6 +121,7 @@ private:
      * @param dest the desired destination to be adjusted by snapping
      */
     void snap(const Output &output, QPoint &dest);
+    void maintainSnapping(const Output &changedOutput, const QSize &oldSize, const QSize &newSize);
 
     bool setEnabled(int outputIndex, bool enable);
 
