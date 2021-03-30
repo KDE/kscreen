@@ -162,8 +162,13 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         bool ok;
         const qreal scale = value.toReal(&ok);
         if (ok && !qFuzzyCompare(output.ptr->scale(), scale)) {
+            const auto oldSize = output.ptr->logicalSize().toSize();
             output.ptr->setScale(scale);
             m_config->setScale(output.ptr, scale);
+            const auto newSize = output.ptr->logicalSize().toSize();
+
+            maintainSnapping(output, oldSize, newSize);
+
             Q_EMIT sizeChanged();
             Q_EMIT dataChanged(index, index, {role, SizeRole});
             return true;
@@ -333,7 +338,11 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     if (output.ptr->currentModeId() == id) {
         return false;
     }
+    const auto oldSize = output.ptr->logicalSize().toSize();
     output.ptr->setCurrentModeId(id);
+    const auto newSize = output.ptr->logicalSize().toSize();
+
+    maintainSnapping(output, oldSize, newSize);
 
     QModelIndex index = createIndex(outputIndex, 0);
     // Calling this directly ignores possible optimization when the
@@ -410,7 +419,11 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
     if (output.ptr->rotation() == rotation) {
         return false;
     }
+    const auto oldSize = output.ptr->logicalSize().toSize();
     output.ptr->setRotation(rotation);
+    const auto newSize = output.ptr->logicalSize().toSize();
+
+    maintainSnapping(output, oldSize, newSize);
 
     QModelIndex index = createIndex(outputIndex, 0);
     Q_EMIT dataChanged(index, index, {RotationRole, SizeRole});
