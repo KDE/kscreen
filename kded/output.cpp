@@ -51,11 +51,11 @@ static Output::GlobalConfig fromInfo(const KScreen::OutputPtr output, const QVar
 {
     Output::GlobalConfig config;
     bool ok = false;
-    if (int rotation = info.value(QStringLiteral("rotation"), 1).toInt(&ok); ok) {
+    if (int rotation = info.value(QStringLiteral("rotation")).toInt(&ok); ok) {
         config.rotation = static_cast<KScreen::Output::Rotation>(rotation);
     }
 
-    if (qreal scale = info.value(QStringLiteral("scale"), 1.).toDouble(&ok); ok) {
+    if (qreal scale = info.value(QStringLiteral("scale")).toDouble(&ok); ok) {
         config.scale = scale;
     }
 
