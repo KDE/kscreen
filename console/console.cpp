@@ -187,7 +187,7 @@ void Console::printSerializations()
 
     QDir dir(path);
     QStringList files = dir.entryList(QDir::Files);
-    qDebug() << "Number of files: " << files.count() << endl;
+    qDebug() << "Number of files: " << files.count() << Qt::endl;
 
     QJsonDocument parser;
     Q_FOREACH (const QString fileName, files) {
@@ -203,7 +203,7 @@ void Console::printSerializations()
             continue;
         }
 
-        qDebug() << parser.toJson(QJsonDocument::Indented) << endl;
+        qDebug() << parser.toJson(QJsonDocument::Indented) << Qt::endl;
     }
 }
 

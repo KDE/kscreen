@@ -46,7 +46,7 @@ void configReceived(KScreen::ConfigOperation *op)
         console->printConfig();
         console->monitorAndPrint();
     } else if (command == QLatin1String("monitor")) {
-        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << endl;
+        QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << Qt::endl;
         // Print config so that we have some pivot data
         console->printConfig();
         console->monitor();
