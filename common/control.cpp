@@ -539,6 +539,74 @@ void ControlConfig::setReplicationSource(const QString &outputId, const QString 
     // TODO: shall we set this information also as new global value (like with auto-rotate)?
 }
 
+uint32_t ControlConfig::getOverscan(const KScreen::OutputPtr &output) const
+{
+    return getOverscan(output->hashMd5(), output->name());
+}
+
+uint32_t ControlConfig::getOverscan(const QString &outputId, const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto &variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("overscan")];
+            if (val.canConvert<uint>()) {
+                return static_cast<uint32_t>(val.toUInt());
+            } else {
+                return 0;
+            }
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->overscan();
+    }
+
+    // Info for output not found.
+    return 0;
+}
+
+void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t value)
+{
+    setOverscan(output->hashMd5(), output->name(), value);
+}
+
+void ControlConfig::setOverscan(const QString &outputId, const QString &outputName, const uint32_t value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    auto setOutputOverscan = [&outputId, &outputName, value, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setOverscan(value);
+        }
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("overscan")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputOverscan();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("overscan")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputOverscan();
+}
+
 QVariantList ControlConfig::getOutputs() const
 {
     return constInfo()[QStringLiteral("outputs")].toList();
@@ -632,4 +700,22 @@ void ControlOutput::setAutoRotateOnlyInTabletMode(bool value)
         infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
     }
     infoMap[QStringLiteral("autorotate-tablet-only")] = value;
+}
+
+uint32_t ControlOutput::overscan() const
+{
+    const auto val = constInfo()[QStringLiteral("overscan")];
+    if (val.canConvert<uint>()) {
+        return val.toUInt();
+    }
+    return 0;
+}
+
+void ControlOutput::setOverscan(uint32_t value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("overscan")] = static_cast<uint>(value);
 }

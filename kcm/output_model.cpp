@@ -79,12 +79,17 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return replicationSourceIndex(index.row());
     case ReplicasModelRole:
         return replicasModel(output);
-    case RefreshRatesRole:
+    case RefreshRatesRole: {
         QVariantList ret;
         for (const auto rate : refreshRates(output)) {
             ret << i18n("%1 Hz", int(rate + 0.5));
         }
         return ret;
+    }
+    case CapabilitiesRole:
+        return static_cast<uint32_t>(output->capabilities());
+    case OverscanRole:
+        return output->overscan();
     }
     return QVariant();
 }
@@ -158,7 +163,7 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return setReplicationSourceIndex(index.row(), value.toInt() - 1);
         }
         break;
-    case ScaleRole:
+    case ScaleRole: {
         bool ok;
         const qreal scale = value.toReal(&ok);
         if (ok && !qFuzzyCompare(output.ptr->scale(), scale)) {
@@ -171,6 +176,20 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
 
             Q_EMIT sizeChanged();
             Q_EMIT dataChanged(index, index, {role, SizeRole});
+            return true;
+        }
+        break;
+    }
+    case OverscanRole:
+        if (value.canConvert<uint32_t>()) {
+            Output &output = m_outputs[index.row()];
+            const uint32_t overscan = value.toUInt();
+            if (output.ptr->overscan() == overscan) {
+                return false;
+            }
+            output.ptr->setOverscan(overscan);
+            m_config->setOverscan(output.ptr, overscan);
+            Q_EMIT dataChanged(index, index, {role});
             return true;
         }
         break;
@@ -198,6 +217,8 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ReplicationSourceModelRole] = "replicationSourceModel";
     roles[ReplicationSourceIndexRole] = "replicationSourceIndex";
     roles[ReplicasModelRole] = "replicasModel";
+    roles[CapabilitiesRole] = "capabilities";
+    roles[OverscanRole] = "overscan";
     return roles;
 }
 

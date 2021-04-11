@@ -65,6 +65,9 @@ public:
     bool autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
     void setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value);
 
+    uint32_t overscan(const KScreen::OutputPtr &output) const;
+    void setOverscan(const KScreen::OutputPtr &output, uint32_t value);
+
     void writeControl();
 
     void checkNeedsSave();

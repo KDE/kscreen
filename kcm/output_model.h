@@ -48,6 +48,8 @@ public:
         ReplicationSourceModelRole,
         ReplicationSourceIndexRole,
         ReplicasModelRole,
+        CapabilitiesRole,
+        OverscanRole,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);

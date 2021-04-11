@@ -20,6 +20,7 @@ import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.4 as Kirigami
 
 import org.kde.kcm 1.2 as KCM
+import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
     id: outputPanel
@@ -102,6 +103,21 @@ ColumnLayout {
             currentIndex: element.refreshRateIndex ?
                               element.refreshRateIndex : 0
             onActivated: element.refreshRateIndex = currentIndex
+        }
+
+        Controls.SpinBox {
+            Kirigami.FormData.label: i18n("Overscan:")
+            from: 0
+            to: 100
+            value: element.overscan
+            onValueModified: element.overscan = value
+            visible: element.capabilities & KScreen.Output.Capability.Overscan
+            textFromValue: function(value, locale) {
+                return value + '%';
+            }
+            valueFromText: function(text, locale) {
+                return parseInt(text.replace("%", ""))
+            }
         }
 
         Controls.ComboBox {

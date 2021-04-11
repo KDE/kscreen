@@ -96,6 +96,11 @@ public:
     void setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
     void setReplicationSource(const QString &outputId, const QString &outputName, const KScreen::OutputPtr &source);
 
+    uint32_t getOverscan(const KScreen::OutputPtr &output) const;
+    uint32_t getOverscan(const QString &outputId, const QString &outputName) const;
+    void setOverscan(const KScreen::OutputPtr &output, const uint32_t value);
+    void setOverscan(const QString &outputId, const QString &outputName, const uint32_t value);
+
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -132,6 +137,9 @@ public:
 
     bool getAutoRotateOnlyInTabletMode() const;
     void setAutoRotateOnlyInTabletMode(bool value);
+
+    uint32_t overscan() const;
+    void setOverscan(uint32_t value);
 
     QString dirPath() const override;
     QString filePath() const override;

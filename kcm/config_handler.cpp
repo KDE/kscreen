@@ -150,7 +150,8 @@ void ConfigHandler::checkNeedsSave()
                              || output->replicationSource() != initialOutput->replicationSource()
                              || autoRotate(output) != m_initialControl->getAutoRotate(output)
                              || autoRotateOnlyInTabletMode(output)
-                                    != m_initialControl->getAutoRotateOnlyInTabletMode(output);
+                                    != m_initialControl->getAutoRotateOnlyInTabletMode(output)
+                             || output->overscan() != initialOutput->overscan();
             }
             // clang-format on
             if (needsSave) {
@@ -319,6 +320,16 @@ bool ConfigHandler::autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output)
 void ConfigHandler::setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value)
 {
     m_control->setAutoRotateOnlyInTabletMode(output, value);
+}
+
+uint32_t ConfigHandler::overscan(const KScreen::OutputPtr &output) const
+{
+    return m_control->getOverscan(output);
+}
+
+void ConfigHandler::setOverscan(const KScreen::OutputPtr &output, uint32_t value)
+{
+    m_control->setOverscan(output, value);
 }
 
 void ConfigHandler::writeControl()
