@@ -89,7 +89,7 @@ ColumnLayout {
                     return i18nc("Global scale factor expressed in percentage form", "%1%", parseFloat(value * 1.0 / factor * 100.0));
                 }
                 valueFromText: function(text, locale) {
-                    return Number.fromLocaleString(locale, text) * factor / 100.0
+                    return Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
                 }
                 onValueModified: element.scale = realValue
             }
