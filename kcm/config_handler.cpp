@@ -72,7 +72,10 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
 void ConfigHandler::resetScale(const KScreen::OutputPtr &output)
 {
     // Load scale control (either not set, same or windowing system does not transmit scale).
-    const qreal scale = m_control->getScale(output);
+    qreal scale = m_control->getScale(output);
+    if (!m_initialConfig->supportedFeatures().testFlag(Config::Feature::PerOutputScaling)) {
+        scale = 1;
+    }
     if (scale > 0) {
         output->setScale(scale);
         for (auto initialOutput : m_initialConfig->outputs()) {
