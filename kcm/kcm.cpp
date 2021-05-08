@@ -355,7 +355,7 @@ void KCMKScreen::writeGlobalScale()
     if (qFuzzyCompare(m_globalScale, 1.0)) {
         // if dpi is the default (96) remove the entry rather than setting it
         QProcess proc;
-        proc.start(QStringLiteral("xrdb -quiet -remove -nocpp"));
+        proc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-remove"), QStringLiteral("-nocpp")});
         if (proc.waitForStarted()) {
             proc.write(QByteArray("Xft.dpi\n"));
             proc.closeWriteChannel();
@@ -365,7 +365,7 @@ void KCMKScreen::writeGlobalScale()
     } else {
         const int scaleDpi = qRound(m_globalScale * 96.0);
         QProcess proc;
-        proc.start(QStringLiteral("xrdb -quiet -merge -nocpp"));
+        proc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-merge"), QStringLiteral("-nocpp")});
         if (proc.waitForStarted()) {
             proc.write(QByteArray("Xft.dpi: " + QString::number(scaleDpi).toLatin1()));
             proc.closeWriteChannel();
