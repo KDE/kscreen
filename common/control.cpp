@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDir>
 #include <QFile>
 #include <QJsonDocument>
+#include <QStringBuilder>
 
 #include <kscreen/config.h>
 

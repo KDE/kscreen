@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QRect>
 #include <QStandardPaths>
+#include <QStringBuilder>
 
 #include <kscreen/output.h>
 

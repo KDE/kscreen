@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "globals.h"
 
 #include <QStandardPaths>
+#include <QStringBuilder>
 
 namespace Globals
 {

@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QLoggingCategory>
 #include <QRect>
+#include <QStringBuilder>
 #include <QStringList>
 
 #include <kscreen/edid.h>
