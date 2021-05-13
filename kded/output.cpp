@@ -35,7 +35,7 @@ QString Output::s_dirName = QStringLiteral("outputs/");
 
 QString Output::dirPath()
 {
-    return Globals::dirPath() % s_dirName;
+    return Globals::dirPath() + s_dirName;
 }
 
 QString Output::globalFileName(const QString &hash)
@@ -44,7 +44,7 @@ QString Output::globalFileName(const QString &hash)
     if (!QDir().mkpath(dir)) {
         return QString();
     }
-    return dir % hash;
+    return dir + hash;
 }
 
 static Output::GlobalConfig fromInfo(const KScreen::OutputPtr output, const QVariantMap &info)
@@ -113,9 +113,9 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 
 QVariantMap Output::getGlobalData(KScreen::OutputPtr output)
 {
-    QString fileName = Globals::findFile(s_dirName % output->hashMd5());
+    QString fileName = Globals::findFile(s_dirName + output->hashMd5());
     if (fileName.isEmpty()) {
-        qCDebug(KSCREEN_KDED) << "No file for" << s_dirName % output->hashMd5();
+        qCDebug(KSCREEN_KDED) << "No file for" << QString(s_dirName + output->hashMd5());
         return QVariantMap();
     }
     QFile file(fileName);

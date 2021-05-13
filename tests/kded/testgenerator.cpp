@@ -523,7 +523,7 @@ void testScreenConfig::outputPreset()
     presetOutput->setScale(2.0);
     ::Output::writeGlobal(presetOutput);
     QDir(dataDir.path()).mkpath(QStringLiteral("kscreen/outputs"));
-    QFile::copy(::Output::dirPath() + presetOutput->hashMd5(), dataDir.filePath(QStringLiteral("kscreen/outputs/") % presetOutput->hashMd5()));
+    QFile::copy(::Output::dirPath() + presetOutput->hashMd5(), dataDir.filePath(QStringLiteral("kscreen/outputs/") + presetOutput->hashMd5()));
     QFile::remove(::Output::dirPath() + presetOutput->hashMd5());
 
     auto config = Generator::self()->idealConfig(currentConfig);

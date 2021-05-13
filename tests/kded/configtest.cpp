@@ -445,8 +445,8 @@ void TestConfig::testMoveConfig()
     QCOMPARE(output2->isPrimary(), true);
 
     // Check if both files exist
-    const QString closedPath = Config::configsDirPath() % configWrapper->id();
-    const QString openedPath = closedPath % QStringLiteral("_lidOpened");
+    const QString closedPath = Config::configsDirPath() + configWrapper->id();
+    const QString openedPath = closedPath + QStringLiteral("_lidOpened");
 
     QFile openCfg(openedPath);
     QFile closedCfg(closedPath);
@@ -499,7 +499,7 @@ void TestConfig::testFixedConfig()
 
     // TODO: this needs setup of the control directory
 
-    const QString fixedCfgPath = Config::configsDirPath() % Config::s_fixedConfigFileName;
+    const QString fixedCfgPath = Config::configsDirPath() + Config::s_fixedConfigFileName;
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
     configWrapper->writeFile(fixedCfgPath);
 

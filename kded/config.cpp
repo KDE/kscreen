@@ -34,7 +34,7 @@ QString Config::s_configsDirName = QStringLiteral("" /*"configs/"*/); // TODO: K
 
 QString Config::configsDirPath()
 {
-    return Globals::dirPath() % s_configsDirName;
+    return Globals::dirPath() + s_configsDirName;
 }
 
 Config::Config(KScreen::ConfigPtr config, QObject *parent)
@@ -49,7 +49,7 @@ QString Config::filePath() const
     if (!QDir().mkpath(configsDirPath())) {
         return QString();
     }
-    return configsDirPath() % id();
+    return configsDirPath() + id();
 }
 
 QString Config::id() const
@@ -119,14 +119,14 @@ void Config::setAutoRotate(bool value)
 
 bool Config::fileExists() const
 {
-    return (QFile::exists(configsDirPath() % id()) || QFile::exists(configsDirPath() % s_fixedConfigFileName));
+    return (QFile::exists(configsDirPath() + id()) || QFile::exists(configsDirPath() + s_fixedConfigFileName));
 }
 
 std::unique_ptr<Config> Config::readFile()
 {
     if (Device::self()->isLaptop() && !Device::self()->isLidClosed()) {
         // We may look for a config that has been set when the lid was closed, Bug: 353029
-        const QString lidOpenedFilePath(filePath() % QStringLiteral("_lidOpened"));
+        const QString lidOpenedFilePath(filePath() + QStringLiteral("_lidOpened"));
         const QFile srcFile(lidOpenedFilePath);
 
         if (srcFile.exists()) {
@@ -142,9 +142,9 @@ std::unique_ptr<Config> Config::readFile()
 
 std::unique_ptr<Config> Config::readOpenLidFile()
 {
-    const QString openLidFile = id() % QStringLiteral("_lidOpened");
+    const QString openLidFile = id() + QStringLiteral("_lidOpened");
     auto config = readFile(openLidFile);
-    QFile::remove(configsDirPath() % openLidFile);
+    QFile::remove(configsDirPath() + openLidFile);
     return config;
 }
 
@@ -157,11 +157,11 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
     config->setValidityFlags(m_validityFlags);
 
     QFile file;
-    if (QFile::exists(configsDirPath() % s_fixedConfigFileName)) {
-        file.setFileName(configsDirPath() % s_fixedConfigFileName);
+    if (QFile::exists(configsDirPath() + s_fixedConfigFileName)) {
+        file.setFileName(configsDirPath() + s_fixedConfigFileName);
         qCDebug(KSCREEN_KDED) << "found a fixed config, will use " << file.fileName();
     } else {
-        file.setFileName(configsDirPath() % fileName);
+        file.setFileName(configsDirPath() + fileName);
     }
     if (!file.open(QIODevice::ReadOnly)) {
         qCDebug(KSCREEN_KDED) << "failed to open file" << file.fileName();
@@ -216,7 +216,7 @@ bool Config::writeFile()
 
 bool Config::writeOpenLidFile()
 {
-    return writeFile(filePath() % QStringLiteral("_lidOpened"));
+    return writeFile(filePath() + QStringLiteral("_lidOpened"));
 }
 
 bool Config::writeFile(const QString &filePath)

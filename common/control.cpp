@@ -78,7 +78,7 @@ bool Control::writeFile()
 
 QString Control::dirPath() const
 {
-    return Globals::dirPath() % s_dirName;
+    return Globals::dirPath() + s_dirName;
 }
 
 void Control::readFile()
@@ -94,7 +94,7 @@ void Control::readFile()
 
 QString Control::filePathFromHash(const QString &hash) const
 {
-    return dirPath() % hash;
+    return dirPath() + hash;
 }
 
 QVariantMap &Control::info()
@@ -168,7 +168,7 @@ void ControlConfig::activateWatcher()
 
 QString ControlConfig::dirPath() const
 {
-    return Control::dirPath() % QStringLiteral("configs/");
+    return Control::dirPath() + QStringLiteral("configs/");
 }
 
 QString ControlConfig::filePath() const
@@ -714,7 +714,7 @@ QString ControlOutput::name() const
 
 QString ControlOutput::dirPath() const
 {
-    return Control::dirPath() % QStringLiteral("outputs/");
+    return Control::dirPath() + QStringLiteral("outputs/");
 }
 
 QString ControlOutput::filePath() const

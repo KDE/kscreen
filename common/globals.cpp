@@ -24,11 +24,11 @@ namespace Globals
 
 QString dirPath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QStringLiteral("/kscreen/");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kscreen/");
 }
 
 QString findFile(const QString &filePath)
 {
-    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kscreen/") % filePath);
+    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kscreen/") + filePath);
 }
 }
