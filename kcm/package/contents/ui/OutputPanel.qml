@@ -45,6 +45,7 @@ ColumnLayout {
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Resolution:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.resolutions
             currentIndex: element.resolutionIndex !== undefined ?
                               element.resolutionIndex : -1
@@ -99,6 +100,7 @@ ColumnLayout {
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Refresh rate:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.refreshRates
             currentIndex: element.refreshRateIndex ?
                               element.refreshRateIndex : 0
@@ -107,6 +109,7 @@ ColumnLayout {
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Adaptive sync:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
                 { label: i18n("Never"), value: KScreen.Output.VrrPolicy.Never },
                 { label: i18n("Always"), value: KScreen.Output.VrrPolicy.Always },
@@ -137,6 +140,7 @@ ColumnLayout {
 
         Controls.ComboBox {
             Kirigami.FormData.label: i18n("Replica of:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.replicationSourceModel
             visible: kcm.outputReplicationSupported && kcm.outputModel && kcm.outputModel.rowCount() > 1
 
