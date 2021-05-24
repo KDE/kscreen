@@ -26,7 +26,7 @@ KScreen is released as part of Plasma. See the [Plasma schedule][plasma-schedule
 Please follow the [KDE Commit Policy][commit-policy]. In particular please make sure to use appropriate [commit keywords][commit-policy-keywords].
 
 ## Contact
-Real-time communication about the project happens on the IRC channel `#plasma` on freenode and the bridged Matrix room `#plasma:kde.org`.
+Real-time communication about the project happens on the IRC channel `#plasma` on irc.libera.chat and the bridged Matrix room `#plasma:kde.org`.
 
 Emails about the project can be sent to the [plasma-devel][plasma-devel] mailing list.
 
