@@ -17,10 +17,10 @@ set(kscreen_daemon_SRCS
 
 ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
 
-qt5_add_dbus_interface(kscreen_daemon_SRCS
+qt_add_dbus_interface(kscreen_daemon_SRCS
     org.freedesktop.DBus.Properties.xml
     freedesktop_interface)
-qt5_add_dbus_adaptor(kscreen_daemon_SRCS
+qt_add_dbus_adaptor(kscreen_daemon_SRCS
     org.kde.KScreen.xml
     daemon.h
     KScreenDaemon

@@ -15,7 +15,7 @@ macro(ADD_KDED_TEST testname)
     )
     ecm_qt_declare_logging_category(test_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)
 
-    qt5_add_dbus_interface(test_SRCS
+    qt_add_dbus_interface(test_SRCS
         ${CMAKE_SOURCE_DIR}/kded/org.freedesktop.DBus.Properties.xml
         freedesktop_interface
     )
