@@ -107,6 +107,6 @@ void KScreenApplet::checkOutputs()
     }
 }
 
-K_EXPORT_PLASMA_APPLET_WITH_JSON(kscreen, KScreenApplet, "metadata.json")
+K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "metadata.json")
 
 #include "kscreenapplet.moc"
