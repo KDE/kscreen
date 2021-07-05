@@ -588,6 +588,7 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
         }
         hits << rate;
     }
+    std::stable_sort(hits.begin(), hits.end(), std::greater<>());
     return hits;
 }
 
