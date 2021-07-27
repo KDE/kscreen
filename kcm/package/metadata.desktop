@@ -43,7 +43,7 @@ Name[tg]=Экранҳо
 Name[tr]=Ekranlar
 Name[uk]=Дисплеї
 Name[x-test]=xxDisplaysxx
-Name[zh_CN]=显示
+Name[zh_CN]=显示器
 Name[zh_TW]=顯示
 Comment=Manage and configure monitors and displays
 Comment[ar]=أدر واضبط الشّاشات والعروض
@@ -91,7 +91,7 @@ Comment[tg]=Экранҳо ва мониторҳоро идора ва танз�
 Comment[tr]=Ekranları ve görüntüleri yönet, yapılandır
 Comment[uk]=Керування і налаштовування моніторів і дисплеїв
 Comment[x-test]=xxManage and configure monitors and displaysxx
-Comment[zh_CN]=管理和配置显示和监视器
+Comment[zh_CN]=管理和配置显示器
 Comment[zh_TW]=管理與設定螢幕與顯示
 
 Icon=preferences-desktop-display-randr
