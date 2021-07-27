@@ -93,7 +93,7 @@ Comment[tg]=Идоракунии экран
 Comment[tr]=Ekran yönetimi
 Comment[uk]=Керування екраном
 Comment[x-test]=xxScreen managementxx
-Comment[zh_CN]=屏幕管理
+Comment[zh_CN]=屏幕管理程序
 Comment[zh_TW]=螢幕管理
 
 Type=Service
