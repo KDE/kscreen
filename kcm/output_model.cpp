@@ -268,6 +268,11 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     });
     Q_EMIT endInsertRows();
 
+    connect(output.data(), &KScreen::Output::modesChanged, this, [this, output]() {
+        rolesChanged(output->id(), {ResolutionsRole, ResolutionIndexRole, SizeRole});
+        Q_EMIT sizeChanged();
+    });
+
     // Update replications.
     for (int j = 0; j < m_outputs.size(); j++) {
         if (i == j) {
@@ -706,14 +711,26 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
 
 void OutputModel::roleChanged(int outputId, OutputRoles role)
 {
+    rolesChanged(outputId, {role});
+}
+
+void OutputModel::rolesChanged(int outputId, const QVector<int> &roles)
+{
+    const auto index = indexForOutputId(outputId);
+    if (index.isValid()) {
+        Q_EMIT dataChanged(index, index, roles);
+    }
+}
+
+QModelIndex OutputModel::indexForOutputId(int outputId) const
+{
     for (int i = 0; i < m_outputs.size(); i++) {
-        Output &output = m_outputs[i];
+        const Output &output = m_outputs[i];
         if (output.ptr->id() == outputId) {
-            QModelIndex index = createIndex(i, 0);
-            Q_EMIT dataChanged(index, index, {role});
-            return;
+            return createIndex(i, 0);
         }
     }
+    return QModelIndex();
 }
 
 bool OutputModel::positionable(const Output &output) const
