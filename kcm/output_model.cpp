@@ -246,7 +246,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
 void OutputModel::add(const KScreen::OutputPtr &output)
 {
     const int insertPos = m_outputs.count();
-    Q_EMIT beginInsertRows(QModelIndex(), insertPos, insertPos);
+    beginInsertRows(QModelIndex(), insertPos, insertPos);
 
     int i = 0;
     while (i < m_outputs.size()) {
@@ -271,7 +271,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     connect(output.data(), &KScreen::Output::isPrimaryChanged, this, [this, output]() {
         roleChanged(output->id(), PrimaryRole);
     });
-    Q_EMIT endInsertRows();
+    endInsertRows();
 
     connect(output.data(), &KScreen::Output::modesChanged, this, [this, output]() {
         rolesChanged(output->id(), {ResolutionsRole, ResolutionIndexRole, SizeRole});
@@ -297,9 +297,9 @@ void OutputModel::remove(int outputId)
     });
     if (it != m_outputs.end()) {
         const int index = it - m_outputs.begin();
-        Q_EMIT beginRemoveRows(QModelIndex(), index, index);
+        beginRemoveRows(QModelIndex(), index, index);
         m_outputs.erase(it);
-        Q_EMIT endRemoveRows();
+        endRemoveRows();
     }
 }
 
