@@ -95,6 +95,7 @@ X-KDE-PluginInfo-Version=1.0
 X-KDE-PluginInfo-Website=https://kde.org/plasma-desktop
 X-KDE-PluginInfo-Category=Utilities
 X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
 
 X-Plasma-NotificationArea=true
 X-Plasma-NotificationAreaCategory=Hardware
