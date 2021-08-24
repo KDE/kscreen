@@ -43,7 +43,7 @@ ColumnLayout {
                 id: autoRotateOnlyInTabletMode
                 Layout.leftMargin: Kirigami.Units.largeSpacing
 
-                text: i18n("Only when in tablet mode.")
+                text: i18n("Only when in tablet mode")
                 enabled: autoRotateRadio.checked
                 checked: enabled && element.autoRotateOnlyInTabletMode
                 onClicked: element.autoRotateOnlyInTabletMode = checked
