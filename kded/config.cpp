@@ -20,7 +20,8 @@
 #include <kscreen/output.h>
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
-QString Config::s_configsDirName = QStringLiteral("" /*"configs/"*/); // TODO: KDE6 - move these files into the subfolder
+QString Config::s_configsDirName = QString();
+/*QStringLiteral("configs");*/ // TODO: KDE6 - Replace QString w/ QStringLiteral move these files into the subfolder
 
 QString Config::configsDirPath()
 {

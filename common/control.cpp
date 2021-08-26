@@ -504,8 +504,8 @@ void ControlConfig::setReplicationSource(const QString &outputId, const QString 
 {
     QList<QVariant>::iterator it;
     QVariantList outputsInfo = getOutputs();
-    const QString sourceHash = source ? source->hashMd5() : QStringLiteral("");
-    const QString sourceName = source ? source->name() : QStringLiteral("");
+    const QString sourceHash = source ? source->hashMd5() : QString();
+    const QString sourceName = source ? source->name() : QString();
 
     for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
         QVariantMap outputInfo = (*it).toMap();
