@@ -183,7 +183,7 @@ void Console::printSerializations()
         qDebug() << fileName;
         QFile file(path + QLatin1Char('/') + fileName);
         file.open(QFile::ReadOnly);
-        QVariant data = parser.fromJson(file.readAll(), &error);
+        parser.fromJson(file.readAll(), &error);
         if (error.error != QJsonParseError::NoError) {
             qDebug() << "    "
                      << "can't parse file";

@@ -202,10 +202,8 @@ QSize ConfigHandler::normalizeScreen()
     if (!m_config) {
         return QSize();
     }
-    bool changed = m_outputs->normalizePositions();
 
     const auto currentScreenSize = screenSize();
-    changed |= m_lastNormalizedScreenSize != currentScreenSize;
     m_lastNormalizedScreenSize = currentScreenSize;
 
     Q_EMIT screenNormalizationUpdate(true);
