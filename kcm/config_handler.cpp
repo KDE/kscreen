@@ -35,7 +35,8 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     connect(m_outputs, &OutputModel::positionChanged, this, &ConfigHandler::checkScreenNormalization);
     connect(m_outputs, &OutputModel::sizeChanged, this, &ConfigHandler::checkScreenNormalization);
 
-    for (const KScreen::OutputPtr &output : config->outputs()) {
+    const auto outputs = config->outputs();
+    for (const KScreen::OutputPtr &output : outputs) {
         initOutput(output);
     }
     m_lastNormalizedScreenSize = screenSize();
@@ -65,7 +66,8 @@ void ConfigHandler::resetScale(const KScreen::OutputPtr &output)
     const qreal scale = m_control->getScale(output);
     if (scale > 0) {
         output->setScale(scale);
-        for (auto initialOutput : m_initialConfig->outputs()) {
+        const auto outputs = m_initialConfig->outputs();
+        for (auto initialOutput : outputs) {
             if (initialOutput->id() == output->id()) {
                 initialOutput->setScale(scale);
                 break;
@@ -94,7 +96,8 @@ void ConfigHandler::updateInitialData()
             return;
         }
         m_initialConfig = qobject_cast<GetConfigOperation *>(op)->config();
-        for (auto output : m_config->outputs()) {
+        const auto outputs = m_config->outputs();
+        for (const auto &output : outputs) {
             resetScale(output);
         }
         m_initialControl.reset(new ControlConfig(m_initialConfig));
@@ -171,7 +174,8 @@ QSize ConfigHandler::screenSize() const
     int width = 0, height = 0;
     QSize size;
 
-    for (const auto &output : m_config->connectedOutputs()) {
+    const auto connectedOutputs = m_config->connectedOutputs();
+    for (const auto &output : connectedOutputs) {
         if (!output->isPositionable()) {
             continue;
         }
@@ -276,7 +280,8 @@ void ConfigHandler::setRetention(int retention)
         return;
     }
     auto ret = static_cast<Retention>(retention);
-    for (const auto &output : m_config->connectedOutputs()) {
+    const auto connectedOutputs = m_config->connectedOutputs();
+    for (const auto &output : connectedOutputs) {
         m_control->setOutputRetention(output, ret);
     }
     checkNeedsSave();

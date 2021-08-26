@@ -83,7 +83,7 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
         return config;
     }
 
-    for (const auto output : connectedOutputs) {
+    for (const auto &output : connectedOutputs) {
         initializeOutput(output, config->supportedFeatures());
     }
 
@@ -143,7 +143,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     KScreen::OutputList connectedOutputs = config->connectedOutputs();
 
-    for (const auto output : connectedOutputs) {
+    for (const auto &output : connectedOutputs) {
         initializeOutput(output, config->supportedFeatures());
     }
 

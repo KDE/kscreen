@@ -70,7 +70,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return replicasModel(output);
     case RefreshRatesRole: {
         QVariantList ret;
-        for (const auto rate : refreshRates(output)) {
+        const auto rates = refreshRates(output);
+        for (const auto rate : rates) {
             ret << i18n("%1 Hz", int(rate + 0.5));
         }
         return ret;
@@ -306,7 +307,7 @@ void OutputModel::resetPosition(const Output &output)
 {
     if (output.posReset.x() < 0) {
         // KCM was closed in between.
-        for (const Output &out : m_outputs) {
+        for (const Output &out : qAsConst(m_outputs)) {
             if (out.ptr->id() == output.ptr->id()) {
                 continue;
             }
@@ -524,7 +525,8 @@ static int greatestCommonDivisor(int a, int b)
 QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) const
 {
     QVariantList ret;
-    for (const QSize &size : resolutions(output)) {
+    const auto resolutionList = resolutions(output);
+    for (const QSize &size : resolutionList) {
         int divisor = greatestCommonDivisor(size.width(), size.height());
 
         if (size.height() / divisor == 5) { // Prefer "16:10" over "8:5"
@@ -550,7 +552,8 @@ QVector<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
 {
     QVector<QSize> hits;
 
-    for (const auto &mode : output->modes()) {
+    const auto modes = output->modes();
+    for (const auto &mode : modes) {
         const QSize size = mode->size();
         if (!hits.contains(size)) {
             hits << size;
@@ -582,7 +585,8 @@ QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
         return hits;
     }
 
-    for (const auto &mode : output->modes()) {
+    const auto modes = output->modes();
+    for (const auto &mode : modes) {
         if (mode->size() != baseSize) {
             continue;
         }
@@ -748,7 +752,7 @@ void OutputModel::reposition()
     int y = 0;
 
     // Find first valid output.
-    for (const auto &out : m_outputs) {
+    for (const auto &out : qAsConst(m_outputs)) {
         if (positionable(out)) {
             x = out.ptr->pos().x();
             y = out.ptr->pos().y();
@@ -995,7 +999,7 @@ bool snapVertical(const QRect &target, const QSize &size, QPoint &dest)
 void OutputModel::snap(const Output &output, QPoint &dest)
 {
     const QSize size = output.ptr->geometry().size();
-    for (const Output &out : m_outputs) {
+    for (const Output &out : qAsConst(m_outputs)) {
         if (out.ptr->id() == output.ptr->id()) {
             // Can not snap to itself.
             continue;

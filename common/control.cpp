@@ -134,7 +134,7 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
         allIds << outputId;
     }
 
-    for (auto output : outputs) {
+    for (const auto &output : outputs) {
         m_outputsControls << new ControlOutput(output, this);
     }
 
@@ -150,7 +150,7 @@ void ControlConfig::activateWatcher()
         // Watcher was already activated.
         return;
     }
-    for (auto *output : m_outputsControls) {
+    for (auto *output : qAsConst(m_outputsControls)) {
         output->activateWatcher();
         connect(output, &ControlOutput::changed, this, &ControlConfig::changed);
     }
@@ -172,7 +172,7 @@ QString ControlConfig::filePath() const
 bool ControlConfig::writeFile()
 {
     bool success = true;
-    for (auto *outputControl : m_outputsControls) {
+    for (auto *outputControl : qAsConst(m_outputsControls)) {
         if (getOutputRetention(outputControl->id(), outputControl->name()) == OutputRetention::Individual) {
             continue;
         }
@@ -482,7 +482,8 @@ KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId, 
             return nullptr;
         }
 
-        for (const auto &output : m_config->outputs()) {
+        const auto outputs = m_config->outputs();
+        for (const auto &output : outputs) {
             if (output->hashMd5() == sourceHash && output->name() == sourceName) {
                 return output;
             }

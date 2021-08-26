@@ -163,7 +163,8 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
     Output::readInOutputs(config->data(), outputs);
 
     QSize screenSize;
-    for (const auto &output : config->data()->outputs()) {
+    const auto configOutputs = config->data()->outputs();
+    for (const auto &output : configOutputs) {
         if (!output->isPositionable()) {
             continue;
         }

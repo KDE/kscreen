@@ -23,7 +23,8 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
 {
     const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral(QML_PATH "OutputIdentifier.qml"));
 
-    for (const auto &output : config->connectedOutputs()) {
+    const auto outputs = config->connectedOutputs();
+    for (const auto &output : outputs) {
         if (!output->currentMode()) {
             continue;
         }
@@ -65,7 +66,7 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
         m_views << view;
     }
 
-    for (auto *view : m_views) {
+    for (auto *view : qAsConst(m_views)) {
         view->show();
     }
     QTimer::singleShot(2500, this, &OutputIdentifier::identifiersFinished);
