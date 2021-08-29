@@ -16,9 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 import QtQuick 2.15
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as Controls
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick.Controls 2.15 as Controls
 
+import org.kde.kirigami 2.7 as Kirigami
 import org.kde.kcm 1.2 as KCM
 
 KCM.SimpleKCM {
@@ -28,6 +28,7 @@ KCM.SimpleKCM {
     implicitHeight: Kirigami.Units.gridUnit * 38
 
     property int selectedOutput: 0
+    property int revertCountdown: 30
 
     ColumnLayout {
         Kirigami.InlineMessage {
@@ -86,6 +87,74 @@ KCM.SimpleKCM {
             visible: false
             showCloseButton: true
         }
+        Kirigami.InlineMessage {
+            id: revertMsg
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Information
+            text: i18n("Display configuration reverted.")
+            visible: false
+            showCloseButton: true
+        }
+        Kirigami.OverlaySheet {
+            id: confirmMsg
+            property bool keepConfig: false
+            property bool userInteraction: false
+            parent: root.parent
+            title: i18n("Keep display configuration?")
+            onSheetOpenChanged: {
+                if (sheetOpen) {
+                    revertButton.forceActiveFocus()
+                    confirmMsg.keepConfig = false
+                    confirmMsg.userInteraction = false
+                } else {
+                    if (!confirmMsg.keepConfig) {
+                        kcm.revertSettings()
+                        if (!confirmMsg.userInteraction) {
+                            revertMsg.visible = true
+                        }
+                    }
+                    revertTimer.stop()
+                }
+            }
+            showCloseButton: false
+            contentItem: Controls.Label {
+                text: i18np("Will revert to previous configuration in %1 second.",
+                            "Will revert to previous configuration in %1 seconds.",
+                            revertCountdown);
+                wrapMode: Qt.WordWrap
+            }
+            footer: RowLayout {
+                Controls.Button {
+                    id: acceptButton
+                    Layout.fillWidth: true
+                    action: Controls.Action {
+                        icon.name: "dialog-ok"
+                        text: i18n("&Keep")
+                        shortcut: "Return"
+                        onTriggered: {
+                            confirmMsg.keepConfig = true
+                            confirmMsg.userInteraction = true
+                            confirmMsg.close()
+                        }
+                    }
+                }
+                Controls.Button {
+                    id: revertButton
+                    Layout.fillWidth: true
+                    KeyNavigation.left: acceptButton
+                    focus: true
+                    action: Controls.Action {
+                        icon.name: "edit-undo"
+                        text: i18n("&Revert")
+                        shortcut: "Escape"
+                        onTriggered: {
+                            confirmMsg.userInteraction = true
+                            confirmMsg.close()
+                        }
+                    }
+                }
+            }
+        }
 
         Connections {
             target: kcm
@@ -109,11 +178,19 @@ KCM.SimpleKCM {
             function onBackendError() {
                 errBackendMsg.visible = true;
             }
-
+            function onSettingsReverted() {
+                confirmMsg.close();
+            }
+            function onShowRevertWarning() {
+                revertCountdown = 30;
+                confirmMsg.open();
+                revertTimer.restart();
+            }
             function onChanged() {
                 dangerousSaveMsg.visible = false;
                 errSaveMsg.visible = false;
                 scaleMsg.visible = false;
+                revertMsg.visible = false;
             }
         }
 
@@ -132,6 +209,22 @@ KCM.SimpleKCM {
         Panel {
             enabled: kcm.outputModel && kcm.backendReady
             Layout.fillWidth: true
+        }
+
+        Timer {
+            id: revertTimer
+            interval: 1000
+            running: false
+            repeat: true
+
+            onTriggered: {
+                revertCountdown -= 1;
+                if (revertCountdown < 1) {
+                    this.stop();
+                    kcm.revertSettings();
+                    return;
+                }
+            }
         }
     }
 }

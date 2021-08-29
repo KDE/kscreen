@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/output.h>
 
+#include <QGuiApplication>
 #include <QRect>
 
 using namespace KScreen;
@@ -97,6 +98,7 @@ void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
 
 void ConfigHandler::updateInitialData()
 {
+    m_previousConfig = m_initialConfig->clone();
     m_initialRetention = getRetention();
     connect(new GetConfigOperation(), &GetConfigOperation::finished, this, [this](ConfigOperation *op) {
         if (op->hasError()) {
@@ -109,6 +111,11 @@ void ConfigHandler::updateInitialData()
         m_initialControl.reset(new ControlConfig(m_initialConfig));
         checkNeedsSave();
     });
+}
+
+bool ConfigHandler::shouldTestNewSettings()
+{
+    return checkSaveandTestCommon(false);
 }
 
 void ConfigHandler::checkNeedsSave()
@@ -129,40 +136,44 @@ void ConfigHandler::checkNeedsSave()
         Q_EMIT needsSaveChecked(true);
         return;
     }
+    Q_EMIT needsSaveChecked(checkSaveandTestCommon(true));
+}
 
-    for (const auto &output : m_config->connectedOutputs()) {
+bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
+{
+    const auto outputs = m_config->connectedOutputs();
+    for (const auto &output : outputs) {
         const QString hash = output->hashMd5();
-        for (const auto &initialOutput : m_initialConfig->outputs()) {
-            if (hash != initialOutput->hashMd5()) {
+        const auto configs = m_initialConfig->outputs();
+        for (const auto &config : configs) {
+            if (hash != config->hashMd5()) {
                 continue;
             }
-            bool needsSave = false;
-            if (output->isEnabled() != initialOutput->isEnabled()) {
-                needsSave = true;
+
+            if (output->isEnabled() != config->isEnabled()) {
+                return true;
             }
+
             // clang-format off
             if (output->isEnabled()) {
-                needsSave |= output->currentModeId() !=
-                                initialOutput->currentModeId()
-                             || output->pos() != initialOutput->pos()
-                             || output->scale() != initialOutput->scale()
-                             || output->rotation() != initialOutput->rotation()
-                             || output->replicationSource() != initialOutput->replicationSource()
-                             || autoRotate(output) != m_initialControl->getAutoRotate(output)
-                             || autoRotateOnlyInTabletMode(output)
-                                    != m_initialControl->getAutoRotateOnlyInTabletMode(output)
-                             || output->overscan() != initialOutput->overscan()
-                             || output->vrrPolicy() != initialOutput->vrrPolicy();
+                bool realScaleChange = output->scale() != config->scale();
+                bool scaleChanged = isSaveCheck ?  realScaleChange : qGuiApp->platformName() == QLatin1String("wayland") ? realScaleChange : false;
+                if ( output->currentModeId() != config->currentModeId()
+                    || output->pos() != config->pos()
+                    || scaleChanged
+                    || output->rotation() != config->rotation()
+                    || output->replicationSource() != config->replicationSource()
+                    || autoRotate(output) != m_initialControl->getAutoRotate(output)
+                    || autoRotateOnlyInTabletMode(output) != m_initialControl->getAutoRotateOnlyInTabletMode(output)
+                    || output->overscan() != config->overscan()
+                    || output->vrrPolicy() != config->vrrPolicy()) {
+                        return true;
+                    }
             }
             // clang-format on
-            if (needsSave) {
-                Q_EMIT needsSaveChecked(true);
-                return;
-            }
-            break;
         }
     }
-    Q_EMIT needsSaveChecked(false);
+    return false;
 }
 
 QSize ConfigHandler::screenSize() const

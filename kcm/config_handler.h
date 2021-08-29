@@ -51,6 +51,11 @@ public:
         return m_initialConfig;
     }
 
+    void revertConfig()
+    {
+        m_config = m_previousConfig->clone();
+    }
+
     int retention() const;
     void setRetention(int retention);
 
@@ -74,6 +79,7 @@ public:
     void writeControl();
 
     void checkNeedsSave();
+    bool shouldTestNewSettings();
 
 Q_SIGNALS:
     void outputModelChanged();
@@ -91,9 +97,17 @@ private:
     void primaryOutputChanged(const KScreen::OutputPtr &output);
     void initOutput(const KScreen::OutputPtr &output);
     void resetScale(const KScreen::OutputPtr &output);
+    /**
+     * @brief checkSaveandTestCommon - compairs common config changes that would make the config dirty and needed to have the config checked when applied.
+     * @param isSaveCheck - True  if your checking to see if the changes should request a save.
+     *                      False if you want to check if you should test the config when applied.
+     * @return true, if you should check for a save or test the new configuration
+     */
+    bool checkSaveandTestCommon(bool isSaveCheck);
 
     KScreen::ConfigPtr m_config = nullptr;
     KScreen::ConfigPtr m_initialConfig;
+    KScreen::ConfigPtr m_previousConfig = nullptr;
     OutputModel *m_outputs = nullptr;
 
     std::unique_ptr<ControlConfig> m_control;

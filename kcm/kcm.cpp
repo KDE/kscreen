@@ -100,6 +100,21 @@ void KCMKScreen::save()
     doSave(false);
 }
 
+void KCMKScreen::revertSettings()
+{
+    if (!m_config) {
+        setNeedsSave(false);
+        return;
+    }
+    if (!m_settingsReverted) {
+        m_config->revertConfig();
+        m_settingsReverted = true;
+        doSave(true);
+        load(); // reload the configuration
+        Q_EMIT settingsReverted();
+    }
+}
+
 void KCMKScreen::doSave(bool force)
 {
     if (!m_config) {
@@ -158,6 +173,12 @@ void KCMKScreen::doSave(bool force)
             return;
         }
         m_config->updateInitialData();
+
+        if (!m_settingsReverted && m_config->shouldTestNewSettings()) {
+            Q_EMIT showRevertWarning();
+        } else {
+            m_settingsReverted = false;
+        }
     });
 }
 

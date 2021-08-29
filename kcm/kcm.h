@@ -77,6 +77,7 @@ public:
 
     Q_INVOKABLE void forceSave();
     void doSave(bool force);
+    Q_INVOKABLE void revertSettings();
 
 Q_SIGNALS:
     void backendReadyChanged();
@@ -96,6 +97,8 @@ Q_SIGNALS:
     void errorOnSave();
     void globalScaleWritten();
     void outputConnect(bool connected);
+    void settingsReverted();
+    void showRevertWarning();
 
 private:
     void setBackendReady(bool error);
@@ -112,6 +115,7 @@ private:
     OrientationSensor *m_orientationSensor;
     bool m_backendReady = false;
     bool m_screenNormalized = true;
+    bool m_settingsReverted = false;
     double m_globalScale = 1.;
     double m_initialGlobalScale = 1.;
 
