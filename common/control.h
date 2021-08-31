@@ -107,6 +107,11 @@ public:
     void setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value);
     void setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy value);
 
+    KScreen::Output::RgbRange getRgbRange(const KScreen::OutputPtr &output) const;
+    KScreen::Output::RgbRange getRgbRange(const QString &outputId, const QString &outputName) const;
+    void setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value);
+    void setRgbRange(const QString &outputId, const QString &outputName, const KScreen::Output::RgbRange value);
+
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -149,6 +154,9 @@ public:
 
     KScreen::Output::VrrPolicy vrrPolicy() const;
     void setVrrPolicy(KScreen::Output::VrrPolicy value);
+
+    KScreen::Output::RgbRange rgbRange() const;
+    void setRgbRange(KScreen::Output::RgbRange value);
 
     QString dirPath() const override;
     QString filePath() const override;

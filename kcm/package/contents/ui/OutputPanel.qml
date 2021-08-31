@@ -139,6 +139,22 @@ ColumnLayout {
         }
 
         Controls.ComboBox {
+            Kirigami.FormData.label: i18n("RGB Range:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            model: [
+                { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
+                { label: i18n("Full"), value: KScreen.Output.RgbRange.Full },
+                { label: i18n("Limited"), value: KScreen.Output.RgbRange.Limited }
+            ]
+            textRole: "label"
+            valueRole: "value"
+            visible: element.capabilities & KScreen.Output.Capability.RgbRange
+
+            onActivated: element.rgbRange = currentValue
+            Component.onCompleted: currentIndex = indexOfValue(element.rgbRange);
+        }
+
+        Controls.ComboBox {
             Kirigami.FormData.label: i18n("Replica of:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.replicationSourceModel

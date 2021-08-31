@@ -676,6 +676,75 @@ void ControlConfig::setVrrPolicy(const QString &outputId, const QString &outputN
     setOutputVrr();
 }
 
+KScreen::Output::RgbRange ControlConfig::getRgbRange(const KScreen::OutputPtr &output) const
+{
+    return getRgbRange(output->hashMd5(), output->name());
+}
+
+KScreen::Output::RgbRange ControlConfig::getRgbRange(const QString &outputId, const QString &outputName) const
+{
+    const auto retention = getOutputRetention(outputId, outputName);
+    if (retention == OutputRetention::Individual) {
+        const QVariantList outputsInfo = getOutputs();
+        for (const auto &variantInfo : outputsInfo) {
+            const QVariantMap info = variantInfo.toMap();
+            if (!infoIsOutput(info, outputId, outputName)) {
+                continue;
+            }
+            const auto val = info[QStringLiteral("rgbrange")];
+            if (val.canConvert<uint>()) {
+                return static_cast<KScreen::Output::RgbRange>(val.toUInt());
+            } else {
+                return KScreen::Output::RgbRange::Automatic;
+            }
+        }
+    }
+    // Retention is global or info for output not in config control file.
+    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+        return outputControl->rgbRange();
+    }
+
+    // Info for output not found.
+    return KScreen::Output::RgbRange::Automatic;
+}
+
+void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value)
+{
+    setRgbRange(output->hashMd5(), output->name(), value);
+}
+
+void ControlConfig::setRgbRange(const QString &outputId, const QString &outputName, const KScreen::Output::RgbRange enumValue)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+    uint value = static_cast<uint>(enumValue);
+
+    auto setOutputRgbRange = [&outputId, &outputName, enumValue, this]() {
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            control->setRgbRange(enumValue);
+        }
+    };
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[QStringLiteral("rgbrange")] = value;
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        setOutputRgbRange();
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[QStringLiteral("rgbrange")] = value;
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    setOutputRgbRange();
+}
+
 QVariantList ControlConfig::getOutputs() const
 {
     return constInfo()[QStringLiteral("outputs")].toList();
@@ -805,4 +874,22 @@ void ControlOutput::setVrrPolicy(KScreen::Output::VrrPolicy value)
         infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
     }
     infoMap[QStringLiteral("vrrpolicy")] = static_cast<uint>(value);
+}
+
+KScreen::Output::RgbRange ControlOutput::rgbRange() const
+{
+    const auto val = constInfo()[QStringLiteral("rgbrange")];
+    if (val.canConvert<uint>()) {
+        return static_cast<KScreen::Output::RgbRange>(val.toUInt());
+    }
+    return KScreen::Output::RgbRange::Automatic;
+}
+
+void ControlOutput::setRgbRange(KScreen::Output::RgbRange value)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[QStringLiteral("rgbrange")] = static_cast<uint>(value);
 }

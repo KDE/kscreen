@@ -51,6 +51,7 @@ public:
         CapabilitiesRole,
         OverscanRole,
         VrrPolicyRole,
+        RgbRangeRole,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);

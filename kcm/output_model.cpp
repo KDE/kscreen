@@ -92,6 +92,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->overscan();
     case VrrPolicyRole:
         return static_cast<uint32_t>(output->vrrPolicy());
+    case RgbRangeRole:
+        return static_cast<uint32_t>(output->rgbRange());
     }
     return QVariant();
 }
@@ -208,6 +210,18 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return true;
         }
         break;
+    case RgbRangeRole:
+        if (value.canConvert<uint32_t>()) {
+            Output &output = m_outputs[index.row()];
+            const auto range = static_cast<KScreen::Output::RgbRange>(value.toUInt());
+            if (output.ptr->rgbRange() == range) {
+                return false;
+            }
+            output.ptr->setRgbRange(range);
+            m_config->setRgbRange(output.ptr, range);
+            Q_EMIT dataChanged(index, index, {role});
+            return true;
+        }
     }
     return false;
 }
@@ -235,6 +249,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[CapabilitiesRole] = "capabilities";
     roles[OverscanRole] = "overscan";
     roles[VrrPolicyRole] = "vrrPolicy";
+    roles[RgbRangeRole] = "rgbRange";
     return roles;
 }
 

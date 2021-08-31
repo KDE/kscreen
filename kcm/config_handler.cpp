@@ -166,7 +166,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || autoRotate(output) != m_initialControl->getAutoRotate(output)
                     || autoRotateOnlyInTabletMode(output) != m_initialControl->getAutoRotateOnlyInTabletMode(output)
                     || output->overscan() != config->overscan()
-                    || output->vrrPolicy() != config->vrrPolicy()) {
+                    || output->vrrPolicy() != config->vrrPolicy()
+                    || output->rgbRange() != config->rgbRange()) {
                         return true;
                     }
             }
@@ -352,6 +353,16 @@ KScreen::Output::VrrPolicy ConfigHandler::vrrPolicy(const KScreen::OutputPtr &ou
 void ConfigHandler::setVrrPolicy(const KScreen::OutputPtr &output, KScreen::Output::VrrPolicy value)
 {
     m_control->setVrrPolicy(output, value);
+}
+
+KScreen::Output::RgbRange ConfigHandler::rgbRange(const KScreen::OutputPtr &output) const
+{
+    return m_control->getRgbRange(output);
+}
+
+void ConfigHandler::setRgbRange(const KScreen::OutputPtr &output, KScreen::Output::RgbRange value)
+{
+    m_control->setRgbRange(output, value);
 }
 
 void ConfigHandler::writeControl()

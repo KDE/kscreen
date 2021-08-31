@@ -76,6 +76,9 @@ public:
     KScreen::Output::VrrPolicy vrrPolicy(const KScreen::OutputPtr &output) const;
     void setVrrPolicy(const KScreen::OutputPtr &output, KScreen::Output::VrrPolicy value);
 
+    KScreen::Output::RgbRange rgbRange(const KScreen::OutputPtr &output) const;
+    void setRgbRange(const KScreen::OutputPtr &output, KScreen::Output::RgbRange value);
+
     void writeControl();
 
     void checkNeedsSave();
