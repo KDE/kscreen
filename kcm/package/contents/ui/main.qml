@@ -130,7 +130,6 @@ KCM.SimpleKCM {
                     action: Controls.Action {
                         icon.name: "dialog-ok"
                         text: i18n("&Keep")
-                        shortcut: "Return"
                         onTriggered: {
                             confirmMsg.keepConfig = true
                             confirmMsg.userInteraction = true
