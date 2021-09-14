@@ -1,7 +1,6 @@
 /*
+    Work sponsored by the LiMux project of the city of Munich:
     SPDX-FileCopyrightText: 2018 Kai Uwe Broulik <kde@broulik.de>
-    Work sponsored by the LiMux project of
-    the city of Munich.
 
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 

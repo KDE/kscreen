@@ -1,8 +1,8 @@
 /*
     SPDX-FileCopyrightText: 2016 Sebastian Kügler <sebas@kde.org>
+
+    Work sponsored by the LiMux project of the city of Munich:
     SPDX-FileCopyrightText: 2018 Kai Uwe Broulik <kde@broulik.de>
-    Work sponsored by the LiMux project of
-    the city of Munich.
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
