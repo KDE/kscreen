@@ -1,8 +1,8 @@
 /*
-SPDX-FileCopyrightText: 2012 Alejandro Fiestas Olivares <afiestas@kde.org>
-SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
+    SPDX-FileCopyrightText: 2012 Alejandro Fiestas Olivares <afiestas@kde.org>
+    SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
 
-SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "config.h"
 #include "../common/control.h"

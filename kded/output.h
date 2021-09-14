@@ -1,8 +1,8 @@
 /*
-SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
-SPDX-FileCopyrightText: 2021 David Redondo <kde@david-redondo.de>
+    SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
+    SPDX-FileCopyrightText: 2021 David Redondo <kde@david-redondo.de>
 
-SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
 #ifndef KDED_OUTPUT_H
 #define KDED_OUTPUT_H
