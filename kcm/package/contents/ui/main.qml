@@ -88,7 +88,7 @@ KCM.SimpleKCM {
             id: confirmMsg
             property bool keepConfig: false
             property bool userInteraction: false
-            parent: root.parent
+            parent: root
             title: i18n("Keep display configuration?")
             onSheetOpenChanged: {
                 if (sheetOpen) {
