@@ -49,6 +49,18 @@ static Output::GlobalConfig fromInfo(const KScreen::OutputPtr output, const QVar
         config.scale = scale;
     }
 
+    if (auto vrr = static_cast<KScreen::Output::VrrPolicy>(info.value(QStringLiteral("vrrpolicy")).toUInt(&ok)); ok) {
+        config.vrrPolicy = vrr;
+    }
+
+    if (auto overscan = info.value(QStringLiteral("overscan")).toUInt(&ok); ok) {
+        config.overscan = overscan;
+    }
+
+    if (auto rgbRange = static_cast<KScreen::Output::RgbRange>(info.value(QStringLiteral("rgbrange")).toUInt(&ok)); ok) {
+        config.rgbRange = rgbRange;
+    }
+
     const QVariantMap modeInfo = info[QStringLiteral("mode")].toMap();
     const QVariantMap modeSize = modeInfo[QStringLiteral("size")].toMap();
     const QSize size = QSize(modeSize[QStringLiteral("width")].toInt(), modeSize[QStringLiteral("height")].toInt());
@@ -75,8 +87,10 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 {
     GlobalConfig config = fromInfo(output, info);
     output->setRotation(config.rotation.value_or(KScreen::Output::Rotation::None));
-
     output->setScale(config.scale.value_or(1.0));
+    output->setVrrPolicy(config.vrrPolicy.value_or(KScreen::Output::VrrPolicy::Automatic));
+    output->setOverscan(config.overscan.value_or(0));
+    output->setRgbRange(config.rgbRange.value_or(KScreen::Output::RgbRange::Automatic));
 
     KScreen::ModePtr matchingMode;
     if (config.modeId) {
@@ -447,6 +461,9 @@ bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info
     modeInfo[QStringLiteral("size")] = modeSizeMap;
 
     info[QStringLiteral("mode")] = modeInfo;
+    info[QStringLiteral("vrrpolicy")] = static_cast<uint32_t>(output->vrrPolicy());
+    info[QStringLiteral("overscan")] = output->overscan();
+    info[QStringLiteral("rgbrange")] = static_cast<uint32_t>(output->rgbRange());
 
     return true;
 }

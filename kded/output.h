@@ -34,6 +34,9 @@ public:
         std::optional<qreal> scale;
         std::optional<QString> modeId;
         std::optional<KScreen::Output::Rotation> rotation;
+        std::optional<KScreen::Output::VrrPolicy> vrrPolicy;
+        std::optional<uint32_t> overscan;
+        std::optional<KScreen::Output::RgbRange> rgbRange;
     };
     static GlobalConfig readGlobal(const KScreen::OutputPtr &output);
 
