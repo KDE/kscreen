@@ -32,11 +32,11 @@ public:
     explicit OsdAction(QObject *parent = nullptr);
 
     Q_INVOKABLE QVector<int> actionOrder() const;
-    Q_INVOKABLE QString actionLabel(OsdAction::Action action) const;
-    Q_INVOKABLE QString actionIconName(OsdAction::Action action) const;
+    Q_INVOKABLE QString actionLabel(Action action) const;
+    Q_INVOKABLE QString actionIconName(Action action) const;
 
 Q_SIGNALS:
-    void selected(OsdAction::Action action);
+    void selected(Action action);
 };
 
 } // namespace KScreen
