@@ -270,10 +270,14 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
         // If we have nothing to compare against
         if (commonSizes.isEmpty()) {
             commonSizes = modeSizes;
-            continue;
+        } else {
+            commonSizes.intersect(modeSizes);
         }
 
-        commonSizes.intersect(modeSizes);
+        // If there's already nothing in common, bail
+        if (commonSizes.isEmpty()) {
+            break;
+        }
     }
 
     qCDebug(KSCREEN_KDED) << "Common sizes: " << commonSizes;
