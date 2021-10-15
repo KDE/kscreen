@@ -364,12 +364,31 @@ void KCMKScreen::writeGlobalScale()
 
     if (qFuzzyCompare(m_globalScale, 1.0)) {
         // if dpi is the default (96) remove the entry rather than setting it
-        QProcess proc;
-        proc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-remove"), QStringLiteral("-nocpp")});
-        if (proc.waitForStarted()) {
-            proc.write(QByteArray("Xft.dpi\n"));
-            proc.closeWriteChannel();
-            proc.waitForFinished();
+        QProcess queryProc;
+        queryProc.start(QStringLiteral("xrdb"), {QStringLiteral("-query")});
+        if (queryProc.waitForFinished()) {
+            QByteArray db = queryProc.readAllStandardOutput();
+            int idx1 = 0;
+            while (idx1 < db.size()) {
+                int idx2 = db.indexOf('\n', idx1);
+                if (idx2 == -1) {
+                    idx2 = db.size() - 1;
+                }
+                const auto entry = QByteArray::fromRawData(db.constData() + idx1, idx2 - idx1 + 1);
+                if (entry.startsWith("Xft.dpi:")) {
+                    db.remove(idx1, entry.size());
+                } else {
+                    idx1 = idx2 + 1;
+                }
+            }
+
+            QProcess loadProc;
+            loadProc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-load"), QStringLiteral("-nocpp")});
+            if (loadProc.waitForStarted()) {
+                loadProc.write(db);
+                loadProc.closeWriteChannel();
+                loadProc.waitForFinished();
+            }
         }
         fontConfigGroup.writeEntry("forceFontDPI", 0);
     } else {
