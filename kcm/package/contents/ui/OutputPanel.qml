@@ -33,12 +33,22 @@ ColumnLayout {
         }
 
         Controls.ComboBox {
+            id: resolutionCombobox
             Kirigami.FormData.label: i18n("Resolution:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            visible: count > 1
             model: element.resolutions
             currentIndex: element.resolutionIndex !== undefined ?
                               element.resolutionIndex : -1
             onActivated: element.resolutionIndex = currentIndex
+        }
+        // When the combobox is has only one item, it's basically non-interactive
+        // and is serving purely in a descriptive role, so make this explicit by
+        // using a label instead
+        Controls.Label {
+            Kirigami.FormData.label: i18n("Resolution:")
+            visible: !resolutionCombobox.visible
+            text: element.resolutions[0]
         }
 
         RowLayout {
@@ -88,12 +98,22 @@ ColumnLayout {
         Orientation {}
 
         Controls.ComboBox {
+            id: refreshRateCombobox
             Kirigami.FormData.label: i18n("Refresh rate:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            visible: count > 1
             model: element.refreshRates
             currentIndex: element.refreshRateIndex ?
                               element.refreshRateIndex : 0
             onActivated: element.refreshRateIndex = currentIndex
+        }
+        // When the combobox is has only one item, it's basically non-interactive
+        // and is serving purely in a descriptive role, so make this explicit by
+        // using a label instead
+        Controls.Label {
+            Kirigami.FormData.label: i18n("Refresh rate:")
+            visible: !refreshRateCombobox.visible
+            text: element.refreshRates[0]
         }
 
         Controls.ComboBox {
