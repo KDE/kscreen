@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.4 as Kirigami
 
-import org.kde.kcm 1.2 as KCM
+import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
@@ -32,23 +32,30 @@ ColumnLayout {
            visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
         }
 
-        Controls.ComboBox {
-            id: resolutionCombobox
+        RowLayout {
             Kirigami.FormData.label: i18n("Resolution:")
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
-            visible: count > 1
-            model: element.resolutions
-            currentIndex: element.resolutionIndex !== undefined ?
-                              element.resolutionIndex : -1
-            onActivated: element.resolutionIndex = currentIndex
-        }
-        // When the combobox is has only one item, it's basically non-interactive
-        // and is serving purely in a descriptive role, so make this explicit by
-        // using a label instead
-        Controls.Label {
-            Kirigami.FormData.label: i18n("Resolution:")
-            visible: !resolutionCombobox.visible
-            text: element.resolutions[0]
+
+            Controls.ComboBox {
+                id: resolutionCombobox
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+                visible: count > 1
+                model: element.resolutions
+                currentIndex: element.resolutionIndex !== undefined ?
+                                element.resolutionIndex : -1
+                onActivated: element.resolutionIndex = currentIndex
+            }
+            // When the combobox is has only one item, it's basically non-interactive
+            // and is serving purely in a descriptive role, so make this explicit by
+            // using a label instead
+            Controls.Label {
+                id: singleResolutionLabel
+                visible: !resolutionCombobox.visible
+                text: element.resolutions[0]
+            }
+            KCM.ContextualHelpButton {
+                visible: singleResolutionLabel.visible
+                toolTipText: xi18nc("@info", "\"%1\" is the only resolution supported by this display.<nl/><nl/>Using unsupported resolutions was possible in the Plasma X11 session, but they were never guaranteed to work and are not available in this Plasma Wayland session.", singleResolutionLabel.text)
+            }
         }
 
         RowLayout {
@@ -97,23 +104,30 @@ ColumnLayout {
 
         Orientation {}
 
-        Controls.ComboBox {
-            id: refreshRateCombobox
+        RowLayout {
             Kirigami.FormData.label: i18n("Refresh rate:")
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
-            visible: count > 1
-            model: element.refreshRates
-            currentIndex: element.refreshRateIndex ?
-                              element.refreshRateIndex : 0
-            onActivated: element.refreshRateIndex = currentIndex
-        }
-        // When the combobox is has only one item, it's basically non-interactive
-        // and is serving purely in a descriptive role, so make this explicit by
-        // using a label instead
-        Controls.Label {
-            Kirigami.FormData.label: i18n("Refresh rate:")
-            visible: !refreshRateCombobox.visible
-            text: element.refreshRates[0]
+
+            Controls.ComboBox {
+                id: refreshRateCombobox
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+                visible: count > 1
+                model: element.refreshRates
+                currentIndex: element.refreshRateIndex ?
+                                element.refreshRateIndex : 0
+                onActivated: element.refreshRateIndex = currentIndex
+            }
+            // When the combobox is has only one item, it's basically non-interactive
+            // and is serving purely in a descriptive role, so make this explicit by
+            // using a label instead
+            Controls.Label {
+                id: singleRefreshRateLabel
+                visible: !refreshRateCombobox.visible
+                text: element.refreshRates[0]
+            }
+            KCM.ContextualHelpButton {
+                visible: singleRefreshRateLabel.visible
+                toolTipText: i18n("\"%1\" is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
+            }
         }
 
         Controls.ComboBox {
