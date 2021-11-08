@@ -24,9 +24,6 @@ Item {
     Plasmoid.toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
-    // does this need an ellipsis?
-    readonly property string kcmLabel: i18nc("Open the full display settings module", "Advanced Display Settings")
-    readonly property string kcmIconName: "preferences-desktop-display-randr"
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
@@ -45,6 +42,10 @@ Item {
                 action: layout
             }
         });
+    }
+
+    function action_configure() {
+        KCMShell.openSystemSettings(kcmName);
     }
 
     PlasmaCore.DataSource {
@@ -78,13 +79,10 @@ Item {
         }
     }
 
-    function action_openKcm() {
-        KCMShell.open(kcmName);
-    }
-
     Component.onCompleted: {
         if (kcmAllowed) {
-            plasmoid.setAction("openKcm", root.kcmLabel, root.kcmIconName)
+            plasmoid.removeAction("configure");
+            plasmoid.setAction("configure", i18n("Configure Display Settings…"), "preferences-desktop-display")
         }
     }
 
@@ -103,17 +101,11 @@ Item {
             Layout.leftMargin: units.smallSpacing
         }
 
-        // compact the layout, push settings button to the bottom
+        // compact the layout
         Item {
             Layout.fillHeight: true
         }
 
-        PlasmaComponents.Button {
-            Layout.alignment: Qt.AlignRight
-            Layout.topMargin: units.smallSpacing
-            text: root.kcmLabel
-            iconName: root.kcmIconName
-            onClicked: action_openKcm()
-        }
+
     }
 }
