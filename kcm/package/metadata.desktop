@@ -105,7 +105,6 @@ X-KDE-PluginInfo-Name=kcm_kscreen
 X-KDE-PluginInfo-Version=@KSCREEN_VERSION@
 X-KDE-PluginInfo-Website=https://www.kde.org/plasma-desktop
 X-KDE-ServiceTypes=Plasma/Generic
-X-Plasma-API=declarativeappletscript
 
 X-KDE-FormFactors=tablet,handset,desktop
 
