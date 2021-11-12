@@ -113,6 +113,11 @@ private:
     bool infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const;
     ControlOutput *getOutputControl(const QString &outputId, const QString &outputName) const;
 
+    template<typename T, typename F>
+    T get(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, T defaultValue) const;
+    template<typename T, typename F, typename V>
+    void set(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, V value);
+
     KScreen::ConfigPtr m_config;
     QStringList m_duplicateOutputIds;
     QVector<ControlOutput *> m_outputsControls;

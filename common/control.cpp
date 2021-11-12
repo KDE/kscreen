@@ -266,12 +266,8 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
     setOutputs(outputsInfo);
 }
 
-qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
-{
-    return getScale(output->hashMd5(), output->name());
-}
-
-qreal ControlConfig::getScale(const QString &outputId, const QString &outputName) const
+template<typename T, typename F>
+T ControlConfig::get(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, T defaultValue) const
 {
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
@@ -281,17 +277,61 @@ qreal ControlConfig::getScale(const QString &outputId, const QString &outputName
             if (!infoIsOutput(info, outputId, outputName)) {
                 continue;
             }
-            const auto val = info[QStringLiteral("scale")];
-            return val.canConvert<qreal>() ? val.toReal() : -1;
+            const auto val = info[name];
+            if (val.template canConvert<T>()) {
+                return val.template value<T>();
+            } else {
+                return defaultValue;
+            }
         }
     }
     // Retention is global or info for output not in config control file.
     if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->getScale();
+        return (outputControl->*globalRetentionFunc)();
     }
 
     // Info for output not found.
-    return -1;
+    return defaultValue;
+}
+
+template<typename T, typename F, typename V>
+void ControlConfig::set(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, V value)
+{
+    QList<QVariant>::iterator it;
+    QVariantList outputsInfo = getOutputs();
+
+    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
+        QVariantMap outputInfo = (*it).toMap();
+        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+            continue;
+        }
+        outputInfo[name] = static_cast<T>(value);
+        *it = outputInfo;
+        setOutputs(outputsInfo);
+        if (auto *control = getOutputControl(outputId, outputName)) {
+            (control->*globalRetentionFunc)(value);
+        }
+        return;
+    }
+    // no entry yet, create one
+    auto outputInfo = createOutputInfo(outputId, outputName);
+    outputInfo[name] = static_cast<T>(value);
+
+    outputsInfo << outputInfo;
+    setOutputs(outputsInfo);
+    if (auto *control = getOutputControl(outputId, outputName)) {
+        (control->*globalRetentionFunc)(value);
+    }
+}
+
+qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
+{
+    return getScale(output->hashMd5(), output->name());
+}
+
+qreal ControlConfig::getScale(const QString &outputId, const QString &outputName) const
+{
+    return get(outputId, outputName, QStringLiteral("scale"), &ControlOutput::getScale, -1);
 }
 
 void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
@@ -299,36 +339,9 @@ void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
     setScale(output->hashMd5(), output->name(), value);
 }
 
-// TODO: combine methods (templated functions)
 void ControlConfig::setScale(const QString &outputId, const QString &outputName, qreal value)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-
-    auto setOutputScale = [&outputId, &outputName, value, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setScale(value);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("scale")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputScale();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("scale")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputScale();
+    set<qreal>(outputId, outputName, QStringLiteral("scale"), &ControlOutput::setScale, value);
 }
 
 bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
@@ -338,25 +351,7 @@ bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
 
 bool ControlConfig::getAutoRotate(const QString &outputId, const QString &outputName) const
 {
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[QStringLiteral("autorotate")];
-            return !val.canConvert<bool>() || val.toBool();
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->getAutoRotate();
-    }
-
-    // Info for output not found.
-    return true;
+    return get(outputId, outputName, QStringLiteral("autorotate"), &ControlOutput::getAutoRotate, true);
 }
 
 void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
@@ -364,36 +359,9 @@ void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
     setAutoRotate(output->hashMd5(), output->name(), value);
 }
 
-// TODO: combine methods (templated functions)
 void ControlConfig::setAutoRotate(const QString &outputId, const QString &outputName, bool value)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-
-    auto setOutputAutoRotate = [&outputId, &outputName, value, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setAutoRotate(value);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("autorotate")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputAutoRotate();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("autorotate")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputAutoRotate();
+    set<bool>(outputId, outputName, QStringLiteral("autorotate"), &ControlOutput::setAutoRotate, value);
 }
 
 bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
@@ -403,25 +371,7 @@ bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &outp
 
 bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName) const
 {
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[QStringLiteral("autorotate-tablet-only")];
-            return !val.canConvert<bool>() || val.toBool();
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->getAutoRotateOnlyInTabletMode();
-    }
-
-    // Info for output not found.
-    return true;
+    return get(outputId, outputName, QStringLiteral("autorotate-tablet-only"), &ControlOutput::getAutoRotateOnlyInTabletMode, true);
 }
 
 void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value)
@@ -429,36 +379,9 @@ void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &outp
     setAutoRotateOnlyInTabletMode(output->hashMd5(), output->name(), value);
 }
 
-// TODO: combine methods (templated functions)
 void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName, bool value)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-
-    auto setOutputAutoRotateOnlyInTabletMode = [&outputId, &outputName, value, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setAutoRotateOnlyInTabletMode(value);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("autorotate-tablet-only")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputAutoRotateOnlyInTabletMode();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("autorotate-tablet-only")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputAutoRotateOnlyInTabletMode();
+    set<bool>(outputId, outputName, QStringLiteral("autorotate-tablet-only"), &ControlOutput::setAutoRotateOnlyInTabletMode, value);
 }
 
 KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
@@ -536,29 +459,7 @@ uint32_t ControlConfig::getOverscan(const KScreen::OutputPtr &output) const
 
 uint32_t ControlConfig::getOverscan(const QString &outputId, const QString &outputName) const
 {
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[QStringLiteral("overscan")];
-            if (val.canConvert<uint>()) {
-                return static_cast<uint32_t>(val.toUInt());
-            } else {
-                return 0;
-            }
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->overscan();
-    }
-
-    // Info for output not found.
-    return 0;
+    return get(outputId, outputName, QStringLiteral("overscan"), &ControlOutput::overscan, 0);
 }
 
 void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t value)
@@ -568,33 +469,7 @@ void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t
 
 void ControlConfig::setOverscan(const QString &outputId, const QString &outputName, const uint32_t value)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-
-    auto setOutputOverscan = [&outputId, &outputName, value, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setOverscan(value);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("overscan")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputOverscan();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("overscan")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputOverscan();
+    set<uint32_t>(outputId, outputName, QStringLiteral("overscan"), &ControlOutput::setOverscan, value);
 }
 
 KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const KScreen::OutputPtr &output) const
@@ -604,29 +479,7 @@ KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const KScreen::OutputPtr 
 
 KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const QString &outputId, const QString &outputName) const
 {
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[QStringLiteral("vrrpolicy")];
-            if (val.canConvert<uint>()) {
-                return static_cast<KScreen::Output::VrrPolicy>(val.toUInt());
-            } else {
-                return KScreen::Output::VrrPolicy::Automatic;
-            }
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->vrrPolicy();
-    }
-
-    // Info for output not found.
-    return KScreen::Output::VrrPolicy::Automatic;
+    return get(outputId, outputName, QStringLiteral("vrrpolicy"), &ControlOutput::vrrPolicy, KScreen::Output::VrrPolicy::Automatic);
 }
 
 void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value)
@@ -636,34 +489,7 @@ void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen
 
 void ControlConfig::setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy enumValue)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-    uint value = static_cast<uint>(enumValue);
-
-    auto setOutputVrr = [&outputId, &outputName, enumValue, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setVrrPolicy(enumValue);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("vrrpolicy")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputVrr();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("vrrpolicy")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputVrr();
+    set<uint32_t>(outputId, outputName, QStringLiteral("vrrpolicy"), &ControlOutput::setVrrPolicy, enumValue);
 }
 
 KScreen::Output::RgbRange ControlConfig::getRgbRange(const KScreen::OutputPtr &output) const
@@ -673,29 +499,7 @@ KScreen::Output::RgbRange ControlConfig::getRgbRange(const KScreen::OutputPtr &o
 
 KScreen::Output::RgbRange ControlConfig::getRgbRange(const QString &outputId, const QString &outputName) const
 {
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[QStringLiteral("rgbrange")];
-            if (val.canConvert<uint>()) {
-                return static_cast<KScreen::Output::RgbRange>(val.toUInt());
-            } else {
-                return KScreen::Output::RgbRange::Automatic;
-            }
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
-        return outputControl->rgbRange();
-    }
-
-    // Info for output not found.
-    return KScreen::Output::RgbRange::Automatic;
+    return get(outputId, outputName, QStringLiteral("rgbrange"), &ControlOutput::rgbRange, KScreen::Output::RgbRange::Automatic);
 }
 
 void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value)
@@ -705,34 +509,7 @@ void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen:
 
 void ControlConfig::setRgbRange(const QString &outputId, const QString &outputName, const KScreen::Output::RgbRange enumValue)
 {
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-    uint value = static_cast<uint>(enumValue);
-
-    auto setOutputRgbRange = [&outputId, &outputName, enumValue, this]() {
-        if (auto *control = getOutputControl(outputId, outputName)) {
-            control->setRgbRange(enumValue);
-        }
-    };
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[QStringLiteral("rgbrange")] = value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        setOutputRgbRange();
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[QStringLiteral("rgbrange")] = value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-    setOutputRgbRange();
+    set<uint32_t>(outputId, outputName, QStringLiteral("rgbrange"), &ControlOutput::setRgbRange, enumValue);
 }
 
 QVariantList ControlConfig::getOutputs() const
@@ -745,6 +522,7 @@ void ControlConfig::setOutputs(QVariantList outputsInfo)
     auto &infoMap = info();
     infoMap[QStringLiteral("outputs")] = outputsInfo;
 }
+
 ControlOutput *ControlConfig::getOutputControl(const QString &outputId, const QString &outputName) const
 {
     for (auto *control : m_outputsControls) {
