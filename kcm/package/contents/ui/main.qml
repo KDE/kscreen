@@ -106,38 +106,47 @@ KCM.SimpleKCM {
                 }
             }
             showCloseButton: false
-            contentItem: Controls.Label {
-                text: i18np("Will revert to previous configuration in %1 second.",
-                            "Will revert to previous configuration in %1 seconds.",
-                            revertCountdown);
-                wrapMode: Text.WordWrap
-            }
-            footer: RowLayout {
-                Controls.Button {
-                    id: acceptButton
+            contentItem: ColumnLayout {
+                spacing: 0 // we manually add spacing in the Label item
+
+                Controls.Label {
                     Layout.fillWidth: true
-                    action: Controls.Action {
-                        icon.name: "dialog-ok"
-                        text: i18n("&Keep")
-                        onTriggered: {
-                            confirmMsg.keepConfig = true
-                            confirmMsg.userInteraction = true
-                            confirmMsg.close()
+                    Layout.maximumWidth: Math.round(root.width*0.75)
+                    Layout.topMargin: Kirigami.Units.largeSpacing * 2
+                    Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                    text: i18np("Will revert to previous configuration in %1 second.",
+                                "Will revert to previous configuration in %1 seconds.",
+                                revertCountdown);
+                    wrapMode: Text.WordWrap
+                }
+
+                RowLayout {
+                    Layout.alignment: Qt.AlignRight
+
+                    Controls.Button {
+                        id: acceptButton
+                        action: Controls.Action {
+                            icon.name: "dialog-ok"
+                            text: i18n("&Keep")
+                            onTriggered: {
+                                confirmMsg.keepConfig = true
+                                confirmMsg.userInteraction = true
+                                confirmMsg.close()
+                            }
                         }
                     }
-                }
-                Controls.Button {
-                    id: revertButton
-                    Layout.fillWidth: true
-                    KeyNavigation.left: acceptButton
-                    focus: true
-                    action: Controls.Action {
-                        icon.name: "edit-undo"
-                        text: i18n("&Revert")
-                        shortcut: "Escape"
-                        onTriggered: {
-                            confirmMsg.userInteraction = true
-                            confirmMsg.close()
+                    Controls.Button {
+                        id: revertButton
+                        KeyNavigation.left: acceptButton
+                        focus: true
+                        action: Controls.Action {
+                            icon.name: "edit-undo"
+                            text: i18n("&Revert")
+                            shortcut: "Escape"
+                            onTriggered: {
+                                confirmMsg.userInteraction = true
+                                confirmMsg.close()
+                            }
                         }
                     }
                 }
