@@ -110,7 +110,7 @@ KCM.SimpleKCM {
                 text: i18np("Will revert to previous configuration in %1 second.",
                             "Will revert to previous configuration in %1 seconds.",
                             revertCountdown);
-                wrapMode: Qt.WordWrap
+                wrapMode: Text.WordWrap
             }
             footer: RowLayout {
                 Controls.Button {
