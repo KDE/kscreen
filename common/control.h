@@ -67,39 +67,25 @@ public:
     void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
     qreal getScale(const KScreen::OutputPtr &output) const;
-    qreal getScale(const QString &outputId, const QString &outputName) const;
     void setScale(const KScreen::OutputPtr &output, qreal value);
-    void setScale(const QString &outputId, const QString &outputName, qreal value);
 
     bool getAutoRotate(const KScreen::OutputPtr &output) const;
-    bool getAutoRotate(const QString &outputId, const QString &outputName) const;
     void setAutoRotate(const KScreen::OutputPtr &output, bool value);
-    void setAutoRotate(const QString &outputId, const QString &outputName, bool value);
 
     bool getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
-    bool getAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName) const;
     void setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value);
-    void setAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName, bool value);
 
     KScreen::OutputPtr getReplicationSource(const KScreen::OutputPtr &output) const;
-    KScreen::OutputPtr getReplicationSource(const QString &outputId, const QString &outputName) const;
     void setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
-    void setReplicationSource(const QString &outputId, const QString &outputName, const KScreen::OutputPtr &source);
 
     uint32_t getOverscan(const KScreen::OutputPtr &output) const;
-    uint32_t getOverscan(const QString &outputId, const QString &outputName) const;
     void setOverscan(const KScreen::OutputPtr &output, const uint32_t value);
-    void setOverscan(const QString &outputId, const QString &outputName, const uint32_t value);
 
     KScreen::Output::VrrPolicy getVrrPolicy(const KScreen::OutputPtr &output) const;
-    KScreen::Output::VrrPolicy getVrrPolicy(const QString &outputId, const QString &outputName) const;
     void setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value);
-    void setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy value);
 
     KScreen::Output::RgbRange getRgbRange(const KScreen::OutputPtr &output) const;
-    KScreen::Output::RgbRange getRgbRange(const QString &outputId, const QString &outputName) const;
     void setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value);
-    void setRgbRange(const QString &outputId, const QString &outputName, const KScreen::Output::RgbRange value);
 
     QString dirPath() const override;
     QString filePath() const override;
@@ -114,9 +100,9 @@ private:
     ControlOutput *getOutputControl(const QString &outputId, const QString &outputName) const;
 
     template<typename T, typename F>
-    T get(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, T defaultValue) const;
+    T get(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, T defaultValue) const;
     template<typename T, typename F, typename V>
-    void set(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, V value);
+    void set(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, V value);
 
     KScreen::ConfigPtr m_config;
     QStringList m_duplicateOutputIds;

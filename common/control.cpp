@@ -267,8 +267,10 @@ void ControlConfig::setOutputRetention(const QString &outputId, const QString &o
 }
 
 template<typename T, typename F>
-T ControlConfig::get(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, T defaultValue) const
+T ControlConfig::get(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, T defaultValue) const
 {
+    const auto &outputId = output->hashMd5();
+    const auto &outputName = output->name();
     const auto retention = getOutputRetention(outputId, outputName);
     if (retention == OutputRetention::Individual) {
         const QVariantList outputsInfo = getOutputs();
@@ -295,8 +297,10 @@ T ControlConfig::get(const QString &outputId, const QString &outputName, const Q
 }
 
 template<typename T, typename F, typename V>
-void ControlConfig::set(const QString &outputId, const QString &outputName, const QString &name, F globalRetentionFunc, V value)
+void ControlConfig::set(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, V value)
 {
+    const auto &outputId = output->hashMd5();
+    const auto &outputName = output->name();
     QList<QVariant>::iterator it;
     QVariantList outputsInfo = getOutputs();
 
@@ -326,75 +330,40 @@ void ControlConfig::set(const QString &outputId, const QString &outputName, cons
 
 qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
 {
-    return getScale(output->hashMd5(), output->name());
-}
-
-qreal ControlConfig::getScale(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("scale"), &ControlOutput::getScale, -1);
+    return get(output, QStringLiteral("scale"), &ControlOutput::getScale, -1);
 }
 
 void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
 {
-    setScale(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setScale(const QString &outputId, const QString &outputName, qreal value)
-{
-    set<qreal>(outputId, outputName, QStringLiteral("scale"), &ControlOutput::setScale, value);
+    set<qreal>(output, QStringLiteral("scale"), &ControlOutput::setScale, value);
 }
 
 bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
 {
-    return getAutoRotate(output->hashMd5(), output->name());
-}
-
-bool ControlConfig::getAutoRotate(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("autorotate"), &ControlOutput::getAutoRotate, true);
+    return get(output, QStringLiteral("autorotate"), &ControlOutput::getAutoRotate, true);
 }
 
 void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
 {
-    setAutoRotate(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setAutoRotate(const QString &outputId, const QString &outputName, bool value)
-{
-    set<bool>(outputId, outputName, QStringLiteral("autorotate"), &ControlOutput::setAutoRotate, value);
+    set<bool>(output, QStringLiteral("autorotate"), &ControlOutput::setAutoRotate, value);
 }
 
 bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
 {
-    return getAutoRotateOnlyInTabletMode(output->hashMd5(), output->name());
-}
-
-bool ControlConfig::getAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("autorotate-tablet-only"), &ControlOutput::getAutoRotateOnlyInTabletMode, true);
+    return get(output, QStringLiteral("autorotate-tablet-only"), &ControlOutput::getAutoRotateOnlyInTabletMode, true);
 }
 
 void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value)
 {
-    setAutoRotateOnlyInTabletMode(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setAutoRotateOnlyInTabletMode(const QString &outputId, const QString &outputName, bool value)
-{
-    set<bool>(outputId, outputName, QStringLiteral("autorotate-tablet-only"), &ControlOutput::setAutoRotateOnlyInTabletMode, value);
+    set<bool>(output, QStringLiteral("autorotate-tablet-only"), &ControlOutput::setAutoRotateOnlyInTabletMode, value);
 }
 
 KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
 {
-    return getReplicationSource(output->hashMd5(), output->name());
-}
-
-KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId, const QString &outputName) const
-{
     const QVariantList outputsInfo = getOutputs();
     for (const auto &variantInfo : outputsInfo) {
         const QVariantMap info = variantInfo.toMap();
-        if (!infoIsOutput(info, outputId, outputName)) {
+        if (!infoIsOutput(info, output->hashMd5(), output->name())) {
             continue;
         }
         const QString sourceHash = info[QStringLiteral("replicate-hash")].toString();
@@ -420,11 +389,6 @@ KScreen::OutputPtr ControlConfig::getReplicationSource(const QString &outputId, 
 
 void ControlConfig::setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
 {
-    setReplicationSource(output->hashMd5(), output->name(), source);
-}
-
-void ControlConfig::setReplicationSource(const QString &outputId, const QString &outputName, const KScreen::OutputPtr &source)
-{
     QList<QVariant>::iterator it;
     QVariantList outputsInfo = getOutputs();
     const QString sourceHash = source ? source->hashMd5() : QString();
@@ -432,7 +396,7 @@ void ControlConfig::setReplicationSource(const QString &outputId, const QString 
 
     for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
         QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
+        if (!infoIsOutput(outputInfo, output->hashMd5(), output->name())) {
             continue;
         }
         outputInfo[QStringLiteral("replicate-hash")] = sourceHash;
@@ -443,7 +407,7 @@ void ControlConfig::setReplicationSource(const QString &outputId, const QString 
         return;
     }
     // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
+    auto outputInfo = createOutputInfo(output->hashMd5(), output->name());
     outputInfo[QStringLiteral("replicate-hash")] = sourceHash;
     outputInfo[QStringLiteral("replicate-name")] = sourceName;
 
@@ -454,62 +418,32 @@ void ControlConfig::setReplicationSource(const QString &outputId, const QString 
 
 uint32_t ControlConfig::getOverscan(const KScreen::OutputPtr &output) const
 {
-    return getOverscan(output->hashMd5(), output->name());
-}
-
-uint32_t ControlConfig::getOverscan(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("overscan"), &ControlOutput::overscan, 0);
+    return get(output, QStringLiteral("overscan"), &ControlOutput::overscan, 0);
 }
 
 void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t value)
 {
-    setOverscan(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setOverscan(const QString &outputId, const QString &outputName, const uint32_t value)
-{
-    set<uint32_t>(outputId, outputName, QStringLiteral("overscan"), &ControlOutput::setOverscan, value);
+    set<uint32_t>(output, QStringLiteral("overscan"), &ControlOutput::setOverscan, value);
 }
 
 KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const KScreen::OutputPtr &output) const
 {
-    return getVrrPolicy(output->hashMd5(), output->name());
-}
-
-KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("vrrpolicy"), &ControlOutput::vrrPolicy, KScreen::Output::VrrPolicy::Automatic);
+    return get(output, QStringLiteral("vrrpolicy"), &ControlOutput::vrrPolicy, KScreen::Output::VrrPolicy::Automatic);
 }
 
 void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value)
 {
-    setVrrPolicy(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setVrrPolicy(const QString &outputId, const QString &outputName, const KScreen::Output::VrrPolicy enumValue)
-{
-    set<uint32_t>(outputId, outputName, QStringLiteral("vrrpolicy"), &ControlOutput::setVrrPolicy, enumValue);
+    set<uint32_t>(output, QStringLiteral("vrrpolicy"), &ControlOutput::setVrrPolicy, value);
 }
 
 KScreen::Output::RgbRange ControlConfig::getRgbRange(const KScreen::OutputPtr &output) const
 {
-    return getRgbRange(output->hashMd5(), output->name());
-}
-
-KScreen::Output::RgbRange ControlConfig::getRgbRange(const QString &outputId, const QString &outputName) const
-{
-    return get(outputId, outputName, QStringLiteral("rgbrange"), &ControlOutput::rgbRange, KScreen::Output::RgbRange::Automatic);
+    return get(output, QStringLiteral("rgbrange"), &ControlOutput::rgbRange, KScreen::Output::RgbRange::Automatic);
 }
 
 void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value)
 {
-    setRgbRange(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setRgbRange(const QString &outputId, const QString &outputName, const KScreen::Output::RgbRange enumValue)
-{
-    set<uint32_t>(outputId, outputName, QStringLiteral("rgbrange"), &ControlOutput::setRgbRange, enumValue);
+    set<uint32_t>(output, QStringLiteral("rgbrange"), &ControlOutput::setRgbRange, value);
 }
 
 QVariantList ControlConfig::getOutputs() const
