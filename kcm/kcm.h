@@ -34,7 +34,7 @@ class KCMKScreen : public KQuickAddons::ConfigModule
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
 
 public:
-    explicit KCMKScreen(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCMKScreen() override = default;
 
     void load() override;

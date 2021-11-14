@@ -18,7 +18,6 @@
 #include <kscreen/output.h>
 #include <kscreen/setconfigoperation.h>
 
-#include <KAboutData>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -30,22 +29,14 @@ K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", r
 
 using namespace KScreen;
 
-KCMKScreen::KCMKScreen(QObject *parent, const QVariantList &args)
-    : KQuickAddons::ConfigModule(parent, args)
+KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KQuickAddons::ConfigModule(parent, data, args)
 {
     qmlRegisterType<OutputModel>();
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<Control>("org.kde.private.kcm.kscreen", 1, 0, "Control", QStringLiteral("Provides only the OutputRetention enum class"));
     Log::instance();
 
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_kscreen"),
-                                       i18n("Display Configuration"),
-                                       QStringLiteral(KSCREEN_VERSION),
-                                       i18n("Manage and configure monitors and displays"),
-                                       KAboutLicense::GPL,
-                                       i18n("Copyright © 2019 Roman Gilg"));
-    about->addAuthor(i18n("Roman Gilg"), i18n("Developer"), QStringLiteral("subdiff@gmail.com"));
-    setAboutData(about);
     setButtons(Apply);
 
     m_loadCompressor = new QTimer(this);
