@@ -87,6 +87,9 @@ public:
     KScreen::Output::RgbRange getRgbRange(const KScreen::OutputPtr &output) const;
     void setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value);
 
+    uint32_t getBpc(const KScreen::OutputPtr &output) const;
+    void setBpc(const KScreen::OutputPtr &output, uint32_t value);
+
     QString dirPath() const override;
     QString filePath() const override;
 
@@ -137,6 +140,9 @@ public:
 
     KScreen::Output::RgbRange rgbRange() const;
     void setRgbRange(KScreen::Output::RgbRange value);
+
+    uint32_t bpc() const;
+    void setBpc(uint32_t bpc);
 
     QString dirPath() const override;
     QString filePath() const override;

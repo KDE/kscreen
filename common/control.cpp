@@ -29,6 +29,7 @@
 #define vrrPolicyString                 QStringLiteral("vrrpolicy")
 #define rgbRangeString                  QStringLiteral("rgbrange")
 #define outputsString                   QStringLiteral("outputs")
+#define bpcString                       QStringLiteral("bpc")
 // clang-format on
 
 QString Control::s_dirName = QStringLiteral("control/");
@@ -463,6 +464,16 @@ void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen:
     set<uint32_t>(output, rgbRangeString, &ControlOutput::setRgbRange, value);
 }
 
+uint32_t ControlConfig::getBpc(const KScreen::OutputPtr &output) const
+{
+    return get(output, bpcString, &ControlOutput::bpc, 8);
+}
+
+void ControlConfig::setBpc(const KScreen::OutputPtr &output, uint32_t value)
+{
+    set<uint32_t>(output, bpcString, &ControlOutput::setBpc, value);
+}
+
 QVariantList ControlConfig::getOutputs() const
 {
     return constInfo()[outputsString].toList();
@@ -611,4 +622,22 @@ void ControlOutput::setRgbRange(KScreen::Output::RgbRange value)
         infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
     }
     infoMap[rgbRangeString] = static_cast<uint>(value);
+}
+
+uint32_t ControlOutput::bpc() const
+{
+    const auto val = constInfo()[bpcString];
+    if (val.canConvert<uint>()) {
+        return val.toUInt();
+    }
+    return 8;
+}
+
+void ControlOutput::setBpc(uint32_t bpc)
+{
+    auto &infoMap = info();
+    if (infoMap.isEmpty()) {
+        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
+    }
+    infoMap[bpcString] = bpc;
 }

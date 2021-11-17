@@ -84,6 +84,12 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->vrrPolicy());
     case RgbRangeRole:
         return static_cast<uint32_t>(output->rgbRange());
+    case MinBpcRole:
+        return output->minBpc();
+    case MaxBpcRole:
+        return output->maxBpc();
+    case BpcRole:
+        return output->bpc();
     }
     return QVariant();
 }
@@ -212,6 +218,18 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             Q_EMIT dataChanged(index, index, {role});
             return true;
         }
+    case BpcRole:
+        if (value.canConvert<uint32_t>()) {
+            Output &output = m_outputs[index.row()];
+            uint32_t bpc = value.toUInt();
+            if (output.ptr->bpc() == bpc) {
+                return false;
+            }
+            output.ptr->setBpc(bpc);
+            m_config->setBpc(output.ptr, bpc);
+            Q_EMIT dataChanged(index, index, {role});
+            return true;
+        }
     }
     return false;
 }
@@ -240,6 +258,9 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[OverscanRole] = "overscan";
     roles[VrrPolicyRole] = "vrrPolicy";
     roles[RgbRangeRole] = "rgbRange";
+    roles[MinBpcRole] = "minBpc";
+    roles[MaxBpcRole] = "maxBpc";
+    roles[BpcRole] = "bpc";
     return roles;
 }
 

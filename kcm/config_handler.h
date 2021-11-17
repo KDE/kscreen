@@ -68,6 +68,9 @@ public:
     KScreen::Output::RgbRange rgbRange(const KScreen::OutputPtr &output) const;
     void setRgbRange(const KScreen::OutputPtr &output, KScreen::Output::RgbRange value);
 
+    uint32_t bpc(const KScreen::OutputPtr &output) const;
+    void setBpc(const KScreen::OutputPtr &output, uint32_t value);
+
     void writeControl();
 
     void checkNeedsSave();

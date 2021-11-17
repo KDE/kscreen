@@ -41,6 +41,9 @@ public:
         OverscanRole,
         VrrPolicyRole,
         RgbRangeRole,
+        MinBpcRole,
+        MaxBpcRole,
+        BpcRole
     };
 
     explicit OutputModel(ConfigHandler *configHandler);

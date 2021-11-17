@@ -178,6 +178,23 @@ ColumnLayout {
         }
 
         Controls.ComboBox {
+            Kirigami.FormData.label: i18n("Color bit depth:")
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            model: [
+                { label: i18n("5"), value: 5 },
+                { label: i18n("8"), value: 8 },
+                { label: i18n("10"), value: 10 },
+                { label: i18n("16"), value: 16 },
+            ]
+            textRole: "label"
+            valueRole: "value"
+            visible: element.capabilities & KScreen.Output.Capability.Bpc
+
+            onActivated: element.bpc = currentValue
+            Component.onCompleted: currentIndex = indexOfValue(element.bpc);
+        }
+
+        Controls.ComboBox {
             Kirigami.FormData.label: i18n("Replica of:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.replicationSourceModel
