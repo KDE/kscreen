@@ -25,7 +25,6 @@ public:
 public Q_SLOTS:
     void printConfig();
     void printJSONConfig();
-    QString typetoString(const KScreen::Output::Type &type) const;
     void printSerializations();
     void monitor();
     void monitorAndPrint();
