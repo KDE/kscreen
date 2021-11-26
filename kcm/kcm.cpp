@@ -13,6 +13,7 @@
 #include "output_model.h"
 
 #include <kscreen/config.h>
+#include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/log.h>
 #include <kscreen/output.h>
@@ -46,6 +47,8 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
 
     m_orientationSensor = new OrientationSensor(this);
     connect(m_orientationSensor, &OrientationSensor::availableChanged, this, &KCMKScreen::orientationSensorAvailableChanged);
+
+    connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KCMKScreen::updateFromBackend);
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -92,7 +95,22 @@ void KCMKScreen::revertSettings()
         doSave(true);
         load(); // reload the configuration
         Q_EMIT settingsReverted();
+        m_stopUpdatesFromBackend = false;
     }
+}
+
+void KCMKScreen::setStopUpdatesFromBackend(bool value)
+{
+    m_stopUpdatesFromBackend = value;
+}
+
+void KCMKScreen::updateFromBackend()
+{
+    if (needsSave() || m_stopUpdatesFromBackend) {
+        return;
+    }
+
+    m_loadCompressor->start();
 }
 
 void KCMKScreen::doSave(bool force)
@@ -144,6 +162,7 @@ void KCMKScreen::doSave(bool force)
     // completed, otherwise ConfigModule might terminate before we get to
     // execute the Operation.
     auto *op = new SetConfigOperation(config);
+    m_stopUpdatesFromBackend = true;
     op->exec();
 
     const auto updateInitialData = [this]() {
@@ -157,6 +176,7 @@ void KCMKScreen::doSave(bool force)
             Q_EMIT showRevertWarning();
         } else {
             m_settingsReverted = false;
+            m_stopUpdatesFromBackend = false;
         }
     };
 

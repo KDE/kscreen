@@ -101,6 +101,10 @@ KCM.SimpleKCM {
                         if (!confirmMsg.userInteraction) {
                             revertMsg.visible = true
                         }
+                        kcm.setStopUpdatesFromBackend(false)
+                    } else {
+                        kcm.setStopUpdatesFromBackend(false)
+                        kcm.updateFromBackend()
                     }
                     revertTimer.stop()
                 }

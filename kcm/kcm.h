@@ -68,6 +68,9 @@ public:
     void doSave(bool force);
     Q_INVOKABLE void revertSettings();
 
+    Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
+    Q_INVOKABLE void updateFromBackend();
+
 Q_SIGNALS:
     void backendReadyChanged();
     void backendError();
@@ -105,6 +108,7 @@ private:
     bool m_backendReady = false;
     bool m_screenNormalized = true;
     bool m_settingsReverted = false;
+    bool m_stopUpdatesFromBackend = false;
     double m_globalScale = 1.;
     double m_initialGlobalScale = 1.;
 
