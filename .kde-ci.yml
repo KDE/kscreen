@@ -20,4 +20,5 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest'
     'frameworks/kxmlgui': '@latest'
     'frameworks/plasma-framework': '@latest'
+    'frameworks/kcmutils': '@latest'
     'plasma/libkscreen': '@same'
