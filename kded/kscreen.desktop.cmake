@@ -64,7 +64,6 @@ Comment[fi]=Näyttöjen hallinta
 Comment[fr]=Gestion d'écrans
 Comment[gl]=Xestor de pantalla
 Comment[he]=ניהול מסכים
-Comment[hsb]=Připrawjenje wobrazowki
 Comment[hu]=Képernyőkezelés
 Comment[ia]=Gestion de schermo
 Comment[id]=Pengelolaan layar
