@@ -404,9 +404,9 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
         auto replicationSource = control.getReplicationSource(output);
         if (replicationSource) {
             output->setPos(replicationSource->pos());
-            output->setLogicalSize(replicationSource->logicalSize());
+            output->setExplicitLogicalSize(config->logicalSizeForOutput(*replicationSource));
         } else {
-            output->setLogicalSize(QSizeF());
+            output->setExplicitLogicalSize(QSizeF());
         }
     }
 

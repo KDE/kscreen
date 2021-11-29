@@ -56,7 +56,7 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
         }
         if (config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
             // Scale adjustment is not needed on Wayland, we use logical size.
-            logicalSize = output->logicalSize().toSize();
+            logicalSize = output->explicitLogicalSize().toSize();
         } else {
             logicalSize = deviceSize / view->effectiveDevicePixelRatio();
         }
