@@ -32,7 +32,7 @@ QString Utils::outputName(const KScreen::Output *output)
             name += output->edid()->name() + QLatin1Char(' ');
         }
         if (!name.trimmed().isEmpty()) {
-            return name + QLatin1Char('(') + output->typeName() + QLatin1Char(')');
+            return name;
         }
     }
     return output->name();
