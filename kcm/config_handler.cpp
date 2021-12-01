@@ -78,6 +78,8 @@ void ConfigHandler::resetScale(const KScreen::OutputPtr &output)
 
 void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
 {
+    output->setExplicitLogicalSize(config()->logicalSizeForOutput(*output));
+
     if (output->isConnected()) {
         resetScale(output);
         m_outputs->add(output);
