@@ -66,6 +66,8 @@ Item {
     Item {
         anchors.fill: parent
 
+        // so the text is drawn above orientationPanelContainer
+        z: 1
         ColumnLayout {
             anchors.centerIn: parent
             spacing: 0
