@@ -347,7 +347,7 @@ void ControlConfig::set(const KScreen::OutputPtr &output, const QString &name, F
 
 qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
 {
-    return get(output, scaleString, &ControlOutput::getScale, -1);
+    return get(output, scaleString, &ControlOutput::getScale, -1.0);
 }
 
 void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
