@@ -9,6 +9,7 @@
 #include "osd.h"
 
 #include <KScreen/Config>
+#include <KScreen/EDID>
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
 
@@ -79,7 +80,8 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
     const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
 
-    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
+    const auto outputs = config->outputs();
+    for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
             continue;
         }
@@ -88,7 +90,15 @@ void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
             osd = new KScreen::Osd(output, this);
             m_osds.insert(output->name(), osd);
         }
-        osd->showOutputIdentifier(output);
+
+        bool shouldShowSerialNumber = false;
+        if (output->edid()) {
+            shouldShowSerialNumber = std::any_of(outputs.cbegin(), outputs.cend(), [output](const auto &other) {
+                return other->id() != output->id() // avoid same output
+                    && other->edid() && other->edid()->name() == output->edid()->name() && other->edid()->vendor() == output->edid()->vendor();
+            });
+        }
+        osd->showOutputIdentifier(output, shouldShowSerialNumber);
     }
     m_cleanupTimer->start();
 }

@@ -81,7 +81,7 @@ void Osd::showGenericOsd(const QString &icon, const QString &text)
     showOsd();
 }
 
-void Osd::showOutputIdentifier(const KScreen::OutputPtr &output)
+void Osd::showOutputIdentifier(const KScreen::OutputPtr &output, bool shouldShouldSerialNumber)
 {
     if (!initOsd()) {
         return;
@@ -97,7 +97,7 @@ void Osd::showOutputIdentifier(const KScreen::OutputPtr &output)
     }
     rootObject->setProperty("itemSource", QStringLiteral("OutputIdentifier.qml"));
     rootObject->setProperty("modeName", Utils::sizeToString(realSize));
-    rootObject->setProperty("outputName", Utils::outputName(output));
+    rootObject->setProperty("outputName", Utils::outputName(output, shouldShouldSerialNumber));
     showOsd();
 }
 

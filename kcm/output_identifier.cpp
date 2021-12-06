@@ -7,6 +7,7 @@
 
 #include "../common/utils.h"
 
+#include <kscreen/edid.h>
 #include <kscreen/output.h>
 
 #include <QQuickItem>
@@ -60,7 +61,15 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
         } else {
             logicalSize = deviceSize / view->effectiveDevicePixelRatio();
         }
-        rootObj->setProperty("outputName", Utils::outputName(output));
+
+        bool shouldShowSerialNumber = false;
+        if (output->edid()) {
+            shouldShowSerialNumber = std::any_of(outputs.cbegin(), outputs.cend(), [output](const auto &other) {
+                return other->id() != output->id() // avoid same output
+                    && other->edid() && other->edid()->name() == output->edid()->name() && other->edid()->vendor() == output->edid()->vendor();
+            });
+        }
+        rootObj->setProperty("outputName", Utils::outputName(output, shouldShowSerialNumber));
         rootObj->setProperty("modeName", Utils::sizeToString(deviceSize));
         view->setProperty("screenSize", QRect(output->pos(), logicalSize));
         m_views << view;
