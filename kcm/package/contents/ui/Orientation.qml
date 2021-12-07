@@ -17,8 +17,8 @@ ColumnLayout {
         id: autoRotateColumn
 
         // TODO: Make this dependend on tablet mode being available
-        enabled: kcm.orientationSensorAvailable && element.internal
-        visible: kcm.autoRotationSupported
+        enabled: element.internal
+        visible: kcm.autoRotationSupported && kcm.orientationSensorAvailable
 
         ColumnLayout {
             Controls.RadioButton {
