@@ -170,6 +170,8 @@ std::unique_ptr<Config> Config::readFile(const QString &fileName)
             continue;
         }
 
+        output->setExplicitLogicalSize(config->data()->logicalSizeForOutput(*output));
+
         const QRect geom = output->geometry();
         if (geom.x() + geom.width() > screenSize.width()) {
             screenSize.setWidth(geom.x() + geom.width());
