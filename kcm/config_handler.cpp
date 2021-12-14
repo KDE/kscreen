@@ -31,9 +31,9 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     KScreen::ConfigMonitor::instance()->addConfig(m_config);
     m_control.reset(new ControlConfig(config));
 
-    m_outputs = new OutputModel(this);
-    connect(m_outputs, &OutputModel::positionChanged, this, &ConfigHandler::checkScreenNormalization);
-    connect(m_outputs, &OutputModel::sizeChanged, this, &ConfigHandler::checkScreenNormalization);
+    m_outputModel = new OutputModel(this);
+    connect(m_outputModel, &OutputModel::positionChanged, this, &ConfigHandler::checkScreenNormalization);
+    connect(m_outputModel, &OutputModel::sizeChanged, this, &ConfigHandler::checkScreenNormalization);
 
     const auto outputs = config->outputs();
     for (const KScreen::OutputPtr &output : outputs) {
@@ -45,7 +45,7 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     m_initialRetention = getRetention();
     Q_EMIT retentionChanged();
 
-    connect(m_outputs, &OutputModel::changed, this, [this]() {
+    connect(m_outputModel, &OutputModel::changed, this, [this]() {
         checkNeedsSave();
         Q_EMIT changed();
     });
@@ -82,7 +82,7 @@ void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
 
     if (output->isConnected()) {
         resetScale(output);
-        m_outputs->add(output);
+        m_outputModel->add(output);
     }
     connect(output.data(), &KScreen::Output::isConnectedChanged, this, [this, output]() {
         Q_EMIT outputConnect(output->isConnected());
@@ -214,7 +214,7 @@ QSize ConfigHandler::normalizeScreen()
 
 void ConfigHandler::checkScreenNormalization()
 {
-    const bool normalized = !m_config || (m_lastNormalizedScreenSize == screenSize() && m_outputs->positionsNormalized());
+    const bool normalized = !m_config || (m_lastNormalizedScreenSize == screenSize() && m_outputModel->positionsNormalized());
 
     Q_EMIT screenNormalizationUpdate(normalized);
 }

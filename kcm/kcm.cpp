@@ -52,7 +52,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
 {
     qCDebug(KSCREEN_KCM) << "Reading in config now.";
     if (op->hasError()) {
-        m_config.reset();
+        m_configHandler.reset();
         Q_EMIT backendError();
         return;
     }
@@ -61,7 +61,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     const bool autoRotationSupported = config->supportedFeatures() & (KScreen::Config::Feature::AutoRotation | KScreen::Config::Feature::TabletMode);
     m_orientationSensor->setEnabled(autoRotationSupported);
 
-    m_config->setConfig(config);
+    m_configHandler->setConfig(config);
     setBackendReady(true);
     Q_EMIT perOutputScalingChanged();
     Q_EMIT primaryOutputSupportedChanged();
@@ -82,12 +82,12 @@ void KCMKScreen::save()
 
 void KCMKScreen::revertSettings()
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         setNeedsSave(false);
         return;
     }
     if (!m_settingsReverted) {
-        m_config->revertConfig();
+        m_configHandler->revertConfig();
         m_settingsReverted = true;
         doSave(true);
         load(); // reload the configuration
@@ -97,12 +97,12 @@ void KCMKScreen::revertSettings()
 
 void KCMKScreen::doSave(bool force)
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         Q_EMIT errorOnSave();
         return;
     }
 
-    auto config = m_config->config();
+    auto config = m_configHandler->config();
 
     bool atLeastOneEnabledOutput = false;
     const auto outputs = config->outputs();
@@ -125,20 +125,20 @@ void KCMKScreen::doSave(bool force)
 
     if (!atLeastOneEnabledOutput && !force) {
         Q_EMIT dangerousSave();
-        m_config->checkNeedsSave();
+        m_configHandler->checkNeedsSave();
         return;
     }
 
     if (!Config::canBeApplied(config)) {
         Q_EMIT errorOnSave();
-        m_config->checkNeedsSave();
+        m_configHandler->checkNeedsSave();
         return;
     }
 
     if (!perOutputScaling()) {
         writeGlobalScale();
     }
-    m_config->writeControl();
+    m_configHandler->writeControl();
 
     // Store the current config, apply settings. Block until operation is
     // completed, otherwise ConfigModule might terminate before we get to
@@ -149,13 +149,13 @@ void KCMKScreen::doSave(bool force)
     // The 1000ms is a legacy value tested to work for randr having
     // enough time to change configuration.
     QTimer::singleShot(1000, this, [this]() {
-        if (!m_config) {
+        if (!m_configHandler) {
             setNeedsSave(false);
             return;
         }
-        m_config->updateInitialData();
+        m_configHandler->updateInitialData();
 
-        if (!m_settingsReverted && m_config->shouldTestNewSettings()) {
+        if (!m_settingsReverted && m_configHandler->shouldTestNewSettings()) {
             Q_EMIT showRevertWarning();
         } else {
             m_settingsReverted = false;
@@ -179,18 +179,18 @@ void KCMKScreen::setBackendReady(bool ready)
 
 OutputModel *KCMKScreen::outputModel() const
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         return nullptr;
     }
-    return m_config->outputModel();
+    return m_configHandler->outputModel();
 }
 
 void KCMKScreen::identifyOutputs()
 {
-    if (!m_config || !m_config->initialConfig() || m_outputIdentifier) {
+    if (!m_configHandler || !m_configHandler->initialConfig() || m_outputIdentifier) {
         return;
     }
-    m_outputIdentifier.reset(new OutputIdentifier(m_config->initialConfig(), this));
+    m_outputIdentifier.reset(new OutputIdentifier(m_configHandler->initialConfig(), this));
     connect(m_outputIdentifier.get(), &OutputIdentifier::identifiersFinished, this, [this]() {
         m_outputIdentifier.reset();
     });
@@ -198,10 +198,10 @@ void KCMKScreen::identifyOutputs()
 
 QSize KCMKScreen::normalizeScreen() const
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         return QSize();
     }
-    return m_config->normalizeScreen();
+    return m_configHandler->normalizeScreen();
 }
 
 bool KCMKScreen::screenNormalized() const
@@ -211,34 +211,34 @@ bool KCMKScreen::screenNormalized() const
 
 bool KCMKScreen::perOutputScaling() const
 {
-    if (!m_config || !m_config->config()) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_config->config()->supportedFeatures().testFlag(Config::Feature::PerOutputScaling);
+    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::PerOutputScaling);
 }
 
 bool KCMKScreen::primaryOutputSupported() const
 {
-    if (!m_config || !m_config->config()) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_config->config()->supportedFeatures().testFlag(Config::Feature::PrimaryDisplay);
+    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::PrimaryDisplay);
 }
 
 bool KCMKScreen::outputReplicationSupported() const
 {
-    if (!m_config || !m_config->config()) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_config->config()->supportedFeatures().testFlag(Config::Feature::OutputReplication);
+    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::OutputReplication);
 }
 
 bool KCMKScreen::autoRotationSupported() const
 {
-    if (!m_config || !m_config->config()) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_config->config()->supportedFeatures() & (KScreen::Config::Feature::AutoRotation | KScreen::Config::Feature::TabletMode);
+    return m_configHandler->config()->supportedFeatures() & (KScreen::Config::Feature::AutoRotation | KScreen::Config::Feature::TabletMode);
 }
 
 bool KCMKScreen::orientationSensorAvailable() const
@@ -248,10 +248,10 @@ bool KCMKScreen::orientationSensorAvailable() const
 
 bool KCMKScreen::tabletModeAvailable() const
 {
-    if (!m_config || !m_config->config()) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_config->config()->tabletModeAvailable();
+    return m_configHandler->config()->tabletModeAvailable();
 }
 
 void KCMKScreen::setScreenNormalized(bool normalized)
@@ -284,30 +284,30 @@ void KCMKScreen::load()
     // signal its disappearance first before deleting and replacing it.
     // We take the m_config pointer so outputModel() will return null,
     // gracefully cleaning up the QML side and only then we will delete it.
-    auto *oldConfig = m_config.release();
+    auto *oldConfig = m_configHandler.release();
     if (oldConfig) {
         emit outputModelChanged();
         delete oldConfig;
     }
 
-    m_config.reset(new ConfigHandler(this));
+    m_configHandler.reset(new ConfigHandler(this));
     Q_EMIT perOutputScalingChanged();
-    connect(m_config.get(), &ConfigHandler::outputModelChanged, this, &KCMKScreen::outputModelChanged);
-    connect(m_config.get(), &ConfigHandler::outputConnect, this, [this](bool connected) {
+    connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, &KCMKScreen::outputModelChanged);
+    connect(m_configHandler.get(), &ConfigHandler::outputConnect, this, [this](bool connected) {
         Q_EMIT outputConnect(connected);
         setBackendReady(false);
 
         // Reload settings delayed such that daemon can update output values.
         m_loadCompressor->start();
     });
-    connect(m_config.get(), &ConfigHandler::screenNormalizationUpdate, this, &KCMKScreen::setScreenNormalized);
-    connect(m_config.get(), &ConfigHandler::retentionChanged, this, &KCMKScreen::outputRetentionChanged);
+    connect(m_configHandler.get(), &ConfigHandler::screenNormalizationUpdate, this, &KCMKScreen::setScreenNormalized);
+    connect(m_configHandler.get(), &ConfigHandler::retentionChanged, this, &KCMKScreen::outputRetentionChanged);
 
     // This is a queued connection so that we can fire the event from
     // within the save() call in case it failed.
-    connect(m_config.get(), &ConfigHandler::needsSaveChecked, this, &KCMKScreen::continueNeedsSaveCheck, Qt::QueuedConnection);
+    connect(m_configHandler.get(), &ConfigHandler::needsSaveChecked, this, &KCMKScreen::continueNeedsSaveCheck, Qt::QueuedConnection);
 
-    connect(m_config.get(), &ConfigHandler::changed, this, &KCMKScreen::changed);
+    connect(m_configHandler.get(), &ConfigHandler::changed, this, &KCMKScreen::changed);
 
     connect(new GetConfigOperation(), &GetConfigOperation::finished, this, &KCMKScreen::configReady);
 
@@ -346,7 +346,7 @@ void KCMKScreen::writeGlobalScale()
     // Scaling the fonts makes sense if you don't also set a font DPI, but we NEED to set a font
     // DPI for both PlasmaShell which does it's own thing, and for KDE4/GTK2 applications.
     QString screenFactors;
-    const auto outputs = m_config->config()->outputs();
+    const auto outputs = m_configHandler->config()->outputs();
     for (const auto &output : outputs) {
         screenFactors.append(output->name() + QLatin1Char('=') + QString::number(m_globalScale) + QLatin1Char(';'));
     }
@@ -411,8 +411,8 @@ void KCMKScreen::setGlobalScale(qreal scale)
         return;
     }
     m_globalScale = scale;
-    if (m_config) {
-        m_config->checkNeedsSave();
+    if (m_configHandler) {
+        m_configHandler->checkNeedsSave();
     } else {
         continueNeedsSaveCheck(false);
     }
@@ -422,18 +422,18 @@ void KCMKScreen::setGlobalScale(qreal scale)
 
 int KCMKScreen::outputRetention() const
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         return -1;
     }
-    return m_config->retention();
+    return m_configHandler->retention();
 }
 
 void KCMKScreen::setOutputRetention(int retention)
 {
-    if (!m_config) {
+    if (!m_configHandler) {
         return;
     }
-    m_config->setRetention(retention);
+    m_configHandler->setRetention(retention);
 }
 
 #include "kcm.moc"

@@ -25,7 +25,7 @@ public:
 
     OutputModel *outputModel() const
     {
-        return m_outputs;
+        return m_outputModel;
     }
 
     QSize normalizeScreen();
@@ -100,7 +100,7 @@ private:
     KScreen::ConfigPtr m_config = nullptr;
     KScreen::ConfigPtr m_initialConfig;
     KScreen::ConfigPtr m_previousConfig = nullptr;
-    OutputModel *m_outputs = nullptr;
+    OutputModel *m_outputModel = nullptr;
 
     std::unique_ptr<ControlConfig> m_control;
     std::unique_ptr<ControlConfig> m_initialControl;

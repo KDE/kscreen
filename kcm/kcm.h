@@ -100,7 +100,7 @@ private:
     void continueNeedsSaveCheck(bool needs);
 
     std::unique_ptr<OutputIdentifier> m_outputIdentifier;
-    std::unique_ptr<ConfigHandler> m_config;
+    std::unique_ptr<ConfigHandler> m_configHandler;
     OrientationSensor *m_orientationSensor;
     bool m_backendReady = false;
     bool m_screenNormalized = true;
