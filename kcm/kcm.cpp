@@ -146,9 +146,7 @@ void KCMKScreen::doSave(bool force)
     auto *op = new SetConfigOperation(config);
     op->exec();
 
-    // The 1000ms is a legacy value tested to work for randr having
-    // enough time to change configuration.
-    QTimer::singleShot(1000, this, [this]() {
+    const auto updateInitialData = [this]() {
         if (!m_configHandler) {
             setNeedsSave(false);
             return;
@@ -160,7 +158,15 @@ void KCMKScreen::doSave(bool force)
         } else {
             m_settingsReverted = false;
         }
-    });
+    };
+
+    if (m_configHandler->config()->supportedFeatures() & (KScreen::Config::Feature::SynchronousOutputChanges)) {
+        updateInitialData();
+    } else {
+        // The 1000ms is a legacy value tested to work for randr having
+        // enough time to change configuration.
+        QTimer::singleShot(1000, this, updateInitialData);
+    }
 }
 
 bool KCMKScreen::backendReady() const
