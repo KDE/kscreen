@@ -150,8 +150,10 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
 
             // clang-format off
             if (output->isEnabled()) {
-                bool realScaleChange = output->scale() != config->scale();
-                bool scaleChanged = isSaveCheck ?  realScaleChange : qGuiApp->platformName() == QLatin1String("wayland") ? realScaleChange : false;
+                bool scaleChanged = false;
+                if (isSaveCheck || m_config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
+                     scaleChanged = output->scale() != config->scale();
+                }
                 if ( output->currentModeId() != config->currentModeId()
                     || output->pos() != config->pos()
                     || scaleChanged
