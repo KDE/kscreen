@@ -70,6 +70,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return resolutionIndex(output);
     case ResolutionsRole:
         return resolutionsStrings(output);
+    case ResolutionRole:
+        return resolution(output);
     case RefreshRateIndexRole:
         return refreshRateIndex(output);
     case ReplicationSourceModelRole:
@@ -146,6 +148,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         if (value.canConvert<int>()) {
             return setRefreshRate(index.row(), value.toInt());
         }
+        break;
+    case ResolutionRole:
+        // unimplemented
+        return false;
         break;
     case AutoRotateRole:
         if (value.canConvert<bool>()) {
@@ -244,6 +250,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ScaleRole] = "scale";
     roles[ResolutionIndexRole] = "resolutionIndex";
     roles[ResolutionsRole] = "resolutions";
+    roles[ResolutionRole] = "resolution";
     roles[RefreshRateIndexRole] = "refreshRateIndex";
     roles[RefreshRatesRole] = "refreshRates";
     roles[ReplicationSourceModelRole] = "replicationSourceModel";
@@ -513,6 +520,17 @@ int OutputModel::resolutionIndex(const KScreen::OutputPtr &output) const
         return -1;
     }
     return it - sizes.begin();
+}
+
+QSize OutputModel::resolution(const KScreen::OutputPtr &output) const
+{
+    const QSize currentResolution = output->enforcedModeSize();
+
+    if (!currentResolution.isValid()) {
+        return QSize();
+    }
+
+    return currentResolution;
 }
 
 int OutputModel::refreshRateIndex(const KScreen::OutputPtr &output) const

@@ -32,6 +32,7 @@ public:
         ScaleRole,
         ResolutionIndexRole,
         ResolutionsRole,
+        ResolutionRole,
         RefreshRateIndexRole,
         RefreshRatesRole,
         ReplicationSourceModelRole,
@@ -128,6 +129,7 @@ private:
 
     int resolutionIndex(const KScreen::OutputPtr &output) const;
     int refreshRateIndex(const KScreen::OutputPtr &output) const;
+    QSize resolution(const KScreen::OutputPtr &output) const;
     QVariantList resolutionsStrings(const KScreen::OutputPtr &output) const;
     QVector<QSize> resolutions(const KScreen::OutputPtr &output) const;
     QVector<float> refreshRates(const KScreen::OutputPtr &output) const;

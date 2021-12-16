@@ -88,7 +88,8 @@ Item {
                 Layout.fillWidth: true
                 Layout.bottomMargin: Kirigami.Units.smallSpacing
 
-                text: "(" + model.size.width + "x" + model.size.height + ")"
+                text: "(" + model.resolution.width + "x" + model.resolution.height +
+                      (model.scale !== 1 ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
             }
