@@ -129,6 +129,12 @@ KCM.SimpleKCM {
 
                     Controls.Button {
                         id: acceptButton
+                        Keys.onPressed: function (event){
+                            if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                                event.accepted = true
+                                acceptButton.action.trigger()
+                            }
+                        }
                         action: Controls.Action {
                             icon.name: "dialog-ok"
                             text: i18n("&Keep")
@@ -143,6 +149,12 @@ KCM.SimpleKCM {
                         id: revertButton
                         KeyNavigation.left: acceptButton
                         focus: true
+                        Keys.onPressed: function (event){
+                            if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                                event.accepted = true
+                                revertButton.action.trigger()
+                            }
+                        }
                         action: Controls.Action {
                             icon.name: "edit-undo"
                             text: i18n("&Revert")
