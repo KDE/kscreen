@@ -197,7 +197,7 @@ KCM.SimpleKCM {
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: Math.max(root.width * 0.8, Kirigami.Units.gridUnit * 26)
             Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
 
             enabled: kcm.outputModel && kcm.backendReady
             outputs: kcm.outputModel
