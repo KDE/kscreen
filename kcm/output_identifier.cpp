@@ -49,17 +49,9 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
             continue;
         }
 
-        QSize deviceSize, logicalSize;
-        if (output->isHorizontal()) {
-            deviceSize = mode->size();
-        } else {
-            deviceSize = QSize(mode->size().height(), mode->size().width());
-        }
-        if (config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-            // Scale adjustment is not needed on Wayland, we use logical size.
-            logicalSize = config->logicalSizeForOutput(*output.data()).toSize();
-        } else {
-            logicalSize = deviceSize / view->effectiveDevicePixelRatio();
+        QSize logicalSize = config->logicalSizeForOutput(*output.data()).toSize();
+        if (!(config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling)) {
+            logicalSize = logicalSize / view->effectiveDevicePixelRatio();
         }
 
         bool shouldShowSerialNumber = false;
@@ -70,7 +62,8 @@ OutputIdentifier::OutputIdentifier(KScreen::ConfigPtr config, QObject *parent)
             });
         }
         rootObj->setProperty("outputName", Utils::outputName(output, shouldShowSerialNumber));
-        rootObj->setProperty("modeName", Utils::sizeToString(deviceSize));
+        rootObj->setProperty("resolution", output->currentMode()->size());
+        rootObj->setProperty("scale", output->scale());
         view->setProperty("screenSize", QRect(output->pos(), logicalSize));
         m_views << view;
     }

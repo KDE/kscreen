@@ -12,7 +12,8 @@ Rectangle {
     id: root;
 
     property string outputName;
-    property string modeName;
+    property size resolution;
+    property double scale;
 
     color: theme.backgroundColor
     border {
@@ -39,7 +40,8 @@ Rectangle {
             horizontalCenter: displayName.horizontalCenter
             top: displayName.bottom
         }
-        text: root.modeName;
+        text: resolution.width + "x" + resolution.height +
+              (root.scale !== 1 ? "@" + Math.round(root.scale * 100.0) + "%": "")
         horizontalAlignment: Text.AlignHCenter;
     }
 }
