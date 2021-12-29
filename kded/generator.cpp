@@ -19,7 +19,7 @@
 #define ASSERT_OUTPUTS(outputs)                                                                                                                                \
     while (true) {                                                                                                                                             \
         Q_ASSERT(!outputs.isEmpty());                                                                                                                          \
-        Q_FOREACH (const KScreen::OutputPtr &output, outputs) {                                                                                                \
+        for (const KScreen::OutputPtr &output : qAsConst(outputs)) {                                                                                           \
             Q_ASSERT(output);                                                                                                                                  \
             Q_ASSERT(output->isConnected());                                                                                                                   \
         }                                                                                                                                                      \
@@ -119,7 +119,8 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
             if (connectedOutputs.isEmpty()) {
                 return config;
             }
-            connectedOutputs.value(connectedOutputs.keys().first())->setPrimary(true);
+            const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
+            connectedOutputs.value(firstConnectedOutputKey)->setPrimary(true);
             cloneScreens(connectedOutputs);
         }
     } else {
@@ -164,7 +165,8 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     // If we don't have an embedded output (desktop with two external screens
     // for instance), then pretend one of them is embedded
     if (!embedded) {
-        embedded = connectedOutputs.value(connectedOutputs.keys().first());
+        const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
+        embedded = connectedOutputs.value(firstConnectedOutputKey);
     }
     // Just to be sure
     if (embedded->modes().isEmpty()) {
@@ -179,7 +181,8 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     }
 
     connectedOutputs.remove(embedded->id());
-    external = connectedOutputs.value(connectedOutputs.keys().first());
+    const auto firstConnectedOutputKey = connectedOutputs.constBegin().key();
+    external = connectedOutputs.value(firstConnectedOutputKey);
     // Just to be sure
     if (external->modes().isEmpty()) {
         return config;
@@ -283,7 +286,7 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
     qCDebug(KSCREEN_KDED) << "Common sizes: " << commonSizes;
     // fallback to biggestMode if no commonSizes have been found
     if (commonSizes.isEmpty()) {
-        Q_FOREACH (KScreen::OutputPtr output, connectedOutputs) {
+        for (KScreen::OutputPtr &output : connectedOutputs) {
             if (output->modes().isEmpty()) {
                 continue;
             }
@@ -304,7 +307,7 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
     // Finally, look for the mode with biggestSize and biggest refreshRate and set it
     qCDebug(KSCREEN_KDED) << "Biggest Size: " << biggestSize;
     KScreen::ModePtr bestMode;
-    Q_FOREACH (KScreen::OutputPtr output, connectedOutputs) {
+    for (KScreen::OutputPtr &output : connectedOutputs) {
         if (output->modes().isEmpty()) {
             continue;
         }
@@ -323,7 +326,8 @@ void Generator::singleOutput(KScreen::OutputList &connectedOutputs)
         return;
     }
 
-    KScreen::OutputPtr output = connectedOutputs.take(connectedOutputs.keys().first());
+    const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
+    KScreen::OutputPtr output = connectedOutputs.take(firstConnectedOutputKey);
     if (output->modes().isEmpty()) {
         return;
     }
@@ -351,7 +355,8 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     if (!embedded) {
         QList<int> keys = connectedOutputs.keys();
         std::sort(keys.begin(), keys.end());
-        embedded = connectedOutputs.value(keys.first());
+        const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
+        embedded = connectedOutputs.value(firstConnectedOutputKey);
     }
     connectedOutputs.remove(embedded->id());
 
@@ -366,7 +371,8 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
         embedded->setEnabled(false);
         embedded->setPrimary(false);
 
-        KScreen::OutputPtr external = connectedOutputs.value(connectedOutputs.keys().first());
+        const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
+        KScreen::OutputPtr external = connectedOutputs.value(firstConnectedOutputKey);
         if (external->modes().isEmpty()) {
             return;
         }
@@ -402,7 +408,7 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     biggest->setPrimary(false);
 
     globalWidth += biggest->geometry().width();
-    Q_FOREACH (KScreen::OutputPtr output, connectedOutputs) {
+    for (KScreen::OutputPtr output : qAsConst(connectedOutputs)) {
         output->setEnabled(true);
         output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
@@ -436,7 +442,7 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
 
     int globalWidth = biggest->geometry().width();
 
-    Q_FOREACH (KScreen::OutputPtr output, connectedOutputs) {
+    for (KScreen::OutputPtr output : qAsConst(connectedOutputs)) {
         output->setEnabled(true);
         output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
@@ -461,7 +467,7 @@ KScreen::ModePtr Generator::biggestMode(const KScreen::ModeList &modes)
 
     int modeArea, biggestArea = 0;
     KScreen::ModePtr biggestMode;
-    Q_FOREACH (const KScreen::ModePtr &mode, modes) {
+    for (const KScreen::ModePtr &mode : modes) {
         modeArea = mode->size().width() * mode->size().height();
         if (modeArea < biggestArea) {
             continue;
@@ -484,7 +490,7 @@ KScreen::ModePtr Generator::biggestMode(const KScreen::ModeList &modes)
 KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, const QSize &size)
 {
     KScreen::ModePtr bestMode;
-    Q_FOREACH (const KScreen::ModePtr &mode, modes) {
+    for (const KScreen::ModePtr &mode : modes) {
         if (mode->size() != size) {
             continue;
         }
@@ -534,7 +540,7 @@ KScreen::OutputPtr Generator::biggestOutput(const KScreen::OutputList &outputs)
 
     int area, total = 0;
     KScreen::OutputPtr biggest;
-    Q_FOREACH (const KScreen::OutputPtr &output, outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         const KScreen::ModePtr mode = bestModeForOutput(output);
         if (!mode) {
             continue;
@@ -554,7 +560,7 @@ KScreen::OutputPtr Generator::biggestOutput(const KScreen::OutputList &outputs)
 void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs)
 {
     //     KDebug::Block disableBlock("Disabling disconnected screens");
-    Q_FOREACH (KScreen::OutputPtr output, outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected()) {
             qCDebug(KSCREEN_KDED) << output->name() << " Disabled";
             output->setEnabled(false);
@@ -565,7 +571,7 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs
 
 KScreen::OutputPtr Generator::embeddedOutput(const KScreen::OutputList &outputs)
 {
-    Q_FOREACH (const KScreen::OutputPtr &output, outputs) {
+    for (const KScreen::OutputPtr &output : outputs) {
         if (output->type() != KScreen::Output::Panel) {
             continue;
         }

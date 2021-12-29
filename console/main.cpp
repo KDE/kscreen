@@ -33,36 +33,34 @@ void configReceived(KScreen::ConfigOperation *op)
     if (command.isEmpty()) {
         console->printConfig();
         console->monitorAndPrint();
+        return;
     } else if (command == QLatin1String("monitor")) {
         QTextStream(stdout) << "Remember to enable KSRandR or KSRandR11 in kdebugdialog" << Qt::endl;
         // Print config so that we have some pivot data
         console->printConfig();
         console->monitor();
+        return;
         // Do nothing, enable backend output to see debug
     } else if (command == QLatin1String("outputs")) {
         console->printConfig();
-        qApp->quit();
     } else if (command == QLatin1String("config")) {
         console->printSerializations();
-        qApp->quit();
     } else if (command == QLatin1String("bug")) {
         QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
         QProcess proc;
         proc.setProcessChannelMode(QProcess::MergedChannels);
         proc.start(QStringLiteral("xrandr"), QStringList(QStringLiteral("--verbose")));
         proc.waitForFinished();
-        QTextStream(stdout) << proc.readAll().data();
+        QTextStream(stdout) << proc.readAll().constData();
         QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
         console->printConfig();
         QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
         console->printSerializations();
-        qApp->quit();
     } else if (command == QLatin1String("json")) {
         console->printJSONConfig();
-        qApp->quit();
-    } else {
-        qApp->quit();
     }
+    delete console;
+    qApp->quit();
 }
 
 int main(int argc, char *argv[])
@@ -97,7 +95,7 @@ int main(int argc, char *argv[])
 
     QString command;
     if (!parser.positionalArguments().isEmpty()) {
-        command = parser.positionalArguments().first();
+        command = parser.positionalArguments().constFirst();
     }
 
     qDebug() << "START: Requesting Config";
@@ -105,7 +103,7 @@ int main(int argc, char *argv[])
     KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation();
     op->setProperty("command", command);
     op->setProperty("start", QDateTime::currentMSecsSinceEpoch());
-    QObject::connect(op, &KScreen::GetConfigOperation::finished, [&](KScreen::ConfigOperation *op) {
+    QObject::connect(op, &KScreen::GetConfigOperation::finished, op, [&](KScreen::ConfigOperation *op) {
         configReceived(op);
     });
 

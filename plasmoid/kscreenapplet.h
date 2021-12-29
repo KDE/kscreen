@@ -37,7 +37,7 @@ public:
 
     int connectedOutputCount() const;
 
-    Q_INVOKABLE void applyLayoutPreset(Action action);
+    Q_INVOKABLE void applyLayoutPreset(KScreenApplet::Action action);
 
 Q_SIGNALS:
     void connectedOutputCountChanged();
