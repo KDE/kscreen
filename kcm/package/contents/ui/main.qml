@@ -86,26 +86,12 @@ KCM.SimpleKCM {
         }
         Kirigami.OverlaySheet {
             id: confirmMsg
-            property bool keepConfig: false
-            property bool userInteraction: false
             parent: root
             title: i18n("Keep display configuration?")
             onSheetOpenChanged: {
                 if (sheetOpen) {
                     revertButton.forceActiveFocus()
-                    confirmMsg.keepConfig = false
-                    confirmMsg.userInteraction = false
                 } else {
-                    if (!confirmMsg.keepConfig) {
-                        kcm.revertSettings()
-                        if (!confirmMsg.userInteraction) {
-                            revertMsg.visible = true
-                        }
-                        kcm.setStopUpdatesFromBackend(false)
-                    } else {
-                        kcm.setStopUpdatesFromBackend(false)
-                        kcm.updateFromBackend()
-                    }
                     revertTimer.stop()
                 }
             }
@@ -139,8 +125,6 @@ KCM.SimpleKCM {
                             icon.name: "dialog-ok"
                             text: i18n("&Keep")
                             onTriggered: {
-                                confirmMsg.keepConfig = true
-                                confirmMsg.userInteraction = true
                                 confirmMsg.close()
                             }
                         }
@@ -160,8 +144,9 @@ KCM.SimpleKCM {
                             text: i18n("&Revert")
                             shortcut: "Escape"
                             onTriggered: {
-                                confirmMsg.userInteraction = true
-                                confirmMsg.close()
+                                revertTimer.stop()
+                                kcm.setStopUpdatesFromBackend(false)
+                                kcm.revertSettings()
                             }
                         }
                     }
@@ -193,6 +178,7 @@ KCM.SimpleKCM {
             }
             function onSettingsReverted() {
                 confirmMsg.close();
+                revertMsg.visible = true;
             }
             function onShowRevertWarning() {
                 revertCountdown = 15;
@@ -233,9 +219,8 @@ KCM.SimpleKCM {
             onTriggered: {
                 revertCountdown -= 1;
                 if (revertCountdown < 1) {
-                    this.stop();
+                    revertTimer.stop();
                     kcm.revertSettings();
-                    return;
                 }
             }
         }
