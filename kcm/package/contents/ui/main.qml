@@ -17,7 +17,7 @@ KCM.SimpleKCM {
     implicitHeight: Kirigami.Units.gridUnit * 38
 
     property int selectedOutput: 0
-    property int revertCountdown: 30
+    property int revertCountdown: 15
 
     ColumnLayout {
         Kirigami.InlineMessage {
@@ -195,7 +195,7 @@ KCM.SimpleKCM {
                 confirmMsg.close();
             }
             function onShowRevertWarning() {
-                revertCountdown = 30;
+                revertCountdown = 15;
                 confirmMsg.open();
                 revertTimer.restart();
             }
