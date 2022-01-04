@@ -30,8 +30,6 @@ public:
     ~OsdManager() override;
 
 public Q_SLOTS:
-    void showOutputIdentifiers();
-    void showOsd(const QString &icon, const QString &text);
     void hideOsd();
     KScreen::OsdAction *showActionSelector();
 

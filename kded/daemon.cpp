@@ -339,21 +339,6 @@ void KScreenDaemon::saveCurrentConfig()
     }
 }
 
-void KScreenDaemon::showOsd(const QString &icon, const QString &text)
-{
-    QDBusMessage msg = QDBusMessage::createMethodCall(QLatin1String("org.kde.plasmashell"),
-                                                      QLatin1String("/org/kde/osdService"),
-                                                      QLatin1String("org.kde.osdService"),
-                                                      QLatin1String("showText"));
-    msg << icon << text;
-    QDBusConnection::sessionBus().asyncCall(msg);
-}
-
-void KScreenDaemon::showOutputIdentifier()
-{
-    m_osdManager->showOutputIdentifiers();
-}
-
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";

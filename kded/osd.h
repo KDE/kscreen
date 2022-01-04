@@ -47,12 +47,9 @@ private Q_SLOTS:
 
 private:
     bool initOsd();
-    void showOsd();
-    void updatePosition();
 
     KScreen::OutputPtr m_output;
     QRect m_outputGeometry;
-    KDeclarative::QmlObject *m_osdObject = nullptr;
     KDeclarative::QmlObject *m_osdActionSelector = nullptr;
     QTimer *m_osdTimer = nullptr;
     int m_timeout = 0;

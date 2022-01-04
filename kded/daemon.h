@@ -63,7 +63,6 @@ private:
     void setMonitorForChanges(bool enabled);
 
     void outputConnectedChanged();
-    void showOutputIdentifier();
     void applyOsdAction(KScreen::OsdAction::Action action);
 
     void doApplyConfig(const KScreen::ConfigPtr &config);
@@ -72,7 +71,6 @@ private:
 
     void monitorConnectedChange();
     void disableOutput(const KScreen::OutputPtr &output);
-    void showOsd(const QString &icon, const QString &text);
 
     void updateOrientation();
 

@@ -22,9 +22,6 @@ public:
     ~OsdTest() override;
 
     void setUseDBus(bool yesno);
-
-    void showGenericOsd(const QString &icon, const QString &message);
-    void showOutputIdentifiers();
     void showActionSelector();
 
 private:

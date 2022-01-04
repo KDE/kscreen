@@ -48,10 +48,7 @@ kcoreaddons_desktop_to_json(kscreen ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop)
 install(TARGETS kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
 
 set(QML_FILES
-    qml/Osd.qml
-    qml/OsdItem.qml
     qml/OsdSelector.qml
-    qml/OutputIdentifier.qml
 )
 
 install(FILES ${QML_FILES} DESTINATION ${KDE_INSTALL_DATADIR}/kded_kscreen/qml)

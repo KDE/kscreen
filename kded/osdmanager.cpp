@@ -67,68 +67,6 @@ OsdManager::~OsdManager()
 {
 }
 
-void OsdManager::showOutputIdentifiers()
-{
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, &OsdManager::slotIdentifyOutputs);
-}
-
-void OsdManager::slotIdentifyOutputs(KScreen::ConfigOperation *op)
-{
-    if (op->hasError()) {
-        return;
-    }
-
-    const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
-
-    const auto outputs = config->outputs();
-    for (const KScreen::OutputPtr &output : outputs) {
-        if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
-            continue;
-        }
-        auto osd = m_osds.value(output->name());
-        if (!osd) {
-            osd = new KScreen::Osd(output, this);
-            m_osds.insert(output->name(), osd);
-        }
-
-        bool shouldShowSerialNumber = false;
-        if (output->edid()) {
-            shouldShowSerialNumber = std::any_of(outputs.cbegin(), outputs.cend(), [output](const auto &other) {
-                return other->id() != output->id() // avoid same output
-                    && other->edid() && other->edid()->name() == output->edid()->name() && other->edid()->vendor() == output->edid()->vendor();
-            });
-        }
-        osd->showOutputIdentifier(output, shouldShowSerialNumber);
-    }
-    m_cleanupTimer->start();
-}
-
-void OsdManager::showOsd(const QString &icon, const QString &text)
-{
-    hideOsd();
-
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this, icon, text](KScreen::ConfigOperation *op) {
-        if (op->hasError()) {
-            return;
-        }
-
-        const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
-
-        Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
-            if (!output->isConnected() || !output->isEnabled() || !output->currentMode()) {
-                continue;
-            }
-            auto osd = m_osds.value(output->name());
-            if (!osd) {
-                osd = new KScreen::Osd(output, this);
-                m_osds.insert(output->name(), osd);
-            }
-            osd->showGenericOsd(icon, text);
-        }
-        m_cleanupTimer->start();
-    });
-}
-
 OsdAction *OsdManager::showActionSelector()
 {
     hideOsd();

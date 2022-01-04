@@ -35,40 +35,11 @@ OsdManager *OsdTest::getOsdManager()
     return m_osdManager;
 }
 
-void OsdTest::showOutputIdentifiers()
-{
-    if (!m_useDBus) {
-        QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-        getOsdManager()->showOutputIdentifiers();
-    } else {
-        QDBusMessage msg = QDBusMessage::createMethodCall(QLatin1String("org.kde.kscreen.osdService"),
-                                                          QLatin1String("/org/kde/kscreen/osdService"),
-                                                          QLatin1String("org.kde.kscreen.osdService"),
-                                                          QLatin1String("showOutputIdentifiers"));
-        // msg << icon << text;
-        QDBusConnection::sessionBus().asyncCall(msg);
-
-        qCWarning(KSCREEN_KDED) << "Sent dbus message.";
-        QTimer::singleShot(500, qApp, &QCoreApplication::quit);
-    }
-}
-
 void OsdTest::setUseDBus(bool yesno)
 {
     m_useDBus = yesno;
 }
 
-void OsdTest::showGenericOsd(const QString &icon, const QString &message)
-{
-    if (!m_useDBus) {
-        QTimer::singleShot(5500, qApp, &QCoreApplication::quit);
-        getOsdManager()->showOsd(!icon.isEmpty() ? icon : QStringLiteral("preferences-desktop-display-randr"),
-                                 !message.isEmpty() ? message : QStringLiteral("On-Screen-Display"));
-    } else {
-        qCWarning(KSCREEN_KDED) << "Implement me.";
-        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
-    }
-}
 
 void OsdTest::showActionSelector()
 {
@@ -79,8 +50,14 @@ void OsdTest::showActionSelector()
             qApp->quit();
         });
     } else {
-        qCWarning(KSCREEN_KDED) << "Implement me.";
-        QTimer::singleShot(100, qApp, &QCoreApplication::quit);
+        QDBusMessage msg = QDBusMessage::createMethodCall(QLatin1String("org.kde.kscreen.osdService"),
+                                                          QLatin1String("/org/kde/kscreen/osdService"),
+                                                          QLatin1String("org.kde.kscreen.osdService"),
+                                                          QLatin1String("showActionSelector"));
+        QDBusConnection::sessionBus().asyncCall(msg);
+
+        qCWarning(KSCREEN_KDED) << "Sent dbus message.";
+        QTimer::singleShot(500, qApp, &QCoreApplication::quit);
     }
 }
 
