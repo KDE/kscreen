@@ -10,7 +10,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 ColumnLayout {
     Kirigami.FormData.label: i18n("Orientation:")
-    Kirigami.FormData.buddyFor: autoRotateRadio
+    Kirigami.FormData.buddyFor: autoRotateColumn.visible ? autoRotateRadio : orientation
     spacing: Kirigami.Units.smallSpacing
 
     ColumnLayout {
