@@ -18,7 +18,7 @@ QString Utils::outputName(const KScreen::OutputPtr &output, bool shouldShowSeria
 QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNumber)
 {
     if (output->type() == KScreen::Output::Panel) {
-        return i18n("Laptop Screen");
+        return i18n("Built-in Screen");
     }
 
     if (output->edid()) {
