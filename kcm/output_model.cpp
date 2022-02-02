@@ -407,7 +407,6 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     }
     const auto oldSize = output.ptr->explicitLogicalSize().toSize();
     output.ptr->setCurrentModeId(id);
-    output.ptr->setSize(output.ptr->currentMode()->size());
 
     const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
     output.ptr->setExplicitLogicalSize(newSize);
