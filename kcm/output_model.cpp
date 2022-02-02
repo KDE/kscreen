@@ -294,7 +294,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     endInsertRows();
 
     connect(output.data(), &KScreen::Output::modesChanged, this, [this, output]() {
-        rolesChanged(output->id(), {ResolutionsRole, ResolutionIndexRole, SizeRole});
+        rolesChanged(output->id(), {ResolutionsRole, ResolutionIndexRole, ResolutionRole, SizeRole});
         Q_EMIT sizeChanged();
     });
 
@@ -417,7 +417,7 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     QModelIndex index = createIndex(outputIndex, 0);
     // Calling this directly ignores possible optimization when the
     // refresh rate hasn't changed in fact. But that's ok.
-    Q_EMIT dataChanged(index, index, {ResolutionIndexRole, SizeRole, RefreshRateIndexRole});
+    Q_EMIT dataChanged(index, index, {ResolutionIndexRole, ResolutionRole, SizeRole, RefreshRateIndexRole});
     Q_EMIT sizeChanged();
     return true;
 }
