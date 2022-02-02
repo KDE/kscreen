@@ -177,13 +177,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         bool ok;
         const qreal scale = value.toReal(&ok);
         if (ok && !qFuzzyCompare(output.ptr->scale(), scale)) {
-            const auto oldSize = output.ptr->explicitLogicalSize().toSize();
-
+            const auto oldSize = output.ptr->logicalSize().toSize();
             output.ptr->setScale(scale);
             m_config->setScale(output.ptr, scale);
-
-            const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
-            output.ptr->setExplicitLogicalSize(newSize);
+            const auto newSize = output.ptr->logicalSize().toSize();
 
             maintainSnapping(output, oldSize, newSize);
 
@@ -405,11 +402,9 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     if (output.ptr->currentModeId() == id) {
         return false;
     }
-    const auto oldSize = output.ptr->explicitLogicalSize().toSize();
+    const auto oldSize = output.ptr->logicalSize().toSize();
     output.ptr->setCurrentModeId(id);
-
-    const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
-    output.ptr->setExplicitLogicalSize(newSize);
+    const auto newSize = output.ptr->logicalSize().toSize();
 
     maintainSnapping(output, oldSize, newSize);
 
@@ -488,11 +483,9 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
     if (output.ptr->rotation() == rotation) {
         return false;
     }
-    const auto oldSize = output.ptr->explicitLogicalSize().toSize();
+    const auto oldSize = output.ptr->logicalSize().toSize();
     output.ptr->setRotation(rotation);
-
-    const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
-    output.ptr->setExplicitLogicalSize(newSize);
+    const auto newSize = output.ptr->logicalSize().toSize();
 
     maintainSnapping(output, oldSize, newSize);
 
@@ -688,7 +681,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             return false;
         }
         m_config->setReplicationSource(output.ptr, nullptr);
-        output.ptr->setExplicitLogicalSize(QSizeF());
+        output.ptr->setLogicalSize(QSizeF());
         resetPosition(output);
     } else {
         const auto source = m_outputs[sourceIndex].ptr;
@@ -699,7 +692,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         m_config->setReplicationSource(output.ptr, source);
         output.posReset = output.ptr->pos();
         output.ptr->setPos(source->pos());
-        output.ptr->setExplicitLogicalSize(m_config->config()->logicalSizeForOutput(*source));
+        output.ptr->setLogicalSize(source->logicalSize());
     }
 
     reposition();
