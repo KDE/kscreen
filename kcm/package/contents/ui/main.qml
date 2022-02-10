@@ -143,6 +143,7 @@ KCM.SimpleKCM {
                             icon.name: "edit-undo"
                             text: i18n("&Revert")
                             shortcut: "Escape"
+                            enabled: confirmMsg.sheetOpen
                             onTriggered: {
                                 revertTimer.stop()
                                 kcm.setStopUpdatesFromBackend(false)
