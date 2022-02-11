@@ -84,74 +84,72 @@ KCM.SimpleKCM {
             visible: false
             showCloseButton: true
         }
-        Kirigami.OverlaySheet {
+        Kirigami.InlineMessage {
             id: confirmMsg
-            parent: root
-            title: i18n("Keep display configuration?")
-            onSheetOpenChanged: {
-                if (sheetOpen) {
-                    revertButton.forceActiveFocus()
-                } else {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Information
+            text: i18n("Keep display configuration?") + " " +
+                  i18np("Will revert to previous configuration in %1 second.",
+                        "Will revert to previous configuration in %1 seconds.",
+                        revertCountdown);
+            onVisibleChanged: {
+                if (!visible) {
                     revertTimer.stop()
                 }
             }
+            visible: false
             showCloseButton: false
-            contentItem: ColumnLayout {
-                spacing: 0 // we manually add spacing in the Label item
 
-                Controls.Label {
-                    Layout.fillWidth: true
-                    Layout.maximumWidth: Math.round(root.width*0.75)
-                    Layout.topMargin: Kirigami.Units.largeSpacing * 2
-                    Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-                    text: i18np("Will revert to previous configuration in %1 second.",
-                                "Will revert to previous configuration in %1 seconds.",
-                                revertCountdown);
-                    wrapMode: Text.WordWrap
-                }
+            actions: [
+                Kirigami.Action {
+                    id: acceptAction
+                    iconName: "dialog-ok"
+                    text: i18n("&Keep")
+                    displayHint: Kirigami.DisplayHint.KeepVisible
+                    onTriggered: {
+                        confirmMsg.visible = false
+                    }
 
-                RowLayout {
-                    Layout.alignment: Qt.AlignRight
-
-                    Controls.Button {
+                    displayComponent: Controls.ToolButton {
                         id: acceptButton
+                        action: acceptAction
+                        display: Controls.ToolButton.TextBesideIcon
+                        flat: false
                         Keys.onPressed: function (event){
                             if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                                 event.accepted = true
                                 acceptButton.action.trigger()
                             }
                         }
-                        action: Controls.Action {
-                            icon.name: "dialog-ok"
-                            text: i18n("&Keep")
-                            onTriggered: {
-                                confirmMsg.close()
-                            }
-                        }
                     }
-                    Controls.Button {
+
+                },
+                Kirigami.Action {
+                    id: revertAction
+                    iconName: "edit-undo"
+                    text: i18n("&Revert")
+                    shortcut: "Escape"
+                    enabled: confirmMsg.visible
+                    displayHint: Kirigami.DisplayHint.KeepVisible
+                    onTriggered: {
+                        revertTimer.stop()
+                        kcm.setStopUpdatesFromBackend(false)
+                        kcm.revertSettings()
+                    }
+                    displayComponent: Controls.ToolButton {
                         id: revertButton
-                        KeyNavigation.left: acceptButton
-                        focus: true
+                        action: revertAction
+                        display: Controls.ToolButton.TextBesideIcon
+                        flat: false
                         Keys.onPressed: function (event){
                             if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                                 event.accepted = true
                                 revertButton.action.trigger()
                             }
                         }
-                        action: Controls.Action {
-                            icon.name: "edit-undo"
-                            text: i18n("&Revert")
-                            shortcut: "Escape"
-                            onTriggered: {
-                                revertTimer.stop()
-                                kcm.setStopUpdatesFromBackend(false)
-                                kcm.revertSettings()
-                            }
-                        }
                     }
                 }
-            }
+            ]
         }
 
         Connections {
@@ -177,12 +175,12 @@ KCM.SimpleKCM {
                 errBackendMsg.visible = true;
             }
             function onSettingsReverted() {
-                confirmMsg.close();
+                confirmMsg.visible = false;
                 revertMsg.visible = true;
             }
             function onShowRevertWarning() {
                 revertCountdown = 15;
-                confirmMsg.open();
+                confirmMsg.visible = true;
                 revertTimer.restart();
             }
             function onChanged() {
