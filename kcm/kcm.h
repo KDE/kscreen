@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <KQuickAddons/ConfigModule>
+#include <KQuickAddons/ManagedConfigModule>
 
 namespace KScreen
 {
@@ -17,7 +17,7 @@ class OrientationSensor;
 class OutputIdentifier;
 class OutputModel;
 
-class KCMKScreen : public KQuickAddons::ConfigModule
+class KCMKScreen : public KQuickAddons::ManagedConfigModule
 {
     Q_OBJECT
 
@@ -40,6 +40,8 @@ public:
     void load() override;
     void save() override;
     void defaults() override;
+
+    bool isSaveNeeded() const override;
 
     OutputModel *outputModel() const;
 
@@ -96,8 +98,7 @@ private:
     void setBackendReady(bool error);
     void setScreenNormalized(bool normalized);
 
-    void fetchGlobalScale();
-    void writeGlobalScale();
+    void exportGlobalScale();
 
     void configReady(KScreen::ConfigOperation *op);
     void continueNeedsSaveCheck(bool needs);
@@ -109,8 +110,7 @@ private:
     bool m_screenNormalized = true;
     bool m_settingsReverted = false;
     bool m_stopUpdatesFromBackend = false;
-    double m_globalScale = 1.;
-    double m_initialGlobalScale = 1.;
+    bool m_configNeedsSave = false;
 
     QTimer *m_loadCompressor;
 };

@@ -8,6 +8,7 @@
 #include "../common/control.h"
 #include "../common/orientation_sensor.h"
 #include "config_handler.h"
+#include "globalscalesettings.h"
 #include "kcm_screen_debug.h"
 #include "output_identifier.h"
 #include "output_model.h"
@@ -31,7 +32,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", r
 using namespace KScreen;
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KQuickAddons::ConfigModule(parent, data, args)
+    : KQuickAddons::ManagedConfigModule(parent, data, args)
 {
     qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
@@ -49,6 +50,9 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
     connect(m_orientationSensor, &OrientationSensor::availableChanged, this, &KCMKScreen::orientationSensorAvailableChanged);
 
     connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KCMKScreen::updateFromBackend);
+
+    registerSettings(GlobalScaleSettings::self());
+    connect(GlobalScaleSettings::self(), &GlobalScaleSettings::scaleFactorChanged, this, &KCMKScreen::globalScaleChanged);
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -56,6 +60,8 @@ void KCMKScreen::configReady(ConfigOperation *op)
     qCDebug(KSCREEN_KCM) << "Reading in config now.";
     if (op->hasError()) {
         m_configHandler.reset();
+        m_configNeedsSave = false;
+        Q_EMIT settingsChanged();
         Q_EMIT backendError();
         return;
     }
@@ -86,7 +92,6 @@ void KCMKScreen::save()
 void KCMKScreen::revertSettings()
 {
     if (!m_configHandler) {
-        setNeedsSave(false);
         return;
     }
     if (!m_settingsReverted) {
@@ -153,9 +158,12 @@ void KCMKScreen::doSave(bool force)
         return;
     }
 
-    if (!perOutputScaling()) {
-        writeGlobalScale();
+    const bool globalScaleChanged = GlobalScaleSettings::self()->isSaveNeeded();
+    ManagedConfigModule::save();
+    if (globalScaleChanged) {
+        exportGlobalScale();
     }
+
     m_configHandler->writeControl();
 
     // Store the current config, apply settings. Block until operation is
@@ -167,7 +175,6 @@ void KCMKScreen::doSave(bool force)
 
     const auto updateInitialData = [this]() {
         if (!m_configHandler) {
-            setNeedsSave(false);
             return;
         }
         m_configHandler->updateInitialData();
@@ -299,12 +306,13 @@ void KCMKScreen::load()
 {
     qCDebug(KSCREEN_KCM) << "About to read in config.";
 
+    ManagedConfigModule::load();
+
     setBackendReady(false);
-    setNeedsSave(false);
+    m_configNeedsSave = false;
     if (!screenNormalized()) {
         Q_EMIT screenNormalizedChanged();
     }
-    fetchGlobalScale();
 
     // Don't pull away the outputModel under QML's feet
     // signal its disappearance first before deleting and replacing it.
@@ -342,29 +350,17 @@ void KCMKScreen::load()
 
 void KCMKScreen::continueNeedsSaveCheck(bool needs)
 {
-    if (needs || m_globalScale != m_initialGlobalScale) {
-        setNeedsSave(true);
-    } else {
-        setNeedsSave(false);
-    }
+    m_configNeedsSave = needs;
+    Q_EMIT settingsChanged();
 }
 
-void KCMKScreen::fetchGlobalScale()
+bool KCMKScreen::isSaveNeeded() const
 {
-    const auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
-    const qreal scale = config->group("KScreen").readEntry("ScaleFactor", 1.0);
-    m_initialGlobalScale = scale;
-    setGlobalScale(scale);
+    return m_configNeedsSave;
 }
 
-void KCMKScreen::writeGlobalScale()
+void KCMKScreen::exportGlobalScale()
 {
-    if (qFuzzyCompare(m_initialGlobalScale, m_globalScale)) {
-        return;
-    }
-    auto config = KSharedConfig::openConfig(QStringLiteral("kdeglobals"));
-    config->group("KScreen").writeEntry("ScaleFactor", m_globalScale);
-
     // Write env var to be used by session startup scripts to populate the QT_SCREEN_SCALE_FACTORS
     // env var.
     // We use QT_SCREEN_SCALE_FACTORS as opposed to QT_SCALE_FACTOR as we need to use one that will
@@ -374,14 +370,15 @@ void KCMKScreen::writeGlobalScale()
     QString screenFactors;
     const auto outputs = m_configHandler->config()->outputs();
     for (const auto &output : outputs) {
-        screenFactors.append(output->name() + QLatin1Char('=') + QString::number(m_globalScale) + QLatin1Char(';'));
+        screenFactors.append(output->name() + QLatin1Char('=') + QString::number(globalScale()) + QLatin1Char(';'));
     }
+    auto config = KSharedConfig::openConfig("kdeglobals");
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
 
     KConfig fontConfig(QStringLiteral("kcmfonts"));
     auto fontConfigGroup = fontConfig.group("General");
 
-    if (qFuzzyCompare(m_globalScale, 1.0)) {
+    if (qFuzzyCompare(globalScale(), 1.0)) {
         // if dpi is the default (96) remove the entry rather than setting it
         QProcess queryProc;
         queryProc.start(QStringLiteral("xrdb"), {QStringLiteral("-query")});
@@ -411,7 +408,7 @@ void KCMKScreen::writeGlobalScale()
         }
         fontConfigGroup.writeEntry("forceFontDPI", 0);
     } else {
-        const int scaleDpi = qRound(m_globalScale * 96.0);
+        const int scaleDpi = qRound(globalScale() * 96.0);
         QProcess proc;
         proc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-merge"), QStringLiteral("-nocpp")});
         if (proc.waitForStarted()) {
@@ -422,28 +419,18 @@ void KCMKScreen::writeGlobalScale()
         fontConfigGroup.writeEntry("forceFontDPI", scaleDpi);
     }
 
-    m_initialGlobalScale = m_globalScale;
     Q_EMIT globalScaleWritten();
 }
 
 qreal KCMKScreen::globalScale() const
 {
-    return m_globalScale;
+    return GlobalScaleSettings::self()->scaleFactor();
 }
 
 void KCMKScreen::setGlobalScale(qreal scale)
 {
-    if (qFuzzyCompare(m_globalScale, scale)) {
-        return;
-    }
-    m_globalScale = scale;
-    if (m_configHandler) {
-        m_configHandler->checkNeedsSave();
-    } else {
-        continueNeedsSaveCheck(false);
-    }
+    GlobalScaleSettings::self()->setScaleFactor(scale);
     Q_EMIT changed();
-    Q_EMIT globalScaleChanged();
 }
 
 int KCMKScreen::outputRetention() const
