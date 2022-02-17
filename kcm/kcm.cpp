@@ -33,7 +33,7 @@ using namespace KScreen;
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickAddons::ConfigModule(parent, data, args)
 {
-    qmlRegisterType<OutputModel>();
+    qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<Control>("org.kde.private.kcm.kscreen", 1, 0, "Control", QStringLiteral("Provides only the OutputRetention enum class"));
     Log::instance();
