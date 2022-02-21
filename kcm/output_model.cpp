@@ -426,7 +426,7 @@ bool OutputModel::setRefreshRate(int outputIndex, int refIndex)
 {
     const Output &output = m_outputs[outputIndex];
     const auto rates = refreshRates(output.ptr);
-    if (refIndex < 0 || refIndex >= rates.size()) {
+    if (refIndex < 0 || refIndex >= rates.size() || !output.ptr->isEnabled()) {
         return false;
     }
     const float refreshRate = rates[refIndex];
