@@ -28,6 +28,10 @@ qt_add_dbus_adaptor(kscreen_daemon_SRCS
 
 add_library(kscreen MODULE ${kscreen_daemon_SRCS})
 
+if(X11_FOUND)
+    SET(X11_LIBS X11::X11 X11::Xi X11::XCB XCB::ATOM Qt::X11Extras)
+endif()
+
 target_link_libraries(kscreen Qt::Widgets
                               Qt::DBus
                               Qt::Quick
@@ -37,7 +41,9 @@ target_link_libraries(kscreen Qt::Widgets
                               KF5::DBusAddons
                               KF5::I18n
                               KF5::XmlGui
-                              KF5::GlobalAccel)
+                              KF5::GlobalAccel
+                              ${X11_LIBS} )
+
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop

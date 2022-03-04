@@ -26,6 +26,8 @@ include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Sensors)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
@@ -41,6 +43,23 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 find_package(KF5Screen ${PROJECT_VERSION} REQUIRED)
+
+find_package(X11)
+set_package_properties(X11 PROPERTIES
+    DESCRIPTION "X11 libraries"
+    URL "https://www.x.org"
+    PURPOSE "Required for building the X11 based workspace"
+    TYPE REQUIRED
+)
+
+if(X11_FOUND)
+  set(HAVE_X11 1)
+  find_package(X11_XCB REQUIRED)
+  find_package(XCB REQUIRED COMPONENTS XCB ATOM)
+  find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
+endif()
+
+configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 
 add_subdirectory(kcm)
 add_subdirectory(kded)
