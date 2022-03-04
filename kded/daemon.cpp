@@ -29,11 +29,40 @@
 #include <KPluginFactory>
 
 #include <QAction>
+#include <QGuiApplication>
 #include <QOrientationReading>
 #include <QShortcut>
 #include <QTimer>
 
+#if HAVE_X11
+#include <QX11Info>
+#include <X11/Xatom.h>
+#include <X11/Xlib-xcb.h>
+#include <X11/extensions/XInput.h>
+#include <X11/extensions/XInput2.h>
+#endif
+
 K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
+
+#if HAVE_X11
+struct DeviceListDeleter {
+    void operator()(XDeviceInfo *p)
+    {
+        if (p) {
+            XFreeDeviceList(p);
+        }
+    }
+};
+
+struct XDeleter {
+    void operator()(void *p)
+    {
+        if (p) {
+            XFree(p);
+        }
+    }
+};
+#endif
 
 KScreenDaemon::KScreenDaemon(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)
@@ -321,7 +350,170 @@ void KScreenDaemon::configChanged()
         connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
     }
     m_saveTimer->start();
+#if HAVE_X11
+    alignX11TouchScreen();
+#endif
 }
+
+#if HAVE_X11
+void KScreenDaemon::alignX11TouchScreen()
+{
+    if (qGuiApp->platformName() != QStringLiteral("xcb")) {
+        return;
+    }
+
+    const QRect totalRect(QPoint(0, 0), m_monitoredConfig->data()->screen()->currentSize());
+    QRect internalOutputRect;
+    int touchScreenRotationAngle = 0;
+
+    for (const auto &output : m_monitoredConfig->data()->connectedOutputs()) {
+        if (output->isEnabled() && output->type() == KScreen::Output::Panel) {
+            internalOutputRect = output->geometry();
+
+            switch (output->rotation()) {
+            case KScreen::Output::Left:
+                touchScreenRotationAngle = 90;
+                break;
+            case KScreen::Output::Right:
+                touchScreenRotationAngle = 270;
+                break;
+            case KScreen::Output::Inverted:
+                touchScreenRotationAngle = 180;
+                break;
+            default:
+                touchScreenRotationAngle = 0;
+            }
+        }
+    }
+
+    // Compute the transformation matrix for the
+    QTransform transform;
+    transform = transform.translate(float(internalOutputRect.x()) / float(totalRect.width()), float(internalOutputRect.y()) / float(totalRect.height()));
+    transform = transform.scale(float(internalOutputRect.width()) / float(totalRect.width()), float(internalOutputRect.height()) / float(totalRect.height()));
+    transform = transform.rotate(touchScreenRotationAngle);
+
+    // After rotation we need to make the matrix origin aligned wit the workspace again
+    // ____                                                      ___
+    // |__|  -> 90° clockwise -> ___  -> needs to be moved up -> | |
+    //                           | |                             |_|
+    //                           |_|
+    switch (touchScreenRotationAngle) {
+    case 90:
+        transform = transform.translate(0, -1);
+        break;
+    case 270:
+        transform = transform.translate(-1, 0);
+        break;
+    case 180:
+        transform = transform.translate(-1, -1);
+        break;
+    default:
+        break;
+    }
+
+    auto *display = XOpenDisplay(nullptr);
+    if (!display) {
+        return;
+    }
+    auto *connection = QX11Info::connection();
+    if (!connection) {
+        return;
+    }
+
+    auto getAtom = [](xcb_connection_t *connection, const char *name) {
+        auto cookie = xcb_intern_atom(connection, true, strlen(name), name);
+        auto reply = xcb_intern_atom_reply(connection, cookie, nullptr);
+        if (reply) {
+            return reply->atom;
+        } else {
+            return xcb_atom_t(0);
+        }
+    };
+
+    int nDevices = 0;
+    std::unique_ptr<XDeviceInfo, DeviceListDeleter> deviceInfo(XListInputDevices(display, &nDevices));
+    auto touchScreenAtom = getAtom(connection, XI_TOUCHSCREEN);
+    if (touchScreenAtom == 0) {
+        return;
+    }
+    auto matrixAtom = getAtom(connection, "Coordinate Transformation Matrix");
+    if (matrixAtom == 0) {
+        return;
+    }
+    auto calibrationMatrixAtom = getAtom(connection, "libinput Calibration Matrix");
+    auto floatAtom = getAtom(connection, "FLOAT");
+    if (floatAtom == 0) {
+        return;
+    }
+
+    auto setMatrixAtom = [display, floatAtom](XDeviceInfo *info, Atom atom, const QTransform &transform) {
+        Atom type;
+        int format = 0;
+        unsigned long nItems, bytesAfter;
+        unsigned char *dataPtr = nullptr;
+
+        std::unique_ptr<unsigned char, XDeleter> data(dataPtr);
+        XIGetProperty(display, info->id, atom, 0, 1000, False, AnyPropertyType, &type, &format, &nItems, &bytesAfter, &dataPtr);
+
+        if (nItems != 9) {
+            return;
+        }
+        if (format != sizeof(float) * CHAR_BIT || type != floatAtom) {
+            return;
+        }
+
+        float *fData = reinterpret_cast<float *>(dataPtr);
+
+        fData[0] = transform.m11();
+        fData[1] = transform.m21();
+        fData[2] = transform.m31();
+
+        fData[3] = transform.m12();
+        fData[4] = transform.m22();
+        fData[5] = transform.m32();
+
+        fData[6] = transform.m13();
+        fData[7] = transform.m23();
+        fData[8] = transform.m33();
+
+        XIChangeProperty(display, info->id, atom, type, format, PropModeReplace, dataPtr, nItems);
+    };
+
+    for (XDeviceInfo *info = deviceInfo.get(); info < deviceInfo.get() + nDevices; info++) {
+        // Make sure device is touchscreen
+        if (info->type != touchScreenAtom) {
+            continue;
+        }
+
+        int nProperties = 0;
+        std::unique_ptr<Atom, XDeleter> properties(XIListProperties(display, info->id, &nProperties));
+
+        bool matrixAtomFound = false;
+        bool libInputCalibrationAtomFound = false;
+
+        Atom *atom = properties.get();
+        Atom *atomEnd = properties.get() + nProperties;
+        for (; atom != atomEnd; atom++) {
+            if (!internalOutputRect.isEmpty() && *atom == matrixAtom) {
+                matrixAtomFound = true;
+            } else if (!internalOutputRect.isEmpty() && *atom == calibrationMatrixAtom) {
+                libInputCalibrationAtomFound = true;
+            }
+        }
+
+        if (libInputCalibrationAtomFound) {
+            setMatrixAtom(info, calibrationMatrixAtom, transform);
+        }
+        if (matrixAtomFound) {
+            setMatrixAtom(info, matrixAtom, libInputCalibrationAtomFound ? QTransform() : transform);
+        }
+
+        // For now we assume there is only one touchscreen
+        XFlush(display);
+        break;
+    }
+}
+#endif
 
 void KScreenDaemon::saveCurrentConfig()
 {

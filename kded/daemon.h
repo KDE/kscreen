@@ -8,6 +8,7 @@
 #define KSCREEN_DAEMON_H
 
 #include "../common/globals.h"
+#include "config-X11.h"
 #include "osdaction.h"
 
 #include <kscreen/config.h>
@@ -58,6 +59,9 @@ private:
     void configChanged();
     void saveCurrentConfig();
     void displayButton();
+#if HAVE_X11
+    void alignX11TouchScreen();
+#endif
     void lidClosedChanged(bool lidIsClosed);
     void disableLidOutput();
     void setMonitorForChanges(bool enabled);
