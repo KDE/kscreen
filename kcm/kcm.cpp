@@ -173,9 +173,7 @@ void KCMKScreen::doSave(bool force)
         m_configHandler->updateInitialData();
 
         if (!m_settingsReverted && m_configHandler->shouldTestNewSettings()) {
-            QTimer::singleShot(100, this, [this]() {
-                Q_EMIT showRevertWarning();
-            });
+            Q_EMIT showRevertWarning();
         } else {
             m_settingsReverted = false;
             m_stopUpdatesFromBackend = false;
