@@ -84,8 +84,25 @@ PlasmaCore.Dialog {
             Layout.margins: Math.floor(PlasmaCore.Units.smallSpacing / 2)
         }
 
-        function move(delta) {
-            actionRepeater.currentIndex = ((actionRepeater.currentIndex + delta) + actionRepeater.count) % actionRepeater.count
+        // Shift current by delta, but do not wrap around when repeat is true.
+        function wrappingAdd(count: int, current: int, delta: int, repeat: bool): int {
+            const next = current + delta;
+            // Rule out invalid states.
+            if (count === 0 || current < 0 || current >= count) {
+                return current;
+            }
+            // Don't wrap on autorepeat.
+            if (repeat && (next < 0 || next >= count)) {
+                return current;
+            }
+            // Add an extra `count`, so that wrapping % works predictably with positive values only.
+            // This assumes that delta is not smaller than `-count` (usually just -1, 0 or +1).
+            return (next + count) % count;
+        }
+
+        function move(event) {
+            actionRepeater.currentIndex = wrappingAdd(actionRepeater.count, actionRepeater.currentIndex,
+                (event.key === Qt.Key_Left) ? -1 : 1, event.isAutoRepeat);
         }
 
         Keys.onPressed: {
@@ -95,10 +112,8 @@ PlasmaCore.Dialog {
                     clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId)
                     break
                 case Qt.Key_Right:
-                    move(1)
-                    break
                 case Qt.Key_Left:
-                    move(-1)
+                    move(event)
                     break
                 case Qt.Key_Escape:
                     clicked(OsdAction.NoAction)
@@ -107,4 +122,3 @@ PlasmaCore.Dialog {
         }
     }
 }
-
