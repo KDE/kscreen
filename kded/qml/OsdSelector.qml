@@ -33,15 +33,11 @@ PlasmaCore.Dialog {
             Repeater {
                 id: actionRepeater
                 property int currentIndex: 0
-                model: {
-                    return OsdAction.actionOrder().map(function (layout) {
-                        return {
-                            iconSource: OsdAction.actionIconName(layout),
-                            label: OsdAction.actionLabel(layout),
-                            action: layout
-                        }
-                    })
-                }
+                model: OsdAction.actionOrder().map(layout => ({
+                    iconSource: OsdAction.actionIconName(layout),
+                    label: OsdAction.actionLabel(layout),
+                    action: layout,
+                }))
                 delegate: PlasmaComponents.Button {
                     property int actionId: modelData.action
 
@@ -77,6 +73,7 @@ PlasmaCore.Dialog {
                 }
             }
         }
+
         PlasmaExtras.Heading {
             text: root.infoText
             horizontalAlignment: Text.AlignHCenter
