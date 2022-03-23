@@ -25,7 +25,7 @@ ColumnLayout {
                 id: autoRotateRadio
                 text: i18n("Automatic")
                 checked: autoRotateColumn.enabled && element.autoRotate
-                onClicked: element.autoRotate = true
+                onToggled: element.autoRotate = true
             }
 
             Controls.CheckBox {
@@ -35,7 +35,7 @@ ColumnLayout {
                 text: i18n("Only when in tablet mode")
                 enabled: autoRotateRadio.checked
                 checked: enabled && element.autoRotateOnlyInTabletMode
-                onClicked: element.autoRotateOnlyInTabletMode = checked
+                onToggled: element.autoRotateOnlyInTabletMode = checked
             }
         }
 
@@ -43,7 +43,7 @@ ColumnLayout {
             id: manualRotateRadio
             text: i18n("Manual")
             checked: !element.autoRotate || !autoRotateColumn.enabled
-            onClicked: element.autoRotate = false
+            onToggled: element.autoRotate = false
         }
     }
 

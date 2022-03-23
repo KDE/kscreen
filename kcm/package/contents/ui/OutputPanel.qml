@@ -21,14 +21,14 @@ ColumnLayout {
         Controls.CheckBox {
            text: i18n("Enabled")
            checked: element.enabled
-           onClicked: element.enabled = checked
+           onToggled: element.enabled = checked
            visible: kcm.outputModel.rowCount() > 1
         }
 
         Controls.CheckBox {
            text: i18n("Primary")
            checked: element.primary
-           onClicked: element.primary = checked
+           onToggled: element.primary = checked
            visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
         }
 
