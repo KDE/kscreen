@@ -30,7 +30,7 @@ ColumnLayout {
 
             Controls.CheckBox {
                 id: autoRotateOnlyInTabletMode
-                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.leftMargin: Kirigami.Units.gridUnit
 
                 text: i18n("Only when in tablet mode")
                 enabled: autoRotateRadio.checked
