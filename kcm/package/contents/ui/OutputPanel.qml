@@ -25,11 +25,19 @@ ColumnLayout {
            visible: kcm.outputModel.rowCount() > 1
         }
 
-        Controls.CheckBox {
-           text: i18n("Primary")
-           checked: element.primary
-           onToggled: element.primary = checked
-           visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
+        RowLayout {
+            Controls.CheckBox {
+            id: primaryScreenCheckbox
+            text: i18n("Primary")
+            checked: element.primary
+            onToggled: element.primary = checked
+            visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
+            }
+
+            KCM.ContextualHelpButton {
+                visible: primaryScreenCheckbox.visible
+                toolTipText: xi18nc("@info", "This determines which screen your main desktop and panel appear on. Some older games also use it to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
+            }
         }
 
         RowLayout {
