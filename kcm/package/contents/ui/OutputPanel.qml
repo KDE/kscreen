@@ -27,11 +27,11 @@ ColumnLayout {
 
         RowLayout {
             Controls.CheckBox {
-            id: primaryScreenCheckbox
-            text: i18n("Primary")
-            checked: element.primary
-            onToggled: element.primary = checked
-            visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
+                id: primaryScreenCheckbox
+                text: i18n("Primary")
+                checked: element.primary
+                onToggled: element.primary = checked
+                visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
             }
 
             KCM.ContextualHelpButton {
