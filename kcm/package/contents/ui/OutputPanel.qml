@@ -153,35 +153,52 @@ ColumnLayout {
             Component.onCompleted: currentIndex = indexOfValue(element.vrrPolicy);
         }
 
-        Controls.SpinBox {
+        RowLayout {
             Kirigami.FormData.label: i18n("Overscan:")
-            from: 0
-            to: 100
-            value: element.overscan
-            onValueModified: element.overscan = value
             visible: element.capabilities & KScreen.Output.Capability.Overscan
-            textFromValue: function(value, locale) {
-                return value + '%';
+
+            Controls.SpinBox {
+                from: 0
+                to: 100
+                value: element.overscan
+                onValueModified: element.overscan = value
+                textFromValue: function(value, locale) {
+                    return value + '%';
+                }
+                valueFromText: function(text, locale) {
+                    return parseInt(text.replace("%", ""))
+                }
             }
-            valueFromText: function(text, locale) {
-                return parseInt(text.replace("%", ""))
+
+            KCM.ContextualHelpButton {
+                toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display
+                                              to compensate for part of the content being cut off around the edges.<nl/><nl/>
+                                              This is sometimes needed when using a TV as a screen")
             }
         }
 
-        Controls.ComboBox {
+        RowLayout {
             Kirigami.FormData.label: i18n("RGB Range:")
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
-            model: [
-                { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
-                { label: i18n("Full"), value: KScreen.Output.RgbRange.Full },
-                { label: i18n("Limited"), value: KScreen.Output.RgbRange.Limited }
-            ]
-            textRole: "label"
-            valueRole: "value"
             visible: element.capabilities & KScreen.Output.Capability.RgbRange
 
-            onActivated: element.rgbRange = currentValue
-            Component.onCompleted: currentIndex = indexOfValue(element.rgbRange);
+            Controls.ComboBox {
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+                model: [
+                    { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
+                    { label: i18n("Full"), value: KScreen.Output.RgbRange.Full },
+                    { label: i18n("Limited"), value: KScreen.Output.RgbRange.Limited }
+                ]
+                textRole: "label"
+                valueRole: "value"
+
+                onActivated: element.rgbRange = currentValue
+                Component.onCompleted: currentIndex = indexOfValue(element.rgbRange);
+            }
+
+            KCM.ContextualHelpButton {
+                toolTipText: xi18nc("@info", "Determines whether or not the range of possible color values needs to be limited for the display.
+                                              This should only be changed if the colors on the screen look washed out.")
+            }
         }
 
         Controls.ComboBox {
