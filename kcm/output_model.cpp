@@ -569,6 +569,10 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
             divisor /= 2;
         } else if (size.height() / divisor == 27) { // Prefer "21:9" over "64:27"
             divisor *= 3;
+        } else if (size.height() / divisor == 18) { // Prefer "21:9" over "43:18"
+            divisor *= 2;
+        } else if (size.height() / divisor == 384) { // Prefer "16:9" over "683:384"
+            divisor *= 41;
         }
 
         const QString text = i18nc("Width x height (aspect ratio)",
