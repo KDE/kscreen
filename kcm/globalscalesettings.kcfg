@@ -8,6 +8,9 @@
     <entry name="scaleFactor" key="ScaleFactor" type="Double">
       <default>1.0</default>
     </entry>
+    <entry name="preferGlobalScale" key="PreferGlobalScale" type="Bool">
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>
 

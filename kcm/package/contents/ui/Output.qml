@@ -9,6 +9,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.4 as Kirigami
+import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 Item {
     id: output
@@ -89,7 +90,7 @@ Item {
                 Layout.bottomMargin: Kirigami.Units.smallSpacing
 
                 text: "(" + model.resolution.width + "x" + model.resolution.height +
-                      (model.scale !== 1 ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
+                      ((model.scale !== 1  && kcm.scalingMode == KScreen.KCM.ScalingMode.PerOutput) ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
             }

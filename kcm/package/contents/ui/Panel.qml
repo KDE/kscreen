@@ -67,14 +67,21 @@ ColumnLayout {
             Kirigami.FormData.isSection: true
         }
 
+
         RowLayout {
+            id: foo
             Layout.fillWidth: true
             Kirigami.FormData.label: i18n("Global scale:")
 
-            visible: !kcm.perOutputScaling
+            Controls.CheckBox {
+                visible: kcm.perOutputScalingSupported
+                checked: kcm.scalingMode == KScreen.KCM.ScalingMode.Global
+                onToggled: kcm.scalingMode = checked ? KScreen.KCM.ScalingMode.Global : KScreen.KCM.ScalingMode.PerOutput
+            }
 
             Controls.Slider {
                 id: globalScaleSlider
+                enabled: kcm.scalingMode == KScreen.KCM.ScalingMode.Global
 
                 Layout.fillWidth: true
                 from: 1
@@ -86,6 +93,7 @@ ColumnLayout {
             }
             Controls.SpinBox {
                 id: spinbox
+                enabled: kcm.scalingMode == KScreen.KCM.ScalingMode.Global
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 6
 
                 // Because QQC2 SpinBox doesn't natively support decimal step

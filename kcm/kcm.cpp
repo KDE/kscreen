@@ -53,6 +53,7 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
 
     registerSettings(GlobalScaleSettings::self());
     connect(GlobalScaleSettings::self(), &GlobalScaleSettings::scaleFactorChanged, this, &KCMKScreen::globalScaleChanged);
+    connect(GlobalScaleSettings::self(), &GlobalScaleSettings::preferGlobalScaleChanged, this, &KCMKScreen::scalingModeChanged);
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -77,6 +78,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     Q_EMIT outputReplicationSupportedChanged();
     Q_EMIT tabletModeAvailableChanged();
     Q_EMIT autoRotationSupportedChanged();
+    Q_EMIT scalingModeChanged();
 }
 
 void KCMKScreen::forceSave()
@@ -142,7 +144,7 @@ void KCMKScreen::doSave(bool force)
                              << "	Mode:" << (mode ? mode->name() : QStringLiteral("unknown")) << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz"
                              << "\n"
                              << "    Position:" << output->pos().x() << "x" << output->pos().y() << "\n"
-                             << "    Scale:" << (perOutputScaling() ? QString::number(output->scale()) : QStringLiteral("global")) << "\n"
+                             << "    Scale:" << (perOutputScalingSupported() ? QString::number(output->scale()) : QStringLiteral("global")) << "\n"
                              << "    Replicates:" << (output->replicationSource() == 0 ? "no" : "yes");
     }
 
@@ -242,12 +244,12 @@ bool KCMKScreen::screenNormalized() const
     return m_screenNormalized;
 }
 
-bool KCMKScreen::perOutputScaling() const
+bool KCMKScreen::perOutputScalingSupported() const
 {
     if (!m_configHandler || !m_configHandler->config()) {
         return false;
     }
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::PerOutputScaling);
+    return m_configHandler->config()->supportedFeatures() & (Config::Feature::PerOutputScaling | Config::Feature::DisabledPerOutputScaling);
 }
 
 bool KCMKScreen::primaryOutputSupported() const
@@ -361,6 +363,17 @@ bool KCMKScreen::isSaveNeeded() const
 
 void KCMKScreen::exportGlobalScale()
 {
+    KConfig fontConfig(QStringLiteral("kcmfonts"));
+    auto fontConfigGroup = fontConfig.group("General");
+
+    if (QGuiApplication::platformName() == "wayland") {
+        if (scalingMode() == ScalingMode::Global) {
+            fontConfigGroup.writeEntry("forceFontDPIWayland", qRound(globalScale() * 96.0));
+        } else {
+            fontConfigGroup.deleteEntry("forceFontDPIWayland");
+        }
+    }
+
     // Write env var to be used by session startup scripts to populate the QT_SCREEN_SCALE_FACTORS
     // env var.
     // We use QT_SCREEN_SCALE_FACTORS as opposed to QT_SCALE_FACTOR as we need to use one that will
@@ -375,10 +388,7 @@ void KCMKScreen::exportGlobalScale()
     auto config = KSharedConfig::openConfig("kdeglobals");
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
 
-    KConfig fontConfig(QStringLiteral("kcmfonts"));
-    auto fontConfigGroup = fontConfig.group("General");
-
-    if (qFuzzyCompare(globalScale(), 1.0)) {
+    if (scalingMode() == ScalingMode::Global) {
         // if dpi is the default (96) remove the entry rather than setting it
         QProcess queryProc;
         queryProc.start(QStringLiteral("xrdb"), {QStringLiteral("-query")});
@@ -447,6 +457,22 @@ void KCMKScreen::setOutputRetention(int retention)
         return;
     }
     m_configHandler->setRetention(retention);
+}
+
+void KCMKScreen::setScalingMode(KCMKScreen::ScalingMode scaleMode)
+{
+    if (!perOutputScalingSupported()) {
+        return;
+    }
+    GlobalScaleSettings::self()->setPreferGlobalScale(scaleMode == ScalingMode::Global);
+}
+
+KCMKScreen::ScalingMode KCMKScreen::scalingMode() const
+{
+    if (!perOutputScalingSupported() || GlobalScaleSettings::self()->preferGlobalScale()) {
+        return ScalingMode::Global;
+    }
+    return ScalingMode::PerOutput;
 }
 
 #include "kcm.moc"

@@ -70,7 +70,8 @@ ColumnLayout {
             // Set the same limit as the device ComboBox
             Layout.maximumWidth: Kirigami.Units.gridUnit * 16
 
-            visible: kcm.perOutputScaling
+            visible: kcm.perOutputScalingSupported
+            enabled: kcm.scalingMode == KScreen.KCM.ScalingMode.PerOutput
             Kirigami.FormData.label: i18n("Scale:")
 
             Controls.Slider {

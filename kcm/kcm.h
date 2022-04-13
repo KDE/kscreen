@@ -24,7 +24,7 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(OutputModel *outputModel READ outputModel NOTIFY outputModelChanged)
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
-    Q_PROPERTY(bool perOutputScaling READ perOutputScaling NOTIFY perOutputScalingChanged)
+    Q_PROPERTY(bool perOutputScalingSupported READ perOutputScalingSupported NOTIFY perOutputScalingChanged)
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
@@ -32,8 +32,15 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported NOTIFY autoRotationSupportedChanged)
     Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable NOTIFY orientationSensorAvailableChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
+    Q_PROPERTY(ScalingMode scalingMode READ scalingMode WRITE setScalingMode NOTIFY scalingModeChanged)
 
 public:
+    enum class ScalingMode {
+        Global,
+        PerOutput,
+    };
+    Q_ENUM(ScalingMode);
+
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCMKScreen() override = default;
 
@@ -52,7 +59,7 @@ public:
     Q_INVOKABLE QSize normalizeScreen() const;
     bool screenNormalized() const;
 
-    bool perOutputScaling() const;
+    bool perOutputScalingSupported() const;
     bool primaryOutputSupported() const;
     bool outputReplicationSupported() const;
 
@@ -65,6 +72,9 @@ public:
     bool autoRotationSupported() const;
     bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
+
+    ScalingMode scalingMode() const;
+    void setScalingMode(ScalingMode scaleMode);
 
     Q_INVOKABLE void forceSave();
     void doSave(bool force);
@@ -93,6 +103,7 @@ Q_SIGNALS:
     void outputConnect(bool connected);
     void settingsReverted();
     void showRevertWarning();
+    void scalingModeChanged();
 
 private:
     void setBackendReady(bool error);
