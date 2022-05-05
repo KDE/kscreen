@@ -394,6 +394,7 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
         auto it = modes.begin();
         while (it != modes.end()) {
             if ((*it)->size() == size && (*it)->refreshRate() > bestRefreshRate) {
+                bestRefreshRate = (*it)->refreshRate();
                 modeIt = it;
             }
             it++;
