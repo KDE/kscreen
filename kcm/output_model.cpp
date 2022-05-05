@@ -417,7 +417,7 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     QModelIndex index = createIndex(outputIndex, 0);
     // Calling this directly ignores possible optimization when the
     // refresh rate hasn't changed in fact. But that's ok.
-    Q_EMIT dataChanged(index, index, {ResolutionIndexRole, ResolutionRole, SizeRole, RefreshRateIndexRole});
+    Q_EMIT dataChanged(index, index, {ResolutionIndexRole, ResolutionRole, SizeRole, RefreshRatesRole, RefreshRateIndexRole});
     Q_EMIT sizeChanged();
     return true;
 }
