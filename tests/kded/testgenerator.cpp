@@ -582,7 +582,7 @@ void testScreenConfig::outputPreset()
     // Create the preset
     QTemporaryDir dataDir;
     qputenv("XDG_DATA_DIRS", dataDir.path().toUtf8());
-    QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+    QStandardPaths::standardLocations(QStandardPaths::AppLocalDataLocation);
     auto presetOutput = defaultOutput->clone();
     presetOutput->setCurrentModeId(QStringLiteral("2"));
     presetOutput->setRotation(KScreen::Output::Left);

@@ -28,7 +28,7 @@ include(KDEGitCommitHooks)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Sensors)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Sensors)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
     DBusAddons
@@ -56,7 +56,9 @@ if(X11_FOUND)
   set(HAVE_X11 1)
   find_package(X11_XCB REQUIRED)
   find_package(XCB REQUIRED COMPONENTS XCB ATOM)
-  find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
+  if (QT_MAJOR_VERSION EQUAL "5")
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
+  endif()
 endif()
 
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)

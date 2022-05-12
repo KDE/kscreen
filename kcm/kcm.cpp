@@ -450,3 +450,4 @@ void KCMKScreen::setOutputRetention(int retention)
 }
 
 #include "kcm.moc"
+#include "moc_kcm.cpp"

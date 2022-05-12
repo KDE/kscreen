@@ -29,7 +29,12 @@ qt_add_dbus_adaptor(kscreen_daemon_SRCS
 add_library(kscreen MODULE ${kscreen_daemon_SRCS})
 
 if(X11_FOUND)
-    SET(X11_LIBS X11::X11 X11::Xi X11::XCB XCB::ATOM Qt::X11Extras)
+    SET(X11_LIBS X11::X11 X11::Xi X11::XCB XCB::ATOM)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        list(APPEND X11_LIBS Qt5::X11Extras)
+    else()
+        list(APPEND X11_LIBS Qt::GuiPrivate)
+    endif()
 endif()
 
 target_link_libraries(kscreen Qt::Widgets

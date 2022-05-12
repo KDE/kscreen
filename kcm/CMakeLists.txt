@@ -39,7 +39,7 @@ target_link_libraries(kcm_kscreen
 kcoreaddons_desktop_to_json(kcm_kscreen "kcm_kscreen.desktop" SERVICE_TYPES kcmodule.desktop)
 
 #this desktop file is installed only for retrocompatibility with sycoca
-install(FILES kcm_kscreen.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES kcm_kscreen.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
 
 install(TARGETS kcm_kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/kcms)
 

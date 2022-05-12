@@ -35,7 +35,11 @@
 #include <QTimer>
 
 #if HAVE_X11
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QX11Info>
+#else
+#include <private/qtx11extras_p.h>
+#endif
 #include <X11/Xatom.h>
 #include <X11/Xlib-xcb.h>
 #include <X11/extensions/XInput.h>
