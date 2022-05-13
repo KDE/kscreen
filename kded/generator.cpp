@@ -85,6 +85,7 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
 
     for (const auto &output : connectedOutputs) {
         initializeOutput(output, config->supportedFeatures());
+        output->setExplicitLogicalSize(config->logicalSizeForOutput(*output));
     }
 
     if (connectedOutputs.count() == 1) {
