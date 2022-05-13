@@ -42,6 +42,7 @@ private Q_SLOTS:
     void workstationFallbackMode();
     void workstationTwoExternalDiferentSize();
     void switchDisplayTwoScreens();
+    void switchDisplayTwoScreensOneRotated();
     void globalOutputData();
     void outputPreset();
 };
@@ -436,6 +437,84 @@ void testScreenConfig::switchDisplayTwoScreens()
     QCOMPARE(external->pos(), QPoint(1280, 0));
 }
 
+void testScreenConfig::switchDisplayTwoScreensOneRotated()
+{
+    const ConfigPtr currentConfig = loadConfig("switchDisplayTwoScreensOneRotated.json");
+    QVERIFY(currentConfig);
+
+    Generator *generator = Generator::self();
+    generator->setCurrentConfig(currentConfig);
+    generator->setForceLaptop(true);
+    generator->setForceNotLaptop(false);
+    generator->setForceDocked(false);
+    generator->setForceLidClosed(false);
+
+    QCOMPARE(currentConfig->outputs().value(1)->rotation(), KScreen::Output::Right);
+    {
+        auto config = Generator::self()->idealConfig(currentConfig);
+        OutputPtr laptop = config->outputs().value(1);
+        OutputPtr external = config->outputs().value(2);
+
+        QCOMPARE(laptop->pos(), QPoint(0, 0));
+        QCOMPARE(external->pos(), QPoint(800, 0));
+    }
+
+    // Skipping cloning for now, I am not sure what's the best way forward here.
+    // We probably should not offer the option to clone if both displays have a different ratio?
+
+    // Extend to left
+    ConfigPtr config = generator->displaySwitch(Generator::ExtendToLeft);
+    OutputPtr laptop = config->outputs().value(1);
+    OutputPtr external = config->outputs().value(2);
+    QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(1920, 0));
+    QCOMPARE(laptop->rotation(), KScreen::Output::Right);
+    QCOMPARE(external->currentModeId(), QLatin1String("5"));
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+
+    // Disable embedded,. enable external
+    config = generator->displaySwitch(Generator::TurnOffEmbedded);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);
+    ;
+    QCOMPARE(laptop->isEnabled(), false);
+    QCOMPARE(external->currentModeId(), QLatin1String("5"));
+    QCOMPARE(external->isPrimary(), true);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(0, 0));
+
+    // Enable embedded, disable external
+    config = generator->displaySwitch(Generator::TurnOffExternal);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);
+    ;
+    QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+    QCOMPARE(laptop->rotation(), KScreen::Output::Right);
+    ;
+    QCOMPARE(external->isEnabled(), false);
+
+    // Extend to right
+    config = generator->displaySwitch(Generator::ExtendToRight);
+    laptop = config->outputs().value(1);
+    external = config->outputs().value(2);
+    QCOMPARE(laptop->currentModeId(), QLatin1String("3"));
+    QCOMPARE(laptop->isPrimary(), true);
+    QCOMPARE(laptop->isEnabled(), true);
+    QCOMPARE(laptop->pos(), QPoint(0, 0));
+    QCOMPARE(laptop->rotation(), KScreen::Output::Right);
+    QCOMPARE(external->currentModeId(), QLatin1String("5"));
+    QCOMPARE(external->isPrimary(), false);
+    QCOMPARE(external->isEnabled(), true);
+    QCOMPARE(external->pos(), QPoint(800, 0));
+}
+
 void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
 {
     const ConfigPtr currentConfig = loadConfig("switchDisplayTwoScreensNoCommonMode.json");
@@ -443,7 +522,6 @@ void testScreenConfig::switchDisplayTwoScreensNoCommonMode()
 
     Generator *generator = Generator::self();
     generator->setCurrentConfig(currentConfig);
-    qDebug() << "MEH MOH";
     ConfigPtr config = generator->displaySwitch(Generator::Clone);
     OutputPtr laptop = config->outputs().value(1);
     OutputPtr external = config->outputs().value(2);
