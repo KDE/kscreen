@@ -412,7 +412,7 @@ void KCMKScreen::exportGlobalScale()
         QProcess proc;
         proc.start(QStringLiteral("xrdb"), {QStringLiteral("-quiet"), QStringLiteral("-merge"), QStringLiteral("-nocpp")});
         if (proc.waitForStarted()) {
-            proc.write(QByteArray("Xft.dpi: " + QString::number(scaleDpi).toLatin1()));
+            proc.write(QByteArray("Xft.dpi: ") + QByteArray::number(scaleDpi));
             proc.closeWriteChannel();
             proc.waitForFinished();
         }
