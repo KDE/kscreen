@@ -13,7 +13,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
-    spacing: units.smallSpacing
+    spacing: PlasmaCore.Units.smallSpacing
 
     PlasmaComponents.CheckBox {
         id: checkBox
@@ -71,18 +71,18 @@ ColumnLayout {
     RowLayout {
         Layout.fillWidth: true
         Layout.leftMargin: checkBoxMetrics.width
-        spacing: units.smallSpacing
+        spacing: PlasmaCore.Units.smallSpacing
 
         PlasmaCore.IconItem {
-            Layout.preferredWidth: units.iconSizes.medium
-            Layout.preferredHeight: units.iconSizes.medium
+            Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
+            Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
             source: pmSource.inhibitions[0] ? pmSource.inhibitions[0].Icon || "" : ""
             visible: valid
         }
 
         PlasmaComponents.Label {
             Layout.fillWidth: true
-            Layout.maximumWidth: Math.min(units.gridUnit * 20, implicitWidth)
+            Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
             font.pointSize: theme.smallestFont.pointSize
             wrapMode: Text.WordWrap
             elide: Text.ElideRight

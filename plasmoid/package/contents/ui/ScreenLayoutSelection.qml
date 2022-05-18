@@ -14,7 +14,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
-    spacing: 0
+    spacing: PlasmaCore.Units.smallSpacing * 2
 
     states: [
         State {
@@ -43,7 +43,7 @@ ColumnLayout {
         id: screenLayoutRow
         readonly property int buttonSize: Math.floor((width - spacing * (screenLayoutRepeater.count - 1)) / screenLayoutRepeater.count)
         Layout.fillWidth: true
-        spacing: units.smallSpacing
+        spacing: PlasmaCore.Units.smallSpacing
 
         Repeater {
             id: screenLayoutRepeater
@@ -61,7 +61,7 @@ ColumnLayout {
                     anchors.centerIn: parent
                     width: height
                     // FIXME use proper FrameSvg margins and stuff
-                    height: parent.height - units.smallSpacing
+                    height: parent.height - PlasmaCore.Units.smallSpacing
                     source: modelData.iconName
                     active: parent.hovered
                 }
@@ -72,7 +72,7 @@ ColumnLayout {
     PlasmaExtras.DescriptiveLabel {
         id: noScreenLabel
         Layout.fillWidth: true
-        Layout.maximumWidth: Math.min(units.gridUnit * 20, implicitWidth)
+        Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
         wrapMode: Text.Wrap
         text: i18n("You can only apply a different screen layout when there is more than one display device plugged in.")
         font.pointSize: theme.smallestFont.pointSize

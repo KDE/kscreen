@@ -88,17 +88,17 @@ Item {
 
     Plasmoid.fullRepresentation: ColumnLayout {
         spacing: 0
-        Layout.preferredWidth: units.gridUnit * 15
+        Layout.preferredWidth: PlasmaCore.Units.gridUnit * 15
 
         ScreenLayoutSelection {
-            Layout.leftMargin: units.smallSpacing
+            Layout.leftMargin: PlasmaCore.Units.smallSpacing
             Layout.fillWidth: true
         }
 
         PresentationModeItem {
             Layout.fillWidth: true
-            Layout.topMargin: units.largeSpacing
-            Layout.leftMargin: units.smallSpacing
+            Layout.topMargin: PlasmaCore.Units.smallSpacing * 2
+            Layout.leftMargin: PlasmaCore.Units.smallSpacing
         }
 
         // compact the layout
