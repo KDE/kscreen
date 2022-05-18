@@ -86,7 +86,7 @@ ColumnLayout {
         Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
         wrapMode: Text.Wrap
         text: i18n("You can only apply a different screen layout when there is more than one display device plugged in.")
-        font.pointSize: theme.smallestFont.pointSize
+        font: PlasmaCore.Theme.smallestFont
         visible: false
     }
 }

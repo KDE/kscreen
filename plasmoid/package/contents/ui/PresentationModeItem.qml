@@ -63,7 +63,7 @@ ColumnLayout {
     PlasmaExtras.DescriptiveLabel {
         Layout.fillWidth: true
         Layout.leftMargin: checkBoxMetrics.width
-        font.pointSize: theme.smallestFont.pointSize
+        font: PlasmaCore.Theme.smallestFont
         text: i18n("This will prevent your screen and computer from turning off automatically.")
         wrapMode: Text.WordWrap
     }
@@ -83,7 +83,7 @@ ColumnLayout {
         PlasmaComponents.Label {
             Layout.fillWidth: true
             Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
-            font.pointSize: theme.smallestFont.pointSize
+            font: PlasmaCore.Theme.smallestFont
             wrapMode: Text.WordWrap
             elide: Text.ElideRight
             textFormat: Text.PlainText
