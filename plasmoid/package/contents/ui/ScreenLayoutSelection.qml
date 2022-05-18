@@ -19,7 +19,7 @@ ColumnLayout {
     states: [
         State {
             // only makes sense to offer screen layout setup if there's more than one screen connected
-            when: plasmoid.nativeInterface.connectedOutputCount < 2
+            when: Plasmoid.nativeInterface.connectedOutputCount < 2
 
             PropertyChanges {
                 target: screenLayoutRow
@@ -54,7 +54,7 @@ ColumnLayout {
                 height: width
                 tooltip: modelData.label
                 Accessible.name: tooltip
-                onClicked: plasmoid.nativeInterface.applyLayoutPreset(modelData.action)
+                onClicked: Plasmoid.nativeInterface.applyLayoutPreset(modelData.action)
 
                 // HACK otherwise the icon won't expand to full button size
                 PlasmaCore.IconItem {
