@@ -88,6 +88,7 @@ Item {
         ScreenLayoutSelection {
             Layout.leftMargin: PlasmaCore.Units.smallSpacing
             Layout.fillWidth: true
+            screenLayouts: root.screenLayouts
         }
 
         PresentationModeItem {

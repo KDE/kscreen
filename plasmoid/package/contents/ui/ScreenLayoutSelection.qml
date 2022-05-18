@@ -14,6 +14,17 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
+    id: root
+
+    // Screen layouts model.
+    //
+    // type: [{
+    //  iconName: string,
+    //  label: string,
+    //  action: enum<OsdAction::Action>,
+    // }]
+    property var screenLayouts
+
     spacing: PlasmaCore.Units.smallSpacing * 2
 
     states: [
