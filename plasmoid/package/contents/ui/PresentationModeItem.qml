@@ -62,44 +62,29 @@ ColumnLayout {
         wrapMode: Text.WordWrap
     }
 
-    RowLayout {
+    InhibitionHint {
         Layout.fillWidth: true
         Layout.leftMargin: checkBox.indicator.width + checkBox.spacing
-        spacing: PlasmaCore.Units.smallSpacing
 
-        PlasmaCore.IconItem {
-            Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
-            Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
-            source: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : ""
-            visible: valid
-        }
-
-        PlasmaComponents3.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
-            font: PlasmaCore.Theme.smallestFont
-            wrapMode: Text.WordWrap
-            elide: Text.ElideRight
-            textFormat: Text.PlainText
-            text: {
-                const inhibitions = pmSource.inhibitions;
-                const inhibition = inhibitions[0];
-                if (inhibitions.length > 1) {
-                    return i18ncp("Some Application and n others enforce presentation mode",
-                                  "%2 and %1 other application are enforcing presentation mode.",
-                                  "%2 and %1 other applications are enforcing presentation mode.",
-                                  inhibitions.length - 1, inhibition.Name) // plural only works on %1
-                } else if (inhibitions.length === 1) {
-                    if (!inhibition.Reason) {
-                        return i18nc("Some Application enforce presentation mode",
-                                     "%1 is enforcing presentation mode.", inhibition.Name)
-                    } else {
-                        return i18nc("Some Application enforce presentation mode: Reason provided by the app",
-                                     "%1 is enforcing presentation mode: %2", inhibition.Name, inhibition.Reason)
-                    }
+        iconSource: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : ""
+        text: {
+            const inhibitions = pmSource.inhibitions;
+            const inhibition = inhibitions[0];
+            if (inhibitions.length > 1) {
+                return i18ncp("Some Application and n others enforce presentation mode",
+                              "%2 and %1 other application are enforcing presentation mode.",
+                              "%2 and %1 other applications are enforcing presentation mode.",
+                              inhibitions.length - 1, inhibition.Name) // plural only works on %1
+            } else if (inhibitions.length === 1) {
+                if (!inhibition.Reason) {
+                    return i18nc("Some Application enforce presentation mode",
+                                 "%1 is enforcing presentation mode.", inhibition.Name)
                 } else {
-                    return "";
+                    return i18nc("Some Application enforce presentation mode: Reason provided by the app",
+                                 "%1 is enforcing presentation mode: %2", inhibition.Name, inhibition.Reason)
                 }
+            } else {
+                return "";
             }
         }
     }
