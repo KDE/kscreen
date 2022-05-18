@@ -5,17 +5,17 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
-import QtQuick 2.8
-import QtQuick.Layouts 1.1
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
     spacing: PlasmaCore.Units.smallSpacing
 
-    PlasmaComponents.CheckBox {
+    PlasmaComponents3.CheckBox {
         id: checkBox
         Layout.fillWidth: true
         // Remove spacing between checkbox and the explanatory label below
@@ -55,7 +55,7 @@ ColumnLayout {
     }
 
     // so we can align the labels below with the checkbox
-    PlasmaComponents.CheckBox {
+    PlasmaComponents3.CheckBox {
         id: checkBoxMetrics
         visible: false
     }
@@ -80,7 +80,7 @@ ColumnLayout {
             visible: valid
         }
 
-        PlasmaComponents.Label {
+        PlasmaComponents3.Label {
             Layout.fillWidth: true
             Layout.maximumWidth: Math.min(PlasmaCore.Units.gridUnit * 20, implicitWidth)
             font: PlasmaCore.Theme.smallestFont
