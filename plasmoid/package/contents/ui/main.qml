@@ -29,20 +29,15 @@ Item {
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
     property int presentationModeCookie: -1
 
-    readonly property var screenLayouts: {
-        var layouts = OsdAction.actionOrder().filter(function (layout) {
+    readonly property var screenLayouts:
+        OsdAction.actionOrder()
             // We don't want the "No action" item in the plasmoid
-            return layout !== OsdAction.NoAction;
-        });
-
-        layouts.map(function (layout) {
-            return {
+            .filter(layout => layout !== OsdAction.NoAction)
+            .map(layout => ({
                 iconName: OsdAction.actionIconName(layout),
                 label: OsdAction.actionLabel(layout),
-                action: layout
-            }
-        });
-    }
+                action: layout,
+            }))
 
     function action_configure() {
         KCMShell.openSystemSettings(kcmName);

@@ -30,23 +30,23 @@ ColumnLayout {
             // disable CheckBox while job is running
             checkBox.enabled = false;
 
-            var service = pmSource.serviceForSource("PowerDevil");
+            const service = pmSource.serviceForSource("PowerDevil");
 
             if (checked) {
-                var op = service.operationDescription("beginSuppressingScreenPowerManagement");
+                const op = service.operationDescription("beginSuppressingScreenPowerManagement");
                 op.reason = i18n("User enabled presentation mode");
 
-                var job = service.startOperationCall(op);
-                job.finished.connect(function (job) {
+                const job = service.startOperationCall(op);
+                job.finished.connect(job => {
                     presentationModeCookie = job.result;
                     checkBox.enabled = true;
                 });
             } else {
-                var op = service.operationDescription("stopSuppressingScreenPowerManagement");
+                const op = service.operationDescription("stopSuppressingScreenPowerManagement");
                 op.cookie = presentationModeCookie;
 
-                var job = service.startOperationCall(op);
-                job.finished.connect(function (job) {
+                const job = service.startOperationCall(op);
+                job.finished.connect(job => {
                     presentationModeCookie = -1;
                     checkBox.enabled = true;
                 });
@@ -76,7 +76,7 @@ ColumnLayout {
         PlasmaCore.IconItem {
             Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
             Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
-            source: pmSource.inhibitions[0] ? pmSource.inhibitions[0].Icon || "" : ""
+            source: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : ""
             visible: valid
         }
 
@@ -88,19 +88,20 @@ ColumnLayout {
             elide: Text.ElideRight
             textFormat: Text.PlainText
             text: {
-                var inhibitions = pmSource.inhibitions;
+                const inhibitions = pmSource.inhibitions;
+                const inhibition = inhibitions[0];
                 if (inhibitions.length > 1) {
                     return i18ncp("Some Application and n others enforce presentation mode",
                                   "%2 and %1 other application are enforcing presentation mode.",
                                   "%2 and %1 other applications are enforcing presentation mode.",
-                                  inhibitions.length - 1, inhibitions[0].Name) // plural only works on %1
+                                  inhibitions.length - 1, inhibition.Name) // plural only works on %1
                 } else if (inhibitions.length === 1) {
-                    if (!inhibitions[0].Reason) {
+                    if (!inhibition.Reason) {
                         return i18nc("Some Application enforce presentation mode",
-                                     "%1 is enforcing presentation mode.", inhibitions[0].Name)
+                                     "%1 is enforcing presentation mode.", inhibition.Name)
                     } else {
                         return i18nc("Some Application enforce presentation mode: Reason provided by the app",
-                                     "%1 is enforcing presentation mode: %2", inhibitions[0].Name, inhibitions[0].Reason)
+                                     "%1 is enforcing presentation mode: %2", inhibition.Name, inhibition.Reason)
                     }
                 } else {
                     return "";
