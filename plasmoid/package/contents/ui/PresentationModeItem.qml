@@ -54,15 +54,9 @@ ColumnLayout {
         }
     }
 
-    // so we can align the labels below with the checkbox
-    PlasmaComponents3.CheckBox {
-        id: checkBoxMetrics
-        visible: false
-    }
-
     PlasmaExtras.DescriptiveLabel {
         Layout.fillWidth: true
-        Layout.leftMargin: checkBoxMetrics.width
+        Layout.leftMargin: checkBox.indicator.width + checkBox.spacing
         font: PlasmaCore.Theme.smallestFont
         text: i18n("This will prevent your screen and computer from turning off automatically.")
         wrapMode: Text.WordWrap
@@ -70,7 +64,7 @@ ColumnLayout {
 
     RowLayout {
         Layout.fillWidth: true
-        Layout.leftMargin: checkBoxMetrics.width
+        Layout.leftMargin: checkBox.indicator.width + checkBox.spacing
         spacing: PlasmaCore.Units.smallSpacing
 
         PlasmaCore.IconItem {
