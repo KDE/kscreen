@@ -21,7 +21,7 @@ class KScreenApplet : public Plasma::Applet
     Q_PROPERTY(int connectedOutputCount READ connectedOutputCount NOTIFY connectedOutputCountChanged)
 
 public:
-    explicit KScreenApplet(QObject *parent, const QVariantList &data);
+    explicit KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KScreenApplet() override;
 
     enum Action {

@@ -22,8 +22,8 @@
 
 #include <algorithm>
 
-KScreenApplet::KScreenApplet(QObject *parent, const QVariantList &data)
-    : Plasma::Applet(parent, data)
+KScreenApplet::KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : Plasma::Applet(parent, data, args)
 {
 }
 
