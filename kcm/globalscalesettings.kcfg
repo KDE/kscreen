@@ -8,6 +8,9 @@
     <entry name="scaleFactor" key="ScaleFactor" type="Double">
       <default>1.0</default>
     </entry>
+    <entry name="xwaylandClientsScale" key="XwaylandClientsScale" type="Bool">
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>
 

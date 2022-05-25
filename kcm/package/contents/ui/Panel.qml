@@ -121,6 +121,57 @@ ColumnLayout {
             }
         }
 
+        Controls.ButtonGroup {
+            id: x11AppsScaling
+            onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)
+        }
+
+        Controls.RadioButton {
+            Kirigami.FormData.label: i18n("Legacy Applications (X11):")
+            visible: kcm.xwaylandClientsScaleSupported
+            text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
+            checked: !kcm.xwaylandClientsScale
+            Controls.ButtonGroup.group: x11AppsScaling
+        }
+
+        Controls.Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+            visible: kcm.xwaylandClientsScaleSupported
+            text: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
+            elide: Text.ElideRight
+            font: Kirigami.Theme.smallFont
+            wrapMode: Text.Wrap
+        }
+
+        Item {
+            Kirigami.FormData.isSection: false
+            visible: kcm.xwaylandClientsScaleSupported
+        }
+
+        Controls.RadioButton {
+            id: x11ScalingApps
+            visible: kcm.xwaylandClientsScaleSupported
+            text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
+            checked: kcm.xwaylandClientsScale
+            Controls.ButtonGroup.group: x11AppsScaling
+        }
+
+        Controls.Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+            visible: kcm.xwaylandClientsScaleSupported
+            text: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
+            elide: Text.ElideRight
+            font: Kirigami.Theme.smallFont
+            wrapMode: Text.Wrap
+        }
+
+        Item {
+            Kirigami.FormData.isSection: false
+            visible: kcm.xwaylandClientsScaleSupported
+        }
+
         Kirigami.InlineMessage {
             id: weirdScaleFactorMsg
             Kirigami.FormData.isSection: true

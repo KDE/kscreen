@@ -76,6 +76,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     m_configHandler->setConfig(config);
     setBackendReady(true);
     Q_EMIT perOutputScalingChanged();
+    Q_EMIT xwaylandClientsScaleSupportedChanged();
     Q_EMIT primaryOutputSupportedChanged();
     Q_EMIT outputReplicationSupportedChanged();
     Q_EMIT tabletModeAvailableChanged();
@@ -338,6 +339,7 @@ void KCMKScreen::load()
 
     m_configHandler.reset(new ConfigHandler(this));
     Q_EMIT perOutputScalingChanged();
+    Q_EMIT xwaylandClientsScaleSupportedChanged();
     connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, &KCMKScreen::outputModelChanged);
     connect(m_configHandler.get(), &ConfigHandler::outputConnect, this, [this](bool connected) {
         Q_EMIT outputConnect(connected);
@@ -443,6 +445,25 @@ void KCMKScreen::setGlobalScale(qreal scale)
 {
     GlobalScaleSettings::self()->setScaleFactor(scale);
     Q_EMIT changed();
+}
+
+bool KCMKScreen::xwaylandClientsScale() const
+{
+    return GlobalScaleSettings::self()->xwaylandClientsScale();
+}
+
+void KCMKScreen::setXwaylandClientsScale(bool scale)
+{
+    GlobalScaleSettings::self()->setXwaylandClientsScale(scale);
+    Q_EMIT changed();
+}
+
+bool KCMKScreen::xwaylandClientsScaleSupported() const
+{
+    if (!m_configHandler || !m_configHandler->config()) {
+        return false;
+    }
+    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
 }
 
 int KCMKScreen::outputRetention() const

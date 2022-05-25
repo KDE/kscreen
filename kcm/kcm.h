@@ -25,6 +25,7 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
     Q_PROPERTY(bool perOutputScaling READ perOutputScaling NOTIFY perOutputScalingChanged)
+    Q_PROPERTY(bool xwaylandClientsScaleSupported READ xwaylandClientsScaleSupported NOTIFY xwaylandClientsScaleSupportedChanged)
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
@@ -32,6 +33,7 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported NOTIFY autoRotationSupportedChanged)
     Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable NOTIFY orientationSensorAvailableChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
+    Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
 
 public:
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
@@ -58,6 +60,10 @@ public:
 
     qreal globalScale() const;
     void setGlobalScale(qreal scale);
+
+    bool xwaylandClientsScale() const;
+    void setXwaylandClientsScale(bool scale);
+    bool xwaylandClientsScaleSupported() const;
 
     int outputRetention() const;
     void setOutputRetention(int retention);
@@ -94,6 +100,8 @@ Q_SIGNALS:
     void outputConnect(bool connected);
     void settingsReverted();
     void showRevertWarning();
+    void xwaylandClientsScaleChanged();
+    void xwaylandClientsScaleSupportedChanged();
 
 private:
     void setBackendReady(bool error);
