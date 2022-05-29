@@ -365,6 +365,14 @@ void KScreenDaemon::alignX11TouchScreen()
     if (qGuiApp->platformName() != QStringLiteral("xcb")) {
         return;
     }
+    auto *display = QX11Info::display();
+    if (!display) {
+        return;
+    }
+    auto *connection = QX11Info::connection();
+    if (!connection) {
+        return;
+    }
 
     const QRect totalRect(QPoint(0, 0), m_monitoredConfig->data()->screen()->currentSize());
     QRect internalOutputRect;
@@ -413,15 +421,6 @@ void KScreenDaemon::alignX11TouchScreen()
         break;
     default:
         break;
-    }
-
-    auto *display = XOpenDisplay(nullptr);
-    if (!display) {
-        return;
-    }
-    auto *connection = QX11Info::connection();
-    if (!connection) {
-        return;
     }
 
     auto getAtom = [](xcb_connection_t *connection, const char *name) {
