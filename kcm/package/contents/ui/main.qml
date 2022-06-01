@@ -198,7 +198,7 @@ KCM.SimpleKCM {
             id: screen
 
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Math.max(root.width * 0.8, Kirigami.Units.gridUnit * 26)
+            Layout.preferredWidth: root.width * 0.8
             Layout.topMargin: Kirigami.Units.smallSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
