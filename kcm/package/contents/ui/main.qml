@@ -68,6 +68,13 @@ KCM.SimpleKCM {
             text: i18n("New global scale applied. Change will come into effect after restart.")
             visible: false
             showCloseButton: true
+            actions: [
+                Kirigami.Action {
+                    icon.name: "system-reboot"
+                    text: i18n("Restart")
+                    onTriggered: kcm.requestReboot();
+                }
+            ]
         }
         Kirigami.InlineMessage {
             id: connectMsg

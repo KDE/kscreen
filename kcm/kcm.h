@@ -69,6 +69,7 @@ public:
     Q_INVOKABLE void forceSave();
     void doSave(bool force);
     Q_INVOKABLE void revertSettings();
+    Q_INVOKABLE void requestReboot();
 
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();

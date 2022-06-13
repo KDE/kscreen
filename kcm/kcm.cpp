@@ -25,6 +25,9 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingReply>
 #include <QTimer>
 
 K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", registerPlugin<KCMKScreen>();)
@@ -102,6 +105,15 @@ void KCMKScreen::revertSettings()
         Q_EMIT settingsReverted();
         m_stopUpdatesFromBackend = false;
     }
+}
+
+void KCMKScreen::requestReboot()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.LogoutPrompt"),
+                                                      QStringLiteral("/LogoutPrompt"),
+                                                      QStringLiteral("org.kde.LogoutPrompt"),
+                                                      QStringLiteral("promptReboot"));
+    QDBusConnection::sessionBus().asyncCall(msg);
 }
 
 void KCMKScreen::setStopUpdatesFromBackend(bool value)

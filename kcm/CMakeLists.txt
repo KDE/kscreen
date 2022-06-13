@@ -26,6 +26,7 @@ add_library(kcm_kscreen MODULE ${kcm_kscreen_SRCS})
 kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC globalscalesettings.kcfgc)
 
 target_link_libraries(kcm_kscreen
+    Qt::DBus
     Qt::Sensors
     KF5::ConfigGui
     KF5::CoreAddons
