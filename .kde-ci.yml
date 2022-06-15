@@ -26,3 +26,4 @@ Dependencies:
 
 Options:
   json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
