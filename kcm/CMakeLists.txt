@@ -3,7 +3,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_kscreen\")
 set(kcm_kscreen_SRCS
     config_handler.cpp
     kcm.cpp
-    output_identifier.cpp
     output_model.cpp
     ${CMAKE_SOURCE_DIR}/common/utils.cpp
     ${CMAKE_SOURCE_DIR}/common/control.cpp

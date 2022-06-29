@@ -112,7 +112,6 @@ private:
     void configReady(KScreen::ConfigOperation *op);
     void continueNeedsSaveCheck(bool needs);
 
-    std::unique_ptr<OutputIdentifier> m_outputIdentifier;
     std::unique_ptr<ConfigHandler> m_configHandler;
     OrientationSensor *m_orientationSensor;
     bool m_backendReady = false;

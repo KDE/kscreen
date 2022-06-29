@@ -10,7 +10,6 @@
 #include "config_handler.h"
 #include "globalscalesettings.h"
 #include "kcm_screen_debug.h"
-#include "output_identifier.h"
 #include "output_model.h"
 
 #include <kscreen/config.h>
@@ -233,13 +232,11 @@ OutputModel *KCMKScreen::outputModel() const
 
 void KCMKScreen::identifyOutputs()
 {
-    if (!m_configHandler || !m_configHandler->initialConfig() || m_outputIdentifier) {
-        return;
-    }
-    m_outputIdentifier.reset(new OutputIdentifier(m_configHandler->initialConfig(), this));
-    connect(m_outputIdentifier.get(), &OutputIdentifier::identifiersFinished, this, [this]() {
-        m_outputIdentifier.reset();
-    });
+    const QString name = QStringLiteral("org.kde.KWin");
+    const QString interface = QStringLiteral("org.kde.KWin.Effect.OutputLocator1");
+    const QString path = QStringLiteral("/org/kde/KWin/Effect/OutputLocator1");
+    auto message = QDBusMessage::createMethodCall(name, path, interface, QStringLiteral("show"));
+    QDBusConnection::sessionBus().send(message);
 }
 
 QSize KCMKScreen::normalizeScreen() const
@@ -483,4 +480,3 @@ void KCMKScreen::setOutputRetention(int retention)
 }
 
 #include "kcm.moc"
-#include "moc_kcm.cpp"
