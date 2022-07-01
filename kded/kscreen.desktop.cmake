@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KScreen 2
 Name[ar]=شاشتك 2
+Name[bg]=KScreen 2
 Name[bs]=KScreen 2
 Name[ca]=KScreen 2
 Name[ca@valencia]=KScreen 2
@@ -49,6 +50,7 @@ Name[zh_CN]=KScreen 2
 Name[zh_TW]=KScreen 2
 Comment=Screen management
 Comment[ar]=إدارة الشّاشة
+Comment[bg]=Управление на настройки на екрана
 Comment[bs]=Upravljanje ekranom
 Comment[ca]=Gestió de la pantalla
 Comment[ca@valencia]=Gestió de la pantalla
