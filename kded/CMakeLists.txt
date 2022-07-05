@@ -6,9 +6,7 @@ set(kscreen_daemon_SRCS
     output.cpp
     generator.cpp
     device.cpp
-    osd.cpp
-    osdmanager.cpp
-    osdaction.cpp
+    ${CMAKE_SOURCE_DIR}/common/osdaction.cpp
     ${CMAKE_SOURCE_DIR}/common/globals.cpp
     ${CMAKE_SOURCE_DIR}/common/control.cpp
     ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp
@@ -20,6 +18,9 @@ ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.
 qt_add_dbus_interface(kscreen_daemon_SRCS
     org.freedesktop.DBus.Properties.xml
     freedesktop_interface)
+qt_add_dbus_interface(kscreen_daemon_SRCS
+    ../osd/org.kde.kscreen.osdService.xml
+    osdservice_interface)
 qt_add_dbus_adaptor(kscreen_daemon_SRCS
     org.kde.KScreen.xml
     daemon.h
@@ -57,9 +58,3 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
 kcoreaddons_desktop_to_json(kscreen ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop)
 
 install(TARGETS kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
-
-set(QML_FILES
-    qml/OsdSelector.qml
-)
-
-install(FILES ${QML_FILES} DESTINATION ${KDE_INSTALL_DATADIR}/kded_kscreen/qml)

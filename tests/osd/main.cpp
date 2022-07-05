@@ -1,30 +1,38 @@
 /*
     SPDX-FileCopyrightText: 2014-2016 Sebastian Kügler <sebas@kde.org>
+    SPDX-FileCopyrightText: 2022 David Redondo <kde@david-redondo.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "osdtest.h"
+#include "../../common/osdaction.h"
+#include "osdservice_interface.h"
 
-#include <QCommandLineParser>
-#include <QGuiApplication>
+#include <QCoreApplication>
+#include <QDBusConnection>
 
 int main(int argc, char **argv)
 {
-    QGuiApplication app(argc, argv);
+    QCoreApplication app(argc, argv);
 
-    QCommandLineOption dbus = QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("dbus"), QStringLiteral("Call over dbus"));
-    KScreen::OsdTest osdtest;
-    QCommandLineParser parser;
-    parser.addHelpOption();
-    parser.addOption(dbus);
-    parser.process(app);
+    const QString name = QStringLiteral("org.kde.kscreen.osdService");
+    const QString path = QStringLiteral("/org/kde/kscreen/osdService");
+    auto osdService = new OrgKdeKscreenOsdServiceInterface(name, path, QDBusConnection::sessionBus());
 
-    if (parser.isSet(dbus)) {
-        osdtest.setUseDBus(true);
+    QDBusReply<int> reply = osdService->showActionSelector();
+
+    if (!reply.isValid()) {
+        qDebug() << "Error calling osdService:";
+        qDebug() << reply.error();
+        return 1;
     }
 
-    osdtest.showActionSelector();
-
-    return app.exec();
+    auto actionEnum = QMetaEnum::fromType<KScreen::OsdAction::Action>();
+    const char *value = actionEnum.valueToKey(reply.value());
+    if (!value) {
+        qDebug() << "Got invalid action" << reply.value();
+        return 1;
+    }
+    qDebug() << "Selected Action" << value;
+    return 0;
 }

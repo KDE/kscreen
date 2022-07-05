@@ -6,8 +6,8 @@
 */
 
 #include "osdmanager.h"
-#include "kscreen_daemon_debug.h"
 #include "osd.h"
+#include "osdserviceadaptor.h"
 
 #include <KScreen/Config>
 #include <KScreen/EDID>
@@ -21,13 +21,12 @@
 
 namespace KScreen
 {
-
-
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
     , m_cleanupTimer(new QTimer(this))
 {
     qmlRegisterUncreatableType<KScreen::OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", QStringLiteral("Can't create OsdAction"));
+    new OsdServiceAdaptor(this);
 
     // free up memory when the osd hasn't been used for more than 1 minute
     m_cleanupTimer->setInterval(60000);
@@ -35,29 +34,30 @@ OsdManager::OsdManager(QObject *parent)
     connect(m_cleanupTimer, &QTimer::timeout, this, [this]() {
         hideOsd();
     });
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAdaptors);
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kscreen.osdService"));
-    if (!QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAllSlots)) {
-        qCWarning(KSCREEN_KDED) << "Failed to registerObject";
-    }
 }
 
 void OsdManager::hideOsd()
 {
     qDeleteAll(m_osds);
-    m_osds.clear();
+    qApp->quit();
 }
 
 OsdManager::~OsdManager()
 {
 }
 
-void OsdManager::showActionSelector()
+OsdAction::Action OsdManager::showActionSelector()
 {
+    setDelayedReply(true);
     hideOsd();
 
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this, message = message()](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
-            qCWarning(KSCREEN_KDED) << op->errorString();
+            qWarning() << op->errorString();
+            auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("Failed to get current output configuration"));
+            QDBusConnection::sessionBus().send(error);
             return;
         }
 
@@ -92,7 +92,8 @@ void OsdManager::showActionSelector()
         }
 
         if (!osdOutput) {
-            // huh!?
+            auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("No enabled output"));
+            QDBusConnection::sessionBus().send(error);
             return;
         }
 
@@ -102,17 +103,24 @@ void OsdManager::showActionSelector()
         } else {
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
-            connect(osd, &Osd::osdActionSelected, this, [this](OsdAction::Action action) {
+            connect(osd, &Osd::osdActionSelected, this, [this, message](OsdAction::Action action) {
                 for (auto osd : qAsConst(m_osds)) {
                     osd->hideOsd();
                 }
-                Q_EMIT selected(action);
+                auto reply = message.createReply(action);
+                QDBusConnection::sessionBus().send(reply);
+                hideOsd();
             });
         }
 
         osd->showActionSelector();
+        connect(m_cleanupTimer, &QTimer::timeout, this, [this, message] {
+            auto reply = message.createReply(OsdAction::NoAction);
+            QDBusConnection::sessionBus().send(reply);
+        });
         m_cleanupTimer->start();
     });
+    return OsdAction::NoAction;
 }
 
 }

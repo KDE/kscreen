@@ -15,7 +15,7 @@
 #include "generator.h"
 #include "kscreen_daemon_debug.h"
 #include "kscreenadaptor.h"
-#include "osdmanager.h"
+#include "osdservice_interface.h"
 
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
@@ -80,6 +80,7 @@ KScreenDaemon::KScreenDaemon(QObject *parent, const QList<QVariant> &)
     connect(m_orientationSensor, &OrientationSensor::valueChanged, this, &KScreenDaemon::updateOrientation);
 
     KScreen::Log::instance();
+    qMetaTypeId<KScreen::OsdAction>();
     QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
 }
 
@@ -116,9 +117,12 @@ void KScreenDaemon::init()
     connect(action, &QAction::triggered, this, &KScreenDaemon::displayButton);
 
     new KScreenAdaptor(this);
-    // Initialize OSD manager to register its dbus interface
-    m_osdManager = new KScreen::OsdManager(this);
-    connect(m_osdManager, &KScreen::OsdManager::selected, this, &KScreenDaemon::applyOsdAction);
+
+    const QString osdService = QStringLiteral("org.kde.kscreen.osdService");
+    const QString osdPath = QStringLiteral("/org/kde/kscreen/osdService");
+    m_osdServiceInterface = new OrgKdeKscreenOsdServiceInterface(osdService, osdPath, QDBusConnection::sessionBus(), this);
+    // Set a longer timeout to not assume timeout while the osd is still shown
+    m_osdServiceInterface->setTimeout(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::seconds(60)).count());
 
     m_changeCompressor->setInterval(10);
     m_changeCompressor->setSingleShot(true);
@@ -282,6 +286,20 @@ void KScreenDaemon::setAutoRotate(bool value)
     m_orientationSensor->setEnabled(value);
 }
 
+void KScreenDaemon::showOSD()
+{
+    auto call = m_osdServiceInterface->showActionSelector();
+    auto watcher = new QDBusPendingCallWatcher(call);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher] {
+        watcher->deleteLater();
+        QDBusReply<int> reply = *watcher;
+        if (!reply.isValid()) {
+            return;
+        }
+        applyOsdAction(static_cast<KScreen::OsdAction::Action>(reply.value()));
+    });
+}
+
 void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
 {
     switch (action) {
@@ -320,9 +338,9 @@ void KScreenDaemon::applyIdealConfig()
 
     if (showOsd) {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
-        m_osdManager->showActionSelector();
+        showOSD();
     } else {
-        m_osdManager->hideOsd();
+        m_osdServiceInterface->hideOsd();
     }
 }
 
@@ -537,8 +555,7 @@ void KScreenDaemon::saveCurrentConfig()
 void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
-
-    m_osdManager->showActionSelector();
+    showOSD();
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)

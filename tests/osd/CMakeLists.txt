@@ -2,21 +2,16 @@ include_directories(
     ${CMAKE_BINARY_DIR}/kded
 )
 
+qt_add_dbus_interface(OsdInterface ../../osd/org.kde.kscreen.osdService.xml osdservice_interface)
+
 add_executable(osdtest main.cpp
-                       osdtest.cpp
-                       ../../kded/osd.cpp
-                       ../../kded/osdmanager.cpp
-                       ../../kded/osdaction.cpp
-                       ../../common/utils.cpp
+                       ../../common/osdaction.cpp
+                       ${OsdInterface}
 )
 
 target_link_libraries(osdtest Qt::Core
                               Qt::DBus
-                              Qt::Quick
-                              Qt::Qml
-                              KF5::Screen
                               KF5::I18n
-                              KF5::Declarative
 )
 
 add_test(NAME kscreen-kded-osdtest COMMAND osdtest)

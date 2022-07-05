@@ -7,8 +7,6 @@
 
 #include "osd.h"
 
-#include "kscreen_daemon_debug.h"
-
 #include "../common/utils.h"
 
 #include <KScreen/Mode>
@@ -41,14 +39,14 @@ void Osd::showActionSelector()
     if (!m_osdActionSelector) {
         const QString osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/OsdSelector.qml"));
         if (osdPath.isEmpty()) {
-            qCWarning(KSCREEN_KDED) << "Failed to find action selector OSD QML file" << osdPath;
+            qWarning() << "Failed to find action selector OSD QML file" << osdPath;
             return;
         }
         m_osdActionSelector = new KDeclarative::QmlObjectSharedEngine(this);
         m_osdActionSelector->setSource(QUrl::fromLocalFile(osdPath));
 
         if (m_osdActionSelector->status() != QQmlComponent::Ready) {
-            qCWarning(KSCREEN_KDED) << "Failed to load OSD QML file" << osdPath;
+            qWarning() << "Failed to load OSD QML file" << osdPath;
             delete m_osdActionSelector;
             m_osdActionSelector = nullptr;
             return;
@@ -65,7 +63,7 @@ void Osd::showActionSelector()
         rootObject->setProperty("visible", true);
         rootObject->setProperty("actions", QVariant::fromValue(OsdAction::availableActions()));
     } else {
-        qCWarning(KSCREEN_KDED) << "Could not get root object for action selector.";
+        qWarning() << "Could not get root object for action selector.";
     }
 }
 

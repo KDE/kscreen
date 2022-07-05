@@ -7,12 +7,13 @@
 #ifndef OSDM_H
 #define OSDM_H
 
+#include <QDBusContext>
 #include <QMap>
 #include <QObject>
 #include <QString>
 #include <QTimer>
 
-#include "osdaction.h"
+#include "../common/osdaction.h"
 
 namespace KScreen
 {
@@ -20,10 +21,9 @@ class ConfigOperation;
 class Osd;
 class Output;
 
-class OsdManager : public QObject
+class OsdManager : public QObject, public QDBusContext
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kscreen.osdService")
 
 public:
     OsdManager(QObject *parent = nullptr);
@@ -31,9 +31,7 @@ public:
 
 public Q_SLOTS:
     void hideOsd();
-    void showActionSelector();
-Q_SIGNALS:
-    void selected(OsdAction::Action action);
+    OsdAction::Action showActionSelector();
 
 private:
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);

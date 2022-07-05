@@ -8,8 +8,8 @@
 #define KSCREEN_DAEMON_H
 
 #include "../common/globals.h"
+#include "../common/osdaction.h"
 #include "config-X11.h"
-#include "osdaction.h"
 
 #include <kscreen/config.h>
 
@@ -21,6 +21,7 @@
 
 class Config;
 class OrientationSensor;
+class OrgKdeKscreenOsdServiceInterface;
 
 namespace KScreen
 {
@@ -67,6 +68,7 @@ private:
     void setMonitorForChanges(bool enabled);
 
     void outputConnectedChanged();
+    void showOSD();
     void applyOsdAction(KScreen::OsdAction::Action action);
 
     void doApplyConfig(const KScreen::ConfigPtr &config);
@@ -84,8 +86,9 @@ private:
     QTimer *m_changeCompressor;
     QTimer *m_saveTimer;
     QTimer *m_lidClosedTimer;
-    KScreen::OsdManager *m_osdManager;
+    OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface;
     OrientationSensor *m_orientationSensor;
+
     bool m_startingUp = true;
 };
 
