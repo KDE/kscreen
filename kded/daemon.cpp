@@ -118,6 +118,7 @@ void KScreenDaemon::init()
     new KScreenAdaptor(this);
     // Initialize OSD manager to register its dbus interface
     m_osdManager = new KScreen::OsdManager(this);
+    connect(m_osdManager, &KScreen::OsdManager::selected, this, &KScreenDaemon::applyOsdAction);
 
     m_changeCompressor->setInterval(10);
     m_changeCompressor->setSingleShot(true);
@@ -319,8 +320,7 @@ void KScreenDaemon::applyIdealConfig()
 
     if (showOsd) {
         qCDebug(KSCREEN_KDED) << "Getting ideal config from user via OSD...";
-        auto action = m_osdManager->showActionSelector();
-        connect(action, &KScreen::OsdAction::selected, this, &KScreenDaemon::applyOsdAction);
+        m_osdManager->showActionSelector();
     } else {
         m_osdManager->hideOsd();
     }
@@ -538,8 +538,7 @@ void KScreenDaemon::displayButton()
 {
     qCDebug(KSCREEN_KDED) << "displayBtn triggered";
 
-    auto action = m_osdManager->showActionSelector();
-    connect(action, &KScreen::OsdAction::selected, this, &KScreenDaemon::applyOsdAction);
+    m_osdManager->showActionSelector();
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)

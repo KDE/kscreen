@@ -20,6 +20,7 @@ PlasmaCore.Dialog {
     type: PlasmaCore.Dialog.Normal
     property string infoText
     property var screenGeometry
+    property var actions
 
     onScreenGeometryChanged: {
         root.x = screenGeometry.x + (screenGeometry.width - mainItem.width) / 2
@@ -33,17 +34,13 @@ PlasmaCore.Dialog {
             Repeater {
                 id: actionRepeater
                 property int currentIndex: 0
-                model: OsdAction.actionOrder().map(layout => ({
-                    iconSource: OsdAction.actionIconName(layout),
-                    label: OsdAction.actionLabel(layout),
-                    action: layout,
-                }))
+                model: root.actions
                 delegate: PlasmaComponents.Button {
                     property int actionId: modelData.action
 
                     Accessible.name: modelData.label
 
-                    icon.name: modelData.iconSource
+                    icon.name: modelData.iconName
                     icon.height: PlasmaCore.Units.gridUnit * 8
                     icon.width: PlasmaCore.Units.gridUnit * 8
 

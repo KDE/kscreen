@@ -27,16 +27,6 @@ Item {
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
     property int presentationModeCookie: -1
 
-    readonly property var screenLayouts:
-        OsdAction.actionOrder()
-            // We don't want the "No action" item in the plasmoid
-            .filter(layout => layout !== OsdAction.NoAction)
-            .map(layout => ({
-                iconName: OsdAction.actionIconName(layout),
-                label: OsdAction.actionLabel(layout),
-                action: layout,
-            }))
-
     function action_configure() {
         KCMShell.openSystemSettings(kcmName);
     }
@@ -86,7 +76,7 @@ Item {
         ScreenLayoutSelection {
             Layout.leftMargin: PlasmaCore.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: root.screenLayouts
+            screenLayouts: Plasmoid.nativeInterface.availableActions()
         }
 
         PresentationModeItem {

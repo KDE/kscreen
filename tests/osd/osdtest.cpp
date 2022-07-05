@@ -44,8 +44,8 @@ void OsdTest::setUseDBus(bool yesno)
 void OsdTest::showActionSelector()
 {
     if (!m_useDBus) {
-        auto action = getOsdManager()->showActionSelector();
-        connect(action, &KScreen::OsdAction::selected, [](KScreen::OsdAction::Action action) {
+        getOsdManager()->showActionSelector();
+        connect(getOsdManager(), &KScreen::OsdManager::selected, [](KScreen::OsdAction::Action action) {
             qCDebug(KSCREEN_KDED) << "Selected action:" << action;
             qApp->quit();
         });

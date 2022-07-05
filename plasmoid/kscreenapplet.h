@@ -11,6 +11,8 @@
 
 #include <KScreen/Types>
 
+#include "../kded/osdaction.h"
+
 class KScreenApplet : public Plasma::Applet
 {
     Q_OBJECT
@@ -38,6 +40,8 @@ public:
     int connectedOutputCount() const;
 
     Q_INVOKABLE void applyLayoutPreset(KScreenApplet::Action action);
+
+    Q_INVOKABLE QVariant availableActions();
 
 Q_SIGNALS:
     void connectedOutputCountChanged();

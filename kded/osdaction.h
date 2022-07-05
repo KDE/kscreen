@@ -4,6 +4,9 @@
     Work sponsored by the LiMux project of the city of Munich:
     SPDX-FileCopyrightText: 2018 Kai Uwe Broulik <kde@broulik.de>
 
+    SPDX-FileCopyrightText: 2022 David Redondo <kde@david-redondo.de>
+
+
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
@@ -15,9 +18,11 @@
 
 namespace KScreen
 {
-class OsdAction : public QObject
-{
-    Q_OBJECT
+struct OsdAction {
+    Q_GADGET
+    Q_PROPERTY(QString label MEMBER label CONSTANT)
+    Q_PROPERTY(QString iconName MEMBER iconName CONSTANT)
+    Q_PROPERTY(Action action MEMBER action CONSTANT)
 public:
     enum Action {
         NoAction,
@@ -29,14 +34,11 @@ public:
     };
     Q_ENUM(Action)
 
-    explicit OsdAction(QObject *parent = nullptr);
+    Action action;
+    QString label;
+    QString iconName;
 
-    Q_INVOKABLE QVector<int> actionOrder() const;
-    Q_INVOKABLE QString actionLabel(KScreen::OsdAction::Action action) const;
-    Q_INVOKABLE QString actionIconName(KScreen::OsdAction::Action action) const;
-
-Q_SIGNALS:
-    void selected(KScreen::OsdAction::Action action);
+    static QVector<OsdAction> availableActions();
 };
 
 } // namespace KScreen

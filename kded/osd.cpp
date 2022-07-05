@@ -63,6 +63,7 @@ void Osd::showActionSelector()
             rootObject->setProperty("screenGeometry", m_output->geometry());
         }
         rootObject->setProperty("visible", true);
+        rootObject->setProperty("actions", QVariant::fromValue(OsdAction::availableActions()));
     } else {
         qCWarning(KSCREEN_KDED) << "Could not get root object for action selector.";
     }

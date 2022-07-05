@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2016 Sebastian Kügler <sebas@kde.org>
+    SPDX-FileCopyrightText: 2022 David Redondo <kde@david-redondo.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -14,36 +15,19 @@
 #include <KScreen/Output>
 
 #include <QDBusConnection>
+#include <QDBusMessage>
 
 #include <QQmlEngine>
 
 namespace KScreen
 {
-class OsdActionImpl : public OsdAction
-{
-    Q_OBJECT
-public:
-    OsdActionImpl(QObject *parent = nullptr)
-        : OsdAction(parent)
-    {
-    }
 
-    void setOsd(Osd *osd)
-    {
-        connect(osd, &Osd::osdActionSelected, this, [this](Action action) {
-            Q_EMIT selected(action);
-            deleteLater();
-        });
-    }
-};
 
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
     , m_cleanupTimer(new QTimer(this))
 {
-    qmlRegisterSingletonType<KScreen::OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", [](QQmlEngine *, QJSEngine *) -> QObject * {
-        return new KScreen::OsdAction();
-    });
+    qmlRegisterUncreatableType<KScreen::OsdAction>("org.kde.KScreen", 1, 0, "OsdAction", QStringLiteral("Can't create OsdAction"));
 
     // free up memory when the osd hasn't been used for more than 1 minute
     m_cleanupTimer->setInterval(60000);
@@ -67,17 +51,11 @@ OsdManager::~OsdManager()
 {
 }
 
-OsdAction *OsdManager::showActionSelector()
+void OsdManager::showActionSelector()
 {
     hideOsd();
 
-    OsdActionImpl *action = new OsdActionImpl(this);
-    connect(action, &OsdActionImpl::selected, this, [this]() {
-        for (auto osd : qAsConst(m_osds)) {
-            osd->hideOsd();
-        }
-    });
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this, action](const KScreen::ConfigOperation *op) {
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
             qCWarning(KSCREEN_KDED) << op->errorString();
             return;
@@ -124,15 +102,17 @@ OsdAction *OsdManager::showActionSelector()
         } else {
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
+            connect(osd, &Osd::osdActionSelected, this, [this](OsdAction::Action action) {
+                for (auto osd : qAsConst(m_osds)) {
+                    osd->hideOsd();
+                }
+                Q_EMIT selected(action);
+            });
         }
-        action->setOsd(osd);
+
         osd->showActionSelector();
         m_cleanupTimer->start();
     });
-
-    return action;
 }
 
 }
-
-#include "osdmanager.moc"

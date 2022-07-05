@@ -31,7 +31,9 @@ public:
 
 public Q_SLOTS:
     void hideOsd();
-    KScreen::OsdAction *showActionSelector();
+    void showActionSelector();
+Q_SIGNALS:
+    void selected(OsdAction::Action action);
 
 private:
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);

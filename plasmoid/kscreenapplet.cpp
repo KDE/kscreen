@@ -18,8 +18,6 @@
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
 
-#include "../kded/osdaction.h"
-
 #include <algorithm>
 
 KScreenApplet::KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
@@ -31,10 +29,7 @@ KScreenApplet::~KScreenApplet() = default;
 
 void KScreenApplet::init()
 {
-    qmlRegisterSingletonType<KScreen::OsdAction>("org.kde.private.kscreen", 1, 0, "OsdAction", [](QQmlEngine *, QJSEngine *) -> QObject * {
-        return new KScreen::OsdAction();
-    });
-
+    qmlRegisterUncreatableType<KScreen::OsdAction>("org.kde.private.kscreen", 1, 0, "OsdAction", QStringLiteral("Can't create OsdAction"));
     connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID),
             &KScreen::ConfigOperation::finished,
             this,
@@ -89,6 +84,12 @@ void KScreenApplet::checkOutputs()
     if (m_connectedOutputCount != oldConnectedOutputCount) {
         emit connectedOutputCountChanged();
     }
+}
+
+QVariant KScreenApplet::availableActions()
+{
+    // Need to wrap it in a QVariant, otherwise QML doesn't like the return type
+    return QVariant::fromValue(KScreen::OsdAction::availableActions());
 }
 
 K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "metadata.json")
