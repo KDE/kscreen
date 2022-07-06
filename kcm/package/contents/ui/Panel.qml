@@ -8,6 +8,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kirigami 2.4 as Kirigami
+
+import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
@@ -126,45 +128,35 @@ ColumnLayout {
             onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)
         }
 
-        Controls.RadioButton {
+        RowLayout {
             Kirigami.FormData.label: i18n("Legacy Applications (X11):")
-            visible: kcm.xwaylandClientsScaleSupported
-            text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
-            checked: !kcm.xwaylandClientsScale
-            Controls.ButtonGroup.group: x11AppsScaling
+            spacing: Kirigami.Units.smallSpacing
+
+            Controls.RadioButton {
+                Kirigami.FormData.label: i18n("Legacy Applications (X11):")
+                visible: kcm.xwaylandClientsScaleSupported
+                text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
+                checked: !kcm.xwaylandClientsScale
+                Controls.ButtonGroup.group: x11AppsScaling
+            }
+            KCM.ContextualHelpButton {
+                toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
+            }
         }
 
-        Controls.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
-            visible: kcm.xwaylandClientsScaleSupported
-            text: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
-            elide: Text.ElideRight
-            font: Kirigami.Theme.smallFont
-            wrapMode: Text.Wrap
-        }
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
 
-        Item {
-            Kirigami.FormData.isSection: false
-            visible: kcm.xwaylandClientsScaleSupported
-        }
-
-        Controls.RadioButton {
-            id: x11ScalingApps
-            visible: kcm.xwaylandClientsScaleSupported
-            text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
-            checked: kcm.xwaylandClientsScale
-            Controls.ButtonGroup.group: x11AppsScaling
-        }
-
-        Controls.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
-            visible: kcm.xwaylandClientsScaleSupported
-            text: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
-            elide: Text.ElideRight
-            font: Kirigami.Theme.smallFont
-            wrapMode: Text.Wrap
+            Controls.RadioButton {
+                id: x11ScalingApps
+                visible: kcm.xwaylandClientsScaleSupported
+                text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
+                checked: kcm.xwaylandClientsScale
+                Controls.ButtonGroup.group: x11AppsScaling
+            }
+            KCM.ContextualHelpButton {
+                toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
+            }
         }
 
         Item {
