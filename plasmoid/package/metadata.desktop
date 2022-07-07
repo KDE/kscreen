@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Display Configuration
 Name[ar]=ضبط العرض
+Name[az]=Ekran tənzimləməsi
 Name[bg]=Конфигурация на екрана
 Name[bs]=Konfiguracija ekrana
 Name[ca]=Configuració de la pantalla
@@ -46,6 +47,7 @@ Name[zh_CN]=显示器配置
 Name[zh_TW]=顯示設定
 Comment=Quickly switch between screen layouts and presentation mode
 Comment[ar]=تبديل بسرعة بين تخطيطات الشاشة ووضع العرض
+Comment[az]=Ekran komponentləri və təqdimat rejimləri arasında sürətli keçid
 Comment[bg]=Бързо превключване между оформления на екрана и режим на презентация
 Comment[ca]=Canvia ràpidament les disposicions de la pantalla i el mode de presentació
 Comment[ca@valencia]=Canvia ràpidament les disposicions de la pantalla i el mode de presentació
