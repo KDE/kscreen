@@ -9,10 +9,13 @@
 #define KSCREEN_OSD_H
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QRect>
 #include <QString>
 
 #include <KScreen/Output>
+
+#include <memory>
 
 #include "osdmanager.h"
 
@@ -20,6 +23,8 @@ namespace KDeclarative
 {
 class QmlObject;
 }
+
+class QQuickView;
 
 class QTimer;
 
@@ -49,8 +54,8 @@ private:
     bool initOsd();
 
     KScreen::OutputPtr m_output;
-    QRect m_outputGeometry;
-    KDeclarative::QmlObject *m_osdActionSelector = nullptr;
+    QQmlEngine m_engine;
+    std::unique_ptr<QQuickView> m_osdActionSelector;
     QTimer *m_osdTimer = nullptr;
     int m_timeout = 0;
 };

@@ -4,8 +4,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-import QtQuick 2.5
-import QtQuick.Window 2.2
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.10
 
 import org.kde.plasma.core 2.0 as PlasmaCore
@@ -14,22 +14,19 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 
 import org.kde.KScreen 1.0
 
-PlasmaCore.Dialog {
+
+Control {
     id: root
-    location: PlasmaCore.Types.Floating
-    type: PlasmaCore.Dialog.Normal
     property string infoText
-    property var screenGeometry
     property var actions
-
-    onScreenGeometryChanged: {
-        root.x = screenGeometry.x + (screenGeometry.width - mainItem.width) / 2
-        root.y = screenGeometry.y + (screenGeometry.height - mainItem.height) / 2
-    }
-
     signal clicked(int actionId)
 
-    mainItem: ColumnLayout {
+    leftPadding: shadow.margins.left + background.margins.left
+    rightPadding: shadow.margins.right + background.margins.right
+    topPadding: shadow.margins.top + background.margins.top
+    bottomPadding: shadow.margins.bottom + background.margins.bottom
+
+    contentItem : ColumnLayout {
         RowLayout {
             Repeater {
                 id: actionRepeater
@@ -116,6 +113,22 @@ PlasmaCore.Dialog {
                     clicked(OsdAction.NoAction)
                     break
             }
+        }
+    }
+
+      background: PlasmaCore.FrameSvgItem {
+        id: shadow
+        imagePath: "dialogs/background"
+        prefix: "shadow"
+
+        PlasmaCore.FrameSvgItem {
+            id: background
+            anchors.leftMargin: shadow.margins.left
+            anchors.rightMargin: shadow.margins.right
+            anchors.topMargin: shadow.margins.top
+            anchors.bottomMargin: shadow.margins.bottom
+            anchors.fill: parent
+            imagePath: "solid/dialogs/background"
         }
     }
 }

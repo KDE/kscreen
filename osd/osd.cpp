@@ -11,13 +11,18 @@
 
 #include <KScreen/Mode>
 
+#include <LayerShellQt/Window>
+
+#include <KWindowSystem>
+
 #include <QCursor>
 #include <QGuiApplication>
+#include <QQuickItem>
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
 
-#include <KDeclarative/QmlObjectSharedEngine>
+#include <QQuickView>
 
 using namespace KScreen;
 
@@ -42,29 +47,35 @@ void Osd::showActionSelector()
             qWarning() << "Failed to find action selector OSD QML file" << osdPath;
             return;
         }
-        m_osdActionSelector = new KDeclarative::QmlObjectSharedEngine(this);
+        m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
+        m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}});
         m_osdActionSelector->setSource(QUrl::fromLocalFile(osdPath));
+        m_osdActionSelector->setColor(Qt::transparent);
+        m_osdActionSelector->setFlag(Qt::FramelessWindowHint);
 
-        if (m_osdActionSelector->status() != QQmlComponent::Ready) {
+        if (m_osdActionSelector->status() != QQuickView::Ready) {
             qWarning() << "Failed to load OSD QML file" << osdPath;
-            delete m_osdActionSelector;
-            m_osdActionSelector = nullptr;
+            m_osdActionSelector.reset();
             return;
         }
 
-        auto *rootObject = m_osdActionSelector->rootObject();
+        auto rootObject = m_osdActionSelector->rootObject();
         connect(rootObject, SIGNAL(clicked(int)), this, SLOT(onOsdActionSelected(int)));
     }
-    if (auto *rootObject = m_osdActionSelector->rootObject()) {
-        // On wayland, we use m_output to set an action on OSD position
-        if (qGuiApp->platformName() == QLatin1String("wayland")) {
-            rootObject->setProperty("screenGeometry", m_output->geometry());
-        }
-        rootObject->setProperty("visible", true);
-        rootObject->setProperty("actions", QVariant::fromValue(OsdAction::availableActions()));
+
+    if (KWindowSystem::isPlatformWayland()) {
+        auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
+        layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
+        layerWindow->setAnchors({});
+        layerWindow->setDesiredOutput(qGuiApp->screenAt(m_output->pos()));
     } else {
-        qWarning() << "Could not get root object for action selector.";
+        auto newGeometry = m_osdActionSelector->geometry();
+        newGeometry.moveCenter(m_output->geometry().center());
+        m_osdActionSelector->setGeometry(newGeometry);
+        KWindowSystem::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
+        m_osdActionSelector->requestActivate();
     }
+    m_osdActionSelector->setVisible(true);
 }
 
 void Osd::onOsdActionSelected(int action)
@@ -83,8 +94,6 @@ void Osd::onOutputAvailabilityChanged()
 void Osd::hideOsd()
 {
     if (m_osdActionSelector) {
-        if (auto *rootObject = m_osdActionSelector->rootObject()) {
-            rootObject->setProperty("visible", false);
-        }
+        m_osdActionSelector->setVisible(false);
     }
 }

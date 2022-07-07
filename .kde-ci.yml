@@ -22,3 +22,4 @@ Dependencies:
     'frameworks/plasma-framework': '@latest'
     'frameworks/kcmutils': '@latest'
     'plasma/libkscreen': '@same'
+    'plasma/layer-shell-qt': '@same'

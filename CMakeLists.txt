@@ -54,6 +54,15 @@ set_package_properties(X11 PROPERTIES
     TYPE REQUIRED
 )
 
+
+find_package(LayerShellQt)
+set_package_properties(LayerShellQt PROPERTIES
+    DESCRIPTION "Layer shell Qt bindings"
+    URL "https://invent.kde.org/plasma/layer-shell-qt"
+    PURPOSE "Required for the screen selection osd"
+    TYPE REQUIRED
+)
+
 if(X11_FOUND)
   set(HAVE_X11 1)
   find_package(X11_XCB REQUIRED)

@@ -3,7 +3,14 @@ add_executable(kscreen_osd_service main.cpp osdmanager.cpp osd.cpp ../common/osd
 qt_add_dbus_adaptor(DBUS_SRC org.kde.kscreen.osdService.xml osdmanager.h KScreen::OsdManager)
 target_sources(kscreen_osd_service PRIVATE ${DBUS_SRC})
 
-target_link_libraries(kscreen_osd_service PRIVATE Qt::DBus KF5::Declarative KF5::I18n KF5::Screen)
+target_link_libraries(kscreen_osd_service PRIVATE
+    Qt::DBus
+    Qt::Quick
+    KF5::I18n
+    KF5::WindowSystem
+    KF5::Screen
+    LayerShellQt::Interface
+)
 
 set(QML_FILES
     qml/OsdSelector.qml
