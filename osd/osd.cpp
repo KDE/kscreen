@@ -42,19 +42,14 @@ Osd::~Osd()
 void Osd::showActionSelector()
 {
     if (!m_osdActionSelector) {
-        const QString osdPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::GenericDataLocation, QStringLiteral("kded_kscreen/qml/OsdSelector.qml"));
-        if (osdPath.isEmpty()) {
-            qWarning() << "Failed to find action selector OSD QML file" << osdPath;
-            return;
-        }
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
         m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}});
-        m_osdActionSelector->setSource(QUrl::fromLocalFile(osdPath));
+        m_osdActionSelector->setSource(QStringLiteral("qrc:/qml/OsdSelector.qml"));
         m_osdActionSelector->setColor(Qt::transparent);
         m_osdActionSelector->setFlag(Qt::FramelessWindowHint);
 
         if (m_osdActionSelector->status() != QQuickView::Ready) {
-            qWarning() << "Failed to load OSD QML file" << osdPath;
+            qWarning() << "Failed to load OSD QML file";
             m_osdActionSelector.reset();
             return;
         }

@@ -1,4 +1,4 @@
-add_executable(kscreen_osd_service main.cpp osdmanager.cpp osd.cpp ../common/osdaction.cpp)
+add_executable(kscreen_osd_service main.cpp osdmanager.cpp osd.cpp ../common/osdaction.cpp qml.qrc)
 
 qt_add_dbus_adaptor(DBUS_SRC org.kde.kscreen.osdService.xml osdmanager.h KScreen::OsdManager)
 target_sources(kscreen_osd_service PRIVATE ${DBUS_SRC})
