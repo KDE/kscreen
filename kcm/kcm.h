@@ -35,6 +35,11 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
 
+    /**
+     * Option to enable Qt scaling on X11
+     */
+    Q_PROPERTY(bool x11UseQtScaling READ x11UseQtScaling WRITE setX11UseQtScaling NOTIFY x11UseQtScalingChanged)
+
 public:
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCMKScreen() override = default;
@@ -64,6 +69,9 @@ public:
     bool xwaylandClientsScale() const;
     void setXwaylandClientsScale(bool scale);
     bool xwaylandClientsScaleSupported() const;
+
+    bool x11UseQtScaling() const;
+    void setX11UseQtScaling(bool enabled);
 
     int outputRetention() const;
     void setOutputRetention(int retention);
@@ -102,6 +110,8 @@ Q_SIGNALS:
     void showRevertWarning();
     void xwaylandClientsScaleChanged();
     void xwaylandClientsScaleSupportedChanged();
+    void x11UseQtScalingChanged();
+    void x11UseQtScalingWritten();
 
 private:
     void setBackendReady(bool error);
@@ -120,6 +130,8 @@ private:
     bool m_settingsReverted = false;
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
+
+    bool m_x11UseQtScaling = false;
 
     QTimer *m_loadCompressor;
 };

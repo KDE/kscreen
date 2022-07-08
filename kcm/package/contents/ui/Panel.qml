@@ -123,6 +123,22 @@ ColumnLayout {
             }
         }
 
+        Row {
+            visible: !kcm.perOutputScaling
+
+            Controls.CheckBox {
+                id: x11UseQtScalingCheckBox
+                text: i18nc("@option:check", "Use Qt scaling for Plasma")
+                checked: kcm.x11UseQtScaling
+                onToggled: kcm.x11UseQtScaling = checked
+            }
+
+            KCM.ContextualHelpButton {
+                anchors.verticalCenter: x11UseQtScalingCheckBox.verticalCenter
+                toolTipText: xi18nc("@info:tooltip", "This makes Plasma use the same type of scaling that is applied to Applications. It results in the relative proportions between items being preserved, at the cost of sometimes making small monochrome icons look blurry.<nl/><nl/>Checking this checkbox does the same thing as setting <envar>PLASMA_USE_QT_SCALING=1</envar> in the environment.")
+            }
+        }
+
         Controls.ButtonGroup {
             id: x11AppsScaling
             onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)

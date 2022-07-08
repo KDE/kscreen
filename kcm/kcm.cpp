@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
+#include <KWindowSystem>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -81,6 +82,14 @@ void KCMKScreen::configReady(ConfigOperation *op)
     Q_EMIT outputReplicationSupportedChanged();
     Q_EMIT tabletModeAvailableChanged();
     Q_EMIT autoRotationSupportedChanged();
+
+    // Qt scaling on X11
+    if (KWindowSystem::isPlatformX11()) {
+        KSharedConfigPtr plasmaConfig = KSharedConfig::openConfig(QStringLiteral("plasmarc"), KConfig::SimpleConfig);
+        KConfigGroup plasmaConfigGeneralConfigGroup(plasmaConfig, "General");
+        m_x11UseQtScaling = plasmaConfigGeneralConfigGroup.readEntry("x11UseQtScaling", false);
+        Q_EMIT x11UseQtScalingChanged();
+    }
 }
 
 void KCMKScreen::forceSave()
@@ -136,6 +145,16 @@ void KCMKScreen::doSave(bool force)
     if (!m_configHandler) {
         Q_EMIT errorOnSave();
         return;
+    }
+
+    // Qt scaling
+    if (KWindowSystem::isPlatformX11()) {
+        KSharedConfigPtr plasmaConfig = KSharedConfig::openConfig(QStringLiteral("plasmarc"), KConfig::SimpleConfig);
+        KConfigGroup plasmaConfigGeneralConfigGroup(plasmaConfig, "General");
+        if (plasmaConfigGeneralConfigGroup.readEntry("x11UseQtScaling", false) != m_x11UseQtScaling) {
+            plasmaConfigGeneralConfigGroup.writeEntry("x11UseQtScaling", m_x11UseQtScaling);
+            Q_EMIT x11UseQtScalingWritten();
+        }
     }
 
     auto config = m_configHandler->config();
@@ -464,6 +483,23 @@ bool KCMKScreen::xwaylandClientsScaleSupported() const
         return false;
     }
     return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
+}
+
+bool KCMKScreen::x11UseQtScaling() const
+{
+    return m_x11UseQtScaling;
+}
+
+void KCMKScreen::setX11UseQtScaling(bool enabled)
+{
+    if (m_x11UseQtScaling == enabled) {
+        return;
+    }
+
+    m_x11UseQtScaling = enabled;
+    Q_EMIT x11UseQtScalingChanged();
+    continueNeedsSaveCheck(true);
+    Q_EMIT changed();
 }
 
 int KCMKScreen::outputRetention() const

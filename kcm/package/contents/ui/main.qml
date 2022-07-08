@@ -173,6 +173,9 @@ KCM.SimpleKCM {
             function onGlobalScaleWritten() {
                 scaleMsg.visible = true;
             }
+            function onX11UseQtScalingWritten() {
+                scaleMsg.visible = true;
+            }
             function onOutputConnect(connected) {
                 if (connected) {
                     connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
