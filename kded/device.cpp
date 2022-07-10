@@ -31,7 +31,6 @@ Device::Device(QObject *parent)
     , m_isReady(false)
     , m_isLaptop(false)
     , m_isLidClosed(false)
-    , m_isDocked(false)
 {
     m_freedesktop = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.freedesktop.UPower"),
                                                               QStringLiteral("/org/freedesktop/UPower"),
@@ -100,11 +99,6 @@ bool Device::isLidClosed() const
     return m_isLidClosed;
 }
 
-bool Device::isDocked() const
-{
-    return m_isDocked;
-}
-
 void Device::fetchIsLaptop()
 {
     QDBusPendingReply<QVariant> res = m_freedesktop->Get(QStringLiteral("org.freedesktop.UPower"), QStringLiteral("LidIsPresent"));
@@ -155,10 +149,5 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher *watcher)
     }
     watcher->deleteLater();
 
-    fetchIsDocked();
-}
-
-void Device::fetchIsDocked()
-{
     setReady();
 }

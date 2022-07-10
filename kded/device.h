@@ -23,7 +23,6 @@ public:
     bool isReady() const;
     bool isLaptop() const;
     bool isLidClosed() const;
-    bool isDocked() const;
 
 private Q_SLOTS:
     void changed();
@@ -43,12 +42,10 @@ private:
     void setReady();
     void fetchIsLaptop();
     void fetchLidIsClosed();
-    void fetchIsDocked();
 
     bool m_isReady;
     bool m_isLaptop;
     bool m_isLidClosed;
-    bool m_isDocked;
 
     static Device *m_instance;
 

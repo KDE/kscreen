@@ -609,11 +609,7 @@ bool Generator::isLidClosed() const
 
 bool Generator::isDocked() const
 {
-    if (m_forceDocked) {
-        return true;
-    }
-
-    return Device::self()->isDocked();
+    return m_forceDocked;
 }
 
 void Generator::setForceLaptop(bool force)
