@@ -129,12 +129,13 @@ ColumnLayout {
         }
 
         RowLayout {
+            visible: kcm.xwaylandClientsScaleSupported
+
             Kirigami.FormData.label: i18n("Legacy Applications (X11):")
             spacing: Kirigami.Units.smallSpacing
 
             Controls.RadioButton {
                 Kirigami.FormData.label: i18n("Legacy Applications (X11):")
-                visible: kcm.xwaylandClientsScaleSupported
                 text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
                 checked: !kcm.xwaylandClientsScale
                 Controls.ButtonGroup.group: x11AppsScaling
@@ -145,11 +146,12 @@ ColumnLayout {
         }
 
         RowLayout {
+            visible: kcm.xwaylandClientsScaleSupported
+
             spacing: Kirigami.Units.smallSpacing
 
             Controls.RadioButton {
                 id: x11ScalingApps
-                visible: kcm.xwaylandClientsScaleSupported
                 text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
                 checked: kcm.xwaylandClientsScale
                 Controls.ButtonGroup.group: x11AppsScaling
