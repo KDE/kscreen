@@ -22,8 +22,9 @@ install(TARGETS kscreen_osd_service DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 ecm_generate_dbus_service_file(
     NAME org.kde.kscreen.osdService
-    EXECUTABLE ${KDE_INSTALL_FULL_LIBEXECDIR}
+    EXECUTABLE ${KDE_INSTALL_FULL_LIBEXECDIR}/kscreen_osd_service
     DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+    SYSTEMD_SERVICE plasma-kscreen-osd.service
 )
 
 ecm_install_configured_files(INPUT plasma-kscreen-osd.service @ONLY
