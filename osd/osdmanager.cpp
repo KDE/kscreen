@@ -32,13 +32,18 @@ OsdManager::OsdManager(QObject *parent)
     m_cleanupTimer->setInterval(60000);
     m_cleanupTimer->setSingleShot(true);
     connect(m_cleanupTimer, &QTimer::timeout, this, [this]() {
-        hideOsd();
+        quit();
     });
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/kscreen/osdService"), this, QDBusConnection::ExportAdaptors);
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kscreen.osdService"));
 }
 
 void OsdManager::hideOsd()
+{
+    quit();
+}
+
+void OsdManager::quit()
 {
     qDeleteAll(m_osds);
     qApp->quit();
@@ -51,7 +56,6 @@ OsdManager::~OsdManager()
 OsdAction::Action OsdManager::showActionSelector()
 {
     setDelayedReply(true);
-    hideOsd();
 
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this, message = message()](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
@@ -109,7 +113,7 @@ OsdAction::Action OsdManager::showActionSelector()
                 }
                 auto reply = message.createReply(action);
                 QDBusConnection::sessionBus().send(reply);
-                hideOsd();
+                quit();
             });
         }
 
