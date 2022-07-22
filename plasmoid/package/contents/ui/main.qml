@@ -76,7 +76,7 @@ Item {
         ScreenLayoutSelection {
             Layout.leftMargin: PlasmaCore.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: Plasmoid.nativeInterface.availableActions()
+            screenLayouts: Plasmoid.nativeInterface.availableActions().filter(action => action.action !== OsdAction.NoAction)
         }
 
         PresentationModeItem {
