@@ -40,24 +40,20 @@ Item {
     width: model.size ? model.size.width / screen.relativeFactor : 1
     height: model.size ? model.size.height / screen.relativeFactor : 1
 
-    SystemPalette {
-        id: palette
-    }
-
     Rectangle {
         id: outline
-        radius: 4
-        color: palette.window
+        radius: Kirigami.Units.smallSpacing
+        color: Kirigami.Theme.alternateBackgroundColor
 
         anchors.fill: parent
 
         border {
-            color: isSelected ? palette.highlight : palette.shadow
+            color: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
             width: 1
 
             Behavior on color {
                 PropertyAnimation {
-                    duration: 150
+                    duration: Kirigami.Units.longDuration
                 }
             }
         }
@@ -109,7 +105,7 @@ Item {
                  (tapHandler.isLongPressed || dragHandler.active) ? 0.9 : 0.0
 
 
-        color: palette.shadow
+        color: Kirigami.Theme.disabledTextColor
 
         Text {
             id: posLabelText
@@ -123,7 +119,7 @@ Item {
 
         Behavior on opacity {
             PropertyAnimation {
-                duration: 100;
+                duration: Kirigami.Units.longDuration
             }
         }
     }
@@ -173,12 +169,12 @@ Item {
             }
 
             height: 10
-            color: isSelected ? palette.highlight : palette.shadow
+            color: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
             smooth: true
 
             Behavior on color {
                 PropertyAnimation {
-                    duration: 150
+                    duration: Kirigami.Units.longDuration
                 }
             }
         }
