@@ -48,18 +48,6 @@ ColumnLayout {
         }
     }
 
-    Controls.PageIndicator {
-        id: indicator
-
-        Layout.alignment: Qt.AlignHCenter
-        visible: count > 1
-
-        count: panelView.count
-        currentIndex: root.selectedOutput
-        interactive: true
-        onCurrentIndexChanged: root.selectedOutput = currentIndex
-    }
-
     Kirigami.FormLayout {
         id: globalSettingsLayout
         Layout.fillWidth: true
