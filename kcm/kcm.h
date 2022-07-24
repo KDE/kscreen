@@ -7,6 +7,8 @@
 
 #include <KQuickAddons/ManagedConfigModule>
 
+#include "output_model.h"
+
 namespace KScreen
 {
 class ConfigOperation;
@@ -15,7 +17,6 @@ class ConfigOperation;
 class ConfigHandler;
 class OrientationSensor;
 class OutputIdentifier;
-class OutputModel;
 
 class KCMKScreen : public KQuickAddons::ManagedConfigModule
 {
