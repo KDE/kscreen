@@ -4,7 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 import QtQuick 2.9
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.3 as Controls
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kirigami 2.4 as Kirigami
@@ -32,7 +32,7 @@ ColumnLayout {
         }
     }
 
-    Controls.SwipeView {
+    StackLayout {
         id: panelView
         currentIndex: root.selectedOutput
 
@@ -40,7 +40,6 @@ ColumnLayout {
                                Qt.binding(function() { return currentIndex; });
 
         Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
 
         Repeater {
             model: kcm.outputModel
