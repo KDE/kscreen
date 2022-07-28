@@ -118,7 +118,7 @@ OsdAction::Action OsdManager::showActionSelector()
         }
 
         osd->showActionSelector();
-        connect(m_cleanupTimer, &QTimer::timeout, this, [this, message] {
+        connect(m_cleanupTimer, &QTimer::timeout, this, [message] {
             auto reply = message.createReply(OsdAction::NoAction);
             QDBusConnection::sessionBus().send(reply);
         });
