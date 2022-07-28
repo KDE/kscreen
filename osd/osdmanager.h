@@ -35,7 +35,6 @@ public Q_SLOTS:
 
 private:
     void quit();
-    void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     QMap<QString, KScreen::Osd *> m_osds;
     QTimer *m_cleanupTimer;
 };
