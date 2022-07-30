@@ -53,8 +53,6 @@ if(X11_FOUND)
 endif()
 
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
-               ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.json.in
+               ${CMAKE_CURRENT_BINARY_DIR}/kscreen.json
                @ONLY)
-
-kcoreaddons_desktop_to_json(kscreen ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop)
