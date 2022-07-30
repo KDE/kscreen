@@ -1,6 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
-set(kscreen_daemon_SRCS
+kcoreaddons_add_plugin(kscreen INSTALL_NAMESPACE "kf5/kded")
+
+target_sources(kscreen PRIVATE
     daemon.cpp
     config.cpp
     output.cpp
@@ -13,32 +15,24 @@ set(kscreen_daemon_SRCS
     ${CMAKE_SOURCE_DIR}/common/utils.cpp
 )
 
-ecm_qt_declare_logging_category(kscreen_daemon_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
+ecm_qt_declare_logging_category(kscreen HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
 
-qt_add_dbus_interface(kscreen_daemon_SRCS
+qt_add_dbus_interface(dbus_SRCS
     org.freedesktop.DBus.Properties.xml
     freedesktop_interface)
-qt_add_dbus_interface(kscreen_daemon_SRCS
+qt_add_dbus_interface(dbus_SRCS
     ../osd/org.kde.kscreen.osdService.xml
     osdservice_interface)
-qt_add_dbus_adaptor(kscreen_daemon_SRCS
+qt_add_dbus_adaptor(dbus_SRCS
     org.kde.KScreen.xml
     daemon.h
     KScreenDaemon
 )
 
-add_library(kscreen MODULE ${kscreen_daemon_SRCS})
+target_sources(kscreen PRIVATE ${dbus_SRCS})
 
-if(X11_FOUND)
-    SET(X11_LIBS X11::X11 X11::Xi X11::XCB XCB::ATOM)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        list(APPEND X11_LIBS Qt5::X11Extras)
-    else()
-        list(APPEND X11_LIBS Qt::GuiPrivate)
-    endif()
-endif()
-
-target_link_libraries(kscreen Qt::Widgets
+target_link_libraries(kscreen PRIVATE
+                              Qt::Widgets
                               Qt::DBus
                               Qt::Quick
                               Qt::Sensors
@@ -47,8 +41,16 @@ target_link_libraries(kscreen Qt::Widgets
                               KF5::DBusAddons
                               KF5::I18n
                               KF5::XmlGui
-                              KF5::GlobalAccel
-                              ${X11_LIBS} )
+                              KF5::GlobalAccel)
+
+if(X11_FOUND)
+    target_link_libraries(kscreen PRIVATE X11::X11 X11::Xi X11::XCB XCB::ATOM)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(kscreen PRIVATE Qt5::X11Extras)
+    else()
+        target_link_libraries(kscreen PRIVATE Qt::GuiPrivate)
+    endif()
+endif()
 
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
@@ -56,5 +58,3 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/kscreen.desktop.cmake
                @ONLY)
 
 kcoreaddons_desktop_to_json(kscreen ${CMAKE_CURRENT_BINARY_DIR}/kscreen.desktop)
-
-install(TARGETS kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
