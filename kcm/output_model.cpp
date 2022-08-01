@@ -564,23 +564,32 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
     QVariantList ret;
     const auto resolutionList = resolutions(output);
     for (const QSize &size : resolutionList) {
-        int divisor = greatestCommonDivisor(size.width(), size.height());
+        if (size.isEmpty()) {
+            const QString text = i18nc("Width x height",
+                                       "%1x%2",
+                                       // Explicitly not have it add thousand-separators.
+                                       QString::number(size.width()),
+                                       QString::number(size.height()));
+            ret << text;
+        } else {
+            int divisor = greatestCommonDivisor(size.width(), size.height());
 
-        if (size.height() / divisor == 5) { // Prefer "16:10" over "8:5"
-            divisor /= 2;
-        } else if (size.height() / divisor == 27) { // Prefer "21:9" over "64:27"
-            divisor *= 3;
+            if (size.height() / divisor == 5) { // Prefer "16:10" over "8:5"
+                divisor /= 2;
+            } else if (size.height() / divisor == 27) { // Prefer "21:9" over "64:27"
+                divisor *= 3;
+            }
+
+            const QString text = i18nc("Width x height (aspect ratio)",
+                                       "%1x%2 (%3:%4)",
+                                       // Explicitly not have it add thousand-separators.
+                                       QString::number(size.width()),
+                                       QString::number(size.height()),
+                                       size.width() / divisor,
+                                       size.height() / divisor);
+
+            ret << text;
         }
-
-        const QString text = i18nc("Width x height (aspect ratio)",
-                                   "%1x%2 (%3:%4)",
-                                   // Explicitly not have it add thousand-separators.
-                                   QString::number(size.width()),
-                                   QString::number(size.height()),
-                                   size.width() / divisor,
-                                   size.height() / divisor);
-
-        ret << text;
     }
     return ret;
 }
