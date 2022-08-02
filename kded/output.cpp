@@ -352,14 +352,18 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList duplicateIds;
     {
-        QStringList allIds;
-        allIds.reserve(outputs.count());
+        QStringList allConnectedIds;
+        allConnectedIds.reserve(outputs.count());
         for (const KScreen::OutputPtr &output : outputs) {
+            if (!output->isConnected()) {
+                // Duplicated IDs only matter if the duplicates are actually connected. Duplicates may also be transient.
+                continue;
+            }
             const auto outputId = output->hash();
-            if (allIds.contains(outputId) && !duplicateIds.contains(outputId)) {
+            if (allConnectedIds.contains(outputId) && !duplicateIds.contains(outputId)) {
                 duplicateIds << outputId;
             }
-            allIds << outputId;
+            allConnectedIds << outputId;
         }
     }
 
