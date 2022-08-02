@@ -392,7 +392,7 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             // no info in info for this output, try reading in global output info at least or set some default values
 
             qCWarning(KSCREEN_KDED) << "\tFailed to find a matching output in the current info data - this means that our info is corrupted"
-                                       "or a different device with the same serial number has been connected (very unlikely).";
+                                       " or a different device with the same serial number has been connected (very unlikely).";
             if (!readInGlobal(output)) {
                 // set some default values instead
                 readInGlobalPartFromInfo(output, QVariantMap());
