@@ -98,8 +98,8 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
     }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to find a matching mode - this means that our config is corrupted"
-                                   "or a different device with the same serial number has been connected (very unlikely)."
-                                   "Falling back to preferred modes.";
+                                   " or a different device with the same serial number has been connected (very unlikely)."
+                                   " Falling back to preferred modes.";
         matchingMode = output->preferredMode();
     }
     if (!matchingMode) {
