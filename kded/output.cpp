@@ -91,6 +91,7 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
     output->setVrrPolicy(config.vrrPolicy.value_or(KScreen::Output::VrrPolicy::Automatic));
     output->setOverscan(config.overscan.value_or(0));
     output->setRgbRange(config.rgbRange.value_or(KScreen::Output::RgbRange::Automatic));
+    output->setEnabled(true); // gets disabled later if necessary
 
     KScreen::ModePtr matchingMode;
     if (config.modeId) {
