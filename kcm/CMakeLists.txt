@@ -1,6 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kcm_kscreen\")
 
-set(kcm_kscreen_SRCS
+kcoreaddons_add_plugin(kcm_kscreen INSTALL_NAMESPACE "plasma/kcms/systemsettings")
+
+target_sources(kcm_kscreen PRIVATE
     config_handler.cpp
     kcm.cpp
     output_model.cpp
@@ -10,7 +12,7 @@ set(kcm_kscreen_SRCS
     ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp
 )
 
-ecm_qt_declare_logging_category(kcm_kscreen_SRCS
+ecm_qt_declare_logging_category(kcm_kscreen
     HEADER
         kcm_screen_debug.h
     IDENTIFIER
@@ -19,8 +21,6 @@ ecm_qt_declare_logging_category(kcm_kscreen_SRCS
         kscreen.kcm
      DESCRIPTION "kscreen kcm (kscreen)" EXPORT KSCREEN
 )
-
-add_library(kcm_kscreen MODULE ${kcm_kscreen_SRCS})
 
 kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC globalscalesettings.kcfgc)
 
@@ -37,7 +37,5 @@ target_link_libraries(kcm_kscreen
     KF5::QuickAddons
     KF5::Screen
 )
-
-install(TARGETS kcm_kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings)
 
 kpackage_install_package(package kcm_kscreen kcms)
