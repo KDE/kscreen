@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Screen management",
+        "Description[bg]": "Управление на настройки на екрана",
         "Description[ca@valencia]": "Gestió de les pantalles",
         "Description[ca]": "Gestió de les pantalles",
         "Description[en_GB]": "Screen management",
@@ -22,6 +23,7 @@
         "Description[zh_CN]": "屏幕管理",
         "Icon": "preferences-system-power-management",
         "Name": "KScreen 2",
+        "Name[bg]": "KScreen 2",
         "Name[ca@valencia]": "KScreen 2",
         "Name[ca]": "KScreen 2",
         "Name[en_GB]": "KScreen 2",

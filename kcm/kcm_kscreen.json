@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Manage and configure monitors and displays",
         "Description[az]": "Monitorları və ekranları idarə edin və ayarlayın",
+        "Description[bg]": "Управление и конфигуриране на монитори и дисплеи",
         "Description[ca@valencia]": "Gestiona i configura els monitors i pantalles",
         "Description[ca]": "Gestiona i configura els monitors i pantalles",
         "Description[en_GB]": "Manage and configure monitors and displays",
@@ -29,6 +30,7 @@
         "Icon": "preferences-desktop-display-randr",
         "Name": "Display Configuration",
         "Name[az]": "Ekran ayarları",
+        "Name[bg]": "Конфигурация на екрана",
         "Name[ca@valencia]": "Configuració de les pantalles",
         "Name[ca]": "Configuració de les pantalles",
         "Name[en_GB]": "Display Configuration",
