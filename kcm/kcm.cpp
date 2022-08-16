@@ -63,7 +63,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     if (op->hasError()) {
         m_configHandler.reset();
         m_configNeedsSave = false;
-        Q_EMIT settingsChanged();
+        settingsChanged();
         Q_EMIT backendError();
         return;
     }
@@ -362,7 +362,7 @@ void KCMKScreen::load()
 void KCMKScreen::continueNeedsSaveCheck(bool needs)
 {
     m_configNeedsSave = needs;
-    Q_EMIT settingsChanged();
+    settingsChanged();
 }
 
 bool KCMKScreen::isSaveNeeded() const
