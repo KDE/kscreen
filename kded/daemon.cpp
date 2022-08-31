@@ -422,7 +422,7 @@ void KScreenDaemon::alignX11TouchScreen()
     transform = transform.scale(float(internalOutputRect.width()) / float(totalRect.width()), float(internalOutputRect.height()) / float(totalRect.height()));
     transform = transform.rotate(touchScreenRotationAngle);
 
-    // After rotation we need to make the matrix origin aligned wit the workspace again
+    // After rotation we need to make the matrix origin aligned with the workspace again
     // ____                                                      ___
     // |__|  -> 90° clockwise -> ___  -> needs to be moved up -> | |
     //                           | |                             |_|
