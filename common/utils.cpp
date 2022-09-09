@@ -10,12 +10,12 @@
 
 #include <KLocalizedString>
 
-QString Utils::outputName(const KScreen::OutputPtr &output, bool shouldShowSerialNumber)
+QString Utils::outputName(const KScreen::OutputPtr &output, bool shouldShowSerialNumber, bool shouldShowConnector)
 {
-    return outputName(output.data(), shouldShowSerialNumber);
+    return outputName(output.data(), shouldShowSerialNumber, shouldShowConnector);
 }
 
-QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNumber)
+QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNumber, bool shouldShowConnector)
 {
     if (output->type() == KScreen::Output::Panel) {
         return i18n("Built-in Screen");
@@ -32,7 +32,10 @@ QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNu
             name += output->edid()->name() + QLatin1Char(' ');
         }
         if (!output->edid()->serial().isEmpty() && shouldShowSerialNumber) {
-            name += output->edid()->serial();
+            name += output->edid()->serial() + QLatin1Char(' ');
+        }
+        if (shouldShowConnector) {
+            name += output->typeName();
         }
         if (!name.trimmed().isEmpty()) {
             return name;

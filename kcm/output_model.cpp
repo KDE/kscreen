@@ -36,15 +36,18 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     const KScreen::OutputPtr &output = m_outputs[index.row()].ptr;
     switch (role) {
     case Qt::DisplayRole: {
-        bool shouldShowSerialNumber = false;
-        if (output->edid()) {
-            shouldShowSerialNumber = std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+        const bool shouldShowSerialNumber = std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+            return other.ptr->id() != output->id() // avoid same output
+                && other.ptr->edid() && output->edid() //
+                && other.ptr->edid()->vendor() == output->edid()->vendor() //
+                && other.ptr->edid()->name() == output->edid()->name(); // model
+        });
+        const bool shouldShowConnector =
+            shouldShowSerialNumber && std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
                 return other.ptr->id() != output->id() // avoid same output
-                    && other.ptr->edid() && other.ptr->edid()->name() == output->edid()->name() // model
-                    && other.ptr->edid()->vendor() == output->edid()->vendor();
+                    && other.ptr->edid()->serial() == output->edid()->serial();
             });
-        }
-        return Utils::outputName(output, shouldShowSerialNumber);
+        return Utils::outputName(output, shouldShowSerialNumber, shouldShowConnector);
     }
     case EnabledRole:
         return output->isEnabled();
