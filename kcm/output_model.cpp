@@ -577,13 +577,13 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
         } else {
             int divisor = greatestCommonDivisor(size.width(), size.height());
 
-            if (size.height() / divisor == 5) { // Prefer "16:10" over "8:5"
+            if (size.height() / divisor == 5 || size.height() / divisor == 8) { // Prefer "16:10" over "8:5"
                 divisor /= 2;
-            } else if (size.height() / divisor == 27) { // Prefer "21:9" over "64:27"
+            } else if (size.height() / divisor == 27 || size.height() / divisor == 64) { // Prefer "21:9" over "64:27"
                 divisor *= 3;
-            } else if (size.height() / divisor == 18) { // Prefer "21:9" over "43:18"
+            } else if (size.height() / divisor == 18 || size.height() / divisor == 43) { // Prefer "21:9" over "43:18"
                 divisor *= 2;
-            } else if (size.height() / divisor == 384) { // Prefer "16:9" over "683:384"
+            } else if (size.height() / divisor == 384 || size.height() / divisor == 683) { // Prefer "16:9" over "683:384"
                 divisor *= 41;
             }
 
