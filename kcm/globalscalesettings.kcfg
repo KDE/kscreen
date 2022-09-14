@@ -9,7 +9,7 @@
       <default>1.0</default>
     </entry>
     <entry name="xwaylandClientsScale" key="XwaylandClientsScale" type="Bool">
-      <default>true</default>
+      <default>false</default>
     </entry>
   </group>
 </kcfg>
