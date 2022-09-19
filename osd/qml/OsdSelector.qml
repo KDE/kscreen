@@ -77,7 +77,6 @@ Control {
             text: root.infoText
             horizontalAlignment: Text.AlignHCenter
             maximumLineCount: 2
-            wrapMode: Text.WordWrap
 
             Layout.fillWidth: true
             Layout.margins: Math.floor(PlasmaCore.Units.smallSpacing / 2)
