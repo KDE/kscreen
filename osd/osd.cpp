@@ -65,7 +65,8 @@ void Osd::showActionSelector()
         layerWindow->setDesiredOutput(qGuiApp->screenAt(m_output->pos()));
     } else {
         auto newGeometry = m_osdActionSelector->geometry();
-        newGeometry.moveCenter(m_output->geometry().center());
+        auto screen = qGuiApp->screenAt(m_output->pos());
+        newGeometry.moveCenter(screen ? screen->geometry().center() : qGuiApp->primaryScreen()->geometry().center());
         m_osdActionSelector->setGeometry(newGeometry);
         KWindowSystem::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
         m_osdActionSelector->requestActivate();
