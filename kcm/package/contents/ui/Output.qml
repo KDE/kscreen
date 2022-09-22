@@ -1,13 +1,13 @@
 /*
     SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
     SPDX-FileCopyrightText: 2012 Dan Vratil <dvratil@redhat.com>
+    SPDX-FileCopyrightText: 2022 Kai Uwe Broulik <kde@broulik.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 import QtQuick 2.12
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
-import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.4 as Kirigami
 
 Item {
@@ -42,10 +42,34 @@ Item {
 
     Rectangle {
         id: outline
-        radius: Kirigami.Units.smallSpacing
-        color: Kirigami.Theme.alternateBackgroundColor
 
-        anchors.fill: parent
+        readonly property int orientationPanelWidth: 10
+        readonly property real orientationPanelPosition: 1 - (orientationPanelWidth / outline.height)
+
+        anchors.centerIn: parent
+        width: parent.width
+        height: parent.height
+        radius: Kirigami.Units.smallSpacing
+
+        gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: Kirigami.Theme.alternateBackgroundColor
+            }
+            GradientStop {
+                // Create a hard cut. Can't use the same number otherwise it gets confused.
+                position: outline.orientationPanelPosition - Number.EPSILON
+                color: Kirigami.Theme.alternateBackgroundColor
+            }
+            GradientStop {
+                position: outline.orientationPanelPosition
+                color: outline.border.color
+            }
+            GradientStop {
+                position: 1.0
+                color: outline.border.color
+            }
+        }
 
         border {
             color: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
@@ -60,10 +84,12 @@ Item {
     }
 
     Item {
-        anchors.fill: parent
+        id: labelContainer
+        anchors {
+            fill: parent
+            margins: outline.border.width
+        }
 
-        // so the text is drawn above orientationPanelContainer
-        z: 1
         ColumnLayout {
             anchors.centerIn: parent
             spacing: 0
@@ -72,7 +98,7 @@ Item {
 
             Controls.Label {
                 Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.smallSpacing
+                Layout.maximumHeight: labelContainer.height - resolutionLabel.implicitHeight
 
                 text: model.display
                 wrapMode: Text.Wrap
@@ -81,8 +107,8 @@ Item {
             }
 
             Controls.Label {
+                id: resolutionLabel
                 Layout.fillWidth: true
-                Layout.bottomMargin: Kirigami.Units.smallSpacing
 
                 text: "(" + model.resolution.width + "x" + model.resolution.height +
                       (model.scale !== 1 ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
@@ -91,6 +117,64 @@ Item {
             }
         }
     }
+
+    states: [
+        State {
+            name: "transposed"
+            PropertyChanges {
+                target: outline
+                width: output.height
+                height: output.width
+            }
+        },
+
+        State {
+            name: "rot0"
+            when: model.rotation === 1
+            PropertyChanges {
+                target: labelContainer
+                anchors.bottomMargin: outline.orientationPanelWidth + outline.border.width
+            }
+        },
+        State {
+            name: "rot90"
+            extend: "transposed"
+            when: model.rotation === 2
+            PropertyChanges {
+                target: outline
+                rotation: 90
+            }
+            PropertyChanges {
+                target: labelContainer
+                anchors.leftMargin: outline.orientationPanelWidth + outline.border.width
+            }
+        },
+        State {
+            name: "rot180"
+            when: model.rotation === 4
+            PropertyChanges {
+                target: outline
+                rotation: 180
+            }
+            PropertyChanges {
+                target: labelContainer
+                anchors.topMargin: outline.orientationPanelWidth + outline.border.width
+            }
+        },
+        State {
+            name: "rot270"
+            extend: "transposed"
+            when: model.rotation === 8
+            PropertyChanges {
+                target: outline
+                rotation: 270
+            }
+            PropertyChanges {
+                target: labelContainer
+                anchors.rightMargin: outline.orientationPanelWidth + outline.border.width
+            }
+        }
+    ]
 
     Rectangle {
         id: posLabel
@@ -151,79 +235,6 @@ Item {
                 root.selectedOutput = model.replicasModel[index];
             }
         }
-
-    }
-
-    Item {
-        id: orientationPanelContainer
-
-        anchors.fill: output
-        visible: false
-
-        Rectangle {
-            id: orientationPanel
-            anchors {
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-            }
-
-            height: 10
-            color: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
-            smooth: true
-
-            Behavior on color {
-                PropertyAnimation {
-                    duration: Kirigami.Units.longDuration
-                }
-            }
-        }
-    }
-
-    states: [
-        State {
-            name: "rot90"
-            when: model.rotation === 2
-            PropertyChanges {
-                target: orientationPanel
-                height: undefined
-                width: 10
-            }
-            AnchorChanges {
-                target: orientationPanel
-                anchors.right: undefined
-                anchors.top: orientationPanelContainer.top
-            }
-        },
-        State {
-            name: "rot180"
-            when: model.rotation === 4
-            AnchorChanges {
-                target: orientationPanel
-                anchors.top: orientationPanelContainer.top
-                anchors.bottom: undefined
-            }
-        },
-        State {
-            name: "rot270"
-            when: model.rotation === 8
-            PropertyChanges {
-                target: orientationPanel
-                height: undefined
-                width: 10
-            }
-            AnchorChanges {
-                target: orientationPanel
-                anchors.left: undefined
-                anchors.top: orientationPanelContainer.top
-            }
-        }
-    ]
-
-    OpacityMask {
-        anchors.fill: orientationPanelContainer
-        source: orientationPanelContainer
-        maskSource: outline
     }
 
     property point dragStartPosition
