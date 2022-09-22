@@ -73,8 +73,7 @@ public:
     bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
 
-    Q_INVOKABLE void forceSave();
-    void doSave(bool force);
+    void doSave();
     Q_INVOKABLE void revertSettings();
     Q_INVOKABLE void requestReboot();
 
@@ -95,7 +94,7 @@ Q_SIGNALS:
     void autoRotationSupportedChanged();
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
-    void dangerousSave();
+    void invalidConfig();
     void errorOnSave();
     void globalScaleWritten();
     void outputConnect(bool connected);
@@ -112,6 +111,7 @@ private:
 
     void configReady(KScreen::ConfigOperation *op);
     void continueNeedsSaveCheck(bool needs);
+    void checkConfig();
 
     std::unique_ptr<ConfigHandler> m_configHandler;
     OrientationSensor *m_orientationSensor;

@@ -75,6 +75,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     m_configHandler->setConfig(config);
     setBackendReady(true);
+    checkConfig();
     Q_EMIT perOutputScalingChanged();
     Q_EMIT xwaylandClientsScaleSupportedChanged();
     Q_EMIT primaryOutputSupportedChanged();
@@ -83,14 +84,9 @@ void KCMKScreen::configReady(ConfigOperation *op)
     Q_EMIT autoRotationSupportedChanged();
 }
 
-void KCMKScreen::forceSave()
-{
-    doSave(true);
-}
-
 void KCMKScreen::save()
 {
-    doSave(false);
+    doSave();
 }
 
 void KCMKScreen::revertSettings()
@@ -101,7 +97,7 @@ void KCMKScreen::revertSettings()
     if (!m_settingsReverted) {
         m_configHandler->revertConfig();
         m_settingsReverted = true;
-        doSave(true);
+        doSave();
         load(); // reload the configuration
         Q_EMIT settingsReverted();
         m_stopUpdatesFromBackend = false;
@@ -131,22 +127,16 @@ void KCMKScreen::updateFromBackend()
     m_loadCompressor->start();
 }
 
-void KCMKScreen::doSave(bool force)
+void KCMKScreen::doSave()
 {
     if (!m_configHandler) {
         Q_EMIT errorOnSave();
         return;
     }
 
-    auto config = m_configHandler->config();
-
-    bool atLeastOneEnabledOutput = false;
-    const auto outputs = config->outputs();
+    const auto outputs = m_configHandler->config()->outputs();
     for (const KScreen::OutputPtr &output : outputs) {
         KScreen::ModePtr mode = output->currentMode();
-
-        atLeastOneEnabledOutput |= output->isEnabled();
-
         qCDebug(KSCREEN_KCM) << output->name() << output->id() << output.data() << "\n"
                              << "	Connected:" << output->isConnected() << "\n"
                              << "	Enabled:" << output->isEnabled() << "\n"
@@ -159,11 +149,7 @@ void KCMKScreen::doSave(bool force)
                              << "    Replicates:" << (output->replicationSource() == 0 ? "no" : "yes");
     }
 
-    if (!atLeastOneEnabledOutput && !force) {
-        Q_EMIT dangerousSave();
-        m_configHandler->checkNeedsSave();
-        return;
-    }
+    auto config = m_configHandler->config();
 
     if (!Config::canBeApplied(config)) {
         Q_EMIT errorOnSave();
@@ -361,9 +347,23 @@ void KCMKScreen::load()
     Q_EMIT changed();
 }
 
+void KCMKScreen::checkConfig()
+{
+    const auto outputs = m_configHandler->config()->outputs();
+    if (std::none_of(outputs.cbegin(), outputs.cend(), std::mem_fn(&Output::isEnabled))) {
+        Q_EMIT invalidConfig();
+        m_configNeedsSave = false;
+    }
+}
+
 void KCMKScreen::continueNeedsSaveCheck(bool needs)
 {
     m_configNeedsSave = needs;
+
+    if (needs) {
+        checkConfig();
+    }
+
     settingsChanged();
 }
 

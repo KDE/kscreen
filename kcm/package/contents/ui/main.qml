@@ -30,23 +30,13 @@ KCM.SimpleKCM {
             //        but there seems to be another issue in Kirigami then
             //        being always hidden. Compare Night Color KCM with
             //        the same issue.
-            id: dangerousSaveMsg
+            id: invalidConfigMsg
 
             Layout.fillWidth: true
-            type: Kirigami.MessageType.Warning
-            text: i18n("Are you sure you want to disable all outputs? This might render the device unusable.")
+            type: Kirigami.MessageType.Error
+            text: i18nc("@info", "All displays are disabled. Enable at least one.")
             showCloseButton: true
 
-            actions: [
-                Kirigami.Action {
-                    iconName: "dialog-ok"
-                    text: i18n("Disable All Outputs")
-                    onTriggered: {
-                        dangerousSaveMsg.visible = false;
-                        kcm.forceSave();
-                    }
-                }
-            ]
         }
         Kirigami.InlineMessage {
             id: errBackendMsg
@@ -167,8 +157,8 @@ KCM.SimpleKCM {
 
         Connections {
             target: kcm
-            function onDangerousSave() {
-                dangerousSaveMsg.visible = true;
+            function onInvalidConfig() {
+                invalidConfigMsg.visible = true;
             }
             function onErrorOnSave() {
                 errSaveMsg.visible = true;
@@ -197,7 +187,7 @@ KCM.SimpleKCM {
                 revertTimer.restart();
             }
             function onChanged() {
-                dangerousSaveMsg.visible = false;
+                invalidConfigMsg.visible = false;
                 errSaveMsg.visible = false;
                 scaleMsg.visible = false;
                 revertMsg.visible = false;
