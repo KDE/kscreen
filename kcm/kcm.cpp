@@ -40,6 +40,7 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
     qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<Control>("org.kde.private.kcm.kscreen", 1, 0, "Control", QStringLiteral("Provides only the OutputRetention enum class"));
+    qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
     Log::instance();
 
     setButtons(Apply);
@@ -350,8 +351,23 @@ void KCMKScreen::load()
 void KCMKScreen::checkConfig()
 {
     const auto outputs = m_configHandler->config()->outputs();
-    if (std::none_of(outputs.cbegin(), outputs.cend(), std::mem_fn(&Output::isEnabled))) {
-        Q_EMIT invalidConfig();
+    std::vector<OutputPtr> enabledOutputs;
+    std::copy_if(outputs.cbegin(), outputs.cend(), std::back_inserter(enabledOutputs), std::mem_fn(&Output::isEnabled));
+    if (enabledOutputs.empty()) {
+        Q_EMIT invalidConfig(NoEnabledOutputs);
+        m_configNeedsSave = false;
+    }
+    auto rectsTouch = [](const QRect &rect, const QRect &other) {
+        return rect.left() <= other.left() + other.width() && other.left() <= rect.left() + rect.width() && rect.top() <= other.top() + other.height()
+            && other.top() <= rect.top() + rect.height();
+    };
+    auto doesNotTouchAnyOther = [&enabledOutputs, &rectsTouch](const OutputPtr &output) {
+        return std::none_of(enabledOutputs.cbegin(), enabledOutputs.cend(), [&output, &rectsTouch](const OutputPtr &other) {
+            return other != output && rectsTouch(output->geometry(), other->geometry());
+        });
+    };
+    if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotTouchAnyOther)) {
+        Q_EMIT invalidConfig(ConfigHasGaps);
         m_configNeedsSave = false;
     }
 }

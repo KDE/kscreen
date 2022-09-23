@@ -37,6 +37,12 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
 
 public:
+    enum InvalidConfigReason {
+        NoEnabledOutputs,
+        ConfigHasGaps,
+    };
+    Q_ENUM(InvalidConfigReason)
+
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCMKScreen() override = default;
 
@@ -94,7 +100,7 @@ Q_SIGNALS:
     void autoRotationSupportedChanged();
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
-    void invalidConfig();
+    void invalidConfig(InvalidConfigReason reason);
     void errorOnSave();
     void globalScaleWritten();
     void outputConnect(bool connected);

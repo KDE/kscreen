@@ -9,6 +9,7 @@ import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 
 import org.kde.kcm 1.6 as KCM
+import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 KCM.SimpleKCM {
     id: root
@@ -34,7 +35,6 @@ KCM.SimpleKCM {
 
             Layout.fillWidth: true
             type: Kirigami.MessageType.Error
-            text: i18nc("@info", "All displays are disabled. Enable at least one.")
             showCloseButton: true
 
         }
@@ -157,7 +157,12 @@ KCM.SimpleKCM {
 
         Connections {
             target: kcm
-            function onInvalidConfig() {
+            function onInvalidConfig(reason) {
+                if (reason === KScreen.KCMKScreen.NoEnabledOutputs) {
+                    invalidConfigMsg.text = i18nc("@info", "All displays are disabled. Enable at least one.")
+                } else if (reason === KScreen.KCMKScreen.ConfigHasGaps) {
+                    invalidConfigMsg.text = i18nc("@info", "Gaps between displays are not supported. Make sure all displays are touching.")
+                }
                 invalidConfigMsg.visible = true;
             }
             function onErrorOnSave() {
