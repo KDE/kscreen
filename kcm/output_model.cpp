@@ -885,44 +885,6 @@ void OutputModel::updatePositions()
             Q_EMIT dataChanged(index, index, {NormalizedPositionRole});
         }
     }
-    updateOrder();
-}
-
-void OutputModel::updateOrder()
-{
-    auto order = m_outputs;
-    std::sort(order.begin(), order.end(), [](const Output &a, const Output &b) {
-        const int xDiff = b.ptr->pos().x() - a.ptr->pos().x();
-        const int yDiff = b.ptr->pos().y() - a.ptr->pos().y();
-        if (xDiff > 0) {
-            return true;
-        }
-        if (xDiff == 0 && yDiff > 0) {
-            return true;
-        }
-        return false;
-    });
-
-    for (int i = 0; i < order.size(); i++) {
-        for (int j = 0; j < m_outputs.size(); j++) {
-            if (order[i].ptr->id() != m_outputs[j].ptr->id()) {
-                continue;
-            }
-            if (i != j) {
-                beginMoveRows(QModelIndex(), j, j, QModelIndex(), i);
-                m_outputs.remove(j);
-                m_outputs.insert(i, order[i]);
-                endMoveRows();
-            }
-            break;
-        }
-    }
-
-    // TODO: Could this be optimized by only outputs updating where replica indices changed?
-    for (int i = 0; i < m_outputs.size(); i++) {
-        QModelIndex index = createIndex(i, 0);
-        Q_EMIT dataChanged(index, index, {ReplicasModelRole});
-    }
 }
 
 bool OutputModel::normalizePositions()

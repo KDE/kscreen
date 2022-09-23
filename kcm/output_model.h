@@ -108,7 +108,6 @@ private:
     void resetPosition(const Output &output);
     void reposition();
     void updatePositions();
-    void updateOrder();
     QPoint originDelta() const;
 
     /**
