@@ -320,6 +320,7 @@ void KCMKScreen::load()
 
     setBackendReady(false);
     m_configNeedsSave = false;
+    settingsChanged();
     if (!screenNormalized()) {
         Q_EMIT screenNormalizedChanged();
     }
