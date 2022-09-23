@@ -283,6 +283,7 @@ Item {
             model.position = getAbsolutePosition(Qt.point(newX, newY));
         }
         onActiveChanged: {
+            model.interactiveMove = active;
             if (!active) {
                 screen.resetTotalSize();
             }

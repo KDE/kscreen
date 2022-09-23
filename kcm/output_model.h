@@ -42,6 +42,7 @@ public:
         OverscanRole,
         VrrPolicyRole,
         RgbRangeRole,
+        InteractiveMoveRole, // This output is currently repositioned interactively
     };
 
     explicit OutputModel(ConfigHandler *configHandler);
@@ -63,10 +64,11 @@ public:
     bool normalizePositions();
     bool positionsNormalized() const;
 
+    bool isMoving() const;
+
 Q_SIGNALS:
     void positionChanged();
     void sizeChanged();
-    void changed();
 
 protected:
     QHash<int, QByteArray> roleNames() const override;
@@ -99,6 +101,7 @@ private:
         KScreen::OutputPtr ptr;
         QPoint pos;
         QPoint posReset = QPoint(-1, -1);
+        bool moving = false;
     };
 
     void roleChanged(int outputId, OutputRoles role);

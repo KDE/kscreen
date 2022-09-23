@@ -19,7 +19,6 @@ OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)
     , m_config(configHandler)
 {
-    connect(this, &OutputModel::dataChanged, this, &OutputModel::changed);
 }
 
 int OutputModel::rowCount(const QModelIndex &parent) const
@@ -100,6 +99,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->vrrPolicy());
     case RgbRangeRole:
         return static_cast<uint32_t>(output->rgbRange());
+    case InteractiveMoveRole:
+        return m_outputs[index.row()].moving;
     }
     return QVariant();
 }
@@ -234,6 +235,14 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             Q_EMIT dataChanged(index, index, {role});
             return true;
         }
+        break;
+    case InteractiveMoveRole:
+        if (value.canConvert<bool>()) {
+            m_outputs[index.row()].moving = value.toBool();
+            Q_EMIT dataChanged(index, index, {role});
+            return true;
+        }
+        break;
     }
     return false;
 }
@@ -263,6 +272,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[OverscanRole] = "overscan";
     roles[VrrPolicyRole] = "vrrPolicy";
     roles[RgbRangeRole] = "rgbRange";
+    roles[InteractiveMoveRole] = "interactiveMove";
     return roles;
 }
 
@@ -797,6 +807,11 @@ QModelIndex OutputModel::indexForOutputId(int outputId) const
 bool OutputModel::positionable(const Output &output) const
 {
     return output.ptr->isPositionable();
+}
+
+bool OutputModel::isMoving() const
+{
+    return std::any_of(m_outputs.cbegin(), m_outputs.cend(), std::mem_fn(&Output::moving));
 }
 
 void OutputModel::reposition()

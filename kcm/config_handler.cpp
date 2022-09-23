@@ -45,8 +45,12 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     m_initialRetention = getRetention();
     Q_EMIT retentionChanged();
 
-    connect(m_outputModel, &OutputModel::changed, this, [this]() {
-        checkNeedsSave();
+    connect(m_outputModel, &OutputModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles) {
+        Q_UNUSED(bottomRight)
+        // Do not run checks during interactive reaarange
+        if (!m_outputModel->isMoving()) {
+            checkNeedsSave();
+        }
         Q_EMIT changed();
     });
     connect(m_config.data(), &KScreen::Config::outputAdded, this, [this]() {
