@@ -399,6 +399,7 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
                                        " or a different device with the same serial number has been connected (very unlikely).";
             if (!readInGlobal(output)) {
                 // set some default values instead
+                output->setEnabled(true);
                 readInGlobalPartFromInfo(output, QVariantMap());
             }
         }
