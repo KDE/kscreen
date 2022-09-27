@@ -1,5 +1,6 @@
 {
     "KPlugin": {
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_kscreen",
         "Description": "Manage and configure monitors and displays",
         "Description[ar]": "أدر واضبط الشّاشات والعروض",
         "Description[az]": "Monitorları və ekranları idarə edin və ayarlayın",
