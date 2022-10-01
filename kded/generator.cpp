@@ -200,6 +200,20 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     Q_ASSERT(embedded->currentMode());
     Q_ASSERT(external->currentMode());
 
+    // Change action to be relative to embedded screen
+    if (!embedded->isPrimary()) {
+        switch (action) {
+        case Generator::ExtendToLeft:
+            action = Generator::ExtendToRight;
+            break;
+        case Generator::ExtendToRight:
+            action = Generator::ExtendToLeft;
+            break;
+        default:
+            break;
+        }
+    }
+
     switch (action) {
     case Generator::ExtendToLeft: {
         qCDebug(KSCREEN_KDED) << "Extend to left";
@@ -209,7 +223,6 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         const QSize size = external->geometry().size();
         embedded->setPos(QPoint(size.width(), 0));
         embedded->setEnabled(true);
-        embedded->setPrimary(true);
 
         return config;
     }
@@ -236,13 +249,11 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         qCDebug(KSCREEN_KDED) << "Extend to the right";
         embedded->setPos(QPoint(0, 0));
         embedded->setEnabled(true);
-        embedded->setPrimary(true);
 
         Q_ASSERT(embedded->currentMode()); // we must have a mode now
         const QSize size = embedded->geometry().size();
         external->setPos(QPoint(size.width(), 0));
         external->setEnabled(true);
-        external->setPrimary(false);
 
         return config;
     }
