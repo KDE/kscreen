@@ -164,10 +164,19 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     KScreen::OutputPtr embedded, external;
     embedded = embeddedOutput(connectedOutputs);
     // If we don't have an embedded output (desktop with two external screens
-    // for instance), then pretend one of them is embedded
+    // for instance), then pretend the current primary one is embedded
     if (!embedded) {
-        const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
-        embedded = connectedOutputs.value(firstConnectedOutputKey);
+        // Find primary screen
+        for (auto &screen : connectedOutputs) {
+            if (screen->isPrimary()) {
+                embedded = screen;
+                break;
+            }
+        }
+        if (!embedded) {
+            // If all else fail take the first screen
+            embedded = connectedOutputs.constBegin().value();
+        }
     }
     // Just to be sure
     if (embedded->modes().isEmpty()) {
@@ -182,8 +191,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     }
 
     connectedOutputs.remove(embedded->id());
-    const auto firstConnectedOutputKey = connectedOutputs.constBegin().key();
-    external = connectedOutputs.value(firstConnectedOutputKey);
+    external = connectedOutputs.constBegin().value();
     // Just to be sure
     if (external->modes().isEmpty()) {
         return config;
