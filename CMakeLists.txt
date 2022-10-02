@@ -88,4 +88,6 @@ kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
 ecm_qt_install_logging_categories(EXPORT KSCREEN FILE kscreen.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
+ki18n_install(po)
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
