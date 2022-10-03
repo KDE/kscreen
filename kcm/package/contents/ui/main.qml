@@ -14,7 +14,7 @@ KCM.SimpleKCM {
     id: root
 
     implicitWidth: Kirigami.Units.gridUnit * 32
-    implicitHeight: Kirigami.Units.gridUnit * 38
+    implicitHeight: Kirigami.Units.gridUnit * 30
 
     property int selectedOutput: 0
     property int revertCountdown: 15
