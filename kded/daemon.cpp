@@ -303,6 +303,11 @@ void KScreenDaemon::setAutoRotate(bool value)
     m_orientationSensor->setEnabled(value);
 }
 
+bool KScreenDaemon::isAutoRotateAvailable()
+{
+    return m_orientationSensor->available();
+}
+
 void KScreenDaemon::showOSD()
 {
     auto call = m_osdServiceInterface->showActionSelector();

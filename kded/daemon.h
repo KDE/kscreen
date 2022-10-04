@@ -44,6 +44,7 @@ public Q_SLOTS:
     void applyLayoutPreset(const QString &presetName);
     bool getAutoRotate();
     void setAutoRotate(bool value);
+    bool isAutoRotateAvailable();
 
 Q_SIGNALS:
     // DBus
