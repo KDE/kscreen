@@ -473,6 +473,10 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
 
 void Generator::initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features)
 {
+    if (output->modes().empty()) {
+        output->setEnabled(false);
+        return;
+    }
     Output::GlobalConfig config = Output::readGlobal(output);
     output->setCurrentModeId(config.modeId.value_or(bestModeForOutput(output)->id()));
     output->setRotation(config.rotation.value_or(output->rotation()));
