@@ -106,12 +106,12 @@ msgstr[1] "Es revertirà a la configuració anterior en %1 segons."
 #: package/contents/ui/main.qml:133
 #, kde-format
 msgid "&Keep"
-msgstr "&Mantín"
+msgstr "Man&tín"
 
 #: package/contents/ui/main.qml:151
 #, kde-format
 msgid "&Revert"
-msgstr "&Revertix"
+msgstr "Re&vertix"
 
 #: package/contents/ui/main.qml:178
 #, kde-format
