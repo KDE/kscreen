@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2022-09-23 22:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -148,7 +148,7 @@ msgstr "Только в режиме планшета"
 msgid "Manual"
 msgstr "Вручную"
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr "Синхронизация выходов"

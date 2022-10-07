@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -143,7 +143,7 @@ msgstr "只在平板模式"
 msgid "Manual"
 msgstr "手動"
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr "複本"

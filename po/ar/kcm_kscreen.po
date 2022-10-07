@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2022-09-09 22:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -145,7 +145,7 @@ msgstr "فقط في وضع اللوحي"
 msgid "Manual"
 msgstr "يدويّ"
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr "نسخ متماثلة"

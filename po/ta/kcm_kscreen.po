@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2022-09-13 19:45+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -141,7 +141,7 @@ msgstr "பலகைக்கணினி பயன்முறையில் �
 msgid "Manual"
 msgstr "கைமுறை"
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr "நகலிகள்"

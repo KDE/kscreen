@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2015-05-02 14:55-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Manual"
 msgstr ""
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr ""
@@ -353,14 +353,3 @@ msgstr ""
 #| msgid "Identify outputs"
 msgid "Identify"
 msgstr "出力を特定する"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Fuminobu Takeyama"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ftake@geeko.jp"
-
-#~ msgid "Display Configuration"
-#~ msgstr "ディスプレイの設定"

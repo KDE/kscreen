@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-11 00:46+0000\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
 "PO-Revision-Date: 2021-04-25 12:38-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -143,7 +143,7 @@ msgstr "ਸਿਰਫ਼ ਜਦੋਂ ਟੇਬਲੇਟ ਢੰਗ ਵਿੱਚ ਹ�
 msgid "Manual"
 msgstr "ਖੁਦ"
 
-#: package/contents/ui/Output.qml:142
+#: package/contents/ui/Output.qml:226
 #, kde-format
 msgid "Replicas"
 msgstr "ਹੂ-ਬਹੂ ਨਕਲ"
