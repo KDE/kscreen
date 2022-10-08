@@ -1,9 +1,12 @@
 /*
     SPDX-FileCopyrightText: 2012 Alejandro Fiestas Olivares <afiestas@kde.org>
     SPDX-FileCopyrightText: 2021 David Redondo <kde@david-redondo.de>
+    SPDX-FileCopyrightText: 2022 Nate Graham <nate@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+
+#include <cmath>
 
 #include "generator.h"
 #include "device.h"
@@ -27,6 +30,18 @@
         break;                                                                                                                                                 \
     }
 #endif
+
+// The industry-standard "normal" 1x scale desktop monitor DPI value since forever
+static const int targetDpiDesktop = 96;
+
+// Higher because laptop screens are smaller and used closer to the face
+static const int targetDpiLaptop = 125;
+
+// Because phone and tablet screens are even smaller and used even closer
+static const int targetDpiMobile = 192;
+
+// Round calculated ideal scale factor to the nearest quarter
+static const int scaleRoundingness = 4;
 
 Generator *Generator::instance = nullptr;
 
@@ -531,19 +546,48 @@ KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, cons
 
 qreal Generator::bestScaleForOutput(const KScreen::OutputPtr &output)
 {
-    // if we have no physical size, we can't determine the DPI properly. Fallback to scale 1
+    // Sanity check outputs that tell us they have no physical size
     if (output->sizeMm().height() <= 0) {
         return 1.0;
     }
-    const auto mode = output->currentMode();
-    const qreal dpi = mode->size().height() / (output->sizeMm().height() / 25.4);
 
-    // if reported DPI is closer to two times normal DPI, followed by a sanity check of having the sort of vertical resolution
-    // you'd find in a high res screen
-    if (dpi > 96 * 1.5 && mode->size().height() >= 1440) {
-        return 2.0;
+    /* The eye's ability to perceive detail diminishes with distance, so objects
+     * that are closer can be smaller and their details remain equally
+     * distinguishable. As a result, each device type has its own ideal physical
+     * size of items on its screen based on how close the user's eyes are
+     * expected to be from it on average, and its target DPI value needs to be
+     * changed accordingly.
+     */
+    int outputTargetDpi;
+
+    if (output->type() != KScreen::Output::Panel) {
+        outputTargetDpi = targetDpiDesktop;
+    } else {
+        if (isLaptop()) {
+            outputTargetDpi = targetDpiLaptop;
+        } else {
+            outputTargetDpi = targetDpiMobile;
+        }
     }
-    return 1.0;
+
+    const qreal outputPixelHeight = output->currentMode()->size().height();
+    const qreal outputPhysicalHeight = output->sizeMm().height() / 25.4; // convert mm to inches
+    const qreal outputDpi = outputPixelHeight / outputPhysicalHeight;
+
+    const qreal scale = round(outputDpi / outputTargetDpi * scaleRoundingness) / scaleRoundingness;
+
+    // Sanity check for outputs with such a low pixel density that the calculated
+    // scale would be less than 1; this isn't well supported, so just use 1
+    if (scale < 1) {
+        return 1.0;
+    }
+    // The KCM doesn't support manually setting the scale higher than 3x, so limit
+    // the auto-calculated value to that
+    else if (scale > 3) {
+        return 3.0;
+    }
+
+    return scale;
 }
 
 KScreen::ModePtr Generator::bestModeForOutput(const KScreen::OutputPtr &output)

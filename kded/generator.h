@@ -44,6 +44,7 @@ public:
     void setForceNotLaptop(bool force);
 
     static KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
+    qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
 Q_SIGNALS:
     void ready();
@@ -62,7 +63,6 @@ private:
     void initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features);
     KScreen::ModePtr bestModeForSize(const KScreen::ModeList &modes, const QSize &size);
     KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
-    qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
     KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
     KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);

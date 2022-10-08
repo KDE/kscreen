@@ -1,0 +1,56 @@
+{
+    "outputs" :
+    [
+        {
+            "id" : 1,
+            "name" : "6.5 2280x1080",
+            "type" : "LVDS",
+            "modes" :
+            [
+                {
+                    "id" : 1,
+                    "name" : "2280x1080",
+                    "refreshRate" : 60,
+                    "size" : {
+                        "width" : 2280,
+                        "height" : 1080
+                    }
+                }
+            ],
+            "sizeMM": {
+                "width": 145,
+                "height": 69
+            },
+            "rotation" : 1,
+            "connected" : true,
+            "enabled" : true,
+            "primary" : true,
+            "scale" : 2.0
+        },
+        {
+            "id" : 2,
+            "name" : "Steam Deck 7 2280x1080",
+            "type" : "LVDS",
+            "modes" :
+            [
+                {
+                    "id" : 1,
+                    "name" : "2280x1080",
+                    "refreshRate" : 60,
+                    "size" : {
+                        "width" : 1280,
+                        "height" : 800
+                    }
+                }
+            ],
+            "sizeMM": {
+                "width": 152,
+                "height": 97
+            },
+            "rotation" : 1,
+            "connected" : true,
+            "enabled" : true,
+            "scale" : 1.0
+        }
+    ]
+}
