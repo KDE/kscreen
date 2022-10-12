@@ -7,8 +7,6 @@
 
 #include "osd.h"
 
-#include "../common/utils.h"
-
 #include <KScreen/Mode>
 
 #include <LayerShellQt/Window>

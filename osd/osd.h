@@ -17,7 +17,7 @@
 
 #include <memory>
 
-#include "osdmanager.h"
+#include "../common/osdaction.h"
 
 namespace KDeclarative
 {
