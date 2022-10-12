@@ -38,8 +38,6 @@ public:
     explicit Osd(const OutputPtr &output, QObject *parent = nullptr);
     ~Osd() override;
 
-    void showGenericOsd(const QString &icon, const QString &text);
-    void showOutputIdentifier(const KScreen::OutputPtr &output, bool shouldShouldSerialNumber);
     void showActionSelector();
     void hideOsd();
 
@@ -51,8 +49,6 @@ private Q_SLOTS:
     void onOutputAvailabilityChanged();
 
 private:
-    bool initOsd();
-
     KScreen::OutputPtr m_output;
     QQmlEngine m_engine;
     std::unique_ptr<QQuickView> m_osdActionSelector;
