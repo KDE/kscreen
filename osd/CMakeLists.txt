@@ -12,12 +12,6 @@ target_link_libraries(kscreen_osd_service PRIVATE
     LayerShellQt::Interface
 )
 
-set(QML_FILES
-    qml/OsdSelector.qml
-)
-
-install(FILES ${QML_FILES} DESTINATION ${KDE_INSTALL_DATADIR}/kded_kscreen/qml)
-
 install(TARGETS kscreen_osd_service DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 ecm_generate_dbus_service_file(
