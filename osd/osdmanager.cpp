@@ -40,12 +40,14 @@ OsdManager::OsdManager(QObject *parent)
 
 void OsdManager::hideOsd()
 {
-    quit();
+    // Let QML engine finish execution of signal handlers, if any.
+    QTimer::singleShot(0, this, &OsdManager::quit);
 }
 
 void OsdManager::quit()
 {
     qDeleteAll(m_osds);
+    m_osds.clear();
     qApp->quit();
 }
 
@@ -108,12 +110,10 @@ OsdAction::Action OsdManager::showActionSelector()
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
             connect(osd, &Osd::osdActionSelected, this, [this, message](OsdAction::Action action) {
-                for (auto osd : qAsConst(m_osds)) {
-                    osd->hideOsd();
-                }
                 auto reply = message.createReply(action);
                 QDBusConnection::sessionBus().send(reply);
-                quit();
+
+                hideOsd();
             });
         }
 
