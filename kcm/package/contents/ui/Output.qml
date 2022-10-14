@@ -100,6 +100,7 @@ Item {
 
                 text: "(" + model.resolution.width + "x" + model.resolution.height +
                       (model.scale !== 1 ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
+                wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
             }
