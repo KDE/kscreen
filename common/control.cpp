@@ -345,16 +345,6 @@ void ControlConfig::set(const KScreen::OutputPtr &output, const QString &name, F
     }
 }
 
-qreal ControlConfig::getScale(const KScreen::OutputPtr &output) const
-{
-    return get(output, scaleString, &ControlOutput::getScale, -1.0);
-}
-
-void ControlConfig::setScale(const KScreen::OutputPtr &output, qreal value)
-{
-    set<qreal>(output, scaleString, &ControlOutput::setScale, value);
-}
-
 bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
 {
     return get(output, autorotateString, &ControlOutput::getAutoRotate, true);
@@ -512,21 +502,6 @@ QString ControlOutput::filePath() const
         return QString();
     }
     return filePathFromHash(m_output->hashMd5());
-}
-
-qreal ControlOutput::getScale() const
-{
-    const auto val = constInfo()[scaleString];
-    return val.canConvert<qreal>() ? val.toReal() : -1;
-}
-
-void ControlOutput::setScale(qreal value)
-{
-    auto &infoMap = info();
-    if (infoMap.isEmpty()) {
-        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
-    }
-    infoMap[scaleString] = value;
 }
 
 bool ControlOutput::getAutoRotate() const
