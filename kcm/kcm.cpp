@@ -32,6 +32,18 @@
 K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", registerPlugin<KCMKScreen>();)
 
 using namespace KScreen;
+class ScreenSortProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    ScreenSortProxyModel(QObject *parent)
+        : QSortFilterProxyModel(parent)
+    {
+    }
+
+protected:
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+};
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickAddons::ManagedConfigModule(parent, data, args)
@@ -42,6 +54,9 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
     Log::instance();
 
     setButtons(Apply);
+
+    m_outputProxyModel = new ScreenSortProxyModel(this);
+    m_outputProxyModel->sort(0);
 
     m_loadCompressor = new QTimer(this);
     m_loadCompressor->setInterval(1000);
@@ -222,12 +237,9 @@ void KCMKScreen::setBackendReady(bool ready)
     Q_EMIT backendReadyChanged();
 }
 
-OutputModel *KCMKScreen::outputModel() const
+QAbstractItemModel *KCMKScreen::outputModel() const
 {
-    if (!m_configHandler) {
-        return nullptr;
-    }
-    return m_configHandler->outputModel();
+    return m_outputProxyModel;
 }
 
 void KCMKScreen::identifyOutputs()
@@ -330,14 +342,18 @@ void KCMKScreen::load()
     // gracefully cleaning up the QML side and only then we will delete it.
     auto *oldConfig = m_configHandler.release();
     if (oldConfig) {
-        emit outputModelChanged();
+        m_outputProxyModel->setSourceModel(nullptr);
         delete oldConfig;
     }
 
     m_configHandler.reset(new ConfigHandler(this));
+    m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
+
     Q_EMIT perOutputScalingChanged();
     Q_EMIT xwaylandClientsScaleSupportedChanged();
-    connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, &KCMKScreen::outputModelChanged);
+    connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, [this]() {
+        m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
+    });
     connect(m_configHandler.get(), &ConfigHandler::outputConnect, this, [this](bool connected) {
         Q_EMIT outputConnect(connected);
         setBackendReady(false);
@@ -477,6 +493,20 @@ void KCMKScreen::setOutputRetention(int retention)
         return;
     }
     m_configHandler->setRetention(retention);
+}
+
+bool ScreenSortProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    bool leftEnabled = source_left.data(OutputModel::EnabledRole).toBool();
+    bool rightEnabled = source_right.data(OutputModel::EnabledRole).toBool();
+
+    if (leftEnabled && !rightEnabled) {
+        return true;
+    }
+    if (rightEnabled && !leftEnabled) {
+        return false;
+    }
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 #include "kcm.moc"

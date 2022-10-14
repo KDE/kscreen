@@ -22,7 +22,7 @@ class KCMKScreen : public KQuickAddons::ManagedConfigModule
 {
     Q_OBJECT
 
-    Q_PROPERTY(OutputModel *outputModel READ outputModel NOTIFY outputModelChanged)
+    Q_PROPERTY(QAbstractItemModel *outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
     Q_PROPERTY(bool perOutputScaling READ perOutputScaling NOTIFY perOutputScalingChanged)
@@ -46,7 +46,7 @@ public:
 
     bool isSaveNeeded() const override;
 
-    OutputModel *outputModel() const;
+    QAbstractItemModel *outputModel() const;
 
     Q_INVOKABLE void identifyOutputs();
 
@@ -84,7 +84,6 @@ public:
 Q_SIGNALS:
     void backendReadyChanged();
     void backendError();
-    void outputModelChanged();
     void changed();
     void screenNormalizedChanged();
     void perOutputScalingChanged();
@@ -120,6 +119,8 @@ private:
     bool m_settingsReverted = false;
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
+
+    QSortFilterProxyModel *m_outputProxyModel;
 
     QTimer *m_loadCompressor;
 };

@@ -15,9 +15,10 @@ import org.kde.private.kcm.kscreen 1.0 as KScreen
 ColumnLayout {
     Kirigami.FormLayout {
         twinFormLayouts: globalSettingsLayout
-        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+        visible: comboBox.count > 1
 
         Controls.ComboBox {
+            id: comboBox
             Kirigami.FormData.label: i18n("Device:")
             Layout.maximumWidth: Kirigami.Units.gridUnit * 16
             model: kcm.outputModel
