@@ -58,6 +58,7 @@ void Osd::showActionSelector()
 
     if (KWindowSystem::isPlatformWayland()) {
         auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
+        layerWindow->setScope(QStringLiteral("on-screen-display"));
         layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
         layerWindow->setAnchors({});
         layerWindow->setDesiredOutput(qGuiApp->screenAt(m_output->pos()));
