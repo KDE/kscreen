@@ -19,6 +19,9 @@ KCM.SimpleKCM {
     property int selectedOutput: 0
     property int revertCountdown: 15
 
+    // This is to fix Output dragging
+    flickable.interactive: Kirigami.Settings.hasTransientTouchInput
+
     ColumnLayout {
         Kirigami.InlineMessage {
             // Note1: There is an implicit height binding loop error on

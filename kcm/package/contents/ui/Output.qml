@@ -5,7 +5,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.3 as Controls
 import org.kde.kirigami 2.4 as Kirigami
@@ -84,12 +84,23 @@ Item {
     }
 
     Item {
+        anchors.fill: parent
+        // So we can show a grabby hand cursor when hovered over
+        HoverHandler {
+            cursorShape: kcm.outputModel && kcm.outputModel.rowCount() > 1 ? Qt.SizeAllCursor : undefined
+        }
+        z: 2
+    }
+
+    Item {
         id: labelContainer
         anchors {
             fill: parent
             margins: outline.border.width
         }
 
+        // so the text is drawn above orientationPanelContainer
+        z: 1
         ColumnLayout {
             anchors.centerIn: parent
             spacing: 0
@@ -242,6 +253,7 @@ Item {
     TapHandler {
         id: tapHandler
         property bool isLongPressed: false
+        gesturePolicy: TapHandler.WithinBounds
 
         function bindSelectedOutput() {
             root.selectedOutput
@@ -262,6 +274,7 @@ Item {
         id: dragHandler
         enabled: kcm.outputModel && kcm.outputModel.rowCount() > 1
         acceptedButtons: Qt.LeftButton
+        grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
         target: null
 
         onTranslationChanged: {
@@ -274,14 +287,6 @@ Item {
                 screen.resetTotalSize();
             }
         }
-    }
-
-    // So we can show a grabby hand cursor when hovered over
-    MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.SizeAllCursor
-        acceptedButtons: Qt.NoButton // Otherwise it interferes with the drag handler
-        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
     }
 }
 
