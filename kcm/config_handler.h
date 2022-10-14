@@ -48,9 +48,6 @@ public:
     int retention() const;
     void setRetention(int retention);
 
-    qreal scale(const KScreen::OutputPtr &output) const;
-    void setScale(KScreen::OutputPtr &output, qreal scale);
-
     KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
@@ -88,7 +85,6 @@ private:
     void primaryOutputSelected(int index);
     void primaryOutputChanged(const KScreen::OutputPtr &output);
     void initOutput(const KScreen::OutputPtr &output);
-    void resetScale(const KScreen::OutputPtr &output);
     /**
      * @brief checkSaveandTestCommon - compairs common config changes that would make the config dirty and needed to have the config checked when applied.
      * @param isSaveCheck - True  if your checking to see if the changes should request a save.

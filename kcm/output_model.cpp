@@ -183,7 +183,6 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             const auto oldSize = output.ptr->explicitLogicalSize().toSize();
 
             output.ptr->setScale(scale);
-            m_config->setScale(output.ptr, scale);
 
             const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
             output.ptr->setExplicitLogicalSize(newSize);
