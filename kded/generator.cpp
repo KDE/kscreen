@@ -283,11 +283,14 @@ void Generator::cloneScreens(KScreen::OutputList &connectedOutputs)
     Q_FOREACH (const KScreen::OutputPtr &output, connectedOutputs) {
         QSet<QSize> modeSizes;
         Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
-            const QSize size = mode->size();
+            QSize size = mode->size();
             if (size.width() > maxScreenSize.width() || size.height() > maxScreenSize.height()) {
                 continue;
             }
-            modeSizes.insert(mode->size());
+            if (m_currentConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling)) {
+                size = size / output->scale();
+            }
+            modeSizes.insert(size);
         }
 
         // If we have nothing to compare against
