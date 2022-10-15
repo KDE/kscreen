@@ -135,18 +135,20 @@ void KScreenDaemon::init()
     connect(m_lidClosedTimer, &QTimer::timeout, this, &KScreenDaemon::disableLidOutput);
 
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
-    connect(Device::self(), &Device::resumingFromSuspend, this, [&]() {
+    connect(Device::self(), &Device::resumingFromSuspend, this, [this]() {
         KScreen::Log::instance()->setContext(QStringLiteral("resuming"));
+        m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
         qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
         // We don't care about the result, we just want to force the backend
         // to query XRandR so that it will detect possible changes that happened
         // while the computer was suspended, and will emit the change events.
         new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID, this);
     });
-    connect(Device::self(), &Device::aboutToSuspend, this, [&]() {
+    connect(Device::self(), &Device::aboutToSuspend, this, [this]() {
         qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for "
                               << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
         m_lidClosedTimer->stop();
+        m_orientationSensor->setEnabled(false);
     });
 
     connect(Generator::self(), &Generator::ready, this, [this] {
