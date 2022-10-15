@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2022-09-10 13:29+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -25,29 +25,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "Bat ere ez"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Beste irudi-irteera batek ere erreplikatzen du"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -56,23 +56,23 @@ msgstr ""
 "Ziur zaude irudi-irteera guztiak desgaitu nahi dituzula? Honek gailua "
 "erabilgaitz utzi dezake."
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "Ezgaitu irudi-irteera guztiak"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Ez da aurkitu KScreen bizkarraldekorik. Ikuskatu zure kScreen instalazioa."
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Irudi-irteerak ezin izan dira gorde errore bat egon delako."
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
@@ -81,44 +81,44 @@ msgstr ""
 "Eskala global berria ezarri da. Aldaketak sistema berrabiarazi ondoren "
 "sartuko dira indarrean."
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr "Berrabiarazi"
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Bistaratze konfigurazioa lehengoratu da."
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Bistaratze konfigurazioa mantendu?"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Aurreko konfiguraziora lehengoratu du segundo %1 barru."
 msgstr[1] "Aurreko konfiguraziora lehengoratu du %1 segundo barru."
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantendu"
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr "Lehene&ratu"
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Irudi-irteera berri bat gehitu da. Ezarpenak birzamatu egin dira."
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Irudi-irteera bat kendu da. Ezarpenak birzamatu egin dira."
@@ -145,7 +145,7 @@ msgstr "Soilik tableta moduan dagoenean"
 msgid "Manual"
 msgstr "Eskuz"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "Erreplikak"

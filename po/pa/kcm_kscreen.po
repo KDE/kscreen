@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2021-04-25 12:38-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -22,29 +22,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "ਕੋਈ ਨਹੀਂ"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "ਹੋਰ ਆਉਟਪੁੱਟ ਦੀ ਹੂ-ਬਹੂ ਨਕਲ ਕੀਤੀ"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -52,22 +52,22 @@ msgid ""
 msgstr ""
 "ਕੀ ਤੁਸੀਂ ਸਭ ਆਉਟਪੁੱਟਾਂ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਡਿਵਾਈਸ ਨੂੰ ਬੇਕਾਰ ਨੂੰ ਰੈਂਡਰ ਕਰ ਸਕਦਾ ਹੈ।"
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "ਸਭ ਆਉਟਪੁੱਟਾਂ ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "ਕੋਈ KScreen ਬੈਕਐਂਡ ਨਹੀਂ ਮਿਲਿਆ। ਆਪਣੀ KScreen ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "ਗ਼ਲਤੀ ਦੇ ਕਰਕੇ ਆਉਟਪੁੱਟ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -76,46 +76,46 @@ msgid ""
 "restarted."
 msgstr "ਨਵਾਂ ਗਲੋਬਲ ਸਕੇਲ ਲਾਗੂ ਕੀਤਾ। ਤਬਦੀਲੀਆਂ ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੇ ਬਾਅਦ ਹੀ ਲਾਗੂ ਹੋਣਗੀਆਂ।"
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Display configuration reverted."
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ"
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Keep display configuration?"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] ""
 msgstr[1] ""
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr ""
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr ""
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ਨਵੀਂ ਆਉਟਪੁੱਟ ਨੂੰ ਜੋੜਿਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "ਆਉਟਪੁੱਟ ਨੂੰ ਹਟਾਇਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
@@ -143,7 +143,7 @@ msgstr "ਸਿਰਫ਼ ਜਦੋਂ ਟੇਬਲੇਟ ਢੰਗ ਵਿੱਚ ਹ�
 msgid "Manual"
 msgstr "ਖੁਦ"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "ਹੂ-ਬਹੂ ਨਕਲ"

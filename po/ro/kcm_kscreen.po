@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2022-04-30 11:46+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "Niciunul"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicat de altă ieșire"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -54,22 +54,22 @@ msgstr ""
 "Sigur doriți să dezactivați toate ieșirile? Aceasta v-ar putea face "
 "dispozitivul inoperabil."
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "Dezactivează toate ieșirile"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Platforma KScreen nu a fost găsită. Verificați instalarea KScreen."
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Ieșirile nu au putut fi salvate din cauza erorii."
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -79,22 +79,22 @@ msgid ""
 msgstr ""
 "Scala globală e aplicată. Modificarea va intra în vigoare după repornire."
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configurația afișajului a fost restabilită."
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Se păstrează configurația afișajului?"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -102,22 +102,22 @@ msgstr[0] "Se va reveni la configurația precedentă în %1 secundă."
 msgstr[1] "Se va reveni la configurația precedentă în %1 secunde."
 msgstr[2] "Se va reveni la configurația precedentă în %1 de secunde."
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr "&Păstrează"
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr "&Restabilește"
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "A fost adăugată o nouă ieșire. Configurările au fost reîncărcate."
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "A fost eliminată o ieșire Configurările au fost reîncărcate."
@@ -144,7 +144,7 @@ msgstr "Doar în regim de tabletă"
 msgid "Manual"
 msgstr "Manual"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "Replici"

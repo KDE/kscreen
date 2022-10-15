@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2020-12-25 11:46+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "Nincs"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replikálva másik kimeneten"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -54,23 +54,23 @@ msgstr ""
 "Biztosan letiltja az összes kimenetet? Ez használhatatlanná teheti az "
 "eszközt."
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "Összes kimenet letiltása"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Nem található a KScreen modul. Ellenőrizze, hogy rendesen telepítve van-e."
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Hiba történt, a kimenetek nem menthetőek."
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -81,46 +81,46 @@ msgstr ""
 "A globális skálázás megváltozott. A változás újraindítás után fog "
 "érvényesülni."
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Display configuration reverted."
 msgstr "Kijelzőbeállítás"
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Keep display configuration?"
 msgstr "Kijelzőbeállítás"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] ""
 msgstr[1] ""
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr ""
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr ""
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Új kimenet lett felvéve.A beállítások újratöltődtek."
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Egy kimenet eltávolításra került. A beállítások újratöltődtek."
@@ -148,7 +148,7 @@ msgstr "Csak tablet módban."
 msgid "Manual"
 msgstr "Kézi"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "Replikák"

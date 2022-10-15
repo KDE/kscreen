@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2021-11-17 13:23+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -22,29 +22,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr ""
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "Žane"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopěrowane wot druheje wobrazowki"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -53,44 +53,44 @@ msgstr ""
 "Chceće woprawdźe wšón output hasnyć? Tutón grat so potom snano njehodźi "
 "wužiwać."
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "Wšón Output hasnyć"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Output njehodźeše so zawěsćić, dokelž je so zmylk stał."
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
 "restarted."
 msgstr ""
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Připrawjenje wróćo zwołane."
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Připrawjenje wobrazowki wobchować?"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -99,22 +99,22 @@ msgstr[1] "Prjedawše připrawjenje so zaso wužiwa za %1 sekundźe."
 msgstr[2] "Prjedawše připrawjenje so zaso wužiwa za %1 sekundy."
 msgstr[3] "Prjedawše připrawjenje so zaso wužiwa za %1 sekundow."
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr "&Wobchować"
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr "&Wróćo"
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Nowy output je so dodał. Nastajenja su so znowa začitałe."
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Output je so wotstronił. Nastajenja su so znowa začitałe."
@@ -141,7 +141,7 @@ msgstr "Jenož w tabletowym modusu"
 msgid "Manual"
 msgstr "Manuelna"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr ""

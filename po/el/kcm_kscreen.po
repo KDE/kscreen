@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:48+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:571
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:590
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:671
 #, kde-format
 msgid "None"
 msgstr "Κανένα"
 
-#: output_model.cpp:679
+#: output_model.cpp:678
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Αντιγράφτηκε από άλλη έξοδο"
 
-#: package/contents/ui/main.qml:34
+#: package/contents/ui/main.qml:37
 #, kde-format
 msgid ""
 "Are you sure you want to disable all outputs? This might render the device "
@@ -54,24 +54,24 @@ msgstr ""
 "Θέλετε πράγματι την απενεργοποίηση όλων των εξόδων; Αυτό ίσως αχρηστεύσει τη "
 "συσκευή."
 
-#: package/contents/ui/main.qml:40
+#: package/contents/ui/main.qml:43
 #, kde-format
 msgid "Disable All Outputs"
 msgstr "Απενεργοποίηση όλων των εξόδων"
 
-#: package/contents/ui/main.qml:52
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Δε βρέθηκε σύστημα υποστήριξης για το KScreen. Ελέγξτε την εγκατάσταση του "
 "KScreen."
 
-#: package/contents/ui/main.qml:60
+#: package/contents/ui/main.qml:63
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Αδυναμία αποθήκευσης των εξόδων εξαιτίας σφάλματος."
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:71
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -82,44 +82,44 @@ msgstr ""
 "Εφαρμόστηκε νέα καθολική κλίμακα. Οι αλλαγές θα εμφανιστούν μετά την "
 "επανεκκίνηση."
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:90
+#: package/contents/ui/main.qml:93
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Έγινε επαναφορά στη διαμόρφωση οθόνης."
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:100
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
 
-#: package/contents/ui/main.qml:114
+#: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτο."
 msgstr[1] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτα."
 
-#: package/contents/ui/main.qml:133
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
 msgstr "&Διατήρηση"
 
-#: package/contents/ui/main.qml:151
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
 msgstr "Επαναφο&ρά"
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Έχει προστεθεί νέα έξοδος. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: package/contents/ui/main.qml:180
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Μια έξοδος έχει διαγραφεί. Οι ρυθμίσεις έχουν ανανεωθεί."
@@ -146,7 +146,7 @@ msgstr "Μόνο σε λειτουργία πινακίου"
 msgid "Manual"
 msgstr "Χειροκίνητα"
 
-#: package/contents/ui/Output.qml:226
+#: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "Αντίγραφα"
