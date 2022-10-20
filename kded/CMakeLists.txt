@@ -41,7 +41,9 @@ target_link_libraries(kscreen PRIVATE
                               KF5::DBusAddons
                               KF5::I18n
                               KF5::XmlGui
-                              KF5::GlobalAccel)
+                              KF5::GlobalAccel
+                              KF5::ScreenDpms
+)
 
 if(X11_FOUND)
     target_link_libraries(kscreen PRIVATE X11::X11 X11::Xi X11::XCB XCB::ATOM)

@@ -24,6 +24,7 @@
 #include <kscreen/output.h>
 #include <kscreen/screen.h>
 #include <kscreen/setconfigoperation.h>
+#include <kscreendpms/dpms.h>
 
 #include <KActionCollection>
 #include <KGlobalAccel>
@@ -33,6 +34,7 @@
 #include <QAction>
 #include <QGuiApplication>
 #include <QOrientationReading>
+#include <QScreen>
 #include <QShortcut>
 #include <QTimer>
 
@@ -84,6 +86,17 @@ KScreenDaemon::KScreenDaemon(QObject *parent, const QList<QVariant> &)
     KScreen::Log::instance();
     qMetaTypeId<KScreen::OsdAction>();
     QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
+
+    auto dpms = new KScreen::Dpms(this);
+    connect(dpms, &KScreen::Dpms::modeChanged, this, [this](KScreen::Dpms::Mode mode, QScreen *screen) {
+        if (m_monitoredConfig && m_monitoredConfig->data() && screen->geometry() == m_monitoredConfig->data()->primaryOutput()->geometry()) {
+            if (mode == KScreen::Dpms::On) {
+                m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
+            } else {
+                m_orientationSensor->setEnabled(false);
+            }
+        }
+    });
 }
 
 void KScreenDaemon::getInitialConfig()
