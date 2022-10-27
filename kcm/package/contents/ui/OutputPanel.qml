@@ -88,23 +88,23 @@ ColumnLayout {
                 id: spinbox
                 // Because QQC2 SpinBox doesn't natively support decimal step
                 // sizes: https://bugreports.qt.io/browse/QTBUG-67349
-                property real factor: 20.0
-                property real realValue: value / factor
+                readonly property real factor: 20.0
+                readonly property real realValue: value / factor
 
                 from : 0.5 * factor
                 to : 3.0 * factor
-                stepSize: 0.05 * factor
+                stepSize: 1
                 value: element.scale * factor
                 validator: DoubleValidator {
                     bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
                     top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
                 }
-                textFromValue: function(value, locale) {
-                    return i18nc("Global scale factor expressed in percentage form", "%1%", parseFloat(value * 1.0 / factor * 100.0));
-                }
-                valueFromText: function(text, locale) {
-                    return Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
-                }
+                textFromValue: (value, locale) =>
+                    i18nc("Global scale factor expressed in percentage form", "%1%",
+                        parseFloat(value * 1.0 / factor * 100.0))
+                valueFromText: (text, locale) =>
+                    Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
+
                 onValueModified: element.scale = realValue
             }
         }
@@ -171,9 +171,9 @@ ColumnLayout {
             }
 
             KCM.ContextualHelpButton {
-                toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display
+                toolTipText: xi18nc("@info", `Determines how much padding is put around the image sent to the display
                                               to compensate for part of the content being cut off around the edges.<nl/><nl/>
-                                              This is sometimes needed when using a TV as a screen")
+                                              This is sometimes needed when using a TV as a screen`)
             }
         }
 
@@ -196,8 +196,8 @@ ColumnLayout {
             }
 
             KCM.ContextualHelpButton {
-                toolTipText: xi18nc("@info", "Determines whether or not the range of possible color values needs to be limited for the display.
-                                              This should only be changed if the colors on the screen look washed out.")
+                toolTipText: xi18nc("@info", `Determines whether or not the range of possible color values needs to be limited for the display.
+                                              This should only be changed if the colors on the screen look washed out.`)
             }
         }
 

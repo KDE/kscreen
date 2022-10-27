@@ -19,7 +19,7 @@ Controls.ScrollView {
     onWidthChanged: resetTotalSize()
     onHeightChanged: resetTotalSize()
 
-    property real relativeFactor: {
+    readonly property real relativeFactor: {
         var relativeSize = Qt.size(totalSize.width / (0.6 * width),
                                    totalSize.height / (0.6 * height));
         if (relativeSize.width > relativeSize.height) {

@@ -111,7 +111,7 @@ KCM.SimpleKCM {
 
                 Controls.Label {
                     Layout.fillWidth: true
-                    Layout.maximumWidth: Math.round(root.width*0.75)
+                    Layout.maximumWidth: Math.round(root.width * 0.75)
                     Layout.topMargin: Kirigami.Units.largeSpacing * 2
                     Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                     text: i18np("Will revert to previous configuration in %1 second.",
@@ -125,7 +125,7 @@ KCM.SimpleKCM {
 
                     Controls.Button {
                         id: acceptButton
-                        Keys.onPressed: function (event){
+                        Keys.onPressed: event => {
                             if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                                 event.accepted = true
                                 acceptButton.action.trigger()
@@ -143,7 +143,7 @@ KCM.SimpleKCM {
                         id: revertButton
                         KeyNavigation.left: acceptButton
                         focus: true
-                        Keys.onPressed: function (event){
+                        Keys.onPressed: event => {
                             if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                                 event.accepted = true
                                 revertButton.action.trigger()

@@ -24,10 +24,8 @@ ColumnLayout {
             textRole: "display"
             currentIndex: root.selectedOutput
             onActivated: {
-                root.selectedOutput = index
-                currentIndex = Qt.binding(function() {
-                    return root.selectedOutput;
-                });
+                root.selectedOutput = index;
+                currentIndex = Qt.binding(() => root.selectedOutput);
             }
         }
     }
@@ -36,8 +34,9 @@ ColumnLayout {
         id: panelView
         currentIndex: root.selectedOutput
 
-        onCurrentIndexChanged: root.selectedOutput =
-                               Qt.binding(function() { return currentIndex; });
+        onCurrentIndexChanged: {
+            root.selectedOutput = Qt.binding(() => currentIndex);
+        }
 
         Layout.fillWidth: true
 
@@ -79,26 +78,26 @@ ColumnLayout {
 
                 // Because QQC2 SpinBox doesn't natively support decimal step
                 // sizes: https://bugreports.qt.io/browse/QTBUG-67349
-                property real factor: 16.0
-                property real realValue: value / factor
+                readonly property real factor: 16.0
+                readonly property real realValue: value / factor
 
-                from : 1.0 * factor
-                to : 3.0 * factor
+                from: 1.0 * factor
+                to: 3.0 * factor
                 // On X11 We set the increment to this weird value to compensate
                 // for inherent difficulties with floating-point math and this
                 // Qt bug: https://bugreports.qt.io/browse/QTBUG-66036
-                stepSize: 0.0625 * factor
+                stepSize: 1
                 value: kcm.globalScale * factor
                 validator: DoubleValidator {
-                    bottom: Math.min(spinbox.from, spinbox.to)*spinbox.factor
-                    top:  Math.max(spinbox.from, spinbox.to)*spinbox.factor
+                    bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
+                    top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
                 }
-                textFromValue: function(value, locale) {
-                    return i18nc("Global scale factor expressed in percentage form", "%1%", parseFloat(value * 1.0 / factor * 100.0));
-                }
-                valueFromText: function(text, locale) {
-                    return Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
-                }
+                textFromValue: (value, locale) =>
+                    i18nc("Global scale factor expressed in percentage form", "%1%",
+                        parseFloat(value * 1.0 / factor * 100.0))
+                valueFromText: (text, locale) =>
+                    Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
+
                 onValueModified: {
                     kcm.globalScale = realValue;
                     if (kcm.globalScale % 0.25) {

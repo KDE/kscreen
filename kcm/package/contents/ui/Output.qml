@@ -26,7 +26,7 @@ Item {
 
     function getAbsolutePosition(pos) {
         return Qt.point((pos.x - screen.xOffset) * screen.relativeFactor,
-                        (pos.y - screen.yOffset) * screen.relativeFactor) ;
+                        (pos.y - screen.yOffset) * screen.relativeFactor);
     }
 
     visible: model.enabled && model.replicationSourceIndex === 0
@@ -257,8 +257,7 @@ Item {
         gesturePolicy: TapHandler.WithinBounds
 
         function bindSelectedOutput() {
-            root.selectedOutput
-                    = Qt.binding(function() { return model.index; });
+            root.selectedOutput = Qt.binding(() => model.index);
         }
         onPressedChanged: {
             if (pressed) {
