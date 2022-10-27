@@ -13,17 +13,16 @@ Controls.ToolButton {
     id: root
 
     property int value
-    property var rot
-    property var tooltip
+    property /*KScreen::Output::Rotation*/int outputRotation
+    property string tooltip
 
     Layout.fillWidth: true
     height: childrenRect.height
 
-    checked: element.rotation === rot
+    checked: element.rotation === outputRotation
 
     Controls.ToolTip {
         text: tooltip
-        timeout: 5000
     }
 
     contentItem: Kirigami.Icon {
@@ -32,11 +31,11 @@ Controls.ToolButton {
     }
 
     onClicked: {
-        if (element.rotation === rot) {
+        if (element.rotation === outputRotation) {
             return;
         }
 
-        element.rotation = rot;
+        element.rotation = outputRotation;
         screen.resetTotalSize();
     }
 
@@ -44,22 +43,22 @@ Controls.ToolButton {
     implicitHeight: contentItem.implicitHeight + 2 * Kirigami.Units.smallSpacing
 
     Component.onCompleted: {
-        switch(value) {
+        switch (value) {
         case 90:
-            rot = KScreen.Output.Left;
+            outputRotation = KScreen.Output.Left;
             tooltip = i18n("90° Clockwise");
             break;
         case 180:
-            rot = KScreen.Output.Inverted;
+            outputRotation = KScreen.Output.Inverted;
             tooltip = i18n("Upside Down");
             break;
         case 270:
-            rot = KScreen.Output.Right;
+            outputRotation = KScreen.Output.Right;
             tooltip = i18n("90° Counterclockwise")
             break;
         case 0:
         default:
-            rot = KScreen.Output.None;
+            outputRotation = KScreen.Output.None;
             tooltip = i18n("No Rotation");
         }
     }
