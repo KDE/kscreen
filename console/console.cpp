@@ -147,15 +147,13 @@ void Console::printSerializations()
         qDebug() << fileName;
         QFile file(path + QLatin1Char('/') + fileName);
         file.open(QFile::ReadOnly);
-        parser.fromJson(file.readAll(), &error);
+        QJsonDocument parser = QJsonDocument::fromJson(file.readAll(), &error);
         if (error.error != QJsonParseError::NoError) {
-            qDebug() << "    "
-                     << "can't parse file";
+            qDebug() << "    can't parse file:";
             qDebug() << "    " << error.errorString();
-            continue;
+        } else {
+            qDebug().noquote() << parser.toJson(QJsonDocument::Indented);
         }
-
-        qDebug() << parser.toJson(QJsonDocument::Indented) << Qt::endl;
     }
 }
 
