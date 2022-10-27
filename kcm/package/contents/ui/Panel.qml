@@ -42,7 +42,9 @@ ColumnLayout {
 
         Repeater {
             model: kcm.outputModel
-            OutputPanel {}
+            OutputPanel {
+                twinFormLayouts: globalSettingsLayout
+            }
         }
     }
 
