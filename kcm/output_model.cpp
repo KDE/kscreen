@@ -5,9 +5,10 @@
 */
 #include "output_model.h"
 
-#include "../common/utils.h"
-#include "kscreen/edid.h"
+#include <kscreen/edid.h>
+#include <kscreen/mode.h>
 
+#include "../common/utils.h"
 #include "config_handler.h"
 
 #include <KLocalizedString>

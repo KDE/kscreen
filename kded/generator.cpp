@@ -12,6 +12,7 @@
 #include <QRect>
 
 #include <kscreen/config.h>
+#include <kscreen/screen.h>
 
 #if defined(QT_NO_DEBUG)
 #define ASSERT_OUTPUTS(outputs)

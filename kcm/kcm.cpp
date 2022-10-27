@@ -16,6 +16,7 @@
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/log.h>
+#include <kscreen/mode.h>
 #include <kscreen/output.h>
 #include <kscreen/setconfigoperation.h>
 

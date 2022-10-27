@@ -18,6 +18,7 @@
 #include <kscreen/edid.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/mode.h>
+#include <kscreen/screen.h>
 #include <kscreen/types.h>
 
 static QTextStream cout(stdout);

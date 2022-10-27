@@ -18,6 +18,7 @@
 #include <QStringBuilder>
 
 #include <kscreen/output.h>
+#include <kscreen/screen.h>
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
 QString Config::s_configsDirName = QString();
