@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
+
 add_executable(kscreen-console main.cpp console.cpp)
 
 target_link_libraries(kscreen-console
