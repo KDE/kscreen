@@ -68,8 +68,8 @@ void Console::printConfig()
     qDebug() << "\tminSize:" << m_config->screen()->minSize();
     qDebug() << "\tcurrentSize:" << m_config->screen()->currentSize();
 
-    OutputList outputs = m_config->outputs();
-    Q_FOREACH (const OutputPtr &output, outputs) {
+    const OutputList outputs = m_config->outputs();
+    for (const OutputPtr &output : outputs) {
         qDebug() << "\n-----------------------------------------------------\n";
         qDebug() << "Id: " << output->id();
         qDebug() << "Name: " << output->name();
@@ -99,8 +99,8 @@ void Console::printConfig()
         qDebug() << "Preferred modes: " << output->preferredModes();
         qDebug() << "Modes: ";
 
-        ModeList modes = output->modes();
-        Q_FOREACH (const ModePtr &mode, modes) {
+        const ModeList modes = output->modes();
+        for (const ModePtr &mode : modes) {
             qDebug() << "\t" << mode->id() << "  " << mode->name() << " " << mode->size() << " " << mode->refreshRate();
         }
 
@@ -138,11 +138,11 @@ void Console::printSerializations()
     qDebug() << "Configs in: " << path;
 
     QDir dir(path);
-    QStringList files = dir.entryList(QDir::Files);
+    const QStringList files = dir.entryList(QDir::Files);
     qDebug() << "Number of files: " << files.count() << Qt::endl;
 
     QJsonDocument parser;
-    Q_FOREACH (const QString fileName, files) {
+    for (const QString &fileName : files) {
         QJsonParseError error;
         qDebug() << fileName;
         QFile file(path + QLatin1Char('/') + fileName);
