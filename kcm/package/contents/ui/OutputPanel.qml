@@ -47,9 +47,8 @@ ColumnLayout {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 11
                 visible: count > 1
                 model: element.resolutions
-                currentIndex: element.resolutionIndex !== undefined ?
-                                element.resolutionIndex : -1
-                onActivated: element.resolutionIndex = currentIndex
+                onActivated: element.resolutionIndex = currentIndex;
+                Component.onCompleted: currentIndex = element.resolutionIndex;
             }
             // When the combobox is has only one item, it's basically non-interactive
             // and is serving purely in a descriptive role, so make this explicit by
@@ -119,9 +118,8 @@ ColumnLayout {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 11
                 visible: count > 1
                 model: element.refreshRates
-                currentIndex: element.refreshRateIndex ?
-                                element.refreshRateIndex : 0
-                onActivated: element.refreshRateIndex = currentIndex
+                onActivated: element.refreshRateIndex = currentIndex;
+                Component.onCompleted: currentIndex = element.refreshRateIndex;
             }
             // When the combobox is has only one item, it's basically non-interactive
             // and is serving purely in a descriptive role, so make this explicit by
@@ -149,7 +147,7 @@ ColumnLayout {
             valueRole: "value"
             visible: element.capabilities & KScreen.Output.Capability.Vrr
 
-            onActivated: element.vrrPolicy = currentValue
+            onActivated: element.vrrPolicy = currentValue;
             Component.onCompleted: currentIndex = indexOfValue(element.vrrPolicy);
         }
 
@@ -191,7 +189,7 @@ ColumnLayout {
                 textRole: "label"
                 valueRole: "value"
 
-                onActivated: element.rgbRange = currentValue
+                onActivated: element.rgbRange = currentValue;
                 Component.onCompleted: currentIndex = indexOfValue(element.rgbRange);
             }
 
@@ -210,8 +208,8 @@ ColumnLayout {
             onModelChanged: enabled = (count > 1);
             onCountChanged: enabled = (count > 1);
 
-            currentIndex: element.replicationSourceIndex
-            onActivated: element.replicationSourceIndex = currentIndex
+            Component.onCompleted: currentIndex = element.replicationSourceIndex;
+            onActivated: element.replicationSourceIndex = currentIndex;
         }
     }
 }
