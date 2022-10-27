@@ -3,11 +3,11 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.9
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.3 as Controls
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.extras 2.0 as PlasmaExtras
-import org.kde.kirigami 2.4 as Kirigami
 
 import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
@@ -17,7 +17,7 @@ ColumnLayout {
         twinFormLayouts: globalSettingsLayout
         visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
 
-        Controls.ComboBox {
+        QQC2.ComboBox {
             Kirigami.FormData.label: i18n("Device:")
             Layout.maximumWidth: Kirigami.Units.gridUnit * 16
             model: kcm.outputModel
@@ -61,7 +61,7 @@ ColumnLayout {
 
             visible: !kcm.perOutputScaling
 
-            Controls.Slider {
+            QQC2.Slider {
                 id: globalScaleSlider
 
                 Layout.fillWidth: true
@@ -72,7 +72,7 @@ ColumnLayout {
                 value: kcm.globalScale
                 onMoved: kcm.globalScale = value;
             }
-            Controls.SpinBox {
+            QQC2.SpinBox {
                 id: spinbox
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 6
 
@@ -109,7 +109,7 @@ ColumnLayout {
             }
         }
 
-        Controls.ButtonGroup {
+        QQC2.ButtonGroup {
             id: x11AppsScaling
             onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)
         }
@@ -120,11 +120,11 @@ ColumnLayout {
             Kirigami.FormData.label: i18n("Legacy Applications (X11):")
             spacing: Kirigami.Units.smallSpacing
 
-            Controls.RadioButton {
+            QQC2.RadioButton {
                 id: x11ScalingApps
                 text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
                 checked: kcm.xwaylandClientsScale
-                Controls.ButtonGroup.group: x11AppsScaling
+                QQC2.ButtonGroup.group: x11AppsScaling
             }
             KCM.ContextualHelpButton {
                 toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
@@ -136,11 +136,11 @@ ColumnLayout {
 
             spacing: Kirigami.Units.smallSpacing
 
-            Controls.RadioButton {
+            QQC2.RadioButton {
                 Kirigami.FormData.label: i18n("Legacy Applications (X11):")
                 text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
                 checked: !kcm.xwaylandClientsScale
-                Controls.ButtonGroup.group: x11AppsScaling
+                QQC2.ButtonGroup.group: x11AppsScaling
             }
             KCM.ContextualHelpButton {
                 toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
@@ -162,7 +162,7 @@ ColumnLayout {
             showCloseButton: true
         }
 
-        Controls.ButtonGroup {
+        QQC2.ButtonGroup {
             buttons: retentionSelector.children
         }
 
@@ -173,14 +173,14 @@ ColumnLayout {
             Kirigami.FormData.buddyFor: globalRetentionRadio
             spacing: Kirigami.Units.smallSpacing
 
-            Controls.RadioButton {
+            QQC2.RadioButton {
                 id: globalRetentionRadio
                 text: i18n("For any display arrangement")
                 checked: !individualRetentionRadio.checked
                 onToggled: kcm.outputRetention = KScreen.Control.Global
             }
 
-            Controls.RadioButton {
+            QQC2.RadioButton {
                 id: individualRetentionRadio
                 text: i18n("For only this specific display arrangement")
                 checked: kcm.outputRetention === KScreen.Control.Individual

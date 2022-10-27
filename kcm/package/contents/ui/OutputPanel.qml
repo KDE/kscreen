@@ -3,10 +3,10 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as Controls
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 
 import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
@@ -18,7 +18,7 @@ ColumnLayout {
     Kirigami.FormLayout {
         twinFormLayouts: globalSettingsLayout
 
-        Controls.CheckBox {
+        QQC2.CheckBox {
            text: i18n("Enabled")
            checked: element.enabled
            onToggled: element.enabled = checked
@@ -28,7 +28,7 @@ ColumnLayout {
         RowLayout {
             visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
 
-            Controls.CheckBox {
+            QQC2.CheckBox {
                 text: i18n("Primary")
                 checked: element.primary
                 onToggled: element.primary = checked
@@ -42,7 +42,7 @@ ColumnLayout {
         RowLayout {
             Kirigami.FormData.label: i18n("Resolution:")
 
-            Controls.ComboBox {
+            QQC2.ComboBox {
                 id: resolutionCombobox
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 11
                 visible: count > 1
@@ -54,7 +54,7 @@ ColumnLayout {
             // When the combobox is has only one item, it's basically non-interactive
             // and is serving purely in a descriptive role, so make this explicit by
             // using a label instead
-            Controls.Label {
+            QQC2.Label {
                 id: singleResolutionLabel
                 visible: !resolutionCombobox.visible
                 text: element.resolutions[0]
@@ -73,7 +73,7 @@ ColumnLayout {
             visible: kcm.perOutputScaling
             Kirigami.FormData.label: i18n("Scale:")
 
-            Controls.Slider {
+            QQC2.Slider {
                 id: scaleSlider
 
                 Layout.fillWidth: true
@@ -84,7 +84,7 @@ ColumnLayout {
                 value: element.scale
                 onMoved: element.scale = value
             }
-            Controls.SpinBox {
+            QQC2.SpinBox {
                 id: spinbox
                 // Because QQC2 SpinBox doesn't natively support decimal step
                 // sizes: https://bugreports.qt.io/browse/QTBUG-67349
@@ -114,7 +114,7 @@ ColumnLayout {
         RowLayout {
             Kirigami.FormData.label: i18n("Refresh rate:")
 
-            Controls.ComboBox {
+            QQC2.ComboBox {
                 id: refreshRateCombobox
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 11
                 visible: count > 1
@@ -126,7 +126,7 @@ ColumnLayout {
             // When the combobox is has only one item, it's basically non-interactive
             // and is serving purely in a descriptive role, so make this explicit by
             // using a label instead
-            Controls.Label {
+            QQC2.Label {
                 id: singleRefreshRateLabel
                 visible: !refreshRateCombobox.visible
                 text: element.refreshRates[0]
@@ -137,7 +137,7 @@ ColumnLayout {
             }
         }
 
-        Controls.ComboBox {
+        QQC2.ComboBox {
             Kirigami.FormData.label: i18n("Adaptive sync:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
@@ -157,7 +157,7 @@ ColumnLayout {
             Kirigami.FormData.label: i18n("Overscan:")
             visible: element.capabilities & KScreen.Output.Capability.Overscan
 
-            Controls.SpinBox {
+            QQC2.SpinBox {
                 from: 0
                 to: 100
                 value: element.overscan
@@ -181,7 +181,7 @@ ColumnLayout {
             Kirigami.FormData.label: i18n("RGB Range:")
             visible: element.capabilities & KScreen.Output.Capability.RgbRange
 
-            Controls.ComboBox {
+            QQC2.ComboBox {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 11
                 model: [
                     { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
@@ -201,7 +201,7 @@ ColumnLayout {
             }
         }
 
-        Controls.ComboBox {
+        QQC2.ComboBox {
             Kirigami.FormData.label: i18n("Replica of:")
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: element.replicationSourceModel

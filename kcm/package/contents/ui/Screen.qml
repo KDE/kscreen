@@ -3,12 +3,12 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as Controls
-import org.kde.kirigami 2.5 as Kirigami
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 
-Controls.ScrollView {
+QQC2.ScrollView {
     property var outputs
     property size totalSize
 
@@ -53,7 +53,7 @@ Controls.ScrollView {
         visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
     }
 
-    Controls.Button {
+    QQC2.Button {
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter

@@ -6,9 +6,9 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 import QtQuick 2.15
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as Controls
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 
 Item {
     id: output
@@ -107,7 +107,7 @@ Item {
             width: parent.width
             Layout.maximumHeight: parent.height
 
-            Controls.Label {
+            QQC2.Label {
                 Layout.fillWidth: true
                 Layout.maximumHeight: labelContainer.height - resolutionLabel.implicitHeight
 
@@ -117,7 +117,7 @@ Item {
                 elide: Text.ElideRight
             }
 
-            Controls.Label {
+            QQC2.Label {
                 id: resolutionLabel
                 Layout.fillWidth: true
 
@@ -220,7 +220,7 @@ Item {
         }
     }
 
-    Controls.ToolButton {
+    QQC2.ToolButton {
         id: replicas
 
         property int selectedReplica: -1
@@ -234,7 +234,7 @@ Item {
         visible: model.replicasModel.length > 0
         icon.name: "osd-duplicate"
 
-        Controls.ToolTip {
+        QQC2.ToolTip {
             text: i18n("Replicas")
         }
 

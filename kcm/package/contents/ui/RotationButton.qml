@@ -3,13 +3,14 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.4 as Controls
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
+
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
-Controls.ToolButton {
+QQC2.ToolButton {
     id: root
 
     property int value
@@ -21,7 +22,7 @@ Controls.ToolButton {
 
     checked: element.rotation === outputRotation
 
-    Controls.ToolTip {
+    QQC2.ToolTip {
         text: tooltip
     }
 

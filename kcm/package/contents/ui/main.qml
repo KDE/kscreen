@@ -4,11 +4,11 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 import QtQuick 2.15
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 
-import org.kde.kirigami 2.7 as Kirigami
-import org.kde.kcm 1.2 as KCM
+import org.kde.kcm 1.6 as KCM
 
 KCM.SimpleKCM {
     id: root
@@ -109,7 +109,7 @@ KCM.SimpleKCM {
             contentItem: ColumnLayout {
                 spacing: 0 // we manually add spacing in the Label item
 
-                Controls.Label {
+                QQC2.Label {
                     Layout.fillWidth: true
                     Layout.maximumWidth: Math.round(root.width * 0.75)
                     Layout.topMargin: Kirigami.Units.largeSpacing * 2
@@ -123,7 +123,7 @@ KCM.SimpleKCM {
                 RowLayout {
                     Layout.alignment: Qt.AlignRight
 
-                    Controls.Button {
+                    QQC2.Button {
                         id: acceptButton
                         Keys.onPressed: event => {
                             if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
@@ -131,7 +131,7 @@ KCM.SimpleKCM {
                                 acceptButton.action.trigger()
                             }
                         }
-                        action: Controls.Action {
+                        action: QQC2.Action {
                             icon.name: "dialog-ok"
                             text: i18n("&Keep")
                             onTriggered: {
@@ -139,7 +139,7 @@ KCM.SimpleKCM {
                             }
                         }
                     }
-                    Controls.Button {
+                    QQC2.Button {
                         id: revertButton
                         KeyNavigation.left: acceptButton
                         focus: true
@@ -149,7 +149,7 @@ KCM.SimpleKCM {
                                 revertButton.action.trigger()
                             }
                         }
-                        action: Controls.Action {
+                        action: QQC2.Action {
                             icon.name: "edit-undo"
                             text: i18n("&Revert")
                             shortcut: "Escape"

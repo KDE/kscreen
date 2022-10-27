@@ -3,10 +3,10 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as Controls
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 
 ColumnLayout {
     Kirigami.FormData.label: i18n("Orientation:")
@@ -21,14 +21,14 @@ ColumnLayout {
         visible: kcm.autoRotationSupported && kcm.orientationSensorAvailable
 
         ColumnLayout {
-            Controls.RadioButton {
+            QQC2.RadioButton {
                 id: autoRotateRadio
                 text: i18n("Automatic")
                 checked: autoRotateColumn.enabled && element.autoRotate
                 onToggled: element.autoRotate = true
             }
 
-            Controls.CheckBox {
+            QQC2.CheckBox {
                 id: autoRotateOnlyInTabletMode
                 Layout.leftMargin: Kirigami.Units.gridUnit
 
@@ -39,7 +39,7 @@ ColumnLayout {
             }
         }
 
-        Controls.RadioButton {
+        QQC2.RadioButton {
             id: manualRotateRadio
             text: i18n("Manual")
             checked: !element.autoRotate || !autoRotateColumn.enabled
@@ -51,7 +51,7 @@ ColumnLayout {
        id: orientation
        enabled: !element.autoRotate || !autoRotateColumn.enabled || !autoRotateColumn.visible
 
-       Controls.ButtonGroup {
+       QQC2.ButtonGroup {
            buttons: orientation.children
        }
 
