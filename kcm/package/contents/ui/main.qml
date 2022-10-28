@@ -92,65 +92,57 @@ KCM.SimpleKCM {
                 if (sheetOpen) {
                     revertButton.forceActiveFocus()
                 } else {
-                    revertTimer.stop()
+                    revertTimer.stop();
                 }
             }
             showCloseButton: false
             contentItem: ColumnLayout {
-                spacing: 0 // we manually add spacing in the Label item
-
                 QQC2.Label {
                     Layout.fillWidth: true
                     Layout.maximumWidth: Math.round(root.width * 0.75)
-                    Layout.topMargin: Kirigami.Units.largeSpacing * 2
-                    Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                    topPadding: Kirigami.Units.largeSpacing
+                    bottomPadding: Kirigami.Units.largeSpacing
                     text: i18np("Will revert to previous configuration in %1 second.",
                                 "Will revert to previous configuration in %1 seconds.",
                                 revertCountdown);
                     wrapMode: Text.WordWrap
                 }
-
-                RowLayout {
-                    Layout.alignment: Qt.AlignRight
-
-                    QQC2.Button {
-                        id: acceptButton
-                        Keys.onPressed: event => {
-                            if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
-                                event.accepted = true
-                                acceptButton.action.trigger()
-                            }
-                        }
-                        action: QQC2.Action {
-                            icon.name: "dialog-ok"
-                            text: i18n("&Keep")
-                            onTriggered: {
-                                confirmMsg.close()
-                            }
+            }
+            footer: QQC2.DialogButtonBox {
+                QQC2.Button {
+                    QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+                    Keys.onPressed: event => {
+                        if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                            event.accepted = true;
+                            clicked();
                         }
                     }
-                    QQC2.Button {
-                        id: revertButton
-                        KeyNavigation.left: acceptButton
-                        focus: true
-                        Keys.onPressed: event => {
-                            if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
-                                event.accepted = true
-                                revertButton.action.trigger()
-                            }
-                        }
-                        action: QQC2.Action {
-                            icon.name: "edit-undo"
-                            text: i18n("&Revert")
-                            shortcut: "Escape"
-                            enabled: confirmMsg.sheetOpen
-                            onTriggered: {
-                                revertTimer.stop()
-                                kcm.setStopUpdatesFromBackend(false)
-                                kcm.revertSettings()
-                            }
+                    icon.name: "dialog-ok"
+                    text: i18n("&Keep")
+                }
+                QQC2.Button {
+                    id: revertButton
+                    QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ResetRole
+                    Keys.onPressed: event => {
+                        if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                            event.accepted = true;
+                            clicked();
                         }
                     }
+                    action: QQC2.Action {
+                        icon.name: "edit-undo"
+                        text: i18n("&Revert")
+                        shortcut: "Escape"
+                        enabled: confirmMsg.sheetOpen
+                    }
+                }
+                onAccepted: {
+                    confirmMsg.close();
+                }
+                onReset: {
+                    revertTimer.stop();
+                    kcm.setStopUpdatesFromBackend(false);
+                    kcm.revertSettings();
                 }
             }
         }
