@@ -90,7 +90,7 @@ KCM.SimpleKCM {
             title: i18n("Keep display configuration?")
             onSheetOpenChanged: {
                 if (sheetOpen) {
-                    revertButton.forceActiveFocus()
+                    Qt.callLater(() => revertButton.forceActiveFocus());
                 } else {
                     revertTimer.stop();
                 }
@@ -146,7 +146,6 @@ KCM.SimpleKCM {
                 }
             }
         }
-
         Connections {
             target: kcm
             function onInvalidConfig(reason) {
