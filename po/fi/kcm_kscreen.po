@@ -1,20 +1,20 @@
 # KDE Finnish translation sprint participants:
-# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022.
 # Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-15 00:48+0000\n"
-"PO-Revision-Date: 2022-07-18 22:11+0300\n"
-"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"PO-Revision-Date: 2022-10-30 16:57+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-POT-Import-Date: 2013-01-13 21:18:05+0000\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: output_model.cpp:90
@@ -26,7 +26,7 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:590
 #, kde-format
@@ -69,14 +69,13 @@ msgid "Outputs could not be saved due to error."
 msgstr "Ulostuloja ei virheen takia voitu tallentaa."
 
 #: package/contents/ui/main.qml:71
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
 "restarted."
 msgstr ""
-"Mittakaavaa on muutettu. Muutos tulee voimaan uudelleenkäynnistyksen jälkeen."
+"Mittakaavaa on muutettu. Muutokset tulevat voimaan järjestelmän "
+"uudelleenkäynnistyksen jälkeen."
 
 #: package/contents/ui/main.qml:77
 #, kde-format
@@ -176,13 +175,7 @@ msgid "Resolution:"
 msgstr "Tarkkuus:"
 
 #: package/contents/ui/OutputPanel.qml:64
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "\"%1\" is the only resolution supported by this display.<nl/><nl/>Using "
-#| "unsupported resolutions was possible in the Plasma X11 session, but they "
-#| "were never guaranteed to work and are not available in this Plasma "
-#| "Wayland session."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
