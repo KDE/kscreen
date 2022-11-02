@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:50+0000\n"
 "PO-Revision-Date: 2022-10-19 15:08-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -131,8 +131,8 @@ msgid "Orientation:"
 msgstr "Orientação:"
 
 #: package/contents/ui/Orientation.qml:26
-#: package/contents/ui/OutputPanel.qml:146
-#: package/contents/ui/OutputPanel.qml:187
+#: package/contents/ui/OutputPanel.qml:142
+#: package/contents/ui/OutputPanel.qml:183
 #, kde-format
 msgid "Automatic"
 msgstr "Automático"
@@ -152,17 +152,17 @@ msgstr "Manual"
 msgid "Replicas"
 msgstr "Réplicas"
 
-#: package/contents/ui/OutputPanel.qml:22
+#: package/contents/ui/OutputPanel.qml:20
 #, kde-format
 msgid "Enabled"
 msgstr "Ativado"
 
-#: package/contents/ui/OutputPanel.qml:32
+#: package/contents/ui/OutputPanel.qml:30
 #, kde-format
 msgid "Primary"
 msgstr "Primária"
 
-#: package/contents/ui/OutputPanel.qml:38
+#: package/contents/ui/OutputPanel.qml:36
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -171,12 +171,12 @@ msgid ""
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
 
-#: package/contents/ui/OutputPanel.qml:43
+#: package/contents/ui/OutputPanel.qml:41
 #, kde-format
 msgid "Resolution:"
 msgstr "Resolução:"
 
-#: package/contents/ui/OutputPanel.qml:64
+#: package/contents/ui/OutputPanel.qml:61
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -190,77 +190,63 @@ msgstr ""
 "foi garantido que funcionassem e não estão disponíveis na sessão do Plasma "
 "Wayland."
 
-#: package/contents/ui/OutputPanel.qml:74
+#: package/contents/ui/OutputPanel.qml:71
 #, kde-format
 msgid "Scale:"
 msgstr "Escala:"
 
-#: package/contents/ui/OutputPanel.qml:103 package/contents/ui/Panel.qml:97
+#: package/contents/ui/OutputPanel.qml:100 package/contents/ui/Panel.qml:98
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/OutputPanel.qml:115
+#: package/contents/ui/OutputPanel.qml:112
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Taxa de atualização:"
 
-#: package/contents/ui/OutputPanel.qml:136
+#: package/contents/ui/OutputPanel.qml:132
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "\"%1\" é a única taxa de atualização suportada por esta tela."
 
-#: package/contents/ui/OutputPanel.qml:141
+#: package/contents/ui/OutputPanel.qml:137
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Sincronização adaptativa:"
 
-#: package/contents/ui/OutputPanel.qml:144
+#: package/contents/ui/OutputPanel.qml:140
 #, kde-format
 msgid "Never"
 msgstr "Nunca"
 
-#: package/contents/ui/OutputPanel.qml:145
+#: package/contents/ui/OutputPanel.qml:141
 #, kde-format
 msgid "Always"
 msgstr "Sempre"
 
-#: package/contents/ui/OutputPanel.qml:157
+#: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Overscan:"
 msgstr "Overscan:"
 
-#: package/contents/ui/OutputPanel.qml:174
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Determines how much padding is put around the image sent to the display"
-msgstr ""
-
-#: package/contents/ui/OutputPanel.qml:181
+#: package/contents/ui/OutputPanel.qml:177
 #, kde-format
 msgid "RGB Range:"
 msgstr "Faixa do RGB:"
 
-#: package/contents/ui/OutputPanel.qml:188
+#: package/contents/ui/OutputPanel.qml:184
 #, kde-format
 msgid "Full"
 msgstr "Completa"
 
-#: package/contents/ui/OutputPanel.qml:189
+#: package/contents/ui/OutputPanel.qml:185
 #, kde-format
 msgid "Limited"
 msgstr "Limitada"
 
-#: package/contents/ui/OutputPanel.qml:199
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display."
-msgstr ""
-
-#: package/contents/ui/OutputPanel.qml:205
+#: package/contents/ui/OutputPanel.qml:201
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplica de:"
@@ -270,43 +256,43 @@ msgstr "Réplica de:"
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: package/contents/ui/Panel.qml:61
+#: package/contents/ui/Panel.qml:62
 #, kde-format
 msgid "Global scale:"
 msgstr "Escala global:"
 
-#: package/contents/ui/Panel.qml:121 package/contents/ui/Panel.qml:141
+#: package/contents/ui/Panel.qml:122 package/contents/ui/Panel.qml:142
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr ""
 
-#: package/contents/ui/Panel.qml:126
+#: package/contents/ui/Panel.qml:127
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr ""
 
-#: package/contents/ui/Panel.qml:131
+#: package/contents/ui/Panel.qml:132
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
 
-#: package/contents/ui/Panel.qml:142
+#: package/contents/ui/Panel.qml:143
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr ""
 
-#: package/contents/ui/Panel.qml:147
+#: package/contents/ui/Panel.qml:148
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
 
-#: package/contents/ui/Panel.qml:161
+#: package/contents/ui/Panel.qml:162
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -315,17 +301,17 @@ msgstr ""
 "O fator de escala global está limitado a múltiplos de 6,25% para minimizar "
 "defeitos visuais nos aplicativos que usem o sistema de janelas X11."
 
-#: package/contents/ui/Panel.qml:173
+#: package/contents/ui/Panel.qml:174
 #, kde-format
 msgid "Save displays' properties:"
 msgstr "Salvar as propriedades da tela:"
 
-#: package/contents/ui/Panel.qml:179
+#: package/contents/ui/Panel.qml:180
 #, kde-format
 msgid "For any display arrangement"
 msgstr "Para qualquer arranjo de telas"
 
-#: package/contents/ui/Panel.qml:186
+#: package/contents/ui/Panel.qml:187
 #, kde-format
 msgid "For only this specific display arrangement"
 msgstr "Apenas para este arranjo de tela específico"

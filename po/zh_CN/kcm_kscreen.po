@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:50+0000\n"
 "PO-Revision-Date: 2022-10-30 07:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -120,8 +120,8 @@ msgid "Orientation:"
 msgstr "方向："
 
 #: package/contents/ui/Orientation.qml:26
-#: package/contents/ui/OutputPanel.qml:146
-#: package/contents/ui/OutputPanel.qml:187
+#: package/contents/ui/OutputPanel.qml:142
+#: package/contents/ui/OutputPanel.qml:183
 #, kde-format
 msgid "Automatic"
 msgstr "自动"
@@ -141,17 +141,17 @@ msgstr "手动"
 msgid "Replicas"
 msgstr "复制"
 
-#: package/contents/ui/OutputPanel.qml:22
+#: package/contents/ui/OutputPanel.qml:20
 #, kde-format
 msgid "Enabled"
 msgstr "已启用"
 
-#: package/contents/ui/OutputPanel.qml:32
+#: package/contents/ui/OutputPanel.qml:30
 #, kde-format
 msgid "Primary"
 msgstr "主要"
 
-#: package/contents/ui/OutputPanel.qml:38
+#: package/contents/ui/OutputPanel.qml:36
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -163,12 +163,12 @@ msgstr ""
 "定游戏画面显示在哪个屏幕上。<nl/><nl/>此选项对屏幕通知、其他类型的窗口的显示"
 "位置没有影响。"
 
-#: package/contents/ui/OutputPanel.qml:43
+#: package/contents/ui/OutputPanel.qml:41
 #, kde-format
 msgid "Resolution:"
 msgstr "分辨率："
 
-#: package/contents/ui/OutputPanel.qml:64
+#: package/contents/ui/OutputPanel.qml:61
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -178,78 +178,63 @@ msgid ""
 "Wayland session."
 msgstr ""
 
-#: package/contents/ui/OutputPanel.qml:74
+#: package/contents/ui/OutputPanel.qml:71
 #, kde-format
 msgid "Scale:"
 msgstr "缩放率："
 
-#: package/contents/ui/OutputPanel.qml:103 package/contents/ui/Panel.qml:97
+#: package/contents/ui/OutputPanel.qml:100 package/contents/ui/Panel.qml:98
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/OutputPanel.qml:115
+#: package/contents/ui/OutputPanel.qml:112
 #, kde-format
 msgid "Refresh rate:"
 msgstr "刷新率："
 
-#: package/contents/ui/OutputPanel.qml:136
+#: package/contents/ui/OutputPanel.qml:132
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "“%1”是此显示器支持的唯一刷新率。"
 
-#: package/contents/ui/OutputPanel.qml:141
+#: package/contents/ui/OutputPanel.qml:137
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "自适应垂直同步："
 
-#: package/contents/ui/OutputPanel.qml:144
+#: package/contents/ui/OutputPanel.qml:140
 #, kde-format
 msgid "Never"
 msgstr "永不"
 
-#: package/contents/ui/OutputPanel.qml:145
+#: package/contents/ui/OutputPanel.qml:141
 #, kde-format
 msgid "Always"
 msgstr "总是"
 
-#: package/contents/ui/OutputPanel.qml:157
+#: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Overscan:"
 msgstr "过扫描："
 
-#: package/contents/ui/OutputPanel.qml:174
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Determines how much padding is put around the image sent to the display"
-msgstr "此选项决定发送到显示器的图像周围要填充多宽的内容"
-
-#: package/contents/ui/OutputPanel.qml:181
+#: package/contents/ui/OutputPanel.qml:177
 #, kde-format
 msgid "RGB Range:"
 msgstr "RGB 范围："
 
-#: package/contents/ui/OutputPanel.qml:188
+#: package/contents/ui/OutputPanel.qml:184
 #, kde-format
 msgid "Full"
 msgstr "完整"
 
-#: package/contents/ui/OutputPanel.qml:189
+#: package/contents/ui/OutputPanel.qml:185
 #, kde-format
 msgid "Limited"
 msgstr "限幅"
 
-#: package/contents/ui/OutputPanel.qml:199
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display."
-msgstr ""
-"此选项决定了为显示器使用完整的可用颜色数值范围，还是使用有限的颜色数值范围。"
-
-#: package/contents/ui/OutputPanel.qml:205
+#: package/contents/ui/OutputPanel.qml:201
 #, kde-format
 msgid "Replica of:"
 msgstr "复制自："
@@ -259,23 +244,23 @@ msgstr "复制自："
 msgid "Device:"
 msgstr "设备："
 
-#: package/contents/ui/Panel.qml:61
+#: package/contents/ui/Panel.qml:62
 #, kde-format
 msgid "Global scale:"
 msgstr "全局缩放率："
 
-#: package/contents/ui/Panel.qml:121 package/contents/ui/Panel.qml:141
+#: package/contents/ui/Panel.qml:122 package/contents/ui/Panel.qml:142
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "旧式应用程序 (X11)："
 
-#: package/contents/ui/Panel.qml:126
+#: package/contents/ui/Panel.qml:127
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "由应用程序进行缩放"
 
-#: package/contents/ui/Panel.qml:131
+#: package/contents/ui/Panel.qml:132
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -284,20 +269,20 @@ msgstr ""
 "支持缩放的旧式应用程序将使用内建的缩放功能得到清晰的显示效果，但是不支持缩放"
 "的应用程序将不会进行缩放。"
 
-#: package/contents/ui/Panel.qml:142
+#: package/contents/ui/Panel.qml:143
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "由系统进行缩放"
 
-#: package/contents/ui/Panel.qml:147
+#: package/contents/ui/Panel.qml:148
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr "所有旧式应用程序将由系统缩放到正确的大小，但它们将总是略显模糊。"
 
-#: package/contents/ui/Panel.qml:161
+#: package/contents/ui/Panel.qml:162
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -306,17 +291,17 @@ msgstr ""
 "全局缩放系数被限定为 6.25% 的倍数，以减少应用程序在 X11 窗口系统中出现的视觉"
 "毛刺。"
 
-#: package/contents/ui/Panel.qml:173
+#: package/contents/ui/Panel.qml:174
 #, kde-format
 msgid "Save displays' properties:"
 msgstr "保存显示器配置："
 
-#: package/contents/ui/Panel.qml:179
+#: package/contents/ui/Panel.qml:180
 #, kde-format
 msgid "For any display arrangement"
 msgstr "对任意显示器组合"
 
-#: package/contents/ui/Panel.qml:186
+#: package/contents/ui/Panel.qml:187
 #, kde-format
 msgid "For only this specific display arrangement"
 msgstr "仅此特定显示器组合"
@@ -350,3 +335,16 @@ msgstr "拖拽屏幕以重新排列它们"
 #, kde-format
 msgid "Identify"
 msgstr "识别"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines how much padding is put around the image sent to the display"
+#~ msgstr "此选项决定发送到显示器的图像周围要填充多宽的内容"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines whether or not the range of possible color values needs to be "
+#~ "limited for the display."
+#~ msgstr ""
+#~ "此选项决定了为显示器使用完整的可用颜色数值范围，还是使用有限的颜色数值范"
+#~ "围。"

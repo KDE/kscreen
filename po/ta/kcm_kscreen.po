@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:50+0000\n"
 "PO-Revision-Date: 2022-09-13 19:45+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -125,8 +125,8 @@ msgid "Orientation:"
 msgstr "நோக்குநிலை:"
 
 #: package/contents/ui/Orientation.qml:26
-#: package/contents/ui/OutputPanel.qml:146
-#: package/contents/ui/OutputPanel.qml:187
+#: package/contents/ui/OutputPanel.qml:142
+#: package/contents/ui/OutputPanel.qml:183
 #, kde-format
 msgid "Automatic"
 msgstr "தானியக்கம்"
@@ -146,17 +146,17 @@ msgstr "கைமுறை"
 msgid "Replicas"
 msgstr "நகலிகள்"
 
-#: package/contents/ui/OutputPanel.qml:22
+#: package/contents/ui/OutputPanel.qml:20
 #, kde-format
 msgid "Enabled"
 msgstr "இயக்கு"
 
-#: package/contents/ui/OutputPanel.qml:32
+#: package/contents/ui/OutputPanel.qml:30
 #, kde-format
 msgid "Primary"
 msgstr "முதன்மையானதாக்கு"
 
-#: package/contents/ui/OutputPanel.qml:38
+#: package/contents/ui/OutputPanel.qml:36
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -169,12 +169,12 @@ msgstr ""
 "பயன்படுத்தலாம்.<nl/><nl/> அறிவிப்புகளோ பிற சாளரங்களோ எத்திரையில் காட்டப்படும் என்பதை "
 "இத்தேர்வு பாதிக்காது."
 
-#: package/contents/ui/OutputPanel.qml:43
+#: package/contents/ui/OutputPanel.qml:41
 #, kde-format
 msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
-#: package/contents/ui/OutputPanel.qml:64
+#: package/contents/ui/OutputPanel.qml:61
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -187,80 +187,63 @@ msgstr ""
 ">ஆதரிக்கப்படாத பகுதிறன்களின் பயன்பாட்டு, பிளாஸ்மாவின் X11 அமர்வில் சாத்திமானதாக "
 "இருந்தது. ஆனால் அவ்வாறு இந்த பிளாஸ்மா Wayland அமர்வில் செய்ய முடியாது."
 
-#: package/contents/ui/OutputPanel.qml:74
+#: package/contents/ui/OutputPanel.qml:71
 #, kde-format
 msgid "Scale:"
 msgstr "அளவுமாற்றம்:"
 
-#: package/contents/ui/OutputPanel.qml:103 package/contents/ui/Panel.qml:97
+#: package/contents/ui/OutputPanel.qml:100 package/contents/ui/Panel.qml:98
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/OutputPanel.qml:115
+#: package/contents/ui/OutputPanel.qml:112
 #, kde-format
 msgid "Refresh rate:"
 msgstr "புதுப்பிக்கும் வீதம் :"
 
-#: package/contents/ui/OutputPanel.qml:136
+#: package/contents/ui/OutputPanel.qml:132
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
 
-#: package/contents/ui/OutputPanel.qml:141
+#: package/contents/ui/OutputPanel.qml:137
 #, kde-format
 msgid "Adaptive sync:"
 msgstr ""
 
-#: package/contents/ui/OutputPanel.qml:144
+#: package/contents/ui/OutputPanel.qml:140
 #, kde-format
 msgid "Never"
 msgstr "ஒருபோதும் வேண்டாம்"
 
-#: package/contents/ui/OutputPanel.qml:145
+#: package/contents/ui/OutputPanel.qml:141
 #, kde-format
 msgid "Always"
 msgstr "எப்போதும்"
 
-#: package/contents/ui/OutputPanel.qml:157
+#: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Overscan:"
 msgstr ""
 
-#: package/contents/ui/OutputPanel.qml:174
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Determines how much padding is put around the image sent to the display"
-msgstr ""
-"திரைக்கு அனுப்ப‍ப்படும் காட்சியை சுற்றி எவ்வளவு காளியிடம் விட‍ப்படும் என்பதை தீர்மானிக்கும்"
-
-#: package/contents/ui/OutputPanel.qml:181
+#: package/contents/ui/OutputPanel.qml:177
 #, kde-format
 msgid "RGB Range:"
 msgstr "நிறங்களின் வீச்சு:"
 
-#: package/contents/ui/OutputPanel.qml:188
+#: package/contents/ui/OutputPanel.qml:184
 #, kde-format
 msgid "Full"
 msgstr "முழுமையானது"
 
-#: package/contents/ui/OutputPanel.qml:189
+#: package/contents/ui/OutputPanel.qml:185
 #, kde-format
 msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
-#: package/contents/ui/OutputPanel.qml:199
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display."
-msgstr ""
-"காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
-"தீர்மானிக்கும்"
-
-#: package/contents/ui/OutputPanel.qml:205
+#: package/contents/ui/OutputPanel.qml:201
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"
@@ -270,23 +253,23 @@ msgstr "எதன் நகலி:"
 msgid "Device:"
 msgstr "சாதனம்:"
 
-#: package/contents/ui/Panel.qml:61
+#: package/contents/ui/Panel.qml:62
 #, kde-format
 msgid "Global scale:"
 msgstr "பொதுவான அளவுமாற்றம்:"
 
-#: package/contents/ui/Panel.qml:121 package/contents/ui/Panel.qml:141
+#: package/contents/ui/Panel.qml:122 package/contents/ui/Panel.qml:142
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "பழையவகை செயலிகள் (X11)"
 
-#: package/contents/ui/Panel.qml:126
+#: package/contents/ui/Panel.qml:127
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "தானே தன் அளவைமாற்றும்"
 
-#: package/contents/ui/Panel.qml:131
+#: package/contents/ui/Panel.qml:132
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -295,13 +278,13 @@ msgstr ""
 "அளவுமாற்றத்தை ஆதரிக்கும் செயலிகள் சரியான அளவிலும் தெளிவாகவும் தெரியும், ஆனால் அதை "
 "ஆதிரிக்காதவை தவறான அளவில் காட்டப்படும்."
 
-#: package/contents/ui/Panel.qml:142
+#: package/contents/ui/Panel.qml:143
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "சாளரநிரலால் அளவுமாற்றப்படும்"
 
-#: package/contents/ui/Panel.qml:147
+#: package/contents/ui/Panel.qml:148
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -310,7 +293,7 @@ msgstr ""
 "X11 செயலிகளை சாளரநிரலே சரியான அளவுக்கு பெரிதாக்கி காட்டும், ஆனால் அவை சற்று மங்கலாக "
 "தெரியலாம்."
 
-#: package/contents/ui/Panel.qml:161
+#: package/contents/ui/Panel.qml:162
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -319,17 +302,17 @@ msgstr ""
 "X11 சாளர நெறிமுறையை பயன்படுத்தும் செயலிகளில் காட்சிக்கோளாறுகள் ஏற்படுவதை தடுக்க, "
 "பொதுவான அளவுமாற்ற விகிதம் கட்டாயமாக 6.25%-இன் பன்மடியாக இருக்க வேண்டும்."
 
-#: package/contents/ui/Panel.qml:173
+#: package/contents/ui/Panel.qml:174
 #, kde-format
 msgid "Save displays' properties:"
 msgstr "திரைகளின் பண்புகளை நினைவில் கொள்வது:"
 
-#: package/contents/ui/Panel.qml:179
+#: package/contents/ui/Panel.qml:180
 #, kde-format
 msgid "For any display arrangement"
 msgstr "எந்த தளவமைப்புக்கேனும்"
 
-#: package/contents/ui/Panel.qml:186
+#: package/contents/ui/Panel.qml:187
 #, kde-format
 msgid "For only this specific display arrangement"
 msgstr "இந்த தனிப்பட்ட தளவமைப்புக்கு மட்டும்"
@@ -363,3 +346,17 @@ msgstr "காட்சிக்கருவிகளை நகர்த்த �
 #, kde-format
 msgid "Identify"
 msgstr "அடையாளங்காட்டு"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines how much padding is put around the image sent to the display"
+#~ msgstr ""
+#~ "திரைக்கு அனுப்ப‍ப்படும் காட்சியை சுற்றி எவ்வளவு காளியிடம் விட‍ப்படும் என்பதை தீர்மானிக்கும்"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines whether or not the range of possible color values needs to be "
+#~ "limited for the display."
+#~ msgstr ""
+#~ "காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
+#~ "தீர்மானிக்கும்"

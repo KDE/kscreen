@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:50+0000\n"
 "PO-Revision-Date: 2022-09-09 13:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -132,8 +132,8 @@ msgid "Orientation:"
 msgstr "Орієнтація:"
 
 #: package/contents/ui/Orientation.qml:26
-#: package/contents/ui/OutputPanel.qml:146
-#: package/contents/ui/OutputPanel.qml:187
+#: package/contents/ui/OutputPanel.qml:142
+#: package/contents/ui/OutputPanel.qml:183
 #, kde-format
 msgid "Automatic"
 msgstr "Автоматично"
@@ -153,17 +153,17 @@ msgstr "Вручну"
 msgid "Replicas"
 msgstr "Репліки"
 
-#: package/contents/ui/OutputPanel.qml:22
+#: package/contents/ui/OutputPanel.qml:20
 #, kde-format
 msgid "Enabled"
 msgstr "Увімкнено"
 
-#: package/contents/ui/OutputPanel.qml:32
+#: package/contents/ui/OutputPanel.qml:30
 #, kde-format
 msgid "Primary"
 msgstr "Основний"
 
-#: package/contents/ui/OutputPanel.qml:38
+#: package/contents/ui/OutputPanel.qml:36
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -176,12 +176,12 @@ msgstr ""
 "якому екрані слід показувати зображення.<nl/><nl/>Він не впливає на те, на "
 "якому екрані буде показано сповіщення та інші вікна."
 
-#: package/contents/ui/OutputPanel.qml:43
+#: package/contents/ui/OutputPanel.qml:41
 #, kde-format
 msgid "Resolution:"
 msgstr "Роздільна здатність:"
 
-#: package/contents/ui/OutputPanel.qml:64
+#: package/contents/ui/OutputPanel.qml:61
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -195,80 +195,63 @@ msgstr ""
 "користуватися у сеансі Плазми для X11, але гарантій їхньої працездатності у "
 "цьому сеансі Плазми для Wayland немає, тому вони є недоступними."
 
-#: package/contents/ui/OutputPanel.qml:74
+#: package/contents/ui/OutputPanel.qml:71
 #, kde-format
 msgid "Scale:"
 msgstr "Масштаб:"
 
-#: package/contents/ui/OutputPanel.qml:103 package/contents/ui/Panel.qml:97
+#: package/contents/ui/OutputPanel.qml:100 package/contents/ui/Panel.qml:98
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/OutputPanel.qml:115
+#: package/contents/ui/OutputPanel.qml:112
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Частота оновлення:"
 
-#: package/contents/ui/OutputPanel.qml:136
+#: package/contents/ui/OutputPanel.qml:132
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "«%1» є єдиною частотою оновлення, яку передбачено для цього дисплея."
 
-#: package/contents/ui/OutputPanel.qml:141
+#: package/contents/ui/OutputPanel.qml:137
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Адаптивна синхронізація:"
 
-#: package/contents/ui/OutputPanel.qml:144
+#: package/contents/ui/OutputPanel.qml:140
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
 
-#: package/contents/ui/OutputPanel.qml:145
+#: package/contents/ui/OutputPanel.qml:141
 #, kde-format
 msgid "Always"
 msgstr "Завжди"
 
-#: package/contents/ui/OutputPanel.qml:157
+#: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Overscan:"
 msgstr "Поля:"
 
-#: package/contents/ui/OutputPanel.qml:174
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Determines how much padding is put around the image sent to the display"
-msgstr ""
-"Визначає розмір полів, які слід використати навколо зображення, яке "
-"надіслано на дисплей"
-
-#: package/contents/ui/OutputPanel.qml:181
+#: package/contents/ui/OutputPanel.qml:177
 #, kde-format
 msgid "RGB Range:"
 msgstr "Діапазон RGB:"
 
-#: package/contents/ui/OutputPanel.qml:188
+#: package/contents/ui/OutputPanel.qml:184
 #, kde-format
 msgid "Full"
 msgstr "Повний"
 
-#: package/contents/ui/OutputPanel.qml:189
+#: package/contents/ui/OutputPanel.qml:185
 #, kde-format
 msgid "Limited"
 msgstr "Обмежений"
 
-#: package/contents/ui/OutputPanel.qml:199
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display."
-msgstr ""
-"Визначає, чи слід обмежувати діапазон можливих значень кольорів для дисплея."
-
-#: package/contents/ui/OutputPanel.qml:205
+#: package/contents/ui/OutputPanel.qml:201
 #, kde-format
 msgid "Replica of:"
 msgstr "Джерело репліки:"
@@ -278,23 +261,23 @@ msgstr "Джерело репліки:"
 msgid "Device:"
 msgstr "Пристрій:"
 
-#: package/contents/ui/Panel.qml:61
+#: package/contents/ui/Panel.qml:62
 #, kde-format
 msgid "Global scale:"
 msgstr "Загальна область:"
 
-#: package/contents/ui/Panel.qml:121 package/contents/ui/Panel.qml:141
+#: package/contents/ui/Panel.qml:122 package/contents/ui/Panel.qml:142
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "Застарілі програми (X11):"
 
-#: package/contents/ui/Panel.qml:126
+#: package/contents/ui/Panel.qml:127
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Застосувати власне масштабування"
 
-#: package/contents/ui/Panel.qml:131
+#: package/contents/ui/Panel.qml:132
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -304,13 +287,13 @@ msgstr ""
 "підтримку масштабування. Відповідні вікна виглядатимуть красиво, але вікна "
 "програм, у яких не передбачено масштабування, взагалі не буде масштабовано."
 
-#: package/contents/ui/Panel.qml:142
+#: package/contents/ui/Panel.qml:143
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Масштабування системою"
 
-#: package/contents/ui/Panel.qml:147
+#: package/contents/ui/Panel.qml:148
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -319,7 +302,7 @@ msgstr ""
 "Усі вікна застарілих програм буде масштабовано системою до належного "
 "розміру; втім, такі вікна завжди виглядатимуть трохи розмитими."
 
-#: package/contents/ui/Panel.qml:161
+#: package/contents/ui/Panel.qml:162
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -329,17 +312,17 @@ msgstr ""
 "щоб мінімізувати візуальні дефекти у програмах, які використовують систему "
 "керування вікнами X11."
 
-#: package/contents/ui/Panel.qml:173
+#: package/contents/ui/Panel.qml:174
 #, kde-format
 msgid "Save displays' properties:"
 msgstr "Зберігати властивості дисплеїв:"
 
-#: package/contents/ui/Panel.qml:179
+#: package/contents/ui/Panel.qml:180
 #, kde-format
 msgid "For any display arrangement"
 msgstr "Для будь-якого компонування дисплеїв"
 
-#: package/contents/ui/Panel.qml:186
+#: package/contents/ui/Panel.qml:187
 #, kde-format
 msgid "For only this specific display arrangement"
 msgstr "Лише для цього компонування дисплеїв"
@@ -373,6 +356,21 @@ msgstr "Перетягніть екрани, щоб змінити порядо�
 #, kde-format
 msgid "Identify"
 msgstr "Визначити"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines how much padding is put around the image sent to the display"
+#~ msgstr ""
+#~ "Визначає розмір полів, які слід використати навколо зображення, яке "
+#~ "надіслано на дисплей"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines whether or not the range of possible color values needs to be "
+#~ "limited for the display."
+#~ msgstr ""
+#~ "Визначає, чи слід обмежувати діапазон можливих значень кольорів для "
+#~ "дисплея."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
