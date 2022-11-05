@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-02 00:50+0000\n"
+"POT-Creation-Date: 2022-11-05 00:47+0000\n"
 "PO-Revision-Date: 2022-09-10 18:34+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -26,29 +26,29 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: output_model.cpp:90
+#: output_model.cpp:91
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:571
+#: output_model.cpp:572
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1 x %2"
 
-#: output_model.cpp:590
+#: output_model.cpp:591
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:671
+#: output_model.cpp:672
 #, kde-format
 msgid "None"
 msgstr "Aucun"
 
-#: output_model.cpp:678
+#: output_model.cpp:679
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Répliqué par une autre sortie"
