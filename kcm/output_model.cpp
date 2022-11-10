@@ -972,7 +972,7 @@ bool snapToRight(const QRect &target, const QSize &size, QPoint &dest)
     }
     if (qAbs(target.right() - (dest.x() + size.width())) < s_snapArea) {
         // In snap zone for right to right snap.
-        dest.setX(target.right() - size.width());
+        dest.setX(target.right() - size.width() + 1);
         return true;
     }
     return false;
