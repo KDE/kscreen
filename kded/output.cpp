@@ -332,7 +332,6 @@ void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control:
     const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
     QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
     output->setPos(point);
-    output->setPrimary(info[QStringLiteral("primary")].toBool());
     output->setEnabled(info[QStringLiteral("enabled")].toBool());
 
     if (retention != Control::OutputRetention::Individual && readInGlobal(output)) {
@@ -390,6 +389,9 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
             infoFound = true;
             readIn(output, info, control.getOutputRetention(output));
+            if (info[QStringLiteral("primary")].toBool()) {
+                config->setPrimaryOutput(output);
+            }
             break;
         }
         if (!infoFound) {

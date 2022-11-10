@@ -134,10 +134,10 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
             KScreen::OutputList connectedOutputs = config->connectedOutputs();
             if (connectedOutputs.isEmpty()) {
                 return config;
+            } else {
+                m_currentConfig->setPrimaryOutput(connectedOutputs.first());
+                cloneScreens(connectedOutputs);
             }
-            const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
-            connectedOutputs.value(firstConnectedOutputKey)->setPrimary(true);
-            cloneScreens(connectedOutputs);
         }
     } else {
         newConfig = config;
@@ -199,7 +199,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     if (action == Generator::Clone) {
         qCDebug(KSCREEN_KDED) << "Cloning";
-        embedded->setPrimary(true);
+        m_currentConfig->setPrimaryOutput(embedded);
         cloneScreens(connectedOutputs);
         return config;
     }
@@ -243,20 +243,16 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     case Generator::TurnOffEmbedded: {
         qCDebug(KSCREEN_KDED) << "Turn off embedded (laptop)";
         embedded->setEnabled(false);
-        embedded->setPrimary(false);
-
         external->setEnabled(true);
-        external->setPrimary(true);
+        config->setPrimaryOutput(external);
         return config;
     }
     case Generator::TurnOffExternal: {
         qCDebug(KSCREEN_KDED) << "Turn off external screen";
         embedded->setPos(QPoint(0, 0));
         embedded->setEnabled(true);
-        embedded->setPrimary(true);
-
         external->setEnabled(false);
-        external->setPrimary(false);
+        config->setPrimaryOutput(embedded);
         return config;
     }
     case Generator::ExtendToRight: {
@@ -366,7 +362,7 @@ void Generator::singleOutput(KScreen::OutputList &connectedOutputs)
         return;
     }
     output->setEnabled(true);
-    output->setPrimary(true);
+    m_currentConfig->setPrimaryOutput(output);
     output->setPos(QPoint(0, 0));
 }
 
@@ -401,7 +397,6 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     if (isLidClosed() && connectedOutputs.count() == 1) {
         qCDebug(KSCREEN_KDED) << "With lid closed";
         embedded->setEnabled(false);
-        embedded->setPrimary(false);
 
         const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
         KScreen::OutputPtr external = connectedOutputs.value(firstConnectedOutputKey);
@@ -409,16 +404,15 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
             return;
         }
         external->setEnabled(true);
-        external->setPrimary(true);
         external->setPos(QPoint(0, 0));
 
+        m_currentConfig->setPrimaryOutput(external);
         return;
     }
 
     if (isLidClosed() && connectedOutputs.count() > 1) {
         qCDebug(KSCREEN_KDED) << "Lid is closed, and more than one output";
         embedded->setEnabled(false);
-        embedded->setPrimary(false);
 
         extendToRight(connectedOutputs);
         return;
@@ -427,7 +421,6 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     qCDebug(KSCREEN_KDED) << "Lid is open";
     // If lid is open, laptop screen should be primary
     embedded->setPos(QPoint(0, 0));
-    embedded->setPrimary(true);
     embedded->setEnabled(true);
 
     int globalWidth = embedded->geometry().width();
@@ -437,12 +430,10 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
 
     biggest->setPos(QPoint(globalWidth, 0));
     biggest->setEnabled(true);
-    biggest->setPrimary(false);
 
     globalWidth += biggest->geometry().width();
     for (KScreen::OutputPtr output : qAsConst(connectedOutputs)) {
         output->setEnabled(true);
-        output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
 
         globalWidth += output->geometry().width();
@@ -450,8 +441,9 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
 
     if (isDocked()) {
         qCDebug(KSCREEN_KDED) << "Docked";
-        embedded->setPrimary(false);
-        biggest->setPrimary(true);
+        m_currentConfig->setPrimaryOutput(biggest);
+    } else {
+        m_currentConfig->setPrimaryOutput(embedded);
     }
 }
 
@@ -469,18 +461,18 @@ void Generator::extendToRight(KScreen::OutputList &connectedOutputs)
     connectedOutputs.remove(biggest->id());
 
     biggest->setEnabled(true);
-    biggest->setPrimary(true);
     biggest->setPos(QPoint(0, 0));
 
     int globalWidth = biggest->geometry().width();
 
     for (KScreen::OutputPtr output : qAsConst(connectedOutputs)) {
         output->setEnabled(true);
-        output->setPrimary(false);
         output->setPos(QPoint(globalWidth, 0));
 
         globalWidth += output->geometry().width();
     }
+
+    m_currentConfig->setPrimaryOutput(biggest);
 }
 
 void Generator::initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features)
@@ -628,7 +620,6 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs
         if (!output->isConnected()) {
             qCDebug(KSCREEN_KDED) << output->name() << " Disabled";
             output->setEnabled(false);
-            output->setPrimary(false);
         }
     }
 }
