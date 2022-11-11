@@ -40,8 +40,27 @@ private Q_SLOTS:
 
 private:
     QTemporaryDir m_temporaryDir;
+    KScreen::OutputPtr createOutput(int id, const QByteArray &edid, const QString &name, QPoint pos, bool connected, bool enabled, KScreen::ModeList modes);
     std::unique_ptr<Config> createConfig(bool output1Connected, bool output2Conected);
 };
+
+KScreen::OutputPtr
+TestConfig::createOutput(int id, const QByteArray &edid, const QString &name, QPoint pos, bool connected, bool enabled, KScreen::ModeList modes)
+{
+    KScreen::Output::Builder builder;
+    {
+        builder = KScreen::Output::Builder();
+        builder.id = id;
+        builder.name = name;
+        builder.pos = pos;
+        builder.connected = connected;
+        builder.enabled = enabled;
+        builder.modes = modes;
+    }
+    KScreen::OutputPtr output = KScreen::OutputPtr(new KScreen::Output(std::move(builder)));
+    output->setEdid(edid);
+    return output;
+}
 
 std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool output2Connected)
 {
@@ -62,24 +81,23 @@ std::unique_ptr<Config> TestConfig::createConfig(bool output1Connected, bool out
         modes.insert(mode->id(), mode);
     }
 
-    KScreen::OutputPtr output1 = KScreen::OutputPtr::create();
-    output1->setId(1);
-    output1->setName(QStringLiteral("OUTPUT-1"));
-    output1->setPos(QPoint(0, 0));
-    output1->setConnected(output1Connected);
-    output1->setEnabled(output1Connected);
-    if (output1Connected) {
-        output1->setModes(modes);
-    }
+    KScreen::OutputPtr output1 = createOutput(
+        /*id*/ 1,
+        /*edid*/ QByteArrayLiteral(""),
+        /*name*/ QStringLiteral("OUTPUT-1"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ output1Connected,
+        /*enabled*/ output1Connected,
+        /*modes*/ output1Connected ? modes : KScreen::ModeList());
 
-    KScreen::OutputPtr output2 = KScreen::OutputPtr::create();
-    output2->setId(2);
-    output2->setName(QStringLiteral("OUTPUT-2"));
-    output2->setPos(QPoint(0, 0));
-    output2->setConnected(output2Connected);
-    if (output2Connected) {
-        output2->setModes(modes);
-    }
+    KScreen::OutputPtr output2 = createOutput(
+        /*id*/ 2,
+        /*edid*/ QByteArrayLiteral(""),
+        /*name*/ QStringLiteral("OUTPUT-2"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ output2Connected,
+        /*enabled*/ false,
+        /*modes*/ output2Connected ? modes : KScreen::ModeList());
 
     KScreen::ConfigPtr config = KScreen::ConfigPtr::create();
     config->setScreen(screen);
@@ -298,59 +316,59 @@ void TestConfig::testIdenticalOutputs()
     // When setting up the outputs, make sure they're not added in alphabetical order
     // or in the same order of the config file, as that makes the tests accidentally pass
 
-    KScreen::OutputPtr output1 = KScreen::OutputPtr::create();
-    output1->setId(1);
-    output1->setEdid(data);
-    output1->setName(QStringLiteral("DisplayPort-0"));
-    output1->setPos(QPoint(0, 0));
-    output1->setConnected(true);
-    output1->setEnabled(false);
-    output1->setModes(modes);
+    KScreen::OutputPtr output1 = createOutput(
+        /*id*/ 1,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DisplayPort-0"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
-    KScreen::OutputPtr output2 = KScreen::OutputPtr::create();
-    output2->setId(2);
-    output2->setEdid(data);
-    output2->setName(QStringLiteral("DisplayPort-1"));
-    output2->setPos(QPoint(0, 0));
-    output2->setConnected(true);
-    output2->setEnabled(false);
-    output2->setModes(modes);
+    KScreen::OutputPtr output2 = createOutput(
+        /*id*/ 2,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DisplayPort-1"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
-    KScreen::OutputPtr output3 = KScreen::OutputPtr::create();
-    output3->setId(3);
-    output3->setEdid(data);
-    output3->setName(QStringLiteral("DisplayPort-2"));
-    output3->setPos(QPoint(0, 0));
-    output3->setConnected(true);
-    output3->setEnabled(false);
-    output3->setModes(modes);
+    KScreen::OutputPtr output3 = createOutput(
+        /*id*/ 3,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DisplayPort-2"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
-    KScreen::OutputPtr output6 = KScreen::OutputPtr::create();
-    output6->setId(6);
-    output6->setEdid(data);
-    output6->setName(QStringLiteral("DVI-0"));
-    output6->setPos(QPoint(0, 0));
-    output6->setConnected(true);
-    output6->setEnabled(false);
-    output6->setModes(modes);
+    KScreen::OutputPtr output6 = createOutput(
+        /*id*/ 6,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DVI-0"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
-    KScreen::OutputPtr output4 = KScreen::OutputPtr::create();
-    output4->setId(4);
-    output4->setEdid(data);
-    output4->setName(QStringLiteral("DisplayPort-3"));
-    output4->setPos(QPoint(0, 0));
-    output4->setConnected(true);
-    output4->setEnabled(false);
-    output4->setModes(modes);
+    KScreen::OutputPtr output4 = createOutput(
+        /*id*/ 4,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DisplayPort-3"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
-    KScreen::OutputPtr output5 = KScreen::OutputPtr::create();
-    output5->setId(5);
-    output5->setEdid(data);
-    output5->setName(QStringLiteral("DVI-1"));
-    output5->setPos(QPoint(0, 0));
-    output5->setConnected(true);
-    output5->setEnabled(false);
-    output5->setModes(modes);
+    KScreen::OutputPtr output5 = createOutput(
+        /*id*/ 5,
+        /*edid*/ data,
+        /*name*/ QStringLiteral("DVI-1"),
+        /*pos*/ QPoint(0, 0),
+        /*connected*/ true,
+        /*enabled*/ false,
+        /*modes*/ modes);
 
     KScreen::ConfigPtr config = KScreen::ConfigPtr::create();
     config->setScreen(screen);
