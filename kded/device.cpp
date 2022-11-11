@@ -144,7 +144,6 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher *watcher)
         m_isLidClosed = reply.value().toBool();
         if (m_isReady) {
             Q_EMIT lidClosedChanged(m_isLidClosed);
-            ;
         }
     }
     watcher->deleteLater();

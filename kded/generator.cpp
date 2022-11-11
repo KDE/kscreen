@@ -72,7 +72,6 @@ KScreen::ConfigPtr Generator::idealConfig(const KScreen::ConfigPtr &currentConfi
 {
     Q_ASSERT(currentConfig);
 
-    //     KDebug::Block idealBlock("Ideal Config");
     KScreen::ConfigPtr config = currentConfig->clone();
 
     disableAllDisconnectedOutputs(config->outputs());
@@ -140,7 +139,6 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
 
 KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 {
-    //     KDebug::Block switchBlock("Display Switch");
     KScreen::ConfigPtr config = m_currentConfig;
     Q_ASSERT(config);
 
@@ -364,8 +362,6 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
         return;
     }
 
-    //     KDebug::Block laptopBlock("Laptop config");
-
     KScreen::OutputPtr embedded = embeddedOutput(connectedOutputs);
     /* Apparently older laptops use "VGA-*" as embedded output ID, so embeddedOutput()
      * will fail, because it looks only for modern "LVDS", "EDP", etc. If we
@@ -584,7 +580,6 @@ KScreen::OutputPtr Generator::biggestOutput(const KScreen::OutputList &outputs)
 
 void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs)
 {
-    //     KDebug::Block disableBlock("Disabling disconnected screens");
     for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected()) {
             qCDebug(KSCREEN_KDED) << output->name() << " Disabled";
