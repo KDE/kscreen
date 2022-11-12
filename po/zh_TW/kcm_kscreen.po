@@ -4,20 +4,21 @@
 # Franklin, 2015.
 # Jeff Huang <s8321414@gmail.com>, 2016, 2018.
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-05 00:47+0000\n"
-"PO-Revision-Date: 2020-02-28 01:44+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2022-11-11 19:41+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.12.2\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: output_model.cpp:91
 #, kde-format
@@ -28,7 +29,7 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:591
 #, kde-format
@@ -69,46 +70,42 @@ msgid "Outputs could not be saved due to error."
 msgstr "發生錯誤導致無法儲存輸出。"
 
 #: package/contents/ui/main.qml:71
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
 "restarted."
-msgstr "已套用新全域縮放比例。請重開機以檢視變更。"
+msgstr "已套用新全域縮放比例。變更將在系統重新啟動後生效。"
 
 #: package/contents/ui/main.qml:77
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "重新啟動"
 
 #: package/contents/ui/main.qml:93
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Display configuration reverted."
-msgstr "顯示設定"
+msgstr "已回復顯示設定。"
 
 #: package/contents/ui/main.qml:100
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Keep display configuration?"
-msgstr "顯示設定"
+msgstr "保留顯示設定嗎？"
 
 #: package/contents/ui/main.qml:117
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
+msgstr[0] "將於 %1 秒後回復至先前的配置。"
 
 #: package/contents/ui/main.qml:136
 #, kde-format
 msgid "&Keep"
-msgstr ""
+msgstr "保留(&K)"
 
 #: package/contents/ui/main.qml:154
 #, kde-format
 msgid "&Revert"
-msgstr ""
+msgstr "回復(&R)"
 
 #: package/contents/ui/main.qml:181
 #, kde-format
@@ -133,10 +130,9 @@ msgid "Automatic"
 msgstr "自動"
 
 #: package/contents/ui/Orientation.qml:35
-#, fuzzy, kde-format
-#| msgid "Only when in tablet mode."
+#, kde-format
 msgid "Only when in tablet mode"
-msgstr "只在平板模式"
+msgstr "只在平板模式時"
 
 #: package/contents/ui/Orientation.qml:44
 #, kde-format
@@ -166,6 +162,8 @@ msgid ""
 "older games also use it to decide which screen to appear on.<nl/><nl/>It has "
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
+"這會決定您的主桌面和面板會放在哪個螢幕上。有些比較舊的遊戲也用它來決定要出現"
+"在哪個螢幕上。<nl/><nl/>它不影響通知或是其他視窗會出現在哪個螢幕上。"
 
 #: package/contents/ui/OutputPanel.qml:41
 #, kde-format
@@ -181,6 +179,9 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
+"&quot;%1&quot; 是這個顯示器唯一支援的解析度。<nl/><nl/>Plasma X11 工作階段曾"
+"經允許使用不支援的解析度，但它們從來都不保證能用，因此不在這個 Plasma "
+"Wayland 工作階段提供。"
 
 #: package/contents/ui/OutputPanel.qml:71
 #, kde-format
@@ -201,42 +202,42 @@ msgstr "刷新頻率："
 #: package/contents/ui/OutputPanel.qml:132
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
+msgstr "\"%1\" 是這個顯示器唯一支援的刷新頻率。"
 
 #: package/contents/ui/OutputPanel.qml:137
 #, kde-format
 msgid "Adaptive sync:"
-msgstr ""
+msgstr "自適應同步："
 
 #: package/contents/ui/OutputPanel.qml:140
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: package/contents/ui/OutputPanel.qml:141
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "總是"
 
 #: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Overscan:"
-msgstr ""
+msgstr "Overscan："
 
 #: package/contents/ui/OutputPanel.qml:177
 #, kde-format
 msgid "RGB Range:"
-msgstr ""
+msgstr "RGB 範圍："
 
 #: package/contents/ui/OutputPanel.qml:184
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "完整"
 
 #: package/contents/ui/OutputPanel.qml:185
 #, kde-format
 msgid "Limited"
-msgstr ""
+msgstr "有限"
 
 #: package/contents/ui/OutputPanel.qml:201
 #, kde-format
@@ -256,13 +257,13 @@ msgstr "全域縮放比例："
 #: package/contents/ui/Panel.qml:122 package/contents/ui/Panel.qml:142
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "舊式應用程式 (X11):"
 
 #: package/contents/ui/Panel.qml:127
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "讓它們自行套用縮放"
 
 #: package/contents/ui/Panel.qml:132
 #, kde-format
@@ -270,19 +271,21 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"支援縮放的舊式應用程式將自行進行縮放並以清晰方式呈現，但不支援的就完全不會被"
+"縮放。"
 
 #: package/contents/ui/Panel.qml:143
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "由系統縮放"
 
 #: package/contents/ui/Panel.qml:148
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
-msgstr ""
+msgstr "所有舊式應用程式都會由系統縮放到正確大小，但它們全部都會有一點模糊。"
 
 #: package/contents/ui/Panel.qml:162
 #, kde-format
