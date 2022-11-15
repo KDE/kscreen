@@ -389,8 +389,17 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
             infoFound = true;
             readIn(output, info, control.getOutputRetention(output));
-            if (info[QStringLiteral("primary")].toBool()) {
-                config->setPrimaryOutput(output);
+
+            // the deprecated "primary" property may exist for compatibility, but "priority" should override it whenever present.
+            if (info.contains(QStringLiteral("primary"))) {
+                if (info[QStringLiteral("primary")].toBool()) {
+                    config->setPrimaryOutput(output);
+                }
+            }
+            if (info.contains(QStringLiteral("priority"))) {
+                if (info[QStringLiteral("priority")].toUInt() == 1) {
+                    config->setPrimaryOutput(output);
+                }
             }
             break;
         }

@@ -79,7 +79,7 @@ void Console::printConfig()
             continue;
         }
         qDebug() << "Enabled: " << output->isEnabled();
-        qDebug() << "Primary: " << output->isPrimary();
+        qDebug() << "Priority: " << static_cast<uint32_t>(output->isEnabled() ? (output->isPrimary() ? 1 : 2) : 0);
         qDebug() << "Rotation: " << output->rotation();
         qDebug() << "Pos: " << output->pos();
         qDebug() << "MMSize: " << output->sizeMm();

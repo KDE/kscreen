@@ -17,6 +17,8 @@
 #include <QStandardPaths>
 #include <QStringBuilder>
 
+#include <cstdint>
+
 #include <kscreen/output.h>
 #include <kscreen/screen.h>
 
@@ -241,7 +243,7 @@ bool Config::writeFile(const QString &filePath)
         }
 
         Output::writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = output->isPrimary();
+        info[QStringLiteral("priority")] = static_cast<uint32_t>(output->isEnabled() ? (output->isPrimary() ? 1 : 2) : 0);
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
