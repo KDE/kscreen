@@ -28,8 +28,8 @@ Kirigami.FormLayout {
 
         QQC2.CheckBox {
             text: i18n("Primary")
-            checked: element.primary
-            onToggled: element.primary = checked
+            checked: element.priority === 1
+            onToggled: element.priority = 1
         }
 
         KCM.ContextualHelpButton {

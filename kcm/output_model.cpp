@@ -5,6 +5,8 @@
 */
 #include "output_model.h"
 
+#include <cstdint>
+
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 
@@ -53,8 +55,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->isEnabled();
     case InternalRole:
         return output->type() == KScreen::Output::Type::Panel;
-    case PrimaryRole:
-        return output->isPrimary();
+    case PriorityRole:
+        return output->priority();
     case SizeRole:
         return output->geometry().size();
     case PositionRole:
@@ -132,10 +134,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return setEnabled(index.row(), value.toBool());
         }
         break;
-    case PrimaryRole:
-        if (value.canConvert<bool>()) {
-            bool primary = value.toBool();
-            if (output.ptr->isPrimary() == primary) {
+    case PriorityRole:
+        if (value.canConvert<uint32_t>()) {
+            const uint32_t priority = value.toUInt();
+            if (output.ptr->priority() == priority) {
                 return false;
             }
             m_config->config()->setPrimaryOutput(output.ptr);
@@ -251,7 +253,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[EnabledRole] = "enabled";
     roles[InternalRole] = "internal";
-    roles[PrimaryRole] = "primary";
+    roles[PriorityRole] = "priority";
     roles[SizeRole] = "size";
     roles[PositionRole] = "position";
     roles[NormalizedPositionRole] = "normalizedPosition";
@@ -301,7 +303,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     m_outputs.insert(i, Output(output, pos));
 
     connect(output.data(), &KScreen::Output::isPrimaryChanged, this, [this, output]() {
-        roleChanged(output->id(), PrimaryRole);
+        roleChanged(output->id(), PriorityRole);
     });
     endInsertRows();
 

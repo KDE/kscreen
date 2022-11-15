@@ -20,7 +20,7 @@ public:
     enum OutputRoles {
         EnabledRole = Qt::UserRole + 1,
         InternalRole,
-        PrimaryRole,
+        PriorityRole,
         SizeRole,
         /** Position in the graphical view relative to some arbitrary but fixed origin. */
         PositionRole,
