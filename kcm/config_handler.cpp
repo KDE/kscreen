@@ -59,7 +59,7 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     connect(m_config.data(), &KScreen::Config::outputRemoved, this, [this]() {
         Q_EMIT outputConnect(false);
     });
-    connect(m_config.data(), &KScreen::Config::prioritiesChanged, this, &ConfigHandler::primaryOutputChanged);
+    connect(m_config.data(), &KScreen::Config::prioritiesChanged, this, &ConfigHandler::outputPrioritiesChanged);
 
     Q_EMIT outputModelChanged();
 }
@@ -205,7 +205,7 @@ void ConfigHandler::checkScreenNormalization()
     Q_EMIT screenNormalizationUpdate(normalized);
 }
 
-void ConfigHandler::primaryOutputChanged()
+void ConfigHandler::outputPrioritiesChanged()
 {
 }
 
