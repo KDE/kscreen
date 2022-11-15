@@ -140,8 +140,7 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             if (output.ptr->priority() == priority) {
                 return false;
             }
-            m_config->config()->setPrimaryOutput(output.ptr);
-            Q_EMIT dataChanged(index, index, {role});
+            m_config->config()->setOutputPriority(output.ptr, priority);
             return true;
         }
         break;
