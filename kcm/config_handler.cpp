@@ -201,12 +201,6 @@ void ConfigHandler::checkScreenNormalization()
     Q_EMIT screenNormalizationUpdate(normalized);
 }
 
-void ConfigHandler::primaryOutputSelected(int index)
-{
-    Q_UNUSED(index)
-    // TODO
-}
-
 void ConfigHandler::primaryOutputChanged(const KScreen::OutputPtr &output)
 {
     Q_UNUSED(output)
