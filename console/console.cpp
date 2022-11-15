@@ -55,12 +55,8 @@ void Console::printConfig()
         return;
     }
 
-    connect(m_config.data(), &Config::primaryOutputChanged, [&](const OutputPtr &output) {
-        if (output) {
-            qDebug() << "New primary output: " << output->id() << output->name();
-        } else {
-            qDebug() << "No primary output.";
-        }
+    connect(m_config.data(), &Config::prioritiesChanged, [&]() {
+        qDebug() << "Priorities changed:" << m_config.data()->outputs();
     });
 
     qDebug() << "Screen:";
