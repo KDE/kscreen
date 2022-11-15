@@ -21,6 +21,11 @@ OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)
     , m_config(configHandler)
 {
+    connect(m_config->config().data(), &KScreen::Config::prioritiesChanged, this, [this]() {
+        if (rowCount() > 0) {
+            Q_EMIT dataChanged(createIndex(0, 0), createIndex(rowCount() - 1, 0), {PriorityRole});
+        }
+    });
 }
 
 int OutputModel::rowCount(const QModelIndex &parent) const
@@ -301,9 +306,6 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     }
     m_outputs.insert(i, Output(output, pos));
 
-    connect(output.data(), &KScreen::Output::priorityChanged, this, [this, output]() {
-        roleChanged(output->id(), PriorityRole);
-    });
     endInsertRows();
 
     connect(output.data(), &KScreen::Output::modesChanged, this, [this, output]() {
