@@ -7,6 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kitemmodels 1.0
 
 import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
@@ -96,17 +97,14 @@ KCM.SimpleKCM {
                 }
             }
             showCloseButton: false
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    Layout.maximumWidth: Math.round(root.width * 0.75)
-                    topPadding: Kirigami.Units.largeSpacing
-                    bottomPadding: Kirigami.Units.largeSpacing
-                    text: i18np("Will revert to previous configuration in %1 second.",
-                                "Will revert to previous configuration in %1 seconds.",
-                                revertCountdown);
-                    wrapMode: Text.WordWrap
-                }
+            contentItem: QQC2.Label {
+                Layout.maximumWidth: Math.round(root.width * 0.75)
+                topPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
+                text: i18np("Will revert to previous configuration in %1 second.",
+                            "Will revert to previous configuration in %1 seconds.",
+                            revertCountdown);
+                wrapMode: Text.WordWrap
             }
             footer: QQC2.DialogButtonBox {
                 QQC2.Button {
@@ -144,6 +142,77 @@ KCM.SimpleKCM {
                     kcm.setStopUpdatesFromBackend(false);
                     kcm.revertSettings();
                 }
+            }
+        }
+        Kirigami.OverlaySheet {
+            id: reorderDialog
+            parent: root
+            title: i18n("Change priorities")
+            onSheetOpenChanged: {
+                if (sheetOpen) {
+                    revertButton.forceActiveFocus()
+                } else {
+                    revertTimer.stop()
+                }
+            }
+            showCloseButton: true
+            contentItem: ListView {
+                id: reorderView
+
+                implicitWidth: Math.round(root.width * 0.5)
+
+                reuseItems: true
+                model: KSortFilterProxyModel {
+                    sourceModel: kcm.outputModel
+                    filterRole: "enabled"
+                    filterString: "true"
+                    sortRole: "priority"
+                    sortOrder: Qt.AscendingOrder
+                }
+                delegate: Kirigami.SwipeListItem {
+                    id: delegate
+
+                    property var output: model
+
+                    width: ListView.view.width
+
+                    background: null
+                    contentItem: Kirigami.BasicListItem {
+                        label: delegate.output.display
+                        subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                        background: null
+                    }
+                    actions: [
+                        Kirigami.Action {
+                            iconName: "arrow-up"
+                            text: i18n("Raise priority")
+                            enabled: delegate.output.priority > 1
+                            onTriggered: {
+                                if (enabled) {
+                                    delegate.output.priority -= 1;
+                                }
+                            }
+                        },
+                        Kirigami.Action {
+                            iconName: "arrow-down"
+                            text: i18n("Lower priority")
+                            enabled: delegate.output.priority < reorderView.count
+                            onTriggered: {
+                                if (enabled) {
+                                    delegate.output.priority += 1;
+                                }
+                            }
+                        }
+                    ]
+                }
+
+                displaced: Transition {
+                    NumberAnimation { properties: "y"; duration: Kirigami.Units.longDuration }
+                }
+            }
+            footer: QQC2.DialogButtonBox {
+                standardButtons: QQC2.DialogButtonBox.Ok
+                onAccepted: reorderDialog.close();
             }
         }
         Connections {
@@ -196,6 +265,7 @@ KCM.SimpleKCM {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.preferredHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
 
             enabled: kcm.outputModel && kcm.backendReady
             outputs: kcm.outputModel
@@ -204,6 +274,12 @@ KCM.SimpleKCM {
         Panel {
             enabled: kcm.outputModel && kcm.backendReady
             Layout.fillWidth: true
+            selectedOutput: root.selectedOutput
+            onSelectedOutputChanged: {
+                root.selectedOutput = selectedOutput;
+                selectedOutput = Qt.binding(() => root.selectedOutput);
+            }
+            onReorder: reorderDialog.open()
         }
 
         Timer {

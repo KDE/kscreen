@@ -13,19 +13,33 @@ import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {
+    id: root
+
+    property int selectedOutput
+
+    signal reorder()
+
     Kirigami.FormLayout {
         twinFormLayouts: globalSettingsLayout
         visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
 
-        QQC2.ComboBox {
+        RowLayout {
             Kirigami.FormData.label: i18n("Device:")
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 16
-            model: kcm.outputModel
-            textRole: "display"
-            Component.onCompleted: currentIndex = Qt.binding(() => root.selectedOutput);
-            onActivated: index => {
-                root.selectedOutput = index;
-                currentIndex = Qt.binding(() => root.selectedOutput);
+
+            QQC2.ComboBox {
+                Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+                model: kcm.outputModel
+                textRole: "display"
+                Component.onCompleted: currentIndex = Qt.binding(() => root.selectedOutput);
+                onActivated: index => {
+                    root.selectedOutput = index;
+                    currentIndex = Qt.binding(() => root.selectedOutput);
+                }
+            }
+            QQC2.Button {
+                icon.name: "document-edit"
+                text: i18n("Reorder…")
+                onClicked: root.reorder();
             }
         }
     }
@@ -33,10 +47,6 @@ ColumnLayout {
     StackLayout {
         id: panelView
         currentIndex: root.selectedOutput
-
-        onCurrentIndexChanged: {
-            root.selectedOutput = Qt.binding(() => currentIndex);
-        }
 
         Layout.fillWidth: true
 
