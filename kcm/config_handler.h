@@ -91,6 +91,7 @@ private:
      * @return true, if you should check for a save or test the new configuration
      */
     bool checkSaveandTestCommon(bool isSaveCheck);
+    bool checkPrioritiesNeedSave();
 
     KScreen::ConfigPtr m_config = nullptr;
     KScreen::ConfigPtr m_initialConfig;
