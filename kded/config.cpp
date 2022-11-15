@@ -243,7 +243,7 @@ bool Config::writeFile(const QString &filePath)
         }
 
         Output::writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("priority")] = static_cast<uint32_t>(output->isEnabled() ? (output->isPrimary() ? 1 : 2) : 0);
+        info[QStringLiteral("priority")] = output->priority();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
