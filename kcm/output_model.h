@@ -104,7 +104,6 @@ private:
         bool moving = false;
     };
 
-    void roleChanged(int outputId, OutputRoles role);
     void rolesChanged(int outputId, const QVector<int> &roles);
     QModelIndex indexForOutputId(int outputId) const;
 

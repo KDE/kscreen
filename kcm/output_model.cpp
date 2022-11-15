@@ -782,11 +782,6 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
     return ret;
 }
 
-void OutputModel::roleChanged(int outputId, OutputRoles role)
-{
-    rolesChanged(outputId, {role});
-}
-
 void OutputModel::rolesChanged(int outputId, const QVector<int> &roles)
 {
     const auto index = indexForOutputId(outputId);
