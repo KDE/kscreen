@@ -119,7 +119,6 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             if (output.pos == val) {
                 return false;
             }
-
             snap(output, val);
             m_outputs[index.row()].pos = val;
             updatePositions();
@@ -970,6 +969,17 @@ bool snapToLeft(const QRect &target, const QSize &size, QPoint &dest)
     return false;
 }
 
+bool snapHorizontal(const QRect &target, const QSize &size, QPoint &dest)
+{
+    if (snapToRight(target, size, dest)) {
+        return true;
+    }
+    if (snapToLeft(target, size, dest)) {
+        return true;
+    }
+    return false;
+}
+
 bool snapToMiddle(const QRect &target, const QSize &size, QPoint &dest)
 {
     const int outputMid = dest.y() + size.height() / 2;
@@ -1029,12 +1039,57 @@ bool snapVertical(const QRect &target, const QSize &size, QPoint &dest)
 void OutputModel::snap(const Output &output, QPoint &dest)
 {
     const QSize size = output.ptr->geometry().size();
-    for (const Output &out : qAsConst(m_outputs)) {
+    const QRect outputRect(dest, size);
+
+    QVector<std::reference_wrapper<const Output>> positionableOutputs;
+    positionableOutputs.reserve(m_outputs.size());
+    std::copy_if(m_outputs.cbegin(), m_outputs.cend(), std::back_inserter(positionableOutputs), [](const Output &output) {
+        return output.ptr->isPositionable();
+    });
+
+    // Special case for two outputs, we want to make sure they always touch;
+    if (positionableOutputs.size() == 2) {
+        const Output &other = positionableOutputs.at(0).get().ptr->id() == output.ptr->id() ? positionableOutputs.at(1) : positionableOutputs.at(0);
+        const QRect target(other.pos, other.ptr->geometry().size());
+        const bool xOverlap = dest.x() <= target.x() + target.width() && target.x() <= dest.x() + size.width();
+        const bool yOverlap = dest.y() <= target.y() + target.height() && target.y() <= dest.y() + size.height();
+        // Special special case, snap to center if centers are close
+        if (std::abs((outputRect.center() - target.center()).manhattanLength()) < s_snapArea * 2) {
+            dest = target.center() - (outputRect.center() - outputRect.topLeft());
+            return;
+        }
+        if (xOverlap) {
+            const int topDist = std::abs(dest.y() - target.y() - target.height());
+            const int bottomDist = std::abs(outputRect.y() + outputRect.height() - target.y());
+            if (topDist < bottomDist) {
+                dest.setY(target.y() + target.height());
+            } else {
+                dest.setY(target.y() - size.height());
+            }
+            // Secondary snap to align the other edges if close - right to right, left to left
+            snapHorizontal(target, size, dest);
+            return;
+        }
+        if (yOverlap) {
+            const int leftDist = std::abs(dest.x() - target.x() - target.width());
+            const int rightDiff = std::abs(outputRect.x() + outputRect.width() - target.x());
+            if (leftDist < rightDiff) {
+                dest.setX(target.x() + target.width());
+            } else {
+                dest.setX(target.x() - size.width());
+            }
+            // Secondary snap to align the other edges if close - top to top, bottom to bottom, center to center
+            snapVertical(target, size, dest);
+            return;
+        }
+        // No overlap at all can happen at a corner, do not let the output move away
+        dest = output.pos;
+        return;
+    }
+
+    for (const Output &out : qAsConst(positionableOutputs)) {
         if (out.ptr->id() == output.ptr->id()) {
             // Can not snap to itself.
-            continue;
-        }
-        if (!positionable(out)) {
             continue;
         }
 
