@@ -34,10 +34,6 @@ QQC2.ScrollView {
     readonly property int xOffset: (width - totalSize.width / relativeFactor) / 2;
     readonly property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
-    implicitHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
-
-    Component.onCompleted: background.visible = true;
-
     Kirigami.Heading {
         z: 90
         anchors {
