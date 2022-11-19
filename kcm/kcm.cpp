@@ -92,7 +92,7 @@ void KCMKScreen::save()
 
 void KCMKScreen::revertSettings()
 {
-    if (!m_configHandler) {
+    if (!m_configHandler || !m_configHandler->config()) {
         return;
     }
     if (!m_settingsReverted) {
@@ -130,7 +130,7 @@ void KCMKScreen::updateFromBackend()
 
 void KCMKScreen::doSave()
 {
-    if (!m_configHandler) {
+    if (!m_configHandler || !m_configHandler->config()) {
         Q_EMIT errorOnSave();
         return;
     }
@@ -174,7 +174,7 @@ void KCMKScreen::doSave()
     op->exec();
 
     const auto updateInitialData = [this]() {
-        if (!m_configHandler) {
+        if (!m_configHandler || !m_configHandler->config()) {
             return;
         }
         m_configHandler->updateInitialData();

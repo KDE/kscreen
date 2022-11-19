@@ -42,7 +42,7 @@ public:
 
     void revertConfig()
     {
-        m_config = m_previousConfig->clone();
+        m_config = (m_previousConfig ? m_previousConfig : m_initialConfig)->clone();
     }
 
     int retention() const;
