@@ -349,18 +349,3 @@ msgstr "Завлечете екраните, за да ги пренаредит
 #, kde-format
 msgid "Identify"
 msgstr "Идентифициране"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines how much padding is put around the image sent to the display"
-#~ msgstr ""
-#~ "Определя колко отстояние се поставя около изображението, изпращано на "
-#~ "екрана."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Определя дали да се ограничи диапазонът от възможни стойности на "
-#~ "цветовете за екрана."
