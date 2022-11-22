@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:47+0000\n"
+"POT-Creation-Date: 2022-11-22 00:47+0000\n"
 "PO-Revision-Date: 2022-09-09 13:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,60 +20,46 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: output_model.cpp:91
+#: output_model.cpp:90
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Гц"
 
-#: output_model.cpp:572
+#: output_model.cpp:581
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1⨯%2"
 
-#: output_model.cpp:591
+#: output_model.cpp:600
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1⨯%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:681
 #, kde-format
 msgid "None"
 msgstr "Немає"
 
-#: output_model.cpp:679
+#: output_model.cpp:688
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Відтворюється іншим виведенням"
 
-#: package/contents/ui/main.qml:37
-#, kde-format
-msgid ""
-"Are you sure you want to disable all outputs? This might render the device "
-"unusable."
-msgstr ""
-"Ви справді хочете вимкнути всі канали виведення даних? Це може призвести до "
-"неможливості користування пристроєм."
-
-#: package/contents/ui/main.qml:43
-#, kde-format
-msgid "Disable All Outputs"
-msgstr "Вимкнути всі канали виведення даних"
-
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:45
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Не знайдено жодного модуля KScreen. Будь ласка, перевірте, чи належним чином "
 "встановлено KScreen."
 
-#: package/contents/ui/main.qml:63
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Параметри виведення не вдалося зберегти через помилку."
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:61
 #, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
@@ -82,22 +68,22 @@ msgstr ""
 "Застосовано новий загальний масштаб. Зміни набудуть чинності після "
 "перезапуску системи."
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:67
 #, kde-format
 msgid "Restart"
 msgstr "Перезапустити"
 
-#: package/contents/ui/main.qml:93
+#: package/contents/ui/main.qml:83
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Налаштування дисплея повернуто до попередніх."
 
-#: package/contents/ui/main.qml:100
+#: package/contents/ui/main.qml:90
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Залишити такі налаштування дисплея?"
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -106,22 +92,35 @@ msgstr[1] "За %1 секунди буде виконано повернення
 msgstr[2] "За %1 секунд буде виконано повернення до попередніх налаштувань."
 msgstr[3] "За секунду буде виконано повернення до попередніх налаштувань."
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:126
 #, kde-format
 msgid "&Keep"
 msgstr "За&лишити"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "&Revert"
 msgstr "&Повернути"
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:162
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr ""
+
+#: package/contents/ui/main.qml:164
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Додано новий канал виведення. Параметри перезавантажено."
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:178
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Канал виведення вилучено. Параметри перезавантажено."
@@ -356,6 +355,16 @@ msgstr "Перетягніть екрани, щоб змінити порядо�
 #, kde-format
 msgid "Identify"
 msgstr "Визначити"
+
+#~ msgid ""
+#~ "Are you sure you want to disable all outputs? This might render the "
+#~ "device unusable."
+#~ msgstr ""
+#~ "Ви справді хочете вимкнути всі канали виведення даних? Це може призвести "
+#~ "до неможливості користування пристроєм."
+
+#~ msgid "Disable All Outputs"
+#~ msgstr "Вимкнути всі канали виведення даних"
 
 #~ msgctxt "@info"
 #~ msgid ""

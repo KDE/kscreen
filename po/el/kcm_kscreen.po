@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:47+0000\n"
+"POT-Creation-Date: 2022-11-22 00:47+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,60 +18,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: output_model.cpp:91
+#: output_model.cpp:90
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:581
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:591
+#: output_model.cpp:600
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:681
 #, kde-format
 msgid "None"
 msgstr "Κανένα"
 
-#: output_model.cpp:679
+#: output_model.cpp:688
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Αντιγράφτηκε από άλλη έξοδο"
 
-#: package/contents/ui/main.qml:37
-#, kde-format
-msgid ""
-"Are you sure you want to disable all outputs? This might render the device "
-"unusable."
-msgstr ""
-"Θέλετε πράγματι την απενεργοποίηση όλων των εξόδων; Αυτό ίσως αχρηστεύσει τη "
-"συσκευή."
-
-#: package/contents/ui/main.qml:43
-#, kde-format
-msgid "Disable All Outputs"
-msgstr "Απενεργοποίηση όλων των εξόδων"
-
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:45
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Δε βρέθηκε σύστημα υποστήριξης για το KScreen. Ελέγξτε την εγκατάσταση του "
 "KScreen."
 
-#: package/contents/ui/main.qml:63
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Αδυναμία αποθήκευσης των εξόδων εξαιτίας σφάλματος."
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:61
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -82,44 +68,57 @@ msgstr ""
 "Εφαρμόστηκε νέα καθολική κλίμακα. Οι αλλαγές θα εμφανιστούν μετά την "
 "επανεκκίνηση."
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:67
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:93
+#: package/contents/ui/main.qml:83
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Έγινε επαναφορά στη διαμόρφωση οθόνης."
 
-#: package/contents/ui/main.qml:100
+#: package/contents/ui/main.qml:90
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτο."
 msgstr[1] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτα."
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:126
 #, kde-format
 msgid "&Keep"
 msgstr "&Διατήρηση"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "&Revert"
 msgstr "Επαναφο&ρά"
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:162
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr ""
+
+#: package/contents/ui/main.qml:164
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Έχει προστεθεί νέα έξοδος. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:178
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Μια έξοδος έχει διαγραφεί. Οι ρυθμίσεις έχουν ανανεωθεί."
@@ -351,6 +350,16 @@ msgstr "Με έλξη των οθονών γίνεται ανα-διευθέτη
 #, kde-format
 msgid "Identify"
 msgstr "Αναγνώριση"
+
+#~ msgid ""
+#~ "Are you sure you want to disable all outputs? This might render the "
+#~ "device unusable."
+#~ msgstr ""
+#~ "Θέλετε πράγματι την απενεργοποίηση όλων των εξόδων; Αυτό ίσως αχρηστεύσει "
+#~ "τη συσκευή."
+
+#~ msgid "Disable All Outputs"
+#~ msgstr "Απενεργοποίηση όλων των εξόδων"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

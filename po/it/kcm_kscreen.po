@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:47+0000\n"
+"POT-Creation-Date: 2022-11-22 00:47+0000\n"
 "PO-Revision-Date: 2022-09-09 18:50+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,58 +17,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.08.0\n"
 
-#: output_model.cpp:91
+#: output_model.cpp:90
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:581
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:591
+#: output_model.cpp:600
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:681
 #, kde-format
 msgid "None"
 msgstr "Nessuna"
 
-#: output_model.cpp:679
+#: output_model.cpp:688
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicato da un'altra uscita"
 
-#: package/contents/ui/main.qml:37
-#, kde-format
-msgid ""
-"Are you sure you want to disable all outputs? This might render the device "
-"unusable."
-msgstr ""
-"Sei sicuro di voler disabilitare tutte le uscite? Questo potrebbe rendere il "
-"dispositivo inutilizzabile."
-
-#: package/contents/ui/main.qml:43
-#, kde-format
-msgid "Disable All Outputs"
-msgstr "Disabilita tutte le uscite"
-
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:45
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Nessun motore di KScreen trovato. Verifica l'installazione di KScreen."
 
-#: package/contents/ui/main.qml:63
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Le uscite non possono essere salvate a causa di un errore."
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:61
 #, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
@@ -77,45 +63,58 @@ msgstr ""
 "Nuova scala globale applicata. Le modifiche avranno effetto dopo il riavvio "
 "del sistema."
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:67
 #, kde-format
 msgid "Restart"
 msgstr "Riavvia"
 
-#: package/contents/ui/main.qml:93
+#: package/contents/ui/main.qml:83
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configurazione dello schermo ripristinata."
 
-#: package/contents/ui/main.qml:100
+#: package/contents/ui/main.qml:90
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Vuoi mantenere la configurazione dello schermo?"
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "La configurazione precedente sarà ripristinata in %1 secondo."
 msgstr[1] "La configurazione precedente sarà ripristinata in %1 secondi."
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:126
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantieni"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "&Revert"
 msgstr "&Ripristina"
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:162
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr ""
+
+#: package/contents/ui/main.qml:164
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Una nuova uscita è stata aggiunta. Le impostazioni sono state ricaricate."
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:178
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Un'uscita è stata rimossa. Le impostazioni sono state ricaricate."
@@ -351,6 +350,16 @@ msgstr "Trascina gli schermi per ri-organizzarli"
 #, kde-format
 msgid "Identify"
 msgstr "Identifica"
+
+#~ msgid ""
+#~ "Are you sure you want to disable all outputs? This might render the "
+#~ "device unusable."
+#~ msgstr ""
+#~ "Sei sicuro di voler disabilitare tutte le uscite? Questo potrebbe rendere "
+#~ "il dispositivo inutilizzabile."
+
+#~ msgid "Disable All Outputs"
+#~ msgstr "Disabilita tutte le uscite"
 
 #~ msgctxt "@info"
 #~ msgid ""

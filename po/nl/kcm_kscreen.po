@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:47+0000\n"
+"POT-Creation-Date: 2022-11-22 00:47+0000\n"
 "PO-Revision-Date: 2022-09-09 10:36+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,58 +17,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.08.0\n"
 
-#: output_model.cpp:91
+#: output_model.cpp:90
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:572
+#: output_model.cpp:581
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:591
+#: output_model.cpp:600
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:672
+#: output_model.cpp:681
 #, kde-format
 msgid "None"
 msgstr "Geen"
 
-#: output_model.cpp:679
+#: output_model.cpp:688
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Gekopieerd door andere uitvoer"
 
-#: package/contents/ui/main.qml:37
-#, kde-format
-msgid ""
-"Are you sure you want to disable all outputs? This might render the device "
-"unusable."
-msgstr ""
-"Wilt u alle uitvoer uitschakelen? Dit kan het apparaat onbruikbaar maken."
-
-#: package/contents/ui/main.qml:43
-#, kde-format
-msgid "Disable All Outputs"
-msgstr "Alle uitvoer uitschakelen"
-
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:45
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Geen backend van KScreen gevonden. Controleer de installatie van KScreen."
 
-#: package/contents/ui/main.qml:63
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Uitvoeren konden niet opgeslagen worden vanwege een fout."
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:61
 #, kde-format
 msgid ""
 "New global scale applied. Changes will come into effect after the system is "
@@ -77,44 +64,57 @@ msgstr ""
 "Nieuwe globale schaal toegepast. Wijzigingen zullen pas effect hebben na een "
 "herstart."
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:67
 #, kde-format
 msgid "Restart"
 msgstr "Herstarten"
 
-#: package/contents/ui/main.qml:93
+#: package/contents/ui/main.qml:83
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configuratie van het scherm teruggedraaid."
 
-#: package/contents/ui/main.qml:100
+#: package/contents/ui/main.qml:90
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Configuratie van het scherm behouden?"
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "De vorige configuratie zal binnen %1 seconde worden teruggedraaid."
 msgstr[1] "De vorige configuratie zal binnen %1 seconden worden teruggedraaid."
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:126
 #, kde-format
 msgid "&Keep"
 msgstr "&Behouden"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "&Revert"
 msgstr "&Terugdraaien"
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:162
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr ""
+
+#: package/contents/ui/main.qml:164
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Een nieuwe uitvoer is toegevoegd.  Instellingen zijn opnieuw geladen."
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:178
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Een uitvoer is verwijderd. Instellingen zijn opnieuw geladen."
@@ -351,6 +351,15 @@ msgstr "Schermen slepen om ze opnieuw te plaatsen"
 #, kde-format
 msgid "Identify"
 msgstr "Identificeren"
+
+#~ msgid ""
+#~ "Are you sure you want to disable all outputs? This might render the "
+#~ "device unusable."
+#~ msgstr ""
+#~ "Wilt u alle uitvoer uitschakelen? Dit kan het apparaat onbruikbaar maken."
+
+#~ msgid "Disable All Outputs"
+#~ msgstr "Alle uitvoer uitschakelen"
 
 #~ msgctxt "@info"
 #~ msgid ""
