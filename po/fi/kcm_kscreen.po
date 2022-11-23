@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
 "PO-Revision-Date: 2022-10-30 16:57+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -78,42 +78,42 @@ msgstr "Näyttöasetus palautettu."
 msgid "Keep display configuration?"
 msgstr "Hyväksytäänkö näyttöasetukset?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Edellinen asetus palautetaan %1 sekunnissa."
 msgstr[1] "Edellinen asetus palautetaan %1 sekunnissa."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&Hyväksy"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "P&alauta"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr ""
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Uusi ulostulo on lisätty. Asetukset on virkistetty."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Ulostulo on poistettu. Asetukset on virkistetty."

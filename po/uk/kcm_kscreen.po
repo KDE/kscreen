@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
-"PO-Revision-Date: 2022-09-09 13:33+0300\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"PO-Revision-Date: 2022-11-22 22:32+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -83,7 +83,7 @@ msgstr "Налаштування дисплея повернуто до попе
 msgid "Keep display configuration?"
 msgstr "Залишити такі налаштування дисплея?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -92,35 +92,37 @@ msgstr[1] "За %1 секунди буде виконано повернення
 msgstr[2] "За %1 секунд буде виконано повернення до попередніх налаштувань."
 msgstr[3] "За секунду буде виконано повернення до попередніх налаштувань."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "За&лишити"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "&Повернути"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Усі дисплеї вимкнено. Увімкніть хоча б один."
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Підтримки прогалин між дисплеями не передбачено. Переконайтеся, що усі "
+"дисплеї розташовано у тісному контакті."
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Додано новий канал виведення. Параметри перезавантажено."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Канал виведення вилучено. Параметри перезавантажено."

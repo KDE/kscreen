@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
 "PO-Revision-Date: 2021-12-13 13:18+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -82,7 +82,7 @@ msgstr "Ekrano konfigūracija sugrąžinta."
 msgid "Keep display configuration?"
 msgstr "Palikti ekrano konfigūraciją?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -91,35 +91,35 @@ msgstr[1] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundžių."
 msgstr[2] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundžių."
 msgstr[3] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundės."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&Palikti"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "S&ugrąžinti"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr ""
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Pridėtas naujas išvedimas. Nuostatos įkeltos iš naujo."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Išvedimas pašalintas. Nuostatos įkeltos iš naujo."

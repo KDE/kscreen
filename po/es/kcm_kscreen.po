@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
-"PO-Revision-Date: 2022-09-09 11:33+0200\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"PO-Revision-Date: 2022-11-22 12:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #: output_model.cpp:90
 #, kde-format
@@ -82,43 +82,45 @@ msgstr "Se ha revertido la configuración de la pantalla."
 msgid "Keep display configuration?"
 msgstr "¿Mantener la configuración de la pantalla?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Se volverá a la configuración anterior en %1 segundos."
 msgstr[1] "Se volverá a la configuración anterior en %1 segundo."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantener"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "&Revertir"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Todas las pantallas están desactivadas. Active al menos una."
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"No se permiten huecos entre las pantallas. Asegúrese de que todas las "
+"pantallas se tocan."
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Se ha añadido una nueva salida. Las preferencias se han vuelto a cargar."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Se ha eliminado una salida. Las preferencias se han vuelto a cargar."

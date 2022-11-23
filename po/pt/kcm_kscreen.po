@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
-"PO-Revision-Date: 2022-09-09 09:30+0100\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"PO-Revision-Date: 2022-11-22 13:06+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -76,42 +76,44 @@ msgstr "A configuração do ecrã foi revertida."
 msgid "Keep display configuration?"
 msgstr "Deseja manter a configuração do ecrã?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Irá reverter à configuração anterior daqui a %1 segundo."
 msgstr[1] "Irá reverter à configuração anterior daqui a %1 segundos."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&Manter"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverter"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Todos os ecrãs estão desactivados. Active pelo menos um."
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Não são suportados intervalos entre os ecrãs. Certifique-se que todos os "
+"ecrãs estão juntos."
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Foi adicionada uma nova saída. Foi recarregada a configuração."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Foi removida uma saída. Foi recarregada a configuração."
@@ -345,28 +347,3 @@ msgstr "Arraste os ecrãs para os reorganizar"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
-
-#~ msgid ""
-#~ "Are you sure you want to disable all outputs? This might render the "
-#~ "device unusable."
-#~ msgstr ""
-#~ "Tem a certeza que deseja desactivar todas as saídas? Isto poderá "
-#~ "inutilizar o dispositivo."
-
-#~ msgid "Disable All Outputs"
-#~ msgstr "Desactivar Todas as Saídas"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines how much padding is put around the image sent to the display"
-#~ msgstr ""
-#~ "Determina quanto preenchimento é posto em torno da imagem enviada para o "
-#~ "ecrã"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Determina se a gama de valores de cores possíveis precisa de ser limitada "
-#~ "para o ecrã."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
-"PO-Revision-Date: 2022-09-27 14:28+0200\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"PO-Revision-Date: 2022-11-22 07:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: output_model.cpp:90
 #, kde-format
@@ -79,45 +79,45 @@ msgstr "ეკრანის კონფიგურაცია დაბრ�
 msgid "Keep display configuration?"
 msgstr "დაიტოვებთ ამ პარამეტრებს?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 msgstr[1] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&შენარჩუნება"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "&დაბრუნება"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "ყველა ეკრანი გამორთულია. საჭიროა ერთი მაინც ჩართოთ."
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
-msgstr ""
+msgstr "ახალი გამოტანა დამატებულია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
-msgstr ""
+msgstr "გამოტანილი წაშლილია. პარამეტრები თავიდან ჩაიტვირთა."
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -200,6 +200,7 @@ msgstr "განახლების სიხშირე:"
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
+"\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ განახლების სიხშირეს წარმოადგენს."
 
 #: package/contents/ui/OutputPanel.qml:137
 #, kde-format
@@ -260,7 +261,7 @@ msgstr "მოძველებული აპლიკაციები (X11
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "მასშტაბირების მათზევე გადატარება"
 
 #: package/contents/ui/Panel.qml:132
 #, kde-format
@@ -273,7 +274,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "მასშტაბირებულია სისტემის მიერ"
 
 #: package/contents/ui/Panel.qml:148
 #, kde-format

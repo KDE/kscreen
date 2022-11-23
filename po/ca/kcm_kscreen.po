@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:47+0000\n"
-"PO-Revision-Date: 2022-09-09 10:54+0200\n"
+"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"PO-Revision-Date: 2022-11-22 10:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -82,42 +82,44 @@ msgstr "S'ha revertit la configuració de la pantalla."
 msgid "Keep display configuration?"
 msgstr "Mantinc la configuració de la pantalla?"
 
-#: package/contents/ui/main.qml:107
+#: package/contents/ui/main.qml:105
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Es revertirà a la configuració anterior en %1 segon."
 msgstr[1] "Es revertirà a la configuració anterior en %1 segons."
 
-#: package/contents/ui/main.qml:126
+#: package/contents/ui/main.qml:121
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantén"
 
-#: package/contents/ui/main.qml:144
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverteix"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Totes les pantalles estan desactivades. Almenys activeu-ne una."
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"No es permeten separacions entre les pantalles. Assegureu-vos que totes les "
+"pantalles estan en contacte."
 
-#: package/contents/ui/main.qml:176
+#: package/contents/ui/main.qml:168
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "S'ha afegit una sortida nova. S'ha recarregat la configuració."
 
-#: package/contents/ui/main.qml:178
+#: package/contents/ui/main.qml:170
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "S'ha eliminat una sortida. S'ha recarregat la configuració."
@@ -351,28 +353,3 @@ msgstr "Arrossega les pantalles per a reordenar-les"
 #, kde-format
 msgid "Identify"
 msgstr "Identificació"
-
-#~ msgid ""
-#~ "Are you sure you want to disable all outputs? This might render the "
-#~ "device unusable."
-#~ msgstr ""
-#~ "Esteu segur que voleu desactivar totes les sortides? Això podria fer "
-#~ "inusable el dispositiu."
-
-#~ msgid "Disable All Outputs"
-#~ msgstr "Desactiva totes les sortides"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines how much padding is put around the image sent to the display"
-#~ msgstr ""
-#~ "Determina la quantitat de farciment que es posa al voltant de la imatge "
-#~ "enviada a la pantalla"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Determina si l'interval de valors de color possibles s'ha de limitar per "
-#~ "a la visualització."
