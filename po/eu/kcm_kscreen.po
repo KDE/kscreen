@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:49+0000\n"
-"PO-Revision-Date: 2022-09-10 13:29+0200\n"
+"PO-Revision-Date: 2022-11-24 05:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: output_model.cpp:90
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "Lehene&ratu"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Pantaila guztiak ezgaituta daude. Gaitu bat gutxienez."
 
 #: package/contents/ui/main.qml:156
 #, kde-format
@@ -111,6 +111,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Ez da onartzen pantaila arteko hutsunerik. Ziurtatu pantaila guztiak elkar "
+"ukitzen ari direla."
 
 #: package/contents/ui/main.qml:168
 #, kde-format
