@@ -3,23 +3,23 @@
     [
         {
             "id" : 1,
-            "name" : "6.5 2280x1080",
+            "name" : "6.5 1080x2280",
             "type" : "LVDS",
             "modes" :
             [
                 {
                     "id" : 1,
-                    "name" : "2280x1080",
+                    "name" : "1080x2280",
                     "refreshRate" : 60,
                     "size" : {
-                        "width" : 2280,
-                        "height" : 1080
+                        "width" : 1080,
+                        "height" : 2280
                     }
                 }
             ],
             "sizeMM": {
-                "width": 145,
-                "height": 69
+                "width": 69,
+                "height": 145
             },
             "rotation" : 1,
             "connected" : true,
@@ -29,13 +29,13 @@
         },
         {
             "id" : 2,
-            "name" : "Steam Deck 7 2280x1080",
+            "name" : "Steam Deck 7 1280x800",
             "type" : "LVDS",
             "modes" :
             [
                 {
                     "id" : 1,
-                    "name" : "2280x1080",
+                    "name" : "1280x800",
                     "refreshRate" : 60,
                     "size" : {
                         "width" : 1280,
