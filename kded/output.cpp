@@ -365,6 +365,8 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
         }
     }
 
+    QMap<KScreen::OutputPtr, uint32_t> priorities;
+
     for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected()) {
             output->setEnabled(false);
@@ -391,16 +393,12 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             readIn(output, info, control.getOutputRetention(output));
 
             // the deprecated "primary" property may exist for compatibility, but "priority" should override it whenever present.
-            if (info.contains(QStringLiteral("primary"))) {
-                if (info[QStringLiteral("primary")].toBool()) {
-                    config->setPrimaryOutput(output);
-                }
-            }
-            if (info.contains(QStringLiteral("priority"))) {
-                if (info[QStringLiteral("priority")].toUInt() == 1) {
-                    config->setPrimaryOutput(output);
-                }
-            }
+            const uint32_t priority = info.contains(QStringLiteral("priority")) //
+                ? info[QStringLiteral("priority")].toUInt()
+                : (info.contains(QStringLiteral("primary")) //
+                       ? (info[QStringLiteral("primary")].toBool() ? 1 : 2)
+                       : 0);
+            priorities[output] = priority;
             break;
         }
         if (!infoFound) {
@@ -415,6 +413,8 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
         }
     }
+
+    config->setOutputPriorities(priorities);
 
     for (KScreen::OutputPtr output : outputs) {
         auto replicationSource = control.getReplicationSource(output);
