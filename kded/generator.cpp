@@ -627,11 +627,9 @@ void Generator::disableAllDisconnectedOutputs(const KScreen::OutputList &outputs
 KScreen::OutputPtr Generator::embeddedOutput(const KScreen::OutputList &outputs)
 {
     for (const KScreen::OutputPtr &output : outputs) {
-        if (output->type() != KScreen::Output::Panel) {
-            continue;
+        if (output->type() == KScreen::Output::Panel) {
+            return output;
         }
-
-        return output;
     }
 
     return KScreen::OutputPtr();
