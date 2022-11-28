@@ -3,7 +3,33 @@
     [
         {
             "id" : 1,
-            "name" : "6.5 1080x2280",
+            "name" : "PinePhone 6 720x1440",
+            "type" : "LVDS",
+            "modes" :
+            [
+                {
+                    "id" : 1,
+                    "name" : "720x1440",
+                    "refreshRate" : 60,
+                    "size" : {
+                        "width" : 720,
+                        "height" : 1440
+                    }
+                }
+            ],
+            "sizeMM": {
+                "width": 68,
+                "height": 136
+            },
+            "rotation" : 1,
+            "connected" : true,
+            "enabled" : true,
+            "primary" : true,
+            "scale" : 1.5
+        },
+        {
+            "id" : 2,
+            "name" : "OnePlus 6.5 1080x2280",
             "type" : "LVDS",
             "modes" :
             [
@@ -24,11 +50,10 @@
             "rotation" : 1,
             "connected" : true,
             "enabled" : true,
-            "primary" : true,
             "scale" : 2.0
         },
         {
-            "id" : 2,
+            "id" : 3,
             "name" : "Steam Deck 7 1280x800",
             "type" : "LVDS",
             "modes" :
