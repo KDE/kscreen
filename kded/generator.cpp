@@ -383,8 +383,8 @@ void Generator::laptop(KScreen::OutputList &connectedOutputs)
     if (!embedded) {
         QList<int> keys = connectedOutputs.keys();
         std::sort(keys.begin(), keys.end());
-        const auto &firstConnectedOutputKey = connectedOutputs.constBegin().key();
-        embedded = connectedOutputs.value(firstConnectedOutputKey);
+        embedded = connectedOutputs.value(keys.first());
+    }
     }
     connectedOutputs.remove(embedded->id());
 
