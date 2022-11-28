@@ -25,7 +25,7 @@
             "connected" : true,
             "enabled" : true,
             "primary" : true,
-            "scale" : 1.5
+            "scale" : 2
         },
         {
             "id" : 2,
@@ -50,7 +50,7 @@
             "rotation" : 1,
             "connected" : true,
             "enabled" : true,
-            "scale" : 2.0
+            "scale" : 3
         },
         {
             "id" : 3,
@@ -75,7 +75,7 @@
             "rotation" : 1,
             "connected" : true,
             "enabled" : true,
-            "scale" : 1.0
+            "scale" : 1.5
         }
     ]
 }

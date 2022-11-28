@@ -38,7 +38,7 @@ static const int targetDpiDesktop = 96;
 static const int targetDpiLaptop = 125;
 
 // Because phone and tablet screens are even smaller and used even closer
-static const int targetDpiMobile = 192;
+static const int targetDpiMobile = 136;
 
 // Round calculated ideal scale factor to the nearest quarter
 static const int scaleRoundingness = 4;
