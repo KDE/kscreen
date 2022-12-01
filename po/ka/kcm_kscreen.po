@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:49+0000\n"
-"PO-Revision-Date: 2022-11-22 07:29+0100\n"
+"PO-Revision-Date: 2022-11-30 07:12+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -108,6 +108,7 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: package/contents/ui/main.qml:168
 #, kde-format
@@ -164,6 +165,10 @@ msgid ""
 "older games also use it to decide which screen to appear on.<nl/><nl/>It has "
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
+"განსაზღვრავს, თქვენი მთავარი სამუშაო მაგიდა და პანელი რომელ ეკრანზე "
+"გამოჩნდება. ზოგიერთი ძველი თამაში ასევე იყენებს მას, რომ განსაზღვროს, რომელ "
+"ეკრანზე გამოჩნდეს <nl/><nl/>. იმაზე, გაფრთხილებები და სხვა ფანჯრები რომელ "
+"ეკრანზე გამოჩნდება, ეფექტი არ გააჩნია."
 
 #: package/contents/ui/OutputPanel.qml:41
 #, kde-format
