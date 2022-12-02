@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:49+0000\n"
-"PO-Revision-Date: 2022-11-30 07:12+0100\n"
+"PO-Revision-Date: 2022-12-01 07:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -184,6 +184,10 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
+"&quot;%1&quot; ეს ამ ეკრანის მიერ მხარდაჭერილი ერთად ერთი გაფართოებაა.<nl/"
+"><nl/>მხარდაუჭერელი გაფართოებების გამოყენება შესაძლებელი იყო Plasma X11-ის "
+"გამოყენებით, მაგრამ გარანტია, რომ ეს იმუშავებდა, არ არსებობს. ასევე, ეს "
+"პარამეტრი ხელმიუწვდომელია Plasma Wayland-ის სესიაში."
 
 #: package/contents/ui/OutputPanel.qml:71
 #, kde-format
@@ -274,6 +278,9 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"მოძველებული აპლიკაციები, რომლებსაც მასშტაბირების მხარდაჭერა გააჩნია, "
+"გამოიყენებს მას. მაგრამ გაითვალისწინეთ, აპლიკაციები, რომლებსაც ამისი "
+"მხარდაჭერა არ გააჩნია, საერთოდ არ იქნებიან მასშტაბირებული."
 
 #: package/contents/ui/Panel.qml:143
 #, kde-format
@@ -287,6 +294,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"ყველა მოძველებული აპლიკაცია გადიდდება სისტემის მიერ სწორ ზომამდე. მაგრამ "
+"ისინი ყოველთვის ბუნდოვნების იქნებიან."
 
 #: package/contents/ui/Panel.qml:162
 #, kde-format
@@ -294,6 +303,8 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
+"გლობალური მასშტაბის ფაქტორი შეზღუდულია 6.25%-ის ნამრავლებზე, რომ ვიზუალური "
+"შეცდომები მინიმუმამდე გავიდეს პროგრამებში, რომლებიც X11 სისტემას იყენებენ."
 
 #: package/contents/ui/Panel.qml:174
 #, kde-format
