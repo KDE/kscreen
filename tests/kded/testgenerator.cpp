@@ -53,8 +53,8 @@ KScreen::ConfigPtr testScreenConfig::loadConfig(const QByteArray &fileName)
     KScreen::BackendManager::instance()->shutdownBackend();
 
     QByteArray path(TEST_DATA "configs/" + fileName);
-    qputenv("KSCREEN_BACKEND_ARGS", "TEST_DATA=" + path);
     qDebug() << path;
+    KScreen::BackendManager::instance()->setBackendArgs({{QStringLiteral("TEST_DATA"), path}});
 
     KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation;
     if (!op->exec()) {
