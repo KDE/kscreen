@@ -164,6 +164,7 @@ KCM.SimpleKCM {
                 scaleMsg.visible = true;
             }
             function onOutputConnect(connected) {
+                root.selectedOutput = 0;
                 if (connected) {
                     connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
                 } else {
