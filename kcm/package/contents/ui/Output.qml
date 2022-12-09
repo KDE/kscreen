@@ -256,12 +256,9 @@ Item {
         property bool isLongPressed: false
         gesturePolicy: TapHandler.WithinBounds
 
-        function bindSelectedOutput() {
-            root.selectedOutput = Qt.binding(() => model.index);
-        }
         onPressedChanged: {
             if (pressed) {
-                bindSelectedOutput();
+                root.selectedOutput = model.index;
                 dragStartPosition = Qt.point(output.x, output.y)
             } else {
                 isLongPressed = false;
