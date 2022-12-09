@@ -31,8 +31,8 @@ QQC2.ScrollView {
         }
     }
 
-    property int xOffset: (width - totalSize.width / relativeFactor) / 2;
-    property int yOffset: (height - totalSize.height / relativeFactor) / 2;
+    readonly property int xOffset: (width - totalSize.width / relativeFactor) / 2;
+    readonly property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
     implicitHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
 

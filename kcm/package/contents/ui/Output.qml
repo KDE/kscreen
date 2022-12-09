@@ -13,7 +13,7 @@ import org.kde.kirigami 2.20 as Kirigami
 Item {
     id: output
 
-    property bool isSelected: root.selectedOutput === model.index
+    readonly property bool isSelected: root.selectedOutput === model.index
     property size outputSize: model.size
 
     onIsSelectedChanged: {
