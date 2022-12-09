@@ -54,7 +54,7 @@ Kirigami.FormLayout {
         QQC2.Label {
             id: singleResolutionLabel
             visible: resolutionCombobox.count <= 1
-            text: element.resolutions[0]
+            text: element.resolutions[0] || ""
         }
         KCM.ContextualHelpButton {
             visible: resolutionCombobox.count <= 1
@@ -125,7 +125,7 @@ Kirigami.FormLayout {
         QQC2.Label {
             id: singleRefreshRateLabel
             visible: refreshRateCombobox.count <= 1
-            text: element.refreshRates[0]
+            text: element.refreshRates[0] || ""
         }
         KCM.ContextualHelpButton {
             visible: refreshRateCombobox.count <= 1
