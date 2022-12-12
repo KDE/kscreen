@@ -366,10 +366,11 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
         resetPosition(output);
 
         setResolution(outputIndex, resolutionIndex(output.ptr));
-        reposition();
     } else {
         output.posReset = output.ptr->pos();
     }
+
+    reposition();
 
     QModelIndex index = createIndex(outputIndex, 0);
     Q_EMIT dataChanged(index, index, {EnabledRole});
