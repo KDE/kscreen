@@ -53,11 +53,11 @@ Kirigami.FormLayout {
         // using a label instead
         QQC2.Label {
             id: singleResolutionLabel
-            visible: !resolutionCombobox.visible
+            visible: resolutionCombobox.count <= 1
             text: element.resolutions[0]
         }
         KCM.ContextualHelpButton {
-            visible: singleResolutionLabel.visible
+            visible: resolutionCombobox.count <= 1
             toolTipText: xi18nc("@info", "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/>Using unsupported resolutions was possible in the Plasma X11 session, but they were never guaranteed to work and are not available in this Plasma Wayland session.", singleResolutionLabel.text)
         }
     }
@@ -124,11 +124,11 @@ Kirigami.FormLayout {
         // using a label instead
         QQC2.Label {
             id: singleRefreshRateLabel
-            visible: !refreshRateCombobox.visible
+            visible: refreshRateCombobox.count <= 1
             text: element.refreshRates[0]
         }
         KCM.ContextualHelpButton {
-            visible: singleRefreshRateLabel.visible
+            visible: refreshRateCombobox.count <= 1
             toolTipText: i18n("\"%1\" is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
         }
     }
