@@ -139,15 +139,15 @@ void KCMKScreen::doSave()
     for (const KScreen::OutputPtr &output : outputs) {
         KScreen::ModePtr mode = output->currentMode();
         qCDebug(KSCREEN_KCM) << output->name() << output->id() << output.data() << "\n"
-                             << "	Connected:" << output->isConnected() << "\n"
-                             << "	Enabled:" << output->isEnabled() << "\n"
-                             << "	Primary:" << output->isPrimary() << "\n"
-                             << "	Rotation:" << output->rotation() << "\n"
-                             << "	Mode:" << (mode ? mode->name() : QStringLiteral("unknown")) << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz"
+                             << "\tConnected:" << output->isConnected() << "\n"
+                             << "\tEnabled:" << output->isEnabled() << "\n"
+                             << "\tPrimary:" << output->isPrimary() << "\n"
+                             << "\tRotation:" << output->rotation() << "\n"
+                             << "\tMode:" << (mode ? mode->name() : QStringLiteral("unknown")) << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz"
                              << "\n"
-                             << "    Position:" << output->pos().x() << "x" << output->pos().y() << "\n"
-                             << "    Scale:" << (perOutputScaling() ? QString::number(output->scale()) : QStringLiteral("global")) << "\n"
-                             << "    Replicates:" << (output->replicationSource() == 0 ? "no" : "yes");
+                             << "\tPosition:" << output->pos().x() << "x" << output->pos().y() << "\n"
+                             << "\tScale:" << (perOutputScaling() ? QString::number(output->scale()) : QStringLiteral("global")) << "\n"
+                             << "\tReplicates:" << (output->replicationSource() == 0 ? "no" : "yes");
     }
 
     auto config = m_configHandler->config();
