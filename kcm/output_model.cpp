@@ -14,6 +14,8 @@
 #include <KLocalizedString>
 
 #include <QRect>
+#include <numeric>
+#include <optional>
 
 OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)
@@ -335,7 +337,7 @@ void OutputModel::remove(int outputId)
     }
 }
 
-void OutputModel::resetPosition(const Output &output)
+void OutputModel::resetPosition(Output &output)
 {
     if (!output.posReset.has_value()) {
         // KCM was closed in between.
@@ -348,8 +350,44 @@ void OutputModel::resetPosition(const Output &output)
             }
         }
     } else {
-        output.ptr->setPos(/*output.ptr->pos() - */ output.posReset.value());
+        QPoint reset = output.posReset.value();
+        output.posReset.reset();
+        QPoint shift = QPoint(0, 0);
+
+        if (reset.x() < 0) {
+            shift.setX(-reset.x());
+            reset.setX(0);
+        }
+        if (reset.y() < 0) {
+            shift.setY(-reset.y());
+            reset.setY(0);
+        }
+
+        for (Output &out : m_outputs) {
+            if (out.ptr->id() == output.ptr->id()) {
+                continue;
+            }
+            if (positionable(out)) {
+                out.ptr->setPos(out.ptr->pos() + shift);
+            }
+        }
+        output.ptr->setPos(reset);
     }
+}
+
+QPoint OutputModel::mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem(std::optional<KScreen::OutputPtr> ignored) const
+{
+    auto foldTopLeft = [=](std::optional<QPoint> a, const Output &out) {
+        if (!positionable(out) || (ignored.has_value() && out.ptr->id() == ignored.value()->id())) {
+            return a;
+        }
+        if (a.has_value()) {
+            return std::optional(QPoint(std::min(a.value().x(), out.pos.x()), std::min(a.value().y(), out.pos.y())));
+        } else {
+            return std::optional(out.pos);
+        }
+    };
+    return std::accumulate(m_outputs.constBegin(), m_outputs.constEnd(), std::optional<QPoint>(), foldTopLeft).value_or(QPoint(0, 0));
 }
 
 bool OutputModel::setEnabled(int outputIndex, bool enable)
@@ -367,7 +405,18 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
         setResolution(outputIndex, resolutionIndex(output.ptr));
     } else {
-        output.posReset = std::optional(output.ptr->pos());
+        // assuming it was already properly normalized, so current topleft (without disabling) is (0,0)
+        const QPoint topLeft = mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem(std::optional(output.ptr));
+
+        QPoint reset = output.ptr->pos();
+        if (topLeft.x() > 0) {
+            reset.setX(-topLeft.x());
+        }
+        if (topLeft.y() > 0) {
+            reset.setY(-topLeft.y());
+        }
+
+        output.posReset = std::optional(reset);
     }
 
     reposition();
@@ -855,39 +904,9 @@ void OutputModel::reposition()
     m_config->normalizeScreen();
 }
 
-QPoint OutputModel::originDelta() const
-{
-    int x = 0;
-    int y = 0;
-
-    // Find first valid output.
-    for (const auto &out : m_outputs) {
-        if (positionable(out)) {
-            x = out.pos.x();
-            y = out.pos.y();
-            break;
-        }
-    }
-
-    for (int i = 1; i < m_outputs.size(); i++) {
-        if (!positionable(m_outputs[i])) {
-            continue;
-        }
-        const QPoint &cmp = m_outputs[i].pos;
-
-        if (cmp.x() < x) {
-            x = cmp.x();
-        }
-        if (cmp.y() < y) {
-            y = cmp.y();
-        }
-    }
-    return QPoint(x, y);
-}
-
 void OutputModel::updatePositions()
 {
-    const QPoint delta = originDelta();
+    const QPoint delta = mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem();
     for (int i = 0; i < m_outputs.size(); i++) {
         const auto &out = m_outputs[i];
         if (!positionable(out)) {
@@ -924,7 +943,7 @@ bool OutputModel::normalizePositions()
 bool OutputModel::positionsNormalized() const
 {
     // There might be slight deviations because of snapping.
-    return originDelta().manhattanLength() < 5;
+    return mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem().manhattanLength() < 5;
 }
 
 const int s_snapArea = 80;

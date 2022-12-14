@@ -101,6 +101,9 @@ private:
 
         KScreen::OutputPtr ptr;
         QPoint pos;
+        // Indicates how to restore position when enabling or un-mirroring a screen.
+        // Negative value of x means that the output was the left-most, and restoring it would require shifting all the other ones to the right.
+        // Same for the y and shifting down.
         std::optional<QPoint> posReset = std::nullopt;
         bool moving = false;
     };
@@ -109,10 +112,9 @@ private:
     void rolesChanged(int outputId, const QVector<int> &roles);
     QModelIndex indexForOutputId(int outputId) const;
 
-    void resetPosition(const Output &output);
+    void resetPosition(Output &output);
     void reposition();
     void updatePositions();
-    QPoint originDelta() const;
 
     /**
      * @brief Snaps moved output to others
@@ -121,6 +123,7 @@ private:
      */
     void snap(const Output &output, QPoint &dest);
     void maintainSnapping(const Output &changedOutput, const QSize &oldSize, const QSize &newSize);
+    QPoint mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem(std::optional<KScreen::OutputPtr> ignored = std::nullopt) const;
 
     bool setEnabled(int outputIndex, bool enable);
 
