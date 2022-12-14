@@ -337,7 +337,7 @@ void OutputModel::remove(int outputId)
 
 void OutputModel::resetPosition(const Output &output)
 {
-    if (output.posReset.x() < 0) {
+    if (!output.posReset.has_value()) {
         // KCM was closed in between.
         for (const Output &out : qAsConst(m_outputs)) {
             if (out.ptr->id() == output.ptr->id()) {
@@ -348,7 +348,7 @@ void OutputModel::resetPosition(const Output &output)
             }
         }
     } else {
-        output.ptr->setPos(/*output.ptr->pos() - */ output.posReset);
+        output.ptr->setPos(/*output.ptr->pos() - */ output.posReset.value());
     }
 }
 
@@ -367,7 +367,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
         setResolution(outputIndex, resolutionIndex(output.ptr));
     } else {
-        output.posReset = output.ptr->pos();
+        output.posReset = std::optional(output.ptr->pos());
     }
 
     reposition();
@@ -725,7 +725,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             return false;
         }
         m_config->setReplicationSource(output.ptr, source);
-        output.posReset = output.ptr->pos();
+        output.posReset = std::optional(output.ptr->pos());
         output.ptr->setPos(source->pos());
         output.ptr->setExplicitLogicalSize(m_config->config()->logicalSizeForOutput(*source));
     }

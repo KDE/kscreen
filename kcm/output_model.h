@@ -10,6 +10,7 @@
 
 #include <QAbstractListModel>
 #include <QPoint>
+#include <optional>
 
 class ConfigHandler;
 
@@ -93,14 +94,14 @@ private:
         {
             ptr = output.ptr;
             pos = output.pos;
-            posReset = QPoint(-1, -1);
+            posReset = std::nullopt;
             return *this;
         }
         Output &operator=(Output &&) noexcept = default;
 
         KScreen::OutputPtr ptr;
         QPoint pos;
-        QPoint posReset = QPoint(-1, -1);
+        std::optional<QPoint> posReset = std::nullopt;
         bool moving = false;
     };
 
