@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"POT-Creation-Date: 2022-12-14 00:48+0000\n"
 "PO-Revision-Date: 2022-11-22 16:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -112,12 +112,12 @@ msgstr ""
 "Ekranlar arası boşluk desteklenmiyor. Tüm ekranların birbirlerine "
 "dokunduklarından emin olun."
 
-#: package/contents/ui/main.qml:168
+#: package/contents/ui/main.qml:169
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Yeni bir çıktı eklendi. Ayarlar yeniden yüklendi."
 
-#: package/contents/ui/main.qml:170
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Bir çıktı kaldırıldı. Ayarlar yeniden yüklendi."

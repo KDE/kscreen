@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"POT-Creation-Date: 2022-12-14 00:48+0000\n"
 "PO-Revision-Date: 2022-11-22 11:38+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -111,12 +111,12 @@ msgstr ""
 "Gaten tussen schermen worden niet ondersteund. Ga na dat alle schermen "
 "aanraakschermen zijn."
 
-#: package/contents/ui/main.qml:168
+#: package/contents/ui/main.qml:169
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Een nieuwe uitvoer is toegevoegd.  Instellingen zijn opnieuw geladen."
 
-#: package/contents/ui/main.qml:170
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Een uitvoer is verwijderd. Instellingen zijn opnieuw geladen."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:49+0000\n"
+"POT-Creation-Date: 2022-12-14 00:48+0000\n"
 "PO-Revision-Date: 2022-11-22 19:54+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -109,12 +109,12 @@ msgid ""
 msgstr ""
 "திரைகளுக்கிடையே காலியிடம் இருக்கக்கூடாது. திரைகளை ஒன்றுடன் ஒன்று ஒட்டியவாறு வைக்கவும்."
 
-#: package/contents/ui/main.qml:168
+#: package/contents/ui/main.qml:169
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "புதிய வெளியீடு சேர்க்கப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: package/contents/ui/main.qml:170
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "புதிய வெளியீடு கழற்றப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
