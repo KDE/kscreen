@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:48+0000\n"
+"POT-Creation-Date: 2022-12-15 00:49+0000\n"
 "PO-Revision-Date: 2021-11-17 13:23+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
 
-#: output_model.cpp:90
+#: output_model.cpp:92
 #, kde-format
 msgid "%1 Hz"
 msgstr ""
 
-#: output_model.cpp:581
+#: output_model.cpp:631
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:600
+#: output_model.cpp:650
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:681
+#: output_model.cpp:731
 #, kde-format
 msgid "None"
 msgstr "Žane"
 
-#: output_model.cpp:688
+#: output_model.cpp:738
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopěrowane wot druheje wobrazowki"

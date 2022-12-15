@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:48+0000\n"
+"POT-Creation-Date: 2022-12-15 00:49+0000\n"
 "PO-Revision-Date: 2015-05-02 14:55-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: output_model.cpp:90
+#: output_model.cpp:92
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:581
+#: output_model.cpp:631
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:600
+#: output_model.cpp:650
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:681
+#: output_model.cpp:731
 #, kde-format
 msgid "None"
 msgstr ""
 
-#: output_model.cpp:688
+#: output_model.cpp:738
 #, kde-format
 msgid "Replicated by other output"
 msgstr ""

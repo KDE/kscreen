@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:48+0000\n"
+"POT-Creation-Date: 2022-12-15 00:49+0000\n"
 "PO-Revision-Date: 2022-11-22 22:32+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,29 +20,29 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: output_model.cpp:90
+#: output_model.cpp:92
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Гц"
 
-#: output_model.cpp:581
+#: output_model.cpp:631
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1⨯%2"
 
-#: output_model.cpp:600
+#: output_model.cpp:650
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1⨯%2 (%3:%4)"
 
-#: output_model.cpp:681
+#: output_model.cpp:731
 #, kde-format
 msgid "None"
 msgstr "Немає"
 
-#: output_model.cpp:688
+#: output_model.cpp:738
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Відтворюється іншим виведенням"
