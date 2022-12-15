@@ -7,6 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kitemmodels 1.0
 
 import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
@@ -147,6 +148,67 @@ KCM.SimpleKCM {
             }
         }
 
+        Kirigami.Dialog {
+            id: reorderDialog
+
+            title: i18nc("@title:window", "Change Priorities")
+            showCloseButton: true
+            standardButtons: Kirigami.Dialog.Ok
+
+            contentItem: ListView {
+                id: reorderView
+
+                implicitWidth: Math.min(root.width * 0.75, Kirigami.Units.gridUnit * 32)
+                implicitHeight: contentHeight
+
+                reuseItems: true
+                model: KSortFilterProxyModel {
+                    id: enabledOutputsModel
+                    sourceModel: kcm.outputModel
+                    filterRole: "enabled"
+                    filterString: "true"
+                    sortRole: "priority"
+                    sortOrder: Qt.AscendingOrder
+                }
+                delegate: Kirigami.SwipeListItem {
+                    id: delegate
+
+                    property var output: model
+
+                    width: ListView.view.width
+
+                    background: null
+                    contentItem: Kirigami.BasicListItem {
+                        label: delegate.output.display
+                        subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                        background: null
+                    }
+                    actions: [
+                        Kirigami.Action {
+                            iconName: "arrow-up"
+                            text: i18n("Raise priority")
+                            enabled: delegate.output.priority > 1
+                            onTriggered: {
+                                if (enabled) {
+                                    delegate.output.priority -= 1;
+                                }
+                            }
+                        },
+                        Kirigami.Action {
+                            iconName: "arrow-down"
+                            text: i18n("Lower priority")
+                            enabled: delegate.output.priority < reorderView.count
+                            onTriggered: {
+                                if (enabled) {
+                                    delegate.output.priority += 1;
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+
         Connections {
             target: kcm
             function onInvalidConfig(reason) {
@@ -198,6 +260,7 @@ KCM.SimpleKCM {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.preferredHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
 
             enabled: kcm.outputModel && kcm.backendReady
             outputs: kcm.outputModel
@@ -206,6 +269,13 @@ KCM.SimpleKCM {
         Panel {
             enabled: kcm.outputModel && kcm.backendReady
             Layout.fillWidth: true
+            enabledOutputs: enabledOutputsModel
+            selectedOutput: root.selectedOutput
+            onSelectedOutputChanged: {
+                root.selectedOutput = selectedOutput;
+                selectedOutput = Qt.binding(() => root.selectedOutput);
+            }
+            onReorder: reorderDialog.open()
         }
 
         Timer {

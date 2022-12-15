@@ -21,7 +21,7 @@ public:
     enum OutputRoles {
         EnabledRole = Qt::UserRole + 1,
         InternalRole,
-        PrimaryRole,
+        PriorityRole,
         SizeRole,
         /** Position in the graphical view relative to some arbitrary but fixed origin. */
         PositionRole,
@@ -108,7 +108,6 @@ private:
         bool moving = false;
     };
 
-    void roleChanged(int outputId, OutputRoles role);
     void rolesChanged(int outputId, const QVector<int> &roles);
     QModelIndex indexForOutputId(int outputId) const;
 

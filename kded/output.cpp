@@ -332,7 +332,6 @@ void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control:
     const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
     QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
     output->setPos(point);
-    output->setPrimary(info[QStringLiteral("primary")].toBool());
     output->setEnabled(info[QStringLiteral("enabled")].toBool());
 
     if (retention != Control::OutputRetention::Individual && readInGlobal(output)) {
@@ -366,6 +365,8 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
         }
     }
 
+    QMap<KScreen::OutputPtr, uint32_t> priorities;
+
     for (const KScreen::OutputPtr &output : outputs) {
         if (!output->isConnected()) {
             output->setEnabled(false);
@@ -390,6 +391,15 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
             infoFound = true;
             readIn(output, info, control.getOutputRetention(output));
+
+            // the deprecated "primary" property may exist for compatibility, but "priority" should override it whenever present.
+            uint32_t priority = 0;
+            if (info.contains(QStringLiteral("priority"))) {
+                priority = info[QStringLiteral("priority")].toUInt();
+            } else if (info.contains(QStringLiteral("primary"))) {
+                priority = info[QStringLiteral("primary")].toBool() ? 1 : 2;
+            }
+            priorities[output] = priority;
             break;
         }
         if (!infoFound) {
@@ -404,6 +414,8 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
             }
         }
     }
+
+    config->setOutputPriorities(priorities);
 
     for (KScreen::OutputPtr output : outputs) {
         auto replicationSource = control.getReplicationSource(output);

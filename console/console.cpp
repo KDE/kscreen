@@ -55,12 +55,8 @@ void Console::printConfig()
         return;
     }
 
-    connect(m_config.data(), &Config::primaryOutputChanged, [&](const OutputPtr &output) {
-        if (output) {
-            qDebug() << "New primary output: " << output->id() << output->name();
-        } else {
-            qDebug() << "No primary output.";
-        }
+    connect(m_config.data(), &Config::prioritiesChanged, [&]() {
+        qDebug() << "Priorities changed:" << m_config.data()->outputs();
     });
 
     qDebug() << "Screen:";
@@ -79,7 +75,7 @@ void Console::printConfig()
             continue;
         }
         qDebug() << "Enabled: " << output->isEnabled();
-        qDebug() << "Primary: " << output->isPrimary();
+        qDebug() << "Priority: " << output->priority();
         qDebug() << "Rotation: " << output->rotation();
         qDebug() << "Pos: " << output->pos();
         qDebug() << "MMSize: " << output->sizeMm();

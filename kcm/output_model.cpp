@@ -5,6 +5,8 @@
 */
 #include "output_model.h"
 
+#include <cstdint>
+
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 
@@ -21,6 +23,11 @@ OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)
     , m_config(configHandler)
 {
+    connect(m_config->config().data(), &KScreen::Config::prioritiesChanged, this, [this]() {
+        if (rowCount() > 0) {
+            Q_EMIT dataChanged(createIndex(0, 0), createIndex(rowCount() - 1, 0), {PriorityRole});
+        }
+    });
 }
 
 int OutputModel::rowCount(const QModelIndex &parent) const
@@ -55,8 +62,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->isEnabled();
     case InternalRole:
         return output->type() == KScreen::Output::Type::Panel;
-    case PrimaryRole:
-        return output->isPrimary();
+    case PriorityRole:
+        return output->priority();
     case SizeRole:
         return output->geometry().size();
     case PositionRole:
@@ -134,14 +141,13 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return setEnabled(index.row(), value.toBool());
         }
         break;
-    case PrimaryRole:
-        if (value.canConvert<bool>()) {
-            bool primary = value.toBool();
-            if (output.ptr->isPrimary() == primary) {
+    case PriorityRole:
+        if (value.canConvert<uint32_t>()) {
+            const uint32_t priority = value.toUInt();
+            if (output.ptr->priority() == priority) {
                 return false;
             }
-            m_config->config()->setPrimaryOutput(output.ptr);
-            Q_EMIT dataChanged(index, index, {role});
+            m_config->config()->setOutputPriority(output.ptr, priority);
             return true;
         }
         break;
@@ -253,7 +259,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[EnabledRole] = "enabled";
     roles[InternalRole] = "internal";
-    roles[PrimaryRole] = "primary";
+    roles[PriorityRole] = "priority";
     roles[SizeRole] = "size";
     roles[PositionRole] = "position";
     roles[NormalizedPositionRole] = "normalizedPosition";
@@ -302,9 +308,6 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     }
     m_outputs.insert(i, Output(output, pos));
 
-    connect(output.data(), &KScreen::Output::isPrimaryChanged, this, [this, output]() {
-        roleChanged(output->id(), PrimaryRole);
-    });
     endInsertRows();
 
     connect(output.data(), &KScreen::Output::modesChanged, this, [this, output]() {
@@ -827,11 +830,6 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
         }
     }
     return ret;
-}
-
-void OutputModel::roleChanged(int outputId, OutputRoles role)
-{
-    rolesChanged(outputId, {role});
 }
 
 void OutputModel::rolesChanged(int outputId, const QVector<int> &roles)

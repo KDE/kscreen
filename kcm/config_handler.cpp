@@ -8,6 +8,10 @@
 #include "kcm_screen_debug.h"
 #include "output_model.h"
 
+#include <algorithm>
+#include <cstdint>
+#include <utility>
+
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/output.h>
@@ -59,7 +63,7 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     connect(m_config.data(), &KScreen::Config::outputRemoved, this, [this]() {
         Q_EMIT outputConnect(false);
     });
-    connect(m_config.data(), &KScreen::Config::primaryOutputChanged, this, &ConfigHandler::primaryOutputChanged);
+    connect(m_config.data(), &KScreen::Config::prioritiesChanged, this, &ConfigHandler::outputPrioritiesChanged);
 
     Q_EMIT outputModelChanged();
 }
@@ -97,23 +101,42 @@ bool ConfigHandler::shouldTestNewSettings()
 
 void ConfigHandler::checkNeedsSave()
 {
-    if (m_config->supportedFeatures() & KScreen::Config::Feature::PrimaryDisplay) {
-        if (m_config->primaryOutput() && m_initialConfig->primaryOutput()) {
-            if (m_config->primaryOutput()->hashMd5() != m_initialConfig->primaryOutput()->hashMd5()) {
-                Q_EMIT needsSaveChecked(true);
-                return;
-            }
-        } else if ((bool)m_config->primaryOutput() != (bool)m_initialConfig->primaryOutput()) {
-            Q_EMIT needsSaveChecked(true);
-            return;
-        }
+    if (checkPrioritiesNeedSave()) {
+        Q_EMIT needsSaveChecked(true);
+        return;
     }
-
     if (m_initialRetention != getRetention()) {
         Q_EMIT needsSaveChecked(true);
         return;
     }
     Q_EMIT needsSaveChecked(checkSaveandTestCommon(true));
+}
+
+bool ConfigHandler::checkPrioritiesNeedSave()
+{
+    if (!(m_config->supportedFeatures() & KScreen::Config::Feature::PrimaryDisplay)) {
+        return false;
+    }
+    // first item of pair is initial config, second is current
+    QMap<QString, std::pair<std::optional<uint32_t>, std::optional<uint32_t>>> map;
+
+    // exploiting the fact that operator[] on a map is what's called get_or_insert_default in other languages
+    const auto &initialList = m_initialConfig->outputs();
+    for (const OutputPtr &output : initialList) {
+        map[output->hashMd5()].first = std::optional(output->priority());
+    }
+    const auto &currentList = m_config->outputs();
+    for (const OutputPtr &output : currentList) {
+        map[output->hashMd5()].second = std::optional(output->priority());
+    }
+    // so if we end up with items that are not both initialized to the same priority
+    for (const auto &[left, right] : std::as_const(map)) {
+        if (!(left.has_value() && right.has_value() && left.value() == right.value())) {
+            // then configs must be different after all
+            return true;
+        }
+    }
+    return false;
 }
 
 bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
@@ -205,9 +228,10 @@ void ConfigHandler::checkScreenNormalization()
     Q_EMIT screenNormalizationUpdate(normalized);
 }
 
-void ConfigHandler::primaryOutputChanged(const KScreen::OutputPtr &output)
+void ConfigHandler::outputPrioritiesChanged()
 {
-    Q_UNUSED(output)
+    checkNeedsSave();
+    Q_EMIT changed();
 }
 
 Control::OutputRetention ConfigHandler::getRetention() const

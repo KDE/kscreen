@@ -423,8 +423,7 @@ void TestConfig::testMoveConfig()
 
     // ... then switch off the panel, set primary to the other output
     output->setEnabled(false);
-    output->setPrimary(false);
-    output2->setPrimary(true);
+    config->setPrimaryOutput(output2);
 
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
     configWrapper->writeFile();

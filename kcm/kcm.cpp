@@ -141,7 +141,7 @@ void KCMKScreen::doSave()
         qCDebug(KSCREEN_KCM) << output->name() << output->id() << output.data() << "\n"
                              << "\tConnected:" << output->isConnected() << "\n"
                              << "\tEnabled:" << output->isEnabled() << "\n"
-                             << "\tPrimary:" << output->isPrimary() << "\n"
+                             << "\tPriority:" << output->priority() << "\n"
                              << "\tRotation:" << output->rotation() << "\n"
                              << "\tMode:" << (mode ? mode->name() : QStringLiteral("unknown")) << "@" << (mode ? mode->refreshRate() : 0.0) << "Hz"
                              << "\n"

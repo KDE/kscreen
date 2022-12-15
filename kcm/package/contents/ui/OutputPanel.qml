@@ -7,14 +7,18 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kitemmodels 1.0
 
 import org.kde.kcm 1.6 as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 Kirigami.FormLayout {
-    id: outputPanel
+    id: root
 
+    property KSortFilterProxyModel enabledOutputs
     property var element: model
+
+    signal reorder()
 
     QQC2.CheckBox {
        text: i18n("Enabled")
@@ -24,12 +28,20 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        visible: kcm.primaryOutputSupported && kcm.outputModel.rowCount() > 1
+        visible: kcm.primaryOutputSupported && root.enabledOutputs.count >= 2
 
-        QQC2.CheckBox {
+        QQC2.Button {
+            visible: root.enabledOutputs.count >= 3
+            text: i18n("Change Screen Priorities…")
+            icon.name: "document-edit"
+            onClicked: root.reorder();
+        }
+
+        QQC2.RadioButton {
+            visible: root.enabledOutputs.count === 2
             text: i18n("Primary")
-            checked: element.primary
-            onToggled: element.primary = checked
+            checked: element.priority === 1
+            onToggled: element.priority = 1
         }
 
         KCM.ContextualHelpButton {

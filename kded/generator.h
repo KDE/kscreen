@@ -55,10 +55,10 @@ private:
 
     KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
 
-    void cloneScreens(KScreen::OutputList &connectedOutputs);
-    void laptop(KScreen::OutputList &connectedOutputs);
-    void singleOutput(KScreen::OutputList &connectedOutputs);
-    void extendToRight(KScreen::OutputList &connectedOutputs);
+    void cloneScreens(const KScreen::ConfigPtr &config);
+    void laptop(KScreen::ConfigPtr &config);
+    void singleOutput(KScreen::ConfigPtr &config);
+    void extendToRight(KScreen::ConfigPtr &config, KScreen::OutputList usableOutputs);
 
     void initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features);
     KScreen::ModePtr bestModeForSize(const KScreen::ModeList &modes, const QSize &size);

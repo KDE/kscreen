@@ -82,7 +82,7 @@ private:
     void checkScreenNormalization();
     QSize screenSize() const;
     Control::OutputRetention getRetention() const;
-    void primaryOutputChanged(const KScreen::OutputPtr &output);
+    void outputPrioritiesChanged();
     void initOutput(const KScreen::OutputPtr &output);
     /**
      * @brief checkSaveandTestCommon - compairs common config changes that would make the config dirty and needed to have the config checked when applied.
@@ -91,6 +91,7 @@ private:
      * @return true, if you should check for a save or test the new configuration
      */
     bool checkSaveandTestCommon(bool isSaveCheck);
+    bool checkPrioritiesNeedSave();
 
     KScreen::ConfigPtr m_config = nullptr;
     KScreen::ConfigPtr m_initialConfig;
