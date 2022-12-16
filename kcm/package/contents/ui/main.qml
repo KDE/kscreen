@@ -58,8 +58,8 @@ KCM.SimpleKCM {
         Kirigami.InlineMessage {
             id: scaleMsg
             Layout.fillWidth: true
-            type: Kirigami.MessageType.Positive
-            text: i18n("New global scale applied. Changes will come into effect after the system is restarted.")
+            type: Kirigami.MessageType.Information
+            text: i18n("Global scale changes will come into effect after the system is restarted.")
             visible: false
             showCloseButton: true
             actions: [
