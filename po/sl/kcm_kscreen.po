@@ -10,17 +10,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 00:51+0000\n"
-"PO-Revision-Date: 2022-11-23 08:10+0100\n"
+"PO-Revision-Date: 2022-12-17 06:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: output_model.cpp:99
 #, kde-format
@@ -61,15 +61,11 @@ msgid "Outputs could not be saved due to error."
 msgstr "Izhodov ni bilo mogoče shraniti zaradi napake."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Uvedeno novo globalno merilo. Spremembe bodo uveljavljene po ponovnem zagonu "
-"sistema."
+"Spremembe globalnega merila bodo uveljavljene po ponovnem zagonu sistema."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -109,7 +105,7 @@ msgstr "&Povrni"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Spremeni prioritete"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -119,12 +115,12 @@ msgstr "Primarni"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Dvigni prioriteto"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Spusti prioriteto"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -186,7 +182,7 @@ msgstr "Omogočeno"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Spremeni zaslonske prioritete…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
