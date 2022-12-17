@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KDED_GENERATOR_H
-#define KDED_GENERATOR_H
+#pragma once
 
 #include <QObject>
 
@@ -81,5 +80,3 @@ private:
 
     static Generator *instance;
 };
-
-#endif // KDED_GENERATOR_H

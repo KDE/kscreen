@@ -3,8 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef COMMON_CONTROL_H
-#define COMMON_CONTROL_H
+#pragma once
 
 #include <kscreen/output.h>
 #include <kscreen/types.h>
@@ -144,5 +143,3 @@ public:
 private:
     KScreen::OutputPtr m_output;
 };
-
-#endif

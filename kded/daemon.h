@@ -4,8 +4,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef KSCREEN_DAEMON_H
-#define KSCREEN_DAEMON_H
+#pragma once
 
 #include "../common/globals.h"
 #include "../common/osdaction.h"
@@ -92,5 +91,3 @@ private:
 
     bool m_startingUp = true;
 };
-
-#endif /*KSCREEN_DAEMON_H*/

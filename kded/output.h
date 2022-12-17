@@ -4,8 +4,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef KDED_OUTPUT_H
-#define KDED_OUTPUT_H
+#pragma once
 
 #include "../common/control.h"
 #include "../common/globals.h"
@@ -55,5 +54,3 @@ private:
 
     static QString s_dirName;
 };
-
-#endif

@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#pragma once
 
 #include <QObject>
 
@@ -32,5 +31,3 @@ public Q_SLOTS:
 private:
     KScreen::ConfigPtr m_config;
 };
-
-#endif

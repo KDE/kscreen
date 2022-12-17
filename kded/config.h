@@ -3,8 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef KDED_CONFIG_H
-#define KDED_CONFIG_H
+#pragma once
 
 #include <kscreen/config.h>
 
@@ -67,7 +66,4 @@ private:
 
     static QString s_configsDirName;
     static QString s_fixedConfigFileName;
-
 };
-
-#endif

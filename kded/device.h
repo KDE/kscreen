@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KDED_DEVICE_H
-#define KDED_DEVICE_H
+#pragma once
 
 #include <QObject>
 
@@ -52,5 +51,3 @@ private:
     OrgFreedesktopDBusPropertiesInterface *m_freedesktop;
     QDBusInterface *m_suspendSession;
 };
-
-#endif // KDED_DEVICE_H

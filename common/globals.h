@@ -4,8 +4,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef COMMON_GLOBALS_H
-#define COMMON_GLOBALS_H
+#pragma once
 
 #include <QString>
 
@@ -19,5 +18,3 @@ QString dirPath();
  */
 QString findFile(const QString &filePath);
 }
-
-#endif

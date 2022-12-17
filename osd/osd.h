@@ -5,8 +5,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KSCREEN_OSD_H
-#define KSCREEN_OSD_H
+#pragma once
 
 #include <QObject>
 #include <QQmlEngine>
@@ -57,5 +56,3 @@ private:
 };
 
 } // ns
-
-#endif // KSCREEN_OSD_H

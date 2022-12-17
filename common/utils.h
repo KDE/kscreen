@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
-#ifndef KSCREEN_KCM_UTILS_H
-#define KSCREEN_KCM_UTILS_H
+#pragma once
 
 #include <QSize>
 #include <QString>
@@ -20,5 +19,3 @@ QString outputName(const KScreen::OutputPtr &output, bool shouldShowSerialNumber
 
 QString sizeToString(const QSize &size);
 }
-
-#endif

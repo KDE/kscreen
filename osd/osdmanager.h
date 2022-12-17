@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef OSDM_H
-#define OSDM_H
+#pragma once
 
 #include <QDBusContext>
 #include <QMap>
@@ -40,4 +39,3 @@ private:
 };
 
 } // ns
-#endif // OSDM_H
