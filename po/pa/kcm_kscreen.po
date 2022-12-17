@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
 "PO-Revision-Date: 2021-04-25 12:38-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -59,8 +59,7 @@ msgstr "ਗ਼ਲਤੀ ਦੇ ਕਰਕੇ ਆਉਟਪੁੱਟ ਨੂੰ ਸ�
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr "ਨਵਾਂ ਗਲੋਬਲ ਸਕੇਲ ਲਾਗੂ ਕੀਤਾ। ਤਬਦੀਲੀਆਂ ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੇ ਬਾਅਦ ਹੀ ਲਾਗੂ ਹੋਣਗੀਆਂ।"
 
 #: package/contents/ui/main.qml:68

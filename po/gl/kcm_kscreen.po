@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
 "PO-Revision-Date: 2019-08-19 20:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -62,8 +62,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Scaling changes will come into effect after restart"
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr "Os cambios de escala xurdirán efecto tras reiniciar."
 
 #: package/contents/ui/main.qml:68

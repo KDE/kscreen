@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
-"PO-Revision-Date: 2022-11-22 11:38+0100\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
+"PO-Revision-Date: 2022-12-16 11:00+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:99
 #, kde-format
@@ -56,10 +56,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "Uitvoeren konden niet opgeslagen worden vanwege een fout."
 
 #: package/contents/ui/main.qml:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "New global scale applied. Changes will come into effect after the system "
+#| "is restarted."
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Nieuwe globale schaal toegepast. Wijzigingen zullen pas effect hebben na een "
 "herstart."
@@ -100,7 +102,7 @@ msgstr "&Terugdraaien"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Prioriteiten wijzigen"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -110,12 +112,12 @@ msgstr "Primair"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Prioriteit verhogen"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Prioriteit verlagen"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -177,7 +179,7 @@ msgstr "Ingeschakeld"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Schermprioriteiten wijzigen…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format

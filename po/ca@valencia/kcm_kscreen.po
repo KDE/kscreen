@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
-"PO-Revision-Date: 2022-11-22 10:28+0100\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
+"PO-Revision-Date: 2022-12-16 14:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -59,10 +59,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "No s'han pogut guardar les eixides per un error."
 
 #: package/contents/ui/main.qml:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "New global scale applied. Changes will come into effect after the system "
+#| "is restarted."
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "S'ha aplicat la nova escala global. Els canvis s'efectuaran després de "
 "reiniciar el sistema."
@@ -103,7 +105,7 @@ msgstr "Re&vertix"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Canvi de prioritats"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -113,12 +115,12 @@ msgstr "Primària"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Eleva la prioritat"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Reduïx la prioritat"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -180,7 +182,7 @@ msgstr "Habilitada"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Canvia les prioritats de les pantalles…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format

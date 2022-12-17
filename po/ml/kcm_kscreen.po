@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
 "PO-Revision-Date: 2019-12-12 22:38+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -58,8 +58,7 @@ msgstr ""
 #: package/contents/ui/main.qml:62
 #, kde-format
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr ""
 
 #: package/contents/ui/main.qml:68

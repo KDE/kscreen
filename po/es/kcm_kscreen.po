@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:51+0000\n"
-"PO-Revision-Date: 2022-11-22 12:25+0100\n"
+"POT-Creation-Date: 2022-12-17 00:51+0000\n"
+"PO-Revision-Date: 2022-12-16 03:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:99
 #, kde-format
@@ -59,10 +59,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "No se pueden guardar las salidas debido a un error."
 
 #: package/contents/ui/main.qml:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "New global scale applied. Changes will come into effect after the system "
+#| "is restarted."
 msgid ""
-"New global scale applied. Changes will come into effect after the system is "
-"restarted."
+"Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Nuevo escalado global aplicado. Los cambios tendrán efecto tras reiniciar el "
 "sistema."
@@ -103,7 +105,7 @@ msgstr "&Revertir"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Cambiar prioridades"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -113,12 +115,12 @@ msgstr "Primaria"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Elevar prioridad"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Bajar prioridad"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -181,7 +183,7 @@ msgstr "Activada"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Cambiar prioridades de la pantalla..."
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
