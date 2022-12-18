@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 00:51+0000\n"
-"PO-Revision-Date: 2022-12-16 11:00+0100\n"
+"PO-Revision-Date: 2022-12-17 11:38+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -56,15 +56,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "Uitvoeren konden niet opgeslagen worden vanwege een fout."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Nieuwe globale schaal toegepast. Wijzigingen zullen pas effect hebben na een "
-"herstart."
+"Wijzigingen in globale schaal zullen pas effect hebben na een herstart van "
+"het systeem."
 
 #: package/contents/ui/main.qml:68
 #, kde-format

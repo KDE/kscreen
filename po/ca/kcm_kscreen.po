@@ -60,9 +60,6 @@ msgstr "No s'han pogut desar les sortides per un error."
 
 #: package/contents/ui/main.qml:62
 #, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
