@@ -19,7 +19,6 @@
 #include <QStringList>
 
 #include <kscreen/edid.h>
-#include <kscreen/output.h>
 
 QString Output::s_dirName = QStringLiteral("outputs/");
 

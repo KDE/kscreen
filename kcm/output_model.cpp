@@ -17,7 +17,6 @@
 
 #include <QRect>
 #include <numeric>
-#include <optional>
 
 OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)

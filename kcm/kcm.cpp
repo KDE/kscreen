@@ -10,7 +10,6 @@
 #include "config_handler.h"
 #include "globalscalesettings.h"
 #include "kcm_screen_debug.h"
-#include "output_model.h"
 
 #include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
