@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:51+0000\n"
+"POT-Creation-Date: 2022-12-19 00:48+0000\n"
 "PO-Revision-Date: 2022-07-06 17:39+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.2\n"
 
-#: output_model.cpp:99
+#: output_model.cpp:98
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:634
+#: output_model.cpp:633
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:653
+#: output_model.cpp:652
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:734
+#: output_model.cpp:733
 #, kde-format
 msgid "None"
 msgstr "Heç biri"
 
-#: output_model.cpp:741
+#: output_model.cpp:740
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Başqa çıxışlar ilə əvəzlənib"

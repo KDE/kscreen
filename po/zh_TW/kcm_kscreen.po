@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:51+0000\n"
+"POT-Creation-Date: 2022-12-19 00:48+0000\n"
 "PO-Revision-Date: 2022-11-11 19:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -20,29 +20,29 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.08.2\n"
 
-#: output_model.cpp:99
+#: output_model.cpp:98
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:634
+#: output_model.cpp:633
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:653
+#: output_model.cpp:652
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:734
+#: output_model.cpp:733
 #, kde-format
 msgid "None"
 msgstr "無"
 
-#: output_model.cpp:741
+#: output_model.cpp:740
 #, kde-format
 msgid "Replicated by other output"
 msgstr "已被其他輸出複製"

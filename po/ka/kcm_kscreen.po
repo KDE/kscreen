@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:51+0000\n"
-"PO-Revision-Date: 2022-12-01 07:06+0100\n"
+"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"PO-Revision-Date: 2022-12-18 13:13+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,31 +16,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: output_model.cpp:99
+#: output_model.cpp:98
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 ჰც"
 
-#: output_model.cpp:634
+#: output_model.cpp:633
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:653
+#: output_model.cpp:652
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:734
+#: output_model.cpp:733
 #, kde-format
 msgid "None"
 msgstr "არაფერი"
 
-#: output_model.cpp:741
+#: output_model.cpp:740
 #, kde-format
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
@@ -56,15 +56,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
-"გადატვირთვის შემდეგ შევა."
+"სისტემის გადატვირთვის შემდეგ შევა."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -102,7 +99,7 @@ msgstr "&დაბრუნება"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "პრიორიტეტების შეცვლა"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -112,12 +109,12 @@ msgstr "ძირითადი"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "პრიორიტეტის გაზრდა"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "პრიორიტეტის შემცირება"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -178,7 +175,7 @@ msgstr "ჩართულია"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "ეკრანის პრიორიტეტების შეცვლა…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
