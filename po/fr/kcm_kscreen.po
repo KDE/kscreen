@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-12-17 15:06+0100\n"
+"PO-Revision-Date: 2022-12-18 19:30+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -66,15 +66,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "Les sorties ne peuvent pas être enregistrées à cause d'une erreur."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Application d'une nouvelle échelle globale. Les changements de mise à "
-"l'échelle ne seront effectifs qu'après un redémarrage."
+"Les changements de mise à l'échelle globale ne seront effectifs qu'après un "
+"redémarrage du système."
 
 #: package/contents/ui/main.qml:68
 #, kde-format

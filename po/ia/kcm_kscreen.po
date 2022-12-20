@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-02-16 22:30+0100\n"
+"PO-Revision-Date: 2022-12-19 12:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -26,7 +26,7 @@ msgstr "%1Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:652
 #, kde-format
@@ -57,17 +57,17 @@ msgid "Outputs could not be saved due to error."
 msgstr "Exitos nonn poterea esser salveguardate debite al error."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "Nove scalaglobal applicate. Cambiamento habera effecto post reinitiar."
+msgstr ""
+"Modificationes de Scala global  habera effecto post que le systema ha "
+"restartate."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Re-Initia"
 
 #: package/contents/ui/main.qml:84
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "&Reverte"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Cambia prioritates"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -110,18 +110,18 @@ msgstr "Primari"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Altia prioritate"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Bassa prioritate"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Omne monstratores es dishabilitate. Habilita al minus un."
 
 #: package/contents/ui/main.qml:218
 #, kde-format
@@ -175,7 +175,7 @@ msgstr "Habilitate"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Cambia prioritates de schertmo..."
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -192,13 +192,7 @@ msgid "Resolution:"
 msgstr "Resolution:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "\"%1\" is the only resolution supported by this display.<nl/><nl/>Using "
-#| "unsupported resolutions was possible in the Plasma X11 session, but they "
-#| "were never guaranteed to work and are not available in this Plasma "
-#| "Wayland session."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
@@ -206,8 +200,8 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
-"\"%1\" es le sol resolution supportate per iste monstrator.<nl/><nl/>Usar "
-"resolutiones non supportate esseva possibile in le session de X11 de "
+"&quot;%1&quot; es le sol resolution supportate per iste monstrator.<nl/><nl/"
+">Usar resolutiones non supportate esseva possibile in le session de X11 de "
 "Plasma , ma illos jammais esseva garantite a functionar e non es disponibile "
 "in iste seddion de Wayland de Plasma."
 
