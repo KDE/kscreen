@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-11-23 23:13+0100\n"
+"PO-Revision-Date: 2022-12-20 19:01+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -56,14 +56,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "Изходите не можаха да бъдат запазени поради грешка."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"Приложен е нов глобален мащаб. Промяната ще влезе в сила след рестартиране."
+msgstr "Промените в глобалния мащаб ще влязат в сила след рестартиране."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -101,7 +97,7 @@ msgstr "&Връщане"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Промяна на приоритетите"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -111,12 +107,12 @@ msgstr "Основна"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "По-висок приоритет"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "По-нисък приоритет"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -178,7 +174,7 @@ msgstr "Включено"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Промяна на приоритетите на екрана…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format

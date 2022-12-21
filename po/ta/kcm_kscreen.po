@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-11-22 19:54+0530\n"
+"PO-Revision-Date: 2022-12-20 19:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -56,14 +56,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "சிக்கல் ஏற்பட்டதால் வெளியீடுகளை சேமிக்க முடியவில்லை."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"புதிய பொது அளவுமாற்றம் அமைக்கப்பட்டுள்ளது. கணினியை மீள்துவக்கிய பின் அது செயல்படும்."
+msgstr "கணினியை மீள்துவக்கிய பின் பொது அளவுமாற்ற அமைப்புகள் செயல்படும்."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -101,7 +97,7 @@ msgstr "&மீட்டமை"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "முன்னிலையை மாற்று"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -111,12 +107,12 @@ msgstr "முதன்மையானதாக்கு"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "முன்னிலையை கூட்டு"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "முன்னிலையை குறை"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -177,7 +173,7 @@ msgstr "இயக்கு"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "திரைகளின் முன்னிலையை மாற்று…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
