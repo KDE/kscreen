@@ -27,6 +27,7 @@ include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
@@ -73,6 +74,11 @@ if(X11_FOUND)
 endif()
 
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
+
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.101
+)
+
 
 add_subdirectory(kcm)
 add_subdirectory(kded)
