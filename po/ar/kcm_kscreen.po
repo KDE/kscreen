@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-11-22 19:53+0400\n"
+"PO-Revision-Date: 2022-12-22 12:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -57,13 +57,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "المخرجات لا يمكن حفظها بسبب خطأ."
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "طُبق المقياس الشامل الجديد. ستظهر تأثيرات بعد إعادة التّشغيل."
+msgstr "ستظهر تأثير المقياس الشامل بعد إعادة التّشغيل."
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -105,7 +102,7 @@ msgstr "ا&سترجع"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "غيّر الأولويات"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -115,12 +112,12 @@ msgstr "الأساسيّ:"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "ارفع الأولويّة"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "اخفض الأولويّة"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
@@ -180,7 +177,7 @@ msgstr "ممكّن"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "غيّر أولويات الشاشة…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
