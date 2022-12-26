@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-11-11 19:41+0900\n"
+"PO-Revision-Date: 2022-12-26 03:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -58,13 +58,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "發生錯誤導致無法儲存輸出。"
 
 #: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "已套用新全域縮放比例。變更將在系統重新啟動後生效。"
+msgstr "全域縮放比例的變更將在系統重新啟動後生效。"
 
 #: package/contents/ui/main.qml:68
 #, kde-format
@@ -101,7 +98,7 @@ msgstr "回復(&R)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "變更優先值"
 
 #: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -111,25 +108,25 @@ msgstr "主顯示"
 #: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "提升優先順序"
 
 #: package/contents/ui/main.qml:199
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "降低優先順序"
 
 #: package/contents/ui/main.qml:216
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "所有螢幕都被停用了。請至少啟用一個。"
 
 #: package/contents/ui/main.qml:218
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
-msgstr ""
+msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
 #: package/contents/ui/main.qml:231
 #, kde-format
@@ -176,7 +173,7 @@ msgstr "已開啟"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "變更螢幕優先值…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
