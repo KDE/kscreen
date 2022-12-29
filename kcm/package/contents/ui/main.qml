@@ -110,6 +110,7 @@ KCM.SimpleKCM {
                 }
             }
             footer: QQC2.DialogButtonBox {
+                id: confirmDialogButtonBox
                 QQC2.Button {
                     QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                     Keys.onPressed: event => {
@@ -287,8 +288,7 @@ KCM.SimpleKCM {
             onTriggered: {
                 revertCountdown -= 1;
                 if (revertCountdown < 1) {
-                    revertTimer.stop();
-                    kcm.revertSettings();
+                    confirmDialogButtonBox.reset();
                 }
             }
         }
