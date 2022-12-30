@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
 "PO-Revision-Date: 2022-12-20 19:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -44,83 +44,35 @@ msgstr "ஏதுமில்லை"
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
 
-#: package/contents/ui/main.qml:46
-#, kde-format
-msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr ""
-"கேஸ்கிரீன் பின்நிலை கண்டுபிடிக்கப்படவில்லை. கேஸ்கிரீன் சரியாக நிறுவப்பட்டுள்ளதா என பாருங்கள்."
-
-#: package/contents/ui/main.qml:54
-#, kde-format
-msgid "Outputs could not be saved due to error."
-msgstr "சிக்கல் ஏற்பட்டதால் வெளியீடுகளை சேமிக்க முடியவில்லை."
-
-#: package/contents/ui/main.qml:62
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr "கணினியை மீள்துவக்கிய பின் பொது அளவுமாற்ற அமைப்புகள் செயல்படும்."
-
-#: package/contents/ui/main.qml:68
-#, kde-format
-msgid "Restart"
-msgstr "மீள்துவக்கு"
-
-#: package/contents/ui/main.qml:84
-#, kde-format
-msgid "Display configuration reverted."
-msgstr "திரைகளின் அமைப்பு மீட்டமைக்கப்பட்டுள்ளது."
-
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "திரைகளின் அமைப்பை வைத்திருக்கலாமா?"
 
-#: package/contents/ui/main.qml:106
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "முந்தைய அமைப்பு %1 நொடியில் மீட்டமைக்கப்படும்."
 msgstr[1] "முந்தைய அமைப்பு %1 நொடிகளில் மீட்டமைக்கப்படும்."
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "&வைத்திரு"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "&மீட்டமை"
 
-#: package/contents/ui/main.qml:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Priorities"
-msgstr "முன்னிலையை மாற்று"
-
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
-#, kde-format
-msgid "Primary"
-msgstr "முதன்மையானதாக்கு"
-
-#: package/contents/ui/main.qml:189
-#, kde-format
-msgid "Raise priority"
-msgstr "முன்னிலையை கூட்டு"
-
-#: package/contents/ui/main.qml:199
-#, kde-format
-msgid "Lower priority"
-msgstr "முன்னிலையை குறை"
-
-#: package/contents/ui/main.qml:216
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "அனைத்து திரைகளும் முடக்கப்பட்டுள்ளன. ஒன்றையாவது இயக்குங்கள்."
 
-#: package/contents/ui/main.qml:218
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -128,15 +80,63 @@ msgid ""
 msgstr ""
 "திரைகளுக்கிடையே காலியிடம் இருக்கக்கூடாது. திரைகளை ஒன்றுடன் ஒன்று ஒட்டியவாறு வைக்கவும்."
 
-#: package/contents/ui/main.qml:231
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "புதிய வெளியீடு சேர்க்கப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: package/contents/ui/main.qml:233
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "புதிய வெளியீடு கழற்றப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
+
+#: package/contents/ui/main.qml:171
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr ""
+"கேஸ்கிரீன் பின்நிலை கண்டுபிடிக்கப்படவில்லை. கேஸ்கிரீன் சரியாக நிறுவப்பட்டுள்ளதா என பாருங்கள்."
+
+#: package/contents/ui/main.qml:181
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "சிக்கல் ஏற்பட்டதால் வெளியீடுகளை சேமிக்க முடியவில்லை."
+
+#: package/contents/ui/main.qml:191
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr "கணினியை மீள்துவக்கிய பின் பொது அளவுமாற்ற அமைப்புகள் செயல்படும்."
+
+#: package/contents/ui/main.qml:197
+#, kde-format
+msgid "Restart"
+msgstr "மீள்துவக்கு"
+
+#: package/contents/ui/main.qml:217
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "திரைகளின் அமைப்பு மீட்டமைக்கப்பட்டுள்ளது."
+
+#: package/contents/ui/main.qml:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr "முன்னிலையை மாற்று"
+
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#, kde-format
+msgid "Primary"
+msgstr "முதன்மையானதாக்கு"
+
+#: package/contents/ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr "முன்னிலையை கூட்டு"
+
+#: package/contents/ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr "முன்னிலையை குறை"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -356,12 +356,12 @@ msgstr "90° இடச்சுற்று"
 msgid "No Rotation"
 msgstr "திருப்ப வேண்டாம்"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "காட்சிக்கருவிகளை நகர்த்த அவற்றை இழுங்கள்"
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "அடையாளங்காட்டு"

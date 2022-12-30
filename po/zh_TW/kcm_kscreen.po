@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
 "PO-Revision-Date: 2022-12-26 03:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -47,96 +47,96 @@ msgstr "無"
 msgid "Replicated by other output"
 msgstr "已被其他輸出複製"
 
-#: package/contents/ui/main.qml:46
-#, kde-format
-msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr "找不到 KScreen 後端介面。請檢查您的 KScreen 安裝。"
-
-#: package/contents/ui/main.qml:54
-#, kde-format
-msgid "Outputs could not be saved due to error."
-msgstr "發生錯誤導致無法儲存輸出。"
-
-#: package/contents/ui/main.qml:62
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr "全域縮放比例的變更將在系統重新啟動後生效。"
-
-#: package/contents/ui/main.qml:68
-#, kde-format
-msgid "Restart"
-msgstr "重新啟動"
-
-#: package/contents/ui/main.qml:84
-#, kde-format
-msgid "Display configuration reverted."
-msgstr "已回復顯示設定。"
-
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "保留顯示設定嗎？"
 
-#: package/contents/ui/main.qml:106
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "將於 %1 秒後回復至先前的配置。"
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "保留(&K)"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "回復(&R)"
 
-#: package/contents/ui/main.qml:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Priorities"
-msgstr "變更優先值"
-
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
-#, kde-format
-msgid "Primary"
-msgstr "主顯示"
-
-#: package/contents/ui/main.qml:189
-#, kde-format
-msgid "Raise priority"
-msgstr "提升優先順序"
-
-#: package/contents/ui/main.qml:199
-#, kde-format
-msgid "Lower priority"
-msgstr "降低優先順序"
-
-#: package/contents/ui/main.qml:216
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有螢幕都被停用了。請至少啟用一個。"
 
-#: package/contents/ui/main.qml:218
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
-#: package/contents/ui/main.qml:231
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已新增輸出。設定已重新載入。"
 
-#: package/contents/ui/main.qml:233
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除輸出。設定已重新載入。"
+
+#: package/contents/ui/main.qml:171
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr "找不到 KScreen 後端介面。請檢查您的 KScreen 安裝。"
+
+#: package/contents/ui/main.qml:181
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "發生錯誤導致無法儲存輸出。"
+
+#: package/contents/ui/main.qml:191
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr "全域縮放比例的變更將在系統重新啟動後生效。"
+
+#: package/contents/ui/main.qml:197
+#, kde-format
+msgid "Restart"
+msgstr "重新啟動"
+
+#: package/contents/ui/main.qml:217
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "已回復顯示設定。"
+
+#: package/contents/ui/main.qml:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr "變更優先值"
+
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#, kde-format
+msgid "Primary"
+msgstr "主顯示"
+
+#: package/contents/ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr "提升優先順序"
+
+#: package/contents/ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr "降低優先順序"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -352,12 +352,12 @@ msgstr "逆時針轉 90°"
 msgid "No Rotation"
 msgstr "無旋轉"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖曳螢幕以重新排列"
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "識別"

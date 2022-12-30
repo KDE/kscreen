@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
 "PO-Revision-Date: 2022-06-27 16:03+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -47,39 +47,12 @@ msgstr "Nic"
 msgid "Replicated by other output"
 msgstr "Kopírováno druhým výstupem"
 
-#: package/contents/ui/main.qml:46
-#, kde-format
-msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr ""
-"Nenalezen žádný modul KScreen. Prosím zkontrolujte svou instalaci KScreen."
-
-#: package/contents/ui/main.qml:54
-#, kde-format
-msgid "Outputs could not be saved due to error."
-msgstr "Výstupy nelze kvůli chybě uložit."
-
-#: package/contents/ui/main.qml:62
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr ""
-
-#: package/contents/ui/main.qml:68
-#, kde-format
-msgid "Restart"
-msgstr "Restartovat"
-
-#: package/contents/ui/main.qml:84
-#, kde-format
-msgid "Display configuration reverted."
-msgstr "Vráceno nastavení zobrazení."
-
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Ponechat nastavení zobrazení?"
 
-#: package/contents/ui/main.qml:106
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -87,59 +60,86 @@ msgstr[0] "Vrátí se k předchozímu nastavení za %1 sekundu."
 msgstr[1] "Vrátí se k předchozímu nastavení za %1 sekundy."
 msgstr[2] "Vrátí se k předchozímu nastavení za %1 sekund."
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "&Ponechat"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "V&rátit"
 
-#: package/contents/ui/main.qml:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Priorities"
-msgstr ""
-
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
-#, kde-format
-msgid "Primary"
-msgstr "Primární"
-
-#: package/contents/ui/main.qml:189
-#, kde-format
-msgid "Raise priority"
-msgstr ""
-
-#: package/contents/ui/main.qml:199
-#, kde-format
-msgid "Lower priority"
-msgstr ""
-
-#: package/contents/ui/main.qml:216
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr ""
 
-#: package/contents/ui/main.qml:218
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: package/contents/ui/main.qml:231
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Byl přidán nový výstup. Nastavení byla obnovena."
 
-#: package/contents/ui/main.qml:233
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Výstup byl odstraněn. Nastavení byla obnovena."
+
+#: package/contents/ui/main.qml:171
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr ""
+"Nenalezen žádný modul KScreen. Prosím zkontrolujte svou instalaci KScreen."
+
+#: package/contents/ui/main.qml:181
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "Výstupy nelze kvůli chybě uložit."
+
+#: package/contents/ui/main.qml:191
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr ""
+
+#: package/contents/ui/main.qml:197
+#, kde-format
+msgid "Restart"
+msgstr "Restartovat"
+
+#: package/contents/ui/main.qml:217
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "Vráceno nastavení zobrazení."
+
+#: package/contents/ui/main.qml:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr ""
+
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#, kde-format
+msgid "Primary"
+msgstr "Primární"
+
+#: package/contents/ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr ""
+
+#: package/contents/ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr ""
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -346,12 +346,12 @@ msgstr "90° proti směru hodinových ručiček"
 msgid "No Rotation"
 msgstr "Žádné otočení"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr ""
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Identifikovat"

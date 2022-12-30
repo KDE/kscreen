@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
 "PO-Revision-Date: 2020-05-15 08:25+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -44,18 +44,64 @@ msgstr "Puudub"
 msgid "Replicated by other output"
 msgstr "Teise väljundi koopia"
 
-#: package/contents/ui/main.qml:46
+#: package/contents/ui/main.qml:40
+#, fuzzy, kde-format
+#| msgid "Display Configuration"
+msgid "Keep display configuration?"
+msgstr "Ekraani seadistamine"
+
+#: package/contents/ui/main.qml:55
+#, kde-format
+msgid "Will revert to previous configuration in %1 second."
+msgid_plural "Will revert to previous configuration in %1 seconds."
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/main.qml:72
+#, kde-format
+msgid "&Keep"
+msgstr ""
+
+#: package/contents/ui/main.qml:85
+#, kde-format
+msgid "&Revert"
+msgstr ""
+
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr ""
+
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
+#, kde-format
+msgid "A new output has been added. Settings have been reloaded."
+msgstr "Lisati uus väljund. Seadistused laaditakse uuesti."
+
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
+#, kde-format
+msgid "An output has been removed. Settings have been reloaded."
+msgstr "Väljund on eemaldatud. Seadistused laaditi uuesti."
+
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "KScreeni taustaprogrammi ei leitud. Palun kontrolli KScreeni paigaldust."
 
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Tõrke tõttu ei saanud väljundeid salvestada."
 
-#: package/contents/ui/main.qml:62
+#: package/contents/ui/main.qml:191
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -65,83 +111,37 @@ msgstr ""
 "Rakendati uus globaalne skaleerimine. Muudatused rakenduvad alles pärast "
 "taaskäivitamist"
 
-#: package/contents/ui/main.qml:68
+#: package/contents/ui/main.qml:197
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: package/contents/ui/main.qml:84
+#: package/contents/ui/main.qml:217
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Display configuration reverted."
 msgstr "Ekraani seadistamine"
 
-#: package/contents/ui/main.qml:91
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
-msgid "Keep display configuration?"
-msgstr "Ekraani seadistamine"
-
-#: package/contents/ui/main.qml:106
-#, kde-format
-msgid "Will revert to previous configuration in %1 second."
-msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
-
-#: package/contents/ui/main.qml:122
-#, kde-format
-msgid "&Keep"
-msgstr ""
-
-#: package/contents/ui/main.qml:135
-#, kde-format
-msgid "&Revert"
-msgstr ""
-
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr ""
 
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "Esmane"
 
-#: package/contents/ui/main.qml:189
+#: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
 msgstr ""
 
-#: package/contents/ui/main.qml:199
+#: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
 msgstr ""
-
-#: package/contents/ui/main.qml:216
-#, kde-format
-msgctxt "@info"
-msgid "All displays are disabled. Enable at least one."
-msgstr ""
-
-#: package/contents/ui/main.qml:218
-#, kde-format
-msgctxt "@info"
-msgid ""
-"Gaps between displays are not supported. Make sure all displays are touching."
-msgstr ""
-
-#: package/contents/ui/main.qml:231
-#, kde-format
-msgid "A new output has been added. Settings have been reloaded."
-msgstr "Lisati uus väljund. Seadistused laaditakse uuesti."
-
-#: package/contents/ui/main.qml:233
-#, kde-format
-msgid "An output has been removed. Settings have been reloaded."
-msgstr "Väljund on eemaldatud. Seadistused laaditi uuesti."
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -351,12 +351,12 @@ msgstr "90° vastupäeva"
 msgid "No Rotation"
 msgstr "Ei pöörata"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Lohista ekraane nende paigutuse muutmiseks"
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Tuvasta"

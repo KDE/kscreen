@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-12-10 11:11+0100\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
+"PO-Revision-Date: 2022-12-29 11:37+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -46,43 +46,12 @@ msgstr "Brak"
 msgid "Replicated by other output"
 msgstr "Powielone przez inne wyjście"
 
-#: package/contents/ui/main.qml:46
-#, kde-format
-msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr "Nie znaleziono silnika KScreen. Sprawdź czy jest wgrany."
-
-#: package/contents/ui/main.qml:54
-#, kde-format
-msgid "Outputs could not be saved due to error."
-msgstr "Nie można zapisać wyjść ze względu na błąd."
-
-#: package/contents/ui/main.qml:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"Zastosowano nową globalną skalę. Zmiana będzie widoczna po ponownym "
-"uruchomieniu systemu."
-
-#: package/contents/ui/main.qml:68
-#, kde-format
-msgid "Restart"
-msgstr "Uruchom ponownie"
-
-#: package/contents/ui/main.qml:84
-#, kde-format
-msgid "Display configuration reverted."
-msgstr "Wycofano ustawienia wyświetlania."
-
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Zachować ustawienia wyświetlania?"
 
-#: package/contents/ui/main.qml:106
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -90,44 +59,23 @@ msgstr[0] "Wycofa do poprzednich ustawień za %1 sekundę."
 msgstr[1] "Wycofa do poprzednich ustawień za %1 sekundy."
 msgstr[2] "Wycofa do poprzednich ustawień za %1 sekund."
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "&Zachowaj"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "&Wycofaj"
 
-#: package/contents/ui/main.qml:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Priorities"
-msgstr ""
-
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
-#, kde-format
-msgid "Primary"
-msgstr "Główny"
-
-#: package/contents/ui/main.qml:189
-#, kde-format
-msgid "Raise priority"
-msgstr ""
-
-#: package/contents/ui/main.qml:199
-#, kde-format
-msgid "Lower priority"
-msgstr ""
-
-#: package/contents/ui/main.qml:216
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Wszystkie wyświetlacze są wyłączone. Włącz co najmniej jeden."
 
-#: package/contents/ui/main.qml:218
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -136,15 +84,64 @@ msgstr ""
 "Szczeliny pomiędzy wyświetlaczami są nieobsługiwane. Upewnij się, że "
 "wszystkie wyświetlacze się stykają."
 
-#: package/contents/ui/main.qml:231
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Dodano nowe wyjście, więc ponownie wczytano ustawienia."
 
-#: package/contents/ui/main.qml:233
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Usunięto wyjście, więc ponownie wczytano ustawienia."
+
+#: package/contents/ui/main.qml:171
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr "Nie znaleziono silnika KScreen. Sprawdź czy jest wgrany."
+
+#: package/contents/ui/main.qml:181
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "Nie można zapisać wyjść ze względu na błąd."
+
+#: package/contents/ui/main.qml:191
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr ""
+"Wynik zmiany globalnej skali będzie widoczny dopiero po ponownym "
+"uruchomieniu systemu."
+
+#: package/contents/ui/main.qml:197
+#, kde-format
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: package/contents/ui/main.qml:217
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "Wycofano ustawienia wyświetlania."
+
+#: package/contents/ui/main.qml:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr "Zmień priorytety"
+
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#, kde-format
+msgid "Primary"
+msgstr "Główny"
+
+#: package/contents/ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr "Podnieś priorytet"
+
+#: package/contents/ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr "Obniż priorytet"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -181,7 +178,7 @@ msgstr "Włączony"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Zmień priorytety ekranów…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -229,7 +226,7 @@ msgstr "%1%"
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
 msgid "Refresh rate:"
-msgstr "Częstotliwość odświeżania:"
+msgstr "Odświeżanie:"
 
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
@@ -275,17 +272,17 @@ msgstr "Ograniczony"
 #: package/contents/ui/OutputPanel.qml:213
 #, kde-format
 msgid "Replica of:"
-msgstr "Powielenie:"
+msgstr "Powiel na:"
 
 #: package/contents/ui/Panel.qml:29
 #, kde-format
 msgid "Device:"
-msgstr "Urządzenie:"
+msgstr "Wyświetlacz:"
 
 #: package/contents/ui/Panel.qml:71
 #, kde-format
 msgid "Global scale:"
-msgstr "Globalna skala:"
+msgstr "Systemowa skala:"
 
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
@@ -368,15 +365,15 @@ msgstr "90° w lewo"
 msgid "No Rotation"
 msgstr "Bez obrotu"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr "Przeciągaj ekrany, aby zmieniać ich układ"
+msgstr "Aby zmieniać układ ekranów, przeciągnij je"
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
-msgstr "Rozpoznaj"
+msgstr "Który to?"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

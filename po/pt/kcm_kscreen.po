@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2022-12-30 00:54+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -40,84 +40,35 @@ msgstr "Nenhum"
 msgid "Replicated by other output"
 msgstr "Replicado por outra saída"
 
-#: package/contents/ui/main.qml:46
-#, kde-format
-msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr ""
-"Não foi encontrada nenhuma infra-estrutura do KScreen. Verifique por favor a "
-"sua instalação do KScreen."
-
-#: package/contents/ui/main.qml:54
-#, kde-format
-msgid "Outputs could not be saved due to error."
-msgstr "Não foi possível gravar as saídas devido a um erro."
-
-#: package/contents/ui/main.qml:62
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr "As mudanças da escala global farão efeito após reiniciar o sistema."
-
-#: package/contents/ui/main.qml:68
-#, kde-format
-msgid "Restart"
-msgstr "Reiniciar"
-
-#: package/contents/ui/main.qml:84
-#, kde-format
-msgid "Display configuration reverted."
-msgstr "A configuração do ecrã foi revertida."
-
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Deseja manter a configuração do ecrã?"
 
-#: package/contents/ui/main.qml:106
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Irá reverter à configuração anterior daqui a %1 segundo."
 msgstr[1] "Irá reverter à configuração anterior daqui a %1 segundos."
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "&Manter"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverter"
 
-#: package/contents/ui/main.qml:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Priorities"
-msgstr "Mudar as Prioridades"
-
-#: package/contents/ui/main.qml:183 package/contents/ui/OutputPanel.qml:42
-#, kde-format
-msgid "Primary"
-msgstr "Primária"
-
-#: package/contents/ui/main.qml:189
-#, kde-format
-msgid "Raise priority"
-msgstr "Aumentar a prioridade"
-
-#: package/contents/ui/main.qml:199
-#, kde-format
-msgid "Lower priority"
-msgstr "Diminuir a prioridade"
-
-#: package/contents/ui/main.qml:216
+#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Todos os ecrãs estão desactivados. Active pelo menos um."
 
-#: package/contents/ui/main.qml:218
+#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -126,15 +77,64 @@ msgstr ""
 "Não são suportados intervalos entre os ecrãs. Certifique-se que todos os "
 "ecrãs estão juntos."
 
-#: package/contents/ui/main.qml:231
+#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Foi adicionada uma nova saída. Foi recarregada a configuração."
 
-#: package/contents/ui/main.qml:233
+#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Foi removida uma saída. Foi recarregada a configuração."
+
+#: package/contents/ui/main.qml:171
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr ""
+"Não foi encontrada nenhuma infra-estrutura do KScreen. Verifique por favor a "
+"sua instalação do KScreen."
+
+#: package/contents/ui/main.qml:181
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "Não foi possível gravar as saídas devido a um erro."
+
+#: package/contents/ui/main.qml:191
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr "As mudanças da escala global farão efeito após reiniciar o sistema."
+
+#: package/contents/ui/main.qml:197
+#, kde-format
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: package/contents/ui/main.qml:217
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "A configuração do ecrã foi revertida."
+
+#: package/contents/ui/main.qml:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr "Mudar as Prioridades"
+
+#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#, kde-format
+msgid "Primary"
+msgstr "Primária"
+
+#: package/contents/ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr "Aumentar a prioridade"
+
+#: package/contents/ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr "Diminuir a prioridade"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -356,12 +356,12 @@ msgstr "90° para a Esquerda"
 msgid "No Rotation"
 msgstr "Sem Rotação"
 
-#: package/contents/ui/Screen.qml:52
+#: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arraste os ecrãs para os reorganizar"
 
-#: package/contents/ui/Screen.qml:65
+#: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
