@@ -355,13 +355,3 @@ msgstr ""
 #, kde-format
 msgid "Identify"
 msgstr "Identifikovat"
-
-#~ msgid ""
-#~ "Are you sure you want to disable all outputs? This might render the "
-#~ "device unusable."
-#~ msgstr ""
-#~ "Opravdu si přejete zakázat všechny výstupy? To může vést k "
-#~ "nepoužitelnosti zařízení."
-
-#~ msgid "Disable All Outputs"
-#~ msgstr "Zakázat všechny výstupy"
