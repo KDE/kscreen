@@ -17,8 +17,8 @@ import org.kde.private.kscreen 1.0
 Item {
     id: root
 
-    // Only show if there's screen layouts available or the user enabled presentation mode
-    Plasmoid.status: presentationModeEnabled || Plasmoid.nativeInterface.connectedOutputCount > 1 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    // Only show if the user enabled presentation mode or we're a laptop with connected external screens
+    Plasmoid.status: presentationModeEnabled || (isLaptop && Plasmoid.nativeInterface.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     Plasmoid.toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
@@ -26,6 +26,8 @@ Item {
 
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
     property int presentationModeCookie: -1
+
+    readonly property bool isLaptop: pmSource.data["PowerDevil"] && pmSource.data["PowerDevil"]["Is Lid Present"]
 
     function action_configure() {
         KCMShell.openSystemSettings(kcmName);
