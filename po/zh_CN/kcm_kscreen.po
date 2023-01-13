@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2023-01-02 07:11\n"
+"PO-Revision-Date: 2023-01-12 10:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -69,14 +69,14 @@ msgstr "还原(&R)"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "所有显示器均已被禁用。请至少启用一个显示器。"
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
-msgstr ""
+msgstr "不支持显示器之间的空隙。请确保所有显示器均相邻紧贴放置。"
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -102,7 +102,7 @@ msgstr "由于错误，输出配置无法保存。"
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
+msgstr "全局缩放的更改将在系统重新启动后生效。"
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -118,7 +118,7 @@ msgstr "显示器配置已恢复。"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "更改优先级"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -128,12 +128,12 @@ msgstr "主要"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "提升优先级"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "降低优先级"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -170,7 +170,7 @@ msgstr "已启用"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "更改屏幕优先级…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -198,6 +198,9 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
+"&quot;%1&quot; 是此显示器支持的唯一分辨率。<nl/><nl/>旧版的 Plasma X11 会话曾"
+"经可以使用不支持的分辨率，但可靠性无法保证。Plasma Wayland 会话不支持在会话中"
+"使用不支持的分辨率。"
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
