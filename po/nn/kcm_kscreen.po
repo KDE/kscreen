@@ -1,12 +1,12 @@
 # Translation of kcm_kscreen to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2022.
+# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-09-11 19:43+0200\n"
+"PO-Revision-Date: 2023-01-15 11:51+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -72,7 +72,7 @@ msgstr "&Tilbakestill"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Alle skjermane er slåtte av. Slå på minst éin."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -80,6 +80,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Mellomrom mellom skjermar er ikkje støtta. Sjå til at alle skjermane er i "
+"kontakt."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -106,7 +108,7 @@ msgstr "Klarte ikkje lagra utgangar, grunna feil."
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
+msgstr "Endringar i global skalering får verknad etter omstart."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -122,7 +124,7 @@ msgstr "Skjermoppsett vart tilbakestilt."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Endra prioritet"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -132,12 +134,12 @@ msgstr "Hovudskjerm"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Høgare prioritet"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Lågare prioritet"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -174,7 +176,7 @@ msgstr "Bruk skjermen"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Endra skjermprioritet …"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
