@@ -1,24 +1,24 @@
-# Translation of kscreen.po to Euskara/Basque (eu).
-# Copyright (C) 2017, The Free Software Foundation.
-# This file is distributed under the same license as the kde-workspace package.
-# KDE Euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+# Translation for kscreen.po to Euskara/Basque (eu).
+# Copyright (C) 2017-2023 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# KDE Euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2017, 2018.
+# Iñigo Salvador Azurmendi <xalb@ni.eus>, 2017, 2018, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 02:55+0000\n"
-"PO-Revision-Date: 2018-04-13 23:21+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
-"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-01-27 08:23+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: osdaction.cpp:22
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "Utzi aldatzeke"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Barneratutako pantaila"
 
 #~ msgid "Switch Display"
 #~ msgstr "Aldatu bistaratzailea"
