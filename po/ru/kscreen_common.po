@@ -3,13 +3,14 @@
 #
 # Yuri Efremov <yur.arh@gmail.com>, 2013.
 # Alexander Potashev <aspotashev@gmail.com>, 2016, 2018.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 00:59+0000\n"
-"PO-Revision-Date: 2018-09-22 03:05+0300\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"PO-Revision-Date: 2023-01-28 10:42+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 21.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -55,7 +56,7 @@ msgstr "Оставить без изменений"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Встроенный экран"
 
 #~ msgid "Switch Display"
 #~ msgstr "Сменить экран"
