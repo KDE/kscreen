@@ -30,6 +30,7 @@
         "Description[uk]": "Керування моніторами і дисплеями та їх налаштовування",
         "Description[x-test]": "xxManage and configure monitors and displaysxx",
         "Description[zh_CN]": "管理和配置显示器",
+        "Description[zh_TW]": "管理並設定螢幕與顯示器",
         "FormFactors": [
             "tablet",
             "handset",
@@ -64,7 +65,8 @@
         "Name[tr]": "Ekran Yapılandırması",
         "Name[uk]": "Налаштування дисплея",
         "Name[x-test]": "xxDisplay Configurationxx",
-        "Name[zh_CN]": "显示器配置"
+        "Name[zh_CN]": "显示器配置",
+        "Name[zh_TW]": "顯示設定"
     },
     "X-KDE-Keywords": "display,monitor,screen,scale,scaling,resolution,orientation,rotate,rotation,output,outputs,refresh,desktop size,hardware,devices,device,fractional,dpi,graphics,framerate,frame rate,fps,hertz,hz,arrange monitors,screen arrangement,aspect ratio,secondary screen,secondary monitor,secondary display,vrr,variable refresh rate,hdr,high dynamic range,freesync,g-sync,quality,hdmi,display port,displayport,dp,vga,dvi,type-c,thunderbolt display,external display,external monitor,external screen,pixels,16:9,21:9,4:3,720p,1080p,1440p,4k,5k,8k,12k,16k,display grid,tablet mode",
     "X-KDE-Keywords[ar]": "شاشة,عرض,شاشات,تدوير,حجم,عتاد,معدل,بث,إنعاش,متغير,وضع,حجم,دور,خرج,تكبير",
