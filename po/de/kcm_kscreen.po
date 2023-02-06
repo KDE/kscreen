@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the kscreen package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022.
+# Jannick Kuhr <opensource@kuhr.org>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-07-23 23:24+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-02-01 19:41+0100\n"
+"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -27,7 +28,7 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:652
 #, kde-format
@@ -72,7 +73,7 @@ msgstr "&Zurücksetzen"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Alle Anzeigen sind deaktiviert. Aktivieren Sie mindestens eine."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -80,6 +81,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Lücken zwischen Anzeigen werden nicht unterstützt. Stellen Sie sicher, dass "
+"alle Anzeigen sich berühren."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -106,14 +109,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "Ausgaben können wegen eines Fehlers nicht gespeichert werden"
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Eine neue globale Skalierung ist eingestellt worden. Die Änderung wird erst "
-"nach Neustart wirksam."
+"Änderungen an der globalen Skalierung werden erst nach einem Neustart "
+"wirksam."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -129,7 +130,7 @@ msgstr "Anzeige-Einrichtung zurückgesetzt."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Prioritäten verändern"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -139,12 +140,12 @@ msgstr "Primär"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Priorität erhöhen"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Priorität reduzieren"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -181,7 +182,7 @@ msgstr "Aktiviert"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Anzeigepriorität ändern ..."
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -191,6 +192,11 @@ msgid ""
 "older games also use it to decide which screen to appear on.<nl/><nl/>It has "
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
+"Dies legt fest, auf welcher Anzeige Ihre Hauptarbeitsfläche und "
+"Kontrollleiste erscheinen. Einige ältere Spiele verwenden diese Einstellung "
+"auch, um zu entscheiden auf welcher Anzeige sie erscheinen.<nl/> <nl/> Es "
+"hat keinen Einfluss darauf, wo Benachrichtigungen oder andere Fenster "
+"erscheinen."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
@@ -206,6 +212,10 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
+"„%1“ ist die einzige von dieser Anzeige unterstützte Auflösung.<nl/><nl/>Die "
+"Verwendung nicht unterstützter Auflösungen war in Plasma-X11-Sitzungen "
+"möglich, ohne dass das Funktionieren garantiert werden konnte. In Plasma-"
+"Wayland-Sitzungen ist dies nicht verfügbar."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -227,6 +237,7 @@ msgstr "Bildwiederholrate:"
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
+"„%1“ ist die einzige von dieser Anzeige unterstützte Bildwiederholrate."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
@@ -281,13 +292,13 @@ msgstr "Globale Skalierung:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "Herkömmliche Anwendungen (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Skalierung selbst durchführen"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -295,12 +306,15 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"Herkömmliche Anwendungen, die Skalierung unterstützen, werden diese selbst "
+"durchführen und scharf dargestellt. Wenn keine Unterstützung durch die "
+"Anwendung besteht, wird keinerlei Skalierung erfolgen."
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Skalierung durch das System"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -308,6 +322,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Alle herkömmlichen Anwendungen werden durch das System auf die korrekte "
+"Größe skaliert, allerdings immer etwas verschwommen dargestellt werden."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
