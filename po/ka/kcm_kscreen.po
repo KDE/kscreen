@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-12-18 13:13+0100\n"
+"PO-Revision-Date: 2022-12-03 09:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -71,7 +71,7 @@ msgstr "&დაბრუნება"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "ყველა ეკრანი გამორთულია. საჭიროა ერთი მაინც ჩართოთ."
+msgstr ""
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -79,7 +79,6 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -102,17 +101,20 @@ msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
 #: package/contents/ui/main.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "New global scale applied. Changes will come into effect after the system "
+#| "is restarted."
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
-"სისტემის გადატვირთვის შემდეგ შევა."
+"გადატვირთვის შემდეგ შევა."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
 msgid "Restart"
-msgstr "რესტარტ"
+msgstr "რესტარტი"
 
 #: package/contents/ui/main.qml:217
 #, kde-format
@@ -123,7 +125,7 @@ msgstr "ეკრანის კონფიგურაცია დაბრ�
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr "პრიორიტეტების შეცვლა"
+msgstr ""
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -133,12 +135,12 @@ msgstr "ძირითადი"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr "პრიორიტეტის გაზრდა"
+msgstr ""
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr "პრიორიტეტის შემცირება"
+msgstr ""
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -170,12 +172,12 @@ msgstr "რეპლიკები"
 #: package/contents/ui/OutputPanel.qml:24
 #, kde-format
 msgid "Enabled"
-msgstr "ჩართულია"
+msgstr "ჩაირთო"
 
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "ეკრანის პრიორიტეტების შეცვლა…"
+msgstr ""
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -274,7 +276,7 @@ msgstr "რისი რეპლიკა:"
 #: package/contents/ui/Panel.qml:29
 #, kde-format
 msgid "Device:"
-msgstr "მოწყობიობა:"
+msgstr "მოწყობილობა:"
 
 #: package/contents/ui/Panel.qml:71
 #, kde-format
@@ -380,3 +382,14 @@ msgstr "იდენტიფიკაცია"
 
 #~ msgid "Disable All Outputs"
 #~ msgstr "ყველა გამოტანის გამორთვა"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines how much padding is put around the image sent to the display"
+#~ msgstr "ეკრანზე გაგზავნილი გამოსახულების გარშემო დახატული ჩარჩოს ზომა"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Determines whether or not the range of possible color values needs to be "
+#~ "limited for the display."
+#~ msgstr "განსაზღვრავს, ზღუდავს თუ არა ეკრანი ფერების შესაძლო მნიშვნელობებს."
