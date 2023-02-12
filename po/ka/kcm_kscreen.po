@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-12-03 09:27+0100\n"
+"PO-Revision-Date: 2023-02-11 07:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -71,7 +71,7 @@ msgstr "&დაბრუნება"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "ყველა ეკრანი გამორთულია. საჭიროა ერთი მაინც ჩართოთ."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -79,6 +79,7 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -101,15 +102,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
-"გადატვირთვის შემდეგ შევა."
+"სისტემის გადატვირთვის შემდეგ შევა."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -125,7 +123,7 @@ msgstr "ეკრანის კონფიგურაცია დაბრ�
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "პრიორიტეტების შეცვლა"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -135,12 +133,12 @@ msgstr "ძირითადი"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "პრიორიტეტის გაზრდა"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "პრიორიტეტის შემცირება"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -177,7 +175,7 @@ msgstr "ჩაირთო"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "ეკრანის პრიორიტეტების შეცვლა…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
