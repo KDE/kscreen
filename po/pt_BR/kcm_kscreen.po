@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the kscreen package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2015, 2016, 2019, 2020.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2019, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-10-19 15:08-0300\n"
+"PO-Revision-Date: 2023-02-14 10:07-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -72,7 +72,7 @@ msgstr "&Reverter"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Todas as telas estão desabilitadas. Habilite pelo menos uma."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -80,6 +80,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Espaços entre as telas não são suportados. Certifique-se de que todas as "
+"telas estão se tocando."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -104,14 +106,12 @@ msgid "Outputs could not be saved due to error."
 msgstr "As saídas não puderam ser salvas devido a um erro."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Foi aplicada uma nova escala global. As mudanças de escala serão percebidas "
-"após reiniciar."
+"As alterações na escala global entrarão em vigor quando o sistema for "
+"reiniciado."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -127,7 +127,7 @@ msgstr "Configuração da tela revertida."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Alterar prioridades"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -137,12 +137,12 @@ msgstr "Primária"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Aumentar prioridade"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Diminuir prioridade"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -179,7 +179,7 @@ msgstr "Ativado"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Alterar prioridades da tela..."
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -189,6 +189,10 @@ msgid ""
 "older games also use it to decide which screen to appear on.<nl/><nl/>It has "
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
+"Isto determina em qual tela sua área de trabalho principal e painel "
+"aparecem. Alguns jogos antigos também o usam para decidir em qual tela "
+"aparecer.<nl/><nl/>Não tem efeito sobre as notificações de tela ou outras "
+"janelas que aparecem."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
@@ -283,13 +287,13 @@ msgstr "Escala global:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "Aplicativos legados (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Aplicar escala eles mesmos"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -297,12 +301,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"Aplicativos legados que suportem escala irão usá-la e parecerão nítidos, mas "
+"aqueles que não suportam não serão escalados."
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Escalados pelo sistema"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -310,6 +316,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Todos os aplicativos legados serão escalados pelo sistema para o tamanho "
+"correto, mas eles parecerão ligeiramente embaçados."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
