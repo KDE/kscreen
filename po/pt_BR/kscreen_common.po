@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2015.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2016, 2018.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2016, 2018, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 00:59+0000\n"
-"PO-Revision-Date: 2018-05-02 01:04-0300\n"
+"PO-Revision-Date: 2023-02-14 09:58-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: osdaction.cpp:22
 #, kde-format
@@ -52,7 +52,7 @@ msgstr "Deixar sem alteração"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Tela embutida"
 
 #~ msgid "Switch Display"
 #~ msgstr "Alternar tela"
