@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2023-01-04 22:20+0100\n"
+"PO-Revision-Date: 2023-02-13 19:33+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -74,7 +74,7 @@ msgstr "V&rátit"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Všechny obrazovky jsou zakázány. Povolte aspoň jednu."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -82,6 +82,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Mezery mezi obrazovkami nejsou podporovány. Ujistěte se, že se všechny "
+"obrazovky dotýkají."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -241,7 +243,7 @@ msgstr "Vždy"
 #: package/contents/ui/OutputPanel.qml:165
 #, kde-format
 msgid "Overscan:"
-msgstr ""
+msgstr "Overscan:"
 
 #: package/contents/ui/OutputPanel.qml:189
 #, kde-format
@@ -349,7 +351,7 @@ msgstr "Žádné otočení"
 #: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr ""
+msgstr "Přetáhněte obrazovky jak chcete aby byly sestaveny"
 
 #: package/contents/ui/Screen.qml:61
 #, kde-format
