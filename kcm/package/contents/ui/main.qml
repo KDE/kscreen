@@ -73,7 +73,7 @@ KCM.SimpleKCM {
             }
             QQC2.Button {
                 id: revertButton
-                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ResetRole
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
                 Keys.onPressed: event => {
                     if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                         event.accepted = true;
