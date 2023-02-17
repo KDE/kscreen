@@ -19,6 +19,7 @@ KCM.SimpleKCM {
     property int revertCountdown: 15
     readonly property int topMargins: Kirigami.Units.smallSpacing
     readonly property bool anyMessagesShown: invalidConfigMsg.visible
+                                             || problematicConfigMsg.visible
                                              || errBackendMsg.visible
                                              || errSaveMsg.visible
                                              || scaleMsg.visible
@@ -108,6 +109,12 @@ KCM.SimpleKCM {
             }
             invalidConfigMsg.visible = true;
         }
+        function onProblematicConfig(reason) {
+            if (reason === KScreen.KCMKScreen.ConfigHasOverlaps) {
+                problematicConfigMsg.text = i18nc("@info", "Displays are overlapping. Make sure this is intended, or re-arrange them.")
+            }
+            problematicConfigMsg.visible = true;
+        }
         function onErrorOnSave() {
             errSaveMsg.visible = true;
         }
@@ -136,6 +143,7 @@ KCM.SimpleKCM {
         }
         function onChanged() {
             invalidConfigMsg.visible = false;
+            problematicConfigMsg.visible = false;
             errSaveMsg.visible = false;
             scaleMsg.visible = false;
             revertMsg.visible = false;
@@ -159,6 +167,17 @@ KCM.SimpleKCM {
             Layout.leftMargin: root.topMargins
             Layout.rightMargin: root.topMargins
             type: Kirigami.MessageType.Error
+            showCloseButton: true
+
+        }
+        Kirigami.InlineMessage {
+            // Note: see Note1 and Note2 above
+            id: problematicConfigMsg
+
+            Layout.fillWidth: true
+            Layout.leftMargin: root.topMargins
+            Layout.rightMargin: root.topMargins
+            type: Kirigami.MessageType.Warning
             showCloseButton: true
 
         }
@@ -290,6 +309,12 @@ KCM.SimpleKCM {
                 }
                 invalidConfigMsg.visible = true;
             }
+            function onProblematicConfig(reason) {
+                if (reason === KScreen.KCMKScreen.ConfigHasOverlaps) {
+                    problematicConfigMsg.text = i18nc("@info", "Displays are overlapping. Make sure this is intended, or re-arrange them.")
+                }
+                problematicConfigMsg.visible = true;
+            }
             function onErrorOnSave() {
                 errSaveMsg.visible = true;
             }
@@ -319,6 +344,7 @@ KCM.SimpleKCM {
             }
             function onChanged() {
                 invalidConfigMsg.visible = false;
+                problematicConfigMsg.visible = false;
                 errSaveMsg.visible = false;
                 scaleMsg.visible = false;
                 revertMsg.visible = false;

@@ -369,6 +369,15 @@ void KCMKScreen::checkConfig()
         Q_EMIT invalidConfig(ConfigHasGaps);
         m_configNeedsSave = false;
     }
+    auto overlapsAnyOther = [&enabledOutputs](const OutputPtr &output) {
+        return std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), [&output](const OutputPtr &other) {
+            return other != output && output->geometry().intersects(other->geometry())
+                && !(output->geometry().contains(other->geometry()) || other->geometry().contains(output->geometry()));
+        });
+    };
+    if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), overlapsAnyOther)) {
+        Q_EMIT problematicConfig(ConfigHasOverlaps);
+    }
 }
 
 void KCMKScreen::continueNeedsSaveCheck(bool needs)

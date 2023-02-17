@@ -43,6 +43,11 @@ public:
     };
     Q_ENUM(InvalidConfigReason)
 
+    enum ProblematicConfigReason {
+        ConfigHasOverlaps,
+    };
+    Q_ENUM(ProblematicConfigReason)
+
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCMKScreen() override = default;
 
@@ -101,6 +106,7 @@ Q_SIGNALS:
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
     void invalidConfig(InvalidConfigReason reason);
+    void problematicConfig(ProblematicConfigReason reason);
     void errorOnSave();
     void globalScaleWritten();
     void outputConnect(bool connected);
