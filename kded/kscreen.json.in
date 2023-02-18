@@ -29,6 +29,7 @@
         "Description[uk]": "Керування екраном",
         "Description[x-test]": "xxScreen managementxx",
         "Description[zh_CN]": "屏幕管理",
+        "Description[zh_TW]": "螢幕管理",
         "Icon": "preferences-system-power-management",
         "Name": "KScreen 2",
         "Name[ar]": "شاشتك 2",
@@ -59,6 +60,7 @@
         "Name[uk]": "KScreen 2",
         "Name[x-test]": "xxKScreen 2xx",
         "Name[zh_CN]": "KScreen 2",
+        "Name[zh_TW]": "KScreen 2",
         "Version": "@KSCREEN_VERSION@"
     },
     "X-KDE-Kded-autoload": true,
