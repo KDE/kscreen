@@ -4,21 +4,21 @@
 # Franklin, 2015.
 # Jeff Huang <s8321414@gmail.com>, 2016, 2018.
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-12-26 03:17+0900\n"
+"PO-Revision-Date: 2023-02-18 01:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -50,7 +50,7 @@ msgstr "已被其他輸出複製"
 #: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "保留顯示設定嗎？"
+msgstr "保留顯示器設定嗎？"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
@@ -115,7 +115,7 @@ msgstr "重新啟動"
 #: package/contents/ui/main.qml:217
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "已回復顯示設定。"
+msgstr "已回復顯示器設定。"
 
 #: package/contents/ui/main.qml:225
 #, kde-format
