@@ -90,7 +90,7 @@ KCM.SimpleKCM {
             onAccepted: {
                 confirmMsg.close();
             }
-            onReset: {
+            onRejected: {
                 revertTimer.stop();
                 kcm.setStopUpdatesFromBackend(false);
                 kcm.revertSettings();
@@ -379,7 +379,7 @@ KCM.SimpleKCM {
             onTriggered: {
                 revertCountdown -= 1;
                 if (revertCountdown < 1) {
-                    confirmDialogButtonBox.reset();
+                    confirmDialogButtonBox.rejected();
                 }
             }
         }
