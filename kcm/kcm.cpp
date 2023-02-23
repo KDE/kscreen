@@ -349,6 +349,10 @@ void KCMKScreen::load()
 
 void KCMKScreen::checkConfig()
 {
+    if (!m_configHandler || !m_configHandler->config()) {
+        return;
+    }
+
     const auto outputs = m_configHandler->config()->outputs();
     std::vector<OutputPtr> enabledOutputs;
     std::copy_if(outputs.cbegin(), outputs.cend(), std::back_inserter(enabledOutputs), std::mem_fn(&Output::isEnabled));
