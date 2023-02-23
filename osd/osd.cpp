@@ -56,16 +56,20 @@ void Osd::showActionSelector()
         connect(rootObject, SIGNAL(clicked(int)), this, SLOT(onOsdActionSelected(int)));
     }
 
+    auto screen = qGuiApp->screenAt(m_output->pos());
+    if (!screen) {
+        screen = qGuiApp->primaryScreen();
+    }
+
     if (KWindowSystem::isPlatformWayland()) {
         auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
         layerWindow->setScope(QStringLiteral("on-screen-display"));
         layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
         layerWindow->setAnchors({});
-        layerWindow->setDesiredOutput(qGuiApp->screenAt(m_output->pos()));
+        m_osdActionSelector->setScreen(screen);
     } else {
         auto newGeometry = m_osdActionSelector->geometry();
-        auto screen = qGuiApp->screenAt(m_output->pos());
-        newGeometry.moveCenter(screen ? screen->geometry().center() : qGuiApp->primaryScreen()->geometry().center());
+        newGeometry.moveCenter(screen->geometry().center());
         m_osdActionSelector->setGeometry(newGeometry);
         KWindowSystem::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
         KWindowSystem::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
