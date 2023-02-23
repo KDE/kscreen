@@ -45,7 +45,7 @@ Kirigami.FormLayout {
         }
 
         KCM.ContextualHelpButton {
-            toolTipText: xi18nc("@info", "This determines which screen your main desktop and panel appear on. Some older games also use it to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
+            toolTipText: xi18nc("@info", "This determines which screen your main desktop appears on, along with any Plasma Panels in it. Some older games also use this setting to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
         }
     }
 
