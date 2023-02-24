@@ -7,8 +7,6 @@ set(kscreenapplet_SRCS
 
 add_library(plasma_applet_kscreen MODULE ${kscreenapplet_SRCS})
 
-kcoreaddons_desktop_to_json(plasma_applet_kscreen package/metadata.desktop)
-
 target_link_libraries(plasma_applet_kscreen
                       Qt::Qml
                       Qt::DBus
