@@ -6,9 +6,9 @@ target_sources(kscreen_osd_service PRIVATE ${DBUS_SRC})
 target_link_libraries(kscreen_osd_service PRIVATE
     Qt::DBus
     Qt::Quick
-    KF5::I18n
-    KF5::WindowSystem
-    KF5::Screen
+    KF6::I18n
+    KF6::WindowSystem
+    KF6::Screen
     LayerShellQt::Interface
 )
 

@@ -11,7 +11,7 @@ add_executable(osdtest main.cpp
 
 target_link_libraries(osdtest Qt::Core
                               Qt::DBus
-                              KF5::I18n
+                              KF6::I18n
 )
 
 add_test(NAME kscreen-kded-osdtest COMMAND osdtest)

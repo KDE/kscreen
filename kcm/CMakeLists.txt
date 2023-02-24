@@ -29,13 +29,13 @@ kcmutils_generate_desktop_file(kcm_kscreen)
 target_link_libraries(kcm_kscreen
     Qt::DBus
     Qt::Sensors
-    KF5::ConfigGui
-    KF5::CoreAddons
-    KF5::Declarative
-    KF5::I18n
-    KF5::PlasmaQuick
-    KF5::QuickAddons
-    KF5::Screen
+    KF6::ConfigGui
+    KF6::CoreAddons
+    KF6::Declarative
+    KF6::I18n
+    KF6::PlasmaQuick
+    KF6::QuickAddons
+    KF6::Screen
 )
 
 kpackage_install_package(package kcm_kscreen kcms)

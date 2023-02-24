@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
-kcoreaddons_add_plugin(kscreen INSTALL_NAMESPACE "kf5/kded")
+kcoreaddons_add_plugin(kscreen INSTALL_NAMESPACE "kf6/kded")
 
 target_sources(kscreen PRIVATE
     daemon.cpp
@@ -36,22 +36,17 @@ target_link_libraries(kscreen PRIVATE
                               Qt::DBus
                               Qt::Quick
                               Qt::Sensors
-                              KF5::Declarative
-                              KF5::Screen
-                              KF5::DBusAddons
-                              KF5::I18n
-                              KF5::XmlGui
-                              KF5::GlobalAccel
-                              KF5::ScreenDpms
+                              KF6::Declarative
+                              KF6::Screen
+                              KF6::DBusAddons
+                              KF6::I18n
+                              KF6::XmlGui
+                              KF6::GlobalAccel
+                              KF6::ScreenDpms
 )
 
 if(X11_FOUND)
-    target_link_libraries(kscreen PRIVATE X11::X11 X11::Xi X11::XCB XCB::ATOM)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        target_link_libraries(kscreen PRIVATE Qt5::X11Extras)
-    else()
-        target_link_libraries(kscreen PRIVATE Qt::GuiPrivate)
-    endif()
+    target_link_libraries(kscreen PRIVATE Qt::GuiPrivate X11::X11 X11::Xi X11::XCB XCB::ATOM)
 endif()
 
 
