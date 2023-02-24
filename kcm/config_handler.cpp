@@ -181,30 +181,16 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
 
 QSize ConfigHandler::screenSize() const
 {
-    int width = 0, height = 0;
-    QSize size;
+    QRect boundingRect;
 
     const auto connectedOutputs = m_config->connectedOutputs();
     for (const auto &output : connectedOutputs) {
-        if (!output->isPositionable()) {
-            continue;
+        if (output->isPositionable()) {
+            boundingRect |= output->geometry();
         }
-        const int outputRight = output->geometry().right();
-        const int outputBottom = output->geometry().bottom();
+    }
 
-        if (outputRight > width) {
-            width = outputRight;
-        }
-        if (outputBottom > height) {
-            height = outputBottom;
-        }
-    }
-    if (width > 0 && height > 0) {
-        size = QSize(width, height);
-    } else {
-        size = QSize();
-    }
-    return size;
+    return boundingRect.size();
 }
 
 QSize ConfigHandler::normalizeScreen()
