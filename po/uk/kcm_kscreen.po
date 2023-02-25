@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2022-12-17 08:26+0200\n"
+"PO-Revision-Date: 2023-02-24 08:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -184,12 +184,7 @@ msgid "Change Screen Priorities…"
 msgstr "Змінити пріоритетність екрана…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -198,9 +193,9 @@ msgid ""
 "or other windows appear on."
 msgstr ""
 "Цей параметр визначає, на якому екрані буде показано основну стільницю та "
-"панель. У деяких застарілих іграх його використовують для визначення, на "
-"якому екрані слід показувати зображення.<nl/><nl/>Він не впливає на те, на "
-"якому екрані буде показано сповіщення та інші вікна."
+"усі панелі Плазми на ній. У деяких застарілих іграх його використовують для "
+"визначення, на якому екрані слід показувати зображення.<nl/><nl/>Він не "
+"впливає на те, на якому екрані буде показано сповіщення та інші вікна."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format

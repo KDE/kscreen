@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020, 2021, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2022-12-17 11:38+0100\n"
+"PO-Revision-Date: 2023-02-24 11:58+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -179,12 +179,7 @@ msgid "Change Screen Priorities…"
 msgstr "Schermprioriteiten wijzigen…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -192,10 +187,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Dit bepaalt op welk scherm uw hoofdbureaublad en paneel verschijnen. Enige "
-"oudere spellen gebruiken het ook om te bepalen op welk scherm te "
-"verschijnen<nl/><nl/>Het heeft geen effect op welk scherm meldingen of "
-"andere vensters verschijnen."
+"Dit bepaalt op welk scherm uw hoofdbureaublad verschijnt, samen met elk "
+"Plasma paneel er op. Enige oudere spellen gebruiken deze instelling ook om "
+"te bepalen op welk scherm te verschijnen<nl/><nl/>Het heeft geen effect op "
+"welk scherm meldingen of andere vensters verschijnen."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format

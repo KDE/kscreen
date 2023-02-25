@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Automatically generated, 2015.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2022-12-17 19:04+0100\n"
+"PO-Revision-Date: 2023-02-24 14:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -182,12 +182,7 @@ msgid "Change Screen Priorities…"
 msgstr "Cambiar prioridades de la pantalla..."
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -195,10 +190,11 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Esto determina la pantalla en la que se muestra el escritorio principal y el "
-"panel. Algunos juegos antiguos también lo usan para decidir en qué pantalla "
-"se muestran.<nl/><nl/>No tiene efecto sobre la pantalla en la que aparecen "
-"las notificaciones y otras ventanas."
+"Esto determina la pantalla en la que se muestra el escritorio principal "
+"junto con los paneles de Plasma que contenga. Algunos juegos antiguos "
+"también usan esta preferencia para decidir en qué pantalla se muestran.<nl/"
+"><nl/>No tiene efecto sobre la pantalla en la que aparecen las "
+"notificaciones y otras ventanas."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format

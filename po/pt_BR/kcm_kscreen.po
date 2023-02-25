@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2023-02-14 10:07-0300\n"
+"PO-Revision-Date: 2023-02-24 16:41-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -182,12 +182,7 @@ msgid "Change Screen Priorities…"
 msgstr "Alterar prioridades da tela..."
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -195,10 +190,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Isto determina em qual tela sua área de trabalho principal e painel "
-"aparecem. Alguns jogos antigos também o usam para decidir em qual tela "
-"aparecer.<nl/><nl/>Não tem efeito sobre as notificações de tela ou outras "
-"janelas que aparecem."
+"Isto determina em qual tela sua área de trabalho principal aparece, junto "
+"com qualquer painel do Plasma nele. Alguns jogos antigos também usam esta "
+"configuração para decidir em qual tela aparecer.<nl/><nl/>Não tem efeito "
+"sobre as notificações de tela ou outras janelas que aparecem."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
