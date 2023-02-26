@@ -4,11 +4,26 @@
         "Authors": [
             {
                 "Email": "kde@broulik.de",
-                "Name": "Kai Uwe Broulik"
+                "Name": "Kai Uwe Broulik",
+                "Name[bg]": "Kai Uwe Broulik",
+                "Name[ca]": "Kai Uwe Broulik",
+                "Name[es]": "Kai Uwe Broulik",
+                "Name[nl]": "Kai Uwe Broulik",
+                "Name[pt]": "Kai Uwe Broulik",
+                "Name[tr]": "Kai Uwe Broulik",
+                "Name[uk]": "Kai Uwe Broulik",
+                "Name[x-test]": "xxKai Uwe Broulikxx"
             }
         ],
         "Category": "Utilities",
         "Description": "Quickly switch between screen layouts and presentation mode",
+        "Description[bg]": "Бързо превключване между оформления на екрана и режим на презентация",
+        "Description[ca]": "Canvia ràpidament les disposicions de la pantalla i el mode de presentació",
+        "Description[es]": "Cambiar rápidamente entre distribuciones de pantallas y modo de presentación",
+        "Description[nl]": "Snel wisselen tussen schermindelingen en presentatiemodus",
+        "Description[tr]": "Ekran yerleşimleri ve sunum kipi arasında hızlıca geçiş yap",
+        "Description[uk]": "Швидке перемикання між компонуваннями екрана та режимом презентації",
+        "Description[x-test]": "xxQuickly switch between screen layouts and presentation modexx",
         "EnabledByDefault": true,
         "Icon": "preferences-desktop-display-randr",
         "Id": "org.kde.kscreen",
