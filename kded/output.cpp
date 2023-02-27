@@ -27,15 +27,6 @@ QString Output::dirPath()
     return Globals::dirPath() % s_dirName;
 }
 
-QString Output::globalFileName(const QString &hash)
-{
-    const auto dir = dirPath();
-    if (!QDir().mkpath(dir)) {
-        return QString();
-    }
-    return dir % hash;
-}
-
 static Output::GlobalConfig fromInfo(const KScreen::OutputPtr output, const QVariantMap &info)
 {
     Output::GlobalConfig config;
@@ -116,19 +107,26 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
 
 QVariantMap Output::getGlobalData(KScreen::OutputPtr output)
 {
-    QString fileName = Globals::findFile(s_dirName % output->hashMd5());
-    if (fileName.isEmpty()) {
-        qCDebug(KSCREEN_KDED) << "No file for" << s_dirName % output->hashMd5();
-        return QVariantMap();
+    const auto tryFile = [output](const auto &name) {
+        QString fileName = Globals::findFile(name);
+        if (fileName.isEmpty()) {
+            qCDebug(KSCREEN_KDED) << "No file for" << name;
+            return QVariantMap();
+        }
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            qCDebug(KSCREEN_KDED) << "Failed to open file" << file.fileName();
+            return QVariantMap();
+        }
+        qCDebug(KSCREEN_KDED) << "Found global data at" << file.fileName();
+        QJsonDocument parser;
+        return parser.fromJson(file.readAll()).toVariant().toMap();
+    };
+    auto specific = tryFile(s_dirName % output->hashMd5() % output->name());
+    if (!specific.isEmpty()) {
+        return specific;
     }
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qCDebug(KSCREEN_KDED) << "Failed to open file" << file.fileName();
-        return QVariantMap();
-    }
-    qCDebug(KSCREEN_KDED) << "Found global data at" << file.fileName();
-    QJsonDocument parser;
-    return parser.fromJson(file.readAll()).toVariant().toMap();
+    return tryFile(s_dirName % output->hashMd5());
 }
 
 bool Output::readInGlobal(KScreen::OutputPtr output)
@@ -484,7 +482,7 @@ bool Output::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info
     return true;
 }
 
-void Output::writeGlobal(const KScreen::OutputPtr &output)
+void Output::writeGlobal(const KScreen::OutputPtr &output, bool hasDuplicate)
 {
     // get old values and subsequently override
     QVariantMap info = getGlobalData(output);
@@ -492,7 +490,15 @@ void Output::writeGlobal(const KScreen::OutputPtr &output)
         return;
     }
 
-    QFile file(globalFileName(output->hashMd5()));
+    if (!QDir().mkpath(dirPath())) {
+        return;
+    }
+    QString fileName = dirPath() % output->hashMd5() % output->name();
+    if (!hasDuplicate && !QFile(fileName).exists()) {
+        // connector-specific file doesn't exist yet, use the non-specific one instead
+        fileName = dirPath() % output->hashMd5();
+    }
+    QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
         qCWarning(KSCREEN_KDED) << "Failed to open global output file for writing! " << file.errorString();
         return;
