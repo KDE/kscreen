@@ -229,6 +229,12 @@ bool Config::writeFile(const QString &filePath)
         oldOutputs = oldConfig->data()->outputs();
     }
 
+    const auto hasDuplicate = [&outputs](const auto output) {
+        return std::any_of(outputs.begin(), outputs.end(), [output](const auto &o) {
+            return o != output && o->hashMd5() == output->hashMd5();
+        });
+    };
+
     QVariantList outputList;
     for (const KScreen::OutputPtr &output : outputs) {
         QVariantMap info;
@@ -260,7 +266,7 @@ bool Config::writeFile(const QString &filePath)
 
         if (output->isEnabled() && m_control->getOutputRetention(output->hash(), output->name()) != Control::OutputRetention::Individual) {
             // try to update global output data
-            Output::writeGlobal(output);
+            Output::writeGlobal(output, hasDuplicate(output));
         }
 
         outputList.append(info);

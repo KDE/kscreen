@@ -23,7 +23,7 @@ class Output
 public:
     static void readInOutputs(KScreen::ConfigPtr config, const QVariantList &outputsInfo);
 
-    static void writeGlobal(const KScreen::OutputPtr &output);
+    static void writeGlobal(const KScreen::OutputPtr &output, bool hasDuplicate);
     static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info, const KScreen::OutputPtr &fallback);
 
     static QString dirPath();
@@ -41,7 +41,6 @@ public:
     static GlobalConfig readGlobal(const KScreen::OutputPtr &output);
 
 private:
-    static QString globalFileName(const QString &hash);
     static QVariantMap getGlobalData(KScreen::OutputPtr output);
 
     static void readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention);

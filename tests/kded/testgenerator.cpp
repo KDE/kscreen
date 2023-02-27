@@ -550,7 +550,7 @@ void testScreenConfig::globalOutputData()
     output->setCurrentModeId(QStringLiteral("2"));
     output->setRotation(KScreen::Output::Left);
     output->setScale(2.0);
-    ::Output::writeGlobal(output);
+    ::Output::writeGlobal(output, false);
 
     config = Generator::self()->idealConfig(currentConfig);
     output = config->connectedOutputs().first();
@@ -588,7 +588,7 @@ void testScreenConfig::outputPreset()
     presetOutput->setCurrentModeId(QStringLiteral("2"));
     presetOutput->setRotation(KScreen::Output::Left);
     presetOutput->setScale(2.0);
-    ::Output::writeGlobal(presetOutput);
+    ::Output::writeGlobal(presetOutput, false);
     QDir(dataDir.path()).mkpath(QStringLiteral("kscreen/outputs"));
     QFile::copy(::Output::dirPath() + presetOutput->hashMd5(), dataDir.filePath(QStringLiteral("kscreen/outputs/") % presetOutput->hashMd5()));
     QFile::remove(::Output::dirPath() + presetOutput->hashMd5());
@@ -600,7 +600,7 @@ void testScreenConfig::outputPreset()
     QCOMPARE(output->scale(), 2.0);
 
     // But local global settings should still overwrite
-    ::Output::writeGlobal(defaultOutput);
+    ::Output::writeGlobal(defaultOutput, false);
     config = Generator::self()->idealConfig(currentConfig);
     output = config->connectedOutputs().first();
     QCOMPARE(output->currentModeId(), QLatin1String("3"));
