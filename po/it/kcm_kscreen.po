@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2013, 2014, 2015, 2018, 2019, 2020, 2021, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2013, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2022-12-18 10:18+0100\n"
+"PO-Revision-Date: 2023-02-25 00:15+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -178,12 +178,7 @@ msgid "Change Screen Priorities…"
 msgstr "Cambia le priorità dello schermo..."
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -192,9 +187,10 @@ msgid ""
 "or other windows appear on."
 msgstr ""
 "Questo determina su quale schermo vengono visualizzati il desktop principale "
-"e il pannello. Alcuni giochi meno recenti lo usano anche per decidere su "
-"quale schermo apparire.<nl/><nl/>Non ha effetto per la scelta dello schermo "
-"sul quale vengono visualizzate le notifiche o altre finestre."
+"e gli altri pannelli. Anche alcuni giochi meno recenti utilizzano questa "
+"impostazione per decidere su quale schermata apparire.<nl/><nl/>Non ha "
+"effetto per la scelta dello schermo sul quale vengono visualizzate le "
+"notifiche o altre finestre."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
