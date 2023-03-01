@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-01-16 03:40+0100\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2016-11-23 19:27+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,30 +18,6 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: daemon.cpp:94
+#: daemon.cpp:125
 msgid "Switch Display"
 msgstr "Promeni ekran"
-
-#: osdaction.cpp:49
-msgid "Switch to external screen"
-msgstr ""
-
-#: osdaction.cpp:50
-msgid "Switch to laptop screen"
-msgstr ""
-
-#: osdaction.cpp:51
-msgid "Unify outputs"
-msgstr ""
-
-#: osdaction.cpp:52
-msgid "Extend to left"
-msgstr ""
-
-#: osdaction.cpp:53
-msgid "Extend to right"
-msgstr ""
-
-#: osdaction.cpp:54
-msgid "Leave unchanged"
-msgstr ""

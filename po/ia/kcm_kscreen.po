@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2023-02-02 22:46+0100\n"
+"PO-Revision-Date: 2023-02-28 16:13+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -180,12 +180,7 @@ msgid "Change Screen Priorities…"
 msgstr "Cambia prioritates de schertmo..."
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -193,10 +188,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Istodetermina su qual schermo apparera tu scriptorio principal e pannello. "
-"Alcun veter jocos anque lo usa per decider sur qual schermo appare.<nl/><nl/"
-"> Il non ha alcun effecto sur qual schermo appare notificationes e altere "
-"fenestras."
+"Isto determina su qual schermo apparera tu scriptorio principal e pannello, "
+"con ulle Pannellos de Plasma in illo. Alcun veter jocos anque lo usa per "
+"decider sur qual schermo appare.<nl/><nl/> Il non ha alcun effecto sur qual "
+"schermo appare notificationes e altere fenestras."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
