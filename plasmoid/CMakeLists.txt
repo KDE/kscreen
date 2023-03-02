@@ -5,15 +5,15 @@ set(kscreenapplet_SRCS
     ../common/osdaction.cpp
 )
 
-add_library(plasma_applet_kscreen MODULE ${kscreenapplet_SRCS})
+add_library(org.kde.kscreen MODULE ${kscreenapplet_SRCS})
 
-target_link_libraries(plasma_applet_kscreen
+target_link_libraries(org.kde.kscreen
                       Qt::Qml
                       Qt::DBus
                       KF6::I18n
                       KF6::Plasma
                       KF6::Screen)
 
-install(TARGETS plasma_applet_kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/applets)
+install(TARGETS org.kde.kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/applets)
 
 plasma_install_package(package org.kde.kscreen)
