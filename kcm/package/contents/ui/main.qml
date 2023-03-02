@@ -38,7 +38,7 @@ KCM.SimpleKCM {
     Kirigami.OverlaySheet {
         id: confirmMsg
         title: i18n("Keep display configuration?")
-        onSheetOpenChanged: {
+        onVisibleChanged: {
             if (sheetOpen) {
                 revertButton.forceActiveFocus()
             } else {
