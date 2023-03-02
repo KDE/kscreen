@@ -38,11 +38,11 @@ Item {
         engine: "powermanagement"
         connectedSources: ["PowerDevil", "Inhibitions"]
 
-        onSourceAdded: {
+        onSourceAdded: source => {
             disconnectSource(source);
             connectSource(source);
         }
-        onSourceRemoved: {
+        onSourceRemoved: source => {
             disconnectSource(source);
         }
 
