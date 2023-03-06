@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2018, 2021.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2018, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 11:31+0000\n"
-"PO-Revision-Date: 2021-11-13 08:57+0100\n"
+"PO-Revision-Date: 2023-03-05 08:36+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: package/contents/ui/main.qml:22
 #, kde-format
@@ -42,8 +42,7 @@ msgstr "Tryb prezentacji włączony przez użytkownika"
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
-msgstr ""
-"Będzie to przeciwdziałać samoczynnemu wyłączeniu się komputera i ekranu."
+msgstr "Po zaznaczeniu twój ekran i komputer nie będą się same wyłączać."
 
 #: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
