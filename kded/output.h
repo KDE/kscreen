@@ -42,7 +42,7 @@ public:
 private:
     static QVariantMap getGlobalData(KScreen::OutputPtr output);
 
-    static void readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention);
+    static void readIn(KScreen::OutputPtr output, const QVariantMap &info);
     static bool readInGlobal(KScreen::OutputPtr output);
     static void readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantMap &info);
     /*

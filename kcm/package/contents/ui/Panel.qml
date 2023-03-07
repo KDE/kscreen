@@ -172,31 +172,5 @@ ColumnLayout {
             visible: false
             showCloseButton: true
         }
-
-        QQC2.ButtonGroup {
-            buttons: retentionSelector.children
-        }
-
-        ColumnLayout {
-            id: retentionSelector
-
-            Kirigami.FormData.label: i18n("Save displays' properties:")
-            Kirigami.FormData.buddyFor: globalRetentionRadio
-            spacing: Kirigami.Units.smallSpacing
-
-            QQC2.RadioButton {
-                id: globalRetentionRadio
-                text: i18n("For any display arrangement")
-                checked: !individualRetentionRadio.checked
-                onToggled: kcm.outputRetention = KScreen.Control.Global
-            }
-
-            QQC2.RadioButton {
-                id: individualRetentionRadio
-                text: i18n("For only this specific display arrangement")
-                checked: kcm.outputRetention === KScreen.Control.Individual
-                onToggled: kcm.outputRetention = KScreen.Control.Individual
-            }
-        }
     }
 }

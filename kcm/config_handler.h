@@ -45,9 +45,6 @@ public:
         m_config = (m_previousConfig ? m_previousConfig : m_initialConfig)->clone();
     }
 
-    int retention() const;
-    void setRetention(int retention);
-
     KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
@@ -75,13 +72,11 @@ Q_SIGNALS:
     void changed();
     void screenNormalizationUpdate(bool normalized);
     void needsSaveChecked(bool need);
-    void retentionChanged();
     void outputConnect(bool connected);
 
 private:
     void checkScreenNormalization();
     QSize screenSize() const;
-    Control::OutputRetention getRetention() const;
     void outputPrioritiesChanged();
     void initOutput(const KScreen::OutputPtr &output);
     /**
@@ -100,6 +95,5 @@ private:
 
     std::unique_ptr<ControlConfig> m_control;
     std::unique_ptr<ControlConfig> m_initialControl;
-    Control::OutputRetention m_initialRetention = Control::OutputRetention::Undefined;
     QSize m_lastNormalizedScreenSize;
 };

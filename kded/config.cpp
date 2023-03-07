@@ -264,7 +264,7 @@ bool Config::writeFile(const QString &filePath)
         };
         setOutputConfigInfo(output->isEnabled() ? output : oldOutput);
 
-        if (output->isEnabled() && m_control->getOutputRetention(output->hash(), output->name()) != Control::OutputRetention::Individual) {
+        if (output->isEnabled()) {
             // try to update global output data
             Output::writeGlobal(output, hasDuplicate(output));
         }

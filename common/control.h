@@ -18,13 +18,6 @@ class Control : public QObject
 {
     Q_OBJECT
 public:
-    enum class OutputRetention {
-        Undefined = -1,
-        Global = 0,
-        Individual = 1,
-    };
-    Q_ENUM(OutputRetention)
-
     explicit Control(QObject *parent = nullptr);
 
     ~Control() override = default;
@@ -44,8 +37,6 @@ protected:
     const QVariantMap &constInfo() const;
     KDirWatch *watcher() const;
 
-    static OutputRetention convertVariantToOutputRetention(QVariant variant);
-
 private:
     static QString s_dirName;
     QVariantMap m_info;
@@ -59,11 +50,6 @@ class ControlConfig : public Control
     Q_OBJECT
 public:
     explicit ControlConfig(KScreen::ConfigPtr config, QObject *parent = nullptr);
-
-    OutputRetention getOutputRetention(const KScreen::OutputPtr &output) const;
-    OutputRetention getOutputRetention(const QString &outputId, const QString &outputName) const;
-    void setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value);
-    void setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value);
 
     qreal getScale(const KScreen::OutputPtr &output) const;
     void setScale(const KScreen::OutputPtr &output, qreal value);
@@ -99,7 +85,7 @@ private:
     ControlOutput *getOutputControl(const QString &outputId, const QString &outputName) const;
 
     template<typename T, typename F>
-    T get(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, T defaultValue) const;
+    T get(const KScreen::OutputPtr &output, F globalRetentionFunc, T defaultValue) const;
     template<typename T, typename F, typename V>
     void set(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, V value);
 

@@ -45,10 +45,6 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     }
     m_lastNormalizedScreenSize = screenSize();
 
-    // TODO: put this into m_initialControl
-    m_initialRetention = getRetention();
-    Q_EMIT retentionChanged();
-
     connect(m_outputModel, &OutputModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles) {
         Q_UNUSED(bottomRight)
         // Do not run checks during interactive reaarange
@@ -83,7 +79,6 @@ void ConfigHandler::initOutput(const KScreen::OutputPtr &output)
 void ConfigHandler::updateInitialData()
 {
     m_previousConfig = m_initialConfig->clone();
-    m_initialRetention = getRetention();
     connect(new GetConfigOperation(), &GetConfigOperation::finished, this, [this](ConfigOperation *op) {
         if (op->hasError()) {
             return;
@@ -102,10 +97,6 @@ bool ConfigHandler::shouldTestNewSettings()
 void ConfigHandler::checkNeedsSave()
 {
     if (checkPrioritiesNeedSave()) {
-        Q_EMIT needsSaveChecked(true);
-        return;
-    }
-    if (m_initialRetention != getRetention()) {
         Q_EMIT needsSaveChecked(true);
         return;
     }
@@ -231,65 +222,6 @@ void ConfigHandler::checkScreenNormalization()
 void ConfigHandler::outputPrioritiesChanged()
 {
     checkNeedsSave();
-    Q_EMIT changed();
-}
-
-Control::OutputRetention ConfigHandler::getRetention() const
-{
-    using Retention = Control::OutputRetention;
-
-    auto ret = Retention::Undefined;
-    if (!m_control) {
-        return ret;
-    }
-    const auto outputs = m_config->connectedOutputs();
-    if (outputs.isEmpty()) {
-        return ret;
-    }
-    ret = m_control->getOutputRetention(outputs.first());
-
-    for (const auto &output : outputs) {
-        const auto outputRet = m_control->getOutputRetention(output);
-        if (ret != outputRet) {
-            // Control file with different retention values per output.
-            return Retention::Undefined;
-        }
-    }
-
-    if (ret == Retention::Undefined) {
-        // If all outputs have undefined retention,
-        // this should be displayed as global retention.
-        return Retention::Global;
-    }
-    return ret;
-}
-
-int ConfigHandler::retention() const
-{
-    return static_cast<int>(getRetention());
-}
-
-void ConfigHandler::setRetention(int retention)
-{
-    using Retention = Control::OutputRetention;
-
-    if (!m_control) {
-        return;
-    }
-    if (retention != static_cast<int>(Retention::Global) && retention != static_cast<int>(Retention::Individual)) {
-        // We only allow setting to global or individual retention.
-        return;
-    }
-    if (retention == ConfigHandler::retention()) {
-        return;
-    }
-    auto ret = static_cast<Retention>(retention);
-    const auto connectedOutputs = m_config->connectedOutputs();
-    for (const auto &output : connectedOutputs) {
-        m_control->setOutputRetention(output, ret);
-    }
-    checkNeedsSave();
-    Q_EMIT retentionChanged();
     Q_EMIT changed();
 }
 

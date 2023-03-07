@@ -324,18 +324,18 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
     }
 }
 
-void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info, Control::OutputRetention retention)
+void Output::readIn(KScreen::OutputPtr output, const QVariantMap &info)
 {
     const QVariantMap posInfo = info[QStringLiteral("pos")].toMap();
     QPoint point(posInfo[QStringLiteral("x")].toInt(), posInfo[QStringLiteral("y")].toInt());
     output->setPos(point);
     output->setEnabled(info[QStringLiteral("enabled")].toBool());
 
-    if (retention != Control::OutputRetention::Individual && readInGlobal(output)) {
+    if (readInGlobal(output)) {
         // output data read from global output file
         return;
     }
-    // output data read directly from info
+    // if global data isn't available, use per-output-setup data as a fallback
     readInGlobalPartFromInfo(output, info);
 }
 
@@ -387,7 +387,7 @@ void Output::readInOutputs(KScreen::ConfigPtr config, const QVariantList &output
                 }
             }
             infoFound = true;
-            readIn(output, info, control.getOutputRetention(output));
+            readIn(output, info);
 
             // the deprecated "primary" property may exist for compatibility, but "priority" should override it whenever present.
             uint32_t priority = 0;

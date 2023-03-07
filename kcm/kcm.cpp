@@ -38,7 +38,6 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
 {
     qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
-    qmlRegisterUncreatableType<Control>("org.kde.private.kcm.kscreen", 1, 0, "Control", QStringLiteral("Provides only the OutputRetention enum class"));
     qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
     Log::instance();
 
@@ -334,7 +333,6 @@ void KCMKScreen::load()
         m_loadCompressor->start();
     });
     connect(m_configHandler.get(), &ConfigHandler::screenNormalizationUpdate, this, &KCMKScreen::setScreenNormalized);
-    connect(m_configHandler.get(), &ConfigHandler::retentionChanged, this, &KCMKScreen::outputRetentionChanged);
 
     // This is a queued connection so that we can fire the event from
     // within the save() call in case it failed.
@@ -482,22 +480,6 @@ bool KCMKScreen::xwaylandClientsScaleSupported() const
         return false;
     }
     return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
-}
-
-int KCMKScreen::outputRetention() const
-{
-    if (!m_configHandler) {
-        return -1;
-    }
-    return m_configHandler->retention();
-}
-
-void KCMKScreen::setOutputRetention(int retention)
-{
-    if (!m_configHandler) {
-        return;
-    }
-    m_configHandler->setRetention(retention);
 }
 
 #include "kcm.moc"

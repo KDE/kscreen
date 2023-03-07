@@ -30,7 +30,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
-    Q_PROPERTY(int outputRetention READ outputRetention WRITE setOutputRetention NOTIFY outputRetentionChanged)
     Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported NOTIFY autoRotationSupportedChanged)
     Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable NOTIFY orientationSensorAvailableChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
@@ -72,9 +71,6 @@ public:
     void setXwaylandClientsScale(bool scale);
     bool xwaylandClientsScaleSupported() const;
 
-    int outputRetention() const;
-    void setOutputRetention(int retention);
-
     bool autoRotationSupported() const;
     bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
@@ -96,7 +92,6 @@ Q_SIGNALS:
     void primaryOutputSupportedChanged();
     void outputReplicationSupportedChanged();
     void globalScaleChanged();
-    void outputRetentionChanged();
     void autoRotationSupportedChanged();
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();

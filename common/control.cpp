@@ -16,7 +16,6 @@
 #include <kscreen/config.h>
 
 // clang-format off
-#define retentionString                 QStringLiteral("retention")
 #define nameString                      QStringLiteral("name")
 #define scaleString                     QStringLiteral("scale")
 #define metadataString                  QStringLiteral("metadata")
@@ -114,20 +113,6 @@ const QVariantMap &Control::constInfo() const
     return m_info;
 }
 
-Control::OutputRetention Control::convertVariantToOutputRetention(QVariant variant)
-{
-    if (variant.canConvert<int>()) {
-        const auto retention = variant.toInt();
-        if (retention == (int)OutputRetention::Global) {
-            return OutputRetention::Global;
-        }
-        if (retention == (int)OutputRetention::Individual) {
-            return OutputRetention::Individual;
-        }
-    }
-    return OutputRetention::Undefined;
-}
-
 ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
     : Control(parent)
     , m_config(config)
@@ -190,9 +175,6 @@ bool ControlConfig::writeFile()
 {
     bool success = true;
     for (auto *outputControl : qAsConst(m_outputsControls)) {
-        if (getOutputRetention(outputControl->id(), outputControl->name()) == OutputRetention::Individual) {
-            continue;
-        }
         success &= outputControl->writeFile();
     }
     return success && Control::writeFile();
@@ -221,25 +203,6 @@ bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputI
     return true;
 }
 
-Control::OutputRetention ControlConfig::getOutputRetention(const KScreen::OutputPtr &output) const
-{
-    return getOutputRetention(output->hashMd5(), output->name());
-}
-
-Control::OutputRetention ControlConfig::getOutputRetention(const QString &outputId, const QString &outputName) const
-{
-    const QVariantList outputsInfo = getOutputs();
-    for (const auto &variantInfo : outputsInfo) {
-        const QVariantMap info = variantInfo.toMap();
-        if (!infoIsOutput(info, outputId, outputName)) {
-            continue;
-        }
-        return convertVariantToOutputRetention(info[retentionString]);
-    }
-    // info for output not found
-    return OutputRetention::Undefined;
-}
-
 static QVariantMap metadata(const QString &outputName)
 {
     QVariantMap metadata;
@@ -255,62 +218,14 @@ QVariantMap createOutputInfo(const QString &outputId, const QString &outputName)
     return outputInfo;
 }
 
-void ControlConfig::setOutputRetention(const KScreen::OutputPtr &output, OutputRetention value)
-{
-    setOutputRetention(output->hashMd5(), output->name(), value);
-}
-
-void ControlConfig::setOutputRetention(const QString &outputId, const QString &outputName, OutputRetention value)
-{
-    QList<QVariant>::iterator it;
-    QVariantList outputsInfo = getOutputs();
-
-    for (it = outputsInfo.begin(); it != outputsInfo.end(); ++it) {
-        QVariantMap outputInfo = (*it).toMap();
-        if (!infoIsOutput(outputInfo, outputId, outputName)) {
-            continue;
-        }
-        outputInfo[retentionString] = (int)value;
-        *it = outputInfo;
-        setOutputs(outputsInfo);
-        return;
-    }
-    // no entry yet, create one
-    auto outputInfo = createOutputInfo(outputId, outputName);
-    outputInfo[retentionString] = (int)value;
-
-    outputsInfo << outputInfo;
-    setOutputs(outputsInfo);
-}
-
 template<typename T, typename F>
-T ControlConfig::get(const KScreen::OutputPtr &output, const QString &name, F globalRetentionFunc, T defaultValue) const
+T ControlConfig::get(const KScreen::OutputPtr &output, F globalRetentionFunc, T defaultValue) const
 {
-    const auto &outputId = output->hashMd5();
-    const auto &outputName = output->name();
-    const auto retention = getOutputRetention(outputId, outputName);
-    if (retention == OutputRetention::Individual) {
-        const QVariantList outputsInfo = getOutputs();
-        for (const auto &variantInfo : outputsInfo) {
-            const QVariantMap info = variantInfo.toMap();
-            if (!infoIsOutput(info, outputId, outputName)) {
-                continue;
-            }
-            const auto val = info[name];
-            if (val.template canConvert<T>()) {
-                return val.template value<T>();
-            } else {
-                return defaultValue;
-            }
-        }
-    }
-    // Retention is global or info for output not in config control file.
-    if (auto *outputControl = getOutputControl(outputId, outputName)) {
+    if (auto *outputControl = getOutputControl(output->hashMd5(), output->name())) {
         return (outputControl->*globalRetentionFunc)();
+    } else {
+        return defaultValue;
     }
-
-    // Info for output not found.
-    return defaultValue;
 }
 
 template<typename T, typename F, typename V>
@@ -347,7 +262,7 @@ void ControlConfig::set(const KScreen::OutputPtr &output, const QString &name, F
 
 bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
 {
-    return get(output, autorotateString, &ControlOutput::getAutoRotate, true);
+    return get(output, &ControlOutput::getAutoRotate, true);
 }
 
 void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
@@ -357,7 +272,7 @@ void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
 
 bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
 {
-    return get(output, autorotateTabletOnlyString, &ControlOutput::getAutoRotateOnlyInTabletMode, true);
+    return get(output, &ControlOutput::getAutoRotateOnlyInTabletMode, true);
 }
 
 void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value)
@@ -425,7 +340,7 @@ void ControlConfig::setReplicationSource(const KScreen::OutputPtr &output, const
 
 uint32_t ControlConfig::getOverscan(const KScreen::OutputPtr &output) const
 {
-    return get(output, overscanString, &ControlOutput::overscan, 0);
+    return get(output, &ControlOutput::overscan, 0);
 }
 
 void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t value)
@@ -435,7 +350,7 @@ void ControlConfig::setOverscan(const KScreen::OutputPtr &output, const uint32_t
 
 KScreen::Output::VrrPolicy ControlConfig::getVrrPolicy(const KScreen::OutputPtr &output) const
 {
-    return get(output, vrrPolicyString, &ControlOutput::vrrPolicy, KScreen::Output::VrrPolicy::Automatic);
+    return get(output, &ControlOutput::vrrPolicy, KScreen::Output::VrrPolicy::Automatic);
 }
 
 void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen::Output::VrrPolicy value)
@@ -445,7 +360,7 @@ void ControlConfig::setVrrPolicy(const KScreen::OutputPtr &output, const KScreen
 
 KScreen::Output::RgbRange ControlConfig::getRgbRange(const KScreen::OutputPtr &output) const
 {
-    return get(output, rgbRangeString, &ControlOutput::rgbRange, KScreen::Output::RgbRange::Automatic);
+    return get(output, &ControlOutput::rgbRange, KScreen::Output::RgbRange::Automatic);
 }
 
 void ControlConfig::setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value)
