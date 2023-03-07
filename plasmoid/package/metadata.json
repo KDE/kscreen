@@ -24,7 +24,8 @@
                 "Name[sl]": "Kai Uwe Broulik",
                 "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
-                "Name[x-test]": "xxKai Uwe Broulikxx"
+                "Name[x-test]": "xxKai Uwe Broulikxx",
+                "Name[zh_TW]": "Kai Uwe Broulik"
             }
         ],
         "Category": "Utilities",
@@ -48,6 +49,7 @@
         "Description[tr]": "Ekran yerleşimleri ve sunum kipi arasında hızlıca geçiş yap",
         "Description[uk]": "Швидке перемикання між компонуваннями екрана та режимом презентації",
         "Description[x-test]": "xxQuickly switch between screen layouts and presentation modexx",
+        "Description[zh_TW]": "快速切換螢幕佈局以及簡報模式",
         "EnabledByDefault": true,
         "Icon": "preferences-desktop-display-randr",
         "Id": "org.kde.kscreen",
