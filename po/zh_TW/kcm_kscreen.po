@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2023-02-18 01:29+0900\n"
+"PO-Revision-Date: 2023-03-06 20:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,12 +176,7 @@ msgid "Change Screen Priorities…"
 msgstr "變更螢幕優先值…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -189,8 +184,9 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"這會決定您的主桌面和面板會放在哪個螢幕上。有些比較舊的遊戲也用它來決定要出現"
-"在哪個螢幕上。<nl/><nl/>它不影響通知或是其他視窗會出現在哪個螢幕上。"
+"這會決定您的主桌面會放在哪個螢幕上，包含 Plasma 的面板。有些比較舊的遊戲也使"
+"用這個設定來決定要出現在哪個螢幕上。<nl/><nl/>它不影響通知或是其他視窗會出現"
+"在的螢幕。"
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
