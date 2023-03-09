@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:31+0000\n"
+"POT-Creation-Date: 2023-03-09 02:16+0000\n"
 "PO-Revision-Date: 2021-12-18 23:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,12 +18,12 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.07.70\n"
 
-#: package/contents/ui/main.qml:22
+#: package/contents/ui/main.qml:23
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "نمط العرض ممكن"
 
-#: package/contents/ui/main.qml:70
+#: package/contents/ui/main.qml:71
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "اضبط إعدادات العرض…"

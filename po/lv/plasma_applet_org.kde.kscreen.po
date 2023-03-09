@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:31+0000\n"
+"POT-Creation-Date: 2023-03-09 02:16+0000\n"
 "PO-Revision-Date: 2019-11-10 13:08+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 19.08.2\n"
 
-#: package/contents/ui/main.qml:22
+#: package/contents/ui/main.qml:23
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Ir ieslēgts prezentācijas režīms"
 
-#: package/contents/ui/main.qml:70
+#: package/contents/ui/main.qml:71
 #, fuzzy, kde-format
 #| msgctxt "Open the full display settings module"
 #| msgid "Advanced Display Settings"
