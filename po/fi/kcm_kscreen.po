@@ -1,20 +1,20 @@
 # KDE Finnish translation sprint participants:
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022.
-# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-24 01:00+0000\n"
-"PO-Revision-Date: 2022-10-30 16:57+0200\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2023-03-05 19:23+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-POT-Import-Date: 2013-01-13 21:18:05+0000\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: output_model.cpp:98
@@ -70,7 +70,7 @@ msgstr "P&alauta"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Kaikki näytöt on poistettu käytöstä. Ota vähintään yksi käyttöön."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -78,6 +78,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Näyttöjen välisiä aukkoja ei tueta. Varmista, että näytöt koskettavat "
+"toisiaan."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -100,14 +102,11 @@ msgid "Outputs could not be saved due to error."
 msgstr "Ulostuloja ei virheen takia voitu tallentaa."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Mittakaavaa on muutettu. Muutokset tulevat voimaan järjestelmän "
+"Yleismittakaavan muutokset tulevat voimaan järjestelmän "
 "uudelleenkäynnistyksen jälkeen."
 
 #: package/contents/ui/main.qml:197
@@ -124,7 +123,7 @@ msgstr "Näyttöasetus palautettu."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Muuta etusijaisuuksia"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -134,12 +133,12 @@ msgstr "Päänäyttö"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Nosta etusijaisuutta"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Laske etusijaisuutta"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -176,15 +175,10 @@ msgstr "Käytössä"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Muuta näyttöjen etusijaisuuksia…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -192,10 +186,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Asettaa, mille näytölle päätyöpöytäsi ja -paneelisi ilmestyvät. Vanhat pelit "
-"voivat käyttää tätä myös päättääkseen, mille näytölle avautuvat.<nl/><nl/"
-">Tällä ei ole vaikutusta näyttöön, jolle ilmoitukset tai muut ikkunat "
-"ilmestyvät."
+"Asettaa, mille näytölle päätyöpöytäsi mahdollisine Plasma-paneeleineen "
+"ilmestyy. Vanhat pelit voivat käyttää tätä myös päättääkseen, mille näytölle "
+"avautuvat.<nl/><nl/>Tällä ei ole vaikutusta näyttöön, jolle ilmoitukset tai "
+"muut ikkunat ilmestyvät."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
