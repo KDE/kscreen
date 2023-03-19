@@ -29,7 +29,7 @@
 #include <QDBusPendingReply>
 #include <QTimer>
 
-K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", registerPlugin<KCMKScreen>();)
+K_PLUGIN_CLASS_WITH_JSON(KCMKScreen, "kcm_kscreen.json")
 
 using namespace KScreen;
 
