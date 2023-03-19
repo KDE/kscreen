@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <KQuickAddons/ManagedConfigModule>
+#include <KQuickManagedConfigModule>
 
 #include "output_model.h"
 
@@ -18,7 +18,7 @@ class ConfigHandler;
 class OrientationSensor;
 class OutputIdentifier;
 
-class KCMKScreen : public KQuickAddons::ManagedConfigModule
+class KCMKScreen : public KQuickManagedConfigModule
 {
     Q_OBJECT
 

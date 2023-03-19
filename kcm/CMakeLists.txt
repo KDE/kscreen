@@ -31,10 +31,9 @@ target_link_libraries(kcm_kscreen
     Qt::Sensors
     KF6::ConfigGui
     KF6::CoreAddons
-    KF6::Declarative
     KF6::I18n
     KF6::PlasmaQuick
-    KF6::QuickAddons
+    KF6::KCMUtilsQuick
     KF6::Screen
 )
 

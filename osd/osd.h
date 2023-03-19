@@ -18,11 +18,6 @@
 
 #include "../common/osdaction.h"
 
-namespace KDeclarative
-{
-class QmlObject;
-}
-
 class QQuickView;
 
 class QTimer;

@@ -35,7 +35,6 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Se
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
     DBusAddons
-    Declarative
     GlobalAccel
     I18n
     IconThemes

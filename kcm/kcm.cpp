@@ -34,7 +34,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KCMDisplayConfigurationFactory, "kcm_kscreen.json", r
 using namespace KScreen;
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KQuickAddons::ManagedConfigModule(parent, data, args)
+    : KQuickManagedConfigModule(parent, data, args)
 {
     qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
@@ -158,7 +158,7 @@ void KCMKScreen::doSave()
     }
 
     const bool globalScaleChanged = GlobalScaleSettings::self()->isSaveNeeded();
-    ManagedConfigModule::save();
+    KQuickManagedConfigModule::save();
     if (globalScaleChanged) {
         exportGlobalScale();
     }
@@ -303,7 +303,7 @@ void KCMKScreen::load()
 {
     qCDebug(KSCREEN_KCM) << "About to read in config.";
 
-    ManagedConfigModule::load();
+    KQuickManagedConfigModule::load();
 
     setBackendReady(false);
     m_configNeedsSave = false;
