@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-03-06 20:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -319,21 +319,6 @@ msgstr ""
 "全域縮放比例已限制成 6.25% 的倍數，以最小化使用 X11 視窗系統之應用程式中的畫"
 "面故障 (glitch) 問題。"
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "儲存顯示器的屬性："
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "用於任意顯示器排序"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "僅用於此指定顯示器排序"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -363,6 +348,15 @@ msgstr "拖曳螢幕以重新排列"
 #, kde-format
 msgid "Identify"
 msgstr "識別"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "儲存顯示器的屬性："
+
+#~ msgid "For any display arrangement"
+#~ msgstr "用於任意顯示器排序"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "僅用於此指定顯示器排序"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

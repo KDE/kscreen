@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2021-12-13 13:18+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -328,21 +328,6 @@ msgstr ""
 "kad būtų sumažintos vaizdinės triktys programose, kurios naudoja X11 langų "
 "sistemą."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Įrašyti ekranų savybes:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Bet kokio ekrano išdėstymui"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Tik šio konkretaus ekrano išdėstymui"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -372,6 +357,15 @@ msgstr "Tempkite ekranus norėdami juos pertvarkyti"
 #, kde-format
 msgid "Identify"
 msgstr "Identifikuoti"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Įrašyti ekranų savybes:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Bet kokio ekrano išdėstymui"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Tik šio konkretaus ekrano išdėstymui"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

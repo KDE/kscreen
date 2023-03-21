@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-12-18 10:38+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -337,21 +337,6 @@ msgstr ""
 "графическую подсистему X11, значение глобального масштаба должно быть кратно "
 "6.25%."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Сохранение параметров:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Для любого расположения экранов"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Только для заданного расположения экранов"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -381,6 +366,15 @@ msgstr "Перетаскивайте экраны для изменения их
 #, kde-format
 msgid "Identify"
 msgstr "Определение выходов"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Сохранение параметров:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Для любого расположения экранов"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Только для заданного расположения экранов"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

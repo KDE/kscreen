@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2020-10-04 16:42+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -315,21 +315,6 @@ msgstr ""
 "Den globale skaleringsfaktor er begrænset til multipler af 6,25% for at "
 "minimere visuelle fejl i programmer der bruger X11-vinduessystemet."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Gem skærmens egenskaber:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Til alle skærmopstillinger"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Kun til denne specifikke skærmopstilling"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -359,6 +344,15 @@ msgstr "Træk skærmene for at omorganisere dem"
 #, kde-format
 msgid "Identify"
 msgstr "Identificér"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Gem skærmens egenskaber:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Til alle skærmopstillinger"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Kun til denne specifikke skærmopstilling"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

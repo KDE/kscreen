@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-26 23:16+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -323,21 +323,6 @@ msgstr ""
 "The global scale factor is limited to multiples of 6.25% to minimise visual "
 "glitches in applications using the X11 windowing system."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Save displays' properties:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "For any display arrangement"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "For only this specific display arrangement"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -367,6 +352,15 @@ msgstr "Drag screens to re-arrange them"
 #, kde-format
 msgid "Identify"
 msgstr "Identify"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Save displays' properties:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "For any display arrangement"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "For only this specific display arrangement"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

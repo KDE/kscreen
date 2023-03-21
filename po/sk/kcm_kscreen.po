@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-08-22 17:09+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -336,21 +336,6 @@ msgstr ""
 "Faktor globálnej mierky je obmedzený na násobky 6,25%, aby sa minimalizovali "
 "vizuálne chyby v aplikáciách používajúcich systém okien X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Uložiť vlastnosti obrazovky:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Pre všetky rozloženia obrazovky"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Iba pre toto rozloženie obrazovky"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -380,6 +365,15 @@ msgstr "Potiahnite obrazovky na ich usporiadanie"
 #, kde-format
 msgid "Identify"
 msgstr "Identifikovať"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Uložiť vlastnosti obrazovky:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Pre všetky rozloženia obrazovky"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Iba pre toto rozloženie obrazovky"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

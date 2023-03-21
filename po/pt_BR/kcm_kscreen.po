@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 16:41-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -329,21 +329,6 @@ msgstr ""
 "O fator de escala global está limitado a múltiplos de 6,25% para minimizar "
 "defeitos visuais nos aplicativos que usem o sistema de janelas X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Salvar as propriedades da tela:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Para qualquer arranjo de telas"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Apenas para este arranjo de tela específico"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -373,6 +358,15 @@ msgstr "Arraste as telas para reorganizá-las"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Salvar as propriedades da tela:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Para qualquer arranjo de telas"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Apenas para este arranjo de tela específico"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-04-30 11:46+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -333,21 +333,6 @@ msgstr ""
 "Factorul global de scalare e limitat la multipli de 6.25% pentru a minimiza "
 "erorile vizuale în aplicații ce folosesc sistemul de ferestre X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Salvează proprietățile ecranelor:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Pentru orice aranjament de ecran"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Doar pentru acest aranjament de ecran"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -377,6 +362,15 @@ msgstr "Trageți ecranele pentru a le rearanja"
 #, kde-format
 msgid "Identify"
 msgstr "Identifică"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Salvează proprietățile ecranelor:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Pentru orice aranjament de ecran"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Doar pentru acest aranjament de ecran"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

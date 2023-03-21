@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 18:12+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -326,21 +326,6 @@ msgstr ""
 "Глобалният мащабен фактор е ограничен до кратни на 6,25%, за да се сведат до "
 "минимум визуалните артефакти в приложения, използващи X11 графична система."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Запазване на свойствата на екраните:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "За всяко разположение на екраните"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Само за това специфично разположение на екрана"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -370,3 +355,12 @@ msgstr "Завлечете екраните, за да ги пренаредит
 #, kde-format
 msgid "Identify"
 msgstr "Идентифициране"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Запазване на свойствата на екраните:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "За всяко разположение на екраните"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Само за това специфично разположение на екрана"

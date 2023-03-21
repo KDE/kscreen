@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-13 19:33+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -314,21 +314,6 @@ msgid ""
 "glitches in applications using the X11 windowing system."
 msgstr ""
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Uložit vlastnosti obrazovky:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Pro jakékoliv sestavení obrazovek"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Pouze pro toto sestavení obrazovek"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -358,3 +343,12 @@ msgstr "Přetáhněte obrazovky jak chcete aby byly sestaveny"
 #, kde-format
 msgid "Identify"
 msgstr "Identifikovat"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Uložit vlastnosti obrazovky:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Pro jakékoliv sestavení obrazovek"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Pouze pro toto sestavení obrazovek"

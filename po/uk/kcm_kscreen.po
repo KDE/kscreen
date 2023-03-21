@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 08:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -333,21 +333,6 @@ msgstr ""
 "щоб мінімізувати візуальні дефекти у програмах, які використовують систему "
 "керування вікнами X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Зберігати властивості дисплеїв:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Для будь-якого компонування дисплеїв"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Лише для цього компонування дисплеїв"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -377,6 +362,15 @@ msgstr "Перетягніть екрани, щоб змінити порядо�
 #, kde-format
 msgid "Identify"
 msgstr "Визначити"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Зберігати властивості дисплеїв:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Для будь-якого компонування дисплеїв"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Лише для цього компонування дисплеїв"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

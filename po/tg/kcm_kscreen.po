@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2019-09-27 23:39+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -317,21 +317,6 @@ msgid ""
 "glitches in applications using the X11 windowing system."
 msgstr ""
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Нигоҳ доштани хусусиятҳои экран:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Барои ҳар як тартиби экран"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Танҳо барои тартиби хусусии ҷории экран"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -361,6 +346,15 @@ msgstr ""
 #, kde-format
 msgid "Identify"
 msgstr "Муайянкунӣ"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Нигоҳ доштани хусусиятҳои экран:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Барои ҳар як тартиби экран"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Танҳо барои тартиби хусусии ҷории экран"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

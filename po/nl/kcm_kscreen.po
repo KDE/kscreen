@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 11:58+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -330,21 +330,6 @@ msgstr ""
 "afwijkingen in toepassingen bij gebruik van het X11-venstersysteem te "
 "minimaliseren."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Eigenschappen van scherm opslaan:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Voor elke schermopstelling"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Voor alleen deze bepaalde schermopstelling"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -374,6 +359,15 @@ msgstr "Schermen slepen om ze opnieuw te plaatsen"
 #, kde-format
 msgid "Identify"
 msgstr "Identificeren"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Eigenschappen van scherm opslaan:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Voor elke schermopstelling"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Voor alleen deze bepaalde schermopstelling"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

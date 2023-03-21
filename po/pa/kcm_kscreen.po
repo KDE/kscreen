@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2021-04-25 12:38-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -314,21 +314,6 @@ msgstr ""
 "ਗਲੋਬਲ ਸਕੇਲ ਗੁਣਾਂਕ X11 ਵਿੰਡਿੰਗ ਸਿਸਟਮ ਵਰਤ ਕੇ ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚ 6.25% ਦੀ ਗੁਣਾਂ ਤੋਂ ਘੱਟੋ-ਘੱਟ ਦਿੱਖ "
 "ਸਮੱਸਿਆਵਾਂ ਤੱਕ ਸੀਮਤ ਹੈ।"
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "ਡਿਸਪਲੇਅ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸੰਭਾਲੋ:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "ਕਿਸੇ ਵੀ ਡਿਸਪਲੇਅ ਇੰਤਜ਼ਾਮ ਲਈ"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "ਸਿਰਫ਼ ਇਸ ਖਾਸ ਡਿਸਪਲੇਅ ਇੰਤਜ਼ਾਮ ਲਈ"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -358,6 +343,15 @@ msgstr "ਸਕਰੀਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦੇਣ ਲਈ ਉਹ�
 #, kde-format
 msgid "Identify"
 msgstr "ਪਛਾਣੋ"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "ਡਿਸਪਲੇਅ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸੰਭਾਲੋ:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "ਕਿਸੇ ਵੀ ਡਿਸਪਲੇਅ ਇੰਤਜ਼ਾਮ ਲਈ"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "ਸਿਰਫ਼ ਇਸ ਖਾਸ ਡਿਸਪਲੇਅ ਇੰਤਜ਼ਾਮ ਲਈ"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

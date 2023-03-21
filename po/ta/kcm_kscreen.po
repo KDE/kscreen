@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-12-20 19:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -327,21 +327,6 @@ msgstr ""
 "X11 சாளர நெறிமுறையை பயன்படுத்தும் செயலிகளில் காட்சிக்கோளாறுகள் ஏற்படுவதை தடுக்க, "
 "பொதுவான அளவுமாற்ற விகிதம் கட்டாயமாக 6.25%-இன் பன்மடியாக இருக்க வேண்டும்."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "திரைகளின் பண்புகளை நினைவில் கொள்வது:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "எந்த தளவமைப்புக்கேனும்"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "இந்த தனிப்பட்ட தளவமைப்புக்கு மட்டும்"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -371,6 +356,15 @@ msgstr "காட்சிக்கருவிகளை நகர்த்த �
 #, kde-format
 msgid "Identify"
 msgstr "அடையாளங்காட்டு"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "திரைகளின் பண்புகளை நினைவில் கொள்வது:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "எந்த தளவமைப்புக்கேனும்"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "இந்த தனிப்பட்ட தளவமைப்புக்கு மட்டும்"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

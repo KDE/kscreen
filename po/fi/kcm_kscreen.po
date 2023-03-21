@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-03-05 19:23+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -327,21 +327,6 @@ msgstr ""
 "sovelluksissa näyttövirheitä. Aseta mieluummin mittakaava 0,25:n "
 "monikerraksi ja tarkenna fonttikokoa säätämällä."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Tallenna näyttöjen ominaisuudet:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Mille tahansa näyttöasettelulle"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Vain tälle nimenomaiselle näyttöasettelulle"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -371,6 +356,15 @@ msgstr "Järjestä näytöt vetämällä"
 #, kde-format
 msgid "Identify"
 msgstr "Tunnista"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Tallenna näyttöjen ominaisuudet:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Mille tahansa näyttöasettelulle"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Vain tälle nimenomaiselle näyttöasettelulle"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

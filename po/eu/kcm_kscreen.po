@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-03-05 18:35+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -329,21 +329,6 @@ msgstr ""
 "Eskalatzeko faktore globala % 6,25eko multiploetara mugatua dago X11 leihoen "
 "sistema darabilten aplikazioetako ikus akatsak minimizatzeko."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Gorde bistaratzailearen propietateak:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Bistaratzaileen edozein antolamendutarako"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Bistaratzaileen antolamendu zehatz honetarako"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -373,6 +358,15 @@ msgstr "Arrastatu pantailak haiek berrantolatzeko"
 #, kde-format
 msgid "Identify"
 msgstr "Identifikatu"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Gorde bistaratzailearen propietateak:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Bistaratzaileen edozein antolamendutarako"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Bistaratzaileen antolamendu zehatz honetarako"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

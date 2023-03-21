@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-12-29 11:37+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -336,21 +336,6 @@ msgstr ""
 "zminimalizować poszarpany obraz w aplikacjach korzystających z systemu okien "
 "X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Zapisz właściwości ekranów:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Dla każdego układu ekranów"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Tylko dla tego danego układu ekranów"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -380,6 +365,15 @@ msgstr "Aby zmieniać układ ekranów, przeciągnij je"
 #, kde-format
 msgid "Identify"
 msgstr "Który to?"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Zapisz właściwości ekranów:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Dla każdego układu ekranów"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Tylko dla tego danego układu ekranów"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 14:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -328,21 +328,6 @@ msgstr ""
 "El factor d'escala global està limitat a múltiples de 6,25% per a minimitzar "
 "els errors visuals en les aplicacions utilitzant el sistema de finestres X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Guarda les propietats de la pantalla:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Per a qualsevol configuració de la pantalla"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Per a només esta configuració específica de la pantalla"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -372,3 +357,12 @@ msgstr "Arrossega les pantalles per a reordenar-les"
 #, kde-format
 msgid "Identify"
 msgstr "Identificació"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Guarda les propietats de la pantalla:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Per a qualsevol configuració de la pantalla"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Per a només esta configuració específica de la pantalla"

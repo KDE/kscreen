@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 21:21+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -342,21 +342,6 @@ msgstr ""
 "minimiser les défauts visuels dans les applications utilisant le système de "
 "fenêtres X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Enregistrer les propriétés des écrans :"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Pour tous les arrangements d'écran"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Seulement pour cet arrangement d'écran"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -386,6 +371,15 @@ msgstr "Faites glisser les écrans pour les réorganiser"
 #, kde-format
 msgid "Identify"
 msgstr "Identifier"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Enregistrer les propriétés des écrans :"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Pour tous les arrangements d'écran"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Seulement pour cet arrangement d'écran"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

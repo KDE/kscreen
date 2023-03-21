@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-28 16:13+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -327,21 +327,6 @@ msgstr ""
 "Le factor de scala global es limitate a mutiple de 6.25% per minimisar "
 "defectos visual in applicationes usante le systema de fenestra X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Salveguarda proprietates de monstrator:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Per ulle arrangiamento de monstrator"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Per solmente iste arrangiamento de specific monstrator "
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -371,6 +356,15 @@ msgstr "Trahe schermos per re-arrangiar los"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Salveguarda proprietates de monstrator:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Per ulle arrangiamento de monstrator"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Per solmente iste arrangiamento de specific monstrator "
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

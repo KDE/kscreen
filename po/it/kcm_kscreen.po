@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-25 00:15+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -329,21 +329,6 @@ msgstr ""
 "gli artefatti visivi nelle applicazioni utilizzando il sistema di gestione "
 "delle finestre X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Salva le proprietà degli schermi:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Per qualsiasi disposizione degli schermi"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Solo per questa specifica disposizione degli schermi"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -373,6 +358,15 @@ msgstr "Trascina gli schermi per ri-organizzarli"
 #, kde-format
 msgid "Identify"
 msgstr "Identifica"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Salva le proprietà degli schermi:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Per qualsiasi disposizione degli schermi"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Solo per questa specifica disposizione degli schermi"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

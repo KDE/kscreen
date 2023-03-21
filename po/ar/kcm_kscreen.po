@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-27 19:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -325,21 +325,6 @@ msgstr ""
 "يقتصر عامل المقياس الشامل على مضاعفات 6.25٪ لتقليل الأخطاء المرئية في "
 "التطبيقات التي تستخدم نظام النوافذ اكس١١."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "احفظ خصائص العرض:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "لأي ترتيب عرض"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "فقط لهذا الترتيب العرض المحدد"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -369,6 +354,15 @@ msgstr "اسحب الشاشات لترتبها"
 #, kde-format
 msgid "Identify"
 msgstr "عرّف"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "احفظ خصائص العرض:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "لأي ترتيب عرض"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "فقط لهذا الترتيب العرض المحدد"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

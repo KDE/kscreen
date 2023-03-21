@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-09-24 16:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -332,21 +332,6 @@ msgstr ""
 "Den globala skalfaktorn är begränsad till multipler av 6,25 % för att "
 "minimera visuella avvikelser i program som använder X11-fönstersystemet."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Spara skärmegenskaper:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "För alla skärmarrangemang"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Bara för det här specifika skärmarrangemanget"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -376,6 +361,15 @@ msgstr "Dra skärmar för att arrangera om dem"
 #, kde-format
 msgid "Identify"
 msgstr "Identifiera"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Spara skärmegenskaper:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "För alla skärmarrangemang"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Bara för det här specifika skärmarrangemanget"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-01 19:41+0100\n"
 "Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -340,21 +340,6 @@ msgstr ""
 "Der globale Skalierungsfaktor ist auf ein Mehrfaches von 6,25 % begrenzt, um "
 "visuelle Störungen in Anwendungen unter dem X11-Fenstersystem zu minimieren."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Eigenschaften der Anzeige speichern:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Für jede Anzeigenanordnung"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Nur für diese spezielle Anzeigenanordnung"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -384,6 +369,15 @@ msgstr "Ziehen Sie die Bildschirme, um sie neu anzuordnen"
 #, kde-format
 msgid "Identify"
 msgstr "Identifizieren"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Eigenschaften der Anzeige speichern:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Für jede Anzeigenanordnung"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Nur für diese spezielle Anzeigenanordnung"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

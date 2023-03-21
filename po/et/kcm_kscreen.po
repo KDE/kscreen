@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2020-05-15 08:25+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -317,21 +317,6 @@ msgstr ""
 "Globaalne skaleerimistegur on piiratud 6,25%-kordsete sammudega "
 "minimeerimaks visuaalseid häireid X11 aknasüsteemi tarvitamise korral."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Ekraani omadused salvestatakse:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "kõigile ekraanipaigutustele"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "ainult sellele ekraanipaigutusele"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -361,6 +346,15 @@ msgstr "Lohista ekraane nende paigutuse muutmiseks"
 #, kde-format
 msgid "Identify"
 msgstr "Tuvasta"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Ekraani omadused salvestatakse:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "kõigile ekraanipaigutustele"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "ainult sellele ekraanipaigutusele"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

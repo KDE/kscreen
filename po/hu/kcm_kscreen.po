@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2020-12-25 11:46+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -318,21 +318,6 @@ msgstr ""
 "A globális skálázási faktor csak a 6,25% többszöröse lehet, hogy ne legyenek "
 "grafikai hibák az X11-et használó alkalmazásokban."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "A kijelző tulajdonságainak mentése:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Bármely kijelzőelrendezéshez"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Csak ehhez az adott kijelzőelrendezéshez"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -362,6 +347,15 @@ msgstr "Fogja meg és húzza a képernyőket az átrendezéshez"
 #, kde-format
 msgid "Identify"
 msgstr "Azonosítás"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "A kijelző tulajdonságainak mentése:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Bármely kijelzőelrendezéshez"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Csak ehhez az adott kijelzőelrendezéshez"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "

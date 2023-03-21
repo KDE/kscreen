@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -327,21 +327,6 @@ msgstr ""
 "O factor de escala global está limitado a múltiplos de 6.25% para minimizar "
 "defeitos visuais nas aplicações que usem o sistema de janelas X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Gravar as propriedades dos ecrãs:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Para qualquer organização de ecrãs"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Apenas para esta organização de ecrãs"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -371,3 +356,12 @@ msgstr "Arraste os ecrãs para os reorganizar"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Gravar as propriedades dos ecrãs:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Para qualquer organização de ecrãs"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Apenas para esta organização de ecrãs"

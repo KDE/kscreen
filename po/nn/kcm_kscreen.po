@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-03-04 17:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -325,21 +325,6 @@ msgstr ""
 "Global skalering er avgrensa til multiplum av 6,25 %. Det er for å unngå "
 "visingsproblem i program under vindaugssystemet X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Lagra skjermeigenskapar:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "For alle skjermutformingar"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Berre for denne skjermutforminga"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -369,3 +354,12 @@ msgstr "Dra skjermane for å byta skjermplassering"
 #, kde-format
 msgid "Identify"
 msgstr "Identifiser"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Lagra skjermeigenskapar:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "For alle skjermutformingar"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Berre for denne skjermutforminga"

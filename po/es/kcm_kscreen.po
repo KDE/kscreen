@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 01:00+0000\n"
+"POT-Creation-Date: 2023-03-21 02:29+0000\n"
 "PO-Revision-Date: 2023-02-24 14:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -331,21 +331,6 @@ msgstr ""
 "minimizar defectos de visualización en las aplicaciones que usan el sistema "
 "de ventanas X11."
 
-#: package/contents/ui/Panel.qml:183
-#, kde-format
-msgid "Save displays' properties:"
-msgstr "Guardar las preferencias de las pantallas:"
-
-#: package/contents/ui/Panel.qml:189
-#, kde-format
-msgid "For any display arrangement"
-msgstr "Para cualquier combinación de pantallas"
-
-#: package/contents/ui/Panel.qml:196
-#, kde-format
-msgid "For only this specific display arrangement"
-msgstr "Solo para esta combinación de pantallas"
-
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
@@ -375,6 +360,15 @@ msgstr "Arrastre las pantallas para modificar su distribución"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgid "Save displays' properties:"
+#~ msgstr "Guardar las preferencias de las pantallas:"
+
+#~ msgid "For any display arrangement"
+#~ msgstr "Para cualquier combinación de pantallas"
+
+#~ msgid "For only this specific display arrangement"
+#~ msgstr "Solo para esta combinación de pantallas"
 
 #~ msgid ""
 #~ "Are you sure you want to disable all outputs? This might render the "
