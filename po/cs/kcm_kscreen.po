@@ -343,12 +343,3 @@ msgstr "Přetáhněte obrazovky jak chcete aby byly sestaveny"
 #, kde-format
 msgid "Identify"
 msgstr "Identifikovat"
-
-#~ msgid "Save displays' properties:"
-#~ msgstr "Uložit vlastnosti obrazovky:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "Pro jakékoliv sestavení obrazovek"
-
-#~ msgid "For only this specific display arrangement"
-#~ msgstr "Pouze pro toto sestavení obrazovek"
