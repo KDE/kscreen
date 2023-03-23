@@ -354,12 +354,3 @@ msgstr "Dra skjermane for å byta skjermplassering"
 #, kde-format
 msgid "Identify"
 msgstr "Identifiser"
-
-#~ msgid "Save displays' properties:"
-#~ msgstr "Lagra skjermeigenskapar:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "For alle skjermutformingar"
-
-#~ msgid "For only this specific display arrangement"
-#~ msgstr "Berre for denne skjermutforminga"
