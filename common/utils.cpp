@@ -35,7 +35,7 @@ QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNu
             name += output->edid()->serial() + QLatin1Char(' ');
         }
         if (shouldShowConnector) {
-            name += output->typeName();
+            name += output->name();
         }
         if (!name.trimmed().isEmpty()) {
             return name;
