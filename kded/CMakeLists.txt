@@ -36,6 +36,7 @@ target_link_libraries(kscreen PRIVATE
                               Qt::DBus
                               Qt::Quick
                               Qt::Sensors
+                              KF6::CoreAddons
                               KF6::Screen
                               KF6::DBusAddons
                               KF6::I18n
