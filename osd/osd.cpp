@@ -30,7 +30,6 @@ Osd::Osd(const KScreen::OutputPtr &output, QObject *parent)
 {
     connect(output.data(), &KScreen::Output::isConnectedChanged, this, &Osd::onOutputAvailabilityChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged, this, &Osd::onOutputAvailabilityChanged);
-    connect(output.data(), &KScreen::Output::destroyed, this, &Osd::hideOsd);
 }
 
 Osd::~Osd()
