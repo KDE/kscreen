@@ -356,35 +356,3 @@ msgstr "Ekranları yeniden düzenlemek için onları sürükleyin"
 #, kde-format
 msgid "Identify"
 msgstr "Tanımla"
-
-#~ msgid "Save displays' properties:"
-#~ msgstr "Ekranların özelliklerini kaydet:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "Herhangi bir ekran düzeni için"
-
-#~ msgid "For only this specific display arrangement"
-#~ msgstr "Yalnızca bu belirli ekran düzeni için"
-
-#~ msgid ""
-#~ "Are you sure you want to disable all outputs? This might render the "
-#~ "device unusable."
-#~ msgstr ""
-#~ "Tüm çıktıları devre dışı bırakmak istediğinizden emin misiniz? Bu aygıtı "
-#~ "kullanılamaz kılabilir."
-
-#~ msgid "Disable All Outputs"
-#~ msgstr "Tüm Çıktıları Devre Dışı Bırak"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines how much padding is put around the image sent to the display"
-#~ msgstr ""
-#~ "Ekrana gönderilen görselin çevresine ne kadar boşluklandırma "
-#~ "uygulanacağını belirler"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr "Olası renk değerlerinin ekranla sınırlı olup olmayacağını belirler."
