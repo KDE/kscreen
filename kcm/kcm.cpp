@@ -436,7 +436,7 @@ void KCMKScreen::exportGlobalScale()
                 loadProc.waitForFinished();
             }
         }
-        fontConfigGroup.writeEntry("forceFontDPI", 0);
+        fontConfigGroup.writeEntry("forceFontDPI", 0, KConfig::Notify);
     } else {
         const int scaleDpi = qRound(globalScale() * 96.0);
         QProcess proc;
@@ -446,7 +446,7 @@ void KCMKScreen::exportGlobalScale()
             proc.closeWriteChannel();
             proc.waitForFinished();
         }
-        fontConfigGroup.writeEntry("forceFontDPI", scaleDpi);
+        fontConfigGroup.writeEntry("forceFontDPI", scaleDpi, KConfig::Notify);
     }
 
     Q_EMIT globalScaleWritten();
