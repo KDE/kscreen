@@ -355,12 +355,3 @@ msgstr "Завлечете екраните, за да ги пренаредит
 #, kde-format
 msgid "Identify"
 msgstr "Идентифициране"
-
-#~ msgid "Save displays' properties:"
-#~ msgstr "Запазване на свойствата на екраните:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "За всяко разположение на екраните"
-
-#~ msgid "For only this specific display arrangement"
-#~ msgstr "Само за това специфично разположение на екрана"
