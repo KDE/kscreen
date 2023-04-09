@@ -70,7 +70,7 @@ Kirigami.FormLayout {
         }
         KCM.ContextualHelpButton {
             visible: resolutionCombobox.count <= 1
-            toolTipText: xi18nc("@info", "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/>Using unsupported resolutions was possible in the Plasma X11 session, but they were never guaranteed to work and are not available in this Plasma Wayland session.", singleResolutionLabel.text)
+            toolTipText: xi18nc("@info", "&quot;%1&quot; is the only resolution supported by this display.", singleResolutionLabel.text)
         }
     }
 
