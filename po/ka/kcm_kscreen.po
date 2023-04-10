@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 05:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -197,18 +197,12 @@ msgid "Resolution:"
 msgstr "გარჩევადობა:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"&quot;%1&quot; ეს ამ ეკრანის მიერ მხარდაჭერილი ერთად ერთი გაფართოებაა.<nl/"
-"><nl/>მხარდაუჭერელი გაფართოებების გამოყენება შესაძლებელი იყო Plasma X11-ის "
-"გამოყენებით, მაგრამ გარანტია, რომ ეს იმუშავებდა, არ არსებობს. ასევე, ეს "
-"პარამეტრი ხელმიუწვდომელია Plasma Wayland-ის სესიაში."
+"\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ განახლების სიხშირეს წარმოადგენს."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -356,6 +350,18 @@ msgstr "ეკრანების გადასალაგებლად �
 #, kde-format
 msgid "Identify"
 msgstr "იდენტიფიკაცია"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; ეს ამ ეკრანის მიერ მხარდაჭერილი ერთად ერთი გაფართოებაა.<nl/"
+#~ "><nl/>მხარდაუჭერელი გაფართოებების გამოყენება შესაძლებელი იყო Plasma X11-"
+#~ "ის გამოყენებით, მაგრამ გარანტია, რომ ეს იმუშავებდა, არ არსებობს. ასევე, "
+#~ "ეს პარამეტრი ხელმიუწვდომელია Plasma Wayland-ის სესიაში."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "ეკრანის პარამეტრების შენახვა:"

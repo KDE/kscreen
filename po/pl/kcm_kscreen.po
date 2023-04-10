@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2022-12-29 11:37+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -205,18 +205,12 @@ msgid "Resolution:"
 msgstr "Rozdzielczość:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"&quot;%1&quot; jest jedyną rozdzielczością obsługiwaną przez ten wyświetlacz."
-"<nl/><nl/>Używanie nieobsługiwanych rozdzielczości było możliwe w sesji X11 "
-"Plazmy, lecz nigdy nie było pewności czy zadziałają, więc są niedostępne we "
-"tej sesji Waylanda Plazmy."
+"\"%1\" jest jedyną szybkością odświeżania obsługiwaną przez ten wyświetlacz"
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -365,6 +359,18 @@ msgstr "Aby zmieniać układ ekranów, przeciągnij je"
 #, kde-format
 msgid "Identify"
 msgstr "Który to?"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; jest jedyną rozdzielczością obsługiwaną przez ten "
+#~ "wyświetlacz.<nl/><nl/>Używanie nieobsługiwanych rozdzielczości było "
+#~ "możliwe w sesji X11 Plazmy, lecz nigdy nie było pewności czy zadziałają, "
+#~ "więc są niedostępne we tej sesji Waylanda Plazmy."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Zapisz właściwości ekranów:"

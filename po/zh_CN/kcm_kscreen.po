@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -196,17 +196,11 @@ msgid "Resolution:"
 msgstr "分辨率："
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"&quot;%1&quot; 是此显示器支持的唯一分辨率。<nl/><nl/>旧版的 Plasma X11 会话曾"
-"经可以使用不支持的分辨率，但可靠性无法保证。Plasma Wayland 会话不支持在会话中"
-"使用不支持的分辨率。"
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "“%1”是此显示器支持的唯一刷新率。"
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -350,6 +344,17 @@ msgstr "拖拽屏幕以重新排列它们"
 #, kde-format
 msgid "Identify"
 msgstr "识别"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; 是此显示器支持的唯一分辨率。<nl/><nl/>旧版的 Plasma X11 会"
+#~ "话曾经可以使用不支持的分辨率，但可靠性无法保证。Plasma Wayland 会话不支持"
+#~ "在会话中使用不支持的分辨率。"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "保存显示器配置："

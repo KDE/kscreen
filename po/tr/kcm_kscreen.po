@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-04-04 00:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -199,18 +199,11 @@ msgid "Resolution:"
 msgstr "Çözünürlük:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"Bu ekran tarafından desteklenen en büyük çözünürlük &quot;%1&quot;tir.<nl/"
-"><nl/>Desteklenmeyen çözünürlüklerin kullanımı Plasma X11 oturumunda "
-"olanaklıydı; ancak hiçbir zaman çalışacağına garanti verilmedi ve bu Plasma "
-"Wayland oturumunda kullanılabilir değillerdir."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "Bu ekran tarafından desteklenen en yüksek yenileme hızı: \"%1\"."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -356,3 +349,15 @@ msgstr "Ekranları yeniden düzenlemek için onları sürükleyin"
 #, kde-format
 msgid "Identify"
 msgstr "Tanımla"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "Bu ekran tarafından desteklenen en büyük çözünürlük &quot;%1&quot;tir.<nl/"
+#~ "><nl/>Desteklenmeyen çözünürlüklerin kullanımı Plasma X11 oturumunda "
+#~ "olanaklıydı; ancak hiçbir zaman çalışacağına garanti verilmedi ve bu "
+#~ "Plasma Wayland oturumunda kullanılabilir değillerdir."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2022-10-03 15:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -201,17 +201,11 @@ msgid "Resolution:"
 msgstr "해상도:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"이 디스플레이에서는 &quot;%1&quot; 화면 해상도만 지원합니다.<nl/><nl/>Plasma "
-"X11 세션에서는 지원하지 않는 화면 해상도를 사용할 수 있었으나 항상 사용할 수 "
-"있는 것은 아니었으며, Plasma Wayland 세션에서는 지원하지 않습니다."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -357,6 +351,18 @@ msgstr "화면 배치를 변경하려면 드래그하십시오"
 #, kde-format
 msgid "Identify"
 msgstr "식별"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "이 디스플레이에서는 &quot;%1&quot; 화면 해상도만 지원합니다.<nl/><nl/"
+#~ ">Plasma X11 세션에서는 지원하지 않는 화면 해상도를 사용할 수 있었으나 항"
+#~ "상 사용할 수 있는 것은 아니었으며, Plasma Wayland 세션에서는 지원하지 않습"
+#~ "니다."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "디스플레이 속성 저장:"

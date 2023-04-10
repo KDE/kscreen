@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2022-12-20 19:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -200,17 +200,11 @@ msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"இக்காட்சிக்கருவி, &quot;%1&quot; எனும் பகுதிறனை மட்டுமே ஆதரிக்கும். <nl/><nl/"
-">ஆதரிக்கப்படாத பகுதிறன்களின் பயன்பாட்டு, பிளாஸ்மாவின் X11 அமர்வில் சாத்திமானதாக "
-"இருந்தது. ஆனால் அவ்வாறு இந்த பிளாஸ்மா Wayland அமர்வில் செய்ய முடியாது."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -356,6 +350,17 @@ msgstr "காட்சிக்கருவிகளை நகர்த்த �
 #, kde-format
 msgid "Identify"
 msgstr "அடையாளங்காட்டு"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "இக்காட்சிக்கருவி, &quot;%1&quot; எனும் பகுதிறனை மட்டுமே ஆதரிக்கும். <nl/><nl/"
+#~ ">ஆதரிக்கப்படாத பகுதிறன்களின் பயன்பாட்டு, பிளாஸ்மாவின் X11 அமர்வில் சாத்திமானதாக "
+#~ "இருந்தது. ஆனால் அவ்வாறு இந்த பிளாஸ்மா Wayland அமர்வில் செய்ய முடியாது."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "திரைகளின் பண்புகளை நினைவில் கொள்வது:"

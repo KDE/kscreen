@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-28 08:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -204,18 +204,11 @@ msgid "Resolution:"
 msgstr "Ločljivost:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"&quot;%1&quot; je edina ločljivost, ki jo podpira ta zaslon.<nl/><nl/"
-">Uporaba nepodprtih ločljivosti je bila možna v seji Plasma X11, vendar "
-"nikoli ni bilozagotovljeno delovanje in ločljivosti niso na voljo v tej seji "
-"Plasma Wayland."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "\"%1\" je edina hitrost osveževanja, ki jo podpira ta zaslon."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -362,6 +355,18 @@ msgstr "Povlecite zaslone, da jih postavite na mesta"
 #, kde-format
 msgid "Identify"
 msgstr "Identificiraj"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; je edina ločljivost, ki jo podpira ta zaslon.<nl/><nl/"
+#~ ">Uporaba nepodprtih ločljivosti je bila možna v seji Plasma X11, vendar "
+#~ "nikoli ni bilozagotovljeno delovanje in ločljivosti niso na voljo v tej "
+#~ "seji Plasma Wayland."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Shrani lastnosti zaslona:"

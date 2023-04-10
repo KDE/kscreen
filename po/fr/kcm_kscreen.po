@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 21:21+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -210,19 +210,12 @@ msgid "Resolution:"
 msgstr "Résolution :"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"« %1 » est la seule définition prise en charge par cet écran.<nl/><nl/"
-">L'utilisation de définitions non prises en charge était possible au sein "
-"d'une session X11 de Plasma. Cependant, il n'y avait aucune garantie "
-"qu'elles fonctionnent. Elles ne sont pas disponibles au sein de cette "
-"session Wayland de Plasma."
+"« %1 » est le seul taux de rafraîchissement pris en charge par cet écran."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -371,6 +364,19 @@ msgstr "Faites glisser les écrans pour les réorganiser"
 #, kde-format
 msgid "Identify"
 msgstr "Identifier"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "« %1 » est la seule définition prise en charge par cet écran.<nl/><nl/"
+#~ ">L'utilisation de définitions non prises en charge était possible au sein "
+#~ "d'une session X11 de Plasma. Cependant, il n'y avait aucune garantie "
+#~ "qu'elles fonctionnent. Elles ne sont pas disponibles au sein de cette "
+#~ "session Wayland de Plasma."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Enregistrer les propriétés des écrans :"

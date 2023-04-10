@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2022-09-24 16:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -204,18 +204,11 @@ msgid "Resolution:"
 msgstr "Upplösning:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"Den enda upplösning som stöds av bildskärmen är &quot;%1&quot;.<nl/><nl/>Att "
-"använda upplösningar som inte stöds var möjligt i Plasma X11-sessioner, men "
-"det garanterades aldrig att de fungerade och de är inte tillgängliga i den "
-"här Plasma Wayland-sessionen."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -361,6 +354,18 @@ msgstr "Dra skärmar för att arrangera om dem"
 #, kde-format
 msgid "Identify"
 msgstr "Identifiera"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "Den enda upplösning som stöds av bildskärmen är &quot;%1&quot;.<nl/><nl/"
+#~ ">Att använda upplösningar som inte stöds var möjligt i Plasma X11-"
+#~ "sessioner, men det garanterades aldrig att de fungerade och de är inte "
+#~ "tillgängliga i den här Plasma Wayland-sessionen."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Spara skärmegenskaper:"

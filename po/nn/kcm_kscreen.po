@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-03-04 17:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -198,17 +198,11 @@ msgid "Resolution:"
 msgstr "Oppløysing:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"«%1» er einaste oppløysing støtta av denne skjermen.<nl/><nl/>Bruk av ikkje-"
-"støtta oppløysingar var mogleg i X11-økter, men dei var aldri garantert å "
-"verka, og dei er ikkje støtta i Wayland-økter."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "«%1» er einaste oppfriskings­rate støtta av denne skjermen."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -354,3 +348,14 @@ msgstr "Dra skjermane for å byta skjermplassering"
 #, kde-format
 msgid "Identify"
 msgstr "Identifiser"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "«%1» er einaste oppløysing støtta av denne skjermen.<nl/><nl/>Bruk av "
+#~ "ikkje-støtta oppløysingar var mogleg i X11-økter, men dei var aldri "
+#~ "garantert å verka, og dei er ikkje støtta i Wayland-økter."

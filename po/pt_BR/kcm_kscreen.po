@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 16:41-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -201,18 +201,11 @@ msgid "Resolution:"
 msgstr "Resolução:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"&quot;%1&quot; é a única resolução suportada por esta tela.<nl/><nl/>Usar "
-"resoluções não suportadas era possível na sessão do Plasma X11, mas nunca "
-"foi garantido que funcionassem e não estão disponíveis na sessão do Plasma "
-"Wayland."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "\"%1\" é a única taxa de atualização suportada por esta tela."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -358,6 +351,18 @@ msgstr "Arraste as telas para reorganizá-las"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; é a única resolução suportada por esta tela.<nl/><nl/>Usar "
+#~ "resoluções não suportadas era possível na sessão do Plasma X11, mas nunca "
+#~ "foi garantido que funcionassem e não estão disponíveis na sessão do "
+#~ "Plasma Wayland."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Salvar as propriedades da tela:"

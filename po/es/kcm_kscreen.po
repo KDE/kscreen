@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 14:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -202,18 +202,11 @@ msgid "Resolution:"
 msgstr "Resolución:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"«%1» es la única resolución permitida por esta pantalla.<nl/><nl/>El uso de "
-"resoluciones no permitidas era posible en la sesión de Plasma X11, pero "
-"nunca se ha garantizado que funcione y no está disponible en esta sesión de "
-"Plasma Wayland."
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "«%1» es la única velocidad de refresco permitida por esta pantalla."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -360,6 +353,18 @@ msgstr "Arrastre las pantallas para modificar su distribución"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "«%1» es la única resolución permitida por esta pantalla.<nl/><nl/>El uso "
+#~ "de resoluciones no permitidas era posible en la sesión de Plasma X11, "
+#~ "pero nunca se ha garantizado que funcione y no está disponible en esta "
+#~ "sesión de Plasma Wayland."
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Guardar las preferencias de las pantallas:"

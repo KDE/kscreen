@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:29+0000\n"
+"POT-Creation-Date: 2023-04-10 02:04+0000\n"
 "PO-Revision-Date: 2023-03-06 20:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -194,17 +194,11 @@ msgid "Resolution:"
 msgstr "解析度："
 
 #: package/contents/ui/OutputPanel.qml:73
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid ""
-"&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-">Using unsupported resolutions was possible in the Plasma X11 session, but "
-"they were never guaranteed to work and are not available in this Plasma "
-"Wayland session."
-msgstr ""
-"&quot;%1&quot; 是這個顯示器唯一支援的解析度。<nl/><nl/>Plasma X11 工作階段曾"
-"經允許使用不支援的解析度，但它們從來都不保證能用，因此不在這個 Plasma "
-"Wayland 工作階段提供。"
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "\"%1\" 是這個顯示器唯一支援的刷新頻率。"
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -348,6 +342,17 @@ msgstr "拖曳螢幕以重新排列"
 #, kde-format
 msgid "Identify"
 msgstr "識別"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
+#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
+#~ "but they were never guaranteed to work and are not available in this "
+#~ "Plasma Wayland session."
+#~ msgstr ""
+#~ "&quot;%1&quot; 是這個顯示器唯一支援的解析度。<nl/><nl/>Plasma X11 工作階段"
+#~ "曾經允許使用不支援的解析度，但它們從來都不保證能用，因此不在這個 Plasma "
+#~ "Wayland 工作階段提供。"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "儲存顯示器的屬性："
