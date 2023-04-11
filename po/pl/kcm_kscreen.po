@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Ignacy Kajdan <ignacy.kajdan@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2022-12-29 11:37+0100\n"
+"PO-Revision-Date: 2023-04-10 10:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -181,12 +181,7 @@ msgid "Change Screen Priorities…"
 msgstr "Zmień priorytety ekranów…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -194,10 +189,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Określa to na jakim ekranie pojawi się twój główny pulpit i panel. Niektóre "
-"starsze gry używają tego także do tego na jakim ekranie mają się pojawić.<nl/"
-"><nl/>Nie ma to wpływu na to na jakim ekranie pojawią się powiadomienia lub "
-"inne okna."
+"Określa to na jakim ekranie pojawi się twój główny pulpit, wraz ze "
+"wszystkimi jego paskami Plazmy. Niektóre starsze gry używają tego także do "
+"tego na jakim ekranie mają się pojawić.<nl/><nl/>Nie ma to wpływu na to na "
+"jakim ekranie pojawią się powiadomienia lub inne okna."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
@@ -205,12 +200,11 @@ msgid "Resolution:"
 msgstr "Rozdzielczość:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"\"%1\" jest jedyną szybkością odświeżania obsługiwaną przez ten wyświetlacz"
+"&quot;%1&quot; jest jedyną rozdzielczością obsługiwaną przez ten wyświetlacz"
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format

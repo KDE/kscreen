@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-03-05 18:35+0100\n"
+"PO-Revision-Date: 2023-04-10 07:33+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,11 +201,10 @@ msgid "Resolution:"
 msgstr "Bereizmena:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "«%1» da pantaila honek onartzen duen freskatze-emari bakarra."
+msgstr "&quot;%1&quot; da pantaila honek onartzen duen bereizmen bakarra."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
