@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2023-02-24 11:13+0300\n"
+"PO-Revision-Date: 2023-04-10 12:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -230,7 +230,7 @@ msgstr "Yenileme hızı:"
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "Bu ekran tarafından desteklenen en yüksek yenileme hızı: \"%1\"."
+msgstr "Bu ekran yalnızca \"%1\" yenileme hızını destekliyor."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
