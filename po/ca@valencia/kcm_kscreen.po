@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-02-24 14:58+0100\n"
+"PO-Revision-Date: 2023-04-10 11:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -200,11 +200,10 @@ msgid "Resolution:"
 msgstr "Resolució:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "L'única freqüència d'actualització admesa per esta pantalla és «%1»."
+msgstr "L'única resolució admesa per esta pantalla és «%1»."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -350,24 +349,3 @@ msgstr "Arrossega les pantalles per a reordenar-les"
 #, kde-format
 msgid "Identify"
 msgstr "Identificació"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
-#~ "but they were never guaranteed to work and are not available in this "
-#~ "Plasma Wayland session."
-#~ msgstr ""
-#~ "L'única resolució admesa per esta pantalla és «%1».<nl/><nl/>L'ús de "
-#~ "resolucions no admeses era possible a la sessió X11 de Plasma, però mai "
-#~ "s'ha garantit que funcionen i no estan disponibles en esta sessió Wayland "
-#~ "de Plasma."
-
-#~ msgid "Save displays' properties:"
-#~ msgstr "Guarda les propietats de la pantalla:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "Per a qualsevol configuració de la pantalla"
-
-#~ msgid "For only this specific display arrangement"
-#~ msgstr "Per a només esta configuració específica de la pantalla"
