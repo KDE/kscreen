@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-02-24 18:12+0100\n"
+"PO-Revision-Date: 2023-04-13 23:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -196,12 +196,12 @@ msgid "Resolution:"
 msgstr "Резолюция:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"\"%1\" е единствената поддържана от този монитор честота на опресняване."
+"&quot;%1&quot; е единствената поддържана от този монитор честота на "
+"опресняване."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -349,15 +349,3 @@ msgstr "Завлечете екраните, за да ги пренаредит
 #, kde-format
 msgid "Identify"
 msgstr "Идентифициране"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
-#~ "but they were never guaranteed to work and are not available in this "
-#~ "Plasma Wayland session."
-#~ msgstr ""
-#~ "&quot;%1&quot; е единствената резолюция, поддържана от този монитор.<nl/"
-#~ "><nl/>Използването на неподдържани резолюции беше възможно в X11 сесия на "
-#~ "Plasma, но никога нямаше гаранция за функционирането им и не са налични в "
-#~ "сесии на Plasma с Wayland."
