@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022, 2023.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
 #
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-04-04 21:14+0200\n"
-"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
+"PO-Revision-Date: 2023-04-15 00:00+0200\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -205,12 +205,11 @@ msgid "Resolution:"
 msgstr "Auflösung:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
-"„%1“ ist die einzige von dieser Anzeige unterstützte Bildwiederholrate."
+"&quot;%1&quot; ist die einzige von dieser Anzeige unterstützte Auflösung."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format

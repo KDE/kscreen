@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-04-10 07:33+0200\n"
+"PO-Revision-Date: 2023-04-16 16:52+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -45,7 +45,7 @@ msgstr "Bat ere ez"
 #: output_model.cpp:740
 #, kde-format
 msgid "Replicated by other output"
-msgstr "Beste irudi-irteera batek ere erreplikatzen du"
+msgstr "Beste irteera batek ere erreplikatzen du"
 
 #: package/contents/ui/main.qml:40
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "Lehene&ratu"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "Pantaila guztiak ezgaituta daude. Gaitu bat gutxienez."
+msgstr "Bistaratzaile guztiak ezgaituta daude. Gaitu bat gutxienez."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -81,8 +81,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Ez da onartzen pantaila arteko hutsunerik. Ziurtatu pantaila guztiak elkar "
-"ukitzen ari direla."
+"Ez da onartzen bistaratzaileen arteko hutsunerik. Ziurtatu pantaila guztiak "
+"elkar ukitzen ari direla."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -204,7 +204,8 @@ msgstr "Bereizmena:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "&quot;%1&quot; da pantaila honek onartzen duen bereizmen bakarra."
+msgstr ""
+"&quot;%1&quot; da bistaratzaile horrek onartzen duen bereizmen bakarra."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -225,7 +226,7 @@ msgstr "Freskatze-tasa:"
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "«%1» da pantaila honek onartzen duen freskatze-emari bakarra."
+msgstr "«%1» da bistaratzaile horrek onartzen duen freskatze-emari bakarra."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format

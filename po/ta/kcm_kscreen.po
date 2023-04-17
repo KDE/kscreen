@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Kishore G <kishore96@gmail.com>, 2022.
+# Kishore G <kishore96@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2022-12-20 19:31+0530\n"
+"PO-Revision-Date: 2023-04-16 15:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.03.90\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -176,12 +176,7 @@ msgid "Change Screen Priorities…"
 msgstr "திரைகளின் முன்னிலையை மாற்று…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -189,7 +184,7 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"உங்கள் முதன்மையான பணிமேடையும் பலகையும் எத்திரையில் காட்டப்படும் என்பதை இத்தேர்வு "
+"உங்கள் முதன்மையான பணிமேடையும் அதிலுள்ள பலகையும் எத்திரையில் காட்டப்படும் என்பதை இத்தேர்வு "
 "தீர்மானிக்கும். சில பழைய செயலிகள், எத்திரையில் தோன்ற வேண்டுமென்பதை முடிவு செய்ய இத்தேர்வை "
 "பயன்படுத்தலாம்.<nl/><nl/> அறிவிப்புகளோ பிற சாளரங்களோ எத்திரையில் காட்டப்படும் என்பதை "
 "இத்தேர்வு பாதிக்காது."
@@ -200,11 +195,10 @@ msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
+msgstr "இத்திரை, &quot;%1&quot; எனும் பகுதிறனளவை மட்டுமே ஆதரிக்கும்."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
