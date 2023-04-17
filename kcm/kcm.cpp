@@ -171,6 +171,13 @@ void KCMKScreen::doSave()
     m_stopUpdatesFromBackend = true;
     op->exec();
 
+    // exec() opens a nested eventloop that may have unset m_configHandler if (e.g.)
+    // outputs changed during saving. https://bugs.kde.org/show_bug.cgi?id=466960
+    if (!m_configHandler || !m_configHandler->config()) {
+        Q_EMIT errorOnSave();
+        return;
+    }
+
     const auto updateInitialData = [this]() {
         if (!m_configHandler || !m_configHandler->config()) {
             return;
