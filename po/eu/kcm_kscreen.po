@@ -4,21 +4,21 @@
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:54+0000\n"
-"PO-Revision-Date: 2022-12-17 09:51+0100\n"
+"PO-Revision-Date: 2023-04-16 16:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -45,7 +45,7 @@ msgstr "Bat ere ez"
 #: output_model.cpp:740
 #, kde-format
 msgid "Replicated by other output"
-msgstr "Beste irudi-irteera batek ere erreplikatzen du"
+msgstr "Beste irteera batek ere erreplikatzen du"
 
 #: package/contents/ui/main.qml:40
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "Lehene&ratu"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "Pantaila guztiak ezgaituta daude. Gaitu bat gutxienez."
+msgstr "Bistaratzaile guztiak ezgaituta daude. Gaitu bat gutxienez."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -81,8 +81,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Ez da onartzen pantaila arteko hutsunerik. Ziurtatu pantaila guztiak elkar "
-"ukitzen ari direla."
+"Ez da onartzen bistaratzaileen arteko hutsunerik. Ziurtatu pantaila guztiak "
+"elkar ukitzen ari direla."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -208,10 +208,10 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
-"&quot;%1&quot; da pantaila honek onartzen duen bereizmen bakarra.<nl/><nl/"
-">Onartu gabeko bereizmenak erabil zitezkeen Plasma X11 saioan, baina ez "
-"zegoen ibiliko ziren bermatuta eta ez daude erabilgarri Plasma Wayland saio "
-"honetan."
+"&quot;%1&quot; da bistaratzaile horrek onartzen duen bereizmen bakarra.<nl/"
+"><nl/>Onartu gabeko bereizmenak erabil zitezkeen Plasma X11 saioan, baina ez "
+"zegoen bermatutako ibiliko zirenik eta ez daude erabilgarri Plasma Wayland "
+"saio honetan."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
@@ -232,7 +232,7 @@ msgstr "Freskatze-tasa:"
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "«%1» da pantaila honek onartzen duen freskatze-emari bakarra."
+msgstr "«%1» da bistaratzaile horrek onartzen duen freskatze-emari bakarra."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
@@ -336,12 +336,12 @@ msgstr "Gorde bistaratzailearen propietateak:"
 #: package/contents/ui/Panel.qml:189
 #, kde-format
 msgid "For any display arrangement"
-msgstr "Bistaratzaileen edozein antolamendutarako"
+msgstr "Edozein bistaratze antolamendutarako"
 
 #: package/contents/ui/Panel.qml:196
 #, kde-format
 msgid "For only this specific display arrangement"
-msgstr "Bistaratzaileen antolamendu zehatz honetarako"
+msgstr "Bistaratze antolamendu zehatz honetarako bakarrik"
 
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
