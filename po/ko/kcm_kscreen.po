@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2022-10-03 15:58+0200\n"
+"PO-Revision-Date: 2023-04-22 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "되돌리기(&R)"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "모든 디스플레이가 비활성화되어 있습니다. 최소한 하나를 활성화하십시오."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -77,6 +77,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"디스플레이간 간격은 지원하지 않습니다. 모든 디스플레이가 맞닿아 있는지 확인하"
+"십시오."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -99,15 +101,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "출력을 저장할 수 없습니다."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"새 전역 비율 조정이 적용되었습니다. 변경 사항은 시스템을 다시 시작한 후 적용"
-"됩니다."
+msgstr "전역 비율 조정 변경 사항은 시스템을 다시 시작한 후 적용됩니다."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -123,7 +120,7 @@ msgstr "디스플레이 설정을 되돌렸습니다."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "우선 순위 변경"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -133,12 +130,12 @@ msgstr "주 화면"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "우선 순위 증가"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "우선 순위 감소"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -175,15 +172,10 @@ msgstr "사용함"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "화면 우선 순위 변경…"
 
 #: package/contents/ui/OutputPanel.qml:48
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -191,9 +183,9 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"이 설정은 어떤 화면에 주 바탕 화면과 패널을 표시할지 결정합니다. 일부 게임은 "
-"표시할 화면을 결정할 때 이 정보를 사용합니다.<nl/><nl/>이 설정은 알림이나 다"
-"른 창이 표시될 화면에는 영향을 주지 않습니다."
+"이 설정은 어떤 화면에 주 바탕 화면과 Plasma 패널을 표시할지 결정합니다. 일부 "
+"게임은 표시할 화면을 결정할 때 이 설정을 사용합니다.<nl/><nl/>이 설정은 알림"
+"이나 다른 창이 표시될 화면에는 영향을 주지 않습니다."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
@@ -201,11 +193,10 @@ msgid "Resolution:"
 msgstr "해상도:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
+msgstr "이 디스플레이에서는 &quot;%1&quot; 해상도만 지원합니다."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
