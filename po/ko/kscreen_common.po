@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2016, 2018.
+# Shinjo Park <kde@peremen.name>, 2014, 2016, 2018, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 02:55+0000\n"
-"PO-Revision-Date: 2018-08-14 14:37+0100\n"
+"PO-Revision-Date: 2023-04-22 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: osdaction.cpp:22
 #, kde-format
@@ -50,7 +50,7 @@ msgstr "변경하지 않기"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "내장 화면"
 
 #~ msgid "Switch Display"
 #~ msgstr "화면 전환"
