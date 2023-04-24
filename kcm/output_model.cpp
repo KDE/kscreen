@@ -347,8 +347,9 @@ void OutputModel::resetPosition(Output &output)
             if (out.ptr->id() == output.ptr->id()) {
                 continue;
             }
-            if (out.ptr->geometry().right() > output.ptr->pos().x()) {
-                output.ptr->setPos(out.ptr->geometry().topRight());
+            const auto geometry = out.ptr->geometry();
+            if (geometry.x() + geometry.width() > output.ptr->pos().x()) {
+                output.ptr->setPos(QPoint(geometry.x() + geometry.width(), geometry.top()));
             }
         }
     } else {
@@ -375,6 +376,10 @@ void OutputModel::resetPosition(Output &output)
         }
         output.ptr->setPos(reset);
     }
+
+    // TODO: this function is called when positioning programatically,
+    //   it may make sense to run the final positions through the snapping logic
+    //   to make sure the results are consistent with manual snapping
 }
 
 QPoint OutputModel::mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem(std::optional<KScreen::OutputPtr> ignored) const
@@ -947,10 +952,10 @@ const int s_snapArea = 80;
 
 bool isVerticalClose(const QRect &rect1, const QRect &rect2)
 {
-    if (rect2.top() - rect1.bottom() > s_snapArea) {
+    if (rect2.top() - (rect1.y() + rect1.height()) > s_snapArea) {
         return false;
     }
-    if (rect1.top() - rect2.bottom() > s_snapArea) {
+    if (rect1.top() - (rect2.y() + rect2.height()) > s_snapArea) {
         return false;
     }
     return true;
@@ -958,14 +963,14 @@ bool isVerticalClose(const QRect &rect1, const QRect &rect2)
 
 bool snapToRight(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.right() - dest.x()) < s_snapArea) {
+    if (qAbs(target.x() + target.width() - dest.x()) < s_snapArea) {
         // In snap zone for left to right snap.
-        dest.setX(target.right() + 1);
+        dest.setX(target.x() + target.width());
         return true;
     }
-    if (qAbs(target.right() - (dest.x() + size.width())) < s_snapArea) {
+    if (qAbs(target.x() + target.width() - (dest.x() + size.width())) < s_snapArea) {
         // In snap zone for right to right snap.
-        dest.setX(target.right() - size.width() + 1);
+        dest.setX(target.x() + target.width() - size.width());
         return true;
     }
     return false;
@@ -1026,14 +1031,14 @@ bool snapToTop(const QRect &target, const QSize &size, QPoint &dest)
 
 bool snapToBottom(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.bottom() - dest.y()) < s_snapArea) {
+    if (qAbs(target.y() + target.height() - dest.y()) < s_snapArea) {
         // In snap zone for top to bottom snap.
-        dest.setY(target.bottom() + 1);
+        dest.setY(target.y() + target.height());
         return true;
     }
-    if (qAbs(target.bottom() - (dest.y() + size.height())) < s_snapArea) {
+    if (qAbs(target.y() + target.height() - (dest.y() + size.height())) < s_snapArea) {
         // In snap zone for bottom to bottom snap.
-        dest.setY(target.bottom() - size.height() + 1);
+        dest.setY(target.y() + target.height() - size.height());
         return true;
     }
     return false;
