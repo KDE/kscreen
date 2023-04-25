@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-10 02:04+0000\n"
-"PO-Revision-Date: 2023-03-05 19:23+0200\n"
+"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"PO-Revision-Date: 2023-04-20 17:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,24 +22,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:633
+#: output_model.cpp:638
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:652
+#: output_model.cpp:657
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:733
+#: output_model.cpp:738
 #, kde-format
 msgid "None"
 msgstr "Ei mitään"
 
-#: output_model.cpp:740
+#: output_model.cpp:745
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Toinen näyttö monistaa"
@@ -197,11 +197,10 @@ msgid "Resolution:"
 msgstr "Tarkkuus:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "Tämä näyttö tukee ainoastaan virkistystaajuutta ”%1”."
+msgstr "”%1” on ainoa tämän näytön tukema tarkkuus."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
