@@ -12,6 +12,7 @@
 #include <LayerShellQt/Window>
 
 #include <KWindowSystem>
+#include <KX11Extras>
 
 #include <QCursor>
 #include <QGuiApplication>
@@ -71,7 +72,7 @@ void Osd::showActionSelector()
         newGeometry.moveCenter(screen->geometry().center());
         m_osdActionSelector->setGeometry(newGeometry);
         KWindowSystem::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
-        KWindowSystem::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
+        KX11Extras::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
         m_osdActionSelector->requestActivate();
     }
     m_osdActionSelector->setVisible(true);
