@@ -256,7 +256,7 @@ KCM.SimpleKCM {
                     }
                     actions: [
                         Kirigami.Action {
-                            iconName: "arrow-up"
+                            icon.name: "arrow-up"
                             text: i18n("Raise priority")
                             enabled: delegate.output.priority > 1
                             onTriggered: {
@@ -266,7 +266,7 @@ KCM.SimpleKCM {
                             }
                         },
                         Kirigami.Action {
-                            iconName: "arrow-down"
+                            icon.name: "arrow-down"
                             text: i18n("Lower priority")
                             enabled: delegate.output.priority < reorderView.count
                             onTriggered: {
