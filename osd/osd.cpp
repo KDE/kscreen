@@ -66,6 +66,7 @@ void Osd::showActionSelector()
         layerWindow->setScope(QStringLiteral("on-screen-display"));
         layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
         layerWindow->setAnchors({});
+        layerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
         m_osdActionSelector->setScreen(screen);
     } else {
         auto newGeometry = m_osdActionSelector->geometry();
