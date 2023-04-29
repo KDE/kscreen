@@ -39,14 +39,14 @@ KCM.SimpleKCM {
         id: confirmMsg
         title: i18n("Keep display configuration?")
         onVisibleChanged: {
-            if (sheetOpen) {
+            if (visible) {
                 revertButton.forceActiveFocus()
             } else {
                 revertTimer.stop();
             }
         }
         showCloseButton: false
-        contentItem: ColumnLayout {
+        ColumnLayout {
             QQC2.Label {
                 Layout.fillWidth: true
                 Layout.maximumWidth: Math.round(root.width * 0.75)
@@ -55,7 +55,7 @@ KCM.SimpleKCM {
                 text: i18np("Will revert to previous configuration in %1 second.",
                             "Will revert to previous configuration in %1 seconds.",
                             revertCountdown);
-                wrapMode: Text.WordWrap
+                wrapMode: QtQuick.Text.WordWrap
             }
         }
         footer: QQC2.DialogButtonBox {
@@ -84,7 +84,7 @@ KCM.SimpleKCM {
                     icon.name: "edit-undo"
                     text: i18n("&Revert")
                     shortcut: "Escape"
-                    enabled: confirmMsg.sheetOpen
+                    enabled: confirmMsg.visible
                 }
             }
             onAccepted: {
@@ -246,7 +246,7 @@ KCM.SimpleKCM {
 
                     property var output: model
 
-                    width: ListView.view.width
+                    width: QtQuick.ListView.view.width
 
                     background: null
                     contentItem: Kirigami.BasicListItem {
