@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-09 02:16+0000\n"
-"PO-Revision-Date: 2023-05-03 21:38+0200\n"
+"PO-Revision-Date: 2023-05-09 21:25+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -42,6 +42,7 @@ msgstr ""
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr ""
+"Esta opción evita que la pantalla ya l'ordenador s'apaguen automáticamente."
 
 #: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
@@ -67,7 +68,7 @@ msgstr ""
 #: package/contents/ui/ScreenLayoutSelection.qml:49
 #, kde-format
 msgid "Screen Layout"
-msgstr ""
+msgstr "Distribución de les pantalles"
 
 #: package/contents/ui/ScreenLayoutSelection.qml:89
 #, kde-format
