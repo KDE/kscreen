@@ -15,12 +15,12 @@ import org.kde.kquickcontrolsaddons 2.0
 
 import org.kde.private.kscreen 1.0
 
-Item {
+PlasmoidItem {
     id: root
 
     // Only show if the user enabled presentation mode or we're a laptop with connected external screens
-    Plasmoid.status: presentationModeEnabled || (isLaptop && Plasmoid.nativeInterface.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
-    Plasmoid.toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
+    Plasmoid.status: presentationModeEnabled || (isLaptop && Plasmoid.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
@@ -72,14 +72,14 @@ Item {
         }
     }
 
-    Plasmoid.fullRepresentation: ColumnLayout {
+    fullRepresentation: ColumnLayout {
         spacing: 0
         Layout.preferredWidth: PlasmaCore.Units.gridUnit * 15
 
         ScreenLayoutSelection {
             Layout.leftMargin: PlasmaCore.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: Plasmoid.nativeInterface.availableActions().filter(action => action.action !== OsdAction.NoAction)
+            screenLayouts: Plasmoid.availableActions().filter(action => action.action !== OsdAction.NoAction)
         }
 
         PresentationModeItem {
