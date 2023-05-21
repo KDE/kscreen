@@ -23,3 +23,6 @@ Dependencies:
     'frameworks/kcmutils': '@latest-kf6'
     'plasma/libkscreen': '@same'
     'plasma/layer-shell-qt': '@same'
+
+Options:
+  json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
