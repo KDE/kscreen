@@ -1,20 +1,20 @@
 # translation of kcm_displayconfiguration.po Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2015, 2016, 2017, 2019, 2022.
 # Mthw <jari_45@hotmail.com>, 2018.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2022-08-22 17:09+0200\n"
+"PO-Revision-Date: 2023-05-24 15:48+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.07.90\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: output_model.cpp:98
@@ -71,7 +71,7 @@ msgstr "Vrátiť"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Všetky obrazovky sú zakázané. Povoľte aspoň jednu."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -79,6 +79,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Medzery medzi obrazovkami nie sú podporované. Uistite sa, že sa obrazovky "
+"dotýkajú."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -103,12 +105,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "Výstupy nebolo možné uložiť kvôli chybe."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "Použila sa nová globálna mierka. Zmeny sa prejavia po reštarte"
+msgstr "Globálne zmeny mierky sa prejavia po reštarte systému."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
@@ -124,7 +124,7 @@ msgstr "Nastavenie obrazovky bolo vrátené."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Zmeniť priority"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -134,12 +134,12 @@ msgstr "Primárna"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Zvýšiť prioritu"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Znížiť prioritu"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -176,7 +176,7 @@ msgstr "Povolené"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Zmeniť prioritu obrazoviek"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -197,13 +197,7 @@ msgid "Resolution:"
 msgstr "Rozlíšenie:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "\"%1\" is the only resolution supported by this display.<nl/><nl/>Using "
-#| "unsupported resolutions was possible in the Plasma X11 session, but they "
-#| "were never guaranteed to work and are not available in this Plasma "
-#| "Wayland session."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
@@ -211,9 +205,10 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
-"\"%1\" je jediné rozlíšenie podporované týmto displejom.<nl/><nl/>Používanie "
-"nepodporovaných rozlíšení bolo možné v sedení Plasma X11, ale nikdy nebolo "
-"zaručené, že budú fungovať a nie sú dostupné v tomto sedení Plasma Wayland."
+"&quot;%1&quot; je jediné rozlíšenie podporované týmto displejom.<nl/><nl/"
+">Používanie nepodporovaných rozlíšení bolo možné v sedení Plasma X11, ale "
+"nikdy nebolo zaručené, že budú fungovať a nie sú dostupné v tomto sedení "
+"Plasma Wayland."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
