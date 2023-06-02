@@ -3,7 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.15 as QtQuick
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
@@ -55,14 +55,14 @@ KCM.SimpleKCM {
                 text: i18np("Will revert to previous configuration in %1 second.",
                             "Will revert to previous configuration in %1 seconds.",
                             revertCountdown);
-                wrapMode: QtQuick.Text.WordWrap
+                wrapMode: Text.WordWrap
             }
         }
         footer: QQC2.DialogButtonBox {
             id: confirmDialogButtonBox
             QQC2.Button {
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
-                QtQuick.Keys.onPressed: event => {
+                Keys.onPressed: event => {
                     if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                         event.accepted = true;
                         clicked();
@@ -74,7 +74,7 @@ KCM.SimpleKCM {
             QQC2.Button {
                 id: revertButton
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-                QtQuick.Keys.onPressed: event => {
+                Keys.onPressed: event => {
                     if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
                         event.accepted = true;
                         clicked();
@@ -98,7 +98,7 @@ KCM.SimpleKCM {
         }
     }
 
-    QtQuick.Connections {
+    Connections {
         target: kcm
         function onInvalidConfig(reason) {
             if (reason === KScreen.KCMKScreen.NoEnabledOutputs) {
@@ -226,7 +226,7 @@ KCM.SimpleKCM {
             showCloseButton: true
             standardButtons: Kirigami.Dialog.Ok
 
-            contentItem: QtQuick.ListView {
+            contentItem: ListView {
                 id: reorderView
 
                 implicitWidth: Math.min(root.width * 0.75, Kirigami.Units.gridUnit * 32)
@@ -246,7 +246,7 @@ KCM.SimpleKCM {
 
                     property var output: model
 
-                    width: QtQuick.ListView.view.width
+                    width: ListView.view.width
 
                     background: null
                     contentItem: Kirigami.BasicListItem {
@@ -280,7 +280,7 @@ KCM.SimpleKCM {
             }
         }
 
-        QtQuick.Connections {
+        Connections {
             target: kcm
             function onInvalidConfig(reason) {
                 if (reason === KScreen.KCMKScreen.NoEnabledOutputs) {
@@ -325,7 +325,7 @@ KCM.SimpleKCM {
             }
         }
 
-        QtQuick.Rectangle {
+        Rectangle {
             Layout.preferredHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
             Layout.fillWidth: true
             Kirigami.Theme.inherit: false
@@ -341,7 +341,7 @@ KCM.SimpleKCM {
                 visible: root.anyMessagesShown
             }
 
-            Screen {
+            ScreenView {
                 id: screen
 
                 anchors.fill: parent
@@ -370,7 +370,7 @@ KCM.SimpleKCM {
             onReorder: reorderDialog.open()
         }
 
-        QtQuick.Timer {
+        Timer {
             id: revertTimer
             interval: 1000
             running: false
