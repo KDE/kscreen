@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-04-20 17:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -340,12 +340,12 @@ msgstr "90° vastapäivään"
 msgid "No Rotation"
 msgstr "Ei kiertoa"
 
-#: package/contents/ui/Screen.qml:48
+#: package/contents/ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Järjestä näytöt vetämällä"
 
-#: package/contents/ui/Screen.qml:61
+#: package/contents/ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Tunnista"

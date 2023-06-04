@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-04-12 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -340,12 +340,12 @@ msgstr "90° საათის ისრის საწინააღმდ�
 msgid "No Rotation"
 msgstr "შეტრიალების გარეშე"
 
-#: package/contents/ui/Screen.qml:48
+#: package/contents/ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ეკრანების გადასალაგებლად გადაათრიეთ ისინი"
 
-#: package/contents/ui/Screen.qml:61
+#: package/contents/ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "იდენტიფიკაცია"

@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-04-11 18:21+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -200,8 +200,8 @@ msgid ""
 msgstr ""
 "Ceci détermine sur quel écran votre bureau principal doit apparaître, avec "
 "tous ces panneaux. Certains jeux plus anciens utilisent également cette "
-"option pour définir sur quel écran s'afficher. <nl/><nl/>Cela n’a aucun "
-"effet sur l'écran sur lequel apparaissent les notifications ou d’autres "
+"option pour définir sur quel écran s'afficher. <nl/><nl/>Cela n'a aucun "
+"effet sur l'écran sur lequel apparaissent les notifications ou d'autres "
 "fenêtres."
 
 #: package/contents/ui/OutputPanel.qml:53
@@ -353,12 +353,12 @@ msgstr "Pivotée de 90° dans le sens antihoraire"
 msgid "No Rotation"
 msgstr "Pas de rotation"
 
-#: package/contents/ui/Screen.qml:48
+#: package/contents/ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Faites glisser les écrans pour les réorganiser"
 
-#: package/contents/ui/Screen.qml:61
+#: package/contents/ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Identifier"

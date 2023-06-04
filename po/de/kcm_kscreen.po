@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-04-15 00:00+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -348,12 +348,12 @@ msgstr "90° gegen den Uhrzeigersinn"
 msgid "No Rotation"
 msgstr "Keine Drehung"
 
-#: package/contents/ui/Screen.qml:48
+#: package/contents/ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Ziehen Sie die Bildschirme, um sie neu anzuordnen"
 
-#: package/contents/ui/Screen.qml:61
+#: package/contents/ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Identifizieren"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 02:28+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-04-16 15:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -335,12 +335,12 @@ msgstr "90° இடச்சுற்று"
 msgid "No Rotation"
 msgstr "திருப்ப வேண்டாம்"
 
-#: package/contents/ui/Screen.qml:48
+#: package/contents/ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "காட்சிக்கருவிகளை நகர்த்த அவற்றை இழுங்கள்"
 
-#: package/contents/ui/Screen.qml:61
+#: package/contents/ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "அடையாளங்காட்டு"
