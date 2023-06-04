@@ -31,7 +31,7 @@ include(ECMDeprecationSettings)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Sensors)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Sensors)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
     DBusAddons
