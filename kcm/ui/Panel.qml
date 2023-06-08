@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kitemmodels 1.0
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-import org.kde.kcm 1.6 as KCM
+import org.kde.kcmutils as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 ColumnLayout {

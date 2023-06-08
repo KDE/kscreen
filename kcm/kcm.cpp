@@ -33,8 +33,8 @@ K_PLUGIN_CLASS_WITH_JSON(KCMKScreen, "kcm_kscreen.json")
 
 using namespace KScreen;
 
-KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KQuickManagedConfigModule(parent, data, args)
+KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
+    : KQuickManagedConfigModule(parent, data)
 {
     qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");

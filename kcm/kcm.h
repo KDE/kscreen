@@ -42,8 +42,7 @@ public:
     };
     Q_ENUM(InvalidConfigReason)
 
-    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
-    ~KCMKScreen() override = default;
+    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
 
     void load() override;
     void save() override;
