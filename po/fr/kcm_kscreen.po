@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"POT-Creation-Date: 2023-06-10 02:09+0000\n"
 "PO-Revision-Date: 2023-04-11 18:21+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -54,35 +54,35 @@ msgstr "Aucun"
 msgid "Replicated by other output"
 msgstr "Répliqué par une autre sortie"
 
-#: package/contents/ui/main.qml:40
+#: ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Conserver la configuration de l'affichage ?"
 
-#: package/contents/ui/main.qml:55
+#: ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Re-basculera vers la configuration précédente dans %1 secondes."
 msgstr[1] "Re-basculera vers la configuration précédente dans %1 secondes."
 
-#: package/contents/ui/main.qml:72
+#: ui/main.qml:72
 #, kde-format
 msgid "&Keep"
 msgstr "&Conserver"
 
-#: package/contents/ui/main.qml:85
+#: ui/main.qml:85
 #, kde-format
 msgid "&Revert"
 msgstr "&Rétablir"
 
-#: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
+#: ui/main.qml:105 ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tous les écrans sont désactivés. En activer au moins un."
 
-#: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
+#: ui/main.qml:107 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -91,29 +91,29 @@ msgstr ""
 "Les espaces entre les affichages ne sont pas pris en charge. Veuillez vous "
 "assurer que tous les affichages se touchent."
 
-#: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
+#: ui/main.qml:119 ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Une nouvelle sortie a été ajoutée. Les paramètres ont été rechargés."
 
-#: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
+#: ui/main.qml:121 ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Une sortie a été retirée. Les paramètres ont été rechargés."
 
-#: package/contents/ui/main.qml:171
+#: ui/main.qml:171
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Aucun moteur trouvé pour KScreen. Merci de vérifier votre installation de "
 "KScreen."
 
-#: package/contents/ui/main.qml:181
+#: ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Les sorties ne peuvent pas être enregistrées à cause d'une erreur."
 
-#: package/contents/ui/main.qml:191
+#: ui/main.qml:191
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -121,75 +121,73 @@ msgstr ""
 "Les changements de mise à l'échelle globale ne seront effectifs qu'après un "
 "redémarrage du système."
 
-#: package/contents/ui/main.qml:197
+#: ui/main.qml:197
 #, kde-format
 msgid "Restart"
 msgstr "Redémarrer"
 
-#: package/contents/ui/main.qml:217
+#: ui/main.qml:217
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "La configuration de l'affichage a été rétablie."
 
-#: package/contents/ui/main.qml:225
+#: ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Modifier les priorités"
 
-#: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
+#: ui/main.qml:254 ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "Primaire"
 
-#: package/contents/ui/main.qml:260
+#: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
 msgstr "Augmenter la priorité"
 
-#: package/contents/ui/main.qml:270
+#: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
 msgstr "Diminuer la priorité"
 
-#: package/contents/ui/Orientation.qml:12
+#: ui/Orientation.qml:12
 #, kde-format
 msgid "Orientation:"
 msgstr "Orientation :"
 
-#: package/contents/ui/Orientation.qml:26
-#: package/contents/ui/OutputPanel.qml:154
-#: package/contents/ui/OutputPanel.qml:195
+#: ui/Orientation.qml:26 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automatique"
 
-#: package/contents/ui/Orientation.qml:35
+#: ui/Orientation.qml:35
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Uniquement en mode « Tablette »."
 
-#: package/contents/ui/Orientation.qml:44
+#: ui/Orientation.qml:44
 #, kde-format
 msgid "Manual"
 msgstr "Manuelle"
 
-#: package/contents/ui/Output.qml:238
+#: ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
 msgstr "Répliques"
 
-#: package/contents/ui/OutputPanel.qml:24
+#: ui/OutputPanel.qml:24
 #, kde-format
 msgid "Enabled"
 msgstr "Activé"
 
-#: package/contents/ui/OutputPanel.qml:35
+#: ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Modifier les priorités de l'écran…"
 
-#: package/contents/ui/OutputPanel.qml:48
+#: ui/OutputPanel.qml:48
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -204,101 +202,101 @@ msgstr ""
 "effet sur l'écran sur lequel apparaissent les notifications ou d'autres "
 "fenêtres."
 
-#: package/contents/ui/OutputPanel.qml:53
+#: ui/OutputPanel.qml:53
 #, kde-format
 msgid "Resolution:"
 msgstr "Résolution :"
 
-#: package/contents/ui/OutputPanel.qml:73
+#: ui/OutputPanel.qml:73
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "« %1 » est la seule résolution prise en charge par cet écran."
 
-#: package/contents/ui/OutputPanel.qml:83
+#: ui/OutputPanel.qml:83
 #, kde-format
 msgid "Scale:"
 msgstr "Échelle :"
 
-#: package/contents/ui/OutputPanel.qml:112 package/contents/ui/Panel.qml:107
+#: ui/OutputPanel.qml:112 ui/Panel.qml:107
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/OutputPanel.qml:124
+#: ui/OutputPanel.qml:124
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Taux de rafraîchissement :"
 
-#: package/contents/ui/OutputPanel.qml:144
+#: ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
 "« %1 » est le seul taux de rafraîchissement pris en charge par cet écran."
 
-#: package/contents/ui/OutputPanel.qml:149
+#: ui/OutputPanel.qml:149
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Synchro adaptative :"
 
-#: package/contents/ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:152
 #, kde-format
 msgid "Never"
 msgstr "Jamais"
 
-#: package/contents/ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "Always"
 msgstr "Toujours"
 
-#: package/contents/ui/OutputPanel.qml:165
+#: ui/OutputPanel.qml:165
 #, kde-format
 msgid "Overscan:"
 msgstr "Sur-balayage :"
 
-#: package/contents/ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB Range:"
 msgstr "Intervalle RVB :"
 
-#: package/contents/ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
 msgstr "Complet"
 
-#: package/contents/ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
 msgstr "Limité"
 
-#: package/contents/ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplique de :"
 
-#: package/contents/ui/Panel.qml:29
+#: ui/Panel.qml:29
 #, kde-format
 msgid "Device:"
 msgstr "Périphérique :"
 
-#: package/contents/ui/Panel.qml:71
+#: ui/Panel.qml:71
 #, kde-format
 msgid "Global scale:"
 msgstr "Échelle globale :"
 
-#: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
+#: ui/Panel.qml:131 ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "Anciennes applications (X11) :"
 
-#: package/contents/ui/Panel.qml:136
+#: ui/Panel.qml:136
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Appliquer la mise à l'échelle par elles même"
 
-#: package/contents/ui/Panel.qml:141
+#: ui/Panel.qml:141
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -308,13 +306,13 @@ msgstr ""
 "l'utiliseront et auront un aspect net. Cependant, celles qui ne le font pas "
 "ne seront pas mises à l'échelle du tout."
 
-#: package/contents/ui/Panel.qml:152
+#: ui/Panel.qml:152
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Mise à l'échelle par le système"
 
-#: package/contents/ui/Panel.qml:157
+#: ui/Panel.qml:157
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -323,7 +321,7 @@ msgstr ""
 "Toutes les applications anciennes seront mises à l'échelle par le système à "
 "la taille correcte. Cependant, elles auront toujours l'air légèrement floues."
 
-#: package/contents/ui/Panel.qml:171
+#: ui/Panel.qml:171
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -333,32 +331,32 @@ msgstr ""
 "minimiser les défauts visuels dans les applications utilisant le système de "
 "fenêtres X11."
 
-#: package/contents/ui/RotationButton.qml:50
+#: ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
 msgstr "Pivotée de 90° dans le sens horaire"
 
-#: package/contents/ui/RotationButton.qml:54
+#: ui/RotationButton.qml:54
 #, kde-format
 msgid "Upside Down"
 msgstr "Retournée"
 
-#: package/contents/ui/RotationButton.qml:58
+#: ui/RotationButton.qml:58
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "Pivotée de 90° dans le sens antihoraire"
 
-#: package/contents/ui/RotationButton.qml:63
+#: ui/RotationButton.qml:63
 #, kde-format
 msgid "No Rotation"
 msgstr "Pas de rotation"
 
-#: package/contents/ui/ScreenView.qml:48
+#: ui/ScreenView.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Faites glisser les écrans pour les réorganiser"
 
-#: package/contents/ui/ScreenView.qml:61
+#: ui/ScreenView.qml:61
 #, kde-format
 msgid "Identify"
 msgstr "Identifier"
