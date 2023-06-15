@@ -10,6 +10,7 @@ import QtQuick.Layouts 1.15
 
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasma5support 2.0 as P5Support
 import org.kde.kquickcontrolsaddons 2.0
 
@@ -74,18 +75,18 @@ PlasmoidItem {
 
     fullRepresentation: ColumnLayout {
         spacing: 0
-        Layout.preferredWidth: PlasmaCore.Units.gridUnit * 15
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 15
 
         ScreenLayoutSelection {
-            Layout.leftMargin: PlasmaCore.Units.smallSpacing
+            Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
             screenLayouts: Plasmoid.availableActions().filter(action => action.action !== OsdAction.NoAction)
         }
 
         PresentationModeItem {
             Layout.fillWidth: true
-            Layout.topMargin: PlasmaCore.Units.smallSpacing * 2
-            Layout.leftMargin: PlasmaCore.Units.smallSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing * 2
+            Layout.leftMargin: Kirigami.Units.smallSpacing
         }
 
         // compact the layout

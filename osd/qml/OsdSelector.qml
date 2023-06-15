@@ -9,6 +9,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.10
 
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
@@ -38,8 +39,8 @@ Control {
                     Accessible.name: modelData.label
 
                     icon.name: modelData.iconName
-                    icon.height: PlasmaCore.Units.gridUnit * 8
-                    icon.width: PlasmaCore.Units.gridUnit * 8
+                    icon.height: Kirigami.Units.gridUnit * 8
+                    icon.width: Kirigami.Units.gridUnit * 8
 
                     onClicked: root.clicked(actionId)
                     onHoveredChanged: {
@@ -75,7 +76,7 @@ Control {
             wrapMode: Text.WordWrap
 
             Layout.fillWidth: true
-            Layout.margins: Math.floor(PlasmaCore.Units.smallSpacing / 2)
+            Layout.margins: Math.floor(Kirigami.Units.smallSpacing / 2)
         }
 
         // Shift current by delta, but do not wrap around when repeat is true.
