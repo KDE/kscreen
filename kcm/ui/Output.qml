@@ -122,7 +122,7 @@ Item {
                 Layout.fillWidth: true
 
                 text: "(" + model.resolution.width + "x" + model.resolution.height +
-                      (model.scale !== 1 ? "@" + Math.round(model.scale * 100.0) + "%": "") + ")"
+                      (model.scale !== 1 ? "\u200B@" + Math.round(model.scale * 100.0) + "%": "") + ")"
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
