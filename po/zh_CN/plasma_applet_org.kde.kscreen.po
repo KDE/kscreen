@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 02:16+0000\n"
+"POT-Creation-Date: 2023-06-20 02:58+0000\n"
 "PO-Revision-Date: 2023-06-17 04:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,12 +18,12 @@ msgstr ""
 "pot\n"
 "X-Crowdin-File-ID: 43421\n"
 
-#: package/contents/ui/main.qml:23
+#: package/contents/ui/main.qml:24
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "演示模式已启用"
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:72
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "配置显示设置…"
@@ -64,12 +64,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 正在强制执行演示模式：%2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:49
+#: package/contents/ui/ScreenLayoutSelection.qml:50
 #, kde-format
 msgid "Screen Layout"
 msgstr "屏幕布局"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:89
+#: package/contents/ui/ScreenLayoutSelection.qml:90
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "
