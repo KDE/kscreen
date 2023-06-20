@@ -16,6 +16,7 @@ Dependencies:
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kpackage': '@latest-kf6'
     'frameworks/kservice': '@latest-kf6'
+    'frameworks/ksvg': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
