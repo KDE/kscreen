@@ -411,6 +411,7 @@ void KCMKScreen::exportGlobalScale()
     }
     auto config = KSharedConfig::openConfig("kdeglobals");
     config->group("KScreen").writeEntry("ScreenScaleFactors", screenFactors);
+    config->sync();
 
     KConfig fontConfig(QStringLiteral("kcmfonts"));
     auto fontConfigGroup = fontConfig.group("General");
