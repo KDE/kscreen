@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:09+0000\n"
+"POT-Creation-Date: 2023-06-22 02:07+0000\n"
 "PO-Revision-Date: 2023-04-11 02:39+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -210,7 +210,7 @@ msgstr "«%1» es la única resolución permitida por esta pantalla."
 msgid "Scale:"
 msgstr "Escalar:"
 
-#: ui/OutputPanel.qml:112 ui/Panel.qml:107
+#: ui/OutputPanel.qml:112 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -266,28 +266,28 @@ msgstr "Limitado"
 msgid "Replica of:"
 msgstr "Réplica de:"
 
-#: ui/Panel.qml:29
+#: ui/Panel.qml:27
 #, kde-format
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ui/Panel.qml:71
+#: ui/Panel.qml:69
 #, kde-format
 msgid "Global scale:"
 msgstr "Escala global:"
 
-#: ui/Panel.qml:131 ui/Panel.qml:151
+#: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "Aplicaciones heredadas (X11):"
 
-#: ui/Panel.qml:136
+#: ui/Panel.qml:134
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Aplicar el escalado por sí mismas"
 
-#: ui/Panel.qml:141
+#: ui/Panel.qml:139
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -296,13 +296,13 @@ msgstr ""
 "Las aplicaciones heredadas que permitan escalado lo usarán para aparecer "
 "nítidas, aunque las que no lo permitan se mostrarán sin escalar."
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:150
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Escaladas por el sistema"
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:155
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -311,7 +311,7 @@ msgstr ""
 "El sistema escalará todas las aplicaciones heredadas para que tengan el "
 "tamaño correcto, aunque tendrán un aspecto algo borroso."
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:09+0000\n"
+"POT-Creation-Date: 2023-06-22 02:07+0000\n"
 "PO-Revision-Date: 2019-09-27 23:39+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Scale:"
 msgstr "Миқёс:"
 
-#: ui/OutputPanel.qml:112 ui/Panel.qml:107
+#: ui/OutputPanel.qml:112 ui/Panel.qml:105
 #, fuzzy, kde-format
 #| msgctxt "Scale factor (e.g. 1.0x, 1.5x, 2.0x)"
 #| msgid "%1x"
@@ -263,48 +263,48 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Инъиқоси:"
 
-#: ui/Panel.qml:29
+#: ui/Panel.qml:27
 #, kde-format
 msgid "Device:"
 msgstr ""
 
-#: ui/Panel.qml:71
+#: ui/Panel.qml:69
 #, kde-format
 msgid "Global scale:"
 msgstr "Миқёси умумӣ:"
 
-#: ui/Panel.qml:131 ui/Panel.qml:151
+#: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr ""
 
-#: ui/Panel.qml:136
+#: ui/Panel.qml:134
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr ""
 
-#: ui/Panel.qml:141
+#: ui/Panel.qml:139
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:150
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr ""
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:155
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

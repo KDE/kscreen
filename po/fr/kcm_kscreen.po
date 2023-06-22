@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:09+0000\n"
+"POT-Creation-Date: 2023-06-22 02:07+0000\n"
 "PO-Revision-Date: 2023-04-11 18:21+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -218,7 +218,7 @@ msgstr "« %1 » est la seule résolution prise en charge par cet écran."
 msgid "Scale:"
 msgstr "Échelle :"
 
-#: ui/OutputPanel.qml:112 ui/Panel.qml:107
+#: ui/OutputPanel.qml:112 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -275,28 +275,28 @@ msgstr "Limité"
 msgid "Replica of:"
 msgstr "Réplique de :"
 
-#: ui/Panel.qml:29
+#: ui/Panel.qml:27
 #, kde-format
 msgid "Device:"
 msgstr "Périphérique :"
 
-#: ui/Panel.qml:71
+#: ui/Panel.qml:69
 #, kde-format
 msgid "Global scale:"
 msgstr "Échelle globale :"
 
-#: ui/Panel.qml:131 ui/Panel.qml:151
+#: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy Applications (X11):"
 msgstr "Anciennes applications (X11) :"
 
-#: ui/Panel.qml:136
+#: ui/Panel.qml:134
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Appliquer la mise à l'échelle par elles même"
 
-#: ui/Panel.qml:141
+#: ui/Panel.qml:139
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -306,13 +306,13 @@ msgstr ""
 "l'utiliseront et auront un aspect net. Cependant, celles qui ne le font pas "
 "ne seront pas mises à l'échelle du tout."
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:150
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Mise à l'échelle par le système"
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:155
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -321,7 +321,7 @@ msgstr ""
 "Toutes les applications anciennes seront mises à l'échelle par le système à "
 "la taille correcte. Cependant, elles auront toujours l'air légèrement floues."
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
