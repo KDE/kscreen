@@ -58,7 +58,7 @@ void KScreenApplet::applyLayoutPreset(Action action)
         return;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded5"),
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded6"),
                                                       QStringLiteral("/modules/kscreen"),
                                                       QStringLiteral("org.kde.KScreen"),
                                                       QStringLiteral("applyLayoutPreset"));
