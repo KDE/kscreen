@@ -123,7 +123,7 @@ void KScreenDaemon::init()
     KActionCollection *coll = new KActionCollection(this);
     QAction *action = coll->addAction(QStringLiteral("display"));
     action->setText(i18n("Switch Display"));
-    QList<QKeySequence> switchDisplayShortcuts({Qt::Key_Display, Qt::MetaModifier + Qt::Key_P});
+    QList<QKeySequence> switchDisplayShortcuts({Qt::Key_Display, Qt::MetaModifier | Qt::Key_P});
     KGlobalAccel::self()->setGlobalShortcut(action, switchDisplayShortcuts);
     connect(action, &QAction::triggered, this, &KScreenDaemon::displayButton);
 
