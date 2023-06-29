@@ -384,7 +384,7 @@ void OutputModel::resetPosition(Output &output)
 
 QPoint OutputModel::mostTopLeftLocationOfPositionableOutputOptionallyIgnoringOneOfThem(std::optional<KScreen::OutputPtr> ignored) const
 {
-    auto foldTopLeft = [=](std::optional<QPoint> a, const Output &out) {
+    auto foldTopLeft = [this, ignored](std::optional<QPoint> a, const Output &out) {
         if (!positionable(out) || (ignored.has_value() && out.ptr->id() == ignored.value()->id())) {
             return a;
         }
