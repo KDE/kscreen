@@ -292,3 +292,5 @@ void ConfigHandler::writeControl()
     }
     m_control->writeFile();
 }
+
+#include "moc_config_handler.cpp"

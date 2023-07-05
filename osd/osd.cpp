@@ -99,3 +99,5 @@ void Osd::hideOsd()
         m_osdActionSelector->setVisible(false);
     }
 }
+
+#include "moc_osd.cpp"

@@ -128,3 +128,5 @@ OsdAction::Action OsdManager::showActionSelector()
 }
 
 }
+
+#include "moc_osdmanager.cpp"

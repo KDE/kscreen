@@ -502,3 +502,5 @@ void ControlOutput::setRgbRange(KScreen::Output::RgbRange value)
     }
     infoMap[rgbRangeString] = static_cast<uint>(value);
 }
+
+#include "moc_control.cpp"

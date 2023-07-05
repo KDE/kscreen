@@ -679,3 +679,5 @@ void Generator::setForceNotLaptop(bool force)
 {
     m_forceNotLaptop = force;
 }
+
+#include "moc_generator.cpp"

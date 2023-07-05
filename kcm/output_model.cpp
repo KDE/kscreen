@@ -1165,3 +1165,5 @@ void OutputModel::maintainSnapping(const OutputModel::Output &changedOutput, con
         updatePositions();
     }
 }
+
+#include "moc_output_model.cpp"

@@ -95,3 +95,5 @@ QVariant KScreenApplet::availableActions()
 K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "package/metadata.json")
 
 #include "kscreenapplet.moc"
+
+#include "moc_kscreenapplet.cpp"

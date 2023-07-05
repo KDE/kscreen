@@ -150,3 +150,5 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher *watcher)
 
     setReady();
 }
+
+#include "moc_device.cpp"

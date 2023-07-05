@@ -68,3 +68,5 @@ void OrientationSensor::setEnabled(bool enable)
     }
     Q_EMIT enabledChanged(enable);
 }
+
+#include "moc_orientation_sensor.cpp"

@@ -163,3 +163,5 @@ void Console::monitorAndPrint()
     monitor();
     connect(ConfigMonitor::instance(), &ConfigMonitor::configurationChanged, this, &Console::printConfig);
 }
+
+#include "moc_console.cpp"

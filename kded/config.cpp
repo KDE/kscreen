@@ -295,3 +295,5 @@ void Config::log()
         }
     }
 }
+
+#include "moc_config.cpp"

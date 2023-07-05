@@ -27,3 +27,5 @@ QVector<OsdAction> OsdAction::availableActions()
         {NoAction, i18nd("kscreen_common", "Leave unchanged"), QStringLiteral("dialog-cancel")},
     };
 }
+
+#include "moc_osdaction.cpp"
