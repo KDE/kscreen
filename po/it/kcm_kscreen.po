@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2022-12-18 10:18+0100\n"
+"PO-Revision-Date: 2023-07-02 16:03+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "%1x%2 (%3:%4)"
 #: output_model.cpp:738
 #, kde-format
 msgid "None"
-msgstr "Nessuna"
+msgstr "Nessuno"
 
 #: output_model.cpp:745
 #, kde-format
@@ -150,7 +150,7 @@ msgstr "Orientamento:"
 #: package/contents/ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
-msgstr "Automatica"
+msgstr "Automatico"
 
 #: package/contents/ui/Orientation.qml:35
 #, kde-format
@@ -290,7 +290,7 @@ msgstr "Applicazioni obsolete (X11):"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Applicano l'auto-ridimensionamento"
+msgstr "Ridimensionamento autonomo"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -306,7 +306,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Ridimensionata dal sistema"
+msgstr "Ridimensionate dal sistema"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
