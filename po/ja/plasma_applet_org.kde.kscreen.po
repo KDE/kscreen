@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-20 02:58+0000\n"
+"POT-Creation-Date: 2023-07-11 02:03+0000\n"
 "PO-Revision-Date: 2023-01-30 21:16+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "プレゼンテーションモードが有効です"
 
-#: package/contents/ui/main.qml:72
+#: package/contents/ui/main.qml:67
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "ディスプレイを設定..."
