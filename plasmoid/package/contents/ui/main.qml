@@ -13,7 +13,8 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasma5support 2.0 as P5Support
 import org.kde.kquickcontrolsaddons 2.0
-
+import org.kde.config as KConfig  // KAuthorized.authorizeControlModule
+import org.kde.kcmutils // KCMLauncher
 import org.kde.private.kscreen 1.0
 
 PlasmoidItem {
@@ -24,7 +25,7 @@ PlasmoidItem {
     toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
-    readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
+    readonly property bool kcmAllowed: KConfig.KAuthorized.authorizeControlModule("kcm_kscreen")
 
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
     property int presentationModeCookie: -1
@@ -67,7 +68,7 @@ PlasmoidItem {
         text: i18n("Configure Display Settings…")
         icon.name: "preferences-desktop-display"
         visible: kcmAllowed
-        onTriggered: KCMShell.openSystemSettings(kcmName)
+        onTriggered: KCMLauncher.openSystemSettings(kcmName)
     }
     Component.onCompleted: {
         Plasmoid.setInternalAction("configure", configureAction);
