@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-11 02:03+0000\n"
+"POT-Creation-Date: 2023-07-15 02:05+0000\n"
 "PO-Revision-Date: 2023-02-26 08:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: package/contents/ui/main.qml:24
+#: package/contents/ui/main.qml:25
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Predstavitveni način je omogočen"
 
-#: package/contents/ui/main.qml:67
+#: package/contents/ui/main.qml:68
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Nastavi nastavitve zaslona…"

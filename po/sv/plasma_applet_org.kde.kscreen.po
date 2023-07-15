@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-11 02:03+0000\n"
+"POT-Creation-Date: 2023-07-15 02:05+0000\n"
 "PO-Revision-Date: 2021-11-10 17:26+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: package/contents/ui/main.qml:24
+#: package/contents/ui/main.qml:25
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Presentationsläge är aktiverat"
 
-#: package/contents/ui/main.qml:67
+#: package/contents/ui/main.qml:68
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Anpassa skärminställningar…"
