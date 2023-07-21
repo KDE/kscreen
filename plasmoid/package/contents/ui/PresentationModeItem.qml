@@ -15,8 +15,8 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 ColumnLayout {
     spacing: Kirigami.Units.smallSpacing
 
-    PlasmaComponents3.CheckBox {
-        id: checkBox
+    PlasmaComponents3.Switch {
+        id: presentationModeSwitch
         Layout.fillWidth: true
         // Remove spacing between checkbox and the explanatory label below
         Layout.bottomMargin: -parent.spacing
@@ -27,8 +27,8 @@ ColumnLayout {
                 return;
             }
 
-            // disable CheckBox while job is running
-            checkBox.enabled = false;
+            // disable Switch while job is running
+            presentationModeSwitch.enabled = false;
 
             const service = pmSource.serviceForSource("PowerDevil");
 
@@ -39,7 +39,7 @@ ColumnLayout {
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
                     presentationModeCookie = job.result;
-                    checkBox.enabled = true;
+                    presentationModeSwitch.enabled = true;
                 });
             } else {
                 const op = service.operationDescription("stopSuppressingScreenPowerManagement");
@@ -48,7 +48,7 @@ ColumnLayout {
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
                     presentationModeCookie = -1;
-                    checkBox.enabled = true;
+                    presentationModeSwitch.enabled = true;
                 });
             }
         }
@@ -56,7 +56,7 @@ ColumnLayout {
 
     PlasmaExtras.DescriptiveLabel {
         Layout.fillWidth: true
-        Layout.leftMargin: checkBox.indicator.width + checkBox.spacing
+        Layout.leftMargin: presentationModeSwitch.indicator.width + presentationModeSwitch.spacing
         font: Kirigami.Theme.smallFont
         text: i18n("This will prevent your screen and computer from turning off automatically.")
         wrapMode: Text.WordWrap
@@ -64,7 +64,7 @@ ColumnLayout {
 
     InhibitionHint {
         Layout.fillWidth: true
-        Layout.leftMargin: checkBox.indicator.width + checkBox.spacing
+        Layout.leftMargin: presentationModeSwitch.indicator.width + presentationModeSwitch.spacing
 
         iconSource: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : ""
         text: {
