@@ -270,7 +270,7 @@ msgstr "전역 크기 조정:"
 #: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr "레거시 프로그램(X11):"
+msgstr "레거시 앱(X11):"
 
 #: ui/Panel.qml:134
 #, kde-format
@@ -284,8 +284,8 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
-"크기 조정을 지원하는 레거시 프로그램에서는 해당 기능을 사용하여 선명하게 표시"
-"되지만, 크기 조정을 지원하지 않는 프로그램은 있는 그대로 표시됩니다."
+"크기 조정을 지원하는 레거시 앱에서는 해당 기능을 사용하여 선명하게 표시되지"
+"만, 크기 조정을 지원하지 않는 앱은 있는 그대로 표시됩니다."
 
 #: ui/Panel.qml:150
 #, kde-format
@@ -299,8 +299,7 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
-"모든 레거시 프로그램을 시스템에서 올바른 크기로 조정하지만 번져 보일 수 있습"
-"니다."
+"모든 레거시 앱을 시스템에서 올바른 크기로 조정하지만 번져 보일 수 있습니다."
 
 #: ui/Panel.qml:169
 #, kde-format
@@ -308,8 +307,8 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
-"전역 크기 조절 배율은 X11 창 시스템을 사용하는 프로그램의 표시 오류를 줄이도"
-"록 6.25% 단위로만 변경할 수 있습니다."
+"전역 크기 조절 배율은 X11 창 시스템을 사용하는 앱의 표시 오류를 줄이도록 "
+"6.25% 단위로만 변경할 수 있습니다."
 
 #: ui/RotationButton.qml:50
 #, kde-format
