@@ -5,9 +5,9 @@
 */
 
 import QtQuick 2.15
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts 1.15
 
-import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.core 2.1 as PlasmaCore
 import org.kde.kirigami 2.20 as Kirigami
 
@@ -25,7 +25,7 @@ RowLayout {
         visible: valid
     }
 
-    PlasmaComponents3.Label {
+    QQC2.Label {
         id: label
         Layout.fillWidth: true
         Layout.maximumWidth: Math.min(Kirigami.Units.gridUnit * 20, implicitWidth)
