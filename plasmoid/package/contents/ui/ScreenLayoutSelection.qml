@@ -6,13 +6,13 @@
 */
 
 import QtQuick 2.15
-import QtQuick.Controls as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kirigami 2.20 as Kirigami
 
 ColumnLayout {
     id: root
@@ -82,14 +82,13 @@ ColumnLayout {
         }
     }
 
-    QQC2.Label {
+    PlasmaExtras.DescriptiveLabel {
         id: noScreenLabel
         Layout.fillWidth: true
         Layout.maximumWidth: Math.min(Kirigami.Units.gridUnit * 20, implicitWidth)
         wrapMode: Text.Wrap
         text: i18n("You can only apply a different screen layout when there is more than one display device plugged in.")
         font: Kirigami.Theme.smallFont
-        opacity: 0.7
         visible: false
     }
 }

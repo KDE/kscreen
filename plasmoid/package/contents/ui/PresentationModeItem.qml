@@ -6,11 +6,11 @@
 */
 
 import QtQuick 2.15
-import QtQuick.Controls as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
     spacing: Kirigami.Units.smallSpacing
@@ -54,13 +54,12 @@ ColumnLayout {
         }
     }
 
-    QQC2.Label {
+    PlasmaExtras.DescriptiveLabel {
         Layout.fillWidth: true
         Layout.leftMargin: presentationModeSwitch.indicator.width + presentationModeSwitch.spacing
         font: Kirigami.Theme.smallFont
         text: i18n("This will prevent your screen and computer from turning off automatically.")
         wrapMode: Text.WordWrap
-        opacity: 0.7
     }
 
     InhibitionHint {
