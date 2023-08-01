@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:05+0000\n"
+"POT-Creation-Date: 2023-08-01 02:16+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -65,12 +65,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 telah memaksa mode presentasi: %2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:50
+#: package/contents/ui/ScreenLayoutSelection.qml:49
 #, kde-format
 msgid "Screen Layout"
 msgstr "Tataletak Layar"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:90
+#: package/contents/ui/ScreenLayoutSelection.qml:89
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

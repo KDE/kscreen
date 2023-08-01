@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:05+0000\n"
+"POT-Creation-Date: 2023-08-01 02:16+0000\n"
 "PO-Revision-Date: 2022-02-04 00:15+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -67,12 +67,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 forțează regimul de prezentare: %2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:50
+#: package/contents/ui/ScreenLayoutSelection.qml:49
 #, kde-format
 msgid "Screen Layout"
 msgstr "Aranjament ecrane"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:90
+#: package/contents/ui/ScreenLayoutSelection.qml:89
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:05+0000\n"
+"POT-Creation-Date: 2023-08-01 02:16+0000\n"
 "PO-Revision-Date: 2023-01-30 21:16+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -64,12 +64,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 がプレゼンテーションモードを有効にしています: %2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:50
+#: package/contents/ui/ScreenLayoutSelection.qml:49
 #, kde-format
 msgid "Screen Layout"
 msgstr "スクリーンのレイアウト"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:90
+#: package/contents/ui/ScreenLayoutSelection.qml:89
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "
