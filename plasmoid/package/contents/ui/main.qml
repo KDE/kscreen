@@ -20,8 +20,8 @@ import org.kde.private.kscreen 1.0
 PlasmoidItem {
     id: root
 
-    // Only show if the user enabled presentation mode or we're a laptop with connected external screens
-    Plasmoid.status: presentationModeEnabled || (isLaptop && Plasmoid.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    // Only show if the user enabled presentation mode
+    Plasmoid.status: presentationModeEnabled ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
