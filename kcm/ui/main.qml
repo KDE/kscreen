@@ -236,9 +236,9 @@ KCM.SimpleKCM {
                 model: KSortFilterProxyModel {
                     id: enabledOutputsModel
                     sourceModel: kcm.outputModel
-                    filterRole: "enabled"
+                    filterRoleName: "enabled"
                     filterString: "true"
-                    sortRole: "priority"
+                    sortRoleName: "priority"
                     sortOrder: Qt.AscendingOrder
                 }
                 delegate: Kirigami.SwipeListItem {
