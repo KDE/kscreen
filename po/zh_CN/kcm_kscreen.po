@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 02:07+0000\n"
+"POT-Creation-Date: 2023-09-02 02:04+0000\n"
 "PO-Revision-Date: 2023-08-27 03:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -140,17 +140,17 @@ msgstr "降低优先级"
 msgid "Orientation:"
 msgstr "方向："
 
-#: ui/Orientation.qml:26 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "自动"
 
-#: ui/Orientation.qml:35
+#: ui/Orientation.qml:36
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "仅在平板模式"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:45
 #, kde-format
 msgid "Manual"
 msgstr "手动"

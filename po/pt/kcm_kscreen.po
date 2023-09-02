@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 02:07+0000\n"
+"POT-Creation-Date: 2023-09-02 02:04+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -141,17 +141,17 @@ msgstr "Diminuir a prioridade"
 msgid "Orientation:"
 msgstr "Orientação:"
 
-#: ui/Orientation.qml:26 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automática"
 
-#: ui/Orientation.qml:35
+#: ui/Orientation.qml:36
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Só quando estiver no modo de 'tablet'"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:45
 #, kde-format
 msgid "Manual"
 msgstr "Manual"

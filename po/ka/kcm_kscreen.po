@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 02:07+0000\n"
+"POT-Creation-Date: 2023-09-02 02:04+0000\n"
 "PO-Revision-Date: 2023-04-12 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -145,17 +145,17 @@ msgstr "პრიორიტეტის შემცირება"
 msgid "Orientation:"
 msgstr "ორიენტაცია:"
 
-#: ui/Orientation.qml:26 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "ავტომატური"
 
-#: ui/Orientation.qml:35
+#: ui/Orientation.qml:36
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "მხოლოდ ტაბლეტის რეჟიმში"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:45
 #, kde-format
 msgid "Manual"
 msgstr "ხელით"

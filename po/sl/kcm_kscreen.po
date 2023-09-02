@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 02:07+0000\n"
+"POT-Creation-Date: 2023-09-02 02:04+0000\n"
 "PO-Revision-Date: 2023-04-10 06:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -152,17 +152,17 @@ msgstr "Spusti prioriteto"
 msgid "Orientation:"
 msgstr "Usmerjenost:"
 
-#: ui/Orientation.qml:26 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Samodejno"
 
-#: ui/Orientation.qml:35
+#: ui/Orientation.qml:36
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Samo v načinu tablice"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:45
 #, kde-format
 msgid "Manual"
 msgstr "Ročno"
