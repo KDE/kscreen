@@ -111,6 +111,7 @@ void Device::isLaptopFetched(QDBusPendingCallWatcher *watcher)
     const QDBusPendingReply<QVariant> reply = *watcher;
     if (reply.isError()) {
         qCDebug(KSCREEN_KDED) << "Couldn't get if the device is a laptop: " << reply.error().message();
+        setReady();
         return;
     }
 
