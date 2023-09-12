@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-02 02:04+0000\n"
-"PO-Revision-Date: 2023-08-24 06:59+0300\n"
+"PO-Revision-Date: 2023-09-11 22:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -108,8 +108,7 @@ msgstr "Bir hata nedeniyle çıktılar kaydedilemedi."
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Global ölçek değişiklikleri, sistem yeniden başlatıldıktan sonra etkili "
-"olacak."
+"Global ölçek değişiklikleri, sistem yeniden başlatıldıktan sonra etkili olur."
 
 #: ui/main.qml:197
 #, kde-format
@@ -246,7 +245,7 @@ msgstr "Üst tarama:"
 #: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB Range:"
-msgstr "RGB Erimi:"
+msgstr "RGB erimi:"
 
 #: ui/OutputPanel.qml:196
 #, kde-format
