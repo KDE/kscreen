@@ -92,7 +92,7 @@ QVariant KScreenApplet::availableActions()
     return QVariant::fromValue(KScreen::OsdAction::availableActions());
 }
 
-K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "package/metadata.json")
+K_PLUGIN_CLASS(KScreenApplet)
 
 #include "kscreenapplet.moc"
 
