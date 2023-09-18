@@ -37,7 +37,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     GlobalAccel
     I18n
-    IconThemes
     KCMUtils
     Plasma
     PlasmaQuick
