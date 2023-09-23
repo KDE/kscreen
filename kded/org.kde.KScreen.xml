@@ -21,11 +21,5 @@
         <method name="isAutoRotateAvailable">
             <arg type="b" direction="out" />
         </method>
-        <signal name="outputConnected">
-            <arg type="s" name="outputName" direction="out" />
-        </signal>
-        <signal name="unknownOutputConnected">
-            <arg type="s" name="outputName" direction="out" />
-        </signal>
     </interface>
 </node>

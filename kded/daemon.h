@@ -45,11 +45,6 @@ public Q_SLOTS:
     void setAutoRotate(bool value);
     bool isAutoRotateAvailable();
 
-Q_SIGNALS:
-    // DBus
-    void outputConnected(const QString &outputName);
-    void unknownOutputConnected(const QString &outputName);
-
 private:
     Q_INVOKABLE void getInitialConfig();
     void init();

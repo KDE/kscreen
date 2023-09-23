@@ -639,14 +639,6 @@ void KScreenDaemon::outputConnectedChanged()
 
     KScreen::Output *output = qobject_cast<KScreen::Output *>(sender());
     qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
-
-    if (output->isConnected()) {
-        Q_EMIT outputConnected(output->name());
-
-        if (!m_monitoredConfig->fileExists()) {
-            Q_EMIT unknownOutputConnected(output->name());
-        }
-    }
 }
 
 void KScreenDaemon::monitorConnectedChange()
