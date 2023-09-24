@@ -479,7 +479,6 @@ void KScreenDaemon::alignX11TouchScreen()
     if (matrixAtom == 0) {
         return;
     }
-    auto calibrationMatrixAtom = getAtom(connection, "libinput Calibration Matrix");
     auto floatAtom = getAtom(connection, "FLOAT");
     if (floatAtom == 0) {
         return;
@@ -528,23 +527,17 @@ void KScreenDaemon::alignX11TouchScreen()
         std::unique_ptr<Atom, XDeleter> properties(XIListProperties(display, info->id, &nProperties));
 
         bool matrixAtomFound = false;
-        bool libInputCalibrationAtomFound = false;
 
         Atom *atom = properties.get();
         Atom *atomEnd = properties.get() + nProperties;
         for (; atom != atomEnd; atom++) {
             if (!internalOutputRect.isEmpty() && *atom == matrixAtom) {
                 matrixAtomFound = true;
-            } else if (!internalOutputRect.isEmpty() && *atom == calibrationMatrixAtom) {
-                libInputCalibrationAtomFound = true;
             }
         }
 
-        if (libInputCalibrationAtomFound) {
-            setMatrixAtom(info, calibrationMatrixAtom, transform);
-        }
         if (matrixAtomFound) {
-            setMatrixAtom(info, matrixAtom, libInputCalibrationAtomFound ? QTransform() : transform);
+            setMatrixAtom(info, matrixAtom, transform);
         }
 
         // For now we assume there is only one touchscreen
