@@ -13,11 +13,14 @@
 #pragma once
 
 #include <QObject>
+#include <QSharedPointer>
 #include <QString>
 #include <QVector>
 
 namespace KScreen
 {
+class Config;
+
 struct OsdAction {
     Q_GADGET
     Q_PROPERTY(QString label MEMBER label CONSTANT)
@@ -39,6 +42,7 @@ public:
     QString iconName;
 
     static QVector<OsdAction> availableActions();
+    static void applyAction(const QSharedPointer<KScreen::Config> &config, Action action);
 };
 
 } // namespace KScreen

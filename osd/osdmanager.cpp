@@ -59,11 +59,9 @@ OsdAction::Action OsdManager::showActionSelector()
 {
     setDelayedReply(true);
 
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this, message = message()](const KScreen::ConfigOperation *op) {
+    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
             qWarning() << op->errorString();
-            auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("Failed to get current output configuration"));
-            QDBusConnection::sessionBus().send(error);
             return;
         }
 
@@ -98,8 +96,6 @@ OsdAction::Action OsdManager::showActionSelector()
         }
 
         if (!osdOutput) {
-            auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("No enabled output"));
-            QDBusConnection::sessionBus().send(error);
             return;
         }
 
@@ -109,19 +105,13 @@ OsdAction::Action OsdManager::showActionSelector()
         } else {
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
-            connect(osd, &Osd::osdActionSelected, this, [this, message](OsdAction::Action action) {
-                auto reply = message.createReply(action);
-                QDBusConnection::sessionBus().send(reply);
-
+            connect(osd, &Osd::osdActionSelected, this, [this, op](OsdAction::Action action) {
+                OsdAction::applyAction(op->config(), action);
                 hideOsd();
             });
         }
 
         osd->showActionSelector();
-        connect(m_cleanupTimer, &QTimer::timeout, this, [message] {
-            auto reply = message.createReply(OsdAction::NoAction);
-            QDBusConnection::sessionBus().send(reply);
-        });
         m_cleanupTimer->start();
     });
     return OsdAction::NoAction;

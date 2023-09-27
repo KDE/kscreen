@@ -271,20 +271,6 @@ void KScreenDaemon::applyKnownConfig()
     }
 }
 
-void KScreenDaemon::applyLayoutPreset(const QString &presetName)
-{
-    const QMetaEnum actionEnum = QMetaEnum::fromType<KScreen::OsdAction::Action>();
-    Q_ASSERT(actionEnum.isValid());
-
-    bool ok;
-    auto action = static_cast<KScreen::OsdAction::Action>(actionEnum.keyToValue(qPrintable(presetName), &ok));
-    if (!ok) {
-        qCWarning(KSCREEN_KDED) << "Cannot apply unknown screen layout preset named" << presetName;
-        return;
-    }
-    applyOsdAction(action);
-}
-
 bool KScreenDaemon::getAutoRotate()
 {
     return m_monitoredConfig->getAutoRotate();
@@ -306,46 +292,11 @@ bool KScreenDaemon::isAutoRotateAvailable()
 
 void KScreenDaemon::showOSD()
 {
-    auto call = m_osdServiceInterface->showActionSelector();
-    auto watcher = new QDBusPendingCallWatcher(call);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher] {
-        watcher->deleteLater();
-        QDBusReply<int> reply = *watcher;
-        if (!reply.isValid()) {
-            return;
-        }
-        applyOsdAction(static_cast<KScreen::OsdAction::Action>(reply.value()));
-    });
-}
-
-void KScreenDaemon::applyOsdAction(KScreen::OsdAction::Action action)
-{
-    switch (action) {
-    case KScreen::OsdAction::NoAction:
-        qCDebug(KSCREEN_KDED) << "OSD: no action";
-        return;
-    case KScreen::OsdAction::SwitchToInternal:
-        qCDebug(KSCREEN_KDED) << "OSD: switch to internal";
-        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffExternal));
-        return;
-    case KScreen::OsdAction::SwitchToExternal:
-        qCDebug(KSCREEN_KDED) << "OSD: switch to external";
-        doApplyConfig(Generator::self()->displaySwitch(Generator::TurnOffEmbedded));
-        return;
-    case KScreen::OsdAction::ExtendLeft:
-        qCDebug(KSCREEN_KDED) << "OSD: extend left";
-        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToLeft));
-        return;
-    case KScreen::OsdAction::ExtendRight:
-        qCDebug(KSCREEN_KDED) << "OSD: extend right";
-        doApplyConfig(Generator::self()->displaySwitch(Generator::ExtendToRight));
-        return;
-    case KScreen::OsdAction::Clone:
-        qCDebug(KSCREEN_KDED) << "OSD: clone";
-        doApplyConfig(Generator::self()->displaySwitch(Generator::Clone));
-        return;
-    }
-    Q_UNREACHABLE();
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kscreen.osdService"),
+                                                          QStringLiteral("/org/kde/kscreen/osdService"),
+                                                          QStringLiteral("org.kde.kscreen.osdService"),
+                                                          QStringLiteral("showActionSelector"));
+    QDBusConnection::sessionBus().asyncCall(message);
 }
 
 void KScreenDaemon::applyIdealConfig()

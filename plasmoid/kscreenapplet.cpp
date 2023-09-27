@@ -16,7 +16,9 @@
 #include <KScreen/Config>
 #include <KScreen/ConfigMonitor>
 #include <KScreen/GetConfigOperation>
+#include <KScreen/Mode>
 #include <KScreen/Output>
+#include <KScreen/SetConfigOperation>
 
 #include <algorithm>
 
@@ -50,17 +52,7 @@ int KScreenApplet::connectedOutputCount() const
 
 void KScreenApplet::applyLayoutPreset(KScreen::OsdAction::Action action)
 {
-    const QMetaEnum actionEnum = QMetaEnum::fromType<KScreen::OsdAction::Action>();
-    Q_ASSERT(actionEnum.isValid());
-
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded6"),
-                                                      QStringLiteral("/modules/kscreen"),
-                                                      QStringLiteral("org.kde.KScreen"),
-                                                      QStringLiteral("applyLayoutPreset"));
-
-    msg.setArguments({QString::fromLatin1(actionEnum.valueToKey(action))});
-
-    QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
+    KScreen::OsdAction::applyAction(m_screenConfiguration, action);
 }
 
 void KScreenApplet::checkOutputs()

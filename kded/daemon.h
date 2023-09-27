@@ -40,7 +40,6 @@ public:
 
 public Q_SLOTS:
     // DBus
-    void applyLayoutPreset(const QString &presetName);
     bool getAutoRotate();
     void setAutoRotate(bool value);
     bool isAutoRotateAvailable();
@@ -64,7 +63,6 @@ private:
 
     void outputConnectedChanged();
     void showOSD();
-    void applyOsdAction(KScreen::OsdAction::Action action);
 
     void doApplyConfig(const KScreen::ConfigPtr &config);
     void doApplyConfig(std::unique_ptr<Config> config);

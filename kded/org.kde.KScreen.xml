@@ -9,9 +9,6 @@
 -->
 <node>
     <interface name="org.kde.KScreen">
-        <method name="applyLayoutPreset">
-            <arg type="s" name="presetName" direction="in" />
-        </method>
         <method name="getAutoRotate">
             <arg type="b" direction="out" />
         </method>
