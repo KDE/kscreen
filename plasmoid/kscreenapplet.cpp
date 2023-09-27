@@ -48,22 +48,17 @@ int KScreenApplet::connectedOutputCount() const
     return m_connectedOutputCount;
 }
 
-void KScreenApplet::applyLayoutPreset(Action action)
+void KScreenApplet::applyLayoutPreset(KScreen::OsdAction::Action action)
 {
     const QMetaEnum actionEnum = QMetaEnum::fromType<KScreen::OsdAction::Action>();
     Q_ASSERT(actionEnum.isValid());
-
-    const QString presetName = QString::fromLatin1(actionEnum.valueToKey(action));
-    if (presetName.isEmpty()) {
-        return;
-    }
 
     QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded6"),
                                                       QStringLiteral("/modules/kscreen"),
                                                       QStringLiteral("org.kde.KScreen"),
                                                       QStringLiteral("applyLayoutPreset"));
 
-    msg.setArguments({presetName});
+    msg.setArguments({QString::fromLatin1(actionEnum.valueToKey(action))});
 
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 }

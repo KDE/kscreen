@@ -26,20 +26,11 @@ public:
     explicit KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KScreenApplet() override;
 
-    enum Action {
-        SwitchToExternal,
-        SwitchToInternal,
-        Clone,
-        ExtendLeft,
-        ExtendRight,
-    };
-    Q_ENUM(Action)
-
     void init() override;
 
     int connectedOutputCount() const;
 
-    Q_INVOKABLE void applyLayoutPreset(KScreenApplet::Action action);
+    Q_INVOKABLE void applyLayoutPreset(KScreen::OsdAction::Action action);
 
     Q_INVOKABLE QVariant availableActions();
 
