@@ -246,6 +246,16 @@ void KScreenDaemon::refreshConfig()
             setMonitorForChanges(true);
         }
     });
+
+    const auto outputs = m_monitoredConfig->data()->outputs();
+    bool newExternalScreenPresent = std::any_of(outputs.cbegin(), outputs.cend(), [](const KScreen::OutputPtr &output) {
+        return output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel && output->type() != KScreen::Output::Unknown;
+    });
+
+    if (newExternalScreenPresent != m_exernalScreenPresent) {
+        m_exernalScreenPresent = newExternalScreenPresent;
+        Q_EMIT externalScreenPresentChanged();
+    }
 }
 
 void KScreenDaemon::applyConfig()
@@ -694,6 +704,11 @@ void KScreenDaemon::disableOutput(const KScreen::OutputPtr &output)
 
     // Disable the output
     output->setEnabled(false);
+}
+
+bool KScreenDaemon::externalScreenPresent()
+{
+    return m_exernalScreenPresent;
 }
 
 #include "daemon.moc"

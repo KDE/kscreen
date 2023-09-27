@@ -21,5 +21,10 @@
         <method name="isAutoRotateAvailable">
             <arg type="b" direction="out" />
         </method>
+        <method name="externalScreenPresent">
+            <arg type="b" direction="out" />
+        </method>
+        <signal name="externalScreenPresentChanged">
+        </signal>
     </interface>
 </node>

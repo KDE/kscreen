@@ -44,6 +44,10 @@ public Q_SLOTS:
     bool getAutoRotate();
     void setAutoRotate(bool value);
     bool isAutoRotateAvailable();
+    bool externalScreenPresent();
+
+Q_SIGNALS:
+    void externalScreenPresentChanged();
 
 private:
     Q_INVOKABLE void getInitialConfig();
@@ -85,4 +89,5 @@ private:
     OrientationSensor *m_orientationSensor;
 
     bool m_startingUp = true;
+    bool m_exernalScreenPresent = false;
 };
