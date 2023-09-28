@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:59+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2018-06-22 20:13+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -16,32 +16,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: osdaction.cpp:22
+#: osdaction.cpp:27
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Alihkan ke layar external"
 
-#: osdaction.cpp:23
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Alihkan ke layar laptop"
 
-#: osdaction.cpp:24
+#: osdaction.cpp:29
 #, kde-format
 msgid "Unify outputs"
 msgstr "Output padu"
 
-#: osdaction.cpp:25
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left"
 msgstr "Luas ke kiri"
 
-#: osdaction.cpp:26
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right"
 msgstr "Luas ke kanan"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Biarkan tak diubah"

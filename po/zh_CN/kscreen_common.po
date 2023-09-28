@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:59+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-09-16 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,32 +17,32 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kscreen/kscreen_common.pot\n"
 "X-Crowdin-File-ID: 42699\n"
 
-#: osdaction.cpp:22
+#: osdaction.cpp:27
 #, kde-format
 msgid "Switch to external screen"
 msgstr "切换到外接屏幕"
 
-#: osdaction.cpp:23
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "切换到笔记本屏幕"
 
-#: osdaction.cpp:24
+#: osdaction.cpp:29
 #, kde-format
 msgid "Unify outputs"
 msgstr "统一输出"
 
-#: osdaction.cpp:25
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left"
 msgstr "向左扩展"
 
-#: osdaction.cpp:26
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right"
 msgstr "向右扩展"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "保持不变"

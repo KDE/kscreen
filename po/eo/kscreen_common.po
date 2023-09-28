@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:59+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-05-06 19:01+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: osdaction.cpp:22
+#: osdaction.cpp:27
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Ŝanĝi al ekstera ekrano"
 
-#: osdaction.cpp:23
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Ŝanĝi al tekkomputila ekrano"
 
-#: osdaction.cpp:24
+#: osdaction.cpp:29
 #, kde-format
 msgid "Unify outputs"
 msgstr "Unuigu elirojn"
 
-#: osdaction.cpp:25
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left"
 msgstr "Etendi maldekstren"
 
-#: osdaction.cpp:26
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right"
 msgstr "Etendi dekstren"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Lasi senŝanĝe"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:59+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-01-25 20:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,32 +18,32 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: osdaction.cpp:22
+#: osdaction.cpp:27
 #, kde-format
 msgid "Switch to external screen"
 msgstr "بدّل إلى شاشة خارجية"
 
-#: osdaction.cpp:23
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "بدّل إلى شاشة  حاسوب محمول"
 
-#: osdaction.cpp:24
+#: osdaction.cpp:29
 #, kde-format
 msgid "Unify outputs"
 msgstr "وحد المخرجات"
 
-#: osdaction.cpp:25
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left"
 msgstr "مدد إلى اليسار"
 
-#: osdaction.cpp:26
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right"
 msgstr "مدد إلى اليمين"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "اتركه بدون تغيير"

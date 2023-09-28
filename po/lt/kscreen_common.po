@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:59+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2019-06-01 19:23+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -21,32 +21,32 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: osdaction.cpp:22
+#: osdaction.cpp:27
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Perjungti į išorinį ekraną"
 
-#: osdaction.cpp:23
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Perjungti į nešiojamojo kompiuterio ekraną"
 
-#: osdaction.cpp:24
+#: osdaction.cpp:29
 #, kde-format
 msgid "Unify outputs"
 msgstr "Suvienyti išvedimus"
 
-#: osdaction.cpp:25
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left"
 msgstr "Išplėsti į kairę"
 
-#: osdaction.cpp:26
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right"
 msgstr "Išplėsti į dešinę"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Nieko nekeisti"
