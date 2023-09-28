@@ -260,26 +260,6 @@ void ControlConfig::set(const KScreen::OutputPtr &output, const QString &name, F
     }
 }
 
-bool ControlConfig::getAutoRotate(const KScreen::OutputPtr &output) const
-{
-    return get(output, &ControlOutput::getAutoRotate, true);
-}
-
-void ControlConfig::setAutoRotate(const KScreen::OutputPtr &output, bool value)
-{
-    set<bool>(output, autorotateString, &ControlOutput::setAutoRotate, value);
-}
-
-bool ControlConfig::getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
-{
-    return get(output, &ControlOutput::getAutoRotateOnlyInTabletMode, true);
-}
-
-void ControlConfig::setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value)
-{
-    set<bool>(output, autorotateTabletOnlyString, &ControlOutput::setAutoRotateOnlyInTabletMode, value);
-}
-
 KScreen::OutputPtr ControlConfig::getReplicationSource(const KScreen::OutputPtr &output) const
 {
     const QVariantList outputsInfo = getOutputs();
@@ -417,36 +397,6 @@ QString ControlOutput::filePath() const
         return QString();
     }
     return filePathFromHash(m_output->hashMd5());
-}
-
-bool ControlOutput::getAutoRotate() const
-{
-    const auto val = constInfo()[autorotateString];
-    return !val.canConvert<bool>() || val.toBool();
-}
-
-void ControlOutput::setAutoRotate(bool value)
-{
-    auto &infoMap = info();
-    if (infoMap.isEmpty()) {
-        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
-    }
-    infoMap[autorotateString] = value;
-}
-
-bool ControlOutput::getAutoRotateOnlyInTabletMode() const
-{
-    const auto val = constInfo()[autorotateTabletOnlyString];
-    return !val.canConvert<bool>() || val.toBool();
-}
-
-void ControlOutput::setAutoRotateOnlyInTabletMode(bool value)
-{
-    auto &infoMap = info();
-    if (infoMap.isEmpty()) {
-        infoMap = createOutputInfo(m_output->hashMd5(), m_output->name());
-    }
-    infoMap[autorotateTabletOnlyString] = value;
 }
 
 uint32_t ControlOutput::overscan() const

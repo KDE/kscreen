@@ -19,7 +19,6 @@
 #include <memory>
 
 class Config;
-class OrientationSensor;
 class OrgKdeKscreenOsdServiceInterface;
 
 namespace KScreen
@@ -37,12 +36,6 @@ class KScreenDaemon : public KDEDModule
 public:
     KScreenDaemon(QObject *parent, const QList<QVariant> &);
     ~KScreenDaemon() override;
-
-public Q_SLOTS:
-    // DBus
-    bool getAutoRotate();
-    void setAutoRotate(bool value);
-    bool isAutoRotateAvailable();
 
 private:
     Q_INVOKABLE void getInitialConfig();
@@ -71,8 +64,6 @@ private:
     void monitorConnectedChange();
     void disableOutput(const KScreen::OutputPtr &output);
 
-    void updateOrientation();
-
     std::unique_ptr<Config> m_monitoredConfig;
     bool m_monitoring;
     bool m_configDirty = true;
@@ -80,7 +71,6 @@ private:
     QTimer *m_saveTimer;
     QTimer *m_lidClosedTimer;
     OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface;
-    OrientationSensor *m_orientationSensor;
 
     bool m_startingUp = true;
 };

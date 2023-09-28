@@ -70,9 +70,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     case NormalizedPositionRole:
         return output->geometry().topLeft();
     case AutoRotateRole:
-        return m_config->autoRotate(output);
-    case AutoRotateOnlyInTabletModeRole:
-        return m_config->autoRotateOnlyInTabletMode(output);
+        return static_cast<uint32_t>(output->autoRotatePolicy());
     case RotationRole:
         return output->rotation();
     case ScaleRole:
@@ -165,13 +163,14 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         return false;
         break;
     case AutoRotateRole:
-        if (value.canConvert<bool>()) {
-            return setAutoRotate(index.row(), value.value<bool>());
-        }
-        break;
-    case AutoRotateOnlyInTabletModeRole:
-        if (value.canConvert<bool>()) {
-            return setAutoRotateOnlyInTabletMode(index.row(), value.value<bool>());
+        if (value.canConvert<uint32_t>()) {
+            Output &output = m_outputs[index.row()];
+            const auto policy = static_cast<KScreen::Output::AutoRotatePolicy>(value.toUInt());
+            if (output.ptr->autoRotatePolicy() == policy) {
+                return false;
+            }
+            output.ptr->setAutoRotatePolicy(policy);
+            Q_EMIT dataChanged(index, index, {AutoRotateRole});
         }
         break;
     case RotationRole:
@@ -263,7 +262,6 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[PositionRole] = "position";
     roles[NormalizedPositionRole] = "normalizedPosition";
     roles[AutoRotateRole] = "autoRotate";
-    roles[AutoRotateOnlyInTabletModeRole] = "autoRotateOnlyInTabletMode";
     roles[RotationRole] = "rotation";
     roles[ScaleRole] = "scale";
     roles[ResolutionIndexRole] = "resolutionIndex";
@@ -518,34 +516,6 @@ bool OutputModel::setRefreshRate(int outputIndex, int refIndex)
     output.ptr->setCurrentModeId((*modeIt)->id());
     QModelIndex index = createIndex(outputIndex, 0);
     Q_EMIT dataChanged(index, index, {RefreshRateIndexRole});
-    return true;
-}
-
-bool OutputModel::setAutoRotate(int outputIndex, bool value)
-{
-    Output &output = m_outputs[outputIndex];
-
-    if (m_config->autoRotate(output.ptr) == value) {
-        return false;
-    }
-    m_config->setAutoRotate(output.ptr, value);
-
-    QModelIndex index = createIndex(outputIndex, 0);
-    Q_EMIT dataChanged(index, index, {AutoRotateRole});
-    return true;
-}
-
-bool OutputModel::setAutoRotateOnlyInTabletMode(int outputIndex, bool value)
-{
-    Output &output = m_outputs[outputIndex];
-
-    if (m_config->autoRotateOnlyInTabletMode(output.ptr) == value) {
-        return false;
-    }
-    m_config->setAutoRotateOnlyInTabletMode(output.ptr, value);
-
-    QModelIndex index = createIndex(outputIndex, 0);
-    Q_EMIT dataChanged(index, index, {AutoRotateOnlyInTabletModeRole});
     return true;
 }
 

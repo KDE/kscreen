@@ -156,11 +156,10 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || scaleChanged
                     || output->rotation() != config->rotation()
                     || output->replicationSource() != config->replicationSource()
-                    || autoRotate(output) != m_initialControl->getAutoRotate(output)
-                    || autoRotateOnlyInTabletMode(output) != m_initialControl->getAutoRotateOnlyInTabletMode(output)
                     || output->overscan() != config->overscan()
                     || output->vrrPolicy() != config->vrrPolicy()
-                    || output->rgbRange() != config->rgbRange()) {
+                    || output->rgbRange() != config->rgbRange()
+                    || output->autoRotatePolicy() != config->autoRotatePolicy()) {
                         return true;
                     }
             }
@@ -233,26 +232,6 @@ KScreen::OutputPtr ConfigHandler::replicationSource(const KScreen::OutputPtr &ou
 void ConfigHandler::setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
 {
     m_control->setReplicationSource(output, source);
-}
-
-bool ConfigHandler::autoRotate(const KScreen::OutputPtr &output) const
-{
-    return m_control->getAutoRotate(output);
-}
-
-void ConfigHandler::setAutoRotate(KScreen::OutputPtr &output, bool autoRotate)
-{
-    m_control->setAutoRotate(output, autoRotate);
-}
-
-bool ConfigHandler::autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const
-{
-    return m_control->getAutoRotateOnlyInTabletMode(output);
-}
-
-void ConfigHandler::setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value)
-{
-    m_control->setAutoRotateOnlyInTabletMode(output, value);
 }
 
 uint32_t ConfigHandler::overscan(const KScreen::OutputPtr &output) const

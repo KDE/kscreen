@@ -9,12 +9,10 @@
 */
 #include "daemon.h"
 
-#include "../common/orientation_sensor.h"
 #include "config.h"
 #include "device.h"
 #include "generator.h"
 #include "kscreen_daemon_debug.h"
-#include "kscreenadaptor.h"
 #include "osdservice_interface.h"
 
 #include <kscreen/configmonitor.h>
@@ -33,7 +31,6 @@
 
 #include <QAction>
 #include <QGuiApplication>
-#include <QOrientationReading>
 #include <QScreen>
 #include <QShortcut>
 #include <QTimer>
@@ -74,25 +71,10 @@ KScreenDaemon::KScreenDaemon(QObject *parent, const QList<QVariant> &)
     , m_changeCompressor(new QTimer(this))
     , m_saveTimer(nullptr)
     , m_lidClosedTimer(new QTimer(this))
-    , m_orientationSensor(new OrientationSensor(this))
 {
-    connect(m_orientationSensor, &OrientationSensor::availableChanged, this, &KScreenDaemon::updateOrientation);
-    connect(m_orientationSensor, &OrientationSensor::valueChanged, this, &KScreenDaemon::updateOrientation);
-
     KScreen::Log::instance();
     qMetaTypeId<KScreen::OsdAction>();
     QMetaObject::invokeMethod(this, "getInitialConfig", Qt::QueuedConnection);
-
-    auto dpms = new KScreen::Dpms(this);
-    connect(dpms, &KScreen::Dpms::modeChanged, this, [this](KScreen::Dpms::Mode mode, QScreen *screen) {
-        if (m_monitoredConfig && m_monitoredConfig->data() && screen->geometry() == m_monitoredConfig->data()->primaryOutput()->geometry()) {
-            if (mode == KScreen::Dpms::On) {
-                m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
-            } else {
-                m_orientationSensor->setEnabled(false);
-            }
-        }
-    });
 }
 
 void KScreenDaemon::getInitialConfig()
@@ -127,8 +109,6 @@ void KScreenDaemon::init()
     KGlobalAccel::self()->setGlobalShortcut(action, switchDisplayShortcuts);
     connect(action, &QAction::triggered, this, &KScreenDaemon::displayButton);
 
-    new KScreenAdaptor(this);
-
     const QString osdService = QStringLiteral("org.kde.kscreen.osdService");
     const QString osdPath = QStringLiteral("/org/kde/kscreen/osdService");
     m_osdServiceInterface = new OrgKdeKscreenOsdServiceInterface(osdService, osdPath, QDBusConnection::sessionBus(), this);
@@ -146,7 +126,6 @@ void KScreenDaemon::init()
     connect(Device::self(), &Device::lidClosedChanged, this, &KScreenDaemon::lidClosedChanged);
     connect(Device::self(), &Device::resumingFromSuspend, this, [this]() {
         KScreen::Log::instance()->setContext(QStringLiteral("resuming"));
-        m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
         qCDebug(KSCREEN_KDED) << "Resumed from suspend, checking for screen changes";
         // We don't care about the result, we just want to force the backend
         // to query XRandR so that it will detect possible changes that happened
@@ -157,7 +136,6 @@ void KScreenDaemon::init()
         qCDebug(KSCREEN_KDED) << "System is going to suspend, won't be changing config (waited for "
                               << (m_lidClosedTimer->interval() - m_lidClosedTimer->remainingTime()) << "ms)";
         m_lidClosedTimer->stop();
-        m_orientationSensor->setEnabled(false);
     });
 
     connect(Generator::self(), &Generator::ready, this, [this] {
@@ -174,39 +152,6 @@ void KScreenDaemon::init()
     monitorConnectedChange();
 }
 
-void KScreenDaemon::updateOrientation()
-{
-    if (!m_monitoredConfig) {
-        return;
-    }
-    const auto features = m_monitoredConfig->data()->supportedFeatures();
-    if (!features.testFlag(KScreen::Config::Feature::AutoRotation) || !features.testFlag(KScreen::Config::Feature::TabletMode)) {
-        return;
-    }
-
-    if (!m_orientationSensor->available() || !m_orientationSensor->enabled()) {
-        return;
-    }
-
-    const auto orientation = m_orientationSensor->value();
-    if (orientation == QOrientationReading::Undefined) {
-        // Orientation sensor went off. Do not change current orientation.
-        return;
-    }
-    if (orientation == QOrientationReading::FaceUp || orientation == QOrientationReading::FaceDown) {
-        // We currently don't do anything with FaceUp/FaceDown, but in the future we could use them
-        // to shut off and switch on again a display when display is facing downwards/upwards.
-        return;
-    }
-
-    m_monitoredConfig->setDeviceOrientation(orientation);
-    if (m_monitoring) {
-        doApplyConfig(m_monitoredConfig->data());
-    } else {
-        m_configDirty = true;
-    }
-}
-
 void KScreenDaemon::doApplyConfig(const KScreen::ConfigPtr &config)
 {
     qCDebug(KSCREEN_KDED) << "Do set and apply specific config";
@@ -221,12 +166,6 @@ void KScreenDaemon::doApplyConfig(std::unique_ptr<Config> config)
     m_monitoredConfig = std::move(config);
 
     m_monitoredConfig->activateControlWatching();
-    m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
-
-    connect(m_monitoredConfig.get(), &Config::controlChanged, this, [this]() {
-        m_orientationSensor->setEnabled(m_monitoredConfig->autoRotationRequested());
-        updateOrientation();
-    });
 
     refreshConfig();
 }
@@ -269,25 +208,6 @@ void KScreenDaemon::applyKnownConfig()
         qCDebug(KSCREEN_KDED) << "Loading failed, falling back to the ideal config" << m_monitoredConfig->id();
         applyIdealConfig();
     }
-}
-
-bool KScreenDaemon::getAutoRotate()
-{
-    return m_monitoredConfig->getAutoRotate();
-}
-
-void KScreenDaemon::setAutoRotate(bool value)
-{
-    if (!m_monitoredConfig) {
-        return;
-    }
-    m_monitoredConfig->setAutoRotate(value);
-    m_orientationSensor->setEnabled(value);
-}
-
-bool KScreenDaemon::isAutoRotateAvailable()
-{
-    return m_orientationSensor->available();
 }
 
 void KScreenDaemon::showOSD()

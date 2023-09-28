@@ -54,12 +54,6 @@ public:
     qreal getScale(const KScreen::OutputPtr &output) const;
     void setScale(const KScreen::OutputPtr &output, qreal value);
 
-    bool getAutoRotate(const KScreen::OutputPtr &output) const;
-    void setAutoRotate(const KScreen::OutputPtr &output, bool value);
-
-    bool getAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
-    void setAutoRotateOnlyInTabletMode(const KScreen::OutputPtr &output, bool value);
-
     KScreen::OutputPtr getReplicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
@@ -107,12 +101,6 @@ public:
 
     qreal getScale() const;
     void setScale(qreal value);
-
-    bool getAutoRotate() const;
-    void setAutoRotate(bool value);
-
-    bool getAutoRotateOnlyInTabletMode() const;
-    void setAutoRotateOnlyInTabletMode(bool value);
 
     uint32_t overscan() const;
     void setOverscan(uint32_t value);

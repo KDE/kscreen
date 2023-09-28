@@ -60,57 +60,6 @@ void Config::activateControlWatching()
     m_control->activateWatcher();
 }
 
-bool Config::autoRotationRequested() const
-{
-    for (KScreen::OutputPtr &output : m_data->outputs()) {
-        if (m_control->getAutoRotate(output)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-void Config::setDeviceOrientation(QOrientationReading::Orientation orientation)
-{
-    for (KScreen::OutputPtr &output : m_data->outputs()) {
-        if (!m_control->getAutoRotate(output)) {
-            continue;
-        }
-        auto finalOrientation = orientation;
-        if (m_control->getAutoRotateOnlyInTabletMode(output) && !m_data->tabletModeEngaged()) {
-            finalOrientation = QOrientationReading::Orientation::TopUp;
-        }
-        if (Output::updateOrientation(output, finalOrientation)) {
-            // TODO: call Layouter to find fitting positions for other outputs again
-            return;
-        }
-    }
-}
-
-bool Config::getAutoRotate() const
-{
-    const auto outputs = m_data->outputs();
-    return std::all_of(outputs.cbegin(), outputs.cend(), [this](KScreen::OutputPtr output) {
-        if (output->type() != KScreen::Output::Type::Panel) {
-            return true;
-        }
-        return m_control->getAutoRotate(output);
-    });
-}
-
-void Config::setAutoRotate(bool value)
-{
-    for (KScreen::OutputPtr &output : m_data->outputs()) {
-        if (output->type() != KScreen::Output::Type::Panel) {
-            continue;
-        }
-        if (m_control->getAutoRotate(output) != value) {
-            m_control->setAutoRotate(output, value);
-        }
-    }
-    m_control->writeFile();
-}
-
 bool Config::fileExists() const
 {
     return (QFile::exists(configsDirPath() % id()) || QFile::exists(configsDirPath() % s_fixedConfigFileName));

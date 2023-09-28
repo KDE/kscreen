@@ -48,11 +48,6 @@ public:
     KScreen::OutputPtr replicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
-    bool autoRotate(const KScreen::OutputPtr &output) const;
-    void setAutoRotate(KScreen::OutputPtr &output, bool autoRotate);
-    bool autoRotateOnlyInTabletMode(const KScreen::OutputPtr &output) const;
-    void setAutoRotateOnlyInTabletMode(KScreen::OutputPtr &output, bool value);
-
     uint32_t overscan(const KScreen::OutputPtr &output) const;
     void setOverscan(const KScreen::OutputPtr &output, uint32_t value);
 

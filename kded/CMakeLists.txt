@@ -23,11 +23,6 @@ qt_add_dbus_interface(dbus_SRCS
 qt_add_dbus_interface(dbus_SRCS
     ../osd/org.kde.kscreen.osdService.xml
     osdservice_interface)
-qt_add_dbus_adaptor(dbus_SRCS
-    org.kde.KScreen.xml
-    daemon.h
-    KScreenDaemon
-)
 
 target_sources(kscreen PRIVATE ${dbus_SRCS})
 

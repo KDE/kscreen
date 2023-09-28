@@ -35,10 +35,6 @@ public:
     }
 
     void activateControlWatching();
-    bool autoRotationRequested() const;
-    void setDeviceOrientation(QOrientationReading::Orientation orientation);
-    bool getAutoRotate() const;
-    void setAutoRotate(bool value);
     void log();
 
     void setValidityFlags(KScreen::Config::ValidityFlags flags)
