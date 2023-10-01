@@ -101,7 +101,7 @@ msgstr ""
 #: ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr "Non se puideron gardar as saídas por mor dun erro."
+msgstr "Non foi posíbel gardar as saídas por mor dun erro."
 
 #: ui/main.qml:191
 #, kde-format
