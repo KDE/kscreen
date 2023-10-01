@@ -27,6 +27,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingReply>
+#include <QProcess>
 #include <QTimer>
 
 K_PLUGIN_CLASS_WITH_JSON(KCMKScreen, "kcm_kscreen.json")

@@ -5,6 +5,8 @@
 */
 #pragma once
 
+#include <QTimer>
+
 #include <KQuickManagedConfigModule>
 
 #include "output_model.h"
