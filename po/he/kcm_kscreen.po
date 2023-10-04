@@ -3,20 +3,21 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-02 02:04+0000\n"
-"PO-Revision-Date: 2017-05-16 11:34-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-10-02 12:05+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -27,36 +28,35 @@ msgstr "%1 הרץ"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1×%2"
 
 #: output_model.cpp:657
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr ""
+msgstr "%1×%2 (%3:%4)"
 
 #: output_model.cpp:738
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "ללא"
 
 #: output_model.cpp:745
 #, kde-format
 msgid "Replicated by other output"
-msgstr ""
+msgstr "מועתק על ידי פלט אחר"
 
 #: ui/main.qml:40
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Keep display configuration?"
-msgstr "הגדרות תצוגה"
+msgstr "לשמור על הגדרות התצוגה?"
 
 #: ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ההגדרות הקודמות תשוחזרנה בעוד שנייה."
+msgstr[1] "ההגדרות הקודמות תשוחזרנה בעוד %1 שניות."
 
 #: ui/main.qml:72
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "התאמת קנה מידה תחול לאחר הפעלה מחדש"
 #: ui/main.qml:197
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "הפעלה מחדש"
 
 #: ui/main.qml:217
 #, fuzzy, kde-format
@@ -258,12 +258,12 @@ msgstr ""
 #: ui/OutputPanel.qml:213
 #, kde-format
 msgid "Replica of:"
-msgstr ""
+msgstr "עותק של:"
 
 #: ui/Panel.qml:27
 #, kde-format
 msgid "Device:"
-msgstr ""
+msgstr "התקן:"
 
 #: ui/Panel.qml:69
 #, kde-format
@@ -334,10 +334,9 @@ msgid "Drag screens to re-arrange them"
 msgstr ""
 
 #: ui/ScreenView.qml:61
-#, fuzzy, kde-format
-#| msgid "Identify outputs"
+#, kde-format
 msgid "Identify"
-msgstr "אחד מסכים"
+msgstr "זיהוי"
 
 #, fuzzy
 #~| msgid "Are you sure you want to disable all outputs?"
