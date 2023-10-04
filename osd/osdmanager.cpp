@@ -105,8 +105,8 @@ OsdAction::Action OsdManager::showActionSelector()
         } else {
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
-            connect(osd, &Osd::osdActionSelected, this, [this, op](OsdAction::Action action) {
-                OsdAction::applyAction(op->config(), action);
+            connect(osd, &Osd::osdActionSelected, this, [this, cfg = op->config()](OsdAction::Action action) {
+                OsdAction::applyAction(cfg, action);
                 hideOsd();
             });
         }
