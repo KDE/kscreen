@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:04+0000\n"
+"POT-Creation-Date: 2023-10-06 01:41+0000\n"
 "PO-Revision-Date: 2023-02-13 19:33+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -19,30 +19,30 @@ msgstr ""
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
-#: output_model.cpp:98
+#: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:638
+#: output_model.cpp:608
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:657
+#: output_model.cpp:627
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
 # žádné parametry funkce v inspektoru funkcí
-#: output_model.cpp:738
+#: output_model.cpp:708
 #, kde-format
 msgid "None"
 msgstr "Nic"
 
-#: output_model.cpp:745
+#: output_model.cpp:715
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopírováno druhým výstupem"
@@ -143,22 +143,22 @@ msgstr "Zvýšit prioritu:"
 msgid "Lower priority"
 msgstr "Snížit prioritu"
 
-#: ui/Orientation.qml:12
+#: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "Orientace:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automaticky"
 
-#: ui/Orientation.qml:36
+#: ui/Orientation.qml:44
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Pouze v režimu tabletu"
 
-#: ui/Orientation.qml:45
+#: ui/Orientation.qml:59
 #, kde-format
 msgid "Manual"
 msgstr "Ručně"

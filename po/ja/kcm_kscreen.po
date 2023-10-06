@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:04+0000\n"
+"POT-Creation-Date: 2023-10-06 01:41+0000\n"
 "PO-Revision-Date: 2023-09-20 01:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: output_model.cpp:98
+#: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:638
+#: output_model.cpp:608
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:657
+#: output_model.cpp:627
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:738
+#: output_model.cpp:708
 #, kde-format
 msgid "None"
 msgstr "なし"
 
-#: output_model.cpp:745
+#: output_model.cpp:715
 #, kde-format
 msgid "Replicated by other output"
 msgstr "他の出力による複製"
@@ -142,22 +142,22 @@ msgstr "優先度を上げる"
 msgid "Lower priority"
 msgstr "優先度を下げる"
 
-#: ui/Orientation.qml:12
+#: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "向き:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "自動"
 
-#: ui/Orientation.qml:36
+#: ui/Orientation.qml:44
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "タブレットモード時のみ"
 
-#: ui/Orientation.qml:45
+#: ui/Orientation.qml:59
 #, kde-format
 msgid "Manual"
 msgstr "手動"

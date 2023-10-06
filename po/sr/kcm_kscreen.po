@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:04+0000\n"
+"POT-Creation-Date: 2023-10-06 01:41+0000\n"
 "PO-Revision-Date: 2017-08-25 14:45+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: output_model.cpp:98
+#: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:638
+#: output_model.cpp:608
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:657
+#: output_model.cpp:627
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:738
+#: output_model.cpp:708
 #, kde-format
 msgid "None"
 msgstr ""
 
-#: output_model.cpp:745
+#: output_model.cpp:715
 #, kde-format
 msgid "Replicated by other output"
 msgstr ""
@@ -144,24 +144,24 @@ msgstr ""
 msgid "Lower priority"
 msgstr ""
 
-#: ui/Orientation.qml:12
+#: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "Оријентација:"
 
 # >> @item:inlistbox Refresh rate:
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, fuzzy, kde-format
 #| msgid "Auto"
 msgid "Automatic"
 msgstr "аутоматски"
 
-#: ui/Orientation.qml:36
+#: ui/Orientation.qml:44
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr ""
 
-#: ui/Orientation.qml:45
+#: ui/Orientation.qml:59
 #, kde-format
 msgid "Manual"
 msgstr ""

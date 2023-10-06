@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:04+0000\n"
+"POT-Creation-Date: 2023-10-06 01:41+0000\n"
 "PO-Revision-Date: 2023-04-12 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: output_model.cpp:98
+#: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 ჰც"
 
-#: output_model.cpp:638
+#: output_model.cpp:608
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:657
+#: output_model.cpp:627
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:738
+#: output_model.cpp:708
 #, kde-format
 msgid "None"
 msgstr "არაფერი"
 
-#: output_model.cpp:745
+#: output_model.cpp:715
 #, kde-format
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
@@ -140,22 +140,22 @@ msgstr "პრიორიტეტის გაზრდა"
 msgid "Lower priority"
 msgstr "პრიორიტეტის შემცირება"
 
-#: ui/Orientation.qml:12
+#: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "ორიენტაცია:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:154 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "ავტომატური"
 
-#: ui/Orientation.qml:36
+#: ui/Orientation.qml:44
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "მხოლოდ ტაბლეტის რეჟიმში"
 
-#: ui/Orientation.qml:45
+#: ui/Orientation.qml:59
 #, kde-format
 msgid "Manual"
 msgstr "ხელით"
