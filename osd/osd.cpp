@@ -73,7 +73,7 @@ void Osd::showActionSelector()
         auto newGeometry = m_osdActionSelector->geometry();
         newGeometry.moveCenter(screen->geometry().center());
         m_osdActionSelector->setGeometry(newGeometry);
-        KWindowSystem::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
+        KX11Extras::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
         KX11Extras::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
         m_osdActionSelector->requestActivate();
     }
