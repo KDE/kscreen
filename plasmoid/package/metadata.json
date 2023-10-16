@@ -102,11 +102,7 @@
         "Name[x-test]": "xxDisplay Configurationxx",
         "Name[zh_CN]": "显示器配置",
         "Name[zh_TW]": "顯示器設定",
-        "Version": "1.0",
         "Website": "https://kde.org/plasma-desktop"
     },
-    "X-Plasma-API": "declarativeappletscript",
-    "X-Plasma-MainScript": "ui/main.qml",
-    "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware"
 }
