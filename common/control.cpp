@@ -152,7 +152,7 @@ void ControlConfig::activateWatcher()
         // Watcher was already activated.
         return;
     }
-    for (auto *output : qAsConst(m_outputsControls)) {
+    for (auto *output : std::as_const(m_outputsControls)) {
         output->activateWatcher();
         connect(output, &ControlOutput::changed, this, &ControlConfig::changed);
     }
@@ -174,7 +174,7 @@ QString ControlConfig::filePath() const
 bool ControlConfig::writeFile()
 {
     bool success = true;
-    for (auto *outputControl : qAsConst(m_outputsControls)) {
+    for (auto *outputControl : std::as_const(m_outputsControls)) {
         success &= outputControl->writeFile();
     }
     return success && Control::writeFile();

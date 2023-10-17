@@ -341,7 +341,7 @@ void OutputModel::resetPosition(Output &output)
 {
     if (!output.posReset.has_value()) {
         // KCM was closed in between.
-        for (const Output &out : qAsConst(m_outputs)) {
+        for (const Output &out : std::as_const(m_outputs)) {
             if (out.ptr->id() == output.ptr->id()) {
                 continue;
             }
@@ -841,7 +841,7 @@ void OutputModel::reposition()
     int y = 0;
 
     // Find first valid output.
-    for (const auto &out : qAsConst(m_outputs)) {
+    for (const auto &out : std::as_const(m_outputs)) {
         if (positionable(out)) {
             x = out.ptr->pos().x();
             y = out.ptr->pos().y();
@@ -1079,7 +1079,7 @@ void OutputModel::snap(const Output &output, QPoint &dest)
         return;
     }
 
-    for (const Output &out : qAsConst(positionableOutputs)) {
+    for (const Output &out : std::as_const(positionableOutputs)) {
         if (out.ptr->id() == output.ptr->id()) {
             // Can not snap to itself.
             continue;

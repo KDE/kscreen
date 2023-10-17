@@ -22,7 +22,7 @@
 #define ASSERT_OUTPUTS(outputs)                                                                                                                                \
     while (true) {                                                                                                                                             \
         Q_ASSERT(!outputs.isEmpty());                                                                                                                          \
-        for (const KScreen::OutputPtr &output : qAsConst(outputs)) {                                                                                           \
+        for (const KScreen::OutputPtr &output : std::as_const(outputs)) {                                                                                      \
             Q_ASSERT(output);                                                                                                                                  \
             Q_ASSERT(output->isConnected());                                                                                                                   \
         }                                                                                                                                                      \
@@ -431,7 +431,7 @@ void Generator::laptop(KScreen::ConfigPtr &config)
     biggest->setEnabled(true);
     globalWidth += biggest->geometry().width();
 
-    for (KScreen::OutputPtr output : qAsConst(usableOutputs)) {
+    for (KScreen::OutputPtr output : std::as_const(usableOutputs)) {
         output->setEnabled(true);
         output->setPos(QPoint(globalWidth, 0));
         globalWidth += output->geometry().width();
@@ -462,7 +462,7 @@ void Generator::extendToRight(KScreen::ConfigPtr &config, KScreen::OutputList us
     biggest->setPos(QPoint(0, 0));
     int globalWidth = biggest->geometry().width();
 
-    for (KScreen::OutputPtr output : qAsConst(usableOutputs)) {
+    for (KScreen::OutputPtr output : std::as_const(usableOutputs)) {
         output->setEnabled(true);
         output->setPos(QPoint(globalWidth, 0));
         globalWidth += output->geometry().width();
