@@ -637,9 +637,9 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
     return ret;
 }
 
-QVector<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
+QList<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
 {
-    QVector<QSize> hits;
+    QList<QSize> hits;
 
     const auto modes = output->modes();
     for (const auto &mode : modes) {
@@ -660,9 +660,9 @@ QVector<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
     return hits;
 }
 
-QVector<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
+QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
 {
-    QVector<float> hits;
+    QList<float> hits;
 
     QSize baseSize;
     if (output->currentMode()) {
@@ -806,7 +806,7 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
     return ret;
 }
 
-void OutputModel::rolesChanged(int outputId, const QVector<int> &roles)
+void OutputModel::rolesChanged(int outputId, const QList<int> &roles)
 {
     const auto index = indexForOutputId(outputId);
     if (index.isValid()) {
@@ -1033,7 +1033,7 @@ void OutputModel::snap(const Output &output, QPoint &dest)
     const QSize size = output.ptr->geometry().size();
     const QRect outputRect(dest, size);
 
-    QVector<std::reference_wrapper<const Output>> positionableOutputs;
+    QList<std::reference_wrapper<const Output>> positionableOutputs;
     positionableOutputs.reserve(m_outputs.size());
     std::copy_if(m_outputs.cbegin(), m_outputs.cend(), std::back_inserter(positionableOutputs), [](const Output &output) {
         return output.ptr->isPositionable();

@@ -187,7 +187,7 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
     typedef QPair<int, QPoint> Out;
 
     KScreen::OutputList outputs = config->outputs();
-    QVector<Out> sortedOutputs; // <id, pos>
+    QList<Out> sortedOutputs; // <id, pos>
     for (const KScreen::OutputPtr &output : outputs) {
         sortedOutputs.append(Out(output->id(), output->pos()));
     }

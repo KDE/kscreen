@@ -12,10 +12,10 @@
 
 #pragma once
 
+#include <QList>
 #include <QObject>
 #include <QSharedPointer>
 #include <QString>
-#include <QVector>
 
 namespace KScreen
 {
@@ -41,7 +41,7 @@ public:
     QString label;
     QString iconName;
 
-    static QVector<OsdAction> availableActions();
+    static QList<OsdAction> availableActions();
     static void applyAction(const QSharedPointer<KScreen::Config> &config, Action action);
 };
 

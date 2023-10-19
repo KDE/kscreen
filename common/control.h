@@ -8,9 +8,9 @@
 #include <kscreen/output.h>
 #include <kscreen/types.h>
 
+#include <QList>
 #include <QObject>
 #include <QVariantMap>
-#include <QVector>
 
 class KDirWatch;
 
@@ -85,7 +85,7 @@ private:
 
     KScreen::ConfigPtr m_config;
     QStringList m_duplicateOutputIds;
-    QVector<ControlOutput *> m_outputsControls;
+    QList<ControlOutput *> m_outputsControls;
 };
 
 class ControlOutput : public Control

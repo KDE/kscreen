@@ -21,7 +21,7 @@
 
 using namespace KScreen;
 
-QVector<OsdAction> OsdAction::availableActions()
+QList<OsdAction> OsdAction::availableActions()
 {
     return {
         {SwitchToExternal, i18nd("kscreen_common", "Switch to external screen"), QStringLiteral("osd-shutd-laptop")},
@@ -68,7 +68,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
         external->setEnabled(true);
         internal->setPos(QPoint());
         external->setPos(QPoint());
-        QVector<KScreen::ModePtr> commonModes;
+        QList<KScreen::ModePtr> commonModes;
         const auto internalModes = internal->modes();
         const auto externalModes = external->modes();
         for (const auto &mode : internalModes) {

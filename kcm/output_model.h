@@ -107,7 +107,7 @@ private:
         bool moving = false;
     };
 
-    void rolesChanged(int outputId, const QVector<int> &roles);
+    void rolesChanged(int outputId, const QList<int> &roles);
     QModelIndex indexForOutputId(int outputId) const;
 
     void resetPosition(Output &output);
@@ -133,8 +133,8 @@ private:
     int refreshRateIndex(const KScreen::OutputPtr &output) const;
     QSize resolution(const KScreen::OutputPtr &output) const;
     QVariantList resolutionsStrings(const KScreen::OutputPtr &output) const;
-    QVector<QSize> resolutions(const KScreen::OutputPtr &output) const;
-    QVector<float> refreshRates(const KScreen::OutputPtr &output) const;
+    QList<QSize> resolutions(const KScreen::OutputPtr &output) const;
+    QList<float> refreshRates(const KScreen::OutputPtr &output) const;
 
     bool positionable(const Output &output) const;
 
@@ -145,7 +145,7 @@ private:
 
     QVariantList replicasModel(const KScreen::OutputPtr &output) const;
 
-    QVector<Output> m_outputs;
+    QList<Output> m_outputs;
 
     ConfigHandler *m_config;
 };
