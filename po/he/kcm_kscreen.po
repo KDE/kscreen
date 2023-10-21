@@ -16,7 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 23.08.1\n"
 
 #: output_model.cpp:96
@@ -52,11 +53,13 @@ msgid "Keep display configuration?"
 msgstr "לשמור על הגדרות התצוגה?"
 
 #: ui/main.qml:55
-#, kde-format
+#, fuzzy, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "ההגדרות הקודמות תשוחזרנה בעוד שנייה."
 msgstr[1] "ההגדרות הקודמות תשוחזרנה בעוד %1 שניות."
+msgstr[2] ""
+msgstr[3] ""
 
 #: ui/main.qml:72
 #, kde-format
