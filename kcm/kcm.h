@@ -31,11 +31,13 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScaleSupported READ xwaylandClientsScaleSupported NOTIFY xwaylandClientsScaleSupportedChanged)
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
+    Q_PROPERTY(bool tearingSupported READ tearingSupported NOTIFY tearingSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
     Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported NOTIFY autoRotationSupportedChanged)
     Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable NOTIFY orientationSensorAvailableChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
+    Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
 
 public:
     enum InvalidConfigReason {
@@ -72,6 +74,10 @@ public:
     void setXwaylandClientsScale(bool scale);
     bool xwaylandClientsScaleSupported() const;
 
+    void setAllowTearing(bool allow);
+    bool allowTearing() const;
+    bool tearingSupported() const;
+
     bool autoRotationSupported() const;
     bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
@@ -104,6 +110,8 @@ Q_SIGNALS:
     void showRevertWarning();
     void xwaylandClientsScaleChanged();
     void xwaylandClientsScaleSupportedChanged();
+    void tearingSupportedChanged();
+    void tearingAllowedChanged();
 
 private:
     void setBackendReady(bool error);

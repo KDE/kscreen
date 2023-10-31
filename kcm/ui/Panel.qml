@@ -156,6 +156,19 @@ ColumnLayout {
             }
         }
 
+        RowLayout {
+            Kirigami.FormData.label: i18n("Screen Tearing:")
+            QQC2.CheckBox {
+                text: i18n("Allow screen tearing in fullscreen windows")
+                checked: kcm.tearingAllowed
+                onToggled: kcm.tearingAllowed = checked
+                visible: kcm.tearingSupported
+            }
+            KCM.ContextualHelpButton {
+                toolTipText: i18n("Screen tearing reduces latency with most displays. Note that not all graphics drivers support this setting")
+            }
+        }
+
         Item {
             Kirigami.FormData.isSection: false
             visible: kcm.xwaylandClientsScaleSupported
