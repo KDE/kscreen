@@ -7,6 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigami.delegates as KD
 import org.kde.kitemmodels 1.0
 
 import org.kde.kcmutils as KCM
@@ -249,10 +250,9 @@ KCM.SimpleKCM {
                     width: ListView.view.width
 
                     background: null
-                    contentItem: Kirigami.BasicListItem {
-                        label: delegate.output.display
+                    contentItem: KD.TitleSubtitle {
+                        title: delegate.output.display
                         subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
-                        background: null
                     }
                     actions: [
                         Kirigami.Action {
