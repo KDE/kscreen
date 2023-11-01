@@ -186,7 +186,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18n("RGB Range:")
+        Kirigami.FormData.label: i18n("RGB range:")
         visible: element.capabilities & KScreen.Output.Capability.RgbRange
 
         QQC2.ComboBox {
