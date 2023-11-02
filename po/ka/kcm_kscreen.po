@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-04-12 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -45,35 +45,35 @@ msgstr "არაფერი"
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
 
-#: ui/main.qml:40
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "დაიტოვებთ ამ პარამეტრებს?"
 
-#: ui/main.qml:55
+#: ui/main.qml:56
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 msgstr[1] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 
-#: ui/main.qml:72
+#: ui/main.qml:73
 #, kde-format
 msgid "&Keep"
 msgstr "&შენარჩუნება"
 
-#: ui/main.qml:85
+#: ui/main.qml:86
 #, kde-format
 msgid "&Revert"
 msgstr "&დაბრუნება"
 
-#: ui/main.qml:105 ui/main.qml:287
+#: ui/main.qml:106 ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "ყველა ეკრანი გამორთულია. საჭიროა ერთი მაინც ჩართოთ."
 
-#: ui/main.qml:107 ui/main.qml:289
+#: ui/main.qml:108 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -81,27 +81,27 @@ msgid ""
 msgstr ""
 "ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
-#: ui/main.qml:119 ui/main.qml:302
+#: ui/main.qml:120 ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ახალი გამოტანა დამატებულია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:121 ui/main.qml:304
+#: ui/main.qml:122 ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "გამოტანილი წაშლილია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:171
+#: ui/main.qml:172
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen-ის უკანაბოლოები ვერ ვიპოვე. შეამოწმეთ KScreen-ს ფაილები."
 
-#: ui/main.qml:181
+#: ui/main.qml:182
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
-#: ui/main.qml:191
+#: ui/main.qml:192
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -109,23 +109,23 @@ msgstr ""
 "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
 "სისტემის გადატვირთვის შემდეგ შევა."
 
-#: ui/main.qml:197
+#: ui/main.qml:198
 #, kde-format
 msgid "Restart"
 msgstr "რესტარტ"
 
-#: ui/main.qml:217
+#: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ეკრანის კონფიგურაცია დაბრუნებულია."
 
-#: ui/main.qml:225
+#: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "პრიორიტეტების შეცვლა"
 
-#: ui/main.qml:254 ui/OutputPanel.qml:42
+#: ui/main.qml:255 ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "ძირითადი"
@@ -244,8 +244,9 @@ msgid "Overscan:"
 msgstr "გადასკანირება:"
 
 #: ui/OutputPanel.qml:189
-#, kde-format
-msgid "RGB Range:"
+#, fuzzy, kde-format
+#| msgid "RGB Range:"
+msgid "RGB range:"
 msgstr "RGB დიაპაზონი:"
 
 #: ui/OutputPanel.qml:196
@@ -274,8 +275,9 @@ msgid "Global scale:"
 msgstr "გლობალურის მასშტაბი:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, kde-format
-msgid "Legacy Applications (X11):"
+#, fuzzy, kde-format
+#| msgid "Legacy Applications (X11):"
+msgid "Legacy applications (X11):"
 msgstr "მოძველებული აპლიკაციები (X11):"
 
 #: ui/Panel.qml:134
@@ -309,7 +311,28 @@ msgstr ""
 "ყველა მოძველებული აპლიკაცია გადიდდება სისტემის მიერ სწორ ზომამდე. მაგრამ "
 "ისინი ყოველთვის ბუნდოვნების იქნებიან."
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:160
+#, kde-format
+msgctxt "@label"
+msgid "Screen tearing:"
+msgstr ""
+
+#: ui/Panel.qml:162
+#, kde-format
+msgctxt ""
+"@option:check The thing being allowed in fullscreen windows is screen tearing"
+msgid "Allow in fullscreen windows"
+msgstr ""
+
+#: ui/Panel.qml:168
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
+msgstr ""
+
+#: ui/Panel.qml:182
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

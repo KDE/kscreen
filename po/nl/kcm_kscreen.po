@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-04-10 17:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -44,35 +44,35 @@ msgstr "Geen"
 msgid "Replicated by other output"
 msgstr "Gekopieerd door andere uitvoer"
 
-#: ui/main.qml:40
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Configuratie van het scherm behouden?"
 
-#: ui/main.qml:55
+#: ui/main.qml:56
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "De vorige configuratie zal binnen %1 seconde worden teruggedraaid."
 msgstr[1] "De vorige configuratie zal binnen %1 seconden worden teruggedraaid."
 
-#: ui/main.qml:72
+#: ui/main.qml:73
 #, kde-format
 msgid "&Keep"
 msgstr "&Behouden"
 
-#: ui/main.qml:85
+#: ui/main.qml:86
 #, kde-format
 msgid "&Revert"
 msgstr "&Terugdraaien"
 
-#: ui/main.qml:105 ui/main.qml:287
+#: ui/main.qml:106 ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Alle schermen zijn uitgeschakeld. Schakel er tenminste één in."
 
-#: ui/main.qml:107 ui/main.qml:289
+#: ui/main.qml:108 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -81,28 +81,28 @@ msgstr ""
 "Gaten tussen schermen worden niet ondersteund. Ga na dat alle schermen "
 "aanraakschermen zijn."
 
-#: ui/main.qml:119 ui/main.qml:302
+#: ui/main.qml:120 ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Een nieuwe uitvoer is toegevoegd.  Instellingen zijn opnieuw geladen."
 
-#: ui/main.qml:121 ui/main.qml:304
+#: ui/main.qml:122 ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Een uitvoer is verwijderd. Instellingen zijn opnieuw geladen."
 
-#: ui/main.qml:171
+#: ui/main.qml:172
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Geen backend van KScreen gevonden. Controleer de installatie van KScreen."
 
-#: ui/main.qml:181
+#: ui/main.qml:182
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Uitvoeren konden niet opgeslagen worden vanwege een fout."
 
-#: ui/main.qml:191
+#: ui/main.qml:192
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -110,23 +110,23 @@ msgstr ""
 "Wijzigingen in globale schaal zullen pas effect hebben na een herstart van "
 "het systeem."
 
-#: ui/main.qml:197
+#: ui/main.qml:198
 #, kde-format
 msgid "Restart"
 msgstr "Herstarten"
 
-#: ui/main.qml:217
+#: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configuratie van het scherm teruggedraaid."
 
-#: ui/main.qml:225
+#: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioriteiten wijzigen"
 
-#: ui/main.qml:254 ui/OutputPanel.qml:42
+#: ui/main.qml:255 ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "Primair"
@@ -246,8 +246,9 @@ msgid "Overscan:"
 msgstr "Overscan:"
 
 #: ui/OutputPanel.qml:189
-#, kde-format
-msgid "RGB Range:"
+#, fuzzy, kde-format
+#| msgid "RGB Range:"
+msgid "RGB range:"
 msgstr "RGB-bereik:"
 
 #: ui/OutputPanel.qml:196
@@ -276,8 +277,9 @@ msgid "Global scale:"
 msgstr "Globale schaal:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, kde-format
-msgid "Legacy Applications (X11):"
+#, fuzzy, kde-format
+#| msgid "Legacy Applications (X11):"
+msgid "Legacy applications (X11):"
 msgstr "Oudere toepassingen (X11):"
 
 #: ui/Panel.qml:134
@@ -311,7 +313,28 @@ msgstr ""
 "Alle oudere toepassingen zullen geschaald worden door het systeem tot de "
 "juiste grootte, ze zullen er altijd iets wazig uitzien."
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:160
+#, kde-format
+msgctxt "@label"
+msgid "Screen tearing:"
+msgstr ""
+
+#: ui/Panel.qml:162
+#, kde-format
+msgctxt ""
+"@option:check The thing being allowed in fullscreen windows is screen tearing"
+msgid "Allow in fullscreen windows"
+msgstr ""
+
+#: ui/Panel.qml:168
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
+msgstr ""
+
+#: ui/Panel.qml:182
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

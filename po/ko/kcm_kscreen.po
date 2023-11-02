@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-04-22 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -44,34 +44,34 @@ msgstr "없음"
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
 
-#: ui/main.qml:40
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "디스플레이 설정을 유지하시겠습니까?"
 
-#: ui/main.qml:55
+#: ui/main.qml:56
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1초 후 기존 설정으로 되돌립니다."
 
-#: ui/main.qml:72
+#: ui/main.qml:73
 #, kde-format
 msgid "&Keep"
 msgstr "유지(&K)"
 
-#: ui/main.qml:85
+#: ui/main.qml:86
 #, kde-format
 msgid "&Revert"
 msgstr "되돌리기(&R)"
 
-#: ui/main.qml:105 ui/main.qml:287
+#: ui/main.qml:106 ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "모든 디스플레이가 비활성화되어 있습니다. 최소한 하나를 활성화하십시오."
 
-#: ui/main.qml:107 ui/main.qml:289
+#: ui/main.qml:108 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -80,49 +80,49 @@ msgstr ""
 "디스플레이간 간격은 지원하지 않습니다. 모든 디스플레이가 맞닿아 있는지 확인하"
 "십시오."
 
-#: ui/main.qml:119 ui/main.qml:302
+#: ui/main.qml:120 ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "새 출력이 추가되었습니다. 설정을 다시 불러왔습니다."
 
-#: ui/main.qml:121 ui/main.qml:304
+#: ui/main.qml:122 ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "출력이 삭제되었습니다. 설정을 다시 불러왔습니다."
 
-#: ui/main.qml:171
+#: ui/main.qml:172
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen 백엔드를 찾을 수 없습니다. 설치 상태를 확인하십시오."
 
-#: ui/main.qml:181
+#: ui/main.qml:182
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "출력을 저장할 수 없습니다."
 
-#: ui/main.qml:191
+#: ui/main.qml:192
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "전역 비율 조정 변경 사항은 시스템을 다시 시작한 후 적용됩니다."
 
-#: ui/main.qml:197
+#: ui/main.qml:198
 #, kde-format
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ui/main.qml:217
+#: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "디스플레이 설정을 되돌렸습니다."
 
-#: ui/main.qml:225
+#: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "우선 순위 변경"
 
-#: ui/main.qml:254 ui/OutputPanel.qml:42
+#: ui/main.qml:255 ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "주 화면"
@@ -238,8 +238,9 @@ msgid "Overscan:"
 msgstr "오버스캔:"
 
 #: ui/OutputPanel.qml:189
-#, kde-format
-msgid "RGB Range:"
+#, fuzzy, kde-format
+#| msgid "RGB Range:"
+msgid "RGB range:"
 msgstr "RGB 범위:"
 
 #: ui/OutputPanel.qml:196
@@ -268,8 +269,9 @@ msgid "Global scale:"
 msgstr "전역 크기 조정:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, kde-format
-msgid "Legacy Applications (X11):"
+#, fuzzy, kde-format
+#| msgid "Legacy Applications (X11):"
+msgid "Legacy applications (X11):"
 msgstr "레거시 앱(X11):"
 
 #: ui/Panel.qml:134
@@ -301,7 +303,29 @@ msgid ""
 msgstr ""
 "모든 레거시 앱을 시스템에서 올바른 크기로 조정하지만 번져 보일 수 있습니다."
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:160
+#, fuzzy, kde-format
+#| msgid "Screen Scaling"
+msgctxt "@label"
+msgid "Screen tearing:"
+msgstr "화면 비율 조정"
+
+#: ui/Panel.qml:162
+#, kde-format
+msgctxt ""
+"@option:check The thing being allowed in fullscreen windows is screen tearing"
+msgid "Allow in fullscreen windows"
+msgstr ""
+
+#: ui/Panel.qml:168
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
+msgstr ""
+
+#: ui/Panel.qml:182
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -496,9 +520,6 @@ msgstr "식별"
 
 #~ msgid "No available resolutions"
 #~ msgstr "사용 가능한 해상도 없음"
-
-#~ msgid "Screen Scaling"
-#~ msgstr "화면 비율 조정"
 
 #~ msgid "Tab 1"
 #~ msgstr "탭 1"

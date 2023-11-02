@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-07-02 16:03+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -44,35 +44,35 @@ msgstr "Nessuno"
 msgid "Replicated by other output"
 msgstr "Replicato da un'altra uscita"
 
-#: ui/main.qml:40
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Vuoi mantenere la configurazione dello schermo?"
 
-#: ui/main.qml:55
+#: ui/main.qml:56
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "La configurazione precedente sarà ripristinata in %1 secondo."
 msgstr[1] "La configurazione precedente sarà ripristinata in %1 secondi."
 
-#: ui/main.qml:72
+#: ui/main.qml:73
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantieni"
 
-#: ui/main.qml:85
+#: ui/main.qml:86
 #, kde-format
 msgid "&Revert"
 msgstr "&Ripristina"
 
-#: ui/main.qml:105 ui/main.qml:287
+#: ui/main.qml:106 ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tutti gli schermi sono disabilitati. Abilitane almeno uno."
 
-#: ui/main.qml:107 ui/main.qml:289
+#: ui/main.qml:108 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -81,51 +81,51 @@ msgstr ""
 "Gli spazi tra gli schermi non sono supportati. Assicurati che tutti gli "
 "schermi si tocchino."
 
-#: ui/main.qml:119 ui/main.qml:302
+#: ui/main.qml:120 ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Una nuova uscita è stata aggiunta. Le impostazioni sono state ricaricate."
 
-#: ui/main.qml:121 ui/main.qml:304
+#: ui/main.qml:122 ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Un'uscita è stata rimossa. Le impostazioni sono state ricaricate."
 
-#: ui/main.qml:171
+#: ui/main.qml:172
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Nessun motore di KScreen trovato. Verifica l'installazione di KScreen."
 
-#: ui/main.qml:181
+#: ui/main.qml:182
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Le uscite non possono essere salvate a causa di un errore."
 
-#: ui/main.qml:191
+#: ui/main.qml:192
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Le modifiche alla scala globale avranno effetto dopo il riavvio del sistema."
 
-#: ui/main.qml:197
+#: ui/main.qml:198
 #, kde-format
 msgid "Restart"
 msgstr "Riavvia"
 
-#: ui/main.qml:217
+#: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configurazione dello schermo ripristinata."
 
-#: ui/main.qml:225
+#: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Cambia le priorità"
 
-#: ui/main.qml:254 ui/OutputPanel.qml:42
+#: ui/main.qml:255 ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
 msgstr "Principale"
@@ -244,8 +244,9 @@ msgid "Overscan:"
 msgstr "Overscan:"
 
 #: ui/OutputPanel.qml:189
-#, kde-format
-msgid "RGB Range:"
+#, fuzzy, kde-format
+#| msgid "RGB Range:"
+msgid "RGB range:"
 msgstr "Intervallo RGB:"
 
 #: ui/OutputPanel.qml:196
@@ -274,8 +275,9 @@ msgid "Global scale:"
 msgstr "Scala globale:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, kde-format
-msgid "Legacy Applications (X11):"
+#, fuzzy, kde-format
+#| msgid "Legacy Applications (X11):"
+msgid "Legacy applications (X11):"
 msgstr "Applicazioni obsolete (X11):"
 
 #: ui/Panel.qml:134
@@ -309,7 +311,29 @@ msgstr ""
 "Tutte le applicazioni obsolete saranno ridimensionate dal sistema alle "
 "dimensioni corrette, tuttavia appariranno sempre leggermente sfocate."
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:160
+#, fuzzy, kde-format
+#| msgid "Screen Scaling"
+msgctxt "@label"
+msgid "Screen tearing:"
+msgstr "Ridimensionamento dello schermo"
+
+#: ui/Panel.qml:162
+#, kde-format
+msgctxt ""
+"@option:check The thing being allowed in fullscreen windows is screen tearing"
+msgid "Allow in fullscreen windows"
+msgstr ""
+
+#: ui/Panel.qml:168
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
+msgstr ""
+
+#: ui/Panel.qml:182
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -535,9 +559,6 @@ msgstr "Identifica"
 
 #~ msgid "No available resolutions"
 #~ msgstr "Nessuna risoluzione disponibile"
-
-#~ msgid "Screen Scaling"
-#~ msgstr "Ridimensionamento dello schermo"
 
 #~ msgid "Tab 1"
 #~ msgstr "Scheda 1"
