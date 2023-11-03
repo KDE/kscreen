@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-02 01:40+0000\n"
-"PO-Revision-Date: 2023-04-10 15:54+0300\n"
+"PO-Revision-Date: 2023-11-02 17:07+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -248,8 +248,7 @@ msgid "Overscan:"
 msgstr "Поля:"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "Діапазон RGB:"
 
@@ -279,8 +278,7 @@ msgid "Global scale:"
 msgstr "Загальна область:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Застарілі програми (X11):"
 
@@ -319,14 +317,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "Розрив зображення:"
 
 #: ui/Panel.qml:162
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Дозволити у повноекранних вікнах"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -335,6 +333,9 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Розрив зображення на екрані зменшує латентність на більшості дисплеїв. "
+"Зауважте, що підтримку цього параметра передбачено не для усіх графічних "
+"драйверів."
 
 #: ui/Panel.qml:182
 #, kde-format

@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2015, 2017.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-02 01:40+0000\n"
-"PO-Revision-Date: 2023-09-11 22:44+0300\n"
+"PO-Revision-Date: 2023-11-02 12:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -243,8 +243,7 @@ msgid "Overscan:"
 msgstr "Üst tarama:"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB erimi:"
 
@@ -274,10 +273,9 @@ msgid "Global scale:"
 msgstr "Global ölçek:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
-msgstr "Eski Uygulamalar (X11):"
+msgstr "Eski uygulamalar (X11):"
 
 #: ui/Panel.qml:134
 #, kde-format
@@ -313,14 +311,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "Ekran yırtılması:"
 
 #: ui/Panel.qml:162
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Tam ekran pencerelerde izin ver"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -329,6 +327,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Ekran yırtılması çoğu ekranda gecikmeyi azaltır. Tüm grafik sürücülerinin bu "
+"ayarı desteklemediğini unutmayın."
 
 #: ui/Panel.qml:182
 #, kde-format
