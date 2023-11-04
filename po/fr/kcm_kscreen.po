@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Joëlle Cornavin <jcorn@free.fr>, 2013.
-# xavier <xavier.besnard@neuf.fr>, 2013, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2013, 2020, 2021, 2022, 2023 xavier <xavier.besnard@neuf.fr>
 # Vincent PINON <vincent.pinon@laposte.net>, 2014.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015.
 # Vincent Pinon <vpinon@kde.org>, 2016, 2017.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-02 01:40+0000\n"
-"PO-Revision-Date: 2023-04-11 18:21+0200\n"
+"PO-Revision-Date: 2023-11-03 10:15+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -256,8 +256,7 @@ msgid "Overscan:"
 msgstr "Sur-balayage :"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "Intervalle RVB :"
 
@@ -287,8 +286,7 @@ msgid "Global scale:"
 msgstr "Échelle globale :"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Anciennes applications (X11) :"
 
@@ -324,18 +322,17 @@ msgstr ""
 "la taille correcte. Cependant, elles auront toujours l'air légèrement floues."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Échelle de l'écran"
+msgstr "Cisaillement d'image :"
 
 #: ui/Panel.qml:162
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Autoriser dans les fenêtres en plein écran"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -344,6 +341,9 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Le cisaillement d'image réduit la latence avec la plupart des écrans. "
+"Veuillez noter que tous les pilotes graphiques ne prennent pas en charge ce "
+"paramètre."
 
 #: ui/Panel.qml:182
 #, kde-format
