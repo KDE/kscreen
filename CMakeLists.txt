@@ -38,13 +38,13 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     GlobalAccel
     I18n
     KCMUtils
-    Plasma
-    PlasmaQuick
     Svg
     XmlGui
 )
 
 find_package(KF6Screen ${PROJECT_VERSION} REQUIRED)
+find_package(KF6Plasma ${PROJECT_VERSION} REQUIRED)
+find_package(KF6PlasmaQuick ${PROJECT_VERSION} REQUIRED)
 
 find_package(X11)
 set_package_properties(X11 PROPERTIES
