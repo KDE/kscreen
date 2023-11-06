@@ -107,6 +107,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->rgbRange());
     case InteractiveMoveRole:
         return m_outputs[index.row()].moving;
+    case IccProfileRole:
+        return output->iccProfilePath();
     }
     return QVariant();
 }
@@ -248,6 +250,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
             return true;
         }
         break;
+    case IccProfileRole:
+        m_outputs[index.row()].ptr->setIccProfilePath(value.toString());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -277,6 +283,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[VrrPolicyRole] = "vrrPolicy";
     roles[RgbRangeRole] = "rgbRange";
     roles[InteractiveMoveRole] = "interactiveMove";
+    roles[IccProfileRole] = "iccProfilePath";
     return roles;
 }
 

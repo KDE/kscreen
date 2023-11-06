@@ -159,7 +159,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->overscan() != config->overscan()
                     || output->vrrPolicy() != config->vrrPolicy()
                     || output->rgbRange() != config->rgbRange()
-                    || output->autoRotatePolicy() != config->autoRotatePolicy()) {
+                    || output->autoRotatePolicy() != config->autoRotatePolicy()
+                    || output->iccProfilePath() != config->iccProfilePath()) {
                         return true;
                     }
             }

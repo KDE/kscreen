@@ -42,6 +42,7 @@ public:
         OverscanRole,
         VrrPolicyRole,
         RgbRangeRole,
+        IccProfileRole,
         InteractiveMoveRole, // This output is currently repositioned interactively
     };
 
