@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-04-16 15:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -123,7 +123,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "முன்னிலையை மாற்று"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:43
+#: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "முதன்மையானதாக்கு"
@@ -143,7 +143,7 @@ msgstr "முன்னிலையை குறை"
 msgid "Orientation:"
 msgstr "நோக்குநிலை:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
 #, kde-format
 msgid "Automatic"
 msgstr "தானியக்கம்"
@@ -163,17 +163,17 @@ msgstr "கைமுறை"
 msgid "Replicas"
 msgstr "நகலிகள்"
 
-#: ui/OutputPanel.qml:25
+#: ui/OutputPanel.qml:26
 #, kde-format
 msgid "Enabled"
 msgstr "இயக்கு"
 
-#: ui/OutputPanel.qml:36
+#: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "திரைகளின் முன்னிலையை மாற்று…"
 
-#: ui/OutputPanel.qml:49
+#: ui/OutputPanel.qml:50
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -187,104 +187,104 @@ msgstr ""
 "பயன்படுத்தலாம்.<nl/><nl/> அறிவிப்புகளோ பிற சாளரங்களோ எத்திரையில் காட்டப்படும் என்பதை "
 "இத்தேர்வு பாதிக்காது."
 
-#: ui/OutputPanel.qml:54
+#: ui/OutputPanel.qml:55
 #, kde-format
 msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
-#: ui/OutputPanel.qml:74
+#: ui/OutputPanel.qml:75
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "இத்திரை, &quot;%1&quot; எனும் பகுதிறனளவை மட்டுமே ஆதரிக்கும்."
 
-#: ui/OutputPanel.qml:84
+#: ui/OutputPanel.qml:85
 #, kde-format
 msgid "Scale:"
 msgstr "அளவுமாற்றம்:"
 
-#: ui/OutputPanel.qml:113 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:125
+#: ui/OutputPanel.qml:126
 #, kde-format
 msgid "Refresh rate:"
 msgstr "புதுப்பிக்கும் வீதம் :"
 
-#: ui/OutputPanel.qml:145
+#: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
 
-#: ui/OutputPanel.qml:150
+#: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
 msgstr ""
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Never"
 msgstr "ஒருபோதும் வேண்டாம்"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgid "Always"
 msgstr "எப்போதும்"
 
-#: ui/OutputPanel.qml:166
+#: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Overscan:"
 msgstr ""
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, fuzzy, kde-format
 #| msgid "RGB Range:"
 msgid "RGB range:"
 msgstr "நிறங்களின் வீச்சு:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Full"
 msgstr "முழுமையானது"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:199
 #, kde-format
 msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
-#: ui/OutputPanel.qml:214
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:256
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:281
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"

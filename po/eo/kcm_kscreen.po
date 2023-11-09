@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-11-02 20:46+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -126,7 +126,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Ŝanĝi Prioritatojn"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:43
+#: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "Primaraj"
@@ -146,7 +146,7 @@ msgstr "Pli malalta prioritato"
 msgid "Orientation:"
 msgstr "Orientiĝo:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
 #, kde-format
 msgid "Automatic"
 msgstr "Aŭtomata"
@@ -166,17 +166,17 @@ msgstr "Manlibro"
 msgid "Replicas"
 msgstr "Replikoj"
 
-#: ui/OutputPanel.qml:25
+#: ui/OutputPanel.qml:26
 #, kde-format
 msgid "Enabled"
 msgstr "Ebligita"
 
-#: ui/OutputPanel.qml:36
+#: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Ŝanĝi Ekranajn Prioritatojn…"
 
-#: ui/OutputPanel.qml:49
+#: ui/OutputPanel.qml:50
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -190,103 +190,103 @@ msgstr ""
 "decidi sur kiu ekrano aperu.<nl/><nl/>Ĝi ne efikas sur kiaj ekranaj sciigoj "
 "aŭ aliaj fenestroj aperas."
 
-#: ui/OutputPanel.qml:54
+#: ui/OutputPanel.qml:55
 #, kde-format
 msgid "Resolution:"
 msgstr "Rezolucio:"
 
-#: ui/OutputPanel.qml:74
+#: ui/OutputPanel.qml:75
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "&quot;%1&quot; estas la sola rezolucio subtenata de ĉi tiu ekrano."
 
-#: ui/OutputPanel.qml:84
+#: ui/OutputPanel.qml:85
 #, kde-format
 msgid "Scale:"
 msgstr "Skalo:"
 
-#: ui/OutputPanel.qml:113 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:125
+#: ui/OutputPanel.qml:126
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Refreŝiga indico:"
 
-#: ui/OutputPanel.qml:145
+#: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "\"%1\" estas la nura refreŝiga indico subtenata de ĉi tiu ekrano."
 
-#: ui/OutputPanel.qml:150
+#: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adapta sinkronigo:"
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Never"
 msgstr "Neniam"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgid "Always"
 msgstr "Ĉiam"
 
-#: ui/OutputPanel.qml:166
+#: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Overscan:"
 msgstr "Troskanado:"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB-gamo:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Full"
 msgstr "Plena"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:199
 #, kde-format
 msgid "Limited"
 msgstr "Limigita"
 
-#: ui/OutputPanel.qml:214
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:256
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:281
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopio de:"

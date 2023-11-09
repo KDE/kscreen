@@ -1,14 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Volkan Gezer <volkangezer@gmail.com>, 2015, 2017.
 # SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# Volkan Gezer <volkangezer@gmail.com>, 2015, 2017.
+# Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-02 12:56+0300\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
+"PO-Revision-Date: 2023-11-08 21:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -126,7 +127,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Öncelikleri Değiştir"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:43
+#: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "Birincil"
@@ -146,7 +147,7 @@ msgstr "Önceliği düşür"
 msgid "Orientation:"
 msgstr "Yönelim:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
 #, kde-format
 msgid "Automatic"
 msgstr "Otomatik"
@@ -166,17 +167,17 @@ msgstr "El ile"
 msgid "Replicas"
 msgstr "Yinelemeler"
 
-#: ui/OutputPanel.qml:25
+#: ui/OutputPanel.qml:26
 #, kde-format
 msgid "Enabled"
 msgstr "Etkin"
 
-#: ui/OutputPanel.qml:36
+#: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Ekran Önceliklerini Değiştir…"
 
-#: ui/OutputPanel.qml:49
+#: ui/OutputPanel.qml:50
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -190,103 +191,103 @@ msgstr ""
 "vermek için bu ayarı kullanır.<nl/><nl/>Hangi ekran bildirimlerinin veya "
 "diğer pencerelerin göründüğü üzerinde hiçbir etkisi yoktur."
 
-#: ui/OutputPanel.qml:54
+#: ui/OutputPanel.qml:55
 #, kde-format
 msgid "Resolution:"
 msgstr "Çözünürlük:"
 
-#: ui/OutputPanel.qml:74
+#: ui/OutputPanel.qml:75
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "Bu ekran yalnızca &quot;%1&quot; çözünürlüğünü destekliyor."
 
-#: ui/OutputPanel.qml:84
+#: ui/OutputPanel.qml:85
 #, kde-format
 msgid "Scale:"
 msgstr "Ölçek:"
 
-#: ui/OutputPanel.qml:113 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%​%1"
 
-#: ui/OutputPanel.qml:125
+#: ui/OutputPanel.qml:126
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Yenileme hızı:"
 
-#: ui/OutputPanel.qml:145
+#: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "Bu ekran yalnızca \"%1\" yenileme hızını destekliyor."
 
-#: ui/OutputPanel.qml:150
+#: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Uyarlanabilir eşzamanlama:"
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Never"
 msgstr "Hiçbir zaman"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgid "Always"
 msgstr "Her zaman"
 
-#: ui/OutputPanel.qml:166
+#: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Overscan:"
 msgstr "Üst tarama:"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB erimi:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Full"
 msgstr "Tam"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:199
 #, kde-format
 msgid "Limited"
 msgstr "Sınırlı"
 
-#: ui/OutputPanel.qml:214
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Renk profili:"
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "ICC profili yolunu girin…"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "ICC Profili Seç…"
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "ICC profili için bir dosya seçicisi açar"
 
-#: ui/OutputPanel.qml:256
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "ICC Profili Seç"
 
-#: ui/OutputPanel.qml:281
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgid "Replica of:"
 msgstr "Şunun yinelemesi:"

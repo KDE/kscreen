@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-04-01 20:59-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -121,7 +121,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "ਤਰਜੀਹਾਂ ਬਦਲੋ"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:43
+#: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "ਪ੍ਰਾਇਮਰੀ"
@@ -141,7 +141,7 @@ msgstr "ਤਰਜੀਹ ਘਟਾਓ"
 msgid "Orientation:"
 msgstr "ਸਥਿਤੀ:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
 #, kde-format
 msgid "Automatic"
 msgstr "ਆਟੋਮੈਟਿਕ"
@@ -162,17 +162,17 @@ msgstr "ਖੁਦ"
 msgid "Replicas"
 msgstr "ਹੂ-ਬਹੂ ਨਕਲ"
 
-#: ui/OutputPanel.qml:25
+#: ui/OutputPanel.qml:26
 #, kde-format
 msgid "Enabled"
 msgstr "ਸਮਰੱਥ ਹੈ"
 
-#: ui/OutputPanel.qml:36
+#: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "…ਸਕਰੀਨ ਤਰਜੀਹਾਂ ਬਦਲੋ"
 
-#: ui/OutputPanel.qml:49
+#: ui/OutputPanel.qml:50
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -182,104 +182,104 @@ msgid ""
 "or other windows appear on."
 msgstr ""
 
-#: ui/OutputPanel.qml:54
+#: ui/OutputPanel.qml:55
 #, kde-format
 msgid "Resolution:"
 msgstr "ਰੈਜ਼ੋਲੂਸ਼ਨ:"
 
-#: ui/OutputPanel.qml:74
+#: ui/OutputPanel.qml:75
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
 
-#: ui/OutputPanel.qml:84
+#: ui/OutputPanel.qml:85
 #, kde-format
 msgid "Scale:"
 msgstr "ਸਕੇਲ:"
 
-#: ui/OutputPanel.qml:113 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:105
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:125
+#: ui/OutputPanel.qml:126
 #, kde-format
 msgid "Refresh rate:"
 msgstr "ਤਾਜ਼ਾ ਕਰਨ ਰੇਟ:"
 
-#: ui/OutputPanel.qml:145
+#: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
 
-#: ui/OutputPanel.qml:150
+#: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
 msgstr ""
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Never"
 msgstr "ਕਦੇ ਨਹੀਂ"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgid "Always"
 msgstr "ਹਮੇਸ਼ਾ"
 
-#: ui/OutputPanel.qml:166
+#: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Overscan:"
 msgstr "ਓਵਰ-ਸਕੈਨ:"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, fuzzy, kde-format
 #| msgid "RGB Range:"
 msgid "RGB range:"
 msgstr "RGB ਰੇਜ਼:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Full"
 msgstr "ਪੂਰਾ"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:199
 #, kde-format
 msgid "Limited"
 msgstr "ਸੀਮਤ"
 
-#: ui/OutputPanel.qml:214
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:256
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:281
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgid "Replica of:"
 msgstr "ਇਸ ਦੀ ਹੂ-ਬਹੂ ਨਕਲ:"
