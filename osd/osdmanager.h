@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QDBusContext>
 #include <QMap>
 #include <QObject>
 #include <QString>
@@ -20,7 +19,7 @@ class ConfigOperation;
 class Osd;
 class Output;
 
-class OsdManager : public QObject, public QDBusContext
+class OsdManager : public QObject
 {
     Q_OBJECT
 

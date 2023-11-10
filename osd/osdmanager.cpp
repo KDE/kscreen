@@ -57,8 +57,6 @@ OsdManager::~OsdManager()
 
 OsdAction::Action OsdManager::showActionSelector()
 {
-    setDelayedReply(true);
-
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
             qWarning() << op->errorString();
@@ -116,7 +114,6 @@ OsdAction::Action OsdManager::showActionSelector()
     });
     return OsdAction::NoAction;
 }
-
 }
 
 #include "moc_osdmanager.cpp"

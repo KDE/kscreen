@@ -4,7 +4,6 @@
     <method name="hideOsd">
     </method>
     <method name="showActionSelector">
-      <arg type="i" direction="out"/>
     </method>
   </interface>
 </node>
