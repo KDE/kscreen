@@ -158,11 +158,11 @@ ColumnLayout {
 
         RowLayout {
             Kirigami.FormData.label: i18nc("@label", "Screen tearing:")
+            visible: kcm.tearingSupported
             QQC2.CheckBox {
                 text: i18nc("@option:check The thing being allowed in fullscreen windows is screen tearing", "Allow in fullscreen windows")
                 checked: kcm.tearingAllowed
                 onToggled: kcm.tearingAllowed = checked
-                visible: kcm.tearingSupported
             }
             KCM.ContextualHelpButton {
                 toolTipText: i18nc("@info:tooltip", "Screen tearing reduces latency with most displays. Note that not all graphics drivers support this setting.")
