@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2023-11-08 21:41+0300\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"PO-Revision-Date: 2023-11-12 01:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -268,7 +268,7 @@ msgstr "Renk profili:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "ICC profili yolunu girin…"
+msgstr "ICC profili yolunu gir…"
 
 #: ui/OutputPanel.qml:238
 #, kde-format
@@ -343,7 +343,7 @@ msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Ekran yırtılması:"
 
-#: ui/Panel.qml:162
+#: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"

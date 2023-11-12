@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -236,10 +236,9 @@ msgid "Overscan:"
 msgstr "过扫描："
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
-msgstr "RGB 范围："
+msgstr ""
 
 #: ui/OutputPanel.qml:198
 #, kde-format
@@ -296,10 +295,9 @@ msgid "Global scale:"
 msgstr "全局缩放率："
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
-msgstr "旧式应用程序 (X11)："
+msgstr ""
 
 #: ui/Panel.qml:134
 #, kde-format
@@ -335,7 +333,7 @@ msgctxt "@label"
 msgid "Screen tearing:"
 msgstr ""
 
-#: ui/Panel.qml:162
+#: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"

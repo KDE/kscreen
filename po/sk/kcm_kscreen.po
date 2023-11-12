@@ -1,20 +1,20 @@
 # translation of kcm_displayconfiguration.po Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2015, 2016, 2017, 2019, 2022.
 # Mthw <jari_45@hotmail.com>, 2018.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2022-08-22 17:09+0200\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"PO-Revision-Date: 2023-11-11 15:56+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.07.90\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: output_model.cpp:96
@@ -249,8 +249,7 @@ msgid "Overscan:"
 msgstr "Presnímanie:"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "Rozsah RGB:"
 
@@ -268,7 +267,7 @@ msgstr "Obmedzený"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Farebný profil:"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
@@ -309,8 +308,7 @@ msgid "Global scale:"
 msgstr "Globálna mierka:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Zastarané aplikácie (X11):"
 
@@ -345,13 +343,12 @@ msgstr ""
 "vyzerať mierne rozmazane."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Škálovanie obrazovky"
+msgstr "Trhanie obrazovky:"
 
-#: ui/Panel.qml:162
+#: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
