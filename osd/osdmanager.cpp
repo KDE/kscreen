@@ -55,7 +55,7 @@ OsdManager::~OsdManager()
 {
 }
 
-OsdAction::Action OsdManager::showActionSelector()
+void OsdManager::showActionSelector()
 {
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
         if (op->hasError()) {
@@ -112,7 +112,6 @@ OsdAction::Action OsdManager::showActionSelector()
         osd->showActionSelector();
         m_cleanupTimer->start();
     });
-    return OsdAction::NoAction;
 }
 }
 

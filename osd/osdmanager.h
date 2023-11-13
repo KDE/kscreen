@@ -29,7 +29,7 @@ public:
 
 public Q_SLOTS:
     void hideOsd();
-    OsdAction::Action showActionSelector();
+    void showActionSelector();
 
 private:
     void quit();
