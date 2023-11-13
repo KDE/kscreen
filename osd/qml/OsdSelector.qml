@@ -99,7 +99,7 @@ Control {
                 (event.key === Qt.Key_Left) ? -1 : 1, event.isAutoRepeat);
         }
 
-        Keys.onPressed: {
+        Keys.onPressed: (event) => {
             switch (event.key) {
                 case Qt.Key_Return:
                 case Qt.Key_Enter:

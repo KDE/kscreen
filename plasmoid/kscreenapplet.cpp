@@ -25,7 +25,12 @@
 KScreenApplet::KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : Plasma::Applet(parent, data, args)
 {
-    qmlRegisterUncreatableType<KScreen::OsdAction>("org.kde.private.kscreen", 1, 0, "OsdAction", QStringLiteral("Can't create OsdAction"));
+    qmlRegisterUncreatableMetaObject(KScreen::OsdAction::staticMetaObject,
+                                     "org.kde.private.kscreen",
+                                     1,
+                                     0,
+                                     "OsdAction",
+                                     QStringLiteral("Can't create OsdAction"));
 }
 
 KScreenApplet::~KScreenApplet() = default;
