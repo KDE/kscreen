@@ -43,6 +43,7 @@ public:
         VrrPolicyRole,
         RgbRangeRole,
         IccProfileRole,
+        HdrRole,
         InteractiveMoveRole, // This output is currently repositioned interactively
     };
 

@@ -221,6 +221,7 @@ Kirigami.FormLayout {
             onTextChanged: element.iccProfilePath = text
             onTextEdited: element.iccProfilePath = text
             placeholderText: i18nc("@info:placeholder", "Enter ICC profile path…")
+            enabled: !element.hdr
 
             rightActions: Kirigami.Action {
                 icon.name: "edit-clear-symbolic"
@@ -238,6 +239,7 @@ Kirigami.FormLayout {
             text: i18nc("@action:button", "Select ICC profile…")
             display: QQC2.AbstractButton.IconOnly
             onClicked: fileDialogComponent.incubateObject(root);
+            enabled: !element.hdr
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -275,6 +277,27 @@ Kirigami.FormLayout {
                     return path;
                 }
             }
+        }
+
+        KCM.ContextualHelpButton {
+            visible: element.hdr
+            toolTipText: i18nc("@info:tooltip", "ICC profiles aren't compatible with HDR yet")
+        }
+    }
+
+    RowLayout {
+        Kirigami.FormData.label: i18nc("@label", "High Dynamic Range:")
+        visible: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.CheckBox {
+            text: i18nc("@option:check", "Enable HDR")
+            checked: element.hdr
+            onToggled: element.hdr = checked
+        }
+
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors. Note that this feature is still experimental")
         }
     }
 

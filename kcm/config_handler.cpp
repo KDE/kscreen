@@ -160,7 +160,9 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->vrrPolicy() != config->vrrPolicy()
                     || output->rgbRange() != config->rgbRange()
                     || output->autoRotatePolicy() != config->autoRotatePolicy()
-                    || output->iccProfilePath() != config->iccProfilePath()) {
+                    || output->iccProfilePath() != config->iccProfilePath()
+                    || output->isHdrEnabled() != config->isHdrEnabled()
+                    || output->isWcgEnabled() != config->isWcgEnabled()) {
                         return true;
                     }
             }
