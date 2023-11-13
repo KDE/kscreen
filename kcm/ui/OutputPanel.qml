@@ -214,7 +214,7 @@ Kirigami.FormLayout {
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:textbox", "Color Profile:")
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
-        spacing: Kirigami.smallSpacing
+        spacing: Kirigami.Units.smallSpacing
 
         Kirigami.ActionTextField {
             id: iccProfileField
@@ -244,7 +244,7 @@ Kirigami.FormLayout {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
             Accessible.role: Accessible.Button
-            Accessible.name: label.text
+            Accessible.name: text
             Accessible.description: i18n("Opens a file picker for the ICC profile")
             Accessible.onPressAction: onClicked();
         }
