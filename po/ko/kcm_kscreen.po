@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-14 01:39+0000\n"
 "PO-Revision-Date: 2023-04-22 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -22,24 +22,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:615
+#: output_model.cpp:624
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:634
+#: output_model.cpp:643
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2(%3:%4)"
 
-#: output_model.cpp:715
+#: output_model.cpp:724
 #, kde-format
 msgid "None"
 msgstr "없음"
 
-#: output_model.cpp:722
+#: output_model.cpp:731
 #, kde-format
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
@@ -265,24 +265,51 @@ msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:238
+#: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:284
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "ICC profiles aren't compatible with HDR yet"
+msgstr ""
+
+#: ui/OutputPanel.qml:289
+#, kde-format
+msgctxt "@label"
+msgid "High Dynamic Range:"
+msgstr ""
+
+#: ui/OutputPanel.qml:294
+#, fuzzy, kde-format
+#| msgid "Enabled"
+msgctxt "@option:check"
+msgid "Enable HDR"
+msgstr "사용함"
+
+#: ui/OutputPanel.qml:300
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HDR allows compatible applications to show brighter and more vivid colors. "
+"Note that this feature is still experimental"
+msgstr ""
+
+#: ui/OutputPanel.qml:305
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"

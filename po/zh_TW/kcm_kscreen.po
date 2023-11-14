@@ -9,40 +9,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
-"PO-Revision-Date: 2023-04-14 21:49+0900\n"
+"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"PO-Revision-Date: 2023-11-14 02:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.01.75\n"
 
 #: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:615
+#: output_model.cpp:624
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:634
+#: output_model.cpp:643
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:715
+#: output_model.cpp:724
 #, kde-format
 msgid "None"
 msgstr "無"
 
-#: output_model.cpp:722
+#: output_model.cpp:731
 #, kde-format
 msgid "Replicated by other output"
 msgstr "已被其他輸出複製"
@@ -239,8 +239,7 @@ msgid "Overscan:"
 msgstr "Overscan："
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB 範圍："
 
@@ -258,32 +257,59 @@ msgstr "有限"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "顏色設定檔："
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "輸入 ICC 設定檔路徑…"
 
-#: ui/OutputPanel.qml:238
+#: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "選取 ICC 設定檔…"
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "會開啟檔案選取工具來選取 ICC 設定檔"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
+msgstr "選取 ICC 設定檔"
+
+#: ui/OutputPanel.qml:284
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "ICC profiles aren't compatible with HDR yet"
 msgstr ""
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:289
+#, kde-format
+msgctxt "@label"
+msgid "High Dynamic Range:"
+msgstr ""
+
+#: ui/OutputPanel.qml:294
+#, fuzzy, kde-format
+#| msgid "Enabled"
+msgctxt "@option:check"
+msgid "Enable HDR"
+msgstr "已開啟"
+
+#: ui/OutputPanel.qml:300
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HDR allows compatible applications to show brighter and more vivid colors. "
+"Note that this feature is still experimental"
+msgstr ""
+
+#: ui/OutputPanel.qml:305
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："
@@ -299,10 +325,9 @@ msgid "Global scale:"
 msgstr "全域縮放比例："
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
-msgstr "舊式應用程式 (X11):"
+msgstr "舊式應用程式 (X11)："
 
 #: ui/Panel.qml:134
 #, kde-format
@@ -336,14 +361,14 @@ msgstr "所有舊式應用程式都會由系統縮放到正確大小，但它們
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "螢幕撕裂："
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "在全螢幕視窗中允許"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -352,6 +377,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"在大部分顯示器上，允許螢幕撕裂會降低延遲。請注意，不是所有顯示卡驅動程式都支"
+"援這個設定。"
 
 #: ui/Panel.qml:182
 #, kde-format
