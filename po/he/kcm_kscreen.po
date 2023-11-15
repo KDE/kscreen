@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 14:07+0200\n"
+"PO-Revision-Date: 2023-11-14 05:01+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -289,20 +289,19 @@ msgstr "בחירת פרופיל ICC"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "פרופילי ה־ICC לא תואמים ל־HDR עדיין"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "טווח דינמי רחב (HDR):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "מופעל"
+msgstr "הפעלת HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -311,6 +310,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR מאפשר ליישומים תומכים להציע צבעים בהירים וחיים יותר. נא לשים לב שהיכולת "
+"הזאת עדיין ניסיונית."
 
 #: ui/OutputPanel.qml:305
 #, kde-format

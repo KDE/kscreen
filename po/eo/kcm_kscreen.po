@@ -290,20 +290,19 @@ msgstr "Elekti ICC-profilon"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC-profiloj ankoraŭ ne estas kongruaj kun HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Alta dinamika gamo (HDR):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Ebligita"
+msgstr "Ebligi HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -312,6 +311,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR permesas al kongruaj alpikaĵoj montri pli brilajn kaj viglajn kolorojn. "
+"Rimarku ke ĉi kapablo ankoraŭ estas eksperimenta"
 
 #: ui/OutputPanel.qml:305
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-08 16:07+0100\n"
+"PO-Revision-Date: 2023-11-14 09:08+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: output_model.cpp:96
 #, kde-format
 msgid "%1 Hz"
-msgstr "%1Hz"
+msgstr "%1 Hz"
 
 #: output_model.cpp:624
 #, kde-format
@@ -291,20 +291,19 @@ msgstr "Selige Profilo ICC"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Profilos ICC non es compatibile ancora con HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "High Dynamic Range (HDR-Alte Extension Dynamic):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Habilitate"
+msgstr "Habilita HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -313,6 +312,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR permitte a applicationes compatibile monstrar colores plus brillante e "
+"vivide. Notaque iste characteristica es ancora experimental"
 
 #: ui/OutputPanel.qml:305
 #, kde-format

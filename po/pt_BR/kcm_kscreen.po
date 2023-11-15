@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-08 15:53-0300\n"
+"PO-Revision-Date: 2023-11-14 13:32-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -270,43 +270,42 @@ msgstr "Perfil de cor:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Inserir o caminho do perfil ICC..."
 
 #: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Selecionar perfil ICC…"
 
 #: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Abre um seletor de arquivo para o perfil ICC"
 
 #: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Selecionar perfil ICC"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Perfis ICC não são compatíveis com o HDR ainda"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "HDR"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Ativado"
+msgstr "Habilitar HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -315,6 +314,9 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"O HDR (High Dynamic Range - Dinâmica de alto alcance) permite aos "
+"aplicativos compatíveis para mostrar cores mais vivas e brilhantes. Note que "
+"este recurso ainda é experimental"
 
 #: ui/OutputPanel.qml:305
 #, kde-format
@@ -377,7 +379,7 @@ msgstr ""
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Permitir em janelas em tela cheia"
 
 #: ui/Panel.qml:168
 #, kde-format
