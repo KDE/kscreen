@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 02:47+0100\n"
+"PO-Revision-Date: 2023-11-15 05:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -291,20 +291,19 @@ msgstr "აირჩიეთ ICC პროფილი"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "მაღალი დინამიკური დიაპაზონი:"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "ჩართულია"
+msgstr "HDR-ის ჩართვას"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -313,6 +312,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR თავსებად აპლიკაციებს საშუალებას აძლევს, უფრო კაშკაშა და მკვეთრი ფერებით "
+"გამოჩნდეს. გახსოვდეთ, რომ ეს ფუნქცია ჯერ კიდევ საცდელია"
 
 #: ui/OutputPanel.qml:305
 #, kde-format
