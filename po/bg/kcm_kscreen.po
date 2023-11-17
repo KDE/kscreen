@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-11 17:14+0100\n"
+"PO-Revision-Date: 2023-11-16 14:16+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -291,20 +291,19 @@ msgstr "Избиране на профил ICC"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Профилите ICC все още не са съвместими с HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "High Dynamic Range:"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Включено"
+msgstr "Активиране на HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -313,6 +312,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR позволява на съвместимите приложения да показват по-ярки и по-живи "
+"цветове. Имайте предвид, че тази функция все още е експериментална."
 
 #: ui/OutputPanel.qml:305
 #, kde-format
