@@ -20,6 +20,7 @@ QQC2.ToolButton {
     Layout.fillWidth: true
     height: childrenRect.height
 
+    checkable: true
     checked: element.rotation === outputRotation
 
     QQC2.ToolTip {
