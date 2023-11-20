@@ -111,6 +111,12 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->iccProfilePath();
     case HdrRole:
         return output->isHdrEnabled() && output->isWcgEnabled();
+    case SdrBrightnessRole:
+        return output->sdrBrightness();
+    case MaxBrightnessRole:
+        return output->maxPeakBrightnessOverride().value_or(output->maxPeakBrightness());
+    case SdrGamutWideness:
+        return output->sdrGamutWideness();
     }
     return QVariant();
 }
@@ -257,11 +263,18 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         Q_EMIT dataChanged(index, index, {role});
         return true;
     case HdrRole:
-        const auto &output = m_outputs[index.row()].ptr;
-        output->setHdrEnabled(value.toBool());
-        output->setWcgEnabled(value.toBool());
+        output.ptr->setHdrEnabled(value.toBool());
+        output.ptr->setWcgEnabled(value.toBool());
         Q_EMIT dataChanged(index, index, {role});
-        return false;
+        return true;
+    case SdrBrightnessRole:
+        output.ptr->setSdrBrightness(value.toUInt());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
+    case SdrGamutWideness:
+        output.ptr->setSdrGamutWideness(value.toDouble());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -293,6 +306,9 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[InteractiveMoveRole] = "interactiveMove";
     roles[IccProfileRole] = "iccProfilePath";
     roles[HdrRole] = "hdr";
+    roles[SdrBrightnessRole] = "sdrBrightness";
+    roles[MaxBrightnessRole] = "peakBrightness";
+    roles[SdrGamutWideness] = "sdrGamutWideness";
     return roles;
 }
 

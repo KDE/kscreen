@@ -44,6 +44,9 @@ public:
         RgbRangeRole,
         IccProfileRole,
         HdrRole,
+        SdrBrightnessRole,
+        MaxBrightnessRole,
+        SdrGamutWideness,
         InteractiveMoveRole, // This output is currently repositioned interactively
     };
 

@@ -162,7 +162,9 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->autoRotatePolicy() != config->autoRotatePolicy()
                     || output->iccProfilePath() != config->iccProfilePath()
                     || output->isHdrEnabled() != config->isHdrEnabled()
-                    || output->isWcgEnabled() != config->isWcgEnabled()) {
+                    || output->isWcgEnabled() != config->isWcgEnabled()
+                    || output->sdrBrightness() != config->sdrBrightness()
+                    || output->sdrGamutWideness() != config->sdrGamutWideness()) {
                         return true;
                     }
             }

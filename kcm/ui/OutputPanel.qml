@@ -301,6 +301,81 @@ Kirigami.FormLayout {
         }
     }
 
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: element.hdr
+        Kirigami.FormData.label: i18nc("@label", "SDR Brightness:")
+
+        QQC2.Slider {
+            Layout.fillWidth: true
+            from: 50
+            to: element.peakBrightness == 0 ? 500 : element.peakBrightness
+            stepSize: 50
+            live: true
+            value: element.sdrBrightness
+            onMoved: element.sdrBrightness = value
+        }
+        QQC2.SpinBox {
+            from : 50
+            to : element.peakBrightness == 0 ? 500 : element.peakBrightness
+            stepSize: 10
+            value: element.sdrBrightness
+            onValueModified: element.sdrBrightness = value
+        }
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Sets the brightness of non-HDR content on the screen, in nits")
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: element.hdr
+        Kirigami.FormData.label: i18nc("@label", "SDR Color Intensity:")
+
+        QQC2.Slider {
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 10
+            live: true
+            value: element.sdrGamutWideness * 100
+            onMoved: element.sdrGamutWideness = value / 100.0
+        }
+        QQC2.SpinBox {
+            // Because QQC2 SpinBox doesn't natively support decimal step
+            // sizes: https://bugreports.qt.io/browse/QTBUG-67349
+            readonly property real factor: 20.0
+            readonly property real realValue: value / factor
+
+            from : 0
+            to : 1.0 * factor
+            stepSize: 1
+            value: element.sdrGamutWideness * factor
+            validator: DoubleValidator {
+                bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
+                top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
+            }
+            textFromValue: (value, locale) =>
+            i18nc("Color intensity factor expressed in percentage form", "%1%",
+                  parseFloat(value * 1.0 / factor * 100.0))
+            valueFromText: (text, locale) =>
+            Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
+
+            onValueModified: element.sdrGamutWideness = realValue
+        }
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Increases the intensity of non-HDR content on the screen")
+        }
+    }
+
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: Kirigami.Units.gridUnit * 11
