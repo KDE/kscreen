@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2023-11-20 01:59+0000\n"
 "PO-Revision-Date: 2015-08-27 16:59+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -380,22 +380,22 @@ msgid ""
 "glitches in applications using the X11 windowing system."
 msgstr ""
 
-#: ui/RotationButton.qml:50
+#: ui/RotationButton.qml:51
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90° medurs"
 
-#: ui/RotationButton.qml:54
+#: ui/RotationButton.qml:55
 #, kde-format
 msgid "Upside Down"
 msgstr "Opp ned"
 
-#: ui/RotationButton.qml:58
+#: ui/RotationButton.qml:59
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90° moturs"
 
-#: ui/RotationButton.qml:63
+#: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2023-11-20 01:59+0000\n"
 "PO-Revision-Date: 2020-12-25 11:46+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -390,22 +390,22 @@ msgstr ""
 "A globális skálázási faktor csak a 6,25% többszöröse lehet, hogy ne legyenek "
 "grafikai hibák az X11-et használó alkalmazásokban."
 
-#: ui/RotationButton.qml:50
+#: ui/RotationButton.qml:51
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90°-kal óramutató szerint"
 
-#: ui/RotationButton.qml:54
+#: ui/RotationButton.qml:55
 #, kde-format
 msgid "Upside Down"
 msgstr "Fejjel lefelé"
 
-#: ui/RotationButton.qml:58
+#: ui/RotationButton.qml:59
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90°-kal óramutató járásával ellentétesen"
 
-#: ui/RotationButton.qml:63
+#: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
 msgstr "Nincs elforgatás"

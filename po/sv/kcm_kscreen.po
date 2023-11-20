@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2023-11-20 01:59+0000\n"
 "PO-Revision-Date: 2022-09-24 16:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -403,22 +403,22 @@ msgstr ""
 "Den globala skalfaktorn är begränsad till multipler av 6,25 % för att "
 "minimera visuella avvikelser i program som använder X11-fönstersystemet."
 
-#: ui/RotationButton.qml:50
+#: ui/RotationButton.qml:51
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90° medurs"
 
-#: ui/RotationButton.qml:54
+#: ui/RotationButton.qml:55
 #, kde-format
 msgid "Upside Down"
 msgstr "Upp och ned"
 
-#: ui/RotationButton.qml:58
+#: ui/RotationButton.qml:59
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90° moturs"
 
-#: ui/RotationButton.qml:63
+#: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
 msgstr "Ingen rotation"

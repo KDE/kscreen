@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2023-11-20 01:59+0000\n"
 "PO-Revision-Date: 2023-11-15 12:51+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -414,22 +414,22 @@ msgstr ""
 "minimiser les défauts visuels dans les applications utilisant le système de "
 "fenêtres X11."
 
-#: ui/RotationButton.qml:50
+#: ui/RotationButton.qml:51
 #, kde-format
 msgid "90° Clockwise"
 msgstr "Pivotée de 90° dans le sens horaire"
 
-#: ui/RotationButton.qml:54
+#: ui/RotationButton.qml:55
 #, kde-format
 msgid "Upside Down"
 msgstr "Retournée"
 
-#: ui/RotationButton.qml:58
+#: ui/RotationButton.qml:59
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "Pivotée de 90° dans le sens antihoraire"
 
-#: ui/RotationButton.qml:63
+#: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
 msgstr "Pas de rotation"

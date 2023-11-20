@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2023-11-20 01:59+0000\n"
 "PO-Revision-Date: 2023-11-14 07:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -405,22 +405,22 @@ msgstr ""
 "щоб мінімізувати візуальні дефекти у програмах, які використовують систему "
 "керування вікнами X11."
 
-#: ui/RotationButton.qml:50
+#: ui/RotationButton.qml:51
 #, kde-format
 msgid "90° Clockwise"
 msgstr "На 90° за годинниковою стрілкою"
 
-#: ui/RotationButton.qml:54
+#: ui/RotationButton.qml:55
 #, kde-format
 msgid "Upside Down"
 msgstr "Догори низом"
 
-#: ui/RotationButton.qml:58
+#: ui/RotationButton.qml:59
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "На 90° проти годинникової стрілки"
 
-#: ui/RotationButton.qml:63
+#: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
 msgstr "Без обертання"
