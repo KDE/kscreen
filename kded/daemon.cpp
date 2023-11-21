@@ -505,23 +505,21 @@ void KScreenDaemon::outputConnectedChanged()
     qCDebug(KSCREEN_KDED) << "outputConnectedChanged():" << output->name();
 }
 
+void KScreenDaemon::outputAddedSlot(const KScreen::OutputPtr &output)
+{
+    if (output->isConnected()) {
+        m_changeCompressor->start();
+    }
+    connect(output.data(), &KScreen::Output::isConnectedChanged, this, &KScreenDaemon::outputConnectedChanged, Qt::UniqueConnection);
+}
+
 void KScreenDaemon::monitorConnectedChange()
 {
     const KScreen::OutputList outputs = m_monitoredConfig->data()->outputs();
     for (const KScreen::OutputPtr &output : outputs) {
         connect(output.data(), &KScreen::Output::isConnectedChanged, this, &KScreenDaemon::outputConnectedChanged, Qt::UniqueConnection);
     }
-    connect(
-        m_monitoredConfig->data().data(),
-        &KScreen::Config::outputAdded,
-        this,
-        [this](const KScreen::OutputPtr &output) {
-            if (output->isConnected()) {
-                m_changeCompressor->start();
-            }
-            connect(output.data(), &KScreen::Output::isConnectedChanged, this, &KScreenDaemon::outputConnectedChanged, Qt::UniqueConnection);
-        },
-        Qt::UniqueConnection);
+    connect(m_monitoredConfig->data().data(), &KScreen::Config::outputAdded, this, &KScreenDaemon::outputAddedSlot, Qt::UniqueConnection);
     connect(m_monitoredConfig->data().data(),
             &KScreen::Config::outputRemoved,
             this,

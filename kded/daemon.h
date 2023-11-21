@@ -73,4 +73,7 @@ private:
     OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface;
 
     bool m_startingUp = true;
+
+private Q_SLOTS:
+    void outputAddedSlot(const KScreen::OutputPtr &output);
 };
