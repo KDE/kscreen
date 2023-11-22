@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-20 01:59+0000\n"
+"POT-Creation-Date: 2023-11-22 01:36+0000\n"
 "PO-Revision-Date: 2022-04-30 11:46+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -23,24 +23,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:624
+#: output_model.cpp:640
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:643
+#: output_model.cpp:659
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:724
+#: output_model.cpp:740
 #, kde-format
 msgid "None"
 msgstr "Niciunul"
 
-#: output_model.cpp:731
+#: output_model.cpp:747
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicat de altă ieșire"
@@ -320,7 +320,39 @@ msgid ""
 "Note that this feature is still experimental"
 msgstr ""
 
-#: ui/OutputPanel.qml:305
+#: ui/OutputPanel.qml:311
+#, kde-format
+msgctxt "@label"
+msgid "SDR Brightness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:330
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Sets the brightness of non-HDR content on the screen, in nits"
+msgstr ""
+
+#: ui/OutputPanel.qml:341
+#, kde-format
+msgctxt "@label"
+msgid "SDR Color Intensity:"
+msgstr ""
+
+#: ui/OutputPanel.qml:367
+#, fuzzy, kde-format
+#| msgctxt "Global scale factor expressed in percentage form"
+#| msgid "%1%"
+msgctxt "Color intensity factor expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:375
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Increases the intensity of non-HDR content on the screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:380
 #, kde-format
 msgid "Replica of:"
 msgstr "Replică a:"
