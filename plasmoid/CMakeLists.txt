@@ -11,7 +11,7 @@ target_link_libraries(org.kde.kscreen
                       Qt::Qml
                       Qt::DBus
                       KF6::I18n
-                      KF6::Plasma
+                      Plasma::Plasma
                       KF6::Screen)
 
 install(TARGETS org.kde.kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/applets)
