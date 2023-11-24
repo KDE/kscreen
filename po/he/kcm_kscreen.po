@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-11-14 05:01+0200\n"
+"PO-Revision-Date: 2023-11-23 16:49+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -317,24 +317,22 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "בהירות טווח דינמי רגיל:"
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "הגדרת הבהירות של תוכן שאינו בטווח הדינמי הגבוה על המסך, ב־nits"
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "עומק צבע בטווח דינמי רגיל:"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -343,7 +341,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "מגביר את עוצמת התוכן שאינו בטווח הדינמי הגבוה על המסך"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
