@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-11-19 03:37\n"
+"PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -238,7 +238,7 @@ msgstr "过扫描："
 #: ui/OutputPanel.qml:191
 #, kde-format
 msgid "RGB range:"
-msgstr ""
+msgstr "RGB 范围："
 
 #: ui/OutputPanel.qml:198
 #, kde-format
@@ -254,48 +254,48 @@ msgstr "限幅"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "色彩特性文件："
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "输入 ICC 特性文件路径…"
 
 #: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "选择 ICC 特性文件…"
 
 #: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "打开文件选择器指定一个 ICC 特性文件"
 
 #: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "选择 ICC 特性文件"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC 特性文件目前尚未兼容 HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "高动态范围 (HDR)："
 
 #: ui/OutputPanel.qml:294
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr ""
+msgstr "启用 HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -304,29 +304,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR 可以让兼容此功能的应用程序显示更加明亮和生动的色彩。请注意此功能仍在实验"
+"阶段"
 
 #: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR 亮度："
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "设置屏幕在显示非 HDR 内容时的亮度，单位为尼特 (nits)"
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR 色彩亮度："
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -335,7 +335,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "提高屏幕在显示非 HDR 内容时的色彩亮度"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
@@ -355,7 +355,7 @@ msgstr "全局缩放率："
 #: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy applications (X11):"
-msgstr ""
+msgstr "旧式应用程序 (X11)："
 
 #: ui/Panel.qml:134
 #, kde-format
@@ -389,14 +389,14 @@ msgstr "所有旧式应用程序将由系统缩放到正确的大小，但它们
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "画面撕裂："
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "允许在全屏窗口中发生画面撕裂"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -405,6 +405,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"画面撕裂在绝大多数显示器中可以降低延迟。请注意：并非所有显卡驱动程序均能支持"
+"此设置。"
 
 #: ui/Panel.qml:182
 #, kde-format
