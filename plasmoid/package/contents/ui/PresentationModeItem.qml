@@ -38,16 +38,13 @@ ColumnLayout {
 
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
-                    presentationModeCookie = job.result;
                     presentationModeSwitch.enabled = true;
                 });
             } else {
                 const op = service.operationDescription("stopSuppressingScreenPowerManagement");
-                op.cookie = presentationModeCookie;
 
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
-                    presentationModeCookie = -1;
                     presentationModeSwitch.enabled = true;
                 });
             }
