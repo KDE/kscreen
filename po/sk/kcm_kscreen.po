@@ -1,20 +1,21 @@
 # translation of kcm_displayconfiguration.po Slovak
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Matej Mrenica <matejm98mthw@gmail.com>
 # Roman Paholik <wizzardsk@gmail.com>, 2015, 2016, 2017, 2019, 2022.
 # Mthw <jari_45@hotmail.com>, 2018.
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Matej Mrenica <matejm98mthw@gmail.com>
+# Matej Mrenica <matejm98mthw@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-11-11 15:56+0100\n"
+"PO-Revision-Date: 2023-12-02 19:07+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: output_model.cpp:96
@@ -71,7 +72,7 @@ msgstr "Vrátiť"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Všetky displeje sú vypnuté. Povoľte aspoň jeden."
 
 #: ui/main.qml:108 ui/main.qml:289
 #, kde-format
@@ -79,6 +80,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Medzery medzi zobrazeniami nie sú podporované. Uistite sa, že sa všetky "
+"displeje dotýkajú."
 
 #: ui/main.qml:120 ui/main.qml:302
 #, kde-format
@@ -103,12 +106,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "Výstupy nebolo možné uložiť kvôli chybe."
 
 #: ui/main.qml:192
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "Použila sa nová globálna mierka. Zmeny sa prejavia po reštarte"
+msgstr "Globálne zmeny mierky sa prejavia po reštarte systému."
 
 #: ui/main.qml:198
 #, kde-format
@@ -124,7 +125,7 @@ msgstr "Nastavenie obrazovky bolo vrátené."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Zmena priorít"
 
 #: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
@@ -134,12 +135,12 @@ msgstr "Primárna"
 #: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Zvýšiť prioritu"
 
 #: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Znížiť prioritu"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -174,7 +175,7 @@ msgstr "Povolené"
 #: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Zmeniť prioritu obrazoviek..."
 
 #: ui/OutputPanel.qml:50
 #, fuzzy, kde-kuit-format
@@ -201,11 +202,10 @@ msgid "Resolution:"
 msgstr "Rozlíšenie:"
 
 #: ui/OutputPanel.qml:75
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "\"%1\" je jediná obnovovacia frekvencia podporovaná týmto displejom."
+msgstr "&quot;%1&quot; je jediné rozlíšenie podporované týmto displejom."
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -273,43 +273,42 @@ msgstr "Farebný profil:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Zadajte cestu k profilu ICC..."
 
 #: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Vybrať ICC profil…"
 
 #: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Otvorí výber súboru pre profil ICC"
 
 #: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Vybrať profil ICC"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Profily ICC zatiaľ nie sú kompatibilné s HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Vysoký dynamický rozsah:"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Povolené"
+msgstr "Povoliť HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -318,29 +317,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR umožňuje kompatibilným aplikáciám zobrazovať jasnejšie a živšie farby. "
+"Upozorňujeme, že táto funkcia je stále experimentálna."
 
 #: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "Jas SDR:"
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Nastavenie jasu obsahu bez HDR na obrazovke v nitoch"
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "Intenzita farieb SDR:"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -349,7 +348,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
@@ -412,7 +411,7 @@ msgstr "Trhanie obrazovky:"
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Povoliť v oknách na celú obrazovku"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -421,6 +420,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Trhanie obrazovky znižuje latenciu pri väčšine displejov. Berte na vedomie, "
+"že nie všetky grafické ovládače podporujú toto nastavenie."
 
 #: ui/Panel.qml:182
 #, kde-format
