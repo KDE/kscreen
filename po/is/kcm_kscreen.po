@@ -1,0 +1,455 @@
+# Copyright (C) 2023 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2023 Guðmundur Erlingsson <gudmundure@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"PO-Revision-Date: 2023-12-02 21:19+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.3\n"
+
+#: output_model.cpp:96
+#, kde-format
+msgid "%1 Hz"
+msgstr "%1 Hz"
+
+#: output_model.cpp:640
+#, kde-format
+msgctxt "Width x height"
+msgid "%1x%2"
+msgstr "%1x%2"
+
+#: output_model.cpp:659
+#, kde-format
+msgctxt "Width x height (aspect ratio)"
+msgid "%1x%2 (%3:%4)"
+msgstr "%1x%2 (%3:%4)"
+
+#: output_model.cpp:740
+#, kde-format
+msgid "None"
+msgstr "Ekkert"
+
+#: output_model.cpp:747
+#, kde-format
+msgid "Replicated by other output"
+msgstr "Eftirlíking gerð eftir öðru úttaki"
+
+#: ui/main.qml:41
+#, kde-format
+msgid "Keep display configuration?"
+msgstr "Halda þessari skjáuppsetningu?"
+
+#: ui/main.qml:56
+#, kde-format
+msgid "Will revert to previous configuration in %1 second."
+msgid_plural "Will revert to previous configuration in %1 seconds."
+msgstr[0] "Snýr aftur í fyrri uppsetningu eftir %1 sekúndu."
+msgstr[1] "Snýr aftur í fyrri uppsetningu eftir %1 sekúndur."
+
+#: ui/main.qml:73
+#, kde-format
+msgid "&Keep"
+msgstr "&Halda"
+
+#: ui/main.qml:86
+#, kde-format
+msgid "&Revert"
+msgstr "Aftu&rkalla"
+
+#: ui/main.qml:106 ui/main.qml:287
+#, kde-format
+msgctxt "@info"
+msgid "All displays are disabled. Enable at least one."
+msgstr "Allir skjáir eru óvirkir. Gerðu a.m.k. einn virkan."
+
+#: ui/main.qml:108 ui/main.qml:289
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Gaps between displays are not supported. Make sure all displays are touching."
+msgstr ""
+"Ekki er stuðningur við bil á milli skjáa. Gakktu úr skugga um að skjáirnir "
+"snertist. "
+
+#: ui/main.qml:120 ui/main.qml:302
+#, kde-format
+msgid "A new output has been added. Settings have been reloaded."
+msgstr "Nýju úttaki var bætt við. Stillingarnar hafa verið endurhlaðnar."
+
+#: ui/main.qml:122 ui/main.qml:304
+#, kde-format
+msgid "An output has been removed. Settings have been reloaded."
+msgstr "Úttak var fjarlægt. Stillingar hafa verið endurhlaðnar."
+
+#: ui/main.qml:172
+#, kde-format
+msgid "No KScreen backend found. Please check your KScreen installation."
+msgstr "Enginn KScreen-bakendi fannst. Athugaðu uppsetningu þína á KScreen."
+
+#: ui/main.qml:182
+#, kde-format
+msgid "Outputs could not be saved due to error."
+msgstr "Ekki var hægt að vista úttök vegna villu."
+
+#: ui/main.qml:192
+#, kde-format
+msgid ""
+"Global scale changes will come into effect after the system is restarted."
+msgstr "Altækar breytingar á skjástærð verða virkar þegar tölvan er endurræst."
+
+#: ui/main.qml:198
+#, kde-format
+msgid "Restart"
+msgstr "Endurræsa"
+
+#: ui/main.qml:218
+#, kde-format
+msgid "Display configuration reverted."
+msgstr "Skjáuppsetning afturkölluð."
+
+#: ui/main.qml:226
+#, kde-format
+msgctxt "@title:window"
+msgid "Change Priorities"
+msgstr "Breyta forgangi"
+
+#: ui/main.qml:255 ui/OutputPanel.qml:44
+#, kde-format
+msgid "Primary"
+msgstr "Aðal"
+
+#: ui/main.qml:260
+#, kde-format
+msgid "Raise priority"
+msgstr "Hækka forgang"
+
+#: ui/main.qml:270
+#, kde-format
+msgid "Lower priority"
+msgstr "Lækka forgang"
+
+#: ui/Orientation.qml:14
+#, kde-format
+msgid "Orientation:"
+msgstr "Stefna:"
+
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
+#, kde-format
+msgid "Automatic"
+msgstr "Sjálfvirkt"
+
+#: ui/Orientation.qml:44
+#, kde-format
+msgid "Only when in tablet mode"
+msgstr "Aðeins í teikniborðssniði"
+
+#: ui/Orientation.qml:59
+#, kde-format
+msgid "Manual"
+msgstr "Handvirkt"
+
+#: ui/Output.qml:238
+#, kde-format
+msgid "Replicas"
+msgstr "Eftirlíkingar"
+
+#: ui/OutputPanel.qml:26
+#, kde-format
+msgid "Enabled"
+msgstr "Virkt"
+
+#: ui/OutputPanel.qml:37
+#, kde-format
+msgid "Change Screen Priorities…"
+msgstr "Breyta skjáforgangi..."
+
+#: ui/OutputPanel.qml:50
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"This determines which screen your main desktop appears on, along with any "
+"Plasma Panels in it. Some older games also use this setting to decide which "
+"screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
+"or other windows appear on."
+msgstr ""
+"Þetta sker úr um það á hvaða skjá aðalskjáborðið þitt birtist ásamt Plasma-"
+"skjáborðsstikum sem tilheyra því. Sumir eldri leikir nota þessa stillingu "
+"líka til að ákvarða á hvaða skjá þeir birtast.<nl/><nl/>Þetta hefur engin "
+"áhrif á það á hvaða skjá tilkynningar eða aðrir gluggar birtast."
+
+#: ui/OutputPanel.qml:55
+#, kde-format
+msgid "Resolution:"
+msgstr "Upplausn:"
+
+#: ui/OutputPanel.qml:75
+#, kde-kuit-format
+msgctxt "@info"
+msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgstr "&quot;%1&quot; er eina upplausnin sem þessi skjár styður."
+
+#: ui/OutputPanel.qml:85
+#, kde-format
+msgid "Scale:"
+msgstr "Kvarði:"
+
+#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#, kde-format
+msgctxt "Global scale factor expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:126
+#, kde-format
+msgid "Refresh rate:"
+msgstr "Endurnýjunartíðni:"
+
+#: ui/OutputPanel.qml:146
+#, kde-format
+msgid "\"%1\" is the only refresh rate supported by this display."
+msgstr "\"%1\" er eina endurnýjunartíðnin sem þessi skjár styður."
+
+#: ui/OutputPanel.qml:151
+#, kde-format
+msgid "Adaptive sync:"
+msgstr "Samstillingaraðlögun:"
+
+#: ui/OutputPanel.qml:154
+#, kde-format
+msgid "Never"
+msgstr "Aldrei"
+
+#: ui/OutputPanel.qml:155
+#, kde-format
+msgid "Always"
+msgstr "Alltaf"
+
+#: ui/OutputPanel.qml:167
+#, kde-format
+msgid "Overscan:"
+msgstr "Yfirskönnun:"
+
+#: ui/OutputPanel.qml:191
+#, kde-format
+msgid "RGB range:"
+msgstr "RGB-svið:"
+
+#: ui/OutputPanel.qml:198
+#, kde-format
+msgid "Full"
+msgstr "Fullt"
+
+#: ui/OutputPanel.qml:199
+#, kde-format
+msgid "Limited"
+msgstr "Takmarkað"
+
+#: ui/OutputPanel.qml:215
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Color Profile:"
+msgstr "Litasnið:"
+
+#: ui/OutputPanel.qml:223
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter ICC profile path…"
+msgstr "Settu inn slóð fyrir ICC-litasnið..."
+
+#: ui/OutputPanel.qml:239
+#, kde-format
+msgctxt "@action:button"
+msgid "Select ICC profile…"
+msgstr "Veldu ICC-litasnið..."
+
+#: ui/OutputPanel.qml:250
+#, kde-format
+msgid "Opens a file picker for the ICC profile"
+msgstr "Opnar skráavalglugga fyrir ICC-litasniðið"
+
+#: ui/OutputPanel.qml:259
+#, kde-format
+msgctxt "@title:window"
+msgid "Select ICC Profile"
+msgstr "Velja ICC-litasnið"
+
+#: ui/OutputPanel.qml:284
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "ICC profiles aren't compatible with HDR yet"
+msgstr "ICC-litasnið eru ekki enn samhæf við HDR"
+
+#: ui/OutputPanel.qml:289
+#, kde-format
+msgctxt "@label"
+msgid "High Dynamic Range:"
+msgstr "Mikið styrksvið (HDR):"
+
+#: ui/OutputPanel.qml:294
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable HDR"
+msgstr "Virkja HDR"
+
+#: ui/OutputPanel.qml:300
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HDR allows compatible applications to show brighter and more vivid colors. "
+"Note that this feature is still experimental"
+msgstr ""
+"HDR gerir samhæfum forritum kleift að sýna bjartari og líflegri liti. "
+"Athugaðu að þessi eiginleiki er enn á tilraunastigi"
+
+#: ui/OutputPanel.qml:311
+#, kde-format
+msgctxt "@label"
+msgid "SDR Brightness:"
+msgstr "SDR-birtustig:"
+
+#: ui/OutputPanel.qml:330
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Sets the brightness of non-HDR content on the screen, in nits"
+msgstr ""
+"Stillir birtustig fyrir efni á skjánum sem er ekki í HDR, í nit-einingum"
+
+#: ui/OutputPanel.qml:341
+#, kde-format
+msgctxt "@label"
+msgid "SDR Color Intensity:"
+msgstr "SDR-litstyrkur:"
+
+#: ui/OutputPanel.qml:367
+#, kde-format
+msgctxt "Color intensity factor expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:375
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Increases the intensity of non-HDR content on the screen"
+msgstr "Eykur styrk efnis á skjánum sem er ekki í HDR"
+
+#: ui/OutputPanel.qml:380
+#, kde-format
+msgid "Replica of:"
+msgstr "Eftirlíking af:"
+
+#: ui/Panel.qml:27
+#, kde-format
+msgid "Device:"
+msgstr "Tæki:"
+
+#: ui/Panel.qml:69
+#, kde-format
+msgid "Global scale:"
+msgstr "Altækur kvarði:"
+
+#: ui/Panel.qml:129 ui/Panel.qml:149
+#, kde-format
+msgid "Legacy applications (X11):"
+msgstr "Eldri forrit (X11):"
+
+#: ui/Panel.qml:134
+#, kde-format
+msgctxt "The apps themselves should scale to fit the displays"
+msgid "Apply scaling themselves"
+msgstr "Stilla sjálf kvörðun"
+
+#: ui/Panel.qml:139
+#, kde-format
+msgid ""
+"Legacy applications that support scaling will use it and look crisp, however "
+"those that don't will not be scaled at all."
+msgstr ""
+"Eldri forrit sem styðja kvörðun nota hana og eru skörp á skjánum, en þau sem "
+"gera það ekki verða ekki kvörðuð á neinn hátt."
+
+#: ui/Panel.qml:150
+#, kde-format
+msgctxt "The system will perform the x11 apps scaling"
+msgid "Scaled by the system"
+msgstr "Kvörðuð af stýrikerfinu"
+
+#: ui/Panel.qml:155
+#, kde-format
+msgid ""
+"All legacy applications will be scaled by the system to the correct size, "
+"however they will always look slightly blurry."
+msgstr ""
+"Öll eldri forrit verða kvörðuð af stýrikerfinu í rétta stærð, hins vegar "
+"gætu þau verið svolítið óskýr í útliti."
+
+#: ui/Panel.qml:160
+#, kde-format
+msgctxt "@label"
+msgid "Screen tearing:"
+msgstr "Rifgallar:"
+
+#: ui/Panel.qml:163
+#, kde-format
+msgctxt ""
+"@option:check The thing being allowed in fullscreen windows is screen tearing"
+msgid "Allow in fullscreen windows"
+msgstr "Leyfa í gluggum sem fylla skjáinn"
+
+#: ui/Panel.qml:168
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
+msgstr ""
+"Rifgallar draga úr biðtíma (latency) á flestum skjám. Athugaðu að ekki öll "
+"skjákort styðja þessa stillingu."
+
+#: ui/Panel.qml:182
+#, kde-format
+msgid ""
+"The global scale factor is limited to multiples of 6.25% to minimize visual "
+"glitches in applications using the X11 windowing system."
+msgstr ""
+"Altæki kvarðinn takmarkast við margfeldi af 6.25% til að lágmarka sýnilegar "
+"truflanir í forritum sem nota X11-gluggakerfið."
+
+#: ui/RotationButton.qml:51
+#, kde-format
+msgid "90° Clockwise"
+msgstr "90° réttsælis"
+
+#: ui/RotationButton.qml:55
+#, kde-format
+msgid "Upside Down"
+msgstr "Á hvolfi"
+
+#: ui/RotationButton.qml:59
+#, kde-format
+msgid "90° Counterclockwise"
+msgstr "90° rangsælis"
+
+#: ui/RotationButton.qml:64
+#, kde-format
+msgid "No Rotation"
+msgstr "Enginn snúningur"
+
+#: ui/ScreenView.qml:48
+#, kde-format
+msgid "Drag screens to re-arrange them"
+msgstr "Dragðu til skjái til að raða þeim upp á nýtt"
+
+#: ui/ScreenView.qml:61
+#, kde-format
+msgid "Identify"
+msgstr "Auðkenna"
