@@ -197,11 +197,11 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         bool ok;
         const qreal scale = value.toReal(&ok);
         if (ok && !qFuzzyCompare(output.ptr->scale(), scale)) {
-            const auto oldSize = output.ptr->explicitLogicalSize().toSize();
+            const auto oldSize = output.ptr->explicitLogicalSizeInt();
 
             output.ptr->setScale(scale);
 
-            const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
+            const auto newSize = m_config->config()->logicalSizeForOutputInt(*output.ptr);
             output.ptr->setExplicitLogicalSize(newSize);
 
             maintainSnapping(output, oldSize, newSize);
@@ -505,11 +505,11 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     if (output.ptr->currentModeId() == id) {
         return false;
     }
-    const auto oldSize = output.ptr->explicitLogicalSize().toSize();
+    const auto oldSize = output.ptr->explicitLogicalSizeInt();
     output.ptr->setCurrentModeId(id);
     output.ptr->setSize(output.ptr->currentMode()->size());
 
-    const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
+    const auto newSize = m_config->config()->logicalSizeForOutputInt(*output.ptr);
     output.ptr->setExplicitLogicalSize(newSize);
 
     maintainSnapping(output, oldSize, newSize);
@@ -561,10 +561,10 @@ bool OutputModel::setRotation(int outputIndex, KScreen::Output::Rotation rotatio
     if (output.ptr->rotation() == rotation) {
         return false;
     }
-    const auto oldSize = output.ptr->explicitLogicalSize().toSize();
+    const auto oldSize = output.ptr->explicitLogicalSizeInt();
     output.ptr->setRotation(rotation);
 
-    const auto newSize = m_config->config()->logicalSizeForOutput(*output.ptr).toSize();
+    const auto newSize = m_config->config()->logicalSizeForOutputInt(*output.ptr);
     output.ptr->setExplicitLogicalSize(newSize);
 
     maintainSnapping(output, oldSize, newSize);
