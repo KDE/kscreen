@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 11:31+0000\n"
-"PO-Revision-Date: 2023-03-29 18:04+0300\n"
+"PO-Revision-Date: 2023-12-09 22:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: package/contents/ui/main.qml:22
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "Sunum kipi etkinleştirildi"
 #: package/contents/ui/main.qml:70
 #, kde-format
 msgid "Configure Display Settings…"
-msgstr "Ekran Ayarlarını Yapılandır…"
+msgstr "Görüntü Ayarlarını Yapılandır…"
 
 #: package/contents/ui/PresentationModeItem.qml:23
 #, kde-format
@@ -75,4 +75,5 @@ msgid ""
 "You can only apply a different screen layout when there is more than one "
 "display device plugged in."
 msgstr ""
-"Birden çok ekran bağlıysa farklı bir ekran yerleşimi uygulayabilirsiniz."
+"Birden çok görüntü aygıtı bağlıysa farklı bir ekran yerleşimi "
+"uygulayabilirsiniz."

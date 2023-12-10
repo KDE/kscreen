@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2023-11-22 14:27+0300\n"
+"PO-Revision-Date: 2023-12-09 22:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Başka çıktı tarafından yinelendi"
 #: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Ekran yapılandırması tutulsun mu?"
+msgstr "Görüntü yapılandırması tutulsun mu?"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
@@ -71,7 +71,7 @@ msgstr "&Geri Al"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "Tüm ekranlar devre dışı. En azından birini etkinleştirin."
+msgstr "Tüm görüntüler devre dışı. En azından birini etkinleştirin."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -79,7 +79,7 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Ekranlar arası boşluk desteklenmiyor. Tüm ekranların birbirlerine "
+"Görüntüler arası boşluk desteklenmiyor. Tüm görüntülerin birbirlerine "
 "dokunduklarından emin olun."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
@@ -119,7 +119,7 @@ msgstr "Yeniden Başlat"
 #: package/contents/ui/main.qml:217
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Ekran yapılandırması geri alındı."
+msgstr "Görüntü yapılandırması geri alındı."
 
 #: package/contents/ui/main.qml:225
 #, kde-format
@@ -230,7 +230,7 @@ msgstr "Yenileme hızı:"
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "Bu ekran yalnızca \"%1\" yenileme hızını destekliyor."
+msgstr "Bu görüntü, yalnızca \"%1\" yenileme hızını destekliyor."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
