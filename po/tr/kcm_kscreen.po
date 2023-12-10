@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-11-26 00:59+0300\n"
+"PO-Revision-Date: 2023-12-09 22:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -49,7 +49,7 @@ msgstr "Başka çıktı tarafından yinelendi"
 #: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Ekran yapılandırması tutulsun mu?"
+msgstr "Görüntü yapılandırması tutulsun mu?"
 
 #: ui/main.qml:56
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "&Geri Al"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "Tüm ekranlar devre dışı. En azından birini etkinleştirin."
+msgstr "Tüm görüntüler devre dışı. En azından birini etkinleştirin."
 
 #: ui/main.qml:108 ui/main.qml:289
 #, kde-format
@@ -80,7 +80,7 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Ekranlar arası boşluk desteklenmiyor. Tüm ekranların birbirlerine "
+"Görüntüler arası boşluk desteklenmiyor. Tüm görüntülerin birbirlerine "
 "dokunduklarından emin olun."
 
 #: ui/main.qml:120 ui/main.qml:302
@@ -119,7 +119,7 @@ msgstr "Yeniden Başlat"
 #: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Ekran yapılandırması geri alındı."
+msgstr "Görüntü yapılandırması geri alındı."
 
 #: ui/main.qml:226
 #, kde-format
@@ -200,7 +200,7 @@ msgstr "Çözünürlük:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "Bu ekran yalnızca &quot;%1&quot; çözünürlüğünü destekliyor."
+msgstr "Bu görüntü, yalnızca &quot;%1&quot; çözünürlüğünü destekliyor."
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -221,7 +221,7 @@ msgstr "Yenileme hızı:"
 #: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "Bu ekran yalnızca \"%1\" yenileme hızını destekliyor."
+msgstr "Bu görüntü, yalnızca \"%1\" yenileme hızını destekliyor."
 
 #: ui/OutputPanel.qml:151
 #, kde-format
@@ -415,8 +415,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
-"Ekran yırtılması çoğu ekranda gecikmeyi azaltır. Tüm grafik sürücülerinin bu "
-"ayarı desteklemediğini unutmayın."
+"Ekran yırtılması çoğu görüntüdeki gecikmeyi azaltır. Tüm grafik "
+"sürücülerinin bu ayarı desteklemediğini unutmayın."
 
 #: ui/Panel.qml:182
 #, kde-format
