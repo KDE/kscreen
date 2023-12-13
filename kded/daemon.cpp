@@ -24,16 +24,11 @@
 #include <kscreen/setconfigoperation.h>
 #include <kscreendpms/dpms.h>
 
-#include <KActionCollection>
-#include <KGlobalAccel>
-#include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QAction>
 #include <QGuiApplication>
-#include <QScreen>
-#include <QShortcut>
 #include <QTimer>
+#include <QTransform>
 
 #if HAVE_X11
 #include <QtGui/private/qtx11extras_p.h>
@@ -102,13 +97,6 @@ KScreenDaemon::~KScreenDaemon()
 
 void KScreenDaemon::init()
 {
-    KActionCollection *coll = new KActionCollection(this);
-    QAction *action = coll->addAction(QStringLiteral("display"));
-    action->setText(i18n("Switch Display"));
-    QList<QKeySequence> switchDisplayShortcuts({Qt::Key_Display, Qt::MetaModifier | Qt::Key_P});
-    KGlobalAccel::self()->setGlobalShortcut(action, switchDisplayShortcuts);
-    connect(action, &QAction::triggered, this, &KScreenDaemon::displayButton);
-
     const QString osdService = QStringLiteral("org.kde.kscreen.osdService");
     const QString osdPath = QStringLiteral("/org/kde/kscreen/osdService");
     m_osdServiceInterface = new OrgKdeKscreenOsdServiceInterface(osdService, osdPath, QDBusConnection::sessionBus(), this);
@@ -432,12 +420,6 @@ void KScreenDaemon::saveCurrentConfig()
         qCWarning(KSCREEN_KDED) << "Config does not have at least one screen enabled, WILL NOT save this config, this is not what user wants.";
         m_monitoredConfig->log();
     }
-}
-
-void KScreenDaemon::displayButton()
-{
-    qCDebug(KSCREEN_KDED) << "displayBtn triggered";
-    showOSD();
 }
 
 void KScreenDaemon::lidClosedChanged(bool lidIsClosed)
