@@ -36,7 +36,6 @@ target_link_libraries(kscreen PRIVATE
                               KF6::DBusAddons
                               KF6::I18n
                               KF6::XmlGui
-                              KF6::GlobalAccel
 )
 
 if(X11_FOUND)

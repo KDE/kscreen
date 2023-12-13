@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Display Configuration
+Icon=preferences-desktop-display
+Actions=ShowOSD
+StartupNotify=false
+X-KDE-GlobalShortcutType=Service
+
+[Desktop Action ShowOSD]
+Name=Switch Display
+Exec=dbus-send --type=method_call --dest=org.kde.kscreen.osdService /org/kde/kscreen/osdService org.kde.kscreen.osdService.showActionSelector
+X-KDE-Shortcuts=Display\tMeta+P
+X-KDE-Migrate-Shortcut=kded5,display
