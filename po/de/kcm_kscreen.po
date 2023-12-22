@@ -1,23 +1,24 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022, 2023.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-04-15 00:00+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-19 15:55+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -252,8 +253,7 @@ msgid "Overscan:"
 msgstr "Overscan:"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB-Bereich:"
 
@@ -271,49 +271,48 @@ msgstr "Begrenzt"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Farbprofil:"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Bitte geben Sie den Pfad des ICC-Profils an …"
 
 #: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "ICC-Profil auswählen …"
 
 #: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Öffnet einen Dateiauswahldialog für das ICC-Profil."
 
 #: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "ICC-Profil auswählen"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC-Profile sind noch nicht mit HDR kompatibel"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Hochkontrast (HDR):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Aktiviert"
+msgstr "HDR aktivieren"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -322,38 +321,42 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"Mit HDR können kompatible Anwendungen hellere und lebendigere Farben zeigen. "
+"Bitte beachten Sie, dass diese Funktion noch experimentell ist"
 
 #: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR-Helligkeit:"
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr ""
+"Mit dieser Einstellung wird die Helligkeit von Nicht-Hochkontrastinhalten in "
+"Maßeinheit cd/m² auf dem Bildschirm festgelegt."
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR-Farbintensität:"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr ""
+"Mit dieser Einstellung wird die Intensität von Nicht-Hochkontrastinhalten "
+"auf dem Bildschirm erhöht."
 
 #: ui/OutputPanel.qml:380
 #, kde-format
@@ -371,8 +374,7 @@ msgid "Global scale:"
 msgstr "Globale Skalierung:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Herkömmliche Anwendungen (X11):"
 
@@ -411,14 +413,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "Bildschirmvermischung:"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "In Vollbild-Fenstern erlauben"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -427,6 +429,9 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Die Bildschirmvermischung reduziert Verzögerungen bei vielen Monitoren. "
+"Bitte beachten Sie, dass diese Einstellung nicht von allen Grafiktreibern "
+"unterstützt wird."
 
 #: ui/Panel.qml:182
 #, kde-format
