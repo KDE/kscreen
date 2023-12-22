@@ -273,11 +273,6 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     return config;
 }
 
-uint qHash(const QSize &size)
-{
-    return size.width() * size.height();
-}
-
 void Generator::cloneScreens(const KScreen::ConfigPtr &config)
 {
     KScreen::OutputList connectedOutputs = config->connectedOutputs();
