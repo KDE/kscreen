@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Joëlle Cornavin <jcorn@free.fr>, 2013.
-# SPDX-FileCopyrightText: 2013, 2020, 2021, 2022, 2023 xavier <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2013, 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
 # Vincent PINON <vincent.pinon@laposte.net>, 2014.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015.
 # Vincent Pinon <vpinon@kde.org>, 2016, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
 # Nathan Murat <nathanmurat28@outlook.com>, 2019.
 # William Oprandi <william.oprandi@gmail.com>, 2020.
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
