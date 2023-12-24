@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-11-11 14:10+0100\n"
+"PO-Revision-Date: 2023-12-23 14:01+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -294,20 +294,19 @@ msgstr "Wybierz profil ICC"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Profile ICC nie są jeszcze zgodne z HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "High Dynamic Range (z ang. zakres o wysokiej dynamice):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Włączony"
+msgstr "Włącz HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -316,29 +315,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR umożliwia obsługującym go aplikacjom pokazywać jaśniejsze i żywsze "
+"barwy. Pamiętaj, że ta funkcjonalność nie jest jeszcze dopracowana"
 
 #: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "Jasność SDR:"
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Ustawia jasność treści nie-HDR na ekranie, w nitach"
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "Natężenie barwy SDR:"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -347,7 +346,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Zwiększa natężenie treści nie-HDR na ekranie"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
