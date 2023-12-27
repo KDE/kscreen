@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2016, 2017, 2018, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2022-12-18 10:38+0300\n"
+"PO-Revision-Date: 2023-12-26 17:20+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -204,11 +204,10 @@ msgid "Resolution:"
 msgstr "Разрешение:"
 
 #: ui/OutputPanel.qml:75
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "Это дисплей поддерживает только частоту кадров %1."
+msgstr "Это дисплей поддерживает только разрешение &quot;%1&quot;."
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -252,8 +251,7 @@ msgid "Overscan:"
 msgstr "Масштабирование"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "Диапазон RGB:"
 
@@ -271,49 +269,48 @@ msgstr "Ограниченный"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Цветовой профиль:"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Введите путь к цветовому профилю ICC…"
 
 #: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Выбрать профиль ICC…"
 
 #: ui/OutputPanel.qml:250
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Открывает диалог выбора цветового профиля ICC"
 
 #: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Выбор цветового профиля ICC"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Цветовые профили в настоящее время несовместимы с HDR"
 
 #: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Расширенный динамический диапазон (HDR):"
 
 #: ui/OutputPanel.qml:294
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Включён"
+msgstr "Включить HDR"
 
 #: ui/OutputPanel.qml:300
 #, kde-format
@@ -322,29 +319,30 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"Использование режима расширенного динамического диапазона позволяет "
+"приложениям выводить более яркие и насыщенные цвета. Поддержка HDR пока "
+"является экспериментальной."
 
 #: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "Яркость SDR:"
 
 #: ui/OutputPanel.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Задать яркость для обычного динамического диапазона, нит"
 
 #: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "Цветовая насыщенность SDR:"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
