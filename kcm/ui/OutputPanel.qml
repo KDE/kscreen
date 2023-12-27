@@ -172,12 +172,10 @@ Kirigami.FormLayout {
             to: 100
             value: element.overscan
             onValueModified: element.overscan = value
-            textFromValue: function(value, locale) {
-                return value + '%';
-            }
-            valueFromText: function(text, locale) {
-                return parseInt(text.replace("%", ""))
-            }
+            textFromValue: (value, locale) =>
+            i18nc("Overscan expressed in percentage form", "%1%", value)
+            valueFromText: (text, locale) =>
+            Number.fromLocaleString(locale, text.replace("%", ""))
         }
 
         KCM.ContextualHelpButton {
