@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-12-28 01:34+0000\n"
 "PO-Revision-Date: 2023-12-02 20:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -143,7 +143,7 @@ msgstr "降低優先順序"
 msgid "Orientation:"
 msgstr "方向："
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "自動"
@@ -238,69 +238,77 @@ msgstr "總是"
 msgid "Overscan:"
 msgstr "Overscan："
 
-#: ui/OutputPanel.qml:191
+#: ui/OutputPanel.qml:176
+#, fuzzy, kde-format
+#| msgctxt "Global scale factor expressed in percentage form"
+#| msgid "%1%"
+msgctxt "Overscan expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 範圍："
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
 msgstr "完整"
 
-#: ui/OutputPanel.qml:199
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
 msgstr "有限"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "顏色設定檔："
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "輸入 ICC 設定檔路徑…"
 
-#: ui/OutputPanel.qml:239
+#: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "選取 ICC 設定檔…"
 
-#: ui/OutputPanel.qml:250
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "會開啟檔案選取工具來選取 ICC 設定檔"
 
-#: ui/OutputPanel.qml:259
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "選取 ICC 設定檔"
 
-#: ui/OutputPanel.qml:284
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC 設定檔目前與 HDR 尚不相容"
 
-#: ui/OutputPanel.qml:289
+#: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "高動態範圍 (HDR)："
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "啟用 HDR"
 
-#: ui/OutputPanel.qml:300
+#: ui/OutputPanel.qml:298
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -310,37 +318,37 @@ msgstr ""
 "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。請注意，這個功能目前仍在試驗"
 "中"
 
-#: ui/OutputPanel.qml:311
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR 亮度："
 
-#: ui/OutputPanel.qml:330
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "設定螢幕上非 HDR 內容的亮度，單位為 nit"
 
-#: ui/OutputPanel.qml:341
+#: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR 色彩強度："
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:365
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:373
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "提高螢幕上非 HDR 內容的色彩強度"
 
-#: ui/OutputPanel.qml:380
+#: ui/OutputPanel.qml:378
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："

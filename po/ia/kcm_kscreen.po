@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-12-28 01:34+0000\n"
 "PO-Revision-Date: 2023-11-22 10:51+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -147,7 +147,7 @@ msgstr "Bassa prioritate"
 msgid "Orientation:"
 msgstr "Orientation:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automatic"
@@ -243,69 +243,77 @@ msgstr "Sempre"
 msgid "Overscan:"
 msgstr "Overscan:"
 
-#: ui/OutputPanel.qml:191
+#: ui/OutputPanel.qml:176
+#, fuzzy, kde-format
+#| msgctxt "Global scale factor expressed in percentage form"
+#| msgid "%1%"
+msgctxt "Overscan expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB range:"
 msgstr "Extension de RGB:"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
 msgstr "Plen"
 
-#: ui/OutputPanel.qml:199
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
 msgstr "Limitate"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "Profilo de profilo"
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Inserta percurso de profilo ICC ..."
 
-#: ui/OutputPanel.qml:239
+#: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Selige profilo ICC..."
 
-#: ui/OutputPanel.qml:250
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Aperi un file collector per le profilo ICC"
 
-#: ui/OutputPanel.qml:259
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Selige Profilo ICC"
 
-#: ui/OutputPanel.qml:284
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "Profilos ICC non es compatibile ancora con HDR"
 
-#: ui/OutputPanel.qml:289
+#: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "High Dynamic Range (HDR-Alte Extension Dynamic):"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Habilita HDR"
 
-#: ui/OutputPanel.qml:300
+#: ui/OutputPanel.qml:298
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -315,37 +323,37 @@ msgstr ""
 "HDR permitte a applicationes compatibile monstrar colores plus brillante e "
 "vivide. Notaque iste characteristica es ancora experimental"
 
-#: ui/OutputPanel.qml:311
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "Brillantia SDR:"
 
-#: ui/OutputPanel.qml:330
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Assignale brillantia de contento non HDR sur le schermo, in nits"
 
-#: ui/OutputPanel.qml:341
+#: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "Intensitate de color SDR:"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:365
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:373
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Augmenta le intensitate de contento non HDR sur le schermo"
 
-#: ui/OutputPanel.qml:380
+#: ui/OutputPanel.qml:378
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica de:"

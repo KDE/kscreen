@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
-"PO-Revision-Date: 2023-12-09 22:19+0300\n"
+"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"PO-Revision-Date: 2023-12-27 11:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -147,7 +147,7 @@ msgstr "Önceliği düşür"
 msgid "Orientation:"
 msgstr "Yönelim:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:197
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Kendiliğinden"
@@ -211,7 +211,7 @@ msgstr "Ölçek:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%​%1"
+msgstr "%%1"
 
 #: ui/OutputPanel.qml:126
 #, kde-format
@@ -243,69 +243,77 @@ msgstr "Her zaman"
 msgid "Overscan:"
 msgstr "Üst tarama:"
 
-#: ui/OutputPanel.qml:191
+#: ui/OutputPanel.qml:176
+#, fuzzy, kde-format
+#| msgctxt "Global scale factor expressed in percentage form"
+#| msgid "%1%"
+msgctxt "Overscan expressed in percentage form"
+msgid "%1%"
+msgstr "%%1"
+
+#: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB erimi:"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
 msgstr "Tam"
 
-#: ui/OutputPanel.qml:199
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
 msgstr "Sınırlı"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "Renk profili:"
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC profili yolunu gir…"
 
-#: ui/OutputPanel.qml:239
+#: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC Profili Seç…"
 
-#: ui/OutputPanel.qml:250
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC profili için bir dosya seçicisi açar"
 
-#: ui/OutputPanel.qml:259
+#: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC Profili Seç"
 
-#: ui/OutputPanel.qml:284
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC profilleri henüz HDR uyumlu değiller"
 
-#: ui/OutputPanel.qml:289
+#: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Yüksek devingen erim:"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "HDR'yi etkinleştir"
 
-#: ui/OutputPanel.qml:300
+#: ui/OutputPanel.qml:298
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -315,37 +323,37 @@ msgstr ""
 "HDR, uyumlu uygulamaların daha parlak ve canlı renkler göstermesine izin "
 "verir. Bu özelliğin henüz deneysel bir durumda olduğunu not edin."
 
-#: ui/OutputPanel.qml:311
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR parlaklığı:"
 
-#: ui/OutputPanel.qml:330
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Nit türünden, ekranda HDR olmayan içeriğin parlaklığını ayarlar"
 
-#: ui/OutputPanel.qml:341
+#: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR renk yoğunluğu:"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:365
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%​%1"
+msgstr "%%1"
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:373
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Ekranda HDR olmayan içeriğin yoğunluğunu artırır"
 
-#: ui/OutputPanel.qml:380
+#: ui/OutputPanel.qml:378
 #, kde-format
 msgid "Replica of:"
 msgstr "Şunun yinelemesi:"
