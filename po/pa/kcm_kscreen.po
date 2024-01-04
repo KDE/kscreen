@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2024-01-01 12:25-0600\n"
+"PO-Revision-Date: 2024-01-03 14:34-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -190,7 +190,7 @@ msgstr "ਰੈਜ਼ੋਲੂਸ਼ਨ:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr ""
+msgstr "ਇਸ ਡਿਸਪਲੇਅ ਵਲੋਂ ਸਿਰਫ਼ &quot;%1&quot; ਰੀਫਰੈਸ਼ ਰੇਟ ਸਹਾਇਕ ਹੈ।"
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -211,7 +211,7 @@ msgstr "ਤਾਜ਼ਾ ਕਰਨ ਰੇਟ:"
 #: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
+msgstr "ਇਸ ਡਿਸਪਲੇਅ ਵਲੋਂ ਸਿਰਫ਼ \"%1\" ਰੀਫਰੈਸ਼ ਰੇਟ ਸਹਾਇਕ ਹੈ।"
 
 #: ui/OutputPanel.qml:151
 #, kde-format
@@ -264,7 +264,7 @@ msgstr "ਰੰਗ ਪਰਫਾਇਲ:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "ICC ਪਰੋਫਾਇਲ ਦਾ ਮਾਰਗ ਦਿਓ…"
 
 #: ui/OutputPanel.qml:237
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "ICC ਪਰੋਫਾਇਲ ਚੁਣੋ…"
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "ICC ਪਰੋਫਾਇਲ ਲਈ ਫਾਇਲ ਚੋਣਕਾਰ ਨੂੰ ਖੋਲ੍ਹਦਾ ਹੈ"
 
 #: ui/OutputPanel.qml:257
 #, kde-format
@@ -293,7 +293,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "ਹਾਈ ਡਾਇਨੈਮਿਕ ਰੇਜ਼:"
 
 #: ui/OutputPanel.qml:292
 #, kde-format
@@ -313,7 +313,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR ਚਮਕ:"
 
 #: ui/OutputPanel.qml:328
 #, kde-format
@@ -325,7 +325,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR ਰੰਗ ਇਨਟੈਂਸਟੀ:"
 
 #: ui/OutputPanel.qml:365
 #, kde-format
@@ -363,7 +363,7 @@ msgstr "ਪੁਰਾਤਨ ਐਪਲੀਕੇਸ਼ਨਾਂ (X11):"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "ਸਕੇਲਿੰਗਾਂ ਨੂੰ ਖੁਦ ਲਾਗੂ ਕਰੋ"
 
 #: ui/Panel.qml:139
 #, kde-format
@@ -386,11 +386,10 @@ msgid ""
 msgstr ""
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "ਸਕਰੀਨ ਸਕੇਲਿੰਗ"
+msgstr "ਸਕਰੀਨ ਟੀਅਰਿੰਗ:"
 
 #: ui/Panel.qml:163
 #, kde-format
@@ -406,6 +405,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"ਸਕਰੀਨ ਟੀਅਰਿੰਗ ਬਹੁਤੇ ਡਿਸਪਲੇਅ ਤੋਂ ਦੇਰੀ (latency) ਨੂੰ ਘਟਾਉਂਦੀ ਹੈ। ਯਾਦ ਰੱਖੋ ਕਿ ਸਾਰੇ ਗਰਾਫਿਕਸ "
+"ਡਰਾਇਵਰ ਇਸ ਸੈਟਿੰਗ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੁੰਦੇ ਹਨ।"
 
 #: ui/Panel.qml:182
 #, kde-format
