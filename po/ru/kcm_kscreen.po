@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2016, 2017, 2018, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2023-12-26 17:20+0300\n"
+"PO-Revision-Date: 2024-01-04 21:43+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -181,12 +181,7 @@ msgid "Change Screen Priorities…"
 msgstr "Изменить приоритет экранов…"
 
 #: ui/OutputPanel.qml:50
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -195,8 +190,9 @@ msgid ""
 "or other windows appear on."
 msgstr ""
 "Этот параметр определяет, на какой экран будет выводиться главный рабочий "
-"стол и панель. Некоторые старые игры также используют этот параметр.<nl/><nl/"
-"> Параметр не влияет на вывод экранных уведомлений или окон приложений."
+"стол и панели. Некоторые старые игры также используют этот параметр для "
+"выбора экрана.<nl/><nl/> Параметр не влияет на вывод экранных уведомлений "
+"или окон приложений."
 
 #: ui/OutputPanel.qml:55
 #, kde-format
@@ -251,9 +247,7 @@ msgid "Overscan:"
 msgstr "Масштабирование"
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -359,7 +353,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Увеличивает насыщенность обычного (не-HDR) содержимого экрана"
 
 #: ui/OutputPanel.qml:378
 #, kde-format
@@ -377,8 +371,7 @@ msgid "Global scale:"
 msgstr "Глобальный масштаб:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Устаревшие приложения (X11):"
 
@@ -415,18 +408,17 @@ msgstr ""
 "размытыми."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Масштабирование экрана"
+msgstr "Разрывы изображения (тиринг):"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Разрешить для окон, распахнутых во весь экран"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -435,6 +427,9 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Разрешение тиринга позволяет снизить задержку вывода для большинства "
+"экранов. Обратите внимание, что не все драйверы видеокарт поддерживают эту "
+"функцию."
 
 #: ui/Panel.qml:182
 #, kde-format
