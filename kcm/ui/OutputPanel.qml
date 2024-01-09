@@ -152,8 +152,8 @@ Kirigami.FormLayout {
         Layout.minimumWidth: Kirigami.Units.gridUnit * 11
         model: [
             { label: i18n("Never"), value: KScreen.Output.VrrPolicy.Never },
+            { label: i18n("Automatic"), value: KScreen.Output.VrrPolicy.Automatic },
             { label: i18n("Always"), value: KScreen.Output.VrrPolicy.Always },
-            { label: i18n("Automatic"), value: KScreen.Output.VrrPolicy.Automatic }
         ]
         textRole: "label"
         valueRole: "value"
