@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-01-10 01:35+0000\n"
 "PO-Revision-Date: 2017-08-25 14:45+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -150,7 +150,7 @@ msgid "Orientation:"
 msgstr "Orijentacija:"
 
 # >> @item:inlistbox Refresh rate:
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, fuzzy, kde-format
 #| msgid "Auto"
 msgid "Automatic"
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Always"
 msgstr ""

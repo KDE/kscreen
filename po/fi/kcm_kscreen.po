@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-01-10 01:35+0000\n"
 "PO-Revision-Date: 2023-07-13 23:29+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -145,7 +145,7 @@ msgstr "Laske etusijaisuutta"
 msgid "Orientation:"
 msgstr "Suunta:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automaattinen"
@@ -231,7 +231,7 @@ msgstr "Mukautuva synkronointi:"
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Always"
 msgstr "Aina"

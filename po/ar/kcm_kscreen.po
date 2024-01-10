@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-01-10 01:35+0000\n"
 "PO-Revision-Date: 2023-04-13 10:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -147,7 +147,7 @@ msgstr "اخفض الأولويّة"
 msgid "Orientation:"
 msgstr "الاتّجاه:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "آليّ"
@@ -232,7 +232,7 @@ msgstr "تزامن متكيف:"
 msgid "Never"
 msgstr "البتة"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Always"
 msgstr "دائما"

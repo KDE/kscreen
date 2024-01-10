@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-01-10 01:35+0000\n"
 "PO-Revision-Date: 2023-12-28 19:50+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Beheratu lehentasuna"
 msgid "Orientation:"
 msgstr "Orientazioa:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:156 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automatikoa"
@@ -236,7 +236,7 @@ msgstr "Sinkronizatze moldakorra:"
 msgid "Never"
 msgstr "Inoiz ez"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Always"
 msgstr "Beti"
