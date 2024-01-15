@@ -40,10 +40,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
 
 public:
-    enum InvalidConfigReason {
-        NoEnabledOutputs,
-        ConfigHasGaps,
-    };
+    enum InvalidConfigReason { NoEnabledOutputs, ConfigHasGaps, ConfigIntersects };
     Q_ENUM(InvalidConfigReason)
 
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);

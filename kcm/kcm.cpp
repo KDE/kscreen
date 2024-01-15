@@ -382,8 +382,20 @@ void KCMKScreen::checkConfig()
             return other != output && rectsTouch(output->geometry(), other->geometry());
         });
     };
+    auto doesNotIntersect = [&enabledOutputs](const OutputPtr &output) {
+        return std::none_of(enabledOutputs.cbegin(), enabledOutputs.cend(), [&output](const OutputPtr &other) {
+            auto intersectionSize = output->geometry().intersected(other->geometry()).size();
+            return other != output && intersectionSize.height() <= 1 && intersectionSize.width() <= 1;
+        });
+    };
+
     if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotTouchAnyOther)) {
         Q_EMIT invalidConfig(ConfigHasGaps);
+        m_configNeedsSave = false;
+    }
+
+    if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotIntersect)) {
+        Q_EMIT invalidConfig(ConfigIntersects);
         m_configNeedsSave = false;
     }
 }
