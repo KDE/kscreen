@@ -22,7 +22,6 @@
 #include <kscreen/output.h>
 #include <kscreen/screen.h>
 #include <kscreen/setconfigoperation.h>
-#include <kscreendpms/dpms.h>
 
 #include <KActionCollection>
 #include <KGlobalAccel>
@@ -31,7 +30,6 @@
 
 #include <QAction>
 #include <QGuiApplication>
-#include <QScreen>
 #include <QShortcut>
 #include <QTimer>
 

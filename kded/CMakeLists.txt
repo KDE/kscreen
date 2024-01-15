@@ -37,7 +37,6 @@ target_link_libraries(kscreen PRIVATE
                               KF6::I18n
                               KF6::XmlGui
                               KF6::GlobalAccel
-                              KF6::ScreenDpms
 )
 
 if(X11_FOUND)
