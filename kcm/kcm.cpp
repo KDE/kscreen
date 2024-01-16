@@ -389,14 +389,14 @@ void KCMKScreen::checkConfig()
         });
     };
 
-    if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotTouchAnyOther)) {
-        Q_EMIT invalidConfig(ConfigHasGaps);
-        m_configNeedsSave = false;
-    }
-
-    if (enabledOutputs.size() > 1 && std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotIntersect)) {
-        Q_EMIT invalidConfig(ConfigIntersects);
-        m_configNeedsSave = false;
+    if (enabledOutputs.size() > 1) {
+        if (std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotTouchAnyOther)) {
+            Q_EMIT invalidConfig(ConfigHasGaps);
+            m_configNeedsSave = false;
+        } else if (std::any_of(enabledOutputs.cbegin(), enabledOutputs.cend(), doesNotIntersect)) {
+            Q_EMIT invalidConfig(ConfigIntersects);
+            m_configNeedsSave = false;
+        }
     }
 }
 
