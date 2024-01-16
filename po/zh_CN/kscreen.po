@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
+"POT-Creation-Date: 2024-01-16 00:38+0000\n"
 "PO-Revision-Date: 2024-01-13 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,6 +17,6 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kscreen/kscreen.pot\n"
 "X-Crowdin-File-ID: 43191\n"
 
-#: daemon.cpp:107
+#: daemon.cpp:105
 msgid "Switch Display"
 msgstr "切换显示器"
