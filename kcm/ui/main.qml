@@ -107,7 +107,7 @@ KCM.SimpleKCM {
             } else if (reason === KScreen.KCMKScreen.ConfigHasGaps) {
                 invalidConfigMsg.text = i18nc("@info", "Gaps between displays are not supported. Make sure all displays are touching.")
             } else if (reason === KScreen.KCMKScreen.ConfigIntersects) {
-                invalidConfigMsg.text = i18nc("@info", "Displays intersecting each other are not supported. Make sure all displays are touching.")
+                invalidConfigMsg.text = i18nc("@info", "Displays overlapping each other are not supported. Make sure all displays are touching.")
             }
             invalidConfigMsg.visible = true;
         }
