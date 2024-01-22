@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:35+0000\n"
-"PO-Revision-Date: 2024-01-17 22:34+0100\n"
+"PO-Revision-Date: 2024-01-21 21:13+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -72,7 +72,7 @@ msgstr "&Visszaállítás"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Minden kijelző le van tiltva. Engedélyezzen legalább egyet."
 
 #: ui/main.qml:108 ui/main.qml:289
 #, kde-format
@@ -80,6 +80,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"A kijelzők közötti hézagok nem támogatottak. Győződjön meg róla, hogy minden "
+"kijelző érintkezik."
 
 #: ui/main.qml:120 ui/main.qml:302
 #, kde-format
@@ -103,14 +105,11 @@ msgid "Outputs could not be saved due to error."
 msgstr "Hiba történt, a kimenetek nem menthetőek."
 
 #: ui/main.qml:192
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"A globális skálázás megváltozott. A változás újraindítás után fog "
-"érvényesülni."
+"A globális skálázás módosításai a rendszer újraindítása után lépnek életbe."
 
 #: ui/main.qml:198
 #, kde-format
@@ -118,16 +117,15 @@ msgid "Restart"
 msgstr "Újraindítás"
 
 #: ui/main.qml:218
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Display configuration reverted."
-msgstr "Kijelzőbeállítás"
+msgstr "Kijelzőbeállítások visszaállítva."
 
 #: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Prioritások módosítása"
 
 #: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
@@ -137,12 +135,12 @@ msgstr "Elsődleges"
 #: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Prioritás emelése"
 
 #: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Prioritás csökkentése"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -155,10 +153,9 @@ msgid "Automatic"
 msgstr "Automatikus"
 
 #: ui/Orientation.qml:44
-#, fuzzy, kde-format
-#| msgid "Only when in tablet mode."
+#, kde-format
 msgid "Only when in tablet mode"
-msgstr "Csak tablet módban."
+msgstr "Csak tablet módban"
 
 #: ui/Orientation.qml:59
 #, kde-format
@@ -178,7 +175,7 @@ msgstr "Engedélyezve"
 #: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Kijelzőprioritás módosítása…"
 
 #: ui/OutputPanel.qml:50
 #, kde-kuit-format
@@ -189,6 +186,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
+"Ez határozza meg, hogy melyik képernyőn jelenik meg a fő asztal, valamint a "
+"Plasma panelek. Néhány régebbi játék is ezt a beállítást használja annak "
+"eldöntésére, melyik képernyőn jelenjen meg.<nl/><nl/>Ez nincs hatással arra, "
+"hogy az értesítések vagy más ablakok melyik képernyőn jelennek meg."
 
 #: ui/OutputPanel.qml:55
 #, kde-format
@@ -199,7 +200,7 @@ msgstr "Felbontás:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr ""
+msgstr "A(z) &quot;%1&quot; a kijelző által támogatott egyetlen felbontás."
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -220,32 +221,30 @@ msgstr "Frissítési gyakoriság:"
 #: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
+msgstr "„%1” a kijelző által támogatott egyetlen frissítési frekvencia."
 
 #: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
-msgstr ""
+msgstr "Adaptív szinkron:"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Soha"
 
 #: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Mindig"
 
 #: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Overscan:"
-msgstr ""
+msgstr "Túlpásztázás"
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -253,65 +252,64 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB range:"
-msgstr ""
+msgstr "RGB tartomány:"
 
 #: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Teljes"
 
 #: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
-msgstr ""
+msgstr "Korlátozott"
 
 #: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Színprofil:"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Adja meg az ICC-profil elérési útját…"
 
 #: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "ICC-profil kiválasztása…"
 
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Megnyit egy fájlválasztót az ICC-profilhoz"
 
 #: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "ICC-profil kiválasztása"
 
 #: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Az ICC-profilok még nem kompatibilisek a HDR-rel"
 
 #: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "HDR:"
 
 #: ui/OutputPanel.qml:292
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Engedélyezve"
+msgstr "HDR bekapcsolása"
 
 #: ui/OutputPanel.qml:298
 #, kde-format
@@ -320,29 +318,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"A HDR lehetővé teszi a kompatibilis alkalmazásoknak fényesebb és élénkebb "
+"színek megjelenítését. Ne feledje, hogy ez a funkció még kísérleti"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR fényerő:"
 
 #: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Beállítja a képernyőn megjelenő nem HDR tartalmak fényerejét nitben."
 
 #: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR színintenzitás:"
 
 #: ui/OutputPanel.qml:365
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -351,7 +349,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Növel a képernyőn megjelenő nem HDR tartalom intenzitását"
 
 #: ui/OutputPanel.qml:378
 #, kde-format
@@ -371,13 +369,13 @@ msgstr "Globális skálázás:"
 #: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy applications (X11):"
-msgstr ""
+msgstr "Örökölt alkalmazások (X11):"
 
 #: ui/Panel.qml:134
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Méretezzék saját magukat"
 
 #: ui/Panel.qml:139
 #, kde-format
@@ -385,12 +383,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"A méretezést támogató örökölt alkalmazások használni fogják azt, és élesnek "
+"látszódnak, azonban az azt nem támogatók egyáltalán nem méreteződnek."
 
 #: ui/Panel.qml:150
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Méretezés a rendszer által"
 
 #: ui/Panel.qml:155
 #, kde-format
@@ -398,20 +398,21 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Az összes örökölt alkalmazást a rendszer méretezi a megfelelő méretre, habár "
+"ekkor mindig kissé homályosnak fognak tűnni."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Képernyőskálázás"
+msgstr "Képtörés:"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Engedélyezés teljes képernyős ablakokban"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -420,6 +421,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"A képtörés a legtöbb kijelzőnél csökkenti a késleltetést. Ne feledje, hogy "
+"nem minden videókártya illesztőprogramja támogatja ezt a beállítást."
 
 #: ui/Panel.qml:182
 #, kde-format
