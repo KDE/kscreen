@@ -6,6 +6,7 @@ set(KSCREEN_VERSION ${PROJECT_VERSION})
 
 add_definitions("-DKSCREEN_VERSION=\"${KSCREEN_VERSION}\"")
 
+set(PROJECT_DEP_VERSION "6.0.80")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
@@ -41,9 +42,9 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(KF6Screen ${PROJECT_VERSION} REQUIRED)
-find_package(Plasma ${PROJECT_VERSION} REQUIRED)
-find_package(PlasmaQuick ${PROJECT_VERSION} REQUIRED)
+find_package(KF6Screen ${PROJECT_DEP_VERSION} REQUIRED)
+find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
+find_package(PlasmaQuick ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package(X11)
 set_package_properties(X11 PROPERTIES
