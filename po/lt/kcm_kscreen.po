@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:35+0000\n"
-"PO-Revision-Date: 2021-12-13 13:18+0200\n"
+"PO-Revision-Date: 2024-01-23 02:37+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -28,7 +28,7 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:659
 #, kde-format
@@ -74,14 +74,14 @@ msgstr "S&ugrąžinti"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Visi ekranai yra išjungti. Įjunkite bent vieną."
 
 #: ui/main.qml:108 ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
-msgstr ""
+msgstr "Tarpai tarp ekranų nėra palaikomi. Įsitikinkite, kad ekranai liečiasi."
 
 #: ui/main.qml:120 ui/main.qml:302
 #, kde-format
@@ -104,19 +104,17 @@ msgid "Outputs could not be saved due to error."
 msgstr "Išvedimų nepavyko įrašyti dėl klaidos."
 
 #: ui/main.qml:192
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Naujas visuotinis mastelis pritaikytas. Pakeitimai įsigalios po paleidimo iš "
+"Visuotinio mastelio pakeitimai įsigalios po to, kai paleisite sistemą iš "
 "naujo."
 
 #: ui/main.qml:198
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Paleisti iš naujo"
 
 #: ui/main.qml:218
 #, kde-format
@@ -127,7 +125,7 @@ msgstr "Ekrano konfigūracija sugrąžinta."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Keisti pirmenybes"
 
 #: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
@@ -137,12 +135,12 @@ msgstr "Pirminis"
 #: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Teikti didesnę pirmenybę"
 
 #: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Teikti mažesnę pirmenybę"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -177,7 +175,7 @@ msgstr "Įjungtas"
 #: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Keisti ekrano pirmenybes…"
 
 #: ui/OutputPanel.qml:50
 #, kde-kuit-format
@@ -188,6 +186,11 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
+"Tai nustato, kuriame ekrane bus rodomas jūsų pagrindinis darbalaukis, kartu "
+"su bet kokiais jame esančiais Plasma skydeliais. Kai kurie senesni žaidimai "
+"taip pat naudoja šią nuostatą, kad nuspręstų, kuriame ekrane būti rodomiems."
+"<nl/><nl/>Ši nuostata neįtakoja to, kuriame ekrane bus rodomi pranešimai ar "
+"kiti langai."
 
 #: ui/OutputPanel.qml:55
 #, kde-format
@@ -195,11 +198,10 @@ msgid "Resolution:"
 msgstr "Skiriamoji geba:"
 
 #: ui/OutputPanel.qml:75
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "„%1“ yra vienintelis atnaujinimo dažnis, kurį šis ekranas palaiko."
+msgstr "&quot;%1&quot; yra vienintelė šio ekrano palaikoma skiriamoji geba."
 
 #: ui/OutputPanel.qml:85
 #, kde-format
@@ -243,16 +245,13 @@ msgid "Overscan:"
 msgstr "Užribis:"
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB rėžis:"
 
@@ -270,49 +269,48 @@ msgstr "Ribotas"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Spalvų profilis:"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Įveskite ICC profilio kelią…"
 
 #: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Pasirinkti ICC profilį…"
 
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Atveria ICC profilio failo parinkiklį"
 
 #: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Pasirinkti ICC profilį"
 
 #: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "Kol kas ICC profiliai nėra suderinami su HDR"
 
 #: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Didelis dinaminis rėžis (HDR):"
 
 #: ui/OutputPanel.qml:292
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Įjungtas"
+msgstr "Įjungti HDR"
 
 #: ui/OutputPanel.qml:298
 #, kde-format
@@ -321,29 +319,30 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR leidžia suderinamoms programoms atvaizduoti ryškesnes ar labiau "
+"vaizdingas spalvas. Turėkite omenyje, kad ši ypatybė vis dar yra "
+"eksperimentinė"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR ryškumas:"
 
 #: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Nustato ne HDR turinio ekrane ryškumą, nitais"
 
 #: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR spalvų intensyvumas:"
 
 #: ui/OutputPanel.qml:365
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -352,7 +351,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Padidina ne HDR turinio ekrane intensyvumą"
 
 #: ui/OutputPanel.qml:378
 #, kde-format
@@ -372,13 +371,13 @@ msgstr "Visuotinis mastelis:"
 #: ui/Panel.qml:129 ui/Panel.qml:149
 #, kde-format
 msgid "Legacy applications (X11):"
-msgstr ""
+msgstr "Pasenusios programos (X11):"
 
 #: ui/Panel.qml:134
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Pačios taikys mastelio keitimą"
 
 #: ui/Panel.qml:139
 #, kde-format
@@ -386,12 +385,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"Pasenusios programos, kurios palaiko mastelio keitimą, jį naudos ir atrodys "
+"ryškiai, o tos kurios nepalaiko – jų mastelis iš viso nebus keičiamas."
 
 #: ui/Panel.qml:150
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Sistema joms taikys mastelio keitimą"
 
 #: ui/Panel.qml:155
 #, kde-format
@@ -399,20 +400,21 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Sistema keis visų pasenusių programų mastelį taip, kad jis būtų tinkamo "
+"dydžio, tačiau jos atrodys šiek tiek neryškios."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Ekrano mastelis keitimas"
+msgstr "Ekrano plėšymas:"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Leisti viso ekrano languose"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -421,6 +423,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Ekrano plėšymas sumažina daugelio ekranų delsą. Turėkite omenyje, kad ne "
+"visos grafikos tvarkyklės palaiko šią nuostatą."
 
 #: ui/Panel.qml:182
 #, kde-format
