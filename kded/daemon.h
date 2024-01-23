@@ -46,7 +46,6 @@ private:
     void applyIdealConfig();
     void configChanged();
     void saveCurrentConfig();
-    void displayButton();
 #if HAVE_X11
     void alignX11TouchScreen();
 #endif
