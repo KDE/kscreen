@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-01 02:16+0000\n"
+"POT-Creation-Date: 2024-01-24 00:38+0000\n"
 "PO-Revision-Date: 2021-06-28 15:25+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -39,13 +39,13 @@ msgstr "Ενεργοποίηση λειτουργίας παρουσιάσεων
 msgid "User enabled presentation mode"
 msgstr "Λειτουργία παρουσιάσεων ενεργοποιημένη από τον χρήστη"
 
-#: package/contents/ui/PresentationModeItem.qml:61
+#: package/contents/ui/PresentationModeItem.qml:58
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "Θα εμποδίσει τον αυτόματο τερματισμό της οθόνης και του υπολογιστή."
 
-#: package/contents/ui/PresentationModeItem.qml:75
+#: package/contents/ui/PresentationModeItem.qml:72
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -53,13 +53,13 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "%2 και %1 άλλη εφαρμογή επιβάλλει τη λειτουργία παρουσιάσεων."
 msgstr[1] "%2 και %1 άλλες εφαρμογές επιβάλλουν τη λειτουργία παρουσιάσεων."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: package/contents/ui/PresentationModeItem.qml:78
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "Η %1 επιβάλλει τη λειτουργία παρουσιάσεων."
 
-#: package/contents/ui/PresentationModeItem.qml:84
+#: package/contents/ui/PresentationModeItem.qml:81
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
