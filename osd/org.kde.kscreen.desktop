@@ -1,6 +1,12 @@
 [Desktop Entry]
 Type=Application
 Name=Display Configuration
+Name[ca]=Configuració de la pantalla
+Name[eu]=Bistaratze konfigurazioa
+Name[gl]=Configuración da pantalla
+Name[tr]=Görüntü Yapılandırması
+Name[x-test]=xxDisplay Configurationxx
+Name[zh_TW]=顯示器設定
 Icon=preferences-desktop-display
 Actions=ShowOSD
 StartupNotify=false
@@ -8,6 +14,11 @@ X-KDE-GlobalShortcutType=Service
 
 [Desktop Action ShowOSD]
 Name=Switch Display
+Name[ca]=Commuta la pantalla
+Name[eu]=Aldatu bistaratzailea
+Name[tr]=Görüntüyü Değiştir
+Name[x-test]=xxSwitch Displayxx
+Name[zh_TW]=切換顯示器
 Exec=dbus-send --type=method_call --dest=org.kde.kscreen.osdService /org/kde/kscreen/osdService org.kde.kscreen.osdService.showActionSelector
 X-KDE-Shortcuts=Display\tMeta+P
 X-KDE-Migrate-Shortcut=kded5,display
