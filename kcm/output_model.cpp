@@ -756,6 +756,50 @@ QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output
     return ret;
 }
 
+static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
+{
+    auto calculateAspectRatio = [](const auto &output, const auto &mode) {
+        const qreal ratio = mode->size().width() / qreal(mode->size().height());
+        const qreal ratioTransposed = mode->size().height() / qreal(mode->size().width());
+        switch (output->rotation()) {
+        case KScreen::Output::Left:
+        case KScreen::Output::Right:
+            return ratioTransposed;
+        default:
+            return ratio;
+        }
+    };
+    const qreal sourceRatio = calculateAspectRatio(source, source->currentMode());
+    // 1.1: Find modes with the same aspect ratio as the source output; if none, don't change the mode
+    std::vector<KScreen::ModePtr> availableModes(output->modes().cbegin(), output->modes().cend());
+    std::erase_if(availableModes, [&calculateAspectRatio, &output, sourceRatio](const auto &mode) {
+        return !qFuzzyCompare(calculateAspectRatio(output, mode), sourceRatio);
+    });
+    if (availableModes.empty()) {
+        return output->currentMode();
+    }
+
+    // 1.2: Use the smallest mode at least as large as the source output; if none, use the largest mode
+    std::sort(availableModes.begin(), availableModes.end(), [&output](const auto &a, const auto &b) {
+        return a->size().width() < b->size().width();
+    });
+    auto getRotatedSize = [](const auto &output, const auto &mode) {
+        if (output->rotation() == KScreen::Output::Left || output->rotation() == KScreen::Output::Right) {
+            return mode->size().transposed();
+        }
+        return mode->size();
+    };
+    const auto sourceSize = getRotatedSize(source, source->currentMode());
+    const auto it = std::find_if(availableModes.begin(), availableModes.end(), [sourceSize](const auto &mode) {
+        return mode->size().width() >= sourceSize.width();
+    });
+    if (it != availableModes.end()) {
+        return *it;
+    } else {
+        return availableModes.back();
+    }
+}
+
 bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
     if (outputIndex <= sourceIndex) {
@@ -782,16 +826,42 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             // no change
             return false;
         }
+
+        // In replicating outputs, we don't change the source
+        // Step 1: set the destination mode, if possible
+        const auto bestMode = getBestMode(output.ptr, source);
+        if (!bestMode) {
+            return false;
+        }
+        // Step 2: reposition ans scale destination output to be centered inside the source output
+        auto sourceSize = source->currentMode()->size();
+        auto destinationSize = bestMode->size();
+        if (source->rotation() == KScreen::Output::Left || source->rotation() == KScreen::Output::Right) {
+            sourceSize = sourceSize.transposed();
+        }
+        if (output.ptr->rotation() == KScreen::Output::Left || output.ptr->rotation() == KScreen::Output::Right) {
+            destinationSize = destinationSize.transposed();
+        }
+        qreal scale = source->scale() * std::max(destinationSize.width() / qreal(sourceSize.width()), destinationSize.height() / qreal(sourceSize.height()));
+        // round up to integer multiples of 1/120 to avoid issues with triggering hidden panels from the edge
+        scale = std::ceil(scale * 120.0) / 120.0;
+        const QPoint relPos((sourceSize.width() / source->scale() - destinationSize.width() / scale) / 2,
+                            (sourceSize.height() / source->scale() - destinationSize.height() / scale) / 2);
+
+        output.ptr->setCurrentModeId(bestMode->id());
+        output.ptr->setScale(scale);
         m_config->setReplicationSource(output.ptr, source);
         output.posReset = std::optional(output.ptr->pos());
-        output.ptr->setPos(source->pos());
-        output.ptr->setExplicitLogicalSize(m_config->config()->logicalSizeForOutput(*source));
+        output.ptr->setPos(source->pos() + relPos);
     }
 
     reposition();
 
     QModelIndex index = createIndex(outputIndex, 0);
-    Q_EMIT dataChanged(index, index, {ReplicationSourceIndexRole});
+    Q_EMIT dataChanged(
+        index,
+        index,
+        {ReplicationSourceIndexRole, SizeRole, NormalizedPositionRole, ScaleRole, RefreshRatesRole, RefreshRateIndexRole, ResolutionRole, ResolutionIndexRole});
 
     if (oldSourceId != 0) {
         auto it = std::find_if(m_outputs.begin(), m_outputs.end(), [oldSourceId](const Output &out) {

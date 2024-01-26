@@ -60,7 +60,7 @@ Kirigami.FormLayout {
             visible: count > 1
             model: element.resolutions
             onActivated: element.resolutionIndex = currentIndex;
-            Component.onCompleted: currentIndex = element.resolutionIndex;
+            Component.onCompleted: currentIndex = Qt.binding(function() {return element.resolutionIndex});
         }
         // When the combobox is has only one item, it's basically non-interactive
         // and is serving purely in a descriptive role, so make this explicit by
@@ -131,7 +131,7 @@ Kirigami.FormLayout {
             visible: count > 1
             model: element.refreshRates
             onActivated: element.refreshRateIndex = currentIndex;
-            Component.onCompleted: currentIndex = element.refreshRateIndex;
+            Component.onCompleted: currentIndex = Qt.binding(function() {return element.refreshRateIndex});
         }
         // When the combobox is has only one item, it's basically non-interactive
         // and is serving purely in a descriptive role, so make this explicit by
