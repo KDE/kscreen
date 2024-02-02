@@ -2,6 +2,8 @@
 Type=Application
 Name=Display Configuration
 Name[ca]=Configuració de la pantalla
+Name[ca@valencia]=Configureu la pantalla
+Name[de]=Anzeige-Einrichtung
 Name[eo]=Montra Agordo
 Name[es]=Configuración de la pantalla
 Name[eu]=Bistaratze konfigurazioa
@@ -31,6 +33,7 @@ X-KDE-GlobalShortcutType=Service
 [Desktop Action ShowOSD]
 Name=Switch Display
 Name[ca]=Commuta la pantalla
+Name[ca@valencia]=Canvia la pantalla
 Name[eo]=Ŝanĝi Ekranon
 Name[es]=Cambiar pantalla
 Name[eu]=Aldatu bistaratzailea
