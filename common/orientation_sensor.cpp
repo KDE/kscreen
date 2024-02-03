@@ -31,10 +31,8 @@ void OrientationSensor::refresh()
         if (m_enabled) {
             updateState();
         }
-        Q_EMIT availableChanged(true);
-    } else {
-        Q_EMIT availableChanged(false);
     }
+    Q_EMIT availableChanged(available());
 }
 
 QOrientationReading::Orientation OrientationSensor::value() const
@@ -44,7 +42,7 @@ QOrientationReading::Orientation OrientationSensor::value() const
 
 bool OrientationSensor::available() const
 {
-    return m_sensor->connectToBackend();
+    return m_sensor->connectToBackend() && m_sensor->reading() != nullptr && m_sensor->reading()->orientation() != QOrientationReading::Undefined;
 }
 
 bool OrientationSensor::enabled() const
