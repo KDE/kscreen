@@ -19,7 +19,6 @@ ColumnLayout {
     ColumnLayout {
         id: autoRotateColumn
 
-        // TODO: Make this dependend on tablet mode being available
         enabled: element.internal
         visible: kcm.autoRotationSupported && kcm.orientationSensorAvailable
 
@@ -44,6 +43,7 @@ ColumnLayout {
                 text: i18n("Only when in tablet mode")
                 enabled: autoRotateRadio.checked
                 checked: enabled && element.autoRotate == KScreen.Output.AutoRotatePolicy.InTabletMode
+                visible: kcm.tabletModeAvailable
                 onToggled: {
                     if (element.autoRotate == KScreen.Output.AutoRotatePolicy.Always) {
                         element.autoRotate = KScreen.Output.AutoRotatePolicy.InTabletMode
