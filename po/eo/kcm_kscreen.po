@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:35+0000\n"
+"POT-Creation-Date: 2024-02-04 00:38+0000\n"
 "PO-Revision-Date: 2024-01-04 17:54+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -146,12 +146,12 @@ msgstr "Pli malalta prioritato"
 msgid "Orientation:"
 msgstr "Orientiĝo:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Aŭtomata"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:43
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Nur kiam en tablojda reĝimo"

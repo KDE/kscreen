@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:35+0000\n"
+"POT-Creation-Date: 2024-02-04 00:38+0000\n"
 "PO-Revision-Date: 2024-01-20 18:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -147,12 +147,12 @@ msgstr "اخفض الأولويّة"
 msgid "Orientation:"
 msgstr "الاتّجاه:"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "آليّ"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:43
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "فقط في وضع اللوحي"

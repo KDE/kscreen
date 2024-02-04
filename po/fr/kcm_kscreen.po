@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:35+0000\n"
+"POT-Creation-Date: 2024-02-04 00:38+0000\n"
 "PO-Revision-Date: 2023-12-29 16:22+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -157,12 +157,12 @@ msgstr "Diminuer la priorité"
 msgid "Orientation:"
 msgstr "Orientation :"
 
-#: ui/Orientation.qml:29 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automatique"
 
-#: ui/Orientation.qml:44
+#: ui/Orientation.qml:43
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Uniquement en mode « Tablette »."
