@@ -26,7 +26,7 @@ Kirigami.FormLayout {
        text: i18n("Enabled")
        checked: element.enabled
        onToggled: element.enabled = checked
-       visible: kcm.outputModel.rowCount() > 1
+       visible: kcm.multipleScreensAvailable
     }
 
     RowLayout {
@@ -378,7 +378,7 @@ Kirigami.FormLayout {
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: Kirigami.Units.gridUnit * 11
         model: element.replicationSourceModel
-        visible: kcm.outputReplicationSupported && kcm.outputModel && kcm.outputModel.rowCount() > 1
+        visible: kcm.outputReplicationSupported && kcm.multipleScreensAvailable
 
         onModelChanged: enabled = (count > 1);
         onCountChanged: enabled = (count > 1);

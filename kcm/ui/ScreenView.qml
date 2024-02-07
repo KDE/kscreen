@@ -46,7 +46,7 @@ QQC2.ScrollView {
         opacity: 0.6
         horizontalAlignment: Text.AlignHCenter
         text: i18n("Drag screens to re-arrange them")
-        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+        visible: kcm.multipleScreensAvailable
     }
 
     QQC2.Button {

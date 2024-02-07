@@ -87,7 +87,7 @@ Item {
         anchors.fill: parent
         // So we can show a grabby hand cursor when hovered over
         HoverHandler {
-            cursorShape: kcm.outputModel && kcm.outputModel.rowCount() > 1 ? Qt.SizeAllCursor : undefined
+            cursorShape: kcm.multipleScreensAvailable ? Qt.SizeAllCursor : undefined
         }
         z: 2
     }
@@ -269,7 +269,7 @@ Item {
     }
     DragHandler {
         id: dragHandler
-        enabled: kcm.outputModel && kcm.outputModel.rowCount() > 1
+        enabled: kcm.multipleScreensAvailable
         acceptedButtons: Qt.LeftButton
         grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
         target: null

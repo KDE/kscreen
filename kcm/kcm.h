@@ -20,11 +20,13 @@ class ConfigHandler;
 class OrientationSensor;
 class OutputIdentifier;
 
+class QSortFilterProxyModel;
+
 class KCMKScreen : public KQuickManagedConfigModule
 {
     Q_OBJECT
 
-    Q_PROPERTY(OutputModel *outputModel READ outputModel NOTIFY outputModelChanged)
+    Q_PROPERTY(QAbstractItemModel *outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
     Q_PROPERTY(bool perOutputScaling READ perOutputScaling NOTIFY perOutputScalingChanged)
@@ -38,6 +40,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
+    Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
 
 public:
     enum InvalidConfigReason {
@@ -54,7 +57,7 @@ public:
 
     bool isSaveNeeded() const override;
 
-    OutputModel *outputModel() const;
+    QAbstractItemModel *outputModel() const;
 
     Q_INVOKABLE void identifyOutputs();
 
@@ -82,6 +85,8 @@ public:
     bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
 
+    bool multipleScreensAvailable() const;
+
     void doSave();
     Q_INVOKABLE void revertSettings();
     Q_INVOKABLE void requestReboot();
@@ -92,7 +97,6 @@ public:
 Q_SIGNALS:
     void backendReadyChanged();
     void backendError();
-    void outputModelChanged();
     void changed();
     void screenNormalizedChanged();
     void perOutputScalingChanged();
@@ -112,6 +116,7 @@ Q_SIGNALS:
     void xwaylandClientsScaleSupportedChanged();
     void tearingSupportedChanged();
     void tearingAllowedChanged();
+    void multipleScreensAvailableChanged();
 
 private:
     void setBackendReady(bool error);
@@ -130,6 +135,8 @@ private:
     bool m_settingsReverted = false;
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
+
+    QSortFilterProxyModel *m_outputProxyModel;
 
     QTimer *m_loadCompressor;
 };

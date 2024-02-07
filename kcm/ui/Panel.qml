@@ -21,7 +21,7 @@ ColumnLayout {
 
     Kirigami.FormLayout {
         twinFormLayouts: globalSettingsLayout
-        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+        visible: kcm.multipleScreensAvailable
 
         RowLayout {
             Kirigami.FormData.label: i18n("Device:")
