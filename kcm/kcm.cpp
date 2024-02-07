@@ -29,11 +29,24 @@
 #include <QDBusMessage>
 #include <QDBusPendingReply>
 #include <QProcess>
+#include <QSortFilterProxyModel>
 #include <QTimer>
 
 K_PLUGIN_CLASS_WITH_JSON(KCMKScreen, "kcm_kscreen.json")
 
 using namespace KScreen;
+class ScreenSortProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    ScreenSortProxyModel(QObject *parent)
+        : QSortFilterProxyModel(parent)
+    {
+    }
+
+protected:
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+};
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     : KQuickManagedConfigModule(parent, data)
@@ -44,6 +57,9 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     Log::instance();
 
     setButtons(Apply);
+
+    m_outputProxyModel = new ScreenSortProxyModel(this);
+    m_outputProxyModel->sort(0);
 
     m_loadCompressor = new QTimer(this);
     m_loadCompressor->setInterval(1000);
@@ -78,6 +94,8 @@ void KCMKScreen::configReady(ConfigOperation *op)
     m_orientationSensor->setEnabled(autoRotationSupported);
 
     m_configHandler->setConfig(config);
+    Q_EMIT multipleScreensAvailableChanged();
+
     setBackendReady(true);
     checkConfig();
     Q_EMIT perOutputScalingChanged();
@@ -221,12 +239,9 @@ void KCMKScreen::setBackendReady(bool ready)
     Q_EMIT backendReadyChanged();
 }
 
-OutputModel *KCMKScreen::outputModel() const
+QAbstractItemModel *KCMKScreen::outputModel() const
 {
-    if (!m_configHandler) {
-        return nullptr;
-    }
-    return m_configHandler->outputModel();
+    return m_outputProxyModel;
 }
 
 void KCMKScreen::identifyOutputs()
@@ -330,16 +345,21 @@ void KCMKScreen::load()
     // gracefully cleaning up the QML side and only then we will delete it.
     auto *oldConfig = m_configHandler.release();
     if (oldConfig) {
-        emit outputModelChanged();
+        m_outputProxyModel->setSourceModel(nullptr);
         delete oldConfig;
     }
 
     m_configHandler.reset(new ConfigHandler(this));
+    m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
+
     Q_EMIT perOutputScalingChanged();
     Q_EMIT xwaylandClientsScaleSupportedChanged();
     Q_EMIT tearingSupportedChanged();
     Q_EMIT tearingAllowedChanged();
-    connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, &KCMKScreen::outputModelChanged);
+
+    connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, [this]() {
+        m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
+    });
     connect(m_configHandler.get(), &ConfigHandler::outputConnect, this, [this](bool connected) {
         Q_EMIT outputConnect(connected);
         setBackendReady(false);
@@ -516,6 +536,22 @@ bool KCMKScreen::tearingSupported() const
     }
     // == is Wayland
     return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
+}
+
+bool KCMKScreen::multipleScreensAvailable() const
+{
+    return m_outputProxyModel->rowCount() > 1;
+}
+
+bool ScreenSortProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    const bool leftEnabled = source_left.data(OutputModel::EnabledRole).toBool();
+    const bool rightEnabled = source_right.data(OutputModel::EnabledRole).toBool();
+
+    if (leftEnabled != rightEnabled) {
+        return leftEnabled;
+    }
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 #include "kcm.moc"
