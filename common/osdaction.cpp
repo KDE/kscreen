@@ -103,7 +103,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
         external->setScale(internal->scale());
         break;
     }
-    case KScreen::OsdAction::Action::ExtendLeft: {
+    case KScreen::OsdAction::Action::ExtendRight: {
         internal->setEnabled(true);
         external->setEnabled(true);
         internal->setPos(QPoint());
@@ -111,7 +111,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
         external->setPos(QPoint(std::ceil(internal->currentMode()->size().width() / internalScale), 0));
         break;
     }
-    case KScreen::OsdAction::Action::ExtendRight: {
+    case KScreen::OsdAction::Action::ExtendLeft: {
         internal->setEnabled(true);
         external->setEnabled(true);
         external->setPos(QPoint());
