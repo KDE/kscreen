@@ -61,7 +61,7 @@ QQC2.ScrollView {
         text: i18n("Identify")
         icon.name: "documentinfo"
         focusPolicy: Qt.NoFocus
-        visible: kcm.outputModel && kcm.outputModel.rowCount() > 1
+        visible: kcm.multipleScreensAvailable
     }
 
     Repeater {
