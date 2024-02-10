@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-04 02:27+0000\n"
-"PO-Revision-Date: 2023-04-22 00:42+0200\n"
+"PO-Revision-Date: 2024-02-10 00:04+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -238,16 +238,13 @@ msgid "Overscan:"
 msgstr "오버스캔:"
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB 범위:"
 
@@ -265,49 +262,48 @@ msgstr "제한됨"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "색 프로필:"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "ICC 프로필 경로 입력…"
 
 #: ui/OutputPanel.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "ICC 프로필 선택…"
 
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "ICC 프로필 파일 선택기 열기"
 
 #: ui/OutputPanel.qml:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "ICC 프로필 선택"
 
 #: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
 
 #: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "HDR:"
 
 #: ui/OutputPanel.qml:292
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "사용함"
+msgstr "HDR 활성화"
 
 #: ui/OutputPanel.qml:298
 #, kde-format
@@ -316,29 +312,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다. 이 "
+"기능은 현재 실험적입니다"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR 밝기:"
 
 #: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "화면에 비 HDR 콘텐츠를 표시할 때 밝기를 nit 단위로 설정"
 
 #: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR 색상 강도:"
 
 #: ui/OutputPanel.qml:365
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -347,7 +343,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "화면에 비 HDR 콘텐츠를 표시할 때 색상 강도 증가"
 
 #: ui/OutputPanel.qml:378
 #, kde-format
@@ -365,8 +361,7 @@ msgid "Global scale:"
 msgstr "전역 크기 조정:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "레거시 앱(X11):"
 
@@ -400,18 +395,17 @@ msgstr ""
 "모든 레거시 앱을 시스템에서 올바른 크기로 조정하지만 번져 보일 수 있습니다."
 
 #: ui/Panel.qml:160
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "화면 비율 조정"
+msgstr "화면 티어링:"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "전체 화면 창에서 허용"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -420,6 +414,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"화면 티어링을 허용하면 대부분 디스플레이에서 레이턴시를 줄일 수 있습니다. 모"
+"든 그래픽 드라이버에서 이 설정을 지원하지는 않습니다."
 
 #: ui/Panel.qml:182
 #, kde-format
