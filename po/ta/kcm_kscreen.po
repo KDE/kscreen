@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2022, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-04 00:38+0000\n"
-"PO-Revision-Date: 2023-12-08 20:34+0530\n"
+"PO-Revision-Date: 2024-02-18 15:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "இத்திரை, \"%1\" புதுப்பிப்புவி
 #: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
-msgstr ""
+msgstr "சூழறி ஒத்திசைவு:"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -240,9 +240,7 @@ msgid "Overscan:"
 msgstr ""
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
