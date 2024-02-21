@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-04 00:38+0000\n"
+"POT-Creation-Date: 2024-02-21 00:38+0000\n"
 "PO-Revision-Date: 2023-12-28 19:50+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Beheratu lehentasuna"
 msgid "Orientation:"
 msgstr "Orientazioa:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
 #, kde-format
 msgid "Automatic"
 msgstr "Automatikoa"
@@ -252,69 +252,92 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:182
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB barrutia:"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgid "Full"
 msgstr "Osoa"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Limited"
 msgstr "Mugatua"
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:205
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display."
+msgctxt "@info"
+msgid ""
+"Determines whether or not the range of possible color values needs to be "
+"limited for the display. This should only be changed if the colors on the "
+"screen look washed out."
+msgstr ""
+"Kolore posibleen barrutia pantailarako mugatu behar den edo ez zehazten du."
+
+#: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "Kolore-profila:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Sartu ICC profilaren bide-izena..."
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Aukeratu ICC profila..."
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC profilerako fitxategi-hautatzaile bat irekitzen du"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Aukeratu ICC profila"
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC profilak, oraindik, ez dira «HDR»rekin bateragarriak"
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Tarte dinamiko handia:"
 
-#: ui/OutputPanel.qml:292
+#: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Gaitu HDR"
 
-#: ui/OutputPanel.qml:298
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -325,37 +348,37 @@ msgstr ""
 "erakusteko aukera ematen die. Kontuan hartu ezaugarri hori oraindik "
 "esperimentala dela."
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR distira:"
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "HDR ez den edukiaren pantailako distira ezartzen du, «nit»etan"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR kolorearen intentsitatea:"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "HDR ez den edukiaren pantailako intentsitatea handiagotzen du"
 
-#: ui/OutputPanel.qml:378
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
 msgstr "Honen erreplika:"
@@ -504,14 +527,6 @@ msgstr "Identifikatu"
 #~ msgstr ""
 #~ "Pantailara bidalitako irudiaren inguruan zenbateko betegarria ipiniko den "
 #~ "zehazten du"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Kolore posibleen barrutia pantailarako mugatu behar den edo ez zehazten "
-#~ "du."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

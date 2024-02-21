@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-04 00:38+0000\n"
+"POT-Creation-Date: 2024-02-21 00:38+0000\n"
 "PO-Revision-Date: 2023-12-29 16:22+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -157,7 +157,7 @@ msgstr "Diminuer la priorité"
 msgid "Orientation:"
 msgstr "Orientation :"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
 #, kde-format
 msgid "Automatic"
 msgstr "Automatique"
@@ -261,70 +261,94 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:182
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgid "RGB range:"
 msgstr "Intervalle RVB :"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgid "Full"
 msgstr "Complet"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Limited"
 msgstr "Limité"
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:205
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display."
+msgctxt "@info"
+msgid ""
+"Determines whether or not the range of possible color values needs to be "
+"limited for the display. This should only be changed if the colors on the "
+"screen look washed out."
+msgstr ""
+"Détermine si l'intervalle des valeurs possibles doit être réduit ou non pour "
+"l'affichage."
+
+#: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "Profil de couleurs :"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Saisissez un emplacement de profil « ICC »..."
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Sélectionnez un profil « ICC »..."
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Ouvre un sélecteur de fichiers pour trouver un profil « ICC »"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Sélectionnez un profil « ICC »"
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr ""
 "Les profils « ICC » ne sont pas encore compatibles avec le rendu « HDR »."
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR (High Dynamic Range) :"
 
-#: ui/OutputPanel.qml:292
+#: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Activer le rendu « HDR »"
 
-#: ui/OutputPanel.qml:298
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -335,37 +359,37 @@ msgstr ""
 "plus éclatantes. Veuillez noter que cette fonctionnalité est encore "
 "expérimentale."
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "Luminosité « SDR » :"
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Définit la luminosité des contenus non « HDR » sur l'écran en nits"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "Intensité des couleurs « SDR » :"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Augmente l'intensité des contenus non « HDR » sur l'écran"
 
-#: ui/OutputPanel.qml:378
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplique de :"
@@ -517,14 +541,6 @@ msgstr "Identifier"
 #~ "Determines how much padding is put around the image sent to the display"
 #~ msgstr ""
 #~ "Détermine la quantité de remplissage autour de l'image envoyée à l'écran."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Détermine si l'intervalle des valeurs possibles doit être réduit ou non "
-#~ "pour l'affichage."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

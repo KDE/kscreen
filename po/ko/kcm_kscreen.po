@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-04 00:38+0000\n"
+"POT-Creation-Date: 2024-02-21 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 00:04+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -142,7 +142,7 @@ msgstr "우선 순위 감소"
 msgid "Orientation:"
 msgstr "방향:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
 #, kde-format
 msgid "Automatic"
 msgstr "자동"
@@ -243,69 +243,91 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:182
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 범위:"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgid "Full"
 msgstr "전체"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Limited"
 msgstr "제한됨"
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:205
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display."
+msgctxt "@info"
+msgid ""
+"Determines whether or not the range of possible color values needs to be "
+"limited for the display. This should only be changed if the colors on the "
+"screen look washed out."
+msgstr "디스플레이의 색상값 범위를 제한할지 여부를 결정합니다."
+
+#: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "색 프로필:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC 프로필 경로 입력…"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC 프로필 선택…"
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC 프로필 파일 선택기 열기"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC 프로필 선택"
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR:"
 
-#: ui/OutputPanel.qml:292
+#: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "HDR 활성화"
 
-#: ui/OutputPanel.qml:298
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -315,37 +337,37 @@ msgstr ""
 "HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다. 이 "
 "기능은 현재 실험적입니다"
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR 밝기:"
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "화면에 비 HDR 콘텐츠를 표시할 때 밝기를 nit 단위로 설정"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR 색상 강도:"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "화면에 비 HDR 콘텐츠를 표시할 때 색상 강도 증가"
 
-#: ui/OutputPanel.qml:378
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"
@@ -490,12 +512,6 @@ msgstr "식별"
 #~ msgid ""
 #~ "Determines how much padding is put around the image sent to the display"
 #~ msgstr "디스플레이에 표시된 화면에 여백을 얼마나 표시할지 결정합니다"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr "디스플레이의 색상값 범위를 제한할지 여부를 결정합니다."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
