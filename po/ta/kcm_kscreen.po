@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-04 02:27+0000\n"
+"POT-Creation-Date: 2024-02-21 02:24+0000\n"
 "PO-Revision-Date: 2024-02-18 15:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -143,7 +143,7 @@ msgstr "முன்னிலையை குறை"
 msgid "Orientation:"
 msgstr "நோக்குநிலை:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
 #, kde-format
 msgid "Automatic"
 msgstr "தானியக்கம்"
@@ -245,69 +245,93 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:182
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgid "RGB range:"
 msgstr "நிறங்களின் வீச்சு:"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgid "Full"
 msgstr "முழுமையானது"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:205
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display."
+msgctxt "@info"
+msgid ""
+"Determines whether or not the range of possible color values needs to be "
+"limited for the display. This should only be changed if the colors on the "
+"screen look washed out."
+msgstr ""
+"காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
+"தீர்மானிக்கும்"
+
+#: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "நிறமிடும் முறை:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC பயன்முறைக்கான பாதையை உள்ளிடவும்…"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடு…"
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC பயன்முறைக்கான கோப்புத்தேர்வியைத் திறக்கும்"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடுப்பது"
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC பயன்முறைகள் தற்போது HDR-உடன் வேலை செய்யாது"
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "அதிக நிறவீச்சு:"
 
-#: ui/OutputPanel.qml:292
+#: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "HDR-ஐ இயக்கு"
 
-#: ui/OutputPanel.qml:298
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -317,37 +341,37 @@ msgstr ""
 "ஆதரிக்கும் செயலிகள் பொலிவான நிறங்களைக் காட்ட HDR உதவும். இவ்வம்சம் சோதனைக்குறியது என்பதை "
 "நினைவில் கொள்ளவும்."
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR பிரகாசம்:"
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "திரையில் HDR அல்லாதவற்றின் பிரகாசம், nit-களில்"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR நிறச்செறிவு:"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "திரையில் HDR அல்லாதவற்றின் செறிவைக் கூட்டும்"
 
-#: ui/OutputPanel.qml:378
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"
@@ -494,11 +518,3 @@ msgstr "அடையாளங்காட்டு"
 #~ "Determines how much padding is put around the image sent to the display"
 #~ msgstr ""
 #~ "திரைக்கு அனுப்ப‍ப்படும் காட்சியை சுற்றி எவ்வளவு காளியிடம் விட‍ப்படும் என்பதை தீர்மானிக்கும்"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
-#~ "தீர்மானிக்கும்"

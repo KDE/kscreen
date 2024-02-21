@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-04 02:27+0000\n"
+"POT-Creation-Date: 2024-02-21 02:24+0000\n"
 "PO-Revision-Date: 2023-12-28 09:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -146,7 +146,7 @@ msgstr "הנמכת עדיפות"
 msgid "Orientation:"
 msgstr "כיוון:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
 #, kde-format
 msgid "Automatic"
 msgstr "אוטומטי"
@@ -247,69 +247,87 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:182
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
+msgstr ""
+
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgid "RGB range:"
 msgstr "טווח RGB:"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgid "Full"
 msgstr "מלאה"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Limited"
 msgstr "מוגבלת"
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:205
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Determines whether or not the range of possible color values needs to be "
+"limited for the display. This should only be changed if the colors on the "
+"screen look washed out."
+msgstr ""
+
+#: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "פרופיל צבע:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "נא למלא נתיב פרופיל ICC…"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "בחירת פרופיל ICC…"
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "פותח בורר קבצים לפרופיל ה־ICC"
 
-#: ui/OutputPanel.qml:257
+#: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "בחירת פרופיל ICC"
 
-#: ui/OutputPanel.qml:282
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "פרופילי ה־ICC לא תואמים ל־HDR עדיין"
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "טווח דינמי רחב (HDR):"
 
-#: ui/OutputPanel.qml:292
+#: ui/OutputPanel.qml:289
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "הפעלת HDR"
 
-#: ui/OutputPanel.qml:298
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -319,37 +337,37 @@ msgstr ""
 "HDR מאפשר ליישומים תומכים להציע צבעים בהירים וחיים יותר. נא לשים לב שהיכולת "
 "הזאת עדיין ניסיונית."
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "בהירות טווח דינמי רגיל:"
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "הגדרת הבהירות של תוכן שאינו בטווח הדינמי הגבוה על המסך, ב־nits"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "עומק צבע בטווח דינמי רגיל:"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "מגביר את עוצמת התוכן שאינו בטווח הדינמי הגבוה על המסך"
 
-#: ui/OutputPanel.qml:378
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
 msgstr "עותק של:"
