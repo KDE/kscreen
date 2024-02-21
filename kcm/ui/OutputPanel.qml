@@ -179,9 +179,7 @@ Kirigami.FormLayout {
         }
 
         KCM.ContextualHelpButton {
-            toolTipText: xi18nc("@info", `Determines how much padding is put around the image sent to the display
-                                          to compensate for part of the content being cut off around the edges.<nl/><nl/>
-                                          This is sometimes needed when using a TV as a screen`)
+            toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display to compensate for part of the content being cut off around the edges.<nl/><nl/>This is sometimes needed when using a TV as a screen")
         }
     }
 
@@ -204,8 +202,7 @@ Kirigami.FormLayout {
         }
 
         KCM.ContextualHelpButton {
-            toolTipText: xi18nc("@info", `Determines whether or not the range of possible color values needs to be limited for the display.
-                                          This should only be changed if the colors on the screen look washed out.`)
+            toolTipText: xi18nc("@info", "Determines whether or not the range of possible color values needs to be limited for the display. This should only be changed if the colors on the screen look washed out.")
         }
     }
 
