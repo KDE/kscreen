@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the kscreen package.
 #
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+# Jure Repinc <jlp@holodeck1.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-01 02:16+0000\n"
-"PO-Revision-Date: 2023-02-26 08:53+0100\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"PO-Revision-Date: 2024-02-20 00:08+0100\n"
+"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
+"Language-Team: LUGOS\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: package/contents/ui/main.qml:25
 #, kde-format
@@ -26,7 +27,7 @@ msgstr "Predstavitveni način je omogočen"
 #: package/contents/ui/main.qml:68
 #, kde-format
 msgid "Configure Display Settings…"
-msgstr "Nastavi nastavitve zaslona…"
+msgstr "Nastavitve zaslonov …"
 
 #: package/contents/ui/PresentationModeItem.qml:23
 #, kde-format
@@ -50,28 +51,28 @@ msgstr ""
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
 msgid_plural "%2 and %1 other applications are enforcing presentation mode."
-msgstr[0] "%2 in %1 drugi program uveljavljata predstavitveni način."
-msgstr[1] "%2 in %1 druga programa uveljavljata predstavitveni način."
-msgstr[2] "%2 in %1 drugi programi uveljavljajo predstavitveni način."
+msgstr[0] "%2 in %1 drugih programov uveljavljajo predstavitveni način."
+msgstr[1] "%2 in %1 drugi program uveljavljata predstavitveni način."
+msgstr[2] "%2 in %1 druga programa uveljavljajo predstavitveni način."
 msgstr[3] "%2 in %1 drugi programi uveljavljajo predstavitveni način."
 
 #: package/contents/ui/PresentationModeItem.qml:81
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
-msgstr "%1 zagotavlja predstavitveni način."
+msgstr "%1 uveljavlja predstavitveni način."
 
 #: package/contents/ui/PresentationModeItem.qml:84
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
 msgid "%1 is enforcing presentation mode: %2"
-msgstr "%1 zagotavlja predstavitveni način: %2"
+msgstr "%1 uveljavlja predstavitveni način: %2"
 
 #: package/contents/ui/ScreenLayoutSelection.qml:49
 #, kde-format
 msgid "Screen Layout"
-msgstr "Postavitev zaslona"
+msgstr "Postavitev zaslonov"
 
 #: package/contents/ui/ScreenLayoutSelection.qml:89
 #, kde-format
@@ -79,5 +80,5 @@ msgid ""
 "You can only apply a different screen layout when there is more than one "
 "display device plugged in."
 msgstr ""
-"Drugačno postavitev zaslona lahko uporabite le, če je priključenih več "
+"Drugačno postavitev zaslonov lahko uporabite le, če je priključenih več "
 "prikazovalnih naprav."
