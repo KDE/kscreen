@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 07:01+0100\n"
+"PO-Revision-Date: 2024-02-21 05:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -257,6 +257,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"დაადგენს, რამდენითაა საჭირო შევსება გამოსახულების გარშემო, რომელიც "
+"საჩვენებლადაა განკუთვნილი, რომ მოხდეს იმ ნაწილების კომპენსაცია, რომელის "
+"გამოსახულებას წიბოებთან მოეჭრება.<nl/><nl/>ეს ხანდახან დაგჭირდებათ, როცა "
+"ეკრანად ტელევიზორს იყენებთ"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -281,6 +285,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"განსაზღვრავს, საჭიროა თუ არა ნაჩვენები ფერების რაოდენობის შეზღუდვა. ეს, "
+"მხოლოდ, მაშინ შეცვალეთ, თუ ეკრანი გარეცხილს წააგავს."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

@@ -5,13 +5,14 @@
 # Andrej Mernik <andrejm@ubuntu.si>, 2015, 2016, 2018.
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022.
 # Martin Srebotnjak <miles@filmsi.net>, 2020, 2021, 2022.
+# Jure Repinc <jlp@holodeck1.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2024-01-25 09:31+0100\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"PO-Revision-Date: 2024-02-21 03:56+0100\n"
+"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -31,13 +32,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr "%1x%2"
+msgstr "%1×%2"
 
 #: output_model.cpp:659
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1×%2 (%3:%4)"
 
 #: output_model.cpp:740
 #, kde-format
@@ -47,19 +48,19 @@ msgstr "Brez"
 #: output_model.cpp:747
 #, kde-format
 msgid "Replicated by other output"
-msgstr "Podvojeno pri drugih izhodih"
+msgstr "Podvojeno na drugem izhodu"
 
 #: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Ali želite zadržati nastavitve zaslona?"
+msgstr "Ali želite ohraniti nastavitve zaslonov?"
 
 #: ui/main.qml:56
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] "Prejšnje nastavitve bodo povrnjene v %1 sekundi."
-msgstr[1] "Prejšnje nastavitve bodo povrnjene v %1 sekundah."
+msgstr[0] "Prejšnje nastavitve bodo povrnjene v %1 sekundah."
+msgstr[1] "Prejšnje nastavitve bodo povrnjene v %1 sekundi."
 msgstr[2] "Prejšnje nastavitve bodo povrnjene v %1 sekundah."
 msgstr[3] "Prejšnje nastavitve bodo povrnjene v %1 sekundah."
 
@@ -85,7 +86,7 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Odmiki med zasloni niso podprti. Zagotovite, da se bodo vsi zasloni stikali "
+"Razmiki med zasloni niso podprti. Zagotovite, da se bodo vsi zasloni stikali "
 "med sabo."
 
 #: ui/main.qml:120 ui/main.qml:302
@@ -124,28 +125,28 @@ msgstr "Ponovni zagon"
 #: ui/main.qml:218
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Nastavitve zaslona povrnjene."
+msgstr "Nastavitve zaslonov povrnjene."
 
 #: ui/main.qml:226
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr "Spremeni prioritete"
+msgstr "Sprememba prednosti"
 
 #: ui/main.qml:255 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
-msgstr "Primarni"
+msgstr "Glavni"
 
 #: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr "Dvigni prioriteto"
+msgstr "Dvigni prednost"
 
 #: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr "Spusti prioriteto"
+msgstr "Spusti prednost"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -180,7 +181,7 @@ msgstr "Omogočeno"
 #: ui/OutputPanel.qml:37
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Spremeni zaslonske prioritete…"
+msgstr "Spremeni prednosti zaslonov …"
 
 #: ui/OutputPanel.qml:50
 #, kde-kuit-format
@@ -191,10 +192,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"To določa, kateri zaslon se prikaže vašem glavnem namizju in katere plošče "
-"na njem. Nekatere starejše igre uporabljajo to nastavitev, za odločitev, "
-"kateri zaslon se prikažejo.<nl/><nl/>To nima vpliva, katera zaslonska "
-"obvestila ali druga okna se pojavijo."
+"To določa, na katerem zaslonu se prikaže vaše glavno namizje z vsemi "
+"ploščami Plasme na njem. Nekatere starejše igre uporabljajo to nastavitev, "
+"za odločitev, na katerem zaslonu se prikažejo.<nl/><nl/>To nima vpliva, na "
+"katerem zaslonu se pojavijo obvestila ali druga okna."
 
 #: ui/OutputPanel.qml:55
 #, kde-format
@@ -216,7 +217,7 @@ msgstr "Merilo:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:126
 #, kde-format
@@ -226,12 +227,12 @@ msgstr "Hitrost osveževanja:"
 #: ui/OutputPanel.qml:146
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "\"%1\" je edina hitrost osveževanja, ki jo podpira ta zaslon."
+msgstr "»%1« je edina hitrost osveževanja, ki jo podpira ta zaslon."
 
 #: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "Adaptivno sinhroniziraj:"
+msgstr "Prilagodljivo usklajevanje:"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -252,7 +253,7 @@ msgstr "Slika čez rob zaslona:"
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:182
 #, kde-kuit-format
@@ -262,6 +263,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Določa širino obrobe, ki se doda okoli slike poslane na zaslon. Uporablja "
+"se, da del vsebine slike ne bi bil odrezan blizu robov zaslona.<nl/><nl/>To "
+"je včasih potrebno, ko za zaslon uporabljate televizijo"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -279,17 +283,15 @@ msgid "Limited"
 msgstr "Omejeno"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
-msgstr "Določa če sploh in koliko naj bo obseg možnih barv omejen za zaslon."
+msgstr ""
+"Določa, ali mora biti za zaslon obseg možnih barvnih vrednosti omejen. Tonaj "
+"bi spremenili le v primeru, ko barve na zaslonu izgledajo izprano."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
@@ -301,24 +303,24 @@ msgstr "Barvni profil:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Vnesite pot ICC profila…"
+msgstr "Vnesite pot profila ICC …"
 
 #: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Izberi ICC profil…"
+msgstr "Izberite profil ICC …"
 
 #: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr "Odpri pobiralnik datotek za ICC profil"
+msgstr "Odpre izbiralnik datotek za profil ICC"
 
 #: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr "Izberi ICC profil"
+msgstr "Izbor profila ICC"
 
 #: ui/OutputPanel.qml:279
 #, kde-format
@@ -345,14 +347,14 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
-"HDR dovoljuje kompatibilnim aplikacijam prikaz bolj svetlih in živih barv. "
+"HDR dovoljuje združljivim aplikacijam prikaz bolj svetlih in živih barv. "
 "Upoštevajte, da je ta zmožnost še eksperimentalna"
 
 #: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr "SDR svetlost:"
+msgstr "Svetlost SDR:"
 
 #: ui/OutputPanel.qml:325
 #, kde-format
@@ -364,13 +366,13 @@ msgstr "Nastavi svetlost vsebine, ki ni HDR, na zaslonu v nitih"
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr "SDR intenzivnost barv:"
+msgstr "Intenzivnost barv SDR:"
 
 #: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:370
 #, kde-format
@@ -381,7 +383,7 @@ msgstr "Poveča intenzivnost vsebine, ki ni HDR, na zaslonu"
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Replica of:"
-msgstr "Replika:"
+msgstr "Replika od:"
 
 #: ui/Panel.qml:27
 #, kde-format
@@ -411,7 +413,7 @@ msgid ""
 "those that don't will not be scaled at all."
 msgstr ""
 "Aplikacije iz programske zapuščine, ki podpirajo spremembo merila, bodo to "
-"uporabile in bodo videti bistre, a te, ki ne podpirajo, sploh ne bodo "
+"uporabile in bodo videti ostre, a te, ki tega ne podpirajo, sploh ne bodo "
 "prilagojene merilu."
 
 #: ui/Panel.qml:150
@@ -458,7 +460,7 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
-"Faktor globalnega obsega je omejen na mnogokratnike 6,25%, da se zmanjša "
+"Faktor globalnega merila je omejen na mnogokratnike 6,25 %, da se zmanjša "
 "vizualne napake v aplikacijah, ki uporabljajo okenski sistem X11."
 
 #: ui/RotationButton.qml:51
@@ -479,7 +481,7 @@ msgstr "90° v nasprotni smeri urinega kazalca"
 #: ui/RotationButton.qml:64
 #, kde-format
 msgid "No Rotation"
-msgstr "Brez rotacije"
+msgstr "Brez obračanja"
 
 #: ui/ScreenView.qml:48
 #, kde-format

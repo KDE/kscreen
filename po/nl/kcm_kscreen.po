@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 23:53+0100\n"
+"PO-Revision-Date: 2024-02-21 12:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -259,6 +259,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Bepaalt hoeveel opvulling rond de afbeelding geplaatst wordt dat naar het "
+"scherm wordt verzonden om te compenseren voor het deel van de inhoud die aan "
+"de randen wordt afgesneden.<nl/><nl/>Dit is soms nodig bij het gebruik van "
+"een TV als scherm"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -276,11 +280,7 @@ msgid "Limited"
 msgstr "Beperkt"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -288,7 +288,8 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "Bepaalt of al dan niet de reeks van mogelijke kleurwaarden beperkt moet "
-"worden voor het scherm."
+"worden voor het scherm. Dit zou alleen gewijzigd moeten worden als de "
+"kleuren op het scherm verbleekt zijn."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

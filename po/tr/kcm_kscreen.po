@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2024-02-08 17:33+0300\n"
+"PO-Revision-Date: 2024-02-21 17:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -257,6 +257,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"İçeriğin bir kısmının kenarlarda kesilmesini telafi etmek için ekrana "
+"gönderilen görüntünün etrafına ne kadar dolgu uygulanacağını belirler.<nl/"
+"><nl/>Bu bazen TV'yi ekran olarak kullanırken gereklidir."
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -281,6 +284,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Görüntüleme için olası renk değerleri eriminin sınırlandırılması gerekip "
+"gerekmediğini belirler. Bu yalnızca ekrandaki renkler soluk görünüyorsa "
+"değiştirilmelidir."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
@@ -480,15 +486,3 @@ msgstr "Ekranları yeniden düzenlemek için onları sürükleyin"
 #, kde-format
 msgid "Identify"
 msgstr "Tanımla"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
-#~ ">Using unsupported resolutions was possible in the Plasma X11 session, "
-#~ "but they were never guaranteed to work and are not available in this "
-#~ "Plasma Wayland session."
-#~ msgstr ""
-#~ "Bu ekran tarafından desteklenen en büyük çözünürlük &quot;%1&quot;tir.<nl/"
-#~ "><nl/>Desteklenmeyen çözünürlüklerin kullanımı Plasma X11 oturumunda "
-#~ "olanaklıydı; ancak hiçbir zaman çalışacağına garanti verilmedi ve bu "
-#~ "Plasma Wayland oturumunda kullanılabilir değillerdir."

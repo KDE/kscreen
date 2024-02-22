@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 08:36+0200\n"
+"PO-Revision-Date: 2024-02-21 10:30+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -261,6 +261,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Визначає розмір полів, які слід використати навколо зображення, яке "
+"надіслано на дисплей, для компенсації частини вмісту, яку було обрізано на "
+"краях.<nl/><nl/>Така компенсація іноді потрібна, якщо замість екрана "
+"використано телевізор"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -278,18 +282,16 @@ msgid "Limited"
 msgstr "Обмежений"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
-"Визначає, чи слід обмежувати діапазон можливих значень кольорів для дисплея."
+"Визначає, чи слід обмежувати діапазон можливих значень кольорів для дисплея. "
+"Цією можливістю слід користуватися, лише якщо кольори на екрані виглядають "
+"вицвілими."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

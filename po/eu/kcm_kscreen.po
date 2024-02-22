@@ -1,16 +1,16 @@
 # Translation for kcm_kscreen.po to Euskara/Basque (eu).
-# Copyright (C) 2019-2023 This file is copyright:
+# Copyright (C) 2019-2024 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 19:50+0100\n"
+"PO-Revision-Date: 2024-02-22 00:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -260,6 +260,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Bistaratzailera bidalitako irudiaren inguruan, ertzen inguruan moztutako "
+"edukiaren zati bat konpentsatzeko zenbat betegarri jartzen den zehazten du."
+"<nl/><nl/>Hori TB bat pantaila gisa erabiltzean batzuetan beharrezkoa da"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -277,18 +280,16 @@ msgid "Limited"
 msgstr "Mugatua"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
-"Kolore posibleen barrutia pantailarako mugatu behar den edo ez zehazten du."
+"Kolore-balio posibleen barrutia bistaratzailerako mugatu behar den edo ez "
+"zehazten du. Pantailako koloreak margulduta ikusten badira bakarrik aldatu "
+"beharko litzateke."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
