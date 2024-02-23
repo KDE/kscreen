@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 02:24+0000\n"
-"PO-Revision-Date: 2023-04-13 10:10+0400\n"
+"PO-Revision-Date: 2024-02-22 13:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: ar\n"
+"Language-Team: Arabic <kde-i18n-ar@kde.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -243,9 +243,7 @@ msgid "Overscan:"
 msgstr "المسح الزائد:"
 
 #: ui/OutputPanel.qml:176
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1٪"
@@ -258,10 +256,12 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"يحدد مقدار المساحة المتروكة التي تُوضع حول الصورة المرسلة إلى الشاشة ليعوض عن "
+"الأجزاء المسقطة حول الحواف.<nl/><nl/> ستحتاج هذا الإعداد في بعض الأوقات حين "
+"تستخدم التلفاز كشاشة."
 
 #: ui/OutputPanel.qml:187
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "نطاق RGB:"
 
@@ -276,65 +276,62 @@ msgid "Limited"
 msgstr "محدود"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
-msgstr "يحدد ما إذا كان يجب تحديد نطاق قيم الألوان الممكنة للعرض أم لا."
+msgstr ""
+"يحدد ما إذا كان يجب تحديد نطاق قيم الألوان الممكنة للعرض أم لا. هذا يجب في "
+"حالة ظهور الألوان في الشاشة باهتة."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "تشكيلة اللون:"
 
 #: ui/OutputPanel.qml:218
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "أدخل مسار تشكيلة ICC…"
 
 #: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "حدد تشكيلة ICC…"
 
 #: ui/OutputPanel.qml:245
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "تفتح منتقى الملفات لتختار تشكيلة ICC"
 
 #: ui/OutputPanel.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "حدد تشكيلة ICC"
 
 #: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "تشكيلات ICC غير متوافقة مع HDR بعد"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "النطاق الحركي العالي:"
 
 #: ui/OutputPanel.qml:289
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "ممكّن"
+msgstr "مكّن HDR"
 
 #: ui/OutputPanel.qml:295
 #, kde-format
@@ -343,29 +340,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"تيح HDR للتطبيقات المتوافقة عرض ألوان أكثر سطوعًا وحيوية.لاحظ أن هذه الميزة "
+"لا تزال تجريبية"
 
 #: ui/OutputPanel.qml:306
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "سطوع SDR:"
 
 #: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "يضبط سطوع المحتوى غير HDR على الشاشة، بالشمعة"
 
 #: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "كثافة اللون SDR:"
 
 #: ui/OutputPanel.qml:362
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1٪"
@@ -374,7 +371,7 @@ msgstr "%1٪"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "يزيد من كثافة المحتوى غير HDR على الشاشة"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
@@ -392,8 +389,7 @@ msgid "Global scale:"
 msgstr "المقياس الشامل:"
 
 #: ui/Panel.qml:129 ui/Panel.qml:149
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "التطبيقات القديمة (اكس 11):"
 
@@ -431,14 +427,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "تمزيق الشاشة:"
 
 #: ui/Panel.qml:163
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "اسمح في نوافذ ملء الشاشة"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -447,6 +443,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"يؤدي تمزيق الشاشة إلى تقليل زمن الوصول في معظم شاشات العرض. لاحظ أنه ليست "
+"كافة برامج تشغيل الرسومات تدعم هذا الإعداد."
 
 #: ui/Panel.qml:182
 #, kde-format
