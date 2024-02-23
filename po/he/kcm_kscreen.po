@@ -3,13 +3,13 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 09:26+0200\n"
+"PO-Revision-Date: 2024-02-21 08:17+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -255,6 +255,8 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"מגדיר כמה ריפוד להוסיף מסביב לתמונה שנשלחת לתצוגה כדי לפצות על החלק של התוכן "
+"שנחתך מהקצוות.<nl/><nl/>נחוץ לעיתים כשמשתמשים בטלוויזיה כמסך"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -279,6 +281,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"מגדיר האם טווח הצבעים האפשרי דורש הגבלה לתצוגה. יש לשנות את זה רק אם הצבעים "
+"של המסך נראים כאילו נשטפו במים."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
