@@ -35,6 +35,12 @@ ColumnLayout {
                     root.selectedOutput = index;
                     currentIndex = Qt.binding(() => root.selectedOutput);
                 }
+                onCountChanged: {
+                    // Temporary model resets can reset currentIndex to -1 and break the binding.
+                    if (currentIndex == -1 && root.selectedOutput < count) {
+                        currentIndex = Qt.binding(() => root.selectedOutput);
+                    }
+                }
             }
         }
     }
