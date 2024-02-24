@@ -29,6 +29,13 @@ KCM.SimpleKCM {
     implicitWidth: Kirigami.Units.gridUnit * 32
     implicitHeight: Kirigami.Units.gridUnit * 30
 
+    actions: Kirigami.Action {
+        text: i18nc("@action:button Briefly show the display name in a popup label on each screen", "Identify Screens")
+        icon.name: "documentinfo-symbolic"
+        visible: kcm.multipleScreensAvailable
+        onTriggered: kcm.identifyOutputs()
+    }
+
     topPadding: anyMessagesShown ? topMargins : 0
     leftPadding: 0
     rightPadding: 0
@@ -326,7 +333,7 @@ KCM.SimpleKCM {
         }
 
         Rectangle {
-            Layout.preferredHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 13)
+            Layout.preferredHeight: Math.max(root.height * 0.35, Kirigami.Units.gridUnit * 12)
             Layout.fillWidth: true
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View

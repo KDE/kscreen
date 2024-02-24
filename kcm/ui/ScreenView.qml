@@ -21,7 +21,7 @@ QQC2.ScrollView {
 
     readonly property real relativeFactor: {
         var relativeSize = Qt.size(totalSize.width / (0.6 * width),
-                                   totalSize.height / (0.6 * height));
+                                   totalSize.height / (0.65 * height));
         if (relativeSize.width > relativeSize.height) {
             // Available width smaller than height, optimize for width (we have
             // '>' because the available width, height is in the denominator).
@@ -46,21 +46,6 @@ QQC2.ScrollView {
         opacity: 0.6
         horizontalAlignment: Text.AlignHCenter
         text: i18n("Drag screens to re-arrange them")
-        visible: kcm.multipleScreensAvailable
-    }
-
-    QQC2.Button {
-        anchors {
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
-            margins: Kirigami.Units.smallSpacing
-        }
-        z: 90
-
-        onClicked: kcm.identifyOutputs()
-        text: i18n("Identify")
-        icon.name: "documentinfo"
-        focusPolicy: Qt.NoFocus
         visible: kcm.multipleScreensAvailable
     }
 
