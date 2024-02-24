@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2016, 2020, 2021, 2022, 2023.
+# Giovanni Sora <g.sora@tiscali.it>, 2016, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 02:24+0000\n"
-"PO-Revision-Date: 2023-12-28 18:51+0100\n"
+"PO-Revision-Date: 2024-02-23 09:53+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -257,6 +257,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Determina quante reimpletion es ponite circa le imagine inviate al "
+"monstrator per compensar le parte del contento que es taliate circa le "
+"limites.<nl/><nl/> Isto es aliquando necessari quando on us un TV como "
+"schermo "
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -281,6 +285,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Determina si o no le extension de necessiates de possibile valores de color "
+"sea limitate per le monstrator. Isto deberea solmente esser cambiate si le "
+"colores sur le schermo appare lavate. "
 
 #: ui/OutputPanel.qml:210
 #, kde-format
