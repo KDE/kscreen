@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 00:38+0000\n"
-"PO-Revision-Date: 2024-02-11 13:15+0100\n"
+"PO-Revision-Date: 2024-02-24 16:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -260,6 +260,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Określa ile wypełnienia jest dodawane wokół obrazu wysyłanego na "
+"wyświetlacz, aby zrekompensować część treść przyciętej wokół w pobliżu "
+"krawędzi.<nl/><nl/>Przydatne gdy używa się telewizora jako ekranu"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -277,11 +280,7 @@ msgid "Limited"
 msgstr "Ograniczony"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -289,7 +288,8 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "Określa czy zakres możliwych wartości barw powinien być ograniczony dla "
-"danego wyświetlacza."
+"danego wyświetlacza. Należy to zmienić tylko w przypadku, gdy barwy na "
+"ekranie wyglądają blado."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
