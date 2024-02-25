@@ -1,6 +1,6 @@
 # KDE Finnish translation sprint participants:
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022, 2023.
-# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
