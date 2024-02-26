@@ -47,6 +47,7 @@ public:
         SdrBrightnessRole,
         MaxBrightnessRole,
         SdrGamutWideness,
+        ColorProfileSource,
         InteractiveMoveRole, // This output is currently repositioned interactively
     };
 

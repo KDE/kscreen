@@ -164,7 +164,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->isHdrEnabled() != config->isHdrEnabled()
                     || output->isWcgEnabled() != config->isWcgEnabled()
                     || output->sdrBrightness() != config->sdrBrightness()
-                    || output->sdrGamutWideness() != config->sdrGamutWideness()) {
+                    || output->sdrGamutWideness() != config->sdrGamutWideness()
+                    || output->colorProfileSource() != config->colorProfileSource()) {
                         return true;
                     }
             }

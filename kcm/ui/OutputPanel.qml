@@ -209,8 +209,36 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:textbox", "Color Profile:")
+        Kirigami.FormData.label: i18nc("@label:combobox", "Color Profile:")
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.ComboBox {
+            enabled: !element.hdr || !root.hdrAvailable
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            model: [
+                { label: i18n("None"), value: KScreen.Output.ColorProfileSource.sRGB },
+                { label: i18n("ICC Profile"), value: KScreen.Output.ColorProfileSource.ICC },
+                { label: i18n("Built In"), value: KScreen.Output.ColorProfileSource.EDID }
+            ]
+            textRole: "label"
+            valueRole: "value"
+
+            onActivated: element.colorProfileSource = currentValue;
+            Component.onCompleted: currentIndex = indexOfValue(element.colorProfileSource);
+        }
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Note that built-in color profiles are sometimes wrong, and often inaccurate. For optimal color fidelity, calibration using a colorimeter is recommended.")
+            visible: (!element.hdr || !root.hdrAvailable) && element.colorProfileSource == KScreen.Output.ColorProfileSource.EDID
+        }
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "The built-in color profile is always used with HDR.")
+            visible: element.hdr && root.hdrAvailable
+        }
+    }
+
+    RowLayout {
+        visible: (element.capabilities & KScreen.Output.Capability.IccProfile) && (element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC)
         spacing: Kirigami.Units.smallSpacing
 
         Kirigami.ActionTextField {
