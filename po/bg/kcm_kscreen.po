@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-21 02:24+0000\n"
-"PO-Revision-Date: 2024-01-27 21:15+0100\n"
+"PO-Revision-Date: 2024-02-25 23:13+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -257,6 +257,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Определя колко отстояние се поставя около изображението, за да се компенсира "
+"част от съдържанието, което се отрязва около краищата. <nl/> <nl/> Това "
+"понякога е необходимо при използване на телевизор като екран"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -281,6 +284,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Определя дали диапазонът от възможни стойности на цветовете трябва да бъде "
+"ограничен за дисплея. Това трябва да се променя само ако цветовете на екрана "
+"изглеждат размити."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
