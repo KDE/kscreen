@@ -290,8 +290,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
-"Določa, ali mora biti za zaslon obseg možnih barvnih vrednosti omejen. Tonaj "
-"bi spremenili le v primeru, ko barve na zaslonu izgledajo izprano."
+"Določa, ali mora biti za zaslon obseg možnih barvnih vrednosti omejen. To "
+"naj bi spremenili le v primeru, ko barve na zaslonu izgledajo izprano."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
