@@ -117,6 +117,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->maxPeakBrightnessOverride().value_or(output->maxPeakBrightness());
     case SdrGamutWideness:
         return output->sdrGamutWideness();
+    case EdidColorProfile:
+        return output->edidColorProfile();
     }
     return QVariant();
 }
@@ -275,6 +277,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setSdrGamutWideness(value.toDouble());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case EdidColorProfile:
+        output.ptr->setEdidColorProfile(value.toBool());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -309,6 +315,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[SdrBrightnessRole] = "sdrBrightness";
     roles[MaxBrightnessRole] = "peakBrightness";
     roles[SdrGamutWideness] = "sdrGamutWideness";
+    roles[EdidColorProfile] = "edidColorProfile";
     return roles;
 }
 

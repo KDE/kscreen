@@ -211,12 +211,33 @@ Kirigami.FormLayout {
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
         spacing: Kirigami.Units.smallSpacing
 
+        QQC2.CheckBox {
+            text: i18nc("@option:check", "Use the profile built into this screen")
+            checked: element.edidColorProfile
+            onToggled: element.edidColorProfile = checked
+            enabled: !element.hdr
+        }
+
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Note that display provided color profiles are sometimes wrong")
+            visible: !element.hdr
+        }
+        KCM.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "The display provided profile is always used with HDR")
+            visible: element.hdr
+        }
+    }
+
+    RowLayout {
+        visible: element.capabilities & KScreen.Output.Capability.IccProfile
+        spacing: Kirigami.Units.smallSpacing
+
         Kirigami.ActionTextField {
             id: iccProfileField
             onTextChanged: element.iccProfilePath = text
             onTextEdited: element.iccProfilePath = text
             placeholderText: i18nc("@info:placeholder", "Enter ICC profile path…")
-            enabled: !element.hdr
+            enabled: !element.hdr && !element.edidColorProfile
 
             rightActions: Kirigami.Action {
                 icon.name: "edit-clear-symbolic"
@@ -234,7 +255,7 @@ Kirigami.FormLayout {
             text: i18nc("@action:button", "Select ICC profile…")
             display: QQC2.AbstractButton.IconOnly
             onClicked: fileDialogComponent.incubateObject(root);
-            enabled: !element.hdr
+            enabled: !element.hdr && !element.edidColorProfile
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
