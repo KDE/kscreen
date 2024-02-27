@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:24+0000\n"
+"POT-Creation-Date: 2024-02-27 02:30+0000\n"
 "PO-Revision-Date: 2023-12-28 23:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Scale:"
 msgstr "Schaal:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -387,23 +387,23 @@ msgstr "Kopie van:"
 msgid "Device:"
 msgstr "Apparaat:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Globale schaal:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Oudere toepassingen (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Zelf het schalen toepassen"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -413,13 +413,13 @@ msgstr ""
 "scherp uitzien, echter zij die dat niet doen zullen helemaal niet geschaald "
 "worden."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Geschaald door het systeem"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -428,20 +428,20 @@ msgstr ""
 "Alle oudere toepassingen zullen geschaald worden door het systeem tot de "
 "juiste grootte, ze zullen er altijd iets wazig uitzien."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Vervorming op scherm:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Toestaan in vensters in volledig scherm"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -451,7 +451,7 @@ msgstr ""
 "Vervorming op het scherm reduceert vertraging op de meeste schermen. Merk op "
 "dat niet alle grafische stuurprogramma's deze instelling ondersteunen."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

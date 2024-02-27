@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:24+0000\n"
+"POT-Creation-Date: 2024-02-27 02:30+0000\n"
 "PO-Revision-Date: 2024-01-06 03:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -199,7 +199,7 @@ msgstr "&quot;%1&quot; 是此显示器支持的唯一分辨率。"
 msgid "Scale:"
 msgstr "缩放率："
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -371,23 +371,23 @@ msgstr "复制自："
 msgid "Device:"
 msgstr "设备："
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "全局缩放率："
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "旧式应用程序 (X11)："
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "由应用程序进行缩放"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -396,33 +396,33 @@ msgstr ""
 "支持缩放的旧式应用程序将使用内建的缩放功能得到清晰的显示效果，但是不支持缩放"
 "的应用程序将不会进行缩放。"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "由系统进行缩放"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr "所有旧式应用程序将由系统缩放到正确的大小，但它们将总是略显模糊。"
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "画面撕裂："
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "允许在全屏窗口中发生画面撕裂"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -432,7 +432,7 @@ msgstr ""
 "画面撕裂在绝大多数显示器中可以降低延迟。请注意：并非所有显卡驱动程序均能支持"
 "此设置。"
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

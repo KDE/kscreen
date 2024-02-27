@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:24+0000\n"
+"POT-Creation-Date: 2024-02-27 02:30+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -205,7 +205,7 @@ msgstr "«%1» είναι ο μόνος ρυθμός ανανέωσης που �
 msgid "Scale:"
 msgstr "Κλίμακα:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -381,57 +381,57 @@ msgstr "Αντίγραφο της:"
 msgid "Device:"
 msgstr "Συσκευή:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Καθολική κλίμακα:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr ""
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr ""
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr ""
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, fuzzy, kde-format
 #| msgid "Screen Scaling"
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Κλιμάκωση οθόνης"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr ""
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -439,7 +439,7 @@ msgid ""
 "graphics drivers support this setting."
 msgstr ""
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

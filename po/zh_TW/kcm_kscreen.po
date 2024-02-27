@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:24+0000\n"
+"POT-Creation-Date: 2024-02-27 02:30+0000\n"
 "PO-Revision-Date: 2024-01-02 20:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -202,7 +202,7 @@ msgstr "&quot;%1&quot; 是這個顯示器唯一支援的解析度。"
 msgid "Scale:"
 msgstr "比例："
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -374,23 +374,23 @@ msgstr "複本來源："
 msgid "Device:"
 msgstr "裝置："
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "全域縮放比例："
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "舊式應用程式 (X11)："
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "讓它們自行套用縮放"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -399,33 +399,33 @@ msgstr ""
 "支援縮放的舊式應用程式將自行進行縮放並以清晰方式呈現，但不支援的就完全不會被"
 "縮放。"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "由系統縮放"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr "所有舊式應用程式都會由系統縮放到正確大小，但它們全部都會有一點模糊。"
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "螢幕撕裂："
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "在全螢幕視窗中允許"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -435,7 +435,7 @@ msgstr ""
 "在大部分顯示器上，允許螢幕撕裂會降低延遲。請注意，不是所有顯示卡驅動程式都支"
 "援這個設定。"
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:24+0000\n"
-"PO-Revision-Date: 2024-02-20 01:28+0200\n"
+"POT-Creation-Date: 2024-02-27 02:30+0000\n"
+"PO-Revision-Date: 2024-02-26 14:50+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -208,7 +208,7 @@ msgstr "&quot;%1&quot; yra vienintelė šio ekrano palaikoma skiriamoji geba."
 msgid "Scale:"
 msgstr "Mastelis:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -258,6 +258,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Nustato, kiek užpildo bus aplink paveikslą, kuris yra siunčiamas į ekraną ir "
+"yra naudojamas kompensuoti aplink kraštus nukarpomas turinio dalis.<nl/><nl/"
+">Kartais, to reikia, kai televizorius yra naudojamas kaip ekranas"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -282,6 +285,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Nustato, ar ekranui turi būti apribotas įmanomų spalvų reikšmių rėžis. Tai "
+"turėtų būti keičiama tik tuo atveju, jei spalvos ekrane atrodo išblukusios."
 
 #: ui/OutputPanel.qml:210
 #, kde-format
@@ -381,23 +386,23 @@ msgstr "Atkartojimas išvedimo:"
 msgid "Device:"
 msgstr "Įrenginys:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Visuotinis mastelis:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Pasenusios programos (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Pačios taikys mastelio keitimą"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -406,13 +411,13 @@ msgstr ""
 "Pasenusios programos, kurios palaiko mastelio keitimą, jį naudos ir atrodys "
 "ryškiai, o tos kurios nepalaiko – jų mastelis iš viso nebus keičiamas."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistema joms taikys mastelio keitimą"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -421,20 +426,20 @@ msgstr ""
 "Sistema keis visų pasenusių programų mastelį taip, kad jis būtų tinkamo "
 "dydžio, tačiau jos atrodys šiek tiek neryškios."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Ekrano plėšymas:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Leisti viso ekrano languose"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -444,7 +449,7 @@ msgstr ""
 "Ekrano plėšymas sumažina daugelio ekranų delsą. Turėkite omenyje, kad ne "
 "visos grafikos tvarkyklės palaiko šią nuostatą."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
