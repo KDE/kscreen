@@ -219,11 +219,11 @@ Kirigami.FormLayout {
         }
 
         KCM.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Note that display provided color profiles are sometimes wrong")
+            toolTipText: i18nc("@info:tooltip", "Note that built-in color profiles are sometimes wrong. For optimal color fidelity, calibration using a colorimeter is recommended.")
             visible: !element.hdr
         }
         KCM.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "The display provided profile is always used with HDR")
+            toolTipText: i18nc("@info:tooltip", "The built-in color profile is always used with HDR.")
             visible: element.hdr
         }
     }
