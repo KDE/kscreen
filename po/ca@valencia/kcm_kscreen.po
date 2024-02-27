@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2023-12-28 07:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -48,35 +48,43 @@ msgstr "Cap"
 msgid "Replicated by other output"
 msgstr "Replicat per una altra eixida"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "Identificació"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Mantinc la configuració de la pantalla?"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Es revertirà a la configuració anterior en %1 segon."
 msgstr[1] "Es revertirà a la configuració anterior en %1 segons."
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "Man&tín"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "Re&vertix"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Totes les pantalles estan desactivades. Almenys activeu-ne una."
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -85,60 +93,60 @@ msgstr ""
 "No es permeten separacions entre les pantalles. Assegureu-vos que totes les "
 "pantalles estan en contacte."
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "S'ha afegit una eixida nova. S'ha tornat a carregar la configuració."
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "S'ha eliminat una eixida. S'ha tornat a carregar la configuració."
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "No s'ha trobat el dorsal de KScreen. Comproveu la instal·lació."
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "No s'han pogut guardar les eixides per un error."
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Els canvis de l'escala global s'efectuaran després de reiniciar el sistema."
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "Reinicia"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "S'ha revertit la configuració de la pantalla."
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Canvi de prioritats"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "Primària"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "Eleva la prioritat"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "Reduïx la prioritat"
@@ -208,7 +216,7 @@ msgstr "L'única resolució admesa per esta pantalla és «%1»."
 msgid "Scale:"
 msgstr "Escala:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -380,23 +388,23 @@ msgstr "Rèplica de:"
 msgid "Device:"
 msgstr "Dispositiu:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Escala global:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplicacions antigues (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Aplica el seu propi canvi d'escala"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -405,13 +413,13 @@ msgstr ""
 "Les aplicacions antigues que permeten el canvi d'escala l'utilitzaran i es "
 "veuran nítides, però les que no ho facen no s'escalaran en absolut."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Canvi d'escala pel sistema"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -420,20 +428,20 @@ msgstr ""
 "El sistema farà el canvi d'escala de totes les aplicacions antigues a la "
 "mida correcta, tanmateix, sempre pareixeran lleugerament borroses."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Esquinçament de la pantalla:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Permet en finestres a pantalla completa"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -444,7 +452,7 @@ msgstr ""
 "pantalles. Cal tindre en compte que no tots els controladors gràfics admeten "
 "esta opció."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -477,8 +485,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "Identificació"

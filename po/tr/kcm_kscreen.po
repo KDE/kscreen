@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2024-02-21 17:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -46,35 +46,43 @@ msgstr "Yok"
 msgid "Replicated by other output"
 msgstr "Başka çıktı tarafından yinelendi"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "Tanımla"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Görüntü yapılandırması tutulsun mu?"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 saniye içinde bir önceki yapılandırmaya geri dönülecek."
 msgstr[1] "%1 saniye içinde bir önceki yapılandırmaya geri dönülecek."
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "&Tut"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "&Geri Al"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tüm görüntüler devre dışı. En azından birini etkinleştirin."
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -83,61 +91,61 @@ msgstr ""
 "Görüntüler arası boşluk desteklenmiyor. Tüm görüntülerin birbirlerine "
 "dokunduklarından emin olun."
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Yeni bir çıktı eklendi. Ayarlar yeniden yüklendi."
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Bir çıktı kaldırıldı. Ayarlar yeniden yüklendi."
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Bir kscreen arka ucu bulunamadı. Lütfen kscreen kurulumunuzu denetleyin."
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Bir hata nedeniyle çıktılar kaydedilemedi."
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Global ölçek değişiklikleri, sistem yeniden başlatıldıktan sonra etkili olur."
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Görüntü yapılandırması geri alındı."
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Öncelikleri Değiştir"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "Birincil"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "Önceliği artır"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "Önceliği düşür"
@@ -207,7 +215,7 @@ msgstr "Bu görüntü, yalnızca &quot;%1&quot; çözünürlüğünü destekliyo
 msgid "Scale:"
 msgstr "Ölçek:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -385,23 +393,23 @@ msgstr "Şunun yinelemesi:"
 msgid "Device:"
 msgstr "Aygıt:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Global ölçek:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Eski uygulamalar (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Ölçeklemeyi uygulamaya bırak"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -410,13 +418,13 @@ msgstr ""
 "Ölçeklemeyi kullanan eski uygulamalar düzgün görüneceklerdir; ancak "
 "ölçekleme kullanmayan uygulamalar hiçbir biçimde ölçeklenmeyecektir."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistem tarafından ölçeklenmiş"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -425,20 +433,20 @@ msgstr ""
 "Tüm eski uygulamalar, sistem tarafından olması gereken boyuta ölçeklenir; "
 "ancak yine de her zaman bulanık görüneceklerdir."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Ekran yırtılması:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Tam ekran pencerelerde izin ver"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -448,7 +456,7 @@ msgstr ""
 "Ekran yırtılması çoğu görüntüdeki gecikmeyi azaltır. Tüm grafik "
 "sürücülerinin bu ayarı desteklemediğini unutmayın."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -481,8 +489,3 @@ msgstr "Döndürme yok"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Ekranları yeniden düzenlemek için onları sürükleyin"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "Tanımla"

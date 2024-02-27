@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 08:55+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -45,35 +45,43 @@ msgstr "Ningunha"
 msgid "Replicated by other output"
 msgstr "Replicada por outra saída"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "Identificar"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Manter a configuración de pantallas?"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Volverase á configuración anterior en %1 segundo."
 msgstr[1] "Volverase á configuración anterior en %1 segundos."
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "&Manter"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverter"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Todas as pantallas están desactivadas. Active polo menos unha."
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -82,60 +90,60 @@ msgstr ""
 "Non se permiten os espazos entre pantallas. Asegúrese de que todas as "
 "pantallas se tocan."
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Engadiuse unha nova saída. Cargouse de novo a configuración."
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Retirouse unha saída Cargouse de novo a configuración."
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Non se atopou ningún motor de KScreen. Revise a instalación de KScreen."
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Non foi posíbel gardar as saídas por mor dun erro."
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "Os cambios de escala globais xurdirán efecto tras reiniciar o sistema."
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Reverteuse a configuración das pantallas."
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Cambiar as prioridades"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "Principal"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "Subir a prioridade"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "Baixar a prioridade"
@@ -205,7 +213,7 @@ msgstr "«%1» é a única resolución que permite esta pantalla."
 msgid "Scale:"
 msgstr "Escala:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -383,23 +391,23 @@ msgstr "Réplica de:"
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "Escala global:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplicacións obsoletas (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Escala de seu"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -408,13 +416,13 @@ msgstr ""
 "As aplicacións antigas que permitan escala usarana para verse nítidas, pero "
 "as que non quedarán sen escalar."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Escala do sistema"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -423,20 +431,20 @@ msgstr ""
 "O sistema escalará todas as aplicacións antigas ao tamaño correcto, porén "
 "sempre se verán un pouco borrosas."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Rotura de pantalla:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Permitir en xanelas a pantalla completa"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -446,7 +454,7 @@ msgstr ""
 "A rotura de pantalla reduce a latencia coa maioría das pantallas. Teña en "
 "conta que non todos os controladores gráficos permiten esta opción."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -479,11 +487,6 @@ msgstr "Sen rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastra as pantallas para recolocalas"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "Identificar"
 
 #, fuzzy
 #~| msgid "Are you sure you want to disable all outputs?"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2024-02-05 11:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -44,93 +44,101 @@ msgstr "无"
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "识别"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "保留显示器配置吗？"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "将在 %1 秒后还原到之前的配置。"
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "保留(&K)"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "还原(&R)"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有显示器均已被禁用。请至少启用一个显示器。"
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支持显示器之间的空隙。请确保所有显示器均相邻紧贴放置。"
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已添加新输出设备。设置已重新加载。"
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除输出设备。设置已重新加载。"
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "没有找到 KScreen 后端。请检查您的 KScreen 安装。"
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "由于错误，输出配置无法保存。"
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "全局缩放的更改将在系统重新启动后生效。"
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "重新启动"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "显示器配置已恢复。"
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "更改优先级"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "主要"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "提升优先级"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "降低优先级"
@@ -199,7 +207,7 @@ msgstr "&quot;%1&quot; 是此显示器支持的唯一分辨率。"
 msgid "Scale:"
 msgstr "缩放率："
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -371,23 +379,23 @@ msgstr "复制自："
 msgid "Device:"
 msgstr "设备："
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "全局缩放率："
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "旧式应用程序 (X11)："
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "由应用程序进行缩放"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -396,33 +404,33 @@ msgstr ""
 "支持缩放的旧式应用程序将使用内建的缩放功能得到清晰的显示效果，但是不支持缩放"
 "的应用程序将不会进行缩放。"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "由系统进行缩放"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr "所有旧式应用程序将由系统缩放到正确的大小，但它们将总是略显模糊。"
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "画面撕裂："
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "允许在全屏窗口中发生画面撕裂"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -432,7 +440,7 @@ msgstr ""
 "画面撕裂在绝大多数显示器中可以降低延迟。请注意：并非所有显卡驱动程序均能支持"
 "此设置。"
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -465,8 +473,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "识别"

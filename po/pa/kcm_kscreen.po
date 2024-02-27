@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2024-01-03 14:34-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -44,94 +44,102 @@ msgstr "ਕੋਈ ਨਹੀਂ"
 msgid "Replicated by other output"
 msgstr "ਹੋਰ ਆਉਟਪੁੱਟ ਦੀ ਹੂ-ਬਹੂ ਨਕਲ ਕੀਤੀ"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "ਪਛਾਣੋ"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਰੱਖਣੀ ਹੈ?"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 ਸਕਿੰਟ ਵਿੱਚ ਪਿਛਲੀ ਸੰਰਚਨਾ ਨੂੰ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।"
 msgstr[1] "%1 ਸਕਿੰਟਾਂ ਵਿੱਚ ਪਿਛਲੀ ਸੰਰਚਨਾ ਨੂੰ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "ਰੱਖੋ(&K)"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "ਵਾਪਸ ਲਵੋ(&R)"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "ਸਾਰੇ ਡਿਸਪਲੇਅ ਅਸਮਰੱਥ ਹਨ। ਘੱਟੋ-ਘੱਟ ਇੱਕ ਨੂੰ ਸਮਰੱਥ ਕਰੋ।"
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "ਡਿਸਪਲੇਅ ਵਿਚਾਲੇ ਫ਼਼ਾਸਲੇ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਸਾਰੇ ਡਿਸਪਲੇਅ ਛੂਹ ਰਹੇ ਹਨ।"
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ਨਵੀਂ ਆਉਟਪੁੱਟ ਨੂੰ ਜੋੜਿਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "ਆਉਟਪੁੱਟ ਨੂੰ ਹਟਾਇਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "ਕੋਈ KScreen ਬੈਕਐਂਡ ਨਹੀਂ ਮਿਲਿਆ। ਆਪਣੀ KScreen ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "ਗ਼ਲਤੀ ਦੇ ਕਰਕੇ ਆਉਟਪੁੱਟ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "ਗਲੋਬਲ ਸਕੇਲ ਤਬਦੀਲੀਆਂ ਸਿਸਟਮ ਦੇ ਮੁੜ-ਚਾਲੂ ਹੋਣ ਬਾਅਦ ਹੀ ਲਾਗੂ ਹੋਣਗੀਆਂ।"
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "ਮੁੜ-ਚਾਲੂ ਕਰੋ"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਵਾਪਸ ਲਈ ਗਈ ਹੈ।"
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "ਤਰਜੀਹਾਂ ਬਦਲੋ"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "ਪ੍ਰਾਇਮਰੀ"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "ਤਰਜੀਹ ਵਧਾਓ"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "ਤਰਜੀਹ ਘਟਾਓ"
@@ -197,7 +205,7 @@ msgstr "ਇਸ ਡਿਸਪਲੇਅ ਵਲੋਂ ਸਿਰਫ਼ &quot;%1&quot;
 msgid "Scale:"
 msgstr "ਸਕੇਲ:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -367,56 +375,56 @@ msgstr "ਇਸ ਦੀ ਹੂ-ਬਹੂ ਨਕਲ:"
 msgid "Device:"
 msgstr "ਡਿਵਾਈਸ:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "ਗਲੋਬਲ ਸਕੇਲ:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "ਪੁਰਾਤਨ ਐਪਲੀਕੇਸ਼ਨਾਂ (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "ਸਕੇਲਿੰਗਾਂ ਨੂੰ ਖੁਦ ਲਾਗੂ ਕਰੋ"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "ਸਿਸਟਮ ਰਾਹੀਂ ਸਕੇਲ ਕੀਤਾ"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "ਸਕਰੀਨ ਟੀਅਰਿੰਗ:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਵਿੰਡੋਆਂ ਵਿੱਚ ਮਨਜ਼ੂਰ"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -426,7 +434,7 @@ msgstr ""
 "ਸਕਰੀਨ ਟੀਅਰਿੰਗ ਬਹੁਤੇ ਡਿਸਪਲੇਅ ਤੋਂ ਦੇਰੀ (latency) ਨੂੰ ਘਟਾਉਂਦੀ ਹੈ। ਯਾਦ ਰੱਖੋ ਕਿ ਸਾਰੇ ਗਰਾਫਿਕਸ "
 "ਡਰਾਇਵਰ ਇਸ ਸੈਟਿੰਗ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੁੰਦੇ ਹਨ।"
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -459,11 +467,6 @@ msgstr "ਘੁੰਮਾਉਣਾ ਨਹੀਂ"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ਸਕਰੀਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦੇਣ ਲਈ ਉਹਨਾਂ ਨੂੰ ਖਿੱਚੋ"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "ਪਛਾਣੋ"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "ਡਿਸਪਲੇਅ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸੰਭਾਲੋ:"

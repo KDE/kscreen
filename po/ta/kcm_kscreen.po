@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:38+0000\n"
+"POT-Creation-Date: 2024-02-27 00:38+0000\n"
 "PO-Revision-Date: 2024-02-18 15:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -44,35 +44,43 @@ msgstr "ஏதுமில்லை"
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
 
-#: ui/main.qml:41
+#: ui/main.qml:33
+#, fuzzy, kde-format
+#| msgid "Identify"
+msgctxt ""
+"@action:button Briefly show the display name in a popup label on each screen"
+msgid "Identify Screens"
+msgstr "அடையாளங்காட்டு"
+
+#: ui/main.qml:48
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "திரைகளின் அமைப்பை வைத்திருக்கலாமா?"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "முந்தைய அமைப்பு %1 நொடியில் மீட்டமைக்கப்படும்."
 msgstr[1] "முந்தைய அமைப்பு %1 நொடிகளில் மீட்டமைக்கப்படும்."
 
-#: ui/main.qml:73
+#: ui/main.qml:80
 #, kde-format
 msgid "&Keep"
 msgstr "&வைத்திரு"
 
-#: ui/main.qml:86
+#: ui/main.qml:93
 #, kde-format
 msgid "&Revert"
 msgstr "&மீட்டமை"
 
-#: ui/main.qml:106 ui/main.qml:287
+#: ui/main.qml:113 ui/main.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "அனைத்து திரைகளும் முடக்கப்பட்டுள்ளன. ஒன்றையாவது இயக்குங்கள்."
 
-#: ui/main.qml:108 ui/main.qml:289
+#: ui/main.qml:115 ui/main.qml:296
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -80,60 +88,60 @@ msgid ""
 msgstr ""
 "திரைகளுக்கிடையே காலியிடம் இருக்கக்கூடாது. திரைகளை ஒன்றுடன் ஒன்று ஒட்டியவாறு வைக்கவும்."
 
-#: ui/main.qml:120 ui/main.qml:302
+#: ui/main.qml:127 ui/main.qml:309
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "புதிய வெளியீடு சேர்க்கப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: ui/main.qml:122 ui/main.qml:304
+#: ui/main.qml:129 ui/main.qml:311
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "புதிய வெளியீடு கழற்றப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: ui/main.qml:172
+#: ui/main.qml:179
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "கேஸ்கிரீன் பின்நிலை கண்டுபிடிக்கப்படவில்லை. கேஸ்கிரீன் சரியாக நிறுவப்பட்டுள்ளதா என பாருங்கள்."
 
-#: ui/main.qml:182
+#: ui/main.qml:189
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "சிக்கல் ஏற்பட்டதால் வெளியீடுகளை சேமிக்க முடியவில்லை."
 
-#: ui/main.qml:192
+#: ui/main.qml:199
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "கணினியை மீள்துவக்கிய பின் பொது அளவுமாற்ற அமைப்புகள் செயல்படும்."
 
-#: ui/main.qml:198
+#: ui/main.qml:205
 #, kde-format
 msgid "Restart"
 msgstr "மீள்துவக்கு"
 
-#: ui/main.qml:218
+#: ui/main.qml:225
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "திரைகளின் அமைப்பு மீட்டமைக்கப்பட்டுள்ளது."
 
-#: ui/main.qml:226
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "முன்னிலையை மாற்று"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:44
 #, kde-format
 msgid "Primary"
 msgstr "முதன்மையானதாக்கு"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "முன்னிலையை கூட்டு"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "முன்னிலையை குறை"
@@ -203,7 +211,7 @@ msgstr "இத்திரை, &quot;%1&quot; எனும் பகுதிற
 msgid "Scale:"
 msgstr "அளவுமாற்றம்:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:105
+#: ui/OutputPanel.qml:114 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -381,23 +389,23 @@ msgstr "எதன் நகலி:"
 msgid "Device:"
 msgstr "சாதனம்:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
 msgstr "பொதுவான அளவுமாற்றம்:"
 
-#: ui/Panel.qml:129 ui/Panel.qml:149
+#: ui/Panel.qml:135 ui/Panel.qml:155
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "பழையவகை செயலிகள் (X11):"
 
-#: ui/Panel.qml:134
+#: ui/Panel.qml:140
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "தானே தன் அளவைமாற்றும்"
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:145
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -406,13 +414,13 @@ msgstr ""
 "அளவுமாற்றத்தை ஆதரிக்கும் செயலிகள் சரியான அளவிலும் தெளிவாகவும் தெரியும், ஆனால் அதை "
 "ஆதிரிக்காதவை தவறான அளவில் காட்டப்படும்."
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "சாளரநிரலால் அளவுமாற்றப்படும்"
 
-#: ui/Panel.qml:155
+#: ui/Panel.qml:161
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -421,20 +429,20 @@ msgstr ""
 "X11 செயலிகளை சாளரநிரலே சரியான அளவுக்கு பெரிதாக்கி காட்டும், ஆனால் அவை சற்று மங்கலாக "
 "தெரியலாம்."
 
-#: ui/Panel.qml:160
+#: ui/Panel.qml:166
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "திரைக் கிழிவு:"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "முழுத்திரை சாளரங்களில் அனுமதி"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -444,7 +452,7 @@ msgstr ""
 "திரைக் கிழிவை அனுமதிப்பது, பெரும்பாலான திரைகளில் வரைவுத் தாமத‍த்தைக் குறைக்கும். ஆனால் "
 "சில வரைகலை சாதனநிரல்கள் இவ்வமைப்பை ஆதரிக்காது."
 
-#: ui/Panel.qml:182
+#: ui/Panel.qml:188
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -477,11 +485,6 @@ msgstr "திருப்ப வேண்டாம்"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "காட்சிக்கருவிகளை நகர்த்த அவற்றை இழுங்கள்"
-
-#: ui/ScreenView.qml:61
-#, kde-format
-msgid "Identify"
-msgstr "அடையாளங்காட்டு"
 
 #~ msgctxt "@info"
 #~ msgid ""
