@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-01-04 21:43+0300\n"
+"PO-Revision-Date: 2024-02-27 21:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -48,12 +48,11 @@ msgid "Replicated by other output"
 msgstr "Синхронизировано с другим выходом"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Определение выходов"
+msgstr "Определить экраны"
 
 #: ui/main.qml:48
 #, kde-format
@@ -268,6 +267,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Параметр позволяет задать размер отступа от изображения, передаваемого на "
+"экран, чтобы компенсировать части изображения, остающегося за рамками экрана."
+"<nl/><nl/>Иногда требуется использование этого параметра при использовании "
+"телевизора в качестве экрана"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -285,11 +288,7 @@ msgid "Limited"
 msgstr "Ограниченный"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -297,7 +296,8 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "Параметр определяет, следует ли ограничивать цветовой диапазон при выводе "
-"изображения."
+"изображения. Этот параметр следует использовать только в случае, когда "
+"изображение выглядит очень блёклым."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

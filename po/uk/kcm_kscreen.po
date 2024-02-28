@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-02-21 10:30+0200\n"
+"PO-Revision-Date: 2024-02-27 08:03+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -48,12 +48,11 @@ msgid "Replicated by other output"
 msgstr "Відтворюється іншим виведенням"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Визначити"
+msgstr "Ідентифікація екранів"
 
 #: ui/main.qml:48
 #, kde-format

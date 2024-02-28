@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-02-24 21:13+0100\n"
+"PO-Revision-Date: 2024-02-27 21:53+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -46,12 +46,11 @@ msgid "Replicated by other output"
 msgstr "Replikita per alia eligo"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identigi"
+msgstr "Identigi Ekranojn"
 
 #: ui/main.qml:48
 #, kde-format

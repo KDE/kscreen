@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-02-21 13:35+0100\n"
+"PO-Revision-Date: 2024-02-27 13:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -49,12 +49,11 @@ msgid "Replicated by other output"
 msgstr "Replicat per una altra sortida"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identificació"
+msgstr "Identifica les pantalles"
 
 #: ui/main.qml:48
 #, kde-format

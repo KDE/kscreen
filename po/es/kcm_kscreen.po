@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-02-21 02:51+0100\n"
+"PO-Revision-Date: 2024-02-27 22:50+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -47,12 +47,11 @@ msgid "Replicated by other output"
 msgstr "Replicado por otra salida"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identificar"
+msgstr "Identificar pantallas"
 
 #: ui/main.qml:48
 #, kde-format
