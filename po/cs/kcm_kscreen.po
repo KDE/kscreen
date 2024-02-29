@@ -48,12 +48,11 @@ msgid "Replicated by other output"
 msgstr "Kopírováno druhým výstupem"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identifikovat"
+msgstr ""
 
 #: ui/main.qml:48
 #, kde-format

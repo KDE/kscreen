@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 20:24+0100\n"
+"PO-Revision-Date: 2024-02-27 12:08+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -45,12 +45,11 @@ msgid "Replicated by other output"
 msgstr "Replicato da un'altra uscita"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identifica"
+msgstr "Identifica gli schermi"
 
 #: ui/main.qml:48
 #, kde-format
@@ -265,6 +264,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Determina la quantità di riempimento attorno all'immagine inviata allo "
+"schermo per compensare la parte del contenuto tagliata attorno ai bordi.<nl/"
+"><nl/>Questa operazione è talvolta necessaria quando si utilizza una TV come "
+"schermo"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -282,19 +285,16 @@ msgid "Limited"
 msgstr "Limitato"
 
 #: ui/OutputPanel.qml:205
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
-"Determina se la gamma dei possibili valori di colore deve essere limitata "
-"per la visualizzazione."
+"Determina se la gamma dei possibili valori di colore deve essere limitata o "
+"meno per lo schermo. Questa opzione dovrebbe essere modificata solo se i "
+"colori sullo schermo appaiono sbiaditi."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

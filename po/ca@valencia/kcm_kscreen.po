@@ -1,16 +1,16 @@
 # Translation of kcm_kscreen.po to Catalan (Valencian)
-# Copyright (C) 2014-2023 This_file_is_part_of_KDE
+# Copyright (C) 2014-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2023-12-28 07:51+0200\n"
+"PO-Revision-Date: 2024-02-27 13:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -49,12 +49,11 @@ msgid "Replicated by other output"
 msgstr "Replicat per una altra eixida"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identificació"
+msgstr "Identifica les pantalles"
 
 #: ui/main.qml:48
 #, kde-format
@@ -266,6 +265,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Determina la quantitat de farciment que es posa al voltant de la imatge "
+"enviada cap a la pantalla per a compensar part del contingut que es retalla "
+"al voltant de les vores.<nl/><nl/>De vegades es necessita quan s'utilitza un "
+"televisor com a pantalla"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -290,6 +293,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Determina si l'interval dels valors possibles de color ha de ser limitat o "
+"no per a la visualització. Açò només s'hauria de canviar si els colors de la "
+"pantalla pareixen destenyits."
 
 #: ui/OutputPanel.qml:210
 #, kde-format

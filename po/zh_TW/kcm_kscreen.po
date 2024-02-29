@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:38+0000\n"
-"PO-Revision-Date: 2024-01-02 20:03+0900\n"
+"PO-Revision-Date: 2024-02-29 02:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -48,12 +48,11 @@ msgid "Replicated by other output"
 msgstr "已被其他輸出複製"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "識別"
+msgstr "識別螢幕"
 
 #: ui/main.qml:48
 #, kde-format
@@ -260,6 +259,8 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"決定傳送至顯示器的影像週邊要加上多大的間隙，來彌補會將內容邊緣的一部分切掉的"
+"情況。<nl/><nl/>有的時候將電視作為顯示器使用時會需要這個選項"
 
 #: ui/OutputPanel.qml:187
 #, kde-format
@@ -284,6 +285,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"決定是否要為該顯示器限制可以使用的顏色數值範圍。只有在螢幕上的顏色好像褪色一"
+"樣的情況下才適合調整這個選項。"
 
 #: ui/OutputPanel.qml:210
 #, kde-format
