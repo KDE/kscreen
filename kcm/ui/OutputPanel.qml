@@ -20,6 +20,8 @@ Kirigami.FormLayout {
     property KSortFilterProxyModel enabledOutputs
     property var element: model
 
+    readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
+
     signal reorder()
 
     QQC2.CheckBox {
@@ -216,7 +218,7 @@ Kirigami.FormLayout {
             onTextChanged: element.iccProfilePath = text
             onTextEdited: element.iccProfilePath = text
             placeholderText: i18nc("@info:placeholder", "Enter ICC profile path…")
-            enabled: !element.hdr
+            enabled: !root.hdrAvailable || !element.hdr
 
             rightActions: Kirigami.Action {
                 icon.name: "edit-clear-symbolic"
@@ -234,7 +236,7 @@ Kirigami.FormLayout {
             text: i18nc("@action:button", "Select ICC profile…")
             display: QQC2.AbstractButton.IconOnly
             onClicked: fileDialogComponent.incubateObject(root);
-            enabled: !element.hdr
+            enabled: !root.hdrAvailable || !element.hdr
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -275,14 +277,14 @@ Kirigami.FormLayout {
         }
 
         KCM.ContextualHelpButton {
-            visible: element.hdr
+            visible: root.hdrAvailable && element.hdr
             toolTipText: i18nc("@info:tooltip", "ICC profiles aren't compatible with HDR yet")
         }
     }
 
     RowLayout {
         Kirigami.FormData.label: i18nc("@label", "High Dynamic Range:")
-        visible: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
+        visible: root.hdrAvailable
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.CheckBox {
@@ -302,7 +304,7 @@ Kirigami.FormLayout {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         spacing: Kirigami.Units.smallSpacing
 
-        visible: element.hdr
+        visible: root.hdrAvailable && element.hdr
         Kirigami.FormData.label: i18nc("@label", "SDR Brightness:")
 
         QQC2.Slider {
@@ -332,7 +334,7 @@ Kirigami.FormLayout {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         spacing: Kirigami.Units.smallSpacing
 
-        visible: element.hdr
+        visible: root.hdrAvailable && element.hdr
         Kirigami.FormData.label: i18nc("@label", "SDR Color Intensity:")
 
         QQC2.Slider {
