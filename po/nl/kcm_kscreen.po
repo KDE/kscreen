@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:38+0000\n"
+"POT-Creation-Date: 2024-03-09 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 10:16+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -133,7 +133,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioriteiten wijzigen"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:44
+#: ui/main.qml:262 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Primair"
@@ -153,7 +153,7 @@ msgstr "Prioriteit verlagen"
 msgid "Orientation:"
 msgstr "Oriëntatie:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:155 ui/OutputPanel.qml:193
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:157 ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
 msgstr "Automatisch"
@@ -173,17 +173,17 @@ msgstr "Handmatig"
 msgid "Replicas"
 msgstr "Kopieën"
 
-#: ui/OutputPanel.qml:26
+#: ui/OutputPanel.qml:28
 #, kde-format
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: ui/OutputPanel.qml:37
+#: ui/OutputPanel.qml:39
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Schermprioriteiten wijzigen…"
 
-#: ui/OutputPanel.qml:50
+#: ui/OutputPanel.qml:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -197,68 +197,68 @@ msgstr ""
 "te bepalen op welk scherm te verschijnen<nl/><nl/>Het heeft geen effect op "
 "welk scherm meldingen of andere vensters verschijnen."
 
-#: ui/OutputPanel.qml:55
+#: ui/OutputPanel.qml:57
 #, kde-format
 msgid "Resolution:"
 msgstr "Resolutie:"
 
-#: ui/OutputPanel.qml:75
+#: ui/OutputPanel.qml:77
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr ""
 "&quot;%1&quot; is de enige resolutie die door dit scherm wordt ondersteund."
 
-#: ui/OutputPanel.qml:85
+#: ui/OutputPanel.qml:87
 #, kde-format
 msgid "Scale:"
 msgstr "Schaal:"
 
-#: ui/OutputPanel.qml:114 ui/Panel.qml:111
+#: ui/OutputPanel.qml:116 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:126
+#: ui/OutputPanel.qml:128
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Vernieuwingsfrequentie:"
 
-#: ui/OutputPanel.qml:146
+#: ui/OutputPanel.qml:148
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
 "\"%1\" is de enige vernieuwingsfrequentie die door dit scherm wordt "
 "ondersteund."
 
-#: ui/OutputPanel.qml:151
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Aanpasbare synchronisatie:"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:156
 #, kde-format
 msgid "Never"
 msgstr "Nooit"
 
-#: ui/OutputPanel.qml:156
+#: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Always"
 msgstr "Altijd"
 
-#: ui/OutputPanel.qml:167
+#: ui/OutputPanel.qml:169
 #, kde-format
 msgid "Overscan:"
 msgstr "Overscan:"
 
-#: ui/OutputPanel.qml:176
+#: ui/OutputPanel.qml:178
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:182
+#: ui/OutputPanel.qml:184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -271,22 +271,22 @@ msgstr ""
 "de randen wordt afgesneden.<nl/><nl/>Dit is soms nodig bij het gebruik van "
 "een TV als scherm"
 
-#: ui/OutputPanel.qml:187
+#: ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB-bereik:"
 
-#: ui/OutputPanel.qml:194
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
 msgstr "Volledig"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
 msgstr "Beperkt"
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -298,54 +298,54 @@ msgstr ""
 "worden voor het scherm. Dit zou alleen gewijzigd moeten worden als de "
 "kleuren op het scherm verbleekt zijn."
 
-#: ui/OutputPanel.qml:210
+#: ui/OutputPanel.qml:212
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
 msgstr "Kleurprofiel:"
 
-#: ui/OutputPanel.qml:218
+#: ui/OutputPanel.qml:220
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC-profielpad invoeren…"
 
-#: ui/OutputPanel.qml:234
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC-profiel selecteren…"
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:247
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Een bestandskiezer openen voor het ICC-profiel"
 
-#: ui/OutputPanel.qml:254
+#: ui/OutputPanel.qml:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC-profiel selecteren"
 
-#: ui/OutputPanel.qml:279
+#: ui/OutputPanel.qml:281
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC-profielen zijn nog niet compatibel met HDR"
 
-#: ui/OutputPanel.qml:284
+#: ui/OutputPanel.qml:286
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "High Dynamic Range:"
 
-#: ui/OutputPanel.qml:289
+#: ui/OutputPanel.qml:291
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "HDR inschakelen"
 
-#: ui/OutputPanel.qml:295
+#: ui/OutputPanel.qml:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -355,37 +355,37 @@ msgstr ""
 "HDR biest compatibele toepassingen het tonen van helderder en levendiger "
 "kleuren. Merk op dat deze functie nog steeds experimenteel is"
 
-#: ui/OutputPanel.qml:306
+#: ui/OutputPanel.qml:308
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "Helderheid van SDR:"
 
-#: ui/OutputPanel.qml:325
+#: ui/OutputPanel.qml:327
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Zet de helderheid van niet-HDR inhoud op het scherm, in nits"
 
-#: ui/OutputPanel.qml:336
+#: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "Intensiteit van kleur van SDR:"
 
-#: ui/OutputPanel.qml:362
+#: ui/OutputPanel.qml:364
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:370
+#: ui/OutputPanel.qml:372
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Verhoogt de intensiteit van niet-HDR inhoud op het scherm"
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:377
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopie van:"
