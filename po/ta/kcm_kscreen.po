@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2024-02-18 15:51+0530\n"
+"PO-Revision-Date: 2024-03-08 19:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -253,6 +253,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"திரைக்கு அனுப்பப்படும் படத்தின் ஓரத்தில் எவ்வளவு காலியிடத்தை சேர்க்க வேண்டுமென்பதை இது "
+"அமைக்கும்.<nl/><nl/>சில தொலைக்காட்சி திரைகள் காட்சியின் ஓரப்பகுதியை வெட்டியே "
+"காட்டுவதால் இது தேவைப்படலாம்."
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -270,11 +273,7 @@ msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
 #: ui/OutputPanel.qml:207
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -282,7 +281,7 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
-"தீர்மானிக்கும்"
+"தீர்மானிக்கும். திரையில் காட்டப்படும் நிறங்கள் மங்கலாக தெரிந்தால் மட்டுமே இதை மாற்ற வேண்டும்."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
