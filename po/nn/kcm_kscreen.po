@@ -1,12 +1,11 @@
 # Translation of kcm_kscreen to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2023-05-27 14:33+0200\n"
+"PO-Revision-Date: 2024-03-09 19:09+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -243,9 +242,7 @@ msgid "Overscan:"
 msgstr "Overskanning:"
 
 #: ui/OutputPanel.qml:178
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
@@ -260,8 +257,7 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB-område:"
 
@@ -288,7 +284,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Fargeprofil:"
 
 #: ui/OutputPanel.qml:220
 #, kde-format
@@ -300,7 +296,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Vel ICC-profil …"
 
 #: ui/OutputPanel.qml:247
 #, kde-format
@@ -311,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Vel ICC-profil"
 
 #: ui/OutputPanel.qml:281
 #, kde-format
@@ -359,9 +355,7 @@ msgid "SDR Color Intensity:"
 msgstr ""
 
 #: ui/OutputPanel.qml:364
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
