@@ -38,7 +38,7 @@ target_link_libraries(kscreen PRIVATE
                               KF6::XmlGui
 )
 
-if(X11_FOUND)
+if(WITH_X11)
     target_link_libraries(kscreen PRIVATE Qt::GuiPrivate X11::X11 X11::Xi X11::XCB XCB::ATOM)
 endif()
 

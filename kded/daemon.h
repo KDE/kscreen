@@ -46,7 +46,7 @@ private:
     void applyIdealConfig();
     void configChanged();
     void saveCurrentConfig();
-#if HAVE_X11
+#if WITH_X11
     void alignX11TouchScreen();
 #endif
     void lidClosedChanged(bool lidIsClosed);

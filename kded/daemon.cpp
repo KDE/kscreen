@@ -29,7 +29,7 @@
 #include <QTimer>
 #include <QTransform>
 
-#if HAVE_X11
+#if WITH_X11
 #include <QtGui/private/qtx11extras_p.h>
 #include <X11/Xatom.h>
 #include <X11/Xlib-xcb.h>
@@ -39,7 +39,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
 
-#if HAVE_X11
+#if WITH_X11
 struct DeviceListDeleter {
     void operator()(XDeviceInfo *p)
     {
@@ -248,12 +248,12 @@ void KScreenDaemon::configChanged()
         connect(m_saveTimer, &QTimer::timeout, this, &KScreenDaemon::saveCurrentConfig);
     }
     m_saveTimer->start();
-#if HAVE_X11
+#if WITH_X11
     alignX11TouchScreen();
 #endif
 }
 
-#if HAVE_X11
+#if WITH_X11
 void KScreenDaemon::alignX11TouchScreen()
 {
     if (qGuiApp->platformName() != QStringLiteral("xcb")) {
