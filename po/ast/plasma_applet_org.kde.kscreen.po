@@ -1,21 +1,21 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Enol P. <enolp@softastur.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-24 00:38+0000\n"
-"PO-Revision-Date: 2023-05-09 21:25+0200\n"
+"PO-Revision-Date: 2024-03-15 01:17+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
-"Language-Team: \n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: package/contents/ui/main.qml:25
 #, kde-format
@@ -42,7 +42,7 @@ msgstr ""
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr ""
-"Esta opción evita que la pantalla ya l'ordenador s'apaguen automáticamente."
+"Esta opción evita que la pantalla y l'ordenador s'apaguen automáticamente."
 
 #: package/contents/ui/PresentationModeItem.qml:72
 #, kde-format
