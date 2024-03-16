@@ -46,15 +46,6 @@ find_package(KF6Screen ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(PlasmaQuick ${PROJECT_DEP_VERSION} REQUIRED)
 
-find_package(X11)
-set_package_properties(X11 PROPERTIES
-    DESCRIPTION "X11 libraries"
-    URL "https://www.x.org"
-    PURPOSE "Required for building the X11 based workspace"
-    TYPE REQUIRED
-)
-
-
 find_package(LayerShellQt)
 set_package_properties(LayerShellQt PROPERTIES
     DESCRIPTION "Layer shell Qt bindings"
@@ -63,10 +54,18 @@ set_package_properties(LayerShellQt PROPERTIES
     TYPE REQUIRED
 )
 
-if(X11_FOUND)
-  set(HAVE_X11 1)
-  find_package(X11_XCB REQUIRED)
-  find_package(XCB REQUIRED COMPONENTS XCB ATOM)
+option(WITH_X11 "Enable X11 support" ON)
+
+if(WITH_X11)
+    find_package(X11)
+    set_package_properties(X11 PROPERTIES
+        DESCRIPTION "X11 libraries"
+        URL "https://www.x.org"
+        PURPOSE "Required for touchscreen XInput mapping to internal display"
+        TYPE REQUIRED
+    )
+    find_package(X11_XCB REQUIRED)
+    find_package(XCB REQUIRED COMPONENTS XCB ATOM)
 endif()
 
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
