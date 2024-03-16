@@ -115,7 +115,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
             Q_ASSERT(!internalModesMap.empty());
             auto bestModeIt = std::max_element(internalModesMap.cbegin(), internalModesMap.cend(), [](const auto &left, const auto &right) {
                 const QSize leftSize = left->size();
-                const QSize rightSize = left->size();
+                const QSize rightSize = right->size();
                 return (leftSize.width() < rightSize.width() && leftSize.height() < rightSize.height())
                     || (leftSize == rightSize && left->refreshRate() < right->refreshRate());
             });
@@ -136,7 +136,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
             Q_ASSERT(!externalModesMap.empty());
             auto bestModeIt = std::max_element(externalModesMap.cbegin(), externalModesMap.cend(), [](const auto &left, const auto &right) {
                 const QSize leftSize = left->size();
-                const QSize rightSize = left->size();
+                const QSize rightSize = right->size();
                 return (leftSize.width() < rightSize.width() && leftSize.height() < rightSize.height())
                     || (leftSize == rightSize && left->refreshRate() < right->refreshRate());
             });
