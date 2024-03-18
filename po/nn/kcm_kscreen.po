@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2024-03-09 19:09+0100\n"
+"PO-Revision-Date: 2024-03-17 10:58+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -290,7 +290,7 @@ msgstr "Fargeprofil:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Skriv inn adressa til ICC-profilen …"
 
 #: ui/OutputPanel.qml:236
 #, kde-format
@@ -301,7 +301,7 @@ msgstr "Vel ICC-profil …"
 #: ui/OutputPanel.qml:247
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Opna filveljar for ICC-profilen"
 
 #: ui/OutputPanel.qml:256
 #, kde-format
@@ -313,7 +313,7 @@ msgstr "Vel ICC-profil"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC-profilar er ikkje kompatible med HDR enno"
 
 #: ui/OutputPanel.qml:286
 #, kde-format
@@ -322,11 +322,10 @@ msgid "High Dynamic Range:"
 msgstr ""
 
 #: ui/OutputPanel.qml:291
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Bruk skjermen"
+msgstr "Bruk HDR"
 
 #: ui/OutputPanel.qml:297
 #, kde-format
@@ -340,7 +339,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR-lysstyrke:"
 
 #: ui/OutputPanel.qml:327
 #, kde-format
@@ -382,8 +381,7 @@ msgid "Global scale:"
 msgstr "Global skalering:"
 
 #: ui/Panel.qml:135 ui/Panel.qml:155
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Eldre program (X11):"
 
@@ -428,7 +426,7 @@ msgstr ""
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Tillat for fullskjermsvindauge"
 
 #: ui/Panel.qml:174
 #, kde-format
