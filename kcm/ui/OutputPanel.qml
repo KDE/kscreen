@@ -48,7 +48,7 @@ Kirigami.FormLayout {
             onToggled: element.priority = 1
         }
 
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: xi18nc("@info", "This determines which screen your main desktop appears on, along with any Plasma Panels in it. Some older games also use this setting to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
         }
     }
@@ -72,7 +72,7 @@ Kirigami.FormLayout {
             visible: resolutionCombobox.count <= 1
             text: element.resolutions[0] || ""
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             visible: resolutionCombobox.count <= 1
             toolTipText: xi18nc("@info", "&quot;%1&quot; is the only resolution supported by this display.", singleResolutionLabel.text)
         }
@@ -143,7 +143,7 @@ Kirigami.FormLayout {
             visible: refreshRateCombobox.count <= 1
             text: element.refreshRates[0] || ""
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             visible: refreshRateCombobox.count <= 1
             toolTipText: i18n("\"%1\" is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
         }
@@ -180,7 +180,7 @@ Kirigami.FormLayout {
             Number.fromLocaleString(locale, text.replace("%", ""))
         }
 
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display to compensate for part of the content being cut off around the edges.<nl/><nl/>This is sometimes needed when using a TV as a screen")
         }
     }
@@ -203,7 +203,7 @@ Kirigami.FormLayout {
             Component.onCompleted: currentIndex = indexOfValue(element.rgbRange);
         }
 
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: xi18nc("@info", "Determines whether or not the range of possible color values needs to be limited for the display. This should only be changed if the colors on the screen look washed out.")
         }
     }
@@ -276,7 +276,7 @@ Kirigami.FormLayout {
             }
         }
 
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             visible: root.hdrAvailable && element.hdr
             toolTipText: i18nc("@info:tooltip", "ICC profiles aren't compatible with HDR yet")
         }
@@ -293,7 +293,7 @@ Kirigami.FormLayout {
             onToggled: element.hdr = checked
         }
 
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors. Note that this feature is still experimental")
         }
     }
@@ -323,7 +323,7 @@ Kirigami.FormLayout {
             value: element.sdrBrightness
             onValueModified: element.sdrBrightness = value
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Sets the brightness of non-HDR content on the screen, in nits")
         }
     }
@@ -368,7 +368,7 @@ Kirigami.FormLayout {
 
             onValueModified: element.sdrGamutWideness = realValue
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Increases the intensity of non-HDR content on the screen")
         }
     }

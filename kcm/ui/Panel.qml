@@ -141,7 +141,7 @@ ColumnLayout {
                 checked: kcm.xwaylandClientsScale
                 QQC2.ButtonGroup.group: x11AppsScaling
             }
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
             }
         }
@@ -157,7 +157,7 @@ ColumnLayout {
                 checked: !kcm.xwaylandClientsScale
                 QQC2.ButtonGroup.group: x11AppsScaling
             }
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
             }
         }
@@ -170,7 +170,7 @@ ColumnLayout {
                 checked: kcm.tearingAllowed
                 onToggled: kcm.tearingAllowed = checked
             }
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 toolTipText: i18nc("@info:tooltip", "Screen tearing reduces latency with most displays. Note that not all graphics drivers support this setting.")
             }
         }
