@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2024-01-21 21:13+0100\n"
+"PO-Revision-Date: 2024-03-20 22:09+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -257,6 +257,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Meghatározza, hogy a kijelzőre küldött kép köré mekkora kitöltés kerüljön, "
+"hogy kompenzálja a tartalom egy részének a széleken történő levágását.<nl/"
+"><nl/>Ez néha szükséges, ha a TV-t képernyőként használják"
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -281,6 +284,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Meghatározza, hogy a lehetséges színértékek tartományát korlátozni kell-e "
+"vagy sem a megjelenítéshez. Ezt csak akkor kell megváltoztatni, ha a színek "
+"a képernyőn elmosódottnak tűnnek."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
