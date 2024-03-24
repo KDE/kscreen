@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-01 02:16+0000\n"
+"POT-Creation-Date: 2024-03-24 02:27+0000\n"
 "PO-Revision-Date: 2019-11-10 13:08+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -40,13 +40,13 @@ msgstr "Ieslēgt prezentācijas režīmu"
 msgid "User enabled presentation mode"
 msgstr "Lietotājs ir ieslēdzis prezentāciju režīmu"
 
-#: package/contents/ui/PresentationModeItem.qml:61
+#: package/contents/ui/PresentationModeItem.qml:58
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "Šis liegs ekrānam un datoram automātiski izslēgties."
 
-#: package/contents/ui/PresentationModeItem.qml:75
+#: package/contents/ui/PresentationModeItem.qml:72
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -55,13 +55,13 @@ msgstr[0] "%2 un vēl %1 programma uzspiež prezentācijas režīmu."
 msgstr[1] "%2 un vēl %1 programmas uzspiež prezentācijas režīmu."
 msgstr[2] "%2 un vēl %1 programmu uzspiež prezentācijas režīmu."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: package/contents/ui/PresentationModeItem.qml:78
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 uzspiež prezentācijas režīmu."
 
-#: package/contents/ui/PresentationModeItem.qml:84
+#: package/contents/ui/PresentationModeItem.qml:81
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
