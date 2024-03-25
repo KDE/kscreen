@@ -20,8 +20,10 @@ QQC2.ScrollView {
     onHeightChanged: resetTotalSize()
 
     readonly property real relativeFactor: {
-        var relativeSize = Qt.size(totalSize.width / (0.6 * width),
-                                   totalSize.height / (0.65 * height));
+        const relativeSize = Qt.size(
+            totalSize.width / (0.6 * width),
+            totalSize.height / (0.65 * height),
+        );
         if (relativeSize.width > relativeSize.height) {
             // Available width smaller than height, optimize for width (we have
             // '>' because the available width, height is in the denominator).

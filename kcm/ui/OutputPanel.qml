@@ -62,7 +62,7 @@ Kirigami.FormLayout {
             visible: count > 1
             model: element.resolutions
             onActivated: element.resolutionIndex = currentIndex;
-            Component.onCompleted: currentIndex = Qt.binding(function() {return element.resolutionIndex});
+            Component.onCompleted: currentIndex = Qt.binding(() => element.resolutionIndex);
         }
         // When the combobox is has only one item, it's basically non-interactive
         // and is serving purely in a descriptive role, so make this explicit by
@@ -104,8 +104,8 @@ Kirigami.FormLayout {
             readonly property real factor: 20.0
             readonly property real realValue: value / factor
 
-            from : 0.5 * factor
-            to : 3.0 * factor
+            from: 0.5 * factor
+            to: 3.0 * factor
             stepSize: 1
             value: element.scale * factor
             validator: DoubleValidator {
@@ -133,7 +133,7 @@ Kirigami.FormLayout {
             visible: count > 1
             model: element.refreshRates
             onActivated: element.refreshRateIndex = currentIndex;
-            Component.onCompleted: currentIndex = Qt.binding(function() {return element.refreshRateIndex});
+            Component.onCompleted: currentIndex = Qt.binding(() => element.refreshRateIndex);
         }
         // When the combobox is has only one item, it's basically non-interactive
         // and is serving purely in a descriptive role, so make this explicit by
@@ -310,15 +310,15 @@ Kirigami.FormLayout {
         QQC2.Slider {
             Layout.fillWidth: true
             from: 50
-            to: element.peakBrightness == 0 ? 500 : element.peakBrightness
+            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
             stepSize: 50
             live: true
             value: element.sdrBrightness
             onMoved: element.sdrBrightness = value
         }
         QQC2.SpinBox {
-            from : 50
-            to : element.peakBrightness == 0 ? 500 : element.peakBrightness
+            from: 50
+            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
             stepSize: 10
             value: element.sdrBrightness
             onValueModified: element.sdrBrightness = value
@@ -352,8 +352,8 @@ Kirigami.FormLayout {
             readonly property real factor: 20.0
             readonly property real realValue: value / factor
 
-            from : 0
-            to : 1.0 * factor
+            from: 0
+            to: 1.0 * factor
             stepSize: 1
             value: element.sdrGamutWideness * factor
             validator: DoubleValidator {
