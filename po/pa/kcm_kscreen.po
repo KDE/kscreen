@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:38+0000\n"
 "PO-Revision-Date: 2024-01-03 14:34-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -463,7 +463,7 @@ msgstr "90° ਖੱਬੇ ਦਾਅ"
 msgid "No Rotation"
 msgstr "ਘੁੰਮਾਉਣਾ ਨਹੀਂ"
 
-#: ui/ScreenView.qml:48
+#: ui/ScreenView.qml:50
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ਸਕਰੀਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦੇਣ ਲਈ ਉਹਨਾਂ ਨੂੰ ਖਿੱਚੋ"

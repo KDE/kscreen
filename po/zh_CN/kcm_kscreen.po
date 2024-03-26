@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:39+0000\n"
-"PO-Revision-Date: 2024-03-24 18:59\n"
+"POT-Creation-Date: 2024-03-26 00:38+0000\n"
+"PO-Revision-Date: 2024-03-25 19:39\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -472,7 +472,7 @@ msgstr "逆时针转 90°"
 msgid "No Rotation"
 msgstr "不旋转"
 
-#: ui/ScreenView.qml:48
+#: ui/ScreenView.qml:50
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:38+0000\n"
 "PO-Revision-Date: 2024-02-27 21:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -493,7 +493,7 @@ msgstr "На 90° против часовой стрелки"
 msgid "No Rotation"
 msgstr "Не поворачивать"
 
-#: ui/ScreenView.qml:48
+#: ui/ScreenView.qml:50
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Перетаскивайте экраны для изменения их расположения"
