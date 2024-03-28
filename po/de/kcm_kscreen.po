@@ -3,14 +3,14 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022, 2023.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
-# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-26 00:38+0000\n"
-"PO-Revision-Date: 2023-12-21 17:20+0100\n"
+"PO-Revision-Date: 2024-03-27 19:50+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -29,13 +29,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr "%1x%2"
+msgstr "%1×%2"
 
 #: output_model.cpp:659
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1×%2 (%3:%4)"
 
 #: output_model.cpp:740
 #, kde-format
@@ -48,12 +48,11 @@ msgid "Replicated by other output"
 msgstr "Von anderer Ausgabe kopiert"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identifizieren"
+msgstr "Bildschirme identifizieren"
 
 #: ui/main.qml:48
 #, kde-format
@@ -227,7 +226,7 @@ msgstr "Skalierung:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:128
 #, kde-format
@@ -261,12 +260,10 @@ msgid "Overscan:"
 msgstr "Overscan:"
 
 #: ui/OutputPanel.qml:178
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:184
 #, kde-kuit-format
