@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2024-01-06 03:31\n"
+"PO-Revision-Date: 2024-03-30 19:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kscreen/kcm_kscreen.pot\n"
-"X-Crowdin-File-ID: 43283\n"
+"X-Crowdin-File: /kf6-stable/messages/kscreen/kcm_kscreen.pot\n"
+"X-Crowdin-File-ID: 51656\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -249,6 +249,8 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"此选项决定了发送到显示器的图像周围的边距大小，用于对画面边缘附近被裁切掉的内"
+"容进行补偿。<nl/><nl/>使用电视机作为屏幕时可能需要此功能。"
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -273,6 +275,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"此选项决定了是否要对输出到显示器的颜色数值范围进行限制。只有在屏幕显示的颜色"
+"纯度、对比度低于应有状态时才应更改此选项。"
 
 #: ui/OutputPanel.qml:212
 #, kde-format
