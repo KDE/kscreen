@@ -8,7 +8,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
-import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigami as Kirigami
 
 Item {
     id: output
@@ -49,7 +49,7 @@ Item {
         anchors.centerIn: parent
         width: parent.width
         height: parent.height
-        radius: Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
 
         gradient: Gradient {
             GradientStop {
@@ -195,7 +195,7 @@ Item {
         x: 4
         width: childrenRect.width + 5
         height: childrenRect.height + 2
-        radius: 4
+        radius: Kirigami.Units.cornerRadius
 
         opacity: model.enabled &&
                  (tapHandler.isLongPressed || dragHandler.active) ? 0.9 : 0.0
