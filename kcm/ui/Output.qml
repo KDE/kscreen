@@ -44,32 +44,12 @@ Item {
         id: outline
 
         readonly property int orientationPanelWidth: 10
-        readonly property real orientationPanelPosition: 1 - (orientationPanelWidth / outline.height)
 
         anchors.centerIn: parent
         width: parent.width
         height: parent.height
         radius: Kirigami.Units.cornerRadius
-
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                color: Kirigami.Theme.alternateBackgroundColor
-            }
-            GradientStop {
-                // Create a hard cut. Can't use the same number otherwise it gets confused.
-                position: outline.orientationPanelPosition - Number.EPSILON
-                color: Kirigami.Theme.alternateBackgroundColor
-            }
-            GradientStop {
-                position: outline.orientationPanelPosition
-                color: outline.border.color
-            }
-            GradientStop {
-                position: 1.0
-                color: outline.border.color
-            }
-        }
+        color: Kirigami.Theme.alternateBackgroundColor
 
         border {
             color: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
@@ -79,6 +59,27 @@ Item {
                 PropertyAnimation {
                     duration: Kirigami.Units.longDuration
                 }
+            }
+        }
+
+        // Task bar at the bottom of the output to give a hint of the orientation.
+        // TODO use a single Rectangle with bottomLeftRadius/bottomRightRadius
+        // once the API in Qt 6.7 has stabilized.
+        Rectangle {
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+            height: outline.orientationPanelWidth
+            radius: outline.radius
+            color: outline.border.color
+
+            // Undo the rounded top corners
+            Rectangle {
+                width: parent.width
+                height: outline.radius
+                color: outline.border.color
             }
         }
     }
