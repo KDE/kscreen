@@ -33,12 +33,12 @@ QList<OsdAction> OsdAction::availableActions()
     };
 }
 
-void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Action action)
+KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Action action)
 {
     const ConfigPtr copy = config->clone();
     const OutputList outputs = copy->connectedOutputs();
     if (outputs.size() != 2) {
-        return;
+        return nullptr;
     }
 
     auto internalIt = std::find_if(outputs.cbegin(), outputs.cend(), [](const auto &output) {
@@ -53,7 +53,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
     });
     switch (action) {
     case KScreen::OsdAction::Action::NoAction:
-        return;
+        return nullptr;
     case KScreen::OsdAction::Action::SwitchToExternal:
         internal->setEnabled(false);
         external->setEnabled(true);
@@ -81,7 +81,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
             }
         }
         if (commonModes.isEmpty()) {
-            return;
+            return nullptr;
         }
         std::sort(commonModes.begin(), commonModes.end(), [](const auto &left, const auto &right) {
             return left->size().width() < right->size().width() && left->size().height() < right->size().height();
@@ -147,7 +147,7 @@ void OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Actio
         break;
     }
     }
-    new KScreen::SetConfigOperation(copy);
+    return new KScreen::SetConfigOperation(copy);
 }
 
 #include "moc_osdaction.cpp"
