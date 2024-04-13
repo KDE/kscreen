@@ -16,5 +16,6 @@ int main(int argc, char **argv)
     LayerShellQt::Shell::useLayerShell();
     QGuiApplication app(argc, argv);
     QGuiApplication::setQuitOnLastWindowClosed(false);
+    QMetaObject::invokeMethod(&osdManager, &KScreen::OsdManager::showActionSelector, Qt::QueuedConnection);
     return app.exec();
 }
