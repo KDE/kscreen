@@ -13,6 +13,7 @@
 #include <KScreen/EDID>
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
+#include <KScreen/SetConfigOperation>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -104,8 +105,12 @@ void OsdManager::showActionSelector()
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
             connect(osd, &Osd::osdActionSelected, this, [this, cfg = op->config()](OsdAction::Action action) {
-                OsdAction::applyAction(cfg, action);
-                hideOsd();
+                auto job = OsdAction::applyAction(cfg, action);
+                if (!job) {
+                    hideOsd();
+                    return;
+                }
+                connect(job, &KScreen::SetConfigOperation::finished, this, &OsdManager::hideOsd);
             });
         }
 

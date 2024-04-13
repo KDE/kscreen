@@ -14,5 +14,7 @@ int main(int argc, char **argv)
 {
     KScreen::OsdManager osdManager;
     LayerShellQt::Shell::useLayerShell();
-    return QGuiApplication(argc, argv).exec();
+    QGuiApplication app(argc, argv);
+    QGuiApplication::setQuitOnLastWindowClosed(false);
+    return app.exec();
 }
