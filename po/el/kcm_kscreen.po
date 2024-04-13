@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:38+0000\n"
+"POT-Creation-Date: 2024-04-13 00:39+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -171,7 +171,7 @@ msgstr "Μόνο σε λειτουργία πινακίου"
 msgid "Manual"
 msgstr "Χειροκίνητα"
 
-#: ui/Output.qml:238
+#: ui/Output.qml:239
 #, kde-format
 msgid "Replicas"
 msgstr "Αντίγραφα"
