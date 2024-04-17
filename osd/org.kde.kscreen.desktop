@@ -56,6 +56,6 @@ Name[ta]=திரையை மாற்றியமை
 Name[tr]=Görüntüyü Değiştir
 Name[zh_CN]=切换显示器
 Name[zh_TW]=切換顯示器
-Exec=dbus-send --type=method_call --dest=org.kde.kscreen.osdService /org/kde/kscreen/osdService org.kde.kscreen.osdService.showActionSelector
+Exec=dbus-send --type=method_call --print-reply --dest=org.kde.kscreen.osdService /org/kde/kscreen/osdService org.kde.kscreen.osdService.showActionSelector
 X-KDE-Shortcuts=Display,Meta+P
 X-KDE-Migrate-Shortcut=kded5,display
