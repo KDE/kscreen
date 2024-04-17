@@ -100,4 +100,9 @@ void Osd::hideOsd()
     }
 }
 
+bool Osd::visible() const
+{
+    return m_osdActionSelector && m_osdActionSelector->isVisible();
+}
+
 #include "moc_osd.cpp"

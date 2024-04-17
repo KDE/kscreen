@@ -13,6 +13,7 @@
 #include <KScreen/EDID>
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
+#include <KScreen/SetConfigOperation>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -40,8 +41,12 @@ OsdManager::OsdManager(QObject *parent)
 
 void OsdManager::hideOsd()
 {
-    // Let QML engine finish execution of signal handlers, if any.
-    QTimer::singleShot(0, this, &OsdManager::quit);
+    for (auto osd : m_osds) {
+        osd->hideOsd();
+    }
+    if (m_pendingConfigOperations.empty()) {
+        quit();
+    }
 }
 
 void OsdManager::quit()
@@ -55,9 +60,19 @@ OsdManager::~OsdManager()
 {
 }
 
+void OsdManager::setConfigOperationFinished(ConfigOperation *operation)
+{
+    if (m_pendingConfigOperations.empty() && std::ranges::none_of(m_osds, &Osd::visible)) {
+        quit();
+    }
+}
+
 void OsdManager::showActionSelector()
 {
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
+    auto getConfigOperation = new KScreen::GetConfigOperation();
+    m_pendingConfigOperations.push_back(getConfigOperation);
+    connect(getConfigOperation, &KScreen::GetConfigOperation::finished, this, [this](const KScreen::ConfigOperation *op) {
+        m_pendingConfigOperations.removeOne(op);
         if (op->hasError()) {
             qWarning() << op->errorString();
             return;
@@ -104,8 +119,12 @@ void OsdManager::showActionSelector()
             osd = new KScreen::Osd(osdOutput, this);
             m_osds.insert(osdOutput->name(), osd);
             connect(osd, &Osd::osdActionSelected, this, [this, cfg = op->config()](OsdAction::Action action) {
-                OsdAction::applyAction(cfg, action);
-                hideOsd();
+                auto configOperation = OsdAction::applyAction(cfg, action);
+                if (configOperation) {
+                    connect(configOperation, &ConfigOperation::finished, this, &OsdManager::setConfigOperationFinished);
+                } else {
+                    quit();
+                }
             });
         }
 

@@ -32,6 +32,9 @@ public Q_SLOTS:
     void showActionSelector();
 
 private:
+    void setConfigOperationFinished(ConfigOperation *operation);
+
+    QList<ConfigOperation *> m_pendingConfigOperations;
     void quit();
     QMap<QString, KScreen::Osd *> m_osds;
     QTimer *m_cleanupTimer;

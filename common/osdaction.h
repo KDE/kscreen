@@ -20,6 +20,7 @@
 namespace KScreen
 {
 class Config;
+class SetConfigOperation;
 
 struct OsdAction {
     Q_GADGET
@@ -42,7 +43,7 @@ public:
     QString iconName;
 
     static QList<OsdAction> availableActions();
-    static void applyAction(const QSharedPointer<KScreen::Config> &config, Action action);
+    static SetConfigOperation *applyAction(const QSharedPointer<KScreen::Config> &config, Action action);
 };
 
 } // namespace KScreen

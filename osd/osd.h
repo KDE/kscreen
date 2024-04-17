@@ -34,6 +34,7 @@ public:
 
     void showActionSelector();
     void hideOsd();
+    bool visible() const;
 
 Q_SIGNALS:
     void osdActionSelected(OsdAction::Action action);
