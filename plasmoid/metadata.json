@@ -94,7 +94,6 @@
         "Description[zh_TW]": "快速切換螢幕佈局以及簡報模式",
         "EnabledByDefault": true,
         "Icon": "preferences-desktop-display-randr",
-        "Id": "org.kde.kscreen",
         "License": "GPL",
         "Name": "Display Configuration",
         "Name[ar]": "ضبط العرض",

@@ -19,6 +19,8 @@
 
 #include <algorithm>
 
+K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "metadata.json")
+
 KScreenApplet::KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : Plasma::Applet(parent, data, args)
 {
@@ -88,8 +90,6 @@ QVariant KScreenApplet::availableActions()
     // Need to wrap it in a QVariant, otherwise QML doesn't like the return type
     return QVariant::fromValue(ret);
 }
-
-K_PLUGIN_CLASS(KScreenApplet)
 
 #include "kscreenapplet.moc"
 
