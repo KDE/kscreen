@@ -5,15 +5,21 @@ set(kscreenapplet_SRCS
     ../common/osdaction.cpp
 )
 
-add_library(org.kde.kscreen MODULE ${kscreenapplet_SRCS})
+plasma_add_applet(org.kde.kscreen
+  QML_SOURCES
+    main.qml
+    InhibitionHint.qml
+    PresentationModeItem.qml
+    ScreenLayoutSelection.qml
+  CPP_SOURCES
+    kscreenapplet.cpp
+    ../common/osdaction.cpp
+)
 
-target_link_libraries(org.kde.kscreen
+target_link_libraries(org.kde.kscreen PRIVATE
                       Qt::Qml
                       Qt::DBus
                       KF6::I18n
                       Plasma::Plasma
-                      KF6::Screen)
-
-install(TARGETS org.kde.kscreen DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/applets)
-
-plasma_install_package(package org.kde.kscreen)
+                      KF6::Screen
+                      )
