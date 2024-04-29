@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-08 02:21+0000\n"
-"PO-Revision-Date: 2024-01-04 17:54+0100\n"
+"PO-Revision-Date: 2024-02-27 21:53+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -193,13 +193,13 @@ msgstr ""
 #: ui/OutputPanel.qml:57
 #, kde-format
 msgid "Resolution:"
-msgstr "Rezolucio:"
+msgstr "Distingivo:"
 
 #: ui/OutputPanel.qml:77
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "&quot;%1&quot; estas la sola rezolucio subtenata de ĉi tiu ekrano."
+msgstr "&quot;%1&quot; estas la sola distingivo subtenata de ĉi tiu ekrano."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -256,6 +256,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Determinas kiom da ŝtopaĵo estas metita ĉirkaŭ la bildo sendita al la ekrano "
+"por kompensi ke parto de la enhavo estas fortranĉita ĉirkaŭ la randoj.<nl/"
+"><nl/>Tio foje necesas kiam oni uzas televidilon kiel ekranon."
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -280,6 +283,8 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Determinas ĉu necesas limigi la gamon de eblaj kolorvaloroj por la ekrano. "
+"Tion oni ŝanĝu nur se la ekrankoloroj aspektas degeneraj."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
