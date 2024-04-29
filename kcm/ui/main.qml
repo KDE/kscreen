@@ -18,13 +18,6 @@ KCM.SimpleKCM {
 
     property int selectedOutput: 0
     property int revertCountdown: 15
-    readonly property int topMargins: Kirigami.Units.smallSpacing
-    readonly property bool anyMessagesShown: invalidConfigMsg.visible
-                                             || errBackendMsg.visible
-                                             || errSaveMsg.visible
-                                             || scaleMsg.visible
-                                             || connectMsg.visible
-                                             || revertMsg.visible
 
     implicitWidth: Kirigami.Units.gridUnit * 32
     implicitHeight: Kirigami.Units.gridUnit * 30
@@ -36,7 +29,7 @@ KCM.SimpleKCM {
         onTriggered: kcm.identifyOutputs()
     }
 
-    topPadding: anyMessagesShown ? topMargins : 0
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
 
@@ -144,31 +137,21 @@ KCM.SimpleKCM {
         }
     }
 
-
-    ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
+    headerPaddingEnabled: false // Let the InlineMessage touch the edges
+    header: ColumnLayout {
+        spacing: 0
 
         Kirigami.InlineMessage {
-            // Note1: There is an implicit height binding loop error on
-            //        first invocation. Seems to be an issue in Kirigami.
-            // Note2: This should maybe go in header component of the KCM,
-            //        but there seems to be another issue in Kirigami then
-            //        being always hidden. Compare Night Color KCM with
-            //        the same issue.
             id: invalidConfigMsg
-
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Error
             showCloseButton: true
-
         }
         Kirigami.InlineMessage {
             id: errBackendMsg
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Error
             text: i18n("No KScreen backend found. Please check your KScreen installation.")
             visible: false
@@ -177,8 +160,7 @@ KCM.SimpleKCM {
         Kirigami.InlineMessage {
             id: errSaveMsg
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Error
             text: i18n("Outputs could not be saved due to error.")
             visible: false
@@ -187,8 +169,7 @@ KCM.SimpleKCM {
         Kirigami.InlineMessage {
             id: scaleMsg
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Information
             text: i18n("Global scale changes will come into effect after the system is restarted.")
             visible: false
@@ -204,8 +185,7 @@ KCM.SimpleKCM {
         Kirigami.InlineMessage {
             id: connectMsg
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Information
             visible: false
             showCloseButton: true
@@ -213,13 +193,16 @@ KCM.SimpleKCM {
         Kirigami.InlineMessage {
             id: revertMsg
             Layout.fillWidth: true
-            Layout.leftMargin: root.topMargins
-            Layout.rightMargin: root.topMargins
+            position: Kirigami.InlineMessage.Position.Header
             type: Kirigami.MessageType.Information
             text: i18n("Display configuration reverted.")
             visible: false
             showCloseButton: true
         }
+    }
+
+    ColumnLayout {
+        spacing: Kirigami.Units.smallSpacing
 
         Kirigami.Dialog {
             id: reorderDialog
@@ -332,15 +315,6 @@ KCM.SimpleKCM {
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             color: Kirigami.Theme.backgroundColor
-
-            Kirigami.Separator {
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    right: parent.right
-                }
-                visible: root.anyMessagesShown
-            }
 
             ScreenView {
                 id: screen
