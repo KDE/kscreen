@@ -43,7 +43,7 @@ KCM.SimpleKCM {
     // This is to fix Output dragging
     flickable.interactive: Kirigami.Settings.hasTransientTouchInput
 
-    Kirigami.OverlaySheet {
+    Kirigami.PromptDialog {
         id: confirmMsg
         title: i18n("Keep display configuration?")
         onVisibleChanged: {
@@ -54,18 +54,12 @@ KCM.SimpleKCM {
             }
         }
         showCloseButton: false
-        ColumnLayout {
-            QQC2.Label {
-                Layout.fillWidth: true
-                Layout.maximumWidth: Math.round(root.width * 0.75)
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
-                text: i18np("Will revert to previous configuration in %1 second.",
-                            "Will revert to previous configuration in %1 seconds.",
-                            revertCountdown);
-                wrapMode: Text.WordWrap
-            }
-        }
+        subtitle: i18np("Will revert to previous configuration in %1 second.",
+                        "Will revert to previous configuration in %1 seconds.",
+                        revertCountdown);
+
+        parent: root.parent?.contentItem ?? root.parent
+
         footer: QQC2.DialogButtonBox {
             id: confirmDialogButtonBox
             QQC2.Button {
