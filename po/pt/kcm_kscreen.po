@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -53,30 +53,30 @@ msgstr "Identificar"
 msgid "Keep display configuration?"
 msgstr "Deseja manter a configuração do ecrã?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Irá reverter à configuração anterior daqui a %1 segundo."
 msgstr[1] "Irá reverter à configuração anterior daqui a %1 segundos."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "&Manter"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverter"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Todos os ecrãs estão desactivados. Active pelo menos um."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -85,61 +85,61 @@ msgstr ""
 "Não são suportados intervalos entre os ecrãs. Certifique-se que todos os "
 "ecrãs estão juntos."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Foi adicionada uma nova saída. Foi recarregada a configuração."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Foi removida uma saída. Foi recarregada a configuração."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Não foi encontrada nenhuma infra-estrutura do KScreen. Verifique por favor a "
 "sua instalação do KScreen."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Não foi possível gravar as saídas devido a um erro."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "As mudanças da escala global farão efeito após reiniciar o sistema."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "A configuração do ecrã foi revertida."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Mudar as Prioridades"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Primária"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "Aumentar a prioridade"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "Diminuir a prioridade"

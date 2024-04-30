@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 08:03+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "Ідентифікація екранів"
 msgid "Keep display configuration?"
 msgstr "Залишити такі налаштування дисплея?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -68,23 +68,23 @@ msgstr[1] "За %1 секунди буде виконано повернення
 msgstr[2] "За %1 секунд буде виконано повернення до попередніх налаштувань."
 msgstr[3] "За секунду буде виконано повернення до попередніх налаштувань."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "За&лишити"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "&Повернути"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Усі дисплеї вимкнено. Увімкніть хоча б один."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -93,62 +93,62 @@ msgstr ""
 "Підтримки прогалин між дисплеями не передбачено. Переконайтеся, що усі "
 "дисплеї розташовано у тісному контакті."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Додано новий канал виведення. Параметри перезавантажено."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Канал виведення вилучено. Параметри перезавантажено."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Не знайдено жодного модуля KScreen. Будь ласка, перевірте, чи належним чином "
 "встановлено KScreen."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Параметри виведення не вдалося зберегти через помилку."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Зміни загального масштабування набудуть чинності після перезапуску системи."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "Перезапустити"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Налаштування дисплея повернуто до попередніх."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Зміна пріоритетів"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Основний"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "Підвищити пріоритет"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "Знизити пріоритет"

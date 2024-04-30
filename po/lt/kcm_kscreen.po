@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
 "PO-Revision-Date: 2024-02-26 14:51+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "Identifikuoti"
 msgid "Keep display configuration?"
 msgstr "Palikti ekrano konfigūraciją?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -68,50 +68,50 @@ msgstr[1] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundžių."
 msgstr[2] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundžių."
 msgstr[3] "Prie ankstesnės konfigūracijos bus sugrąžinta po %1 sekundės."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "&Palikti"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "S&ugrąžinti"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Visi ekranai yra išjungti. Įjunkite bent vieną."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "Tarpai tarp ekranų nėra palaikomi. Įsitikinkite, kad ekranai liečiasi."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Pridėtas naujas išvedimas. Nuostatos įkeltos iš naujo."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Išvedimas pašalintas. Nuostatos įkeltos iš naujo."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Nerasta KScreen vidinė pusė. Patikrinkite savo KScreen diegimą."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Išvedimų nepavyko įrašyti dėl klaidos."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -119,33 +119,33 @@ msgstr ""
 "Visuotinio mastelio pakeitimai įsigalios po to, kai paleisite sistemą iš "
 "naujo."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "Paleisti iš naujo"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Ekrano konfigūracija sugrąžinta."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Keisti pirmenybes"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Pirminis"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "Teikti didesnę pirmenybę"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "Teikti mažesnę pirmenybę"

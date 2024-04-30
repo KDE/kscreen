@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 12:08+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -56,30 +56,30 @@ msgstr "Identifica gli schermi"
 msgid "Keep display configuration?"
 msgstr "Vuoi mantenere la configurazione dello schermo?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "La configurazione precedente sarà ripristinata in %1 secondo."
 msgstr[1] "La configurazione precedente sarà ripristinata in %1 secondi."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantieni"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "&Ripristina"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tutti gli schermi sono disabilitati. Abilitane almeno uno."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -88,61 +88,61 @@ msgstr ""
 "Gli spazi tra gli schermi non sono supportati. Assicurati che tutti gli "
 "schermi si tocchino."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Una nuova uscita è stata aggiunta. Le impostazioni sono state ricaricate."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Un'uscita è stata rimossa. Le impostazioni sono state ricaricate."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Nessun motore di KScreen trovato. Verifica l'installazione di KScreen."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Le uscite non possono essere salvate a causa di un errore."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Le modifiche alla scala globale avranno effetto dopo il riavvio del sistema."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "Riavvia"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configurazione dello schermo ripristinata."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Cambia le priorità"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Principale"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "Aumenta la priorità"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "Riduci la priorità"

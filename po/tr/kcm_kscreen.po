@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
-"PO-Revision-Date: 2024-02-27 12:50+0300\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
+"PO-Revision-Date: 2024-04-30 00:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -58,30 +58,30 @@ msgstr "Ekranları Tanımla"
 msgid "Keep display configuration?"
 msgstr "Görüntü yapılandırması tutulsun mu?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 saniye içinde bir önceki yapılandırmaya geri dönülecek."
 msgstr[1] "%1 saniye içinde bir önceki yapılandırmaya geri dönülecek."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "&Tut"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "&Geri Al"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tüm görüntüler devre dışı. En azından birini etkinleştirin."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -90,61 +90,61 @@ msgstr ""
 "Görüntüler arası boşluk desteklenmiyor. Tüm görüntülerin birbirlerine "
 "dokunduklarından emin olun."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Yeni bir çıktı eklendi. Ayarlar yeniden yüklendi."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Bir çıktı kaldırıldı. Ayarlar yeniden yüklendi."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Bir kscreen arka ucu bulunamadı. Lütfen kscreen kurulumunuzu denetleyin."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Bir hata nedeniyle çıktılar kaydedilemedi."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Global ölçek değişiklikleri, sistem yeniden başlatıldıktan sonra etkili olur."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Görüntü yapılandırması geri alındı."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Öncelikleri Değiştir"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Birincil"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "Önceliği artır"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "Önceliği düşür"
@@ -228,7 +228,7 @@ msgstr "Yenileme hızı:"
 #: ui/OutputPanel.qml:148
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr "Bu görüntü, yalnızca ‘%1’ yenileme hızını destekliyor."
+msgstr "Bu görüntü, yalnızca “%1” yenileme hızını destekliyor."
 
 #: ui/OutputPanel.qml:153
 #, kde-format

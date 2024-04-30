@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:39+0000\n"
+"POT-Creation-Date: 2024-04-30 00:39+0000\n"
 "PO-Revision-Date: 2024-03-08 19:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -56,30 +56,30 @@ msgstr "திரைகளை அடையாளங்காட்டு"
 msgid "Keep display configuration?"
 msgstr "திரைகளின் அமைப்பை வைத்திருக்கலாமா?"
 
-#: ui/main.qml:63
+#: ui/main.qml:57
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "முந்தைய அமைப்பு %1 நொடியில் மீட்டமைக்கப்படும்."
 msgstr[1] "முந்தைய அமைப்பு %1 நொடிகளில் மீட்டமைக்கப்படும்."
 
-#: ui/main.qml:80
+#: ui/main.qml:74
 #, kde-format
 msgid "&Keep"
 msgstr "&வைத்திரு"
 
-#: ui/main.qml:93
+#: ui/main.qml:87
 #, kde-format
 msgid "&Revert"
 msgstr "&மீட்டமை"
 
-#: ui/main.qml:113 ui/main.qml:294
+#: ui/main.qml:107 ui/main.qml:288
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "அனைத்து திரைகளும் முடக்கப்பட்டுள்ளன. ஒன்றையாவது இயக்குங்கள்."
 
-#: ui/main.qml:115 ui/main.qml:296
+#: ui/main.qml:109 ui/main.qml:290
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -87,60 +87,60 @@ msgid ""
 msgstr ""
 "திரைகளுக்கிடையே காலியிடம் இருக்கக்கூடாது. திரைகளை ஒன்றுடன் ஒன்று ஒட்டியவாறு வைக்கவும்."
 
-#: ui/main.qml:127 ui/main.qml:309
+#: ui/main.qml:121 ui/main.qml:303
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "புதிய வெளியீடு சேர்க்கப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: ui/main.qml:129 ui/main.qml:311
+#: ui/main.qml:123 ui/main.qml:305
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "புதிய வெளியீடு கழற்றப்பட்டுள்ளது. அமைப்புகள் மீளேற்றப்பட்டுள்ளன."
 
-#: ui/main.qml:179
+#: ui/main.qml:173
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "கேஸ்கிரீன் பின்நிலை கண்டுபிடிக்கப்படவில்லை. கேஸ்கிரீன் சரியாக நிறுவப்பட்டுள்ளதா என பாருங்கள்."
 
-#: ui/main.qml:189
+#: ui/main.qml:183
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "சிக்கல் ஏற்பட்டதால் வெளியீடுகளை சேமிக்க முடியவில்லை."
 
-#: ui/main.qml:199
+#: ui/main.qml:193
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "கணினியை மீள்துவக்கிய பின் பொது அளவுமாற்ற அமைப்புகள் செயல்படும்."
 
-#: ui/main.qml:205
+#: ui/main.qml:199
 #, kde-format
 msgid "Restart"
 msgstr "மீள்துவக்கு"
 
-#: ui/main.qml:225
+#: ui/main.qml:219
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "திரைகளின் அமைப்பு மீட்டமைக்கப்பட்டுள்ளது."
 
-#: ui/main.qml:233
+#: ui/main.qml:227
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "முன்னிலையை மாற்று"
 
-#: ui/main.qml:262 ui/OutputPanel.qml:46
+#: ui/main.qml:256 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "முதன்மையானதாக்கு"
 
-#: ui/main.qml:267
+#: ui/main.qml:261
 #, kde-format
 msgid "Raise priority"
 msgstr "முன்னிலையை கூட்டு"
 
-#: ui/main.qml:277
+#: ui/main.qml:271
 #, kde-format
 msgid "Lower priority"
 msgstr "முன்னிலையை குறை"
