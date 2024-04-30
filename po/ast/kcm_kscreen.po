@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-08 02:21+0000\n"
+"POT-Creation-Date: 2024-04-30 02:27+0000\n"
 "PO-Revision-Date: 2023-12-12 00:59+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Manual"
 msgstr ""
 
-#: ui/Output.qml:238
+#: ui/Output.qml:239
 #, kde-format
 msgid "Replicas"
 msgstr ""

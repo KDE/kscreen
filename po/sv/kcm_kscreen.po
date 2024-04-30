@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-08 02:21+0000\n"
+"POT-Creation-Date: 2024-04-30 02:27+0000\n"
 "PO-Revision-Date: 2022-09-24 16:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -162,7 +162,7 @@ msgstr "Bara som surfplatta"
 msgid "Manual"
 msgstr "Manuell"
 
-#: ui/Output.qml:238
+#: ui/Output.qml:239
 #, kde-format
 msgid "Replicas"
 msgstr "Kopior"
