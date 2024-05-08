@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-30 00:39+0000\n"
+"POT-Creation-Date: 2024-05-08 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 09:50+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -22,24 +22,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:640
+#: output_model.cpp:647
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:659
+#: output_model.cpp:666
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:740
+#: output_model.cpp:747 ui/OutputPanel.qml:220
 #, kde-format
 msgid "None"
 msgstr "Necun"
 
-#: output_model.cpp:747
+#: output_model.cpp:754
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicate per altere exito"
@@ -297,53 +297,81 @@ msgstr ""
 "colores sur le schermo appare lavate. "
 
 #: ui/OutputPanel.qml:212
-#, kde-format
-msgctxt "@label:textbox"
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Color Profile:"
+msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Profilo de profilo"
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Select ICC Profile"
+msgid "ICC Profile"
+msgstr "Selige Profilo ICC"
+
+#: ui/OutputPanel.qml:222
+#, kde-format
+msgid "Built In"
+msgstr ""
+
+#: ui/OutputPanel.qml:231
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Note that built-in color profiles are sometimes wrong, and often inaccurate. "
+"For optimal color fidelity, calibration using a colorimeter is recommended."
+msgstr ""
+
+#: ui/OutputPanel.qml:235
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "The built-in color profile is always used with HDR."
+msgstr ""
+
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Inserta percurso de profilo ICC ..."
 
-#: ui/OutputPanel.qml:236
+#: ui/OutputPanel.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Selige profilo ICC..."
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:275
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Aperi un file collector per le profilo ICC"
 
-#: ui/OutputPanel.qml:256
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Selige Profilo ICC"
 
-#: ui/OutputPanel.qml:281
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "Profilos ICC non es compatibile ancora con HDR"
 
-#: ui/OutputPanel.qml:286
+#: ui/OutputPanel.qml:314
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "High Dynamic Range (HDR-Alte Extension Dynamic):"
 
-#: ui/OutputPanel.qml:291
+#: ui/OutputPanel.qml:319
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Habilita HDR"
 
-#: ui/OutputPanel.qml:297
+#: ui/OutputPanel.qml:325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -353,37 +381,37 @@ msgstr ""
 "HDR permitte a applicationes compatibile monstrar colores plus brillante e "
 "vivide. Notaque iste characteristica es ancora experimental"
 
-#: ui/OutputPanel.qml:308
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "Brillantia SDR:"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Assignale brillantia de contento non HDR sur le schermo, in nits"
 
-#: ui/OutputPanel.qml:338
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "Intensitate de color SDR:"
 
-#: ui/OutputPanel.qml:364
+#: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:400
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Augmenta le intensitate de contento non HDR sur le schermo"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:405
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica de:"
