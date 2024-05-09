@@ -282,7 +282,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Color Profile:"
-msgstr "色彩特性文件："
+msgstr ""
 
 #: ui/OutputPanel.qml:220
 #, kde-format
