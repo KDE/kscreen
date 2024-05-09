@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:39+0000\n"
-"PO-Revision-Date: 2024-02-27 04:50+0100\n"
+"PO-Revision-Date: 2024-05-08 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -296,24 +296,20 @@ msgstr ""
 "მხოლოდ, მაშინ შეცვალეთ, თუ ეკრანი გარეცხილს წააგავს."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "ფერის პროფილი:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "აირჩიეთ ICC პროფილი"
+msgstr "ICC პროფილი"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built In"
-msgstr ""
+msgstr "ჩაშენებული"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -322,12 +318,14 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"დაიმახსოვრეთ, რომ ჩაშენებული ფერის პროფილები ხანდახან არასწორია, თან ხშირად. "
+"ფერების სისწორისთვის რეკომენდებულია, კალიბრაცია colorimeter-ით გააკეთოთ."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "HDR-სთან ერთად ყოველთვის ჩაშენებული ფერის პროფილი გამოიყენება."
 
 #: ui/OutputPanel.qml:248
 #, kde-format

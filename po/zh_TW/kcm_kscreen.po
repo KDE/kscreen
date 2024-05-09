@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:39+0000\n"
-"PO-Revision-Date: 2024-02-29 02:55+0900\n"
+"PO-Revision-Date: 2024-05-09 07:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -289,24 +289,20 @@ msgstr ""
 "樣的情況下才適合調整這個選項。"
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
-msgstr "顏色設定檔："
+msgstr "色彩描述檔"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "選取 ICC 設定檔"
+msgstr "ICC 描述檔"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built In"
-msgstr ""
+msgstr "內建"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -315,12 +311,14 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"請注意，內建的色彩描述檔也有可能是錯誤的，且經常是不準確的。要確保最好的顏色"
+"品質，建議使用色度計進行測量校正。"
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "使用 HDR 時只會使用內建色彩描述檔。"
 
 #: ui/OutputPanel.qml:248
 #, kde-format

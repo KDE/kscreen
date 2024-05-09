@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:39+0000\n"
-"PO-Revision-Date: 2024-02-27 22:50+0100\n"
+"PO-Revision-Date: 2024-05-08 12:43+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -300,24 +300,20 @@ msgstr ""
 "parecen desgastados."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Perfil de color:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Seleccionar perfil ICC"
+msgstr "Perfil ICC"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built In"
-msgstr ""
+msgstr "Integrado"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -326,12 +322,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Tenga en cuenta que los perfiles de color integrados pueden ser erróneos e "
+"imprecisos. Para una fidelidad de color óptima se recomienda la calibración "
+"mediante un colorímetro."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "El perfil de color integrado siempre se usa con HDR."
 
 #: ui/OutputPanel.qml:248
 #, kde-format

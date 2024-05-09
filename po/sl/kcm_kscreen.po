@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:39+0000\n"
-"PO-Revision-Date: 2024-02-27 07:59+0100\n"
+"PO-Revision-Date: 2024-05-08 07:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -301,24 +301,20 @@ msgstr ""
 "naj bi spremenili le v primeru, ko barve na zaslonu izgledajo izprano."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Barvni profil:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Izbor profila ICC"
+msgstr "Profil ICC"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built In"
-msgstr ""
+msgstr "Vgrajen"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -327,12 +323,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Upoštevajte, da so vgrajeni barvni profili včasih napačni in pogosto "
+"netočni. Za optimalno barvno natančnost priporočamo kalibracijo s "
+"kolorimetrom."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Vgrajeni barvni profil se vedno uporablja s HDR."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
