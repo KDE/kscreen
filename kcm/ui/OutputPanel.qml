@@ -219,7 +219,7 @@ Kirigami.FormLayout {
             model: [
                 { label: i18n("None"), value: KScreen.Output.ColorProfileSource.sRGB },
                 { label: i18n("ICC Profile"), value: KScreen.Output.ColorProfileSource.ICC },
-                { label: i18n("Built In"), value: KScreen.Output.ColorProfileSource.EDID }
+                { label: i18n("Built-In"), value: KScreen.Output.ColorProfileSource.EDID }
             ]
             textRole: "label"
             valueRole: "value"
