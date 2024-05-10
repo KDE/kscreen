@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 10:51+0400\n"
+"PO-Revision-Date: 2024-05-09 09:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -294,24 +294,20 @@ msgstr ""
 "حالة ظهور الألوان في الشاشة باهتة."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "تشكيلة اللون:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "حدد تشكيلة ICC"
+msgstr "تشكيلة ICC"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built In"
-msgstr ""
+msgstr "المُدْمَجة"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -320,12 +316,14 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"لاحظ أن تشكيلات الألوان المدمجة تكون خاطئة في بعض الأحيان، وغالبًا ما تكون "
+"غير دقيقة.للحصول على دقة ألوان مثالية، يوصى بالمعايرة باستخدام مقياس الألوان."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "ستستخدم تشكيلة الألوان المُدمجة دائما مع HDR"
 
 #: ui/OutputPanel.qml:248
 #, kde-format
