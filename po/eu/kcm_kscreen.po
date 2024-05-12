@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-02-28 00:28+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -315,7 +315,7 @@ msgstr "Aukeratu ICC profila"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "Built In"
+msgid "Built-In"
 msgstr ""
 
 #: ui/OutputPanel.qml:231

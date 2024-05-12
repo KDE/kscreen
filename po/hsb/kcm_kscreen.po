@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2021-11-17 13:23+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -298,7 +298,7 @@ msgstr ""
 
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "Built In"
+msgid "Built-In"
 msgstr ""
 
 #: ui/OutputPanel.qml:231

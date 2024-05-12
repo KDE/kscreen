@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 12:53+0200\n"
 "Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -310,7 +310,7 @@ msgstr "Valitse ICC-profiili"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "Built In"
+msgid "Built-In"
 msgstr ""
 
 #: ui/OutputPanel.qml:231

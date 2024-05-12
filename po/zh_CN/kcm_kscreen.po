@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -297,8 +297,9 @@ msgid "ICC Profile"
 msgstr "ICC 特性文件"
 
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "Built In"
+#, fuzzy, kde-format
+#| msgid "Built In"
+msgid "Built-In"
 msgstr "系统内建"
 
 #: ui/OutputPanel.qml:231

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2023-04-22 10:48+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -308,7 +308,7 @@ msgstr ""
 
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "Built In"
+msgid "Built-In"
 msgstr ""
 
 #: ui/OutputPanel.qml:231

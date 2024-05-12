@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-03-27 19:50+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -315,7 +315,7 @@ msgstr "ICC-Profil auswählen"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "Built In"
+msgid "Built-In"
 msgstr ""
 
 #: ui/OutputPanel.qml:231

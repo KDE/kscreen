@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-05-08 09:17+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -303,8 +303,9 @@ msgid "ICC Profile"
 msgstr "פרופיל ICC"
 
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "Built In"
+#, fuzzy, kde-format
+#| msgid "Built In"
+msgid "Built-In"
 msgstr "מובנית"
 
 #: ui/OutputPanel.qml:231
