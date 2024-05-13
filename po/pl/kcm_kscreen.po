@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-30 02:27+0000\n"
-"PO-Revision-Date: 2024-02-24 16:18+0100\n"
+"PO-Revision-Date: 2024-05-12 08:44+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -44,7 +44,7 @@ msgstr "Brak"
 #: output_model.cpp:747
 #, kde-format
 msgid "Replicated by other output"
-msgstr "Powielone przez inne wyjście"
+msgstr "Powielone przez inny wyświetlacz"
 
 #: ui/main.qml:41
 #, kde-format
