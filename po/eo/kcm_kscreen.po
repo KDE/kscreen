@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-09 22:01+0100\n"
+"PO-Revision-Date: 2024-05-12 10:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -305,8 +305,7 @@ msgid "ICC Profile"
 msgstr "ICC-Profilo"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "Built In"
+#, kde-format
 msgid "Built-In"
 msgstr "Enkonstruita"
 

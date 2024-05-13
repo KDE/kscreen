@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-09 19:32+0200\n"
+"PO-Revision-Date: 2024-05-12 12:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -305,8 +305,7 @@ msgid "ICC Profile"
 msgstr "Perfil ICC"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "Built In"
+#, kde-format
 msgid "Built-In"
 msgstr "Incluído"
 

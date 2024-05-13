@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-08 07:38+0200\n"
+"PO-Revision-Date: 2024-05-12 07:59+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -312,8 +312,7 @@ msgid "ICC Profile"
 msgstr "Profil ICC"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "Built In"
+#, kde-format
 msgid "Built-In"
 msgstr "Vgrajen"
 

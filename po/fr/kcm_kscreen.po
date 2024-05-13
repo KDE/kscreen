@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-02-28 09:09+0100\n"
+"PO-Revision-Date: 2024-05-08 18:23+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: fr\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,19 +309,15 @@ msgstr ""
 "ont l'air délavées."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Profil de couleurs :"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Sélectionnez un profil « ICC »"
+msgstr "Profil « ICC »"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
@@ -335,12 +331,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Veuillez noter que les profils de couleurs intégrés sont parfois erronés et "
+"souvent inexacts. Pour une fidélité optimale des couleurs, un étalonnage à "
+"l’aide d’un colorimètre est recommandé."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Le profil intégré de couleurs est toujours utilisé en mode « HDR »."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
