@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-03-06 10:56+0100\n"
+"PO-Revision-Date: 2024-05-13 22:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -296,24 +296,20 @@ msgstr ""
 "изглеждат размити."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Цветен профил:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Избиране на профил ICC"
+msgstr "Профил ICC"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Вграден"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -322,12 +318,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Имайте предвид, че вградените цветови профили понякога са грешни и често са "
+"неточни. За оптимална точност на цветовете се препоръчва калибриране с "
+"помощта на колориметър."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Вграденият профил винаги се използва с HDR."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
