@@ -299,7 +299,7 @@ msgstr "ICC 特性文件"
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "系统内建"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
