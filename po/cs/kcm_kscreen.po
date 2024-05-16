@@ -287,24 +287,20 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
-msgstr "Profil barev:"
+msgstr ""
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Vyberte profil ICC"
+msgstr ""
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Vestavěno"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
