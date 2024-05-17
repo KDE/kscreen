@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-09 09:40+0400\n"
+"PO-Revision-Date: 2024-05-16 11:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -305,8 +305,7 @@ msgid "ICC Profile"
 msgstr "تشكيلة ICC"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "Built In"
+#, kde-format
 msgid "Built-In"
 msgstr "المُدْمَجة"
 
