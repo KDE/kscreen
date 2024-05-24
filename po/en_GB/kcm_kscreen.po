@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2023-04-22 10:48+0100\n"
+"PO-Revision-Date: 2024-05-23 19:48+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -45,12 +45,11 @@ msgid "Replicated by other output"
 msgstr "Replicated by other output"
 
 #: ui/main.qml:33
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identify"
+msgstr "Identify Screens"
 
 #: ui/main.qml:48
 #, kde-format
@@ -248,9 +247,7 @@ msgid "Overscan:"
 msgstr "Overscan:"
 
 #: ui/OutputPanel.qml:178
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -263,12 +260,14 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Determines how much padding is put around the image sent to the display to "
+"compensate for part of the content being cut off around the edges.<nl/><nl/"
+">This is sometimes needed when using a TV as a screen"
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
-msgstr "RGB Range:"
+msgstr "RGB range:"
 
 #: ui/OutputPanel.qml:196
 #, kde-format
@@ -281,11 +280,7 @@ msgid "Limited"
 msgstr "Limited"
 
 #: ui/OutputPanel.qml:207
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -293,23 +288,24 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "Determines whether or not the range of possible colour values needs to be "
-"limited for the display."
+"limited for the display. This should only be changed if the colours on the "
+"screen look washed out."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Colour Profile:"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
 msgid "ICC Profile"
-msgstr ""
+msgstr "ICC Profile"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Built-In"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -318,54 +314,56 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Note that built-in colour profiles are sometimes wrong, and often "
+"inaccurate. For optimal colour fidelity, calibration using a colorimeter is "
+"recommended."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "The built-in colour profile is always used with HDR."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Enter ICC profile path…"
 
 #: ui/OutputPanel.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Select ICC profile…"
 
 #: ui/OutputPanel.qml:275
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Opens a file picker for the ICC profile"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Select ICC Profile"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC profiles aren't compatible with HDR yet"
 
 #: ui/OutputPanel.qml:314
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "High Dynamic Range:"
 
 #: ui/OutputPanel.qml:319
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Enabled"
+msgstr "Enable HDR"
 
 #: ui/OutputPanel.qml:325
 #, kde-format
@@ -374,29 +372,29 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR allows compatible applications to show brighter and more vivid colours. "
+"Note that this feature is still experimental"
 
 #: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "SDR Brightness:"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr ""
+msgstr "Sets the brightness of non-HDR content on the screen, in nits"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "SDR Colour Intensity:"
 
 #: ui/OutputPanel.qml:392
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -405,7 +403,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Increases the intensity of non-HDR content on the screen"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -423,10 +421,9 @@ msgid "Global scale:"
 msgstr "Global scale:"
 
 #: ui/Panel.qml:135 ui/Panel.qml:155
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
-msgstr "Legacy Applications (X11):"
+msgstr "Legacy applications (X11):"
 
 #: ui/Panel.qml:140
 #, kde-format
@@ -459,18 +456,17 @@ msgstr ""
 "however they will always look slightly blurry."
 
 #: ui/Panel.qml:166
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Screen Scaling"
+msgstr "Screen tearing:"
 
 #: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Allow in fullscreen windows"
 
 #: ui/Panel.qml:174
 #, kde-format
@@ -479,6 +475,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Screen tearing reduces latency with most displays. Note that not all "
+"graphics drivers support this setting."
 
 #: ui/Panel.qml:188
 #, kde-format
