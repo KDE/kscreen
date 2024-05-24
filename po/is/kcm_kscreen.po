@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2023 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-30 02:27+0000\n"
-"PO-Revision-Date: 2023-12-02 21:19+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-05-12 21:13+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -240,9 +240,7 @@ msgid "Overscan:"
 msgstr "Yfirskönnun:"
 
 #: ui/OutputPanel.qml:178
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -255,6 +253,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Skilgreinir hversu mikil fylling er umhverfis myndina sem send er á skjáinn "
+"til að vinna upp á móti þeim hluta efnisins sem skorinn er af við brúnirnar."
+"<nl/><nl/>Þetta er stundum nauðsynlegt þegar sjónvarp er notað sem skjár"
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -279,6 +280,9 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Skilgreinir hvort takmarka þurfi svið mögulegra litagilda fyrir skjáinn eða "
+"ekki. Þessu ætti einungis að breyta ef litirnir á skjánum virðast daufir og "
+"ógreinilegir."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
