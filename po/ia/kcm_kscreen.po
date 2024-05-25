@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-05-13 12:02+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -44,42 +44,42 @@ msgstr "Necun"
 msgid "Replicated by other output"
 msgstr "Replicate per altere exito"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Identifica schermos"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Mantener Configuration  de monstrator?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Retornara aprevie configuration in %1 secunda."
 msgstr[1] "Retornera a previe configuration in %1 secundas."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantene"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverte"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Omne monstratores es dishabilitate. Habilita al minus un."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -88,29 +88,29 @@ msgstr ""
 "Brechas (i.e. gaps) inter monstratores non es supportate. Tu assecura te que "
 "omnes monstratores es toccante."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Un nove exito ha essite addite. Preferentias debe esser recargate."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Un nove exito ha essite removite. Preferentias debe esser recargate."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Nulle retroadministration de KScreen trovate, verifica tu installation de "
 "KScreen."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Exitos nonn poterea esser salveguardate debite al error."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -118,33 +118,33 @@ msgstr ""
 "Modificationes de Scala global  habera effecto post que le systema ha "
 "restartate."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "Re-Initia"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configuration  de monstrator revertite."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Cambia prioritates"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Primari"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "Altia prioritate"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "Bassa prioritate"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr "없음"
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, fuzzy, kde-format
 #| msgid "Identify"
 msgctxt ""
@@ -52,34 +52,34 @@ msgctxt ""
 msgid "Identify Screens"
 msgstr "식별"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "디스플레이 설정을 유지하시겠습니까?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1초 후 기존 설정으로 되돌립니다."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "유지(&K)"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "되돌리기(&R)"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "모든 디스플레이가 비활성화되어 있습니다. 최소한 하나를 활성화하십시오."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -88,59 +88,59 @@ msgstr ""
 "디스플레이간 간격은 지원하지 않습니다. 모든 디스플레이가 맞닿아 있는지 확인하"
 "십시오."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "새 출력이 추가되었습니다. 설정을 다시 불러왔습니다."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "출력이 삭제되었습니다. 설정을 다시 불러왔습니다."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen 백엔드를 찾을 수 없습니다. 설치 상태를 확인하십시오."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "출력을 저장할 수 없습니다."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "전역 비율 조정 변경 사항은 시스템을 다시 시작한 후 적용됩니다."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "디스플레이 설정을 되돌렸습니다."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "우선 순위 변경"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "주 화면"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "우선 순위 증가"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "우선 순위 감소"

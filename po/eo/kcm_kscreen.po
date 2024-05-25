@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-05-12 10:35+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -45,42 +45,42 @@ msgstr "Neniu"
 msgid "Replicated by other output"
 msgstr "Replikita per alia eligo"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Identigi Ekranojn"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Ĉu konservi ekranan agordon?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Reiros al antaŭa agordo post %1 sekundo."
 msgstr[1] "Reiros al antaŭa agordo post %1 sekundoj."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "&Konservi"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "&Reverti"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Ĉiuj ekranoj estas malŝaltitaj. Ebligu almenaŭ unu."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -89,61 +89,61 @@ msgstr ""
 "Interspacoj inter ekranoj ne estas subtenataj. Certigu, ke ĉiuj ekranoj "
 "tuŝas."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Nova eligo estis aldonita. Agordoj estis reŝargitaj."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Eligo estis forigita. Agordoj estis reŝargitaj."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Neniu backend de KSscreen trovita. Bonvolu kontroli vian instaladon de "
 "KScreen."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Eligoj ne povis esti konservitaj pro eraro."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "Ĉieaj skalŝanĝoj efektiviĝos post la rekomenco de la sistemo."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "Rekomenci"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Agordo de ekrano revenis."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Ŝanĝi Prioritatojn"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Primaraj"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "Altigi prioritaton"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "Pli malalta prioritato"

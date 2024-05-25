@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -44,100 +44,100 @@ msgstr "无"
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "标识屏幕"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "保留显示器配置吗？"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "将在 %1 秒后还原到之前的配置。"
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "保留(&K)"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "还原(&R)"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有显示器均已被禁用。请至少启用一个显示器。"
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支持显示器之间的空隙。请确保所有显示器均相邻紧贴放置。"
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已添加新输出设备。设置已重新加载。"
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除输出设备。设置已重新加载。"
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "没有找到 KScreen 后端。请检查您的 KScreen 安装。"
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "由于错误，输出配置无法保存。"
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "全局缩放的更改将在系统重新启动后生效。"
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "重新启动"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "显示器配置已恢复。"
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "更改优先级"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "主要"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "提升优先级"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "降低优先级"

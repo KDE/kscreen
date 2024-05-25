@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-02-27 12:53+0200\n"
 "Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -45,42 +45,42 @@ msgstr "Ei mitään"
 msgid "Replicated by other output"
 msgstr "Toinen näyttö monistaa"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Tunnista näytöt"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Hyväksytäänkö näyttöasetukset?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Edellinen asetus palautetaan %1 sekunnissa."
 msgstr[1] "Edellinen asetus palautetaan %1 sekunnissa."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "&Hyväksy"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "P&alauta"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Kaikki näytöt on poistettu käytöstä. Ota vähintään yksi käyttöön."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -89,27 +89,27 @@ msgstr ""
 "Näyttöjen välisiä aukkoja ei tueta. Varmista, että näytöt koskettavat "
 "toisiaan."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Uusi ulostulo on lisätty. Asetukset on virkistetty."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Ulostulo on poistettu. Asetukset on virkistetty."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Kscreen-taustajärjestelmää ei löydy. Tarkista sen asennus."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Ulostuloja ei virheen takia voitu tallentaa."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -117,33 +117,33 @@ msgstr ""
 "Yleismittakaavan muutokset tulevat voimaan järjestelmän "
 "uudelleenkäynnistyksen jälkeen."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "Käynnistä uudelleen"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Näyttöasetus palautettu."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Muuta etusijaisuuksia"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Päänäyttö"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "Nosta etusijaisuutta"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "Laske etusijaisuutta"

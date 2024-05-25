@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-03-24 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -45,7 +45,7 @@ msgstr "Žiadne"
 msgid "Replicated by other output"
 msgstr "Replikované iným výstupom"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, fuzzy, kde-format
 #| msgid "Identify"
 msgctxt ""
@@ -53,12 +53,12 @@ msgctxt ""
 msgid "Identify Screens"
 msgstr "Identifikovať"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Ponechať nastavenia obrazovky?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -66,23 +66,23 @@ msgstr[0] "Vráti predchádzajúcu konfiguráciu za %1 sekundu."
 msgstr[1] "Vráti predchádzajúcu konfiguráciu za %1 sekundy."
 msgstr[2] "Vráti predchádzajúcu konfiguráciu za %1 sekúnd."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "Ponechať"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "Vrátiť"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Všetky displeje sú vypnuté. Povoľte aspoň jeden."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -91,61 +91,61 @@ msgstr ""
 "Medzery medzi zobrazeniami nie sú podporované. Uistite sa, že sa všetky "
 "displeje dotýkajú."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Bol pridaný nový výstup. Nastavenia sa znova načítali."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Výstup bol odstránený. Nastavenia sa znova načítali."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Nenašiel sa žiadny backend KScreen. Prosím, skontrolujte vašu inštaláciu "
 "KScreen."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Výstupy nebolo možné uložiť kvôli chybe."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "Globálne zmeny mierky sa prejavia po reštarte systému."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "Reštart"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Nastavenie obrazovky bolo vrátené."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Zmena priorít"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Primárna"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "Zvýšiť prioritu"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "Znížiť prioritu"

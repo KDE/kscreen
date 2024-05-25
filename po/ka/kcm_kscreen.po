@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:40+0000\n"
 "PO-Revision-Date: 2024-05-12 03:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -45,42 +45,42 @@ msgstr "არაფერი"
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
 
-#: ui/main.qml:33
+#: ui/main.qml:26
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "ეკრანების იდენტიფიკაცია"
 
-#: ui/main.qml:48
+#: ui/main.qml:41
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "დაიტოვებთ ამ პარამეტრებს?"
 
-#: ui/main.qml:57
+#: ui/main.qml:50
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 msgstr[1] "წინა კონფიგურაცია %1 წამში დაბრუნდება."
 
-#: ui/main.qml:74
+#: ui/main.qml:67
 #, kde-format
 msgid "&Keep"
 msgstr "&შენარჩუნება"
 
-#: ui/main.qml:87
+#: ui/main.qml:80
 #, kde-format
 msgid "&Revert"
 msgstr "&დაბრუნება"
 
-#: ui/main.qml:107 ui/main.qml:288
+#: ui/main.qml:100 ui/main.qml:271
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "ყველა ეკრანი გამორთულია. საჭიროა ერთი მაინც ჩართოთ."
 
-#: ui/main.qml:109 ui/main.qml:290
+#: ui/main.qml:102 ui/main.qml:273
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -88,27 +88,27 @@ msgid ""
 msgstr ""
 "ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
-#: ui/main.qml:121 ui/main.qml:303
+#: ui/main.qml:114 ui/main.qml:286
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ახალი გამოტანა დამატებულია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:123 ui/main.qml:305
+#: ui/main.qml:116 ui/main.qml:288
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "გამოტანილი წაშლილია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:173
+#: ui/main.qml:156
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen-ის უკანაბოლოები ვერ ვიპოვე. შეამოწმეთ KScreen-ს ფაილები."
 
-#: ui/main.qml:183
+#: ui/main.qml:165
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
-#: ui/main.qml:193
+#: ui/main.qml:174
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -116,33 +116,33 @@ msgstr ""
 "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
 "სისტემის გადატვირთვის შემდეგ შევა."
 
-#: ui/main.qml:199
+#: ui/main.qml:180
 #, kde-format
 msgid "Restart"
 msgstr "რესტარტ"
 
-#: ui/main.qml:219
+#: ui/main.qml:198
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ეკრანის კონფიგურაცია დაბრუნებულია."
 
-#: ui/main.qml:227
+#: ui/main.qml:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "პრიორიტეტების შეცვლა"
 
-#: ui/main.qml:256 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "ძირითადი"
 
-#: ui/main.qml:261
+#: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
 msgstr "პრიორიტეტის გაზრდა"
 
-#: ui/main.qml:271
+#: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
 msgstr "პრიორიტეტის შემცირება"
