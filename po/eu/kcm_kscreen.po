@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-02-28 00:28+0100\n"
+"PO-Revision-Date: 2024-05-27 17:23+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -299,24 +299,20 @@ msgstr ""
 "beharko litzateke."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Kolore-profila:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Aukeratu ICC profila"
+msgstr "ICC profila"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Barneratua"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -325,12 +321,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Ohar zaitez barneratutako kolore-profilak batzuetan oker daudela, eta maiz, "
+"ez direla zehatzak. Kolore fideltasun optimorako, kolorimetro bat erabiliz "
+"kalibratzea gomendatzen da."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Barneratutako kolore-profila beti erabiltzen da HDRrekin."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
