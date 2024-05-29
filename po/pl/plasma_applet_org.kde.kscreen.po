@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.12.1\n"
 
 #: package/contents/ui/main.qml:25
 #, kde-format
@@ -42,8 +41,7 @@ msgstr "Tryb prezentacji włączony przez użytkownika"
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
-msgstr ""
-"Będzie to przeciwdziałać samoczynnemu wyłączeniu się komputera i ekranu."
+msgstr "Po zaznaczeniu twój ekran i komputer nie będą się same wyłączać."
 
 #: package/contents/ui/PresentationModeItem.qml:72
 #, kde-format
