@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-05-13 22:48+0200\n"
+"PO-Revision-Date: 2024-05-30 19:17+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -265,7 +265,7 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
 "Определя колко отстояние се поставя около изображението, за да се компенсира "
-"част от съдържанието, което се отрязва около краищата. <nl/> <nl/> Това "
+"част от съдържанието, което се отрязва около краищата. <nl/><nl/> Това "
 "понякога е необходимо при използване на телевизор като екран"
 
 #: ui/OutputPanel.qml:189
