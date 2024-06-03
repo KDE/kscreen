@@ -23,9 +23,6 @@ ColumnLayout {
         text: i18n("Enable Presentation Mode")
 
         onCheckedChanged: {
-            if (checked === root.presentationModeEnabled) {
-                return;
-            }
 
             // disable Switch while job is running
             presentationModeSwitch.enabled = false;
