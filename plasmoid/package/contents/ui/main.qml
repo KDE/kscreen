@@ -21,15 +21,10 @@ import org.kde.private.kscreen as KScreen
 PlasmoidItem {
     id: root
 
-    // Only show if the user enabled presentation mode
-    Plasmoid.status: presentationModeEnabled ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
-    toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
+    Plasmoid.status: PlasmaCore.Types.PassiveStatus
 
     readonly property string kcmName: "kcm_kscreen"
     readonly property bool kcmAllowed: KConfig.KAuthorized.authorizeControlModule("kcm_kscreen")
-
-    readonly property bool presentationModeEnabled: presentationModeCookie > 0
-    property int presentationModeCookie: -1
 
     P5Support.DataSource {
         id: pmSource
