@@ -13,13 +13,15 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
 
 ColumnLayout {
+    id: root
+
     spacing: Kirigami.Units.smallSpacing
 
     PlasmaComponents3.Switch {
         id: presentationModeSwitch
         Layout.fillWidth: true
         // Remove spacing between checkbox and the explanatory label below
-        Layout.bottomMargin: -parent.spacing
+        Layout.bottomMargin: -root.spacing
         text: i18n("Enable Presentation Mode")
 
         onToggled: {

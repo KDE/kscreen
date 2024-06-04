@@ -61,8 +61,11 @@ ColumnLayout {
             model: root.screenLayouts
 
             PlasmaComponents3.Button {
+                id: screenLayoutDelegate
+
                 width: screenLayoutRow.buttonSize
-                height: width
+                height: screenLayoutRow.buttonSize
+
                 onClicked: Plasmoid.applyLayoutPreset(modelData.action)
 
                 Accessible.name: modelData.label
@@ -75,7 +78,7 @@ ColumnLayout {
                     // FIXME use proper FrameSvg margins and stuff
                     height: parent.height - Kirigami.Units.smallSpacing
                     source: modelData.iconName
-                    active: parent.hovered
+                    active: screenLayoutDelegate.hovered
                 }
             }
         }

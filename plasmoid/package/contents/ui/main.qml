@@ -66,9 +66,10 @@ PlasmoidItem {
         id: configureAction
         text: i18n("Configure Display Settings…")
         icon.name: "preferences-desktop-display"
-        visible: kcmAllowed
-        onTriggered: KCMUtils.KCMLauncher.openSystemSettings(kcmName)
+        visible: root.kcmAllowed
+        onTriggered: KCMUtils.KCMLauncher.openSystemSettings(root.kcmName)
     }
+
     Component.onCompleted: {
         Plasmoid.setInternalAction("configure", configureAction);
     }
