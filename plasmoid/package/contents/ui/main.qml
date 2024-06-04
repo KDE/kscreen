@@ -29,8 +29,6 @@ PlasmoidItem {
     readonly property bool presentationModeEnabled: presentationModeCookie > 0
     property int presentationModeCookie: -1
 
-    readonly property bool isLaptop: (pmSource.data["PowerDevil"] && pmSource.data["PowerDevil"]["Is Lid Present"]) ? true : false
-
     P5Support.DataSource {
         id: pmSource
         engine: "powermanagement"
