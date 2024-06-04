@@ -7,6 +7,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Templates as T
 
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents3
@@ -66,20 +67,16 @@ ColumnLayout {
                 width: screenLayoutRow.buttonSize
                 height: screenLayoutRow.buttonSize
 
+                display: T.Button.IconOnly
+                icon.name: modelData.iconName
+                icon.width: availableWidth
+                icon.height: availableHeight
+                text: modelData.label
+
                 onClicked: Plasmoid.applyLayoutPreset(modelData.action)
 
-                Accessible.name: modelData.label
-                PlasmaComponents3.ToolTip { text: modelData.label }
-
-                // HACK otherwise the icon won't expand to full button size
-                Kirigami.Icon {
-                    anchors.centerIn: parent
-                    width: height
-                    // FIXME use proper FrameSvg margins and stuff
-                    height: parent.height - Kirigami.Units.smallSpacing
-                    source: modelData.iconName
-                    active: screenLayoutDelegate.hovered
-                }
+                Accessible.name: text
+                PlasmaComponents3.ToolTip { text: screenLayoutDelegate.text }
             }
         }
     }
