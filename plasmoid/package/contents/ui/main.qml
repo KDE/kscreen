@@ -8,14 +8,13 @@
 import QtQuick
 import QtQuick.Layouts
 
-import org.kde.plasma.plasmoid
-import org.kde.plasma.core as PlasmaCore
+import org.kde.config as KConfig
+import org.kde.kcmutils as KCMUtils
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasma5support as P5Support
-import org.kde.kquickcontrolsaddons
-import org.kde.config as KConfig  // KAuthorized.authorizeControlModule
-import org.kde.kcmutils // KCMLauncher
-import org.kde.private.kscreen
+import org.kde.plasma.plasmoid
+import org.kde.private.kscreen as KScreen
 
 PlasmoidItem {
     id: root
@@ -68,7 +67,7 @@ PlasmoidItem {
         text: i18n("Configure Display Settings…")
         icon.name: "preferences-desktop-display"
         visible: kcmAllowed
-        onTriggered: KCMLauncher.openSystemSettings(kcmName)
+        onTriggered: KCMUtils.KCMLauncher.openSystemSettings(kcmName)
     }
     Component.onCompleted: {
         Plasmoid.setInternalAction("configure", configureAction);
@@ -81,7 +80,7 @@ PlasmoidItem {
         ScreenLayoutSelection {
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: Plasmoid.availableActions().filter(action => action.action !== OsdAction.NoAction)
+            screenLayouts: Plasmoid.availableActions().filter(action => action.action !== KScreen.OsdAction.NoAction)
         }
 
         PresentationModeItem {
