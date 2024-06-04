@@ -5,6 +5,8 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Templates as T
@@ -63,6 +65,8 @@ ColumnLayout {
 
             PlasmaComponents3.Button {
                 id: screenLayoutDelegate
+
+                required property /*KScreen.OsdAction*/var modelData
 
                 width: screenLayoutRow.buttonSize
                 height: screenLayoutRow.buttonSize
