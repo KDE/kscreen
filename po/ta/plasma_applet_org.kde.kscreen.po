@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-04 00:40+0000\n"
 "PO-Revision-Date: 2022-05-24 21:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -32,18 +32,18 @@ msgstr "திரை குறித்த அமைப்புகளை மா
 msgid "Enable Presentation Mode"
 msgstr "வில்லைக்காட்சி பயன்முறையை இயக்கு"
 
-#: package/contents/ui/PresentationModeItem.qml:37
+#: package/contents/ui/PresentationModeItem.qml:34
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "வில்லைக்காட்சி பயன்முறையை பயனர் இயக்கினார்"
 
-#: package/contents/ui/PresentationModeItem.qml:58
+#: package/contents/ui/PresentationModeItem.qml:55
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "உங்கள் திரையோ கணினியோ தானாக முடங்குவதை இது தடுக்கும்."
 
-#: package/contents/ui/PresentationModeItem.qml:72
+#: package/contents/ui/PresentationModeItem.qml:69
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -53,13 +53,13 @@ msgstr[0] ""
 msgstr[1] ""
 "%2 என்பதும் இன்னும் %1 செயலிகளும் வில்லைக்காட்சி பயன்முறையை காட்டாயப்படுத்துகின்றன."
 
-#: package/contents/ui/PresentationModeItem.qml:78
+#: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 வில்லைக்காட்சி பயன்முறையை கட்டாயப்படுத்துகிறது."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: package/contents/ui/PresentationModeItem.qml:78
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
