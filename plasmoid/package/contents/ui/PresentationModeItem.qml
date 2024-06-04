@@ -22,8 +22,7 @@ ColumnLayout {
         Layout.bottomMargin: -parent.spacing
         text: i18n("Enable Presentation Mode")
 
-        onCheckedChanged: {
-
+        onToggled: {
             // disable Switch while job is running
             presentationModeSwitch.enabled = false;
 
