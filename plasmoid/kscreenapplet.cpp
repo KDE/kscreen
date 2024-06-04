@@ -80,8 +80,16 @@ void KScreenApplet::checkOutputs()
 
 QVariant KScreenApplet::availableActions()
 {
+    auto actions = KScreen::OsdAction::availableActions();
+    QList<KScreen::OsdAction> ret;
+    ret.reserve(actions.size() - 1);
+    for (const auto &action : actions) {
+        if (action.action != KScreen::OsdAction::NoAction) {
+            ret.append(action);
+        }
+    }
     // Need to wrap it in a QVariant, otherwise QML doesn't like the return type
-    return QVariant::fromValue(KScreen::OsdAction::availableActions());
+    return QVariant::fromValue(ret);
 }
 
 K_PLUGIN_CLASS(KScreenApplet)

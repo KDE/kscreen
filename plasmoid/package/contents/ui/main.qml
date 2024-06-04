@@ -81,7 +81,7 @@ PlasmoidItem {
         ScreenLayoutSelection {
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: Plasmoid.availableActions().filter(action => action.action !== KScreen.OsdAction.NoAction)
+            screenLayouts: Plasmoid.availableActions
         }
 
         PresentationModeItem {

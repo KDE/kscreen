@@ -21,6 +21,7 @@ class KScreenApplet : public Plasma::Applet
      * The number of currently connected (not necessarily enabled) outputs
      */
     Q_PROPERTY(int connectedOutputCount READ connectedOutputCount NOTIFY connectedOutputCountChanged FINAL)
+    Q_PROPERTY(QVariant availableActions READ availableActions CONSTANT STORED false FINAL)
 
 public:
     explicit KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
@@ -32,7 +33,7 @@ public:
 
     Q_INVOKABLE void applyLayoutPreset(KScreen::OsdAction::Action action);
 
-    Q_INVOKABLE QVariant availableActions();
+    static QVariant availableActions();
 
 Q_SIGNALS:
     void connectedOutputCountChanged();
