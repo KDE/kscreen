@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-04 02:24+0000\n"
 "PO-Revision-Date: 2021-11-13 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -32,18 +32,18 @@ msgstr "Ustawienia wyświetlacza..."
 msgid "Enable Presentation Mode"
 msgstr "Włącz tryb prezentacji"
 
-#: package/contents/ui/PresentationModeItem.qml:37
+#: package/contents/ui/PresentationModeItem.qml:34
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "Tryb prezentacji włączony przez użytkownika"
 
-#: package/contents/ui/PresentationModeItem.qml:58
+#: package/contents/ui/PresentationModeItem.qml:55
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "Po zaznaczeniu twój ekran i komputer nie będą się same wyłączać."
 
-#: package/contents/ui/PresentationModeItem.qml:72
+#: package/contents/ui/PresentationModeItem.qml:69
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -52,13 +52,13 @@ msgstr[0] "%2 i %1 inna aplikacja wymusza tryb prezentacji."
 msgstr[1] "%2 i %1 inne aplikacje wymuszają tryb prezentacji."
 msgstr[2] "%2 i %1 innych aplikacji wymusza tryb prezentacji."
 
-#: package/contents/ui/PresentationModeItem.qml:78
+#: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 wymusza tryb prezentacji."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: package/contents/ui/PresentationModeItem.qml:78
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"

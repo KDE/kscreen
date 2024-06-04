@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-04 02:24+0000\n"
 "PO-Revision-Date: 2022-01-01 15:24+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -32,19 +32,19 @@ msgstr "Configure Display Settings…"
 msgid "Enable Presentation Mode"
 msgstr "Enable Presentation Mode"
 
-#: package/contents/ui/PresentationModeItem.qml:37
+#: package/contents/ui/PresentationModeItem.qml:34
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "User enabled presentation mode"
 
-#: package/contents/ui/PresentationModeItem.qml:58
+#: package/contents/ui/PresentationModeItem.qml:55
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr ""
 "This will prevent your screen and computer from turning off automatically."
 
-#: package/contents/ui/PresentationModeItem.qml:72
+#: package/contents/ui/PresentationModeItem.qml:69
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -52,13 +52,13 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "%2 and %1 other application are enforcing presentation mode."
 msgstr[1] "%2 and %1 other applications are enforcing presentation mode."
 
-#: package/contents/ui/PresentationModeItem.qml:78
+#: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 is enforcing presentation mode."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: package/contents/ui/PresentationModeItem.qml:78
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
