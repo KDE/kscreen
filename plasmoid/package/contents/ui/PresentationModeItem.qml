@@ -24,7 +24,7 @@ ColumnLayout {
 
         onToggled: {
             // disable Switch while job is running
-            presentationModeSwitch.enabled = false;
+            enabled = false;
 
             const service = pmSource.serviceForSource("PowerDevil");
 
@@ -34,14 +34,14 @@ ColumnLayout {
 
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
-                    presentationModeSwitch.enabled = true;
+                    enabled = true;
                 });
             } else {
                 const op = service.operationDescription("stopSuppressingScreenPowerManagement");
 
                 const job = service.startOperationCall(op);
                 job.finished.connect(job => {
-                    presentationModeSwitch.enabled = true;
+                    enabled = true;
                 });
             }
         }
