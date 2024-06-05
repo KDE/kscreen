@@ -1,14 +1,13 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 02:55+0000\n"
-"PO-Revision-Date: 2021-06-28 16:06+0400\n"
+"PO-Revision-Date: 2024-04-01 08:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.07.70\n"
 
 #: osdaction.cpp:22
 #, kde-format
@@ -52,7 +50,7 @@ msgstr "اتركه بدون تغيير"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "الشاشة المُدْمَجة"
 
 #~ msgid "Switch Display"
 #~ msgstr "بدّل العرض"
