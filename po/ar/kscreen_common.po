@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.1\n"
 
 #: osdaction.cpp:27
 #, kde-format
@@ -26,7 +25,7 @@ msgstr "بدّل إلى شاشة خارجية"
 #: osdaction.cpp:28
 #, kde-format
 msgid "Switch to laptop screen"
-msgstr "بدّل إلى شاشة  حاسوب محمول"
+msgstr "بدّل إلى شاشة محمول"
 
 #: osdaction.cpp:29
 #, kde-format
