@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2013, 2016, 2018.
+# SPDX-FileCopyrightText: 2013, 2016, 2018, 2024 Stefan Asserhäll <stefan.asserhall@bredband.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-28 01:40+0000\n"
-"PO-Revision-Date: 2018-04-13 23:00+0100\n"
+"PO-Revision-Date: 2024-06-08 20:32+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: osdaction.cpp:27
 #, kde-format
@@ -50,7 +50,7 @@ msgstr "Lämna orört"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Inbyggd bildskärm"
 
 #~ msgid "Switch Display"
 #~ msgstr "Byt bildskärm"
