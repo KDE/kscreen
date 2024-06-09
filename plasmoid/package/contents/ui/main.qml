@@ -32,37 +32,6 @@ PlasmoidItem {
 
     readonly property bool isLaptop: (pmSource.data["PowerDevil"] && pmSource.data["PowerDevil"]["Is Lid Present"]) ? true : false
 
-    P5Support.DataSource {
-        id: pmSource
-        engine: "powermanagement"
-        connectedSources: ["PowerDevil", "Inhibitions"]
-
-        onSourceAdded: source => {
-            disconnectSource(source);
-            connectSource(source);
-        }
-        onSourceRemoved: source => {
-            disconnectSource(source);
-        }
-
-        readonly property var inhibitions: {
-            var inhibitions = [];
-
-            var data = pmSource.data.Inhibitions;
-            if (data) {
-                for (var key in data) {
-                    if (key === "plasmashell" || key === "plasmoidviewer") { // ignore our own inhibition
-                        continue;
-                    }
-
-                    inhibitions.push(data[key]);
-                }
-            }
-
-            return inhibitions;
-        }
-    }
-
     PlasmaCore.Action {
         id: configureAction
         text: i18n("Configure Display Settings…")
