@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2022-09-24 16:12+0200\n"
+"PO-Revision-Date: 2024-06-20 22:06+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -45,12 +45,11 @@ msgid "Replicated by other output"
 msgstr "Kopierad av annan utgång"
 
 #: ui/main.qml:26
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identifiera"
+msgstr "Identifiera bildskärmar"
 
 #: ui/main.qml:41
 #, kde-format
@@ -78,7 +77,7 @@ msgstr "Åte&rställ"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Alla bildskärmar är inaktiverade. Aktivera minst en."
 
 #: ui/main.qml:102 ui/main.qml:273
 #, kde-format
@@ -86,6 +85,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Mellanrum mellan bildskärmar stöds inte. Säkerställ att alla bildskärmar rör "
+"vid varandra."
 
 #: ui/main.qml:114 ui/main.qml:286
 #, kde-format
@@ -109,15 +110,10 @@ msgid "Outputs could not be saved due to error."
 msgstr "Utgångar kunde inte sparas på grund av fel."
 
 #: ui/main.qml:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Changes will come into effect after the system "
-#| "is restarted."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"Ny global skalning verkställd. Ändringen får effekt efter systemet har "
-"startats om."
+msgstr "Globala skalningsändringar verkställs efter systemet har startats om."
 
 #: ui/main.qml:180
 #, kde-format
@@ -133,7 +129,7 @@ msgstr "Bildskärmsinställning återställd."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Ändra prioriteter"
 
 #: ui/main.qml:239 ui/OutputPanel.qml:46
 #, kde-format
@@ -143,12 +139,12 @@ msgstr "Huvudskärm"
 #: ui/main.qml:244
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Öka prioritet"
 
 #: ui/main.qml:254
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Sänk prioritet"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -183,15 +179,10 @@ msgstr "Aktiverad"
 #: ui/OutputPanel.qml:39
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Ändra skärmprioriteter…"
 
 #: ui/OutputPanel.qml:52
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This determines which screen your main desktop and panel appear on. Some "
-#| "older games also use it to decide which screen to appear on.<nl/><nl/>It "
-#| "has no effect on what screen notifications or other windows appear on."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -199,10 +190,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Bestämmer vilken skärm som huvudskrivbordet och panelen visas på. Vissa "
-"äldre spel använder det också för att bestämma vilken skärm de ska visas på."
-"<nl/><nl/>Det har ingen betydelse för vilken skärm underrättelser eller "
-"andra fönster visas på."
+"Bestämmer vilken skärm som huvudskrivbordet visas på, tillsammans med "
+"eventuella Plasma-paneler på det. Vissa äldre spel använder det också för "
+"att bestämma vilken skärm de ska visas på.<nl/><nl/>Det har ingen betydelse "
+"för vilken skärm underrättelser eller andra fönster visas på."
 
 #: ui/OutputPanel.qml:57
 #, kde-format
@@ -210,11 +201,10 @@ msgid "Resolution:"
 msgstr "Upplösning:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
+msgstr "Den enda upplösningen som stöds av bildskärmen är &quot;%1&quot;."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -258,9 +248,7 @@ msgid "Overscan:"
 msgstr "Översvep:"
 
 #: ui/OutputPanel.qml:178
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
@@ -273,10 +261,12 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Bestämmer hur mycket vaddering som placeras omkring en bild som skickas till "
+"bildskärmen för att kompensera för att en del av innehållet beskärs runt "
+"kanterna.<nl/><nl/>Det behövs ibland när en teve används som skärm."
 
 #: ui/OutputPanel.qml:189
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB-intervall:"
 
@@ -291,11 +281,7 @@ msgid "Limited"
 msgstr "begränsat"
 
 #: ui/OutputPanel.qml:207
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
@@ -303,23 +289,23 @@ msgid ""
 "screen look washed out."
 msgstr ""
 "Bestämmer om intervallet av möjliga färgvärden behöver begränsas för skärmen "
-"eller inte."
+"eller inte. Det ska bara ändras om färgerna på skärmen ser urvattnade ut."
 
 #: ui/OutputPanel.qml:212
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "Färgprofil:"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
 msgid "ICC Profile"
-msgstr ""
+msgstr "ICC-profil"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Inbyggd"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -328,54 +314,57 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Observera att inbyggda färgprofiler ibland är felaktiga och ofta mindre "
+"noggranna. För optimal färgtrohet, rekommenderas kalibrering med användning "
+"av en kolorimeter."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr ""
+"Den inbyggda färgprofilen används alltid med stort dynamiskt intervall."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Ange sökväg för ICC-profil…"
 
 #: ui/OutputPanel.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Välj ICC-profil…"
 
 #: ui/OutputPanel.qml:275
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Öppnar en filväljare för ICC-profilen"
 
 #: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Välj ICC-profil"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC-profiler är inte ännu kompatibla med stort dynamiskt intervall"
 
 #: ui/OutputPanel.qml:314
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Stort dynamiskt intervall:"
 
 #: ui/OutputPanel.qml:319
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr "Aktiverad"
+msgstr "Aktivera stort dynamiskt intervall"
 
 #: ui/OutputPanel.qml:325
 #, kde-format
@@ -384,29 +373,31 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"Stort dynamiskt intervall låter kompatibla program visa starkare och mer "
+"levande färger. Observera att funktionen fortfarande är experimentell."
 
 #: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
-msgstr ""
+msgstr "Ljusstyrka för litet dynamiskt intervall:"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr ""
+"Ställer in ljusstyrkan för annat än stort dynamiskt intervall på skärmen, i "
+"nits"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "Färgintensitet för litet dynamiskt intervall:"
 
 #: ui/OutputPanel.qml:392
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
@@ -415,7 +406,7 @@ msgstr "%1 %"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Ökar intensitet för annat än stort dynamiskt intervall på skärmen"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -433,8 +424,7 @@ msgid "Global scale:"
 msgstr "Global skala:"
 
 #: ui/Panel.qml:135 ui/Panel.qml:155
-#, fuzzy, kde-format
-#| msgid "Legacy Applications (X11):"
+#, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Föråldrade program (X11):"
 
@@ -469,18 +459,17 @@ msgstr ""
 "alltid något suddiga ut."
 
 #: ui/Panel.qml:166
-#, fuzzy, kde-format
-#| msgid "Screen Scaling"
+#, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Skärmskalning"
+msgstr "Skärmrivning:"
 
 #: ui/Panel.qml:169
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Tillåt i fullskärmsfönster"
 
 #: ui/Panel.qml:174
 #, kde-format
@@ -489,6 +478,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Skärmrivning reducerar latens för de flesta bildskärmar. Observera att inte "
+"alla grafikdrivrutiner stöder inställningen."
 
 #: ui/Panel.qml:188
 #, kde-format
