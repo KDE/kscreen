@@ -11,7 +11,6 @@ import QtQuick.Dialogs
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kitemmodels 1.0
 
-import org.kde.kcmutils as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
 Kirigami.FormLayout {
@@ -227,11 +226,11 @@ Kirigami.FormLayout {
             onActivated: element.colorProfileSource = currentValue;
             Component.onCompleted: currentIndex = indexOfValue(element.colorProfileSource);
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Note that built-in color profiles are sometimes wrong, and often inaccurate. For optimal color fidelity, calibration using a colorimeter is recommended.")
             visible: (!element.hdr || !root.hdrAvailable) && element.colorProfileSource == KScreen.Output.ColorProfileSource.EDID
         }
-        KCM.ContextualHelpButton {
+        Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "The built-in color profile is always used with HDR.")
             visible: element.hdr && root.hdrAvailable
         }
