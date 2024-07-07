@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-03-17 10:58+0100\n"
+"PO-Revision-Date: 2024-07-06 14:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -262,6 +262,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Avgjer kor stor marg som skal visast rundt biletet sendt til skjermen som "
+"kompensasjon for at biletdata i kantområdet ikkje vert vist.<nl/><nl/>Dette "
+"er nokre gongar nødvendig når du brukar eit TV-apparat som skjerm."
 
 #: ui/OutputPanel.qml:189
 #, kde-format
@@ -286,26 +289,24 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Om intervallet med moglege farge­verdiar må avgrensast for denne skjermen. Du "
+"bør berre endra dette viss fargane på skjermen ser utvaska ut."
 
 #: ui/OutputPanel.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Fargeprofil:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "Vel ICC-profil"
+msgstr "ICC-profil"
 
 #: ui/OutputPanel.qml:222
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Innebygd"
 
 #: ui/OutputPanel.qml:231
 #, kde-format
@@ -314,12 +315,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Merk at innebygde fargarprofilar ofte er upresise og av og til direkte feil. "
+"For best mogleg farge­attgjeving bør du kalibrera skjermen med eit "
+"kolorimeter."
 
 #: ui/OutputPanel.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Den innebygde fargeprofilen vert alltid brukt ved HDR."
 
 #: ui/OutputPanel.qml:248
 #, kde-format
@@ -354,7 +358,7 @@ msgstr "ICC-profilar er ikkje kompatible med HDR enno"
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Stort dynamisk omfang (HDR):"
 
 #: ui/OutputPanel.qml:319
 #, kde-format
@@ -369,6 +373,8 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors. "
 "Note that this feature is still experimental"
 msgstr ""
+"HDR-modus lèt kompatible program visa lysare og meir fargesterke fargar. "
+"Merk at denne funksjonen førebels er eksperimentell."
 
 #: ui/OutputPanel.qml:336
 #, kde-format
@@ -381,12 +387,14 @@ msgstr "SDR-lysstyrke:"
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr ""
+"Avgjer lysstyrken for vising av ikkje-HDR-innhald på skjermen (måleeining: "
+"nits)."
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr ""
+msgstr "Intensitet for SDR-fargar:"
 
 #: ui/OutputPanel.qml:392
 #, kde-format
@@ -398,7 +406,7 @@ msgstr "%1 %"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
-msgstr ""
+msgstr "Aukar intensiteten til ikkje-HDR-innhald vist på skjermen"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -454,7 +462,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "Skjermriving:"
 
 #: ui/Panel.qml:169
 #, kde-format
@@ -470,6 +478,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Skjermriving reduserer forseinking av biletoppdatering for dei fleste "
+"skjemar. Merk at ikkje alle skjermkort­drivarar støttar dette."
 
 #: ui/Panel.qml:188
 #, kde-format
