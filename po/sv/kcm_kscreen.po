@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2024-06-20 22:06+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1 x %2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:220
+#: output_model.cpp:747 ui/OutputPanel.qml:219
 #, kde-format
 msgid "None"
 msgstr "Ingen"
@@ -131,7 +131,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Ändra prioriteter"
 
-#: ui/main.qml:239 ui/OutputPanel.qml:46
+#: ui/main.qml:239 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Huvudskärm"
@@ -151,7 +151,7 @@ msgstr "Sänk prioritet"
 msgid "Orientation:"
 msgstr "Orientering:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:157 ui/OutputPanel.qml:195
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:156 ui/OutputPanel.qml:194
 #, kde-format
 msgid "Automatic"
 msgstr "Automatisk"
@@ -171,17 +171,17 @@ msgstr "Manuell"
 msgid "Replicas"
 msgstr "Kopior"
 
-#: ui/OutputPanel.qml:28
+#: ui/OutputPanel.qml:27
 #, kde-format
 msgid "Enabled"
 msgstr "Aktiverad"
 
-#: ui/OutputPanel.qml:39
+#: ui/OutputPanel.qml:38
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Ändra skärmprioriteter…"
 
-#: ui/OutputPanel.qml:52
+#: ui/OutputPanel.qml:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -195,65 +195,65 @@ msgstr ""
 "att bestämma vilken skärm de ska visas på.<nl/><nl/>Det har ingen betydelse "
 "för vilken skärm underrättelser eller andra fönster visas på."
 
-#: ui/OutputPanel.qml:57
+#: ui/OutputPanel.qml:56
 #, kde-format
 msgid "Resolution:"
 msgstr "Upplösning:"
 
-#: ui/OutputPanel.qml:77
+#: ui/OutputPanel.qml:76
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "Den enda upplösningen som stöds av bildskärmen är &quot;%1&quot;."
 
-#: ui/OutputPanel.qml:87
+#: ui/OutputPanel.qml:86
 #, kde-format
 msgid "Scale:"
 msgstr "Skala:"
 
-#: ui/OutputPanel.qml:116 ui/Panel.qml:111
+#: ui/OutputPanel.qml:115 ui/Panel.qml:111
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:128
+#: ui/OutputPanel.qml:127
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Uppdateringsfrekvens:"
 
-#: ui/OutputPanel.qml:148
+#: ui/OutputPanel.qml:147
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:152
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptiv synkronisering:"
 
-#: ui/OutputPanel.qml:156
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgid "Never"
 msgstr "Aldrig"
 
-#: ui/OutputPanel.qml:158
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Always"
 msgstr "Alltid"
 
-#: ui/OutputPanel.qml:169
+#: ui/OutputPanel.qml:168
 #, kde-format
 msgid "Overscan:"
 msgstr "Översvep:"
 
-#: ui/OutputPanel.qml:178
+#: ui/OutputPanel.qml:177
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -265,22 +265,22 @@ msgstr ""
 "bildskärmen för att kompensera för att en del av innehållet beskärs runt "
 "kanterna.<nl/><nl/>Det behövs ibland när en teve används som skärm."
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:188
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB-intervall:"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "Full"
 msgstr "Fullständigt"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "Limited"
 msgstr "begränsat"
 
-#: ui/OutputPanel.qml:207
+#: ui/OutputPanel.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -291,23 +291,23 @@ msgstr ""
 "Bestämmer om intervallet av möjliga färgvärden behöver begränsas för skärmen "
 "eller inte. Det ska bara ändras om färgerna på skärmen ser urvattnade ut."
 
-#: ui/OutputPanel.qml:212
+#: ui/OutputPanel.qml:211
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Färgprofil:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:220
 #, kde-format
 msgid "ICC Profile"
 msgstr "ICC-profil"
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgid "Built-In"
 msgstr "Inbyggd"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:230
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -318,55 +318,55 @@ msgstr ""
 "noggranna. För optimal färgtrohet, rekommenderas kalibrering med användning "
 "av en kolorimeter."
 
-#: ui/OutputPanel.qml:235
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr ""
 "Den inbyggda färgprofilen används alltid med stort dynamiskt intervall."
 
-#: ui/OutputPanel.qml:248
+#: ui/OutputPanel.qml:247
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Ange sökväg för ICC-profil…"
 
-#: ui/OutputPanel.qml:264
+#: ui/OutputPanel.qml:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Välj ICC-profil…"
 
-#: ui/OutputPanel.qml:275
+#: ui/OutputPanel.qml:274
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Öppnar en filväljare för ICC-profilen"
 
-#: ui/OutputPanel.qml:284
+#: ui/OutputPanel.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Välj ICC-profil"
 
-#: ui/OutputPanel.qml:309
+#: ui/OutputPanel.qml:308
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC-profiler är inte ännu kompatibla med stort dynamiskt intervall"
 
-#: ui/OutputPanel.qml:314
+#: ui/OutputPanel.qml:313
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Stort dynamiskt intervall:"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Aktivera stort dynamiskt intervall"
 
-#: ui/OutputPanel.qml:325
+#: ui/OutputPanel.qml:324
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -376,13 +376,13 @@ msgstr ""
 "Stort dynamiskt intervall låter kompatibla program visa starkare och mer "
 "levande färger. Observera att funktionen fortfarande är experimentell."
 
-#: ui/OutputPanel.qml:336
+#: ui/OutputPanel.qml:335
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "Ljusstyrka för litet dynamiskt intervall:"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:354
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
@@ -390,25 +390,25 @@ msgstr ""
 "Ställer in ljusstyrkan för annat än stort dynamiskt intervall på skärmen, i "
 "nits"
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:365
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "Färgintensitet för litet dynamiskt intervall:"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:391
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:400
+#: ui/OutputPanel.qml:399
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Ökar intensitet för annat än stort dynamiskt intervall på skärmen"
 
-#: ui/OutputPanel.qml:405
+#: ui/OutputPanel.qml:404
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopia av:"
