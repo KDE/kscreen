@@ -384,7 +384,7 @@ msgstr "设置屏幕在显示非 HDR 内容时的亮度，单位为尼特 (nits)
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
-msgstr "SDR 色彩亮度："
+msgstr "SDR 色彩鲜艳度："
 
 #: ui/OutputPanel.qml:391
 #, kde-format
