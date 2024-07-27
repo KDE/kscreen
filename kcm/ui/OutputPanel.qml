@@ -88,13 +88,15 @@ Kirigami.FormLayout {
         QQC2.Slider {
             id: scaleSlider
 
+            Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
+
             Layout.fillWidth: true
-            from: 0.5
-            to: 3
-            stepSize: 0.25
+            from: 50
+            to: 300
+            stepSize: 25
             live: true
-            value: element.scale
-            onMoved: element.scale = value
+            value: element.scale * 100
+            onMoved: element.scale = value / 100
         }
         QQC2.SpinBox {
             id: spinbox

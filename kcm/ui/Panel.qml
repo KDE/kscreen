@@ -79,13 +79,15 @@ ColumnLayout {
             QQC2.Slider {
                 id: globalScaleSlider
 
+                Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
+
                 Layout.fillWidth: true
-                from: 1
-                to: 3
-                stepSize: 0.25
+                from: 100
+                to: 300
+                stepSize: 25
                 live: true
-                value: kcm.globalScale
-                onMoved: kcm.globalScale = value;
+                value: kcm.globalScale * 100
+                onMoved: kcm.globalScale = value / 100;
             }
             QQC2.SpinBox {
                 id: spinbox
