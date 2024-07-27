@@ -23,6 +23,9 @@ QQC2.ToolButton {
     checkable: true
     checked: element.rotation === outputRotation
 
+    Accessible.name: tooltip
+    Accessible.role: Accessible.RadioButton
+
     QQC2.ToolTip {
         text: tooltip
     }
