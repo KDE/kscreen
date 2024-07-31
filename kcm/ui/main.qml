@@ -210,6 +210,7 @@ KCM.SimpleKCM {
             title: i18nc("@title:window", "Change Priorities")
             showCloseButton: true
             standardButtons: Kirigami.Dialog.Ok
+            padding: 0
 
             contentItem: ListView {
                 id: reorderView
