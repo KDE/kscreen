@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-07-31 00:42+0000\n"
 "PO-Revision-Date: 2024-05-23 14:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -35,7 +35,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:219
+#: output_model.cpp:747 ui/OutputPanel.qml:221
 #, kde-format
 msgid "None"
 msgstr "Ekkert"
@@ -151,7 +151,7 @@ msgstr "Lækka forgang"
 msgid "Orientation:"
 msgstr "Stefna:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:156 ui/OutputPanel.qml:194
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:158 ui/OutputPanel.qml:196
 #, kde-format
 msgid "Automatic"
 msgstr "Sjálfvirkt"
@@ -211,49 +211,55 @@ msgstr "&quot;%1&quot; er eina upplausnin sem þessi skjár styður."
 msgid "Scale:"
 msgstr "Kvarði:"
 
-#: ui/OutputPanel.qml:115 ui/Panel.qml:111
+#: ui/OutputPanel.qml:91 ui/Panel.qml:82
+#, kde-format
+msgctxt "@info accessible description of slider value"
+msgid "in percent of regular scale"
+msgstr ""
+
+#: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:127
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Endurnýjunartíðni:"
 
-#: ui/OutputPanel.qml:147
+#: ui/OutputPanel.qml:149
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "\"%1\" er eina endurnýjunartíðnin sem þessi skjár styður."
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Samstillingaraðlögun:"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Never"
 msgstr "Aldrei"
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:159
 #, kde-format
 msgid "Always"
 msgstr "Alltaf"
 
-#: ui/OutputPanel.qml:168
+#: ui/OutputPanel.qml:170
 #, kde-format
 msgid "Overscan:"
 msgstr "Yfirskönnun:"
 
-#: ui/OutputPanel.qml:177
+#: ui/OutputPanel.qml:179
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:183
+#: ui/OutputPanel.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -265,22 +271,22 @@ msgstr ""
 "til að vinna upp á móti þeim hluta efnisins sem skorinn er af við brúnirnar."
 "<nl/><nl/>Þetta er stundum nauðsynlegt þegar sjónvarp er notað sem skjár"
 
-#: ui/OutputPanel.qml:188
+#: ui/OutputPanel.qml:190
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB-svið:"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Full"
 msgstr "Fullt"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Limited"
 msgstr "Takmarkað"
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -292,23 +298,23 @@ msgstr ""
 "ekki. Þessu ætti einungis að breyta ef litirnir á skjánum virðast daufir og "
 "ógreinilegir."
 
-#: ui/OutputPanel.qml:211
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Litasnið:"
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:222
 #, kde-format
 msgid "ICC Profile"
 msgstr "ICC-litasnið"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgid "Built-In"
 msgstr "Innbyggt"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -319,54 +325,54 @@ msgstr ""
 "nákvæmni við birtingu lita, er mælt með litkvörðun með litamæli "
 "(colorimeter)."
 
-#: ui/OutputPanel.qml:234
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "Innbyggða litasniðið er alltaf notað með HDR."
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:249
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Settu inn slóð fyrir ICC-litasnið..."
 
-#: ui/OutputPanel.qml:263
+#: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Veldu ICC-litasnið..."
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:276
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Opnar skráavalglugga fyrir ICC-litasniðið"
 
-#: ui/OutputPanel.qml:283
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Velja ICC-litasnið"
 
-#: ui/OutputPanel.qml:308
+#: ui/OutputPanel.qml:310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC-litasnið eru ekki enn samhæf við HDR"
 
-#: ui/OutputPanel.qml:313
+#: ui/OutputPanel.qml:315
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Mikið styrksvið (HDR):"
 
-#: ui/OutputPanel.qml:318
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Virkja HDR"
 
-#: ui/OutputPanel.qml:324
+#: ui/OutputPanel.qml:326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -376,38 +382,38 @@ msgstr ""
 "HDR gerir samhæfum forritum kleift að sýna bjartari og líflegri liti. "
 "Athugaðu að þessi eiginleiki er enn á tilraunastigi"
 
-#: ui/OutputPanel.qml:335
+#: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR-birtustig:"
 
-#: ui/OutputPanel.qml:354
+#: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr ""
 "Stillir birtustig fyrir efni á skjánum sem er ekki í HDR, í nit-einingum"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:367
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR-litstyrkur:"
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:393
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:399
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "Eykur styrk efnis á skjánum sem er ekki í HDR"
 
-#: ui/OutputPanel.qml:404
+#: ui/OutputPanel.qml:406
 #, kde-format
 msgid "Replica of:"
 msgstr "Eftirlíking af:"
@@ -422,18 +428,18 @@ msgstr "Tæki:"
 msgid "Global scale:"
 msgstr "Almenn kvörðun:"
 
-#: ui/Panel.qml:135 ui/Panel.qml:155
+#: ui/Panel.qml:137 ui/Panel.qml:157
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Eldri forrit (X11):"
 
-#: ui/Panel.qml:140
+#: ui/Panel.qml:142
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Stilla sjálf kvörðun"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:147
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -442,13 +448,13 @@ msgstr ""
 "Eldri forrit sem styðja kvörðun nota hana og eru skörp á skjánum, en þau sem "
 "gera það ekki verða ekki kvörðuð á neinn hátt."
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:158
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Kvörðuð af stýrikerfinu"
 
-#: ui/Panel.qml:161
+#: ui/Panel.qml:163
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -457,20 +463,20 @@ msgstr ""
 "Öll eldri forrit verða kvörðuð af stýrikerfinu í rétta stærð, hins vegar "
 "gætu þau verið svolítið óskýr í útliti."
 
-#: ui/Panel.qml:166
+#: ui/Panel.qml:168
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Rifgallar:"
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Leyfa í gluggum sem fylla skjáinn"
 
-#: ui/Panel.qml:174
+#: ui/Panel.qml:176
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -480,7 +486,7 @@ msgstr ""
 "Rifgallar draga úr biðtíma (latency) á flestum skjám. Athugaðu að ekki öll "
 "skjákort styðja þessa stillingu."
 
-#: ui/Panel.qml:188
+#: ui/Panel.qml:190
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -489,22 +495,22 @@ msgstr ""
 "Almenna kvörðunin takmarkast við margfeldi af 6.25% til að lágmarka "
 "sýnilegar truflanir í forritum sem nota X11-gluggakerfið."
 
-#: ui/RotationButton.qml:51
+#: ui/RotationButton.qml:54
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90° réttsælis"
 
-#: ui/RotationButton.qml:55
+#: ui/RotationButton.qml:58
 #, kde-format
 msgid "Upside Down"
 msgstr "Á hvolfi"
 
-#: ui/RotationButton.qml:59
+#: ui/RotationButton.qml:62
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90° rangsælis"
 
-#: ui/RotationButton.qml:64
+#: ui/RotationButton.qml:67
 #, kde-format
 msgid "No Rotation"
 msgstr "Enginn snúningur"

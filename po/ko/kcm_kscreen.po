@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-07-31 00:42+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -34,7 +34,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2(%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:219
+#: output_model.cpp:747 ui/OutputPanel.qml:221
 #, kde-format
 msgid "None"
 msgstr "없음"
@@ -150,7 +150,7 @@ msgstr "우선 순위 감소"
 msgid "Orientation:"
 msgstr "방향:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:156 ui/OutputPanel.qml:194
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:158 ui/OutputPanel.qml:196
 #, kde-format
 msgid "Automatic"
 msgstr "자동"
@@ -209,49 +209,55 @@ msgstr "이 디스플레이에서는 &quot;%1&quot; 해상도만 지원합니다
 msgid "Scale:"
 msgstr "비율:"
 
-#: ui/OutputPanel.qml:115 ui/Panel.qml:111
+#: ui/OutputPanel.qml:91 ui/Panel.qml:82
+#, kde-format
+msgctxt "@info accessible description of slider value"
+msgid "in percent of regular scale"
+msgstr ""
+
+#: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:127
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgid "Refresh rate:"
 msgstr "화면 주사율:"
 
-#: ui/OutputPanel.qml:147
+#: ui/OutputPanel.qml:149
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "적응형 동기화:"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Never"
 msgstr "하지 않음"
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:159
 #, kde-format
 msgid "Always"
 msgstr "항상"
 
-#: ui/OutputPanel.qml:168
+#: ui/OutputPanel.qml:170
 #, kde-format
 msgid "Overscan:"
 msgstr "오버스캔:"
 
-#: ui/OutputPanel.qml:177
+#: ui/OutputPanel.qml:179
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:183
+#: ui/OutputPanel.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -263,22 +269,22 @@ msgstr ""
 "여백을 얼마나 표시할지 결정합니다.<nl/><nl/>TV를 화면으로 사용할 때 필요할 "
 "수 있습니다"
 
-#: ui/OutputPanel.qml:188
+#: ui/OutputPanel.qml:190
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 범위:"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Full"
 msgstr "전체"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Limited"
 msgstr "제한됨"
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -289,7 +295,7 @@ msgstr ""
 "디스플레이의 색상값 범위를 제한할지 여부를 결정합니다. 화면 색상이 선명하지 "
 "않을 때에만 변경하십시오."
 
-#: ui/OutputPanel.qml:211
+#: ui/OutputPanel.qml:213
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Color Profile:"
@@ -297,19 +303,19 @@ msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "색 프로필:"
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:222
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Select ICC Profile"
 msgid "ICC Profile"
 msgstr "ICC 프로필 선택"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgid "Built-In"
 msgstr ""
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -317,54 +323,54 @@ msgid ""
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
-#: ui/OutputPanel.qml:234
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr ""
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:249
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC 프로필 경로 입력…"
 
-#: ui/OutputPanel.qml:263
+#: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC 프로필 선택…"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:276
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC 프로필 파일 선택기 열기"
 
-#: ui/OutputPanel.qml:283
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC 프로필 선택"
 
-#: ui/OutputPanel.qml:308
+#: ui/OutputPanel.qml:310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
 
-#: ui/OutputPanel.qml:313
+#: ui/OutputPanel.qml:315
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR:"
 
-#: ui/OutputPanel.qml:318
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "HDR 활성화"
 
-#: ui/OutputPanel.qml:324
+#: ui/OutputPanel.qml:326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -374,37 +380,37 @@ msgstr ""
 "HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다. 이 "
 "기능은 현재 실험적입니다"
 
-#: ui/OutputPanel.qml:335
+#: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR 밝기:"
 
-#: ui/OutputPanel.qml:354
+#: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "화면에 비 HDR 콘텐츠를 표시할 때 밝기를 nit 단위로 설정"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:367
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR 색상 강도:"
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:393
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:399
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "화면에 비 HDR 콘텐츠를 표시할 때 색상 강도 증가"
 
-#: ui/OutputPanel.qml:404
+#: ui/OutputPanel.qml:406
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"
@@ -419,18 +425,18 @@ msgstr "장치:"
 msgid "Global scale:"
 msgstr "전역 크기 조정:"
 
-#: ui/Panel.qml:135 ui/Panel.qml:155
+#: ui/Panel.qml:137 ui/Panel.qml:157
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "레거시 앱(X11):"
 
-#: ui/Panel.qml:140
+#: ui/Panel.qml:142
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "자체적으로 크기 조정"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:147
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -439,13 +445,13 @@ msgstr ""
 "크기 조정을 지원하는 레거시 앱에서는 해당 기능을 사용하여 선명하게 표시되지"
 "만, 크기 조정을 지원하지 않는 앱은 있는 그대로 표시됩니다."
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:158
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "시스템에서 크기 조정"
 
-#: ui/Panel.qml:161
+#: ui/Panel.qml:163
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -453,20 +459,20 @@ msgid ""
 msgstr ""
 "모든 레거시 앱을 시스템에서 올바른 크기로 조정하지만 번져 보일 수 있습니다."
 
-#: ui/Panel.qml:166
+#: ui/Panel.qml:168
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "화면 티어링:"
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "전체 화면 창에서 허용"
 
-#: ui/Panel.qml:174
+#: ui/Panel.qml:176
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -476,7 +482,7 @@ msgstr ""
 "화면 티어링을 허용하면 대부분 디스플레이에서 레이턴시를 줄일 수 있습니다. 모"
 "든 그래픽 드라이버에서 이 설정을 지원하지는 않습니다."
 
-#: ui/Panel.qml:188
+#: ui/Panel.qml:190
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -485,22 +491,22 @@ msgstr ""
 "전역 크기 조절 배율은 X11 창 시스템을 사용하는 앱의 표시 오류를 줄이도록 "
 "6.25% 단위로만 변경할 수 있습니다."
 
-#: ui/RotationButton.qml:51
+#: ui/RotationButton.qml:54
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90° 오른쪽"
 
-#: ui/RotationButton.qml:55
+#: ui/RotationButton.qml:58
 #, kde-format
 msgid "Upside Down"
 msgstr "거꾸로"
 
-#: ui/RotationButton.qml:59
+#: ui/RotationButton.qml:62
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90° 왼쪽"
 
-#: ui/RotationButton.qml:64
+#: ui/RotationButton.qml:67
 #, kde-format
 msgid "No Rotation"
 msgstr "회전 없음"

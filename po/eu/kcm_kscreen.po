@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-07-31 00:42+0000\n"
 "PO-Revision-Date: 2024-05-27 17:23+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -37,7 +37,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:219
+#: output_model.cpp:747 ui/OutputPanel.qml:221
 #, kde-format
 msgid "None"
 msgstr "Bat ere ez"
@@ -156,7 +156,7 @@ msgstr "Beheratu lehentasuna"
 msgid "Orientation:"
 msgstr "Orientazioa:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:156 ui/OutputPanel.qml:194
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:158 ui/OutputPanel.qml:196
 #, kde-format
 msgid "Automatic"
 msgstr "Automatikoa"
@@ -217,49 +217,55 @@ msgstr ""
 msgid "Scale:"
 msgstr "Eskala:"
 
-#: ui/OutputPanel.qml:115 ui/Panel.qml:111
+#: ui/OutputPanel.qml:91 ui/Panel.qml:82
+#, kde-format
+msgctxt "@info accessible description of slider value"
+msgid "in percent of regular scale"
+msgstr ""
+
+#: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:127
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Freskatze-tasa:"
 
-#: ui/OutputPanel.qml:147
+#: ui/OutputPanel.qml:149
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "«%1» da bistaratzaile horrek onartzen duen freskatze-emari bakarra."
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Sinkronizatze moldakorra:"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Never"
 msgstr "Inoiz ez"
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:159
 #, kde-format
 msgid "Always"
 msgstr "Beti"
 
-#: ui/OutputPanel.qml:168
+#: ui/OutputPanel.qml:170
 #, kde-format
 msgid "Overscan:"
 msgstr "Gainekortzea:"
 
-#: ui/OutputPanel.qml:177
+#: ui/OutputPanel.qml:179
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:183
+#: ui/OutputPanel.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -271,22 +277,22 @@ msgstr ""
 "edukiaren zati bat konpentsatzeko zenbat betegarri jartzen den zehazten du."
 "<nl/><nl/>Hori TB bat pantaila gisa erabiltzean batzuetan beharrezkoa da"
 
-#: ui/OutputPanel.qml:188
+#: ui/OutputPanel.qml:190
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB barrutia:"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "Full"
 msgstr "Osoa"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "Limited"
 msgstr "Mugatua"
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -298,23 +304,23 @@ msgstr ""
 "zehazten du. Pantailako koloreak margulduta ikusten badira bakarrik aldatu "
 "beharko litzateke."
 
-#: ui/OutputPanel.qml:211
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Kolore-profila:"
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:222
 #, kde-format
 msgid "ICC Profile"
 msgstr "ICC profila"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgid "Built-In"
 msgstr "Barneratua"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -325,54 +331,54 @@ msgstr ""
 "ez direla zehatzak. Kolore fideltasun optimorako, kolorimetro bat erabiliz "
 "kalibratzea gomendatzen da."
 
-#: ui/OutputPanel.qml:234
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "Barneratutako kolore-profila beti erabiltzen da HDRrekin."
 
-#: ui/OutputPanel.qml:247
+#: ui/OutputPanel.qml:249
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Sartu ICC profilaren bide-izena..."
 
-#: ui/OutputPanel.qml:263
+#: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Aukeratu ICC profila..."
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:276
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC profilerako fitxategi-hautatzaile bat irekitzen du"
 
-#: ui/OutputPanel.qml:283
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Aukeratu ICC profila"
 
-#: ui/OutputPanel.qml:308
+#: ui/OutputPanel.qml:310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC profilak, oraindik, ez dira «HDR»rekin bateragarriak"
 
-#: ui/OutputPanel.qml:313
+#: ui/OutputPanel.qml:315
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Tarte dinamiko handia:"
 
-#: ui/OutputPanel.qml:318
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Gaitu HDR"
 
-#: ui/OutputPanel.qml:324
+#: ui/OutputPanel.qml:326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -383,37 +389,37 @@ msgstr ""
 "erakusteko aukera ematen die. Kontuan hartu ezaugarri hori oraindik "
 "esperimentala dela."
 
-#: ui/OutputPanel.qml:335
+#: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label"
 msgid "SDR Brightness:"
 msgstr "SDR distira:"
 
-#: ui/OutputPanel.qml:354
+#: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "HDR ez den edukiaren pantailako distira ezartzen du, «nit»etan"
 
-#: ui/OutputPanel.qml:365
+#: ui/OutputPanel.qml:367
 #, kde-format
 msgctxt "@label"
 msgid "SDR Color Intensity:"
 msgstr "SDR kolorearen intentsitatea:"
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:393
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:399
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of non-HDR content on the screen"
 msgstr "HDR ez den edukiaren pantailako intentsitatea handiagotzen du"
 
-#: ui/OutputPanel.qml:404
+#: ui/OutputPanel.qml:406
 #, kde-format
 msgid "Replica of:"
 msgstr "Honen erreplika:"
@@ -428,18 +434,18 @@ msgstr "Gailua:"
 msgid "Global scale:"
 msgstr "Eskala globala:"
 
-#: ui/Panel.qml:135 ui/Panel.qml:155
+#: ui/Panel.qml:137 ui/Panel.qml:157
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplikazio heredatuak (X11):"
 
-#: ui/Panel.qml:140
+#: ui/Panel.qml:142
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Ezarri haien burua eskalatzea"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:147
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -448,13 +454,13 @@ msgstr ""
 "Eskalatzea onartzen duten aplikazioek erabiliko dute eta garbi agertuko "
 "dira, hala ere, onartzen ez dutenak ez dira eskalatuko."
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:158
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistemak eskalatua"
 
-#: ui/Panel.qml:161
+#: ui/Panel.qml:163
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -463,20 +469,20 @@ msgstr ""
 "Sistemak, heredatutako aplikazio guztiak neurri zuzenera eskalatuko ditu, "
 "dena den, beti izango dute itxura pixka bat gandutsua."
 
-#: ui/Panel.qml:166
+#: ui/Panel.qml:168
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Pantailaren urradura:"
 
-#: ui/Panel.qml:169
+#: ui/Panel.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Baimendu pantaila-osoko leihoetan"
 
-#: ui/Panel.qml:174
+#: ui/Panel.qml:176
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -486,7 +492,7 @@ msgstr ""
 "Pantailaren urradurak, pantaila gehienekin, latentzia murrizten du. Kontuan "
 "izan gidari grafiko guztien ez dutela ezarpen hori onartzen."
 
-#: ui/Panel.qml:188
+#: ui/Panel.qml:190
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -495,22 +501,22 @@ msgstr ""
 "Eskalatzeko faktore globala % 6,25eko multiploetara mugatua dago X11 leihoen "
 "sistema darabilten aplikazioetako ikus akatsak minimizatzeko."
 
-#: ui/RotationButton.qml:51
+#: ui/RotationButton.qml:54
 #, kde-format
 msgid "90° Clockwise"
 msgstr "90° ordulari-orratzen noranzkoan"
 
-#: ui/RotationButton.qml:55
+#: ui/RotationButton.qml:58
 #, kde-format
 msgid "Upside Down"
 msgstr "Ahuspez"
 
-#: ui/RotationButton.qml:59
+#: ui/RotationButton.qml:62
 #, kde-format
 msgid "90° Counterclockwise"
 msgstr "90° ordulari-orratzen aurkako noranzkoan"
 
-#: ui/RotationButton.qml:64
+#: ui/RotationButton.qml:67
 #, kde-format
 msgid "No Rotation"
 msgstr "Biraketarik ez"
