@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-05-12 03:57+0200\n"
+"PO-Revision-Date: 2024-07-31 05:35+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -217,7 +217,7 @@ msgstr "გაფართოება:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "ჩვეულებრივი შკალის პროცენტებში"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
