@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-05-12 12:16+0200\n"
+"PO-Revision-Date: 2024-08-03 12:19+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "Escala:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "en porcentaxe da escala normal"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format

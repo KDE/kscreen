@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-06-30 09:54+0900\n"
+"PO-Revision-Date: 2024-08-03 14:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -213,7 +213,7 @@ msgstr "比例："
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "單位為普通縮放的百分比"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
