@@ -23,6 +23,7 @@ void OrientationSensor::updateState()
         m_value = orientation;
         Q_EMIT valueChanged(orientation);
     }
+    Q_EMIT availableChanged(available());
 }
 
 void OrientationSensor::refresh()
