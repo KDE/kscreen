@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-02-24 22:09+0100\n"
+"PO-Revision-Date: 2024-08-20 00:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -45,12 +45,11 @@ msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
 
 #: ui/main.qml:26
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "식별"
+msgstr "화면 식별"
 
 #: ui/main.qml:41
 #, kde-format
@@ -213,7 +212,7 @@ msgstr "비율:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "일반 크기의 백분율로"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
@@ -296,24 +295,20 @@ msgstr ""
 "않을 때에만 변경하십시오."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "색 프로필:"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "ICC 프로필 선택"
+msgstr "ICC 프로필"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "내장"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
@@ -322,12 +317,14 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"내장 색 프로필은 때때로 잘못되었거나 부정확할 수도 있습니다. 최적 색 품질을 "
+"위해서는 외부 색도계로 교정하십시오."
 
 #: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "HDR에서는 내장 색 프로필을 항상 사용합니다."
 
 #: ui/OutputPanel.qml:249
 #, kde-format
