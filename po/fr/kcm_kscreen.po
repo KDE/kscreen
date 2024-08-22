@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-07 02:32+0000\n"
-"PO-Revision-Date: 2024-05-12 18:12+0200\n"
+"PO-Revision-Date: 2024-08-15 11:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -333,7 +333,7 @@ msgid ""
 msgstr ""
 "Veuillez noter que les profils de couleurs intégrés sont parfois erronés et "
 "souvent inexacts. Pour une fidélité optimale des couleurs, un étalonnage à "
-"l’aide d’un colorimètre est recommandé."
+"l'aide d'un colorimètre est recommandé."
 
 #: ui/OutputPanel.qml:234
 #, kde-format
