@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-05-12 18:12+0200\n"
+"PO-Revision-Date: 2024-08-15 11:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -229,7 +229,7 @@ msgstr "Échelle :"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "en pourcentage de l'échelle normale"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
@@ -339,7 +339,7 @@ msgid ""
 msgstr ""
 "Veuillez noter que les profils de couleurs intégrés sont parfois erronés et "
 "souvent inexacts. Pour une fidélité optimale des couleurs, un étalonnage à "
-"l’aide d’un colorimètre est recommandé."
+"l'aide d'un colorimètre est recommandé."
 
 #: ui/OutputPanel.qml:236
 #, kde-format
