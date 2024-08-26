@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-31 00:42+0000\n"
-"PO-Revision-Date: 2024-03-27 19:50+0100\n"
+"PO-Revision-Date: 2024-08-21 22:27+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -226,7 +226,7 @@ msgstr "Skalierung:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "in Prozent der regulären Skalierung"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
@@ -279,6 +279,10 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Legt fest, wie viel Zusatz dem Bild beigefügt wird, um einen Teil des "
+"Inhalts zu kompensieren, der an den Rändern abgeschnitten wird.<nl/> <nl/> "
+"Dies wird teilweise bei der Verwendung eines Fernsehers als Bildschirm "
+"benötigt."
 
 #: ui/OutputPanel.qml:190
 #, kde-format
@@ -303,26 +307,25 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"Legt fest, ob der Bereich der möglichen Farbwerte für die Anzeige beschränkt "
+"werden muss. Dies sollte nur geändert werden, wenn die Farben auf der "
+"Anzeige ausgewaschen aussehen."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
 msgstr "Farbprofil:"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgid "ICC Profile"
-msgstr "ICC-Profil auswählen"
+msgstr "ICC-Profil"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgid "Built-In"
-msgstr ""
+msgstr "Eingebaut"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
@@ -331,12 +334,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Bitte beachten Sie, dass eingebaute Farbprofile manchmal falsch und oftmals "
+"unpassend sind. Für das optimale Farberlebnis wird das Kalibrieren mit einem "
+"Farbmesser empfohlen."
 
 #: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Das eingebaute Farbprofil wird bei HDR immer verwendet."
 
 #: ui/OutputPanel.qml:249
 #, kde-format

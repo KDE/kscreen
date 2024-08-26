@@ -354,7 +354,6 @@ msgstr ""
 
 #: ui/OutputPanel.qml:320
 #, fuzzy, kde-format
-#| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Slått på"
