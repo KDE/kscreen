@@ -10,9 +10,6 @@
 #include <QMetaEnum>
 #include <QQmlEngine> // for qmlRegisterType
 
-#include <QDBusConnection>
-#include <QDBusMessage>
-
 #include <KScreen/Config>
 #include <KScreen/ConfigMonitor>
 #include <KScreen/GetConfigOperation>

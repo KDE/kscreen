@@ -9,7 +9,6 @@ add_library(org.kde.kscreen MODULE ${kscreenapplet_SRCS})
 
 target_link_libraries(org.kde.kscreen
                       Qt::Qml
-                      Qt::DBus
                       KF6::I18n
                       Plasma::Plasma
                       KF6::Screen)
