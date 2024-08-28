@@ -210,7 +210,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:combobox", "Color Profile:")
+        Kirigami.FormData.label: i18nc("@label:listbox", "Color Profile:")
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
         spacing: Kirigami.Units.smallSpacing
 
@@ -218,9 +218,9 @@ Kirigami.FormLayout {
             enabled: !element.hdr || !root.hdrAvailable
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
-                { label: i18n("None"), value: KScreen.Output.ColorProfileSource.sRGB },
-                { label: i18n("ICC Profile"), value: KScreen.Output.ColorProfileSource.ICC },
-                { label: i18n("Built-In"), value: KScreen.Output.ColorProfileSource.EDID }
+                { label: i18nc("@item:inlistbox color profile", "None"), value: KScreen.Output.ColorProfileSource.sRGB },
+                { label: i18nc("@item:inlistbox color profile", "ICC profile"), value: KScreen.Output.ColorProfileSource.ICC },
+                { label: i18nc("@item:inlistbox color profile", "Built-in"), value: KScreen.Output.ColorProfileSource.EDID }
             ]
             textRole: "label"
             valueRole: "value"
