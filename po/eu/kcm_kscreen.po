@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 23:25+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -37,7 +37,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Bat ere ez"
@@ -305,19 +305,32 @@ msgstr ""
 "beharko litzateke."
 
 #: ui/OutputPanel.qml:213
-#, kde-format
-msgctxt "@label:combobox"
+#, fuzzy, kde-format
+#| msgctxt "@label:combobox"
+#| msgid "Color Profile:"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Kolore-profila:"
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Bat ere ez"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
+#, fuzzy, kde-format
+#| msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
 msgstr "ICC profila"
 
 #: ui/OutputPanel.qml:223
-#, kde-format
-msgid "Built-In"
+#, fuzzy, kde-format
+#| msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr "Barneratua"
 
 #: ui/OutputPanel.qml:232

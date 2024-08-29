@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -35,7 +35,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Κανένα"
@@ -299,18 +299,28 @@ msgstr ""
 
 #: ui/OutputPanel.qml:213
 #, kde-format
-msgctxt "@label:combobox"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr ""
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Κανένα"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Active profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
+msgstr "Ενεργό προφίλ"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
-msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr ""
 
 #: ui/OutputPanel.qml:232
@@ -684,9 +694,6 @@ msgstr "Με έλξη των οθονών γίνεται ανα-διευθέτη
 
 #~ msgid "Break Unified Outputs"
 #~ msgstr "Διάλυση ενοποιημένων εξόδων"
-
-#~ msgid "Active profile"
-#~ msgstr "Ενεργό προφίλ"
 
 #~ msgid "Dialog"
 #~ msgstr "Διάλογος"

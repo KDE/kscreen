@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2024-08-01 11:45+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -35,7 +35,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Ingen"
@@ -299,19 +299,32 @@ msgstr ""
 "bør berre endra dette viss fargane på skjermen ser utvaska ut."
 
 #: ui/OutputPanel.qml:213
-#, kde-format
-msgctxt "@label:combobox"
+#, fuzzy, kde-format
+#| msgctxt "@label:combobox"
+#| msgid "Color Profile:"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Fargeprofil:"
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Ingen"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
+#, fuzzy, kde-format
+#| msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
 msgstr "ICC-profil"
 
 #: ui/OutputPanel.qml:223
-#, kde-format
-msgid "Built-In"
+#, fuzzy, kde-format
+#| msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr "Innebygd"
 
 #: ui/OutputPanel.qml:232

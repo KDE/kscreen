@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2024-08-03 13:11+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -34,7 +34,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "None"
@@ -298,19 +298,32 @@ msgstr ""
 "screen look washed out."
 
 #: ui/OutputPanel.qml:213
-#, kde-format
-msgctxt "@label:combobox"
+#, fuzzy, kde-format
+#| msgctxt "@label:combobox"
+#| msgid "Color Profile:"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Colour Profile:"
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "None"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
+#, fuzzy, kde-format
+#| msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
 msgstr "ICC Profile"
 
 #: ui/OutputPanel.qml:223
-#, kde-format
-msgid "Built-In"
+#, fuzzy, kde-format
+#| msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr "Built-In"
 
 #: ui/OutputPanel.qml:232

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2015-01-23 14:43+0100\n"
 "Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
 "Language-Team: Bosnian\n"
@@ -37,7 +37,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr ""
@@ -300,18 +300,27 @@ msgstr ""
 
 #: ui/OutputPanel.qml:213
 #, kde-format
-msgctxt "@label:combobox"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:221
 #, kde-format
-msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
 msgstr ""
+
+#: ui/OutputPanel.qml:222
+#, fuzzy, kde-format
+#| msgid "Active profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
+msgstr "Aktivni profil"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
-msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr ""
 
 #: ui/OutputPanel.qml:232
@@ -627,9 +636,6 @@ msgstr ""
 #~| msgid "Break unified outputs"
 #~ msgid "Break Unified Outputs"
 #~ msgstr "Prekini ujedinjene izlaze"
-
-#~ msgid "Active profile"
-#~ msgstr "Aktivni profil"
 
 #~ msgid "No primary screen"
 #~ msgstr "Nema primarnog ekrana"

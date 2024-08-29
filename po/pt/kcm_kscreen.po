@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Nenhum"
@@ -301,18 +301,27 @@ msgstr ""
 
 #: ui/OutputPanel.qml:213
 #, kde-format
-msgctxt "@label:combobox"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr ""
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Nenhum"
+
 #: ui/OutputPanel.qml:222
 #, kde-format
-msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
 msgstr ""
 
 #: ui/OutputPanel.qml:223
 #, kde-format
-msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr ""
 
 #: ui/OutputPanel.qml:232

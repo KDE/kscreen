@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2024-05-28 13:10+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -36,7 +36,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Nincs"
@@ -302,19 +302,32 @@ msgstr ""
 "a képernyőn elmosódottnak tűnnek."
 
 #: ui/OutputPanel.qml:213
-#, kde-format
-msgctxt "@label:combobox"
+#, fuzzy, kde-format
+#| msgctxt "@label:combobox"
+#| msgid "Color Profile:"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Színprofil:"
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Nincs"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
+#, fuzzy, kde-format
+#| msgid "ICC Profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
 msgstr "ICC-profil"
 
 #: ui/OutputPanel.qml:223
-#, kde-format
-msgid "Built-In"
+#, fuzzy, kde-format
+#| msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr "Beépített"
 
 #: ui/OutputPanel.qml:232

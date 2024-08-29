@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:40+0000\n"
 "PO-Revision-Date: 2022-04-30 11:46+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -35,7 +35,7 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747 ui/OutputPanel.qml:221
+#: output_model.cpp:747
 #, kde-format
 msgid "None"
 msgstr "Niciunul"
@@ -311,18 +311,28 @@ msgstr ""
 
 #: ui/OutputPanel.qml:213
 #, kde-format
-msgctxt "@label:combobox"
+msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr ""
 
+#: ui/OutputPanel.qml:221
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox color profile"
+msgid "None"
+msgstr "Niciunul"
+
 #: ui/OutputPanel.qml:222
-#, kde-format
-msgid "ICC Profile"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Active profile"
+msgctxt "@item:inlistbox color profile"
+msgid "ICC profile"
+msgstr "Profil activ"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
-msgid "Built-In"
+msgctxt "@item:inlistbox color profile"
+msgid "Built-in"
 msgstr ""
 
 #: ui/OutputPanel.qml:232
@@ -674,6 +684,3 @@ msgstr "Trageți ecranele pentru a le rearanja"
 
 #~ msgid "Break Unified Outputs"
 #~ msgstr "Desfă ieșirile unificate"
-
-#~ msgid "Active profile"
-#~ msgstr "Profil activ"
