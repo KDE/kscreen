@@ -295,7 +295,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "色彩特性文件："
 
 #: ui/OutputPanel.qml:221
 #, kde-format
@@ -307,13 +307,13 @@ msgstr "无"
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr ""
+msgstr "ICC 特性文件"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr ""
+msgstr "内建"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
