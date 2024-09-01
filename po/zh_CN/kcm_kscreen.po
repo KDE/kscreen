@@ -289,7 +289,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "色彩特性文件："
 
 #: ui/OutputPanel.qml:220
 #, kde-format
