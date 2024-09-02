@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:40+0000\n"
-"PO-Revision-Date: 2024-07-31 17:37+0200\n"
+"PO-Revision-Date: 2024-08-29 18:40+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -304,30 +304,25 @@ msgstr ""
 "colori sullo schermo appaiono sbiaditi."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Profilo di colore:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Nessuno"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "Profilo ICC"
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgid "Built-In"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Integrato"
