@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:40+0000\n"
-"PO-Revision-Date: 2024-08-03 13:11+0100\n"
+"PO-Revision-Date: 2024-09-07 12:22+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -298,33 +298,28 @@ msgstr ""
 "screen look washed out."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Colour Profile:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "None"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr "ICC Profile"
+msgstr "ICC profile"
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgid "Built-In"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr "Built-In"
+msgstr "Built-in"
 
 #: ui/OutputPanel.qml:232
 #, kde-format

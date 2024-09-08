@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:40+0000\n"
-"PO-Revision-Date: 2024-08-04 17:08+0530\n"
+"PO-Revision-Date: 2024-09-07 20:53+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -297,30 +297,25 @@ msgstr ""
 "தீர்மானிக்கும். திரையில் காட்டப்படும் நிறங்கள் மங்கலாக தெரிந்தால் மட்டுமே இதை மாற்ற வேண்டும்."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "நிறமிடும் முறை:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "ஏதுமில்லை"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC பயன்முறை"
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgid "Built-In"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "உள்ளமைந்த‍து"
