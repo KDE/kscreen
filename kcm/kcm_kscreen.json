@@ -77,6 +77,7 @@
         "Name[zh_TW]": "顯示器設定"
     },
     "X-KDE-Keywords": "display,monitor,screen,scale,scaling,resolution,orientation,rotate,rotation,output,outputs,refresh,desktop size,hardware,devices,device,fractional,dpi,graphics,framerate,frame rate,fps,hertz,hz,arrange monitors,screen arrangement,aspect ratio,secondary screen,secondary monitor,secondary display,vrr,variable refresh rate,hdr,high dynamic range,freesync,g-sync,quality,hdmi,display port,displayport,dp,vga,dvi,type-c,thunderbolt display,external display,external monitor,external screen,pixels,16:9,21:9,4:3,720p,1080p,1440p,4k,5k,8k,12k,16k,display grid,tablet mode",
+    "X-KDE-Keywords[x-test]": "xxdisplayxx,xxmonitorxx,xxscreenxx,xxscalexx,xxscalingxx,xxresolutionxx,xxorientationxx,xxrotatexx,xxrotationxx,xxoutputxx,xxoutputsxx,xxrefreshxx,xxdesktop sizexx,xxhardwarexx,xxdevicesxx,xxdevicexx,xxfractionalxx,xxdpixx,xxgraphicsxx,xxframeratexx,xxframe ratexx,xxfpsxx,xxhertzxx,xxhzxx,xxarrange monitorsxx,xxscreen arrangementxx,xxaspect ratioxx,xxsecondary screenxx,xxsecondary monitorxx,xxsecondary displayxx,xxvrrxx,xxvariable refresh ratexx,xxhdrxx,xxhigh dynamic rangexx,xxfreesyncxx,xxg-syncxx,xxqualityxx,xxhdmixx,xxdisplay portxx,xxdisplayportxx,xxdpxx,xxvgaxx,xxdvixx,xxtype-cxx,xxthunderbolt displayxx,xxexternal displayxx,xxexternal monitorxx,xxexternal screenxx,xxpixelsxx,xx16:9xx,xx21:9xx,xx4:3xx,xx720pxx,xx1080pxx,xx1440pxx,xx4kxx,xx5kxx,xx8kxx,xx12kxx,xx16kxx,xxdisplay gridxx,xxtablet modexx",
     "X-KDE-System-Settings-Parent-Category": "display",
     "X-KDE-Weight": 40
 }
