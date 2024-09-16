@@ -256,9 +256,7 @@ msgid "Overscan:"
 msgstr "Διαδοχική σάρωση:"
 
 #: ui/OutputPanel.qml:179
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -304,8 +302,7 @@ msgid "Color Profile:"
 msgstr ""
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Κανένα"
@@ -406,9 +403,7 @@ msgid "SDR Color Intensity:"
 msgstr ""
 
 #: ui/OutputPanel.qml:393
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
