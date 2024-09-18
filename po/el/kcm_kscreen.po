@@ -271,8 +271,7 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:190
-#, fuzzy, kde-format
-#| msgid "RGB Range:"
+#, kde-format
 msgid "RGB range:"
 msgstr "RGB εύρος:"
 
