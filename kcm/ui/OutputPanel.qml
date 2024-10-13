@@ -363,8 +363,8 @@ Kirigami.FormLayout {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         spacing: Kirigami.Units.smallSpacing
 
-        visible: root.hdrAvailable && element.hdr
-        Kirigami.FormData.label: i18nc("@label", "SDR Color Intensity:")
+        visible: (root.hdrAvailable && element.hdr) || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
+        Kirigami.FormData.label: i18nc("@label", "sRGB Color Intensity:")
 
         QQC2.Slider {
             Layout.fillWidth: true
@@ -398,7 +398,7 @@ Kirigami.FormLayout {
             onValueModified: element.sdrGamutWideness = realValue
         }
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Increases the intensity of non-HDR content on the screen")
+            toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen")
         }
     }
 
