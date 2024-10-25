@@ -13,6 +13,8 @@ import org.kde.kitemmodels 1.0
 import org.kde.kcmutils as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
+import "./mobile"
+
 KCM.SimpleKCM {
     id: root
 
@@ -90,6 +92,32 @@ KCM.SimpleKCM {
                 kcm.setStopUpdatesFromBackend(false);
                 kcm.revertSettings();
             }
+        }
+    }
+
+    property Component desktopPanel: Component {
+        Panel {
+            enabled: kcm.outputModel && kcm.backendReady
+            enabledOutputs: enabledOutputsModel
+            selectedOutput: root.selectedOutput
+            onSelectedOutputChanged: {
+                root.selectedOutput = selectedOutput;
+                selectedOutput = Qt.binding(() => root.selectedOutput);
+            }
+            onReorder: reorderDialog.open()
+        }
+    }
+
+    property Component mobilePanel: Component {
+        MobilePanel {
+            enabled: kcm.outputModel && kcm.backendReady
+            enabledOutputs: enabledOutputsModel
+            selectedOutput: root.selectedOutput
+            onSelectedOutputChanged: {
+                root.selectedOutput = selectedOutput;
+                selectedOutput = Qt.binding(() => root.selectedOutput);
+            }
+            onReorder: reorderDialog.open()
         }
     }
 
@@ -333,16 +361,10 @@ KCM.SimpleKCM {
             }
         }
 
-        Panel {
-            enabled: kcm.outputModel && kcm.backendReady
+        Loader {
+            id: panelLoader
             Layout.fillWidth: true
-            enabledOutputs: enabledOutputsModel
-            selectedOutput: root.selectedOutput
-            onSelectedOutputChanged: {
-                root.selectedOutput = selectedOutput;
-                selectedOutput = Qt.binding(() => root.selectedOutput);
-            }
-            onReorder: reorderDialog.open()
+            sourceComponent: Kirigami.Settings.isMobile ? root.mobilePanel : root.desktopPanel
         }
 
         Timer {
