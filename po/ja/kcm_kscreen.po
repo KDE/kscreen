@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-29 00:40+0000\n"
+"POT-Creation-Date: 2024-10-26 00:41+0000\n"
 "PO-Revision-Date: 2024-01-09 19:02+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -409,9 +409,11 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "スクリーン上の非 HDR コンテンツの明るさを設定します (nit)"
 
 #: ui/OutputPanel.qml:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Color Intensity:"
 msgctxt "@label"
-msgid "SDR Color Intensity:"
+msgid "sRGB Color Intensity:"
 msgstr "SDR 彩度:"
 
 #: ui/OutputPanel.qml:393
@@ -421,9 +423,11 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of non-HDR content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of non-HDR content on the screen"
+msgid "Increases the intensity of sRGB content on the screen"
 msgstr "スクリーン上の非 HDR コンテンツの彩度を高めます"
 
 #: ui/OutputPanel.qml:406

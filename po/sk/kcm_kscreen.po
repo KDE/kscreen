@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-29 00:40+0000\n"
+"POT-Creation-Date: 2024-10-26 00:41+0000\n"
 "PO-Revision-Date: 2024-03-24 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -409,9 +409,11 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Nastavenie jasu obsahu bez HDR na obrazovke v nitoch"
 
 #: ui/OutputPanel.qml:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Color Intensity:"
 msgctxt "@label"
-msgid "SDR Color Intensity:"
+msgid "sRGB Color Intensity:"
 msgstr "Intenzita farieb SDR:"
 
 #: ui/OutputPanel.qml:393
@@ -421,9 +423,11 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of non-HDR content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of non-HDR content on the screen"
+msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
 
 #: ui/OutputPanel.qml:406
