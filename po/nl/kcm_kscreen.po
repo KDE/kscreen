@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-29 10:26+0200\n"
+"PO-Revision-Date: 2024-10-26 11:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -409,12 +409,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Zet de helderheid van niet-HDR inhoud op het scherm, in nits"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Intensiteit van kleur van SDR:"
+msgstr "Intensiteit van kleur sRGB:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -423,12 +421,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Verhoogt de intensiteit van niet-HDR inhoud op het scherm"
+msgstr "Verhoogt de intensiteit van sRGB-inhoud op het scherm"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-09-12 13:39+0300\n"
+"PO-Revision-Date: 2024-10-26 09:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -416,12 +416,10 @@ msgstr ""
 "екрані, у нітах"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Інтенсивність кольорів SDR:"
+msgstr "Інтенсивність кольорів sRGB:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -430,14 +428,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr ""
-"Збільшує інтенсивність зображень у стандартному динамічному діапазоні на "
-"екрані"
+msgstr "Збільшує інтенсивність зображень sRGB на екрані"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

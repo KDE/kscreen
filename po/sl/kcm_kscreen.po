@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-29 07:00+0200\n"
+"PO-Revision-Date: 2024-10-26 08:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -411,12 +411,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Nastavi svetlost vsebine, ki ni HDR, na zaslonu v nitih"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Intenzivnost barv SDR:"
+msgstr "Intenzivnost barv sRGB:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -425,12 +423,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Poveča intenzivnost vsebine, ki ni HDR, na zaslonu"
+msgstr "Poveča intenzivnost vsebine sRGB na zaslonu"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-29 06:48+0300\n"
+"PO-Revision-Date: 2024-10-26 07:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -401,12 +401,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "הגדרת הבהירות של תוכן שאינו בטווח הדינמי הגבוה על המסך, ב־nits"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "עומק צבע בטווח דינמי רגיל:"
+msgstr "עומק צבע sRGB:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -415,12 +413,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "מגביר את עוצמת התוכן שאינו בטווח הדינמי הגבוה על המסך"
+msgstr "הגברת עוצמת תוכן ה־sRGB על המסך"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

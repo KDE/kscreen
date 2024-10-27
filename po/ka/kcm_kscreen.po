@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-29 06:07+0200\n"
+"PO-Revision-Date: 2024-10-26 04:39+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -405,12 +405,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "აყენებს სიკაშკაშეს არა-HDR შემცველობისთვის ეკრანზე, ნიტებში"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR ფერის ინტენსივობა:"
+msgstr "sRGB ფერი ინტენსივობა:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -419,12 +417,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "ზრდის სიკაშკაშეს არა-HDR შემცველობისთვის ეკრანზე"
+msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
