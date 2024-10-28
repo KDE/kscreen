@@ -398,7 +398,7 @@ msgstr "设置屏幕在显示非 HDR 内容时的亮度，单位为尼特 (nits)
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr ""
+msgstr "sRGB 色彩鲜艳度："
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -410,7 +410,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr ""
+msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

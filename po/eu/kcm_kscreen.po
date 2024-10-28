@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-10-26 17:58+0200\n"
+"PO-Revision-Date: 2024-10-27 05:53+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -410,12 +410,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "HDR ez den edukiaren pantailako distira ezartzen du, «nit»etan"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR kolorearen intentsitatea:"
+msgstr "sRGB kolorearen intentsitatea:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -424,12 +422,10 @@ msgid "%1%"
 msgstr "%%1"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "HDR ez den edukiaren pantailako intentsitatea handiagotzen du"
+msgstr "Pantailan, sRGB edukiaren intentsitatea handiagotzen du"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
