@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-30 08:32+0200\n"
+"PO-Revision-Date: 2024-10-27 08:41+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -421,9 +421,7 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Définit la luminosité des contenus non « HDR » sur l'écran en nits"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "Intensité des couleurs « SDR » :"
@@ -435,12 +433,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Augmente l'intensité des contenus non « HDR » sur l'écran"
+msgstr "Augmente l'intensité des contenus « sRGB » sur l'écran"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
