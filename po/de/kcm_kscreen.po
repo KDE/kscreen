@@ -4,21 +4,22 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022, 2023.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2024-03-27 19:50+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2024-10-27 20:04+0100\n"
+"Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -292,7 +293,7 @@ msgstr "Globale Skalierung:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr "Herkömmliche Anwendungen (X11):"
+msgstr "Alte Anwendungen (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
@@ -306,7 +307,7 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
-"Herkömmliche Anwendungen, die Skalierung unterstützen, werden diese selbst "
+"Alte Anwendungen, die Skalierung unterstützen, werden diese selbst "
 "durchführen und scharf dargestellt. Wenn keine Unterstützung durch die "
 "Anwendung besteht, wird keinerlei Skalierung erfolgen."
 
@@ -322,8 +323,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
-"Alle herkömmlichen Anwendungen werden durch das System auf die korrekte "
-"Größe skaliert, allerdings immer etwas verschwommen dargestellt werden."
+"Alle alten Anwendungen werden durch das System auf die korrekte Größe "
+"skaliert, allerdings immer etwas verschwommen dargestellt."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
