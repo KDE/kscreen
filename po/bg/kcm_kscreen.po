@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:40+0000\n"
-"PO-Revision-Date: 2024-09-19 19:43+0200\n"
+"PO-Revision-Date: 2024-11-06 23:19+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -233,8 +233,7 @@ msgstr "Честота на опресняване:"
 #: ui/OutputPanel.qml:149
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
-"\"%1\" е единствената поддържана от този монитор честота на опресняване."
+msgstr "„%1“ е единствената поддържана от този монитор честота на опресняване."
 
 #: ui/OutputPanel.qml:154
 #, kde-format
