@@ -323,7 +323,7 @@ Kirigami.FormLayout {
         }
 
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors. Note that this feature is still experimental")
+            toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors")
         }
     }
 
