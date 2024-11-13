@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:41+0000\n"
-"PO-Revision-Date: 2024-08-31 22:49+0300\n"
+"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"PO-Revision-Date: 2024-11-13 02:01+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -384,11 +384,14 @@ msgid "Enable HDR"
 msgstr "Įjungti HDR"
 
 #: ui/OutputPanel.qml:326
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HDR allows compatible applications to show brighter and more vivid "
+#| "colors. Note that this feature is still experimental"
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors. "
-"Note that this feature is still experimental"
+"HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 "HDR leidžia suderinamoms programoms atvaizduoti ryškesnes ar labiau "
 "vaizdingas spalvas. Turėkite omenyje, kad ši ypatybė vis dar yra "
@@ -407,12 +410,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Nustato ne HDR turinio ekrane ryškumą, nitais"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR spalvų intensyvumas:"
+msgstr "sRGB spalvų intensyvumas:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -421,12 +422,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Padidina ne HDR turinio ekrane intensyvumą"
+msgstr "Padidina sRGB turinio ekrane intensyvumą"
 
 #: ui/OutputPanel.qml:406
 #, kde-format

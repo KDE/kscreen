@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:41+0000\n"
+"POT-Creation-Date: 2024-11-13 00:41+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -384,8 +384,7 @@ msgstr "Activa"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors. "
-"Note that this feature is still experimental"
+"HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 
 #: ui/OutputPanel.qml:337
