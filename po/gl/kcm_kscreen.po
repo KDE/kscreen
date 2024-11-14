@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-11-09 16:17+0100\n"
+"PO-Revision-Date: 2024-11-13 21:24+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -382,17 +382,12 @@ msgid "Enable HDR"
 msgstr "Activar o HDR."
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"O HDR permite ás aplicacións compatíbeis amosar cores máis claras e vívidas. "
-"Teña en conta que esta funcionalidade aínda é experimental."
+"O HDR permite ás aplicacións compatíbeis amosar cores máis claras e vívidas."
 
 #: ui/OutputPanel.qml:337
 #, kde-format
