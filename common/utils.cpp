@@ -21,25 +21,25 @@ QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNu
         return i18nd("kscreen_common", "Built-in Screen");
     }
 
-    if (output->edid()) {
         // The name will be "VendorName ModelName (ConnectorName)",
         // but some components may be empty.
-        QString name;
-        if (!(output->edid()->vendor().isEmpty())) {
-            name = output->edid()->vendor() + QLatin1Char(' ');
-        }
-        if (!output->edid()->name().isEmpty()) {
-            name += output->edid()->name() + QLatin1Char(' ');
-        }
+    QString name;
+    if (!(output->vendor().isEmpty())) {
+        name = output->vendor() + QLatin1Char(' ');
+    }
+    if (!output->model().isEmpty()) {
+        name += output->model() + QLatin1Char(' ');
+    }
+    if (output->edid()) {
         if (!output->edid()->serial().isEmpty() && shouldShowSerialNumber) {
             name += output->edid()->serial() + QLatin1Char(' ');
         }
-        if (shouldShowConnector) {
-            name += output->name();
-        }
-        if (!name.trimmed().isEmpty()) {
-            return name;
-        }
+    }
+    if (shouldShowConnector) {
+        name += output->name();
+    }
+    if (!name.trimmed().isEmpty()) {
+        return name;
     }
     return output->name();
 }
