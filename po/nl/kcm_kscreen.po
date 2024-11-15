@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-10-26 11:46+0200\n"
+"PO-Revision-Date: 2024-11-13 11:44+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -387,17 +387,13 @@ msgid "Enable HDR"
 msgstr "HDR inschakelen"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR biest compatibele toepassingen het tonen van helderder en levendiger "
-"kleuren. Merk op dat deze functie nog steeds experimenteel is"
+"HDR biedt compatibele toepassingen het tonen van helderdere en levendigere "
+"kleuren"
 
 #: ui/OutputPanel.qml:337
 #, kde-format

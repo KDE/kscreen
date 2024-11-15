@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-10-26 04:39+0200\n"
+"PO-Revision-Date: 2024-11-14 02:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -383,17 +383,13 @@ msgid "Enable HDR"
 msgstr "HDR-ის ჩართვას"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 "HDR თავსებად აპლიკაციებს საშუალებას აძლევს, უფრო კაშკაშა და მკვეთრი ფერებით "
-"გამოჩნდეს. გახსოვდეთ, რომ ეს ფუნქცია ჯერ კიდევ საცდელია"
+"გამოჩნდეს"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
