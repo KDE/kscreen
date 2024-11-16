@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-09-26 15:32+0200\n"
+"PO-Revision-Date: 2024-11-15 20:29+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -384,17 +384,13 @@ msgid "Enable HDR"
 msgstr "HDR bekapcsolása"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 "A HDR lehetővé teszi a kompatibilis alkalmazásoknak fényesebb és élénkebb "
-"színek megjelenítését. Ne feledje, hogy ez a funkció még kísérleti"
+"színek megjelenítését"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
@@ -409,12 +405,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Beállítja a képernyőn megjelenő nem HDR tartalmak fényerejét nitben."
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR színintenzitás:"
+msgstr "sRGB színintenzitás:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -423,12 +417,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Növel a képernyőn megjelenő nem HDR tartalom intenzitását"
+msgstr "Növel a képernyőn megjelenő sRGB tartalom intenzitását"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
