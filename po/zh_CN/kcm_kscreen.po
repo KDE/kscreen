@@ -377,7 +377,7 @@ msgstr "启用 HDR"
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
-msgstr ""
+msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
