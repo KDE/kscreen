@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-08-29 20:06+0200\n"
+"PO-Revision-Date: 2024-11-24 18:20+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -381,17 +381,13 @@ msgid "Enable HDR"
 msgstr "Aktivera stort dynamiskt intervall"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 "Stort dynamiskt intervall låter kompatibla program visa starkare och mer "
-"levande färger. Observera att funktionen fortfarande är experimentell."
+"levande färger."
 
 #: ui/OutputPanel.qml:337
 #, kde-format
@@ -408,12 +404,10 @@ msgstr ""
 "nits"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Färgintensitet för litet dynamiskt intervall:"
+msgstr "sRGB-färgintensitet:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -422,12 +416,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Ökar intensitet för annat än stort dynamiskt intervall på skärmen"
+msgstr "Ökar intensiteten för sRGB-innehåll på skärmen"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
