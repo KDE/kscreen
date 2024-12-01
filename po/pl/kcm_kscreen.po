@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:41+0000\n"
-"PO-Revision-Date: 2024-09-07 11:23+0200\n"
+"PO-Revision-Date: 2024-11-30 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -387,17 +387,12 @@ msgid "Enable HDR"
 msgstr "Włącz HDR"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR umożliwia obsługującym go aplikacjom pokazywać jaśniejsze i żywsze "
-"barwy. Pamiętaj, że ta funkcjonalność nie jest jeszcze dopracowana"
+"HDR umożliwia obsługującym go aplikacjom pokazywać jaśniejsze i żywsze barwy"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
@@ -412,12 +407,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "Ustawia jasność treści nie-HDR na ekranie, w nitach"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Natężenie barwy SDR:"
+msgstr "Natężenie barwy sRGB:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -426,12 +419,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Zwiększa natężenie treści nie-HDR na ekranie"
+msgstr "Zwiększa natężenie treści sRGB na ekranie"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
