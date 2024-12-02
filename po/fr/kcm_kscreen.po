@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"POT-Creation-Date: 2024-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-11-14 13:01+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -83,13 +83,13 @@ msgstr "&Conserver"
 msgid "&Revert"
 msgstr "&Rétablir"
 
-#: ui/main.qml:100 ui/main.qml:271
+#: ui/main.qml:100 ui/main.qml:272
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Tous les écrans sont désactivés. En activer au moins un."
 
-#: ui/main.qml:102 ui/main.qml:273
+#: ui/main.qml:102 ui/main.qml:274
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -98,12 +98,12 @@ msgstr ""
 "Les espaces entre les affichages ne sont pas pris en charge. Veuillez vous "
 "assurer que tous les affichages se touchent."
 
-#: ui/main.qml:114 ui/main.qml:286
+#: ui/main.qml:114 ui/main.qml:287
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Une nouvelle sortie a été ajoutée. Les paramètres ont été rechargés."
 
-#: ui/main.qml:116 ui/main.qml:288
+#: ui/main.qml:116 ui/main.qml:289
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Une sortie a été retirée. Les paramètres ont été rechargés."
@@ -144,17 +144,17 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Modifier les priorités"
 
-#: ui/main.qml:239 ui/OutputPanel.qml:45
+#: ui/main.qml:240 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Primaire"
 
-#: ui/main.qml:244
+#: ui/main.qml:245
 #, kde-format
 msgid "Raise priority"
 msgstr "Augmenter la priorité"
 
-#: ui/main.qml:254
+#: ui/main.qml:255
 #, kde-format
 msgid "Lower priority"
 msgstr "Diminuer la priorité"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"POT-Creation-Date: 2024-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-11-13 10:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -77,13 +77,13 @@ msgstr "Man&tín"
 msgid "&Revert"
 msgstr "Re&vertix"
 
-#: ui/main.qml:100 ui/main.qml:271
+#: ui/main.qml:100 ui/main.qml:272
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Totes les pantalles estan desactivades. Almenys activeu-ne una."
 
-#: ui/main.qml:102 ui/main.qml:273
+#: ui/main.qml:102 ui/main.qml:274
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -92,12 +92,12 @@ msgstr ""
 "No es permeten separacions entre les pantalles. Assegureu-vos que totes les "
 "pantalles estan en contacte."
 
-#: ui/main.qml:114 ui/main.qml:286
+#: ui/main.qml:114 ui/main.qml:287
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "S'ha afegit una eixida nova. S'ha tornat a carregar la configuració."
 
-#: ui/main.qml:116 ui/main.qml:288
+#: ui/main.qml:116 ui/main.qml:289
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "S'ha eliminat una eixida. S'ha tornat a carregar la configuració."
@@ -135,17 +135,17 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Canvi de prioritats"
 
-#: ui/main.qml:239 ui/OutputPanel.qml:45
+#: ui/main.qml:240 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Primària"
 
-#: ui/main.qml:244
+#: ui/main.qml:245
 #, kde-format
 msgid "Raise priority"
 msgstr "Eleva la prioritat"
 
-#: ui/main.qml:254
+#: ui/main.qml:255
 #, kde-format
 msgid "Lower priority"
 msgstr "Reduïx la prioritat"

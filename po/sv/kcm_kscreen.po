@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"POT-Creation-Date: 2024-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-11-24 18:20+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -73,13 +73,13 @@ msgstr "&Behåll"
 msgid "&Revert"
 msgstr "Åte&rställ"
 
-#: ui/main.qml:100 ui/main.qml:271
+#: ui/main.qml:100 ui/main.qml:272
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Alla bildskärmar är inaktiverade. Aktivera minst en."
 
-#: ui/main.qml:102 ui/main.qml:273
+#: ui/main.qml:102 ui/main.qml:274
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -88,12 +88,12 @@ msgstr ""
 "Mellanrum mellan bildskärmar stöds inte. Säkerställ att alla bildskärmar rör "
 "vid varandra."
 
-#: ui/main.qml:114 ui/main.qml:286
+#: ui/main.qml:114 ui/main.qml:287
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "En ny utgång har lagts till. Inställningar har lästs in igen."
 
-#: ui/main.qml:116 ui/main.qml:288
+#: ui/main.qml:116 ui/main.qml:289
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "En ny utgång har tagits bort. Inställningar har lästs in igen."
@@ -131,17 +131,17 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Ändra prioriteter"
 
-#: ui/main.qml:239 ui/OutputPanel.qml:45
+#: ui/main.qml:240 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Huvudskärm"
 
-#: ui/main.qml:244
+#: ui/main.qml:245
 #, kde-format
 msgid "Raise priority"
 msgstr "Öka prioritet"
 
-#: ui/main.qml:254
+#: ui/main.qml:255
 #, kde-format
 msgid "Lower priority"
 msgstr "Sänk prioritet"

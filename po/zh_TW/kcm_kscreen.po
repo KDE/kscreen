@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"POT-Creation-Date: 2024-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-09-10 01:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -75,25 +75,25 @@ msgstr "保留(&K)"
 msgid "&Revert"
 msgstr "回復(&R)"
 
-#: ui/main.qml:100 ui/main.qml:271
+#: ui/main.qml:100 ui/main.qml:272
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有螢幕都被停用了。請至少啟用一個。"
 
-#: ui/main.qml:102 ui/main.qml:273
+#: ui/main.qml:102 ui/main.qml:274
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
-#: ui/main.qml:114 ui/main.qml:286
+#: ui/main.qml:114 ui/main.qml:287
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已新增輸出。設定已重新載入。"
 
-#: ui/main.qml:116 ui/main.qml:288
+#: ui/main.qml:116 ui/main.qml:289
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除輸出。設定已重新載入。"
@@ -130,17 +130,17 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "變更優先值"
 
-#: ui/main.qml:239 ui/OutputPanel.qml:45
+#: ui/main.qml:240 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "主顯示"
 
-#: ui/main.qml:244
+#: ui/main.qml:245
 #, kde-format
 msgid "Raise priority"
 msgstr "提升優先順序"
 
-#: ui/main.qml:254
+#: ui/main.qml:255
 #, kde-format
 msgid "Lower priority"
 msgstr "降低優先順序"
