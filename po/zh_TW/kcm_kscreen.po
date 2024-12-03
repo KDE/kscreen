@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-02 00:43+0000\n"
-"PO-Revision-Date: 2024-09-10 01:09+0900\n"
+"PO-Revision-Date: 2024-12-02 17:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -376,17 +376,11 @@ msgid "Enable HDR"
 msgstr "啟用 HDR"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
-msgstr ""
-"HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。請注意，這個功能目前仍在試驗"
-"中"
+msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
@@ -401,12 +395,10 @@ msgid "Sets the brightness of non-HDR content on the screen, in nits"
 msgstr "設定螢幕上非 HDR 內容的亮度，單位為 nit"
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR 色彩強度："
+msgstr "sRGB 色彩強度："
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -415,12 +407,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "提高螢幕上非 HDR 內容的色彩強度"
+msgstr "提高螢幕上 sRGB 內容的色彩強度"
 
 #: ui/OutputPanel.qml:406
 #, kde-format
