@@ -312,6 +312,9 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label", "High Dynamic Range:")
         visible: root.hdrAvailable
         spacing: Kirigami.Units.smallSpacing
@@ -331,29 +334,25 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Kirigami.FormData.label: i18nc("@label:listbox", "Color accuracy:")
+        visible: element.capabilities & KScreen.Output.Capability.IccProfile
         spacing: Kirigami.Units.smallSpacing
 
-        visible: root.hdrAvailable && element.hdr
-        Kirigami.FormData.label: i18nc("@label", "Maximum SDR Brightness:")
+        QQC2.ComboBox {
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            model: [
+                { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer efficiency"), value: KScreen.Output.ColorPowerTradeoff.PreferEfficiency },
+                { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer color accuracy"), value: KScreen.Output.ColorPowerTradeoff.PreferAccuracy }
+            ]
+            textRole: "label"
+            valueRole: "value"
 
-        QQC2.Slider {
-            Layout.fillWidth: true
-            from: 50
-            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
-            stepSize: 50
-            live: true
-            value: element.sdrBrightness
-            onMoved: element.sdrBrightness = value
-        }
-        QQC2.SpinBox {
-            from: 50
-            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
-            stepSize: 10
-            value: element.sdrBrightness
-            onValueModified: element.sdrBrightness = value
+            onActivated: element.colorPowerPreference = currentValue;
+            Component.onCompleted: currentIndex = indexOfValue(element.colorPowerPreference);
         }
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider")
+            visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferAccuracy
+            toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance")
         }
     }
 
@@ -399,6 +398,36 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen")
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: root.hdrAvailable && element.hdr
+        Kirigami.FormData.label: i18nc("@label", "Maximum SDR Brightness:")
+
+        QQC2.Slider {
+            Layout.fillWidth: true
+            from: 50
+            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
+            stepSize: 50
+            live: true
+            value: element.sdrBrightness
+            onMoved: element.sdrBrightness = value
+        }
+        QQC2.SpinBox {
+            from: 50
+            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
+            stepSize: 10
+            value: element.sdrBrightness
+            onValueModified: element.sdrBrightness = value
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider")
         }
     }
 
