@@ -121,6 +121,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->colorProfileSource());
     case BrightnessRole:
         return output->brightness();
+    case ColorPowerPreference:
+        return static_cast<uint32_t>(output->colorPowerPreference());
     }
     return QVariant();
 }
@@ -287,6 +289,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setBrightness(value.toDouble());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case ColorPowerPreference:
+        output.ptr->setColorPowerPreference(static_cast<KScreen::Output::ColorPowerTradeoff>(value.toUInt()));
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -323,6 +329,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[SdrGamutWideness] = "sdrGamutWideness";
     roles[ColorProfileSource] = "colorProfileSource";
     roles[BrightnessRole] = "brightness";
+    roles[ColorPowerPreference] = "colorPowerPreference";
     return roles;
 }
 
