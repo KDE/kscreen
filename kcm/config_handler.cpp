@@ -163,10 +163,10 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->iccProfilePath() != config->iccProfilePath()
                     || output->isHdrEnabled() != config->isHdrEnabled()
                     || output->isWcgEnabled() != config->isWcgEnabled()
-                    || output->sdrBrightness() != config->sdrBrightness()
-                    || output->sdrGamutWideness() != config->sdrGamutWideness()
+                    || (isSaveCheck && output->sdrBrightness() != config->sdrBrightness())
+                    || (isSaveCheck && output->sdrGamutWideness() != config->sdrGamutWideness())
                     || output->colorProfileSource() != config->colorProfileSource()
-                    || output->brightness() != config->brightness()) {
+                    || (isSaveCheck && output->brightness() != config->brightness())) {
                         return true;
                     }
             }
