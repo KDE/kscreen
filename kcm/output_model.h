@@ -50,6 +50,7 @@ public:
         ColorProfileSource,
         InteractiveMoveRole, // This output is currently repositioned interactively
         BrightnessRole,
+        ColorPowerPreference,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);
