@@ -334,7 +334,7 @@ Kirigami.FormLayout {
         spacing: Kirigami.Units.smallSpacing
 
         visible: root.hdrAvailable && element.hdr
-        Kirigami.FormData.label: i18nc("@label", "SDR Brightness:")
+        Kirigami.FormData.label: i18nc("@label", "Maximum SDR Brightness:")
 
         QQC2.Slider {
             Layout.fillWidth: true
@@ -353,7 +353,7 @@ Kirigami.FormLayout {
             onValueModified: element.sdrBrightness = value
         }
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Sets the brightness of non-HDR content on the screen, in nits")
+            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider")
         }
     }
 
@@ -399,6 +399,33 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen")
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: (root.hdrAvailable && element.hdr) || (element.capabilities & KScreen.Output.Capability.BrightnessControl)
+        Kirigami.FormData.label: i18nc("@label", "Brightness:")
+
+        QQC2.Slider {
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 5
+            live: true
+            value: element.brightness * 100.0
+            onMoved: element.brightness = value / 100.0
+        }
+        QQC2.SpinBox {
+            from: 0
+            to: 100
+            stepSize: 5
+            value: element.brightness * 100.0
+            onValueModified: element.brightness = value / 100.0
         }
     }
 

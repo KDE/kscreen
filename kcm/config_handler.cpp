@@ -165,7 +165,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->isWcgEnabled() != config->isWcgEnabled()
                     || output->sdrBrightness() != config->sdrBrightness()
                     || output->sdrGamutWideness() != config->sdrGamutWideness()
-                    || output->colorProfileSource() != config->colorProfileSource()) {
+                    || output->colorProfileSource() != config->colorProfileSource()
+                    || output->brightness() != config->brightness()) {
                         return true;
                     }
             }

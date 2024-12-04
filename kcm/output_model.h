@@ -49,6 +49,7 @@ public:
         SdrGamutWideness,
         ColorProfileSource,
         InteractiveMoveRole, // This output is currently repositioned interactively
+        BrightnessRole,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);
