@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-02 00:43+0000\n"
+"POT-Creation-Date: 2024-12-05 00:41+0000\n"
 "PO-Revision-Date: 2021-11-17 13:23+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -22,24 +22,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr ""
 
-#: output_model.cpp:647
+#: output_model.cpp:654
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr ""
 
-#: output_model.cpp:666
+#: output_model.cpp:673
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:747
+#: output_model.cpp:754
 #, kde-format
 msgid "None"
 msgstr "Žane"
 
-#: output_model.cpp:754
+#: output_model.cpp:761
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopěrowane wot druheje wobrazowki"
@@ -382,13 +382,13 @@ msgstr ""
 #: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label"
-msgid "SDR Brightness:"
+msgid "Maximum SDR Brightness:"
 msgstr ""
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Sets the brightness of non-HDR content on the screen, in nits"
+msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
 #: ui/OutputPanel.qml:367
@@ -411,7 +411,13 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr ""
 
-#: ui/OutputPanel.qml:406
+#: ui/OutputPanel.qml:412
+#, kde-format
+msgctxt "@label"
+msgid "Brightness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgid "Replica of:"
 msgstr ""

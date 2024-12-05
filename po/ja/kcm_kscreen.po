@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-02 00:43+0000\n"
+"POT-Creation-Date: 2024-12-05 00:41+0000\n"
 "PO-Revision-Date: 2024-01-09 19:02+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -23,24 +23,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:647
+#: output_model.cpp:654
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:666
+#: output_model.cpp:673
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747
+#: output_model.cpp:754
 #, kde-format
 msgid "None"
 msgstr "なし"
 
-#: output_model.cpp:754
+#: output_model.cpp:761
 #, kde-format
 msgid "Replicated by other output"
 msgstr "他の出力による複製"
@@ -400,16 +400,18 @@ msgstr ""
 "るようになります。この機能はまだ実験的なものであることに注意してください。"
 
 #: ui/OutputPanel.qml:337
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Brightness:"
 msgctxt "@label"
-msgid "SDR Brightness:"
+msgid "Maximum SDR Brightness:"
 msgstr "SDR 明るさ:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr "スクリーン上の非 HDR コンテンツの明るさを設定します (nit)"
+msgid "Sets the maximum brightness for the normal brightness slider"
+msgstr ""
 
 #: ui/OutputPanel.qml:367
 #, fuzzy, kde-format
@@ -433,7 +435,15 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "スクリーン上の非 HDR コンテンツの彩度を高めます"
 
-#: ui/OutputPanel.qml:406
+#: ui/OutputPanel.qml:412
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Brightness:"
+msgctxt "@label"
+msgid "Brightness:"
+msgstr "SDR 明るさ:"
+
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgid "Replica of:"
 msgstr "複製するディスプレイ:"
@@ -540,3 +550,7 @@ msgstr "回転なし"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "スクリーンをドラッグして再配置"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
+#~ msgstr "スクリーン上の非 HDR コンテンツの明るさを設定します (nit)"

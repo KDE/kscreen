@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-02 00:43+0000\n"
+"POT-Creation-Date: 2024-12-05 00:41+0000\n"
 "PO-Revision-Date: 2024-11-30 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -24,24 +24,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:647
+#: output_model.cpp:654
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:666
+#: output_model.cpp:673
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:747
+#: output_model.cpp:754
 #, kde-format
 msgid "None"
 msgstr "Brak"
 
-#: output_model.cpp:754
+#: output_model.cpp:761
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Powielone przez inne wyjście"
@@ -395,16 +395,18 @@ msgstr ""
 "HDR umożliwia obsługującym go aplikacjom pokazywać jaśniejsze i żywsze barwy"
 
 #: ui/OutputPanel.qml:337
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Brightness:"
 msgctxt "@label"
-msgid "SDR Brightness:"
+msgid "Maximum SDR Brightness:"
 msgstr "Jasność SDR:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Sets the brightness of non-HDR content on the screen, in nits"
-msgstr "Ustawia jasność treści nie-HDR na ekranie, w nitach"
+msgid "Sets the maximum brightness for the normal brightness slider"
+msgstr ""
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -424,7 +426,15 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Zwiększa natężenie treści sRGB na ekranie"
 
-#: ui/OutputPanel.qml:406
+#: ui/OutputPanel.qml:412
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Brightness:"
+msgctxt "@label"
+msgid "Brightness:"
+msgstr "Jasność SDR:"
+
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgid "Replica of:"
 msgstr "Powiel na:"
@@ -532,6 +542,10 @@ msgstr "Bez obrotu"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Aby zmieniać układ ekranów, przeciągnij je"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
+#~ msgstr "Ustawia jasność treści nie-HDR na ekranie, w nitach"
 
 #~ msgctxt "@info"
 #~ msgid ""
