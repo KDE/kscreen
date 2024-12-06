@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-11-13 10:33+0100\n"
+"PO-Revision-Date: 2024-12-05 09:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -392,22 +392,21 @@ msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR permet que les aplicacions compatibles mostrin colors més brillants i "
+"HDR permet que les aplicacions compatibles mostrin colors més lluminosos i "
 "vius"
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Lluminositat de l'SDR:"
+msgstr "Lluminositat màxima de l'SDR:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
+"Estableix la lluminositat màxima del control lliscant normal de lluminositat"
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -428,12 +427,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Augmenta la intensitat del contingut sRGB a la pantalla"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Lluminositat de l'SDR:"
+msgstr "Lluminositat:"
 
 #: ui/OutputPanel.qml:433
 #, kde-format

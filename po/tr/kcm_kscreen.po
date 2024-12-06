@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-11-15 21:35+0300\n"
+"PO-Revision-Date: 2024-12-05 21:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -393,18 +393,16 @@ msgstr ""
 "verir."
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR parlaklığı:"
+msgstr "En çok SDR parlaklığı:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Normal parlaklık sürgüsü için en büyük parlaklık değerini ayarlar"
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -425,12 +423,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Ekrandaki sRGB içeriğin yoğunluğunu artırır"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR parlaklığı:"
+msgstr "Parlaklık:"
 
 #: ui/OutputPanel.qml:433
 #, kde-format

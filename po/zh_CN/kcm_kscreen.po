@@ -380,12 +380,10 @@ msgid ""
 msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色"
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR 亮度："
+msgstr ""
 
 #: ui/OutputPanel.qml:356
 #, kde-format
@@ -412,12 +410,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR 亮度："
+msgstr ""
 
 #: ui/OutputPanel.qml:433
 #, kde-format
@@ -523,7 +519,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr "设置屏幕在显示非 HDR 内容时的亮度，单位为尼特 (nits)"
