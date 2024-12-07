@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-11-13 21:24+0100\n"
+"PO-Revision-Date: 2024-12-06 11:51+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -390,18 +390,16 @@ msgstr ""
 "O HDR permite ás aplicacións compatíbeis amosar cores máis claras e vívidas."
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Brillo de SDR:"
+msgstr "Brillo máximo de SDR:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Define o brillo máximo para o control esvaradío do brillo normal."
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -422,12 +420,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Aumenta a intensidade na pantalla de contido sRGB."
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Brillo de SDR:"
+msgstr "Brillo:"
 
 #: ui/OutputPanel.qml:433
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-11-13 11:44+0100\n"
+"PO-Revision-Date: 2024-12-06 11:22+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -396,18 +396,16 @@ msgstr ""
 "kleuren"
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Helderheid van SDR:"
+msgstr "Maximale helderheid van SDR:"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "De maximale helderheid voor de normale schuifregelaar voor helderheid"
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -428,12 +426,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Verhoogt de intensiteit van sRGB-inhoud op het scherm"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Helderheid van SDR:"
+msgstr "Helderheid:"
 
 #: ui/OutputPanel.qml:433
 #, kde-format

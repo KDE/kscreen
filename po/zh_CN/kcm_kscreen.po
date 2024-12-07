@@ -383,13 +383,13 @@ msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色"
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr ""
+msgstr "最大 SDR 亮度："
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "设置正常亮度滑动条的最大亮度值"
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -413,7 +413,7 @@ msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度"
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr ""
+msgstr "亮度："
 
 #: ui/OutputPanel.qml:433
 #, kde-format
