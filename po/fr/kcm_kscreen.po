@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-11-14 13:01+0100\n"
+"PO-Revision-Date: 2024-12-06 08:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.11.90\n"
 "X-Text-Markup: kde4\n"
 
 #: output_model.cpp:96
@@ -407,18 +407,16 @@ msgstr ""
 "plus lumineuses et plus vives."
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Luminosité « SDR » :"
+msgstr "Luminosité « SDR » maximale :"
 
 #: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Définit la luminosité maximale pour le curseur de luminosité normale"
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -439,12 +437,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Augmente l'intensité des contenus « sRGB » sur l'écran"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Luminosité « SDR » :"
+msgstr "Luminosité :"
 
 #: ui/OutputPanel.qml:433
 #, kde-format
