@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:41+0000\n"
-"PO-Revision-Date: 2024-08-20 00:01+0200\n"
+"PO-Revision-Date: 2024-12-10 01:04+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -295,30 +295,25 @@ msgstr ""
 "않을 때에만 변경하십시오."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "색 프로필:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "없음"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC 프로필"
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgid "Built-In"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "내장"
@@ -381,17 +376,12 @@ msgid "Enable HDR"
 msgstr "HDR 활성화"
 
 #: ui/OutputPanel.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다. 이 "
-"기능은 현재 실험적입니다"
+"HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다"
 
 #: ui/OutputPanel.qml:337
 #, fuzzy, kde-format
@@ -408,12 +398,10 @@ msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
 #: ui/OutputPanel.qml:367
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR 색상 강도:"
+msgstr "sRGB 색상 강도:"
 
 #: ui/OutputPanel.qml:393
 #, kde-format
@@ -422,12 +410,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:401
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "화면에 비 HDR 콘텐츠를 표시할 때 색상 강도 증가"
+msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도 증가"
 
 #: ui/OutputPanel.qml:412
 #, fuzzy, kde-format
