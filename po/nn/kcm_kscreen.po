@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-05 00:41+0000\n"
+"POT-Creation-Date: 2024-12-11 00:41+0000\n"
 "PO-Revision-Date: 2024-09-01 15:21+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -23,24 +23,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:654
+#: output_model.cpp:661
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:673
+#: output_model.cpp:680
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:754
+#: output_model.cpp:761
 #, kde-format
 msgid "None"
 msgstr "Ingen"
 
-#: output_model.cpp:761
+#: output_model.cpp:768
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Duplisert av anna uteining"
@@ -368,19 +368,19 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC-profilar er ikkje kompatible med HDR enno"
 
-#: ui/OutputPanel.qml:315
+#: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Stort dynamisk omfang (HDR):"
 
-#: ui/OutputPanel.qml:320
+#: ui/OutputPanel.qml:323
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "Bruk HDR"
 
-#: ui/OutputPanel.qml:326
+#: ui/OutputPanel.qml:329
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -394,20 +394,30 @@ msgstr ""
 "Merk at denne funksjonen førebels er eksperimentell."
 
 #: ui/OutputPanel.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
-msgctxt "@label"
-msgid "Maximum SDR Brightness:"
-msgstr "SDR-lysstyrke:"
-
-#: ui/OutputPanel.qml:356
 #, kde-format
-msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgctxt "@label:listbox"
+msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:344
+#, kde-format
+msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
+msgid "Prefer efficiency"
+msgstr ""
+
+#: ui/OutputPanel.qml:345
+#, kde-format
+msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
+msgid "Prefer color accuracy"
+msgstr ""
+
+#: ui/OutputPanel.qml:355
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This setting can have a large impact on performance"
+msgstr ""
+
+#: ui/OutputPanel.qml:366
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
@@ -415,13 +425,13 @@ msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "Intensitet for SDR-fargar:"
 
-#: ui/OutputPanel.qml:393
+#: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:400
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of non-HDR content on the screen"
@@ -429,7 +439,21 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Aukar intensiteten til ikkje-HDR-innhald vist på skjermen"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:411
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "SDR Brightness:"
+msgctxt "@label"
+msgid "Maximum SDR Brightness:"
+msgstr "SDR-lysstyrke:"
+
+#: ui/OutputPanel.qml:430
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Sets the maximum brightness for the normal brightness slider"
+msgstr ""
+
+#: ui/OutputPanel.qml:441
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -437,7 +461,7 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR-lysstyrke:"
 
-#: ui/OutputPanel.qml:433
+#: ui/OutputPanel.qml:462
 #, kde-format
 msgid "Replica of:"
 msgstr "Duplikat av:"

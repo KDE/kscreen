@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-05 00:41+0000\n"
+"POT-Creation-Date: 2024-12-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-02 17:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -25,24 +25,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:654
+#: output_model.cpp:661
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: output_model.cpp:673
+#: output_model.cpp:680
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:754
+#: output_model.cpp:761
 #, kde-format
 msgid "None"
 msgstr "無"
 
-#: output_model.cpp:761
+#: output_model.cpp:768
 #, kde-format
 msgid "Replicated by other output"
 msgstr "已被其他輸出複製"
@@ -363,19 +363,19 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC 設定檔目前與 HDR 尚不相容"
 
-#: ui/OutputPanel.qml:315
+#: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "高動態範圍 (HDR)："
 
-#: ui/OutputPanel.qml:320
+#: ui/OutputPanel.qml:323
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
 msgstr "啟用 HDR"
 
-#: ui/OutputPanel.qml:326
+#: ui/OutputPanel.qml:329
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -383,6 +383,48 @@ msgid ""
 msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色"
 
 #: ui/OutputPanel.qml:337
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Color accuracy:"
+msgstr ""
+
+#: ui/OutputPanel.qml:344
+#, kde-format
+msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
+msgid "Prefer efficiency"
+msgstr ""
+
+#: ui/OutputPanel.qml:345
+#, kde-format
+msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
+msgid "Prefer color accuracy"
+msgstr ""
+
+#: ui/OutputPanel.qml:355
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This setting can have a large impact on performance"
+msgstr ""
+
+#: ui/OutputPanel.qml:366
+#, kde-format
+msgctxt "@label"
+msgid "sRGB Color Intensity:"
+msgstr "sRGB 色彩強度："
+
+#: ui/OutputPanel.qml:392
+#, kde-format
+msgctxt "Color intensity factor expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:400
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Increases the intensity of sRGB content on the screen"
+msgstr "提高螢幕上 sRGB 內容的色彩強度"
+
+#: ui/OutputPanel.qml:411
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -390,31 +432,13 @@ msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "SDR 亮度："
 
-#: ui/OutputPanel.qml:356
+#: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
-#: ui/OutputPanel.qml:367
-#, kde-format
-msgctxt "@label"
-msgid "sRGB Color Intensity:"
-msgstr "sRGB 色彩強度："
-
-#: ui/OutputPanel.qml:393
-#, kde-format
-msgctxt "Color intensity factor expressed in percentage form"
-msgid "%1%"
-msgstr "%1%"
-
-#: ui/OutputPanel.qml:401
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
-msgstr "提高螢幕上 sRGB 內容的色彩強度"
-
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:441
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -422,7 +446,7 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR 亮度："
 
-#: ui/OutputPanel.qml:433
+#: ui/OutputPanel.qml:462
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："
