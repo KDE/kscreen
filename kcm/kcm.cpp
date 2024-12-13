@@ -153,7 +153,7 @@ void KCMKScreen::updateFromBackend()
 void KCMKScreen::doSave()
 {
     if (!m_configHandler || !m_configHandler->config()) {
-        Q_EMIT errorOnSave();
+        Q_EMIT errorOnSave(i18n("Implementation error"));
         return;
     }
 
@@ -175,7 +175,7 @@ void KCMKScreen::doSave()
     auto config = m_configHandler->config();
 
     if (!Config::canBeApplied(config)) {
-        Q_EMIT errorOnSave();
+        Q_EMIT errorOnSave(i18n("Implementation error"));
         m_configHandler->checkNeedsSave();
         return;
     }
@@ -193,12 +193,15 @@ void KCMKScreen::doSave()
     // execute the Operation.
     auto *op = new SetConfigOperation(config);
     m_stopUpdatesFromBackend = true;
-    op->exec();
+    if (!op->exec()) {
+        Q_EMIT errorOnSave(op->errorString());
+        return;
+    }
 
     // exec() opens a nested eventloop that may have unset m_configHandler if (e.g.)
     // outputs changed during saving. https://bugs.kde.org/show_bug.cgi?id=466960
     if (!m_configHandler || !m_configHandler->config()) {
-        Q_EMIT errorOnSave();
+        Q_EMIT errorOnSave(i18n("Outputs changed while trying to apply settings"));
         return;
     }
 

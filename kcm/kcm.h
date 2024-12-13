@@ -107,7 +107,7 @@ Q_SIGNALS:
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
     void invalidConfig(InvalidConfigReason reason);
-    void errorOnSave();
+    void errorOnSave(const QString &errorReason);
     void globalScaleWritten();
     void outputConnect(bool connected);
     void settingsReverted();
