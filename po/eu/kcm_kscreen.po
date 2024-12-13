@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-12-05 18:19+0100\n"
+"PO-Revision-Date: 2024-12-12 19:29+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -399,25 +399,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Kolore-zehaztasuna:"
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Eraginkortasuna hobetsi"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Kolore-zehaztasuna hobetsi"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Ezarpen honek errendimenduan eragin handia izan dezake"
 
 #: ui/OutputPanel.qml:366
 #, kde-format

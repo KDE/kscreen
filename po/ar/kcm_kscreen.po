@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-12-06 07:34+0400\n"
+"PO-Revision-Date: 2024-12-12 07:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -391,25 +391,25 @@ msgstr "تتيح HDR للتطبيقات المتوافقة عرض ألوان أ�
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "دقة الألوان:"
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "فضّل الكفاءة"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "فضّل دقة الألوان"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "يمكن أن يكون لهذا الإعداد تأثير كبير على الأداء"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
