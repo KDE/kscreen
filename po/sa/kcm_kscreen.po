@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the kscreen package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:14+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: output_model.cpp:96
 #, kde-format
@@ -26,13 +28,13 @@ msgstr "%1 हर्ट्ज"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:680
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr ""
+msgstr "%1x%2 (%3:%4) २."
 
 #: output_model.cpp:761
 #, kde-format
@@ -49,7 +51,7 @@ msgstr "अन्येन निर्गमेन प्रतिकृतम�
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr ""
+msgstr "पटलान् चिनुत"
 
 #: ui/main.qml:41
 #, kde-format
@@ -60,8 +62,8 @@ msgstr "प्रदर्शनविन्यासः स्थापयत�
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
+msgstr[1] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
 
 #: ui/main.qml:67
 #, kde-format
@@ -77,7 +79,7 @@ msgstr "&प्रत्यावर्तनम्"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "सर्वाणि प्रदर्शनानि अक्षमानि सन्ति। न्यूनातिन्यूनम् एकं सक्षमं कुर्वन्तु।"
 
 #: ui/main.qml:102 ui/main.qml:274
 #, kde-format
@@ -85,6 +87,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"प्रदर्शनानां मध्ये अन्तरालः समर्थितः नास्ति । सर्वे प्रदर्शनाः स्पर्शप्रदाः सन्ति इति "
+"सुनिश्चितं कुर्वन्तु।"
 
 #: ui/main.qml:114 ui/main.qml:287
 #, kde-format
@@ -126,7 +130,7 @@ msgstr "प्रदर्शनविन्यासः प्रत्या�
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "प्राथमिकता परिवर्तयन्तु"
 
 #: ui/main.qml:240 ui/OutputPanel.qml:45
 #, kde-format
@@ -187,6 +191,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
+"एतेन भवतः मुख्यं डेस्कटॉप् कस्मिन् स्क्रीन् मध्ये दृश्यते, तस्मिन् यत्किमपि Plasma Panels इति "
+"निर्धारितं भवति । केचन प्राचीनाः क्रीडाः अपि एतत् सेटिङ्ग् उपयुज्य कस्मिन् स्क्रीन् मध्ये "
+"दृश्यन्ते इति निर्णयं कुर्वन्ति ।<nl/><nl/>कस्मिन् स्क्रीन् सूचनाः अन्ये विण्डो वा दृश्यन्ते इति "
+"विषये एतस्य कोऽपि प्रभावः नास्ति ।"
 
 #: ui/OutputPanel.qml:56
 #, kde-format
@@ -197,7 +205,7 @@ msgstr "प्रस्ताव:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
-msgstr ""
+msgstr "&quot;%1&quot; अस्मिन् प्रदर्शने समर्थितः एकमात्रः संकल्पः अस्ति ।"
 
 #: ui/OutputPanel.qml:86
 #, kde-format
@@ -208,13 +216,13 @@ msgstr "मापन:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "नियमितपरिमाणस्य प्रतिशते"
 
 #: ui/OutputPanel.qml:117 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: ui/OutputPanel.qml:129
 #, kde-format
@@ -250,7 +258,7 @@ msgstr "ओवरस्कैन् : १."
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: ui/OutputPanel.qml:185
 #, kde-kuit-format
@@ -260,6 +268,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"किनारेषु परितः कटितस्य सामग्रीयाः भागस्य क्षतिपूर्तिं कर्तुं प्रदर्शनं प्रति प्रेषितस्य चित्रस्य "
+"परितः कियत् पैडिंग् स्थापितं इति निर्धारयति।<nl/><nl/>कदाचित् टीवी इत्यस्य स्क्रीनरूपेण "
+"उपयोगं कुर्वन् एतस्य आवश्यकता भवति"
 
 #: ui/OutputPanel.qml:190
 #, kde-format
@@ -284,12 +295,14 @@ msgid ""
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
+"प्रदर्शनार्थं सम्भाव्यवर्णमूल्यानां परिधिः सीमितः भवितुम् अर्हति वा न वा इति निर्धारयति । "
+"एतत् केवलं तदा एव परिवर्तनीयम् यदा पर्दायां वर्णाः प्रक्षालिताः दृश्यन्ते ।"
 
 #: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
-msgstr ""
+msgstr "रङ्गरूपरेखा : १."
 
 #: ui/OutputPanel.qml:221
 #, kde-format
@@ -301,13 +314,13 @@ msgstr "न कश्चित्"
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr ""
+msgstr "ICC प्रोफाइल"
 
 #: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr ""
+msgstr "अन्तर्निर्मितम्"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
@@ -316,24 +329,26 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"ध्यानं कुर्वन्तु यत् अन्तःनिर्मितवर्णरूपरेखाः कदाचित् गलताः भवन्ति, प्रायः अशुद्धाः च भवन्ति । "
+"इष्टतमवर्णनिष्ठायाः कृते वर्णमापकस्य उपयोगेन मापनं अनुशंसितम् अस्ति ।"
 
 #: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "अन्तःनिर्मितं वर्णप्रोफाइलं सर्वदा HDR इत्यनेन सह उपयुज्यते ।"
 
 #: ui/OutputPanel.qml:249
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "ICC प्रोफाइल मार्गं प्रविष्टं कुर्वन्तु..."
 
 #: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "ICC प्रोफाइल चयनं कुर्वन्तु..."
 
 #: ui/OutputPanel.qml:276
 #, kde-format
@@ -344,92 +359,92 @@ msgstr "ICC प्रोफाइल कृते सञ्चिकाचयन
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "ICC Profile इति चिनोतु"
 
 #: ui/OutputPanel.qml:310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
-msgstr ""
+msgstr "ICC प्रोफाइल् अद्यापि HDR इत्यनेन सह सङ्गताः न सन्ति"
 
 #: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "उच्च गतिशील श्रेणी : १."
 
 #: ui/OutputPanel.qml:323
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable HDR"
-msgstr ""
+msgstr "HDR सक्षमं कुर्वन्तु"
 
 #: ui/OutputPanel.qml:329
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
-msgstr ""
+msgstr "HDR इत्यनेन संगत-अनुप्रयोगाः उज्ज्वलतर-सजीव-वर्णान् दर्शयितुं शक्नुवन्ति"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "वर्णसटीकता : १."
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "दक्षतां प्राधान्यं ददातु"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "वर्णसटीकतां प्राधान्यं ददातु"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "एतस्य सेटिंग् इत्यस्य कार्यप्रदर्शने महत् प्रभावः भवितुम् अर्हति"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr ""
+msgstr "sRGB रङ्ग तीव्रता: १."
 
 #: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: ui/OutputPanel.qml:400
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr ""
+msgstr "पर्दायां sRGB सामग्रीयाः तीव्रताम् वर्धयति"
 
 #: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr ""
+msgstr "अधिकतमं SDR प्रकाशः : १."
 
 #: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "सामान्यप्रकाशस्लाइडरस्य अधिकतमं प्रकाशं सेट् करोति"
 
 #: ui/OutputPanel.qml:441
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr ""
+msgstr "कान्तिः : १."
 
 #: ui/OutputPanel.qml:462
 #, kde-format
@@ -455,7 +470,7 @@ msgstr "विरासत अनुप्रयोग (X11): 1.1."
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "स्वयं स्केलिंग् प्रयोजयन्तु"
 
 #: ui/Panel.qml:147
 #, kde-format
@@ -470,7 +485,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "प्रणाल्याः स्केलः कृतः"
 
 #: ui/Panel.qml:163
 #, kde-format
@@ -485,14 +500,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr ""
+msgstr "पटलस्य विदारनम् : १."
 
 #: ui/Panel.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "पूर्णपर्दे विण्डोषु अनुमतिं ददातु"
 
 #: ui/Panel.qml:176
 #, kde-format
@@ -501,6 +516,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"स्क्रीन टीयरिंग् अधिकांशप्रदर्शनेषु विलम्बं न्यूनीकरोति । ध्यानं कुर्वन्तु यत् सर्वे ग्राफिक्स् "
+"चालकाः एतत् सेटिङ्ग् समर्थयन्ति न ।"
 
 #: ui/Panel.qml:190
 #, kde-format
