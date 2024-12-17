@@ -1,8 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"plasma_applet_org.kde.kscreen\")
 
 set(kscreenapplet_SRCS
-    kscreenapplet.cpp
-    ../common/osdaction.cpp
+    kscreenapplet.cpp kscreenapplet.h
+    ../common/osdaction.cpp ../common/osdaction.h
 )
 
 add_library(org.kde.kscreen MODULE ${kscreenapplet_SRCS})

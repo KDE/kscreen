@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
-add_executable(kscreen-console main.cpp console.cpp)
+add_executable(kscreen-console main.cpp console.cpp console.h)
 
 target_link_libraries(kscreen-console
             Qt::DBus

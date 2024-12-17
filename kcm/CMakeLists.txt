@@ -3,14 +3,14 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_kscreen\")
 kcmutils_add_qml_kcm(kcm_kscreen)
 
 target_sources(kcm_kscreen PRIVATE
-    config_handler.cpp
-    kcm.cpp
-    output_model.cpp
+    config_handler.cpp config_handler.h
+    kcm.cpp kcm.h
+    output_model.cpp output_model.h
     ${kwincompositing_SRC}
-    ${CMAKE_SOURCE_DIR}/common/utils.cpp
-    ${CMAKE_SOURCE_DIR}/common/control.cpp
-    ${CMAKE_SOURCE_DIR}/common/globals.cpp
-    ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp
+    ${CMAKE_SOURCE_DIR}/common/utils.cpp ${CMAKE_SOURCE_DIR}/common/utils.h
+    ${CMAKE_SOURCE_DIR}/common/control.cpp ${CMAKE_SOURCE_DIR}/common/control.h
+    ${CMAKE_SOURCE_DIR}/common/globals.cpp ${CMAKE_SOURCE_DIR}/common/globals.h
+    ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp ${CMAKE_SOURCE_DIR}/common/orientation_sensor.h
 )
 
 ecm_qt_declare_logging_category(kcm_kscreen
