@@ -48,6 +48,6 @@ private:
 
     static Device *m_instance;
 
-    OrgFreedesktopDBusPropertiesInterface *m_freedesktop;
-    QDBusInterface *m_suspendSession;
+    OrgFreedesktopDBusPropertiesInterface *m_freedesktop = nullptr;
+    QDBusInterface *m_suspendSession = nullptr;
 };

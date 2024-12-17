@@ -66,10 +66,10 @@ private:
     std::unique_ptr<Config> m_monitoredConfig;
     bool m_monitoring;
     bool m_configDirty = true;
-    QTimer *m_changeCompressor;
-    QTimer *m_saveTimer;
-    QTimer *m_lidClosedTimer;
-    OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface;
+    QTimer *const m_changeCompressor;
+    QTimer *m_saveTimer = nullptr;
+    QTimer *const m_lidClosedTimer;
+    OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface = nullptr;
 
     bool m_startingUp = true;
 

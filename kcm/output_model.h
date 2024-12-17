@@ -157,5 +157,5 @@ private:
 
     QList<Output> m_outputs;
 
-    ConfigHandler *m_config;
+    ConfigHandler *const m_config;
 };
