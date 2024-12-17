@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-11-14 09:42+0100\n"
+"PO-Revision-Date: 2024-12-16 18:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -397,25 +397,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Accuratessa de color:"
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Prefere efficacia"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Prefere accuratessa de color"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Iste preferentia pote haber un grande impacto sur prestation"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
@@ -436,26 +436,22 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Augmenta le intensitate de contento sRGB sur le schermo"
 
 #: ui/OutputPanel.qml:411
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Brillantia SDR:"
+msgstr "Maxime Brillantia SDR:"
 
 #: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Assigan lemaxime brillantia per le glissator de nrillantia normal"
 
 #: ui/OutputPanel.qml:441
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Brillantia SDR:"
+msgstr "Brillantia:"
 
 #: ui/OutputPanel.qml:462
 #, kde-format
