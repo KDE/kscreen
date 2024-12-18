@@ -110,6 +110,7 @@ KCM.SimpleKCM {
             scaleMsg.visible = true;
         }
         function onOutputConnect(connected) {
+            root.selectedOutput = 0;
             if (connected) {
                 connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
             } else {
@@ -262,51 +263,6 @@ KCM.SimpleKCM {
                         }
                     ]
                 }
-            }
-        }
-
-        Connections {
-            target: kcm
-            function onInvalidConfig(reason) {
-                if (reason === KScreen.KCMKScreen.NoEnabledOutputs) {
-                    invalidConfigMsg.text = i18nc("@info", "All displays are disabled. Enable at least one.")
-                } else if (reason === KScreen.KCMKScreen.ConfigHasGaps) {
-                    invalidConfigMsg.text = i18nc("@info", "Gaps between displays are not supported. Make sure all displays are touching.")
-                }
-                invalidConfigMsg.visible = true;
-            }
-            function onErrorOnSave() {
-                errSaveMsg.visible = true;
-            }
-            function onGlobalScaleWritten() {
-                scaleMsg.visible = true;
-            }
-            function onOutputConnect(connected) {
-                root.selectedOutput = 0;
-                if (connected) {
-                    connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
-                } else {
-                    connectMsg.text = i18n("An output has been removed. Settings have been reloaded.");
-                }
-                connectMsg.visible = true;
-            }
-            function onBackendError() {
-                errBackendMsg.visible = true;
-            }
-            function onSettingsReverted() {
-                confirmMsg.close();
-                revertMsg.visible = true;
-            }
-            function onShowRevertWarning() {
-                revertCountdown = 15;
-                confirmMsg.open();
-                revertTimer.restart();
-            }
-            function onChanged() {
-                invalidConfigMsg.visible = false;
-                errSaveMsg.visible = false;
-                scaleMsg.visible = false;
-                revertMsg.visible = false;
             }
         }
 
