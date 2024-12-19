@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:41+0000\n"
+"POT-Creation-Date: 2024-12-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-07 12:15+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,6 +18,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 24.08.3\n"
+
+#: kcm.cpp:156 kcm.cpp:178
+#, kde-format
+msgid "Implementation error"
+msgstr ""
+
+#: kcm.cpp:204
+#, kde-format
+msgid "Outputs changed while trying to apply settings"
+msgstr ""
 
 #: output_model.cpp:96
 #, kde-format
@@ -76,13 +86,13 @@ msgstr "&Zachowaj"
 msgid "&Revert"
 msgstr "&Wycofaj"
 
-#: ui/main.qml:100 ui/main.qml:272
+#: ui/main.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Wszystkie wyświetlacze są wyłączone. Włącz co najmniej jeden."
 
-#: ui/main.qml:102 ui/main.qml:274
+#: ui/main.qml:102
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -91,27 +101,34 @@ msgstr ""
 "Szczeliny pomiędzy wyświetlaczami są nieobsługiwane. Upewnij się, że "
 "wszystkie wyświetlacze się stykają."
 
-#: ui/main.qml:114 ui/main.qml:287
+#: ui/main.qml:107
+#, fuzzy, kde-format
+#| msgid "Keep display configuration?"
+msgctxt "The argument contains the reason for the failure"
+msgid "Couldn't apply display configuration: %1"
+msgstr "Zachować ustawienia wyświetlania?"
+
+#: ui/main.qml:116
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Dodano nowe wyjście, więc ponownie wczytano ustawienia."
 
-#: ui/main.qml:116 ui/main.qml:289
+#: ui/main.qml:118
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Usunięto wyjście, więc ponownie wczytano ustawienia."
 
-#: ui/main.qml:156
+#: ui/main.qml:158
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "Nie znaleziono silnika KScreen. Sprawdź czy jest wgrany."
 
-#: ui/main.qml:165
+#: ui/main.qml:167
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Nie można zapisać wyjść ze względu na błąd."
 
-#: ui/main.qml:174
+#: ui/main.qml:176
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
@@ -119,33 +136,33 @@ msgstr ""
 "Wynik zmiany globalnej skali będzie widoczny dopiero po ponownym "
 "uruchomieniu systemu."
 
-#: ui/main.qml:180
+#: ui/main.qml:182
 #, kde-format
 msgid "Restart"
 msgstr "Uruchom ponownie"
 
-#: ui/main.qml:198
+#: ui/main.qml:200
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Wycofano ustawienia wyświetlania."
 
-#: ui/main.qml:210
+#: ui/main.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Zmień priorytety"
 
-#: ui/main.qml:240 ui/OutputPanel.qml:45
+#: ui/main.qml:242 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Główny"
 
-#: ui/main.qml:245
+#: ui/main.qml:247
 #, kde-format
 msgid "Raise priority"
 msgstr "Podnieś priorytet"
 
-#: ui/main.qml:255
+#: ui/main.qml:257
 #, kde-format
 msgid "Lower priority"
 msgstr "Obniż priorytet"

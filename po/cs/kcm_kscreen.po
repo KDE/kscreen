@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:41+0000\n"
+"POT-Creation-Date: 2024-12-19 00:41+0000\n"
 "PO-Revision-Date: 2024-08-30 16:25+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -18,6 +18,16 @@ msgstr ""
 "X-Generator: Lokalize 24.08.0\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
+
+#: kcm.cpp:156 kcm.cpp:178
+#, kde-format
+msgid "Implementation error"
+msgstr ""
+
+#: kcm.cpp:204
+#, kde-format
+msgid "Outputs changed while trying to apply settings"
+msgstr ""
 
 #: output_model.cpp:96
 #, kde-format
@@ -77,13 +87,13 @@ msgstr "&Ponechat"
 msgid "&Revert"
 msgstr "V&rátit"
 
-#: ui/main.qml:100 ui/main.qml:272
+#: ui/main.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Všechny obrazovky jsou zakázány. Povolte aspoň jednu."
 
-#: ui/main.qml:102 ui/main.qml:274
+#: ui/main.qml:102
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -92,60 +102,67 @@ msgstr ""
 "Mezery mezi obrazovkami nejsou podporovány. Ujistěte se, že se všechny "
 "obrazovky dotýkají."
 
-#: ui/main.qml:114 ui/main.qml:287
+#: ui/main.qml:107
+#, fuzzy, kde-format
+#| msgid "Keep display configuration?"
+msgctxt "The argument contains the reason for the failure"
+msgid "Couldn't apply display configuration: %1"
+msgstr "Ponechat nastavení zobrazení?"
+
+#: ui/main.qml:116
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Byl přidán nový výstup. Nastavení byla obnovena."
 
-#: ui/main.qml:116 ui/main.qml:289
+#: ui/main.qml:118
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Výstup byl odstraněn. Nastavení byla obnovena."
 
-#: ui/main.qml:156
+#: ui/main.qml:158
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Nenalezen žádný modul KScreen. Prosím zkontrolujte svou instalaci KScreen."
 
-#: ui/main.qml:165
+#: ui/main.qml:167
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Výstupy nelze kvůli chybě uložit."
 
-#: ui/main.qml:174
+#: ui/main.qml:176
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 
-#: ui/main.qml:180
+#: ui/main.qml:182
 #, kde-format
 msgid "Restart"
 msgstr "Restartovat"
 
-#: ui/main.qml:198
+#: ui/main.qml:200
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Vráceno nastavení zobrazení."
 
-#: ui/main.qml:210
+#: ui/main.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Změnit priority"
 
-#: ui/main.qml:240 ui/OutputPanel.qml:45
+#: ui/main.qml:242 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "Primární"
 
-#: ui/main.qml:245
+#: ui/main.qml:247
 #, kde-format
 msgid "Raise priority"
 msgstr "Zvýšit prioritu:"
 
-#: ui/main.qml:255
+#: ui/main.qml:257
 #, kde-format
 msgid "Lower priority"
 msgstr "Snížit prioritu"

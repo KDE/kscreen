@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:41+0000\n"
+"POT-Creation-Date: 2024-12-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-02 17:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -19,6 +19,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.08.3\n"
+
+#: kcm.cpp:156 kcm.cpp:178
+#, kde-format
+msgid "Implementation error"
+msgstr ""
+
+#: kcm.cpp:204
+#, kde-format
+msgid "Outputs changed while trying to apply settings"
+msgstr ""
 
 #: output_model.cpp:96
 #, kde-format
@@ -75,72 +85,79 @@ msgstr "保留(&K)"
 msgid "&Revert"
 msgstr "回復(&R)"
 
-#: ui/main.qml:100 ui/main.qml:272
+#: ui/main.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有螢幕都被停用了。請至少啟用一個。"
 
-#: ui/main.qml:102 ui/main.qml:274
+#: ui/main.qml:102
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
-#: ui/main.qml:114 ui/main.qml:287
+#: ui/main.qml:107
+#, fuzzy, kde-format
+#| msgid "Keep display configuration?"
+msgctxt "The argument contains the reason for the failure"
+msgid "Couldn't apply display configuration: %1"
+msgstr "保留顯示器設定嗎？"
+
+#: ui/main.qml:116
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已新增輸出。設定已重新載入。"
 
-#: ui/main.qml:116 ui/main.qml:289
+#: ui/main.qml:118
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除輸出。設定已重新載入。"
 
-#: ui/main.qml:156
+#: ui/main.qml:158
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "找不到 KScreen 後端介面。請檢查您的 KScreen 安裝。"
 
-#: ui/main.qml:165
+#: ui/main.qml:167
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "發生錯誤導致無法儲存輸出。"
 
-#: ui/main.qml:174
+#: ui/main.qml:176
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "全域縮放比例的變更將在系統重新啟動後生效。"
 
-#: ui/main.qml:180
+#: ui/main.qml:182
 #, kde-format
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ui/main.qml:198
+#: ui/main.qml:200
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "已回復顯示器設定。"
 
-#: ui/main.qml:210
+#: ui/main.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "變更優先值"
 
-#: ui/main.qml:240 ui/OutputPanel.qml:45
+#: ui/main.qml:242 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "主顯示"
 
-#: ui/main.qml:245
+#: ui/main.qml:247
 #, kde-format
 msgid "Raise priority"
 msgstr "提升優先順序"
 
-#: ui/main.qml:255
+#: ui/main.qml:257
 #, kde-format
 msgid "Lower priority"
 msgstr "降低優先順序"

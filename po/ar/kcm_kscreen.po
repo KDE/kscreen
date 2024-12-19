@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:41+0000\n"
+"POT-Creation-Date: 2024-12-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-12 07:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,6 +18,16 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
+
+#: kcm.cpp:156 kcm.cpp:178
+#, kde-format
+msgid "Implementation error"
+msgstr ""
+
+#: kcm.cpp:204
+#, kde-format
+msgid "Outputs changed while trying to apply settings"
+msgstr ""
 
 #: output_model.cpp:96
 #, kde-format
@@ -79,72 +89,79 @@ msgstr "أ&بقِ"
 msgid "&Revert"
 msgstr "ا&سترجع"
 
-#: ui/main.qml:100 ui/main.qml:272
+#: ui/main.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "كل الشاشات معطلة. مكن واحدة على الأقل."
 
-#: ui/main.qml:102 ui/main.qml:274
+#: ui/main.qml:102
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "الفراغات بين الشاشات غير مدعومة. تأكد من أن كل الشاشات متلامسة."
 
-#: ui/main.qml:114 ui/main.qml:287
+#: ui/main.qml:107
+#, fuzzy, kde-format
+#| msgid "Keep display configuration?"
+msgctxt "The argument contains the reason for the failure"
+msgid "Couldn't apply display configuration: %1"
+msgstr "تحفظ ضبط العرض؟"
+
+#: ui/main.qml:116
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "أضيف إخراج جديد. أعيد تحميل الإعدادات."
 
-#: ui/main.qml:116 ui/main.qml:289
+#: ui/main.qml:118
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "أزيل إخراج. أعيد تحميل الإعدادات."
 
-#: ui/main.qml:156
+#: ui/main.qml:158
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "لم يُعثر على خلفية لشاشةك. فضلًا تحقّق من تثبيت شاشةك KScreen."
 
-#: ui/main.qml:165
+#: ui/main.qml:167
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "المخرجات لا يمكن حفظها بسبب خطأ."
 
-#: ui/main.qml:174
+#: ui/main.qml:176
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "ستظهر تأثير المقياس الشامل بعد إعادة التّشغيل."
 
-#: ui/main.qml:180
+#: ui/main.qml:182
 #, kde-format
 msgid "Restart"
 msgstr "أعد التّشغيل"
 
-#: ui/main.qml:198
+#: ui/main.qml:200
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "استرجع ضبط العرض."
 
-#: ui/main.qml:210
+#: ui/main.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "غيّر الأولويات"
 
-#: ui/main.qml:240 ui/OutputPanel.qml:45
+#: ui/main.qml:242 ui/OutputPanel.qml:45
 #, kde-format
 msgid "Primary"
 msgstr "الأساسيّ:"
 
-#: ui/main.qml:245
+#: ui/main.qml:247
 #, kde-format
 msgid "Raise priority"
 msgstr "ارفع الأولويّة"
 
-#: ui/main.qml:255
+#: ui/main.qml:257
 #, kde-format
 msgid "Lower priority"
 msgstr "اخفض الأولويّة"
