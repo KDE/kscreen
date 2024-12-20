@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-11 09:48+0100\n"
+"PO-Revision-Date: 2024-12-19 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -24,12 +24,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Error de la implementació"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Les sortides han canviat mentre s'intentava aplicar la configuració"
 
 #: output_model.cpp:96
 #, kde-format
@@ -103,11 +103,10 @@ msgstr ""
 "pantalles estan en contacte."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Mantinc la configuració de la pantalla?"
+msgstr "No s'ha pogut aplicar la configuració de la pantalla: %1"
 
 #: ui/main.qml:116
 #, kde-format

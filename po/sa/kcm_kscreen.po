@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 01:14+0530\n"
+"PO-Revision-Date: 2024-12-19 22:19+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -22,12 +22,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "कार्यान्वयनदोषः"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "सेटिङ्ग्स् प्रयोक्तुं प्रयतमाने आउटपुट् परिवर्तिताः"
 
 #: output_model.cpp:96
 #, kde-format
@@ -44,7 +44,7 @@ msgstr "%1x%2"
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr "%1x%2 (%3:%4) २."
+msgstr "%1x%2 (%3:%4)"
 
 #: output_model.cpp:761
 #, kde-format
@@ -101,11 +101,10 @@ msgstr ""
 "सुनिश्चितं कुर्वन्तु।"
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "प्रदर्शनविन्यासः स्थापयतु?"
+msgstr "प्रदर्शनविन्यासं प्रयोक्तुं न शक्तम्: %1"
 
 #: ui/main.qml:116
 #, kde-format

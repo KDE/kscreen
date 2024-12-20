@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-16 18:42+0100\n"
+"PO-Revision-Date: 2024-12-19 10:02+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -20,12 +20,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Error de implementation"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Exitos cambiate durante que on essayava applicar preferentias"
 
 #: output_model.cpp:96
 #, kde-format
@@ -99,11 +99,10 @@ msgstr ""
 "omnes monstratores es toccante."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Mantener Configuration  de monstrator?"
+msgstr "Non poteva applicar configuration  de monstrator: %1"
 
 #: ui/main.qml:116
 #, kde-format

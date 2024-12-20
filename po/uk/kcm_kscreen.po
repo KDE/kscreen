@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-11 10:59+0200\n"
+"PO-Revision-Date: 2024-12-19 22:25+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -23,12 +23,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Помилка реалізації"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Під час спроби застосувати параметри змінилися виведення"
 
 #: output_model.cpp:96
 #, kde-format
@@ -104,11 +104,10 @@ msgstr ""
 "дисплеї розташовано у тісному контакті."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Залишити такі налаштування дисплея?"
+msgstr "Не вдалося застосувати налаштування дисплея: %1"
 
 #: ui/main.qml:116
 #, kde-format

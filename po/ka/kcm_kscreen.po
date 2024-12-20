@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-11 05:24+0100\n"
+"PO-Revision-Date: 2024-12-19 04:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "განხორციელების შეცდომა"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "პარამეტრების გადატარების მცდელობისას გამოტანა შეიცვალა"
 
 #: output_model.cpp:96
 #, kde-format
@@ -99,11 +99,10 @@ msgstr ""
 "ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "დაიტოვებთ ამ პარამეტრებს?"
+msgstr "ვერ გადავატარე ეკრანის კონფიგურაცია: %1"
 
 #: ui/main.qml:116
 #, kde-format
