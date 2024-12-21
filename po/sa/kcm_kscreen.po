@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-19 22:19+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -238,12 +238,12 @@ msgstr "नियमितपरिमाणस्य प्रतिशते"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #: ui/OutputPanel.qml:129
 #, kde-format
 msgid "Refresh rate:"
-msgstr "ताजगी दरः : १."
+msgstr "ताजगी दरः :"
 
 #: ui/OutputPanel.qml:149
 #, kde-format
@@ -253,7 +253,7 @@ msgstr "\"%1\" इति एकमात्रं ताजगीकरणदर
 #: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "अनुकूली समन्वयः : १."
+msgstr "अनुकूली समन्वयः :"
 
 #: ui/OutputPanel.qml:157
 #, kde-format
@@ -268,13 +268,13 @@ msgstr "सर्वदा"
 #: ui/OutputPanel.qml:170
 #, kde-format
 msgid "Overscan:"
-msgstr "ओवरस्कैन् : १."
+msgstr "ओवरस्कैन् :"
 
 #: ui/OutputPanel.qml:179
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #: ui/OutputPanel.qml:185
 #, kde-kuit-format
@@ -291,7 +291,7 @@ msgstr ""
 #: ui/OutputPanel.qml:190
 #, kde-format
 msgid "RGB range:"
-msgstr "आरजीबी श्रेणी : १."
+msgstr "आरजीबी श्रेणी :"
 
 #: ui/OutputPanel.qml:197
 #, kde-format
@@ -318,7 +318,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
-msgstr "रङ्गरूपरेखा : १."
+msgstr "रङ्गरूपरेखा :"
 
 #: ui/OutputPanel.qml:221
 #, kde-format
@@ -387,7 +387,7 @@ msgstr "ICC प्रोफाइल् अद्यापि HDR इत्य�
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr "उच्च गतिशील श्रेणी : १."
+msgstr "उच्च गतिशील श्रेणी :"
 
 #: ui/OutputPanel.qml:323
 #, kde-format
@@ -406,7 +406,7 @@ msgstr "HDR इत्यनेन संगत-अनुप्रयोगाः
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr "वर्णसटीकता : १."
+msgstr "वर्णसटीकता :"
 
 #: ui/OutputPanel.qml:344
 #, kde-format
@@ -430,13 +430,13 @@ msgstr "एतस्य सेटिंग् इत्यस्य कार्
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "sRGB रङ्ग तीव्रता: १."
+msgstr "sRGB रङ्ग तीव्रता:"
 
 #: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #: ui/OutputPanel.qml:400
 #, kde-format
@@ -448,7 +448,7 @@ msgstr "पर्दायां sRGB सामग्रीयाः तीव�
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "अधिकतमं SDR प्रकाशः : १."
+msgstr "अधिकतमं SDR प्रकाशः :"
 
 #: ui/OutputPanel.qml:430
 #, kde-format
@@ -460,12 +460,12 @@ msgstr "सामान्यप्रकाशस्लाइडरस्य �
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "कान्तिः : १."
+msgstr "कान्तिः :"
 
 #: ui/OutputPanel.qml:462
 #, kde-format
 msgid "Replica of:"
-msgstr "प्रतिकृतिः : १."
+msgstr "प्रतिकृतिः :"
 
 #: ui/Panel.qml:27
 #, kde-format
@@ -475,7 +475,7 @@ msgstr "उपकरणम्‌:"
 #: ui/Panel.qml:75
 #, kde-format
 msgid "Global scale:"
-msgstr "वैश्विकपरिमाणम् : १."
+msgstr "वैश्विकपरिमाणम् :"
 
 #: ui/Panel.qml:137 ui/Panel.qml:157
 #, kde-format
@@ -516,7 +516,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "पटलस्य विदारनम् : १."
+msgstr "पटलस्य विदारनम् :"
 
 #: ui/Panel.qml:171
 #, kde-format
