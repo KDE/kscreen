@@ -20,12 +20,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "执行错误"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "输出在尝试应用设置时发生更改"
 
 #: output_model.cpp:96
 #, kde-format
@@ -96,11 +96,10 @@ msgid ""
 msgstr "不支持显示器之间的空隙。请确保所有显示器均相邻紧贴放置。"
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "保留显示器配置吗？"
+msgstr "无法应用显示器配置：%1"
 
 #: ui/main.qml:116
 #, kde-format
