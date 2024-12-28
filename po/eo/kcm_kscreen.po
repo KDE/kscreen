@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-09-15 04:00+0200\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Eraro de efektivigo"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Eligoj ŝanĝiĝis dum provo apliki agordon"
 
 #: output_model.cpp:96
 #, kde-format
@@ -100,11 +100,10 @@ msgstr ""
 "tuŝas."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Ĉu konservi ekranan agordon?"
+msgstr "Ne eblis apliki ekranan agordon: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -399,49 +398,42 @@ msgid "Enable HDR"
 msgstr "Ebligi HDR"
 
 #: ui/OutputPanel.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR permesas al kongruaj alpikaĵoj montri pli brilajn kaj viglajn kolorojn. "
-"Rimarku ke ĉi kapablo ankoraŭ estas eksperimenta"
+"HDR permesas al kongruaj alpikaĵoj montri pli brilajn kaj viglajn kolorojn"
 
 #: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Kolora akurateco:"
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Preferi efikecon"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Preferi koloran akuratecon"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Ĉi tiu meto eble havos grandan influon al rendimento"
 
 #: ui/OutputPanel.qml:366
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR-Kolorintenseco:"
+msgstr "DR-sRGBKolorintenseco:"
 
 #: ui/OutputPanel.qml:392
 #, kde-format
@@ -450,34 +442,28 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:400
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Pliigas la intensecon de ne-HDR-enhavo sur la ekrano"
+msgstr "Pliigas la intensecon de sRGB-enhavo sur la ekrano"
 
 #: ui/OutputPanel.qml:411
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR-Brileco:"
+msgstr "Maksimuma SDR-Brileco:"
 
 #: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Fiksas la maksimuman SDR-brilecon por la normala brilecoŝovilo"
 
 #: ui/OutputPanel.qml:441
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR-Brileco:"
+msgstr "Brileco:"
 
 #: ui/OutputPanel.qml:462
 #, kde-format
@@ -585,7 +571,3 @@ msgstr "Neniu Rotacio"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Trenu ekranojn por reordigi ilin"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr "Metas la brilecon de ne-HDR-enhavo sur la ekrano"
