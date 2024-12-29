@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-02 17:09+0900\n"
+"PO-Revision-Date: 2024-12-29 01:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "實作錯誤"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "在嘗試套用設定時有輸出變更了"
 
 #: output_model.cpp:96
 #, kde-format
@@ -99,11 +99,10 @@ msgid ""
 msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "保留顯示器設定嗎？"
+msgstr "無法套用顯示器設定：%1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -403,25 +402,25 @@ msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "色彩準確度："
 
 #: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "注重效能"
 
 #: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "注重色彩準確度"
 
 #: ui/OutputPanel.qml:355
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "這個設定可能會嚴重影響效能"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
@@ -442,26 +441,22 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "提高螢幕上 sRGB 內容的色彩強度"
 
 #: ui/OutputPanel.qml:411
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR 亮度："
+msgstr "最高 SDR 亮度："
 
 #: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "設定普通亮度滑條的最高亮度"
 
 #: ui/OutputPanel.qml:441
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR 亮度："
+msgstr "亮度："
 
 #: ui/OutputPanel.qml:462
 #, kde-format
