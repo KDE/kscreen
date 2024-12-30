@@ -1,13 +1,14 @@
 # KDE Finnish translation sprint participants:
 # SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
-# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022, 2023.
 # SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-07 16:19+0200\n"
+"PO-Revision-Date: 2024-12-09 21:27+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -448,26 +449,22 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä"
 
 #: ui/OutputPanel.qml:411
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR-kirkkaus:"
+msgstr "SDR-enimmäiskirkkaus:"
 
 #: ui/OutputPanel.qml:430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Asettaa enimmäiskirkkauden tavalliseen kirkkaussäätimeen"
 
 #: ui/OutputPanel.qml:441
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR-kirkkaus:"
+msgstr "Kirkkaus:"
 
 #: ui/OutputPanel.qml:462
 #, kde-format
