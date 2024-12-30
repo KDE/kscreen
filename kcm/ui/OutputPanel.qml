@@ -54,6 +54,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18n("Resolution:")
+        Kirigami.FormData.buddyFor: resolutionCombobox
 
         QQC2.ComboBox {
             id: resolutionCombobox
@@ -84,6 +85,7 @@ Kirigami.FormLayout {
 
         visible: kcm.perOutputScaling
         Kirigami.FormData.label: i18n("Scale:")
+        Kirigami.FormData.buddyFor: scaleSlider
 
         QQC2.Slider {
             id: scaleSlider
@@ -127,6 +129,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18n("Refresh rate:")
+        Kirigami.FormData.buddyFor: refreshRateCombobox
 
         QQC2.ComboBox {
             id: refreshRateCombobox
@@ -168,9 +171,11 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18n("Overscan:")
+        Kirigami.FormData.buddyFor: overscanSpinbox
         visible: element.capabilities & KScreen.Output.Capability.Overscan
 
         QQC2.SpinBox {
+            id: overscanSpinbox
             from: 0
             to: 100
             value: element.overscan
@@ -188,9 +193,11 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18n("RGB range:")
+        Kirigami.FormData.buddyFor: rgbRangeCombobox
         visible: element.capabilities & KScreen.Output.Capability.RgbRange
 
         QQC2.ComboBox {
+            id: rgbRangeCombobox
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
                 { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
@@ -211,10 +218,12 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:listbox", "Color Profile:")
+        Kirigami.FormData.buddyFor: colorProfileCombobox
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
+            id: colorProfileCombobox
             enabled: !element.hdr || !root.hdrAvailable
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
@@ -316,11 +325,13 @@ Kirigami.FormLayout {
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label", "High Dynamic Range:")
+        Kirigami.FormData.buddyFor: hdrCheckbox
         visible: root.hdrAvailable
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.CheckBox {
-            text: i18nc("@option:check", "Enable HDR")
+            id: hdrCheckbox
+            text: i18nc("@option:check", "Enable &HDR")
             checked: element.hdr
             onToggled: element.hdr = checked
         }
@@ -335,10 +346,12 @@ Kirigami.FormLayout {
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label:listbox", "Color accuracy:")
+        Kirigami.FormData.buddyFor: colorAccuracyCombobox
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
+            id: colorAccuracyCombobox
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
                 { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer efficiency"), value: KScreen.Output.ColorPowerTradeoff.PreferEfficiency },
@@ -364,8 +377,10 @@ Kirigami.FormLayout {
 
         visible: (root.hdrAvailable && element.hdr) || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
         Kirigami.FormData.label: i18nc("@label", "sRGB Color Intensity:")
+        Kirigami.FormData.buddyFor: sdrGamutSlider
 
         QQC2.Slider {
+            id: sdrGamutSlider
             Layout.fillWidth: true
             from: 0
             to: 100
@@ -409,8 +424,10 @@ Kirigami.FormLayout {
 
         visible: root.hdrAvailable && element.hdr
         Kirigami.FormData.label: i18nc("@label", "Maximum SDR Brightness:")
+        Kirigami.FormData.buddyFor: sdrBrightnessSlider
 
         QQC2.Slider {
+            id: sdrBrightnessSlider
             Layout.fillWidth: true
             from: 50
             to: element.peakBrightness === 0 ? 500 : element.peakBrightness
@@ -439,8 +456,10 @@ Kirigami.FormLayout {
 
         visible: (root.hdrAvailable && element.hdr) || (element.capabilities & KScreen.Output.Capability.BrightnessControl)
         Kirigami.FormData.label: i18nc("@label", "Brightness:")
+        Kirigami.FormData.buddyFor: brightnessSlider
 
         QQC2.Slider {
+            id: brightnessSlider
             Layout.fillWidth: true
             from: 0
             to: 100
