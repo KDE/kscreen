@@ -51,9 +51,6 @@ class ControlConfig : public Control
 public:
     explicit ControlConfig(KScreen::ConfigPtr config, QObject *parent = nullptr);
 
-    qreal getScale(const KScreen::OutputPtr &output) const;
-    void setScale(const KScreen::OutputPtr &output, qreal value);
-
     KScreen::OutputPtr getReplicationSource(const KScreen::OutputPtr &output) const;
     void setReplicationSource(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source);
 
@@ -98,9 +95,6 @@ public:
     QString name() const;
 
     // TODO: scale auto value
-
-    qreal getScale() const;
-    void setScale(qreal value);
 
     uint32_t overscan() const;
     void setOverscan(uint32_t value);
