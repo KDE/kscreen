@@ -8,7 +8,8 @@
 #include "../../common/globals.h"
 
 #include <QObject>
-#include <QtTest>
+#include <QStandardPaths>
+#include <QTest>
 
 #include <KScreen/Config>
 #include <KScreen/EDID>

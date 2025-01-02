@@ -9,7 +9,8 @@
 #include "../../kded/output.h"
 
 #include <QObject>
-#include <QtTest>
+#include <QStandardPaths>
+#include <QTest>
 
 #include <kscreen/backendmanager_p.h>
 #include <kscreen/config.h>
