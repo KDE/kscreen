@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:40+0000\n"
-"PO-Revision-Date: 2024-08-03 07:26+0200\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -300,30 +300,25 @@ msgstr ""
 "Tion oni ŝanĝu nur se la ekrankoloroj aspektas degeneraj."
 
 #: ui/OutputPanel.qml:213
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Kolorprofilo:"
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Neniu"
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgid "ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr "ICC-Profilo"
+msgstr "ICC-profilo"
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgid "Built-In"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Enkonstruita"
