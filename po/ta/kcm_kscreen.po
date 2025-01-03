@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-03 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 15:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -167,7 +167,7 @@ msgstr "முன்னிலையை குறை"
 msgid "Orientation:"
 msgstr "நோக்குநிலை:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:158 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:161 ui/OutputPanel.qml:203
 #, kde-format
 msgid "Automatic"
 msgstr "தானியக்கம்"
@@ -216,66 +216,66 @@ msgstr ""
 msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
-#: ui/OutputPanel.qml:76
+#: ui/OutputPanel.qml:77
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "இத்திரை, &quot;%1&quot; எனும் பகுதிறனளவை மட்டுமே ஆதரிக்கும்."
 
-#: ui/OutputPanel.qml:86
+#: ui/OutputPanel.qml:87
 #, kde-format
 msgid "Scale:"
 msgstr "அளவுமாற்றம்:"
 
-#: ui/OutputPanel.qml:91 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:82
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "இயல்பான அளவின் சதவீதமாக"
 
-#: ui/OutputPanel.qml:117 ui/Panel.qml:113
+#: ui/OutputPanel.qml:119 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:129
+#: ui/OutputPanel.qml:131
 #, kde-format
 msgid "Refresh rate:"
 msgstr "புதுப்பிக்கும் வீதம் :"
 
-#: ui/OutputPanel.qml:149
+#: ui/OutputPanel.qml:152
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "சூழறி ஒத்திசைவு:"
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:160
 #, kde-format
 msgid "Never"
 msgstr "ஒருபோதும் வேண்டாம்"
 
-#: ui/OutputPanel.qml:159
+#: ui/OutputPanel.qml:162
 #, kde-format
 msgid "Always"
 msgstr "எப்போதும்"
 
-#: ui/OutputPanel.qml:170
+#: ui/OutputPanel.qml:173
 #, kde-format
 msgid "Overscan:"
 msgstr ""
 
-#: ui/OutputPanel.qml:179
+#: ui/OutputPanel.qml:184
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:185
+#: ui/OutputPanel.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -287,22 +287,22 @@ msgstr ""
 "அமைக்கும்.<nl/><nl/>சில தொலைக்காட்சி திரைகள் காட்சியின் ஓரப்பகுதியை வெட்டியே "
 "காட்டுவதால் இது தேவைப்படலாம்."
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "RGB range:"
 msgstr "நிறங்களின் வீச்சு:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:204
 #, kde-format
 msgid "Full"
 msgstr "முழுமையானது"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
-#: ui/OutputPanel.qml:208
+#: ui/OutputPanel.qml:215
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -313,31 +313,31 @@ msgstr ""
 "காட்சிக்கருவிக்கு அனுப்ப‍ப்படும் நிறங்களின் வீச்சு வரம்புப்படுத்தப்பட வேண்டுமா என்பதைத் "
 "தீர்மானிக்கும். திரையில் காட்டப்படும் நிறங்கள் மங்கலாக தெரிந்தால் மட்டுமே இதை மாற்ற வேண்டும்."
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:220
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "நிறமிடும் முறை:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:230
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "ஏதுமில்லை"
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC பயன்முறை"
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "உள்ளமைந்த‍து"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:241
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -348,121 +348,123 @@ msgstr ""
 "திரைகளில் துல்லியமற்றவையாக இருக்கும். அதி துல்லியமாக நிறங்களைக் காண, நிறமானியை "
 "(colorimeter-ஐக்) கொண்டு அளதிருத்த வேண்டும்."
 
-#: ui/OutputPanel.qml:236
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "HDR-உடன் எப்போதும் உள்ளமைந்த நிறப்பயன்முறையே பயன்படுத்தப்படும்."
 
-#: ui/OutputPanel.qml:249
+#: ui/OutputPanel.qml:258
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC பயன்முறைக்கான பாதையை உள்ளிடவும்…"
 
-#: ui/OutputPanel.qml:265
+#: ui/OutputPanel.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடு…"
 
-#: ui/OutputPanel.qml:276
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC பயன்முறைக்கான கோப்புத்தேர்வியைத் திறக்கும்"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடுப்பது"
 
-#: ui/OutputPanel.qml:310
+#: ui/OutputPanel.qml:319
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC பயன்முறைகள் தற்போது HDR-உடன் வேலை செய்யாது"
 
-#: ui/OutputPanel.qml:318
+#: ui/OutputPanel.qml:327
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "அதிக நிறவீச்சு:"
 
-#: ui/OutputPanel.qml:323
-#, kde-format
+#: ui/OutputPanel.qml:334
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable HDR"
 msgctxt "@option:check"
-msgid "Enable HDR"
+msgid "Enable &HDR"
 msgstr "HDR-ஐ இயக்கு"
 
-#: ui/OutputPanel.qml:329
+#: ui/OutputPanel.qml:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr "ஆதரிக்கும் செயலிகள் பொலிவான நிறங்களைக் காட்ட HDR உதவும்."
 
-#: ui/OutputPanel.qml:337
+#: ui/OutputPanel.qml:348
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "நிறத் துல்லியம்:"
 
-#: ui/OutputPanel.qml:344
+#: ui/OutputPanel.qml:357
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "வேகத்தை விரும்பு"
 
-#: ui/OutputPanel.qml:345
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "துல்லியத்தை விரும்பு"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:368
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr "கணினியின் செயல்திறனை இவ்வமைப்பு பாதிக்கலாம்"
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:379
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "sRGB நிறச்செறிவு:"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:407
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:400
+#: ui/OutputPanel.qml:415
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்"
 
-#: ui/OutputPanel.qml:411
+#: ui/OutputPanel.qml:426
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "அதிகபட்ச SDR பிரகாசம்:"
 
-#: ui/OutputPanel.qml:430
+#: ui/OutputPanel.qml:447
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr "சாதாரண படங்களுக்கான அதிகபட்ச பிரகாசம்"
 
-#: ui/OutputPanel.qml:441
+#: ui/OutputPanel.qml:458
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "பிரகாசம்:"
 
-#: ui/OutputPanel.qml:462
+#: ui/OutputPanel.qml:481
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"

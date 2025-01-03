@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-03 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 17:37+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -165,7 +165,7 @@ msgstr "우선 순위 감소"
 msgid "Orientation:"
 msgstr "방향:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:158 ui/OutputPanel.qml:196
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:161 ui/OutputPanel.qml:203
 #, kde-format
 msgid "Automatic"
 msgstr "자동"
@@ -213,66 +213,66 @@ msgstr ""
 msgid "Resolution:"
 msgstr "해상도:"
 
-#: ui/OutputPanel.qml:76
+#: ui/OutputPanel.qml:77
 #, kde-kuit-format
 msgctxt "@info"
 msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgstr "이 디스플레이에서는 &quot;%1&quot; 해상도만 지원합니다."
 
-#: ui/OutputPanel.qml:86
+#: ui/OutputPanel.qml:87
 #, kde-format
 msgid "Scale:"
 msgstr "비율:"
 
-#: ui/OutputPanel.qml:91 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:82
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "일반 크기의 백분율로"
 
-#: ui/OutputPanel.qml:117 ui/Panel.qml:113
+#: ui/OutputPanel.qml:119 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:129
+#: ui/OutputPanel.qml:131
 #, kde-format
 msgid "Refresh rate:"
 msgstr "화면 주사율:"
 
-#: ui/OutputPanel.qml:149
+#: ui/OutputPanel.qml:152
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:157
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "적응형 동기화:"
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:160
 #, kde-format
 msgid "Never"
 msgstr "하지 않음"
 
-#: ui/OutputPanel.qml:159
+#: ui/OutputPanel.qml:162
 #, kde-format
 msgid "Always"
 msgstr "항상"
 
-#: ui/OutputPanel.qml:170
+#: ui/OutputPanel.qml:173
 #, kde-format
 msgid "Overscan:"
 msgstr "오버스캔:"
 
-#: ui/OutputPanel.qml:179
+#: ui/OutputPanel.qml:184
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:185
+#: ui/OutputPanel.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -284,22 +284,22 @@ msgstr ""
 "여백을 얼마나 표시할지 결정합니다.<nl/><nl/>TV를 화면으로 사용할 때 필요할 "
 "수 있습니다"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 범위:"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:204
 #, kde-format
 msgid "Full"
 msgstr "전체"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "Limited"
 msgstr "제한됨"
 
-#: ui/OutputPanel.qml:208
+#: ui/OutputPanel.qml:215
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -310,31 +310,31 @@ msgstr ""
 "디스플레이의 색상값 범위를 제한할지 여부를 결정합니다. 화면 색상이 선명하지 "
 "않을 때에만 변경하십시오."
 
-#: ui/OutputPanel.qml:213
+#: ui/OutputPanel.qml:220
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "색 프로필:"
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:230
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "없음"
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC 프로필"
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "내장"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:241
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -344,54 +344,56 @@ msgstr ""
 "내장 색 프로필은 때때로 잘못되었거나 부정확할 수도 있습니다. 최적 색 품질을 "
 "위해서는 외부 색도계로 교정하십시오."
 
-#: ui/OutputPanel.qml:236
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "HDR에서는 내장 색 프로필을 항상 사용합니다."
 
-#: ui/OutputPanel.qml:249
+#: ui/OutputPanel.qml:258
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC 프로필 경로 입력…"
 
-#: ui/OutputPanel.qml:265
+#: ui/OutputPanel.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC 프로필 선택…"
 
-#: ui/OutputPanel.qml:276
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC 프로필 파일 선택기 열기"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC 프로필 선택"
 
-#: ui/OutputPanel.qml:310
+#: ui/OutputPanel.qml:319
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
 
-#: ui/OutputPanel.qml:318
+#: ui/OutputPanel.qml:327
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR:"
 
-#: ui/OutputPanel.qml:323
-#, kde-format
+#: ui/OutputPanel.qml:334
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable HDR"
 msgctxt "@option:check"
-msgid "Enable HDR"
+msgid "Enable &HDR"
 msgstr "HDR 활성화"
 
-#: ui/OutputPanel.qml:329
+#: ui/OutputPanel.qml:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -399,67 +401,67 @@ msgid ""
 msgstr ""
 "HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다"
 
-#: ui/OutputPanel.qml:337
+#: ui/OutputPanel.qml:348
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "색 정밀도:"
 
-#: ui/OutputPanel.qml:344
+#: ui/OutputPanel.qml:357
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "효율성 선호"
 
-#: ui/OutputPanel.qml:345
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "색 정밀도 선호"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:368
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr "이 설정은 성능에 큰 영향을 줄 수 있음"
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:379
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "sRGB 색상 강도:"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:407
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:400
+#: ui/OutputPanel.qml:415
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도 증가"
 
-#: ui/OutputPanel.qml:411
+#: ui/OutputPanel.qml:426
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "최대 SDR 밝기:"
 
-#: ui/OutputPanel.qml:430
+#: ui/OutputPanel.qml:447
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr "일반 밝기 슬라이더의 최대 밝기 설정"
 
-#: ui/OutputPanel.qml:441
+#: ui/OutputPanel.qml:458
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "밝기:"
 
-#: ui/OutputPanel.qml:462
+#: ui/OutputPanel.qml:481
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"
