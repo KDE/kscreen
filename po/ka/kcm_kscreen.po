@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-03 00:42+0000\n"
-"PO-Revision-Date: 2024-12-19 04:58+0100\n"
+"PO-Revision-Date: 2025-01-03 04:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -393,12 +393,10 @@ msgid "High Dynamic Range:"
 msgstr "მაღალი დინამიკური დიაპაზონი:"
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "HDR-ის ჩართვას"
+msgstr "&HDR-ის ჩართვა"
 
 #: ui/OutputPanel.qml:340
 #, kde-format

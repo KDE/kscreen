@@ -383,12 +383,10 @@ msgid "High Dynamic Range:"
 msgstr "高动态范围 (HDR)："
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "启用 HDR"
+msgstr ""
 
 #: ui/OutputPanel.qml:340
 #, kde-format

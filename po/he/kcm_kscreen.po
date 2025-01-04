@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-03 00:42+0000\n"
-"PO-Revision-Date: 2024-12-19 22:11+0200\n"
+"PO-Revision-Date: 2025-01-03 21:23+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -389,12 +389,10 @@ msgid "High Dynamic Range:"
 msgstr "טווח דינמי רחב (HDR):"
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "הפעלת HDR"
+msgstr "הפ&עלת HDR"
 
 #: ui/OutputPanel.qml:340
 #, kde-format
