@@ -386,7 +386,7 @@ msgstr "高动态范围 (HDR)："
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr ""
+msgstr "启用 &HDR"
 
 #: ui/OutputPanel.qml:340
 #, kde-format
