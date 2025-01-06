@@ -101,7 +101,6 @@ msgstr ""
 
 #: ui/main.qml:107
 #, fuzzy, kde-format
-#| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
 msgstr "Vil du behalda det nye skjermoppsettet?"
@@ -393,18 +392,12 @@ msgstr "Stort dynamisk omfang (HDR):"
 
 #: ui/OutputPanel.qml:334
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Bruk HDR"
 
 #: ui/OutputPanel.qml:340
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
@@ -438,8 +431,6 @@ msgstr ""
 
 #: ui/OutputPanel.qml:379
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "Intensitet for SDR-fargar:"
@@ -452,16 +443,12 @@ msgstr "%1 %"
 
 #: ui/OutputPanel.qml:415
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Aukar intensiteten til ikkje-HDR-innhald vist på skjermen"
 
 #: ui/OutputPanel.qml:426
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "SDR-lysstyrke:"
@@ -474,8 +461,6 @@ msgstr ""
 
 #: ui/OutputPanel.qml:458
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR-lysstyrke:"
