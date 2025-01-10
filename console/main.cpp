@@ -8,6 +8,7 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KWindowSystem>
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QGuiApplication>
@@ -46,12 +47,14 @@ void configReceived(KScreen::ConfigOperation *op)
     } else if (command == QLatin1String("config")) {
         console->printSerializations();
     } else if (command == QLatin1String("bug")) {
-        QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
-        QProcess proc;
-        proc.setProcessChannelMode(QProcess::MergedChannels);
-        proc.start(QStringLiteral("xrandr"), QStringList(QStringLiteral("--verbose")));
-        proc.waitForFinished();
-        QTextStream(stdout) << proc.readAll().constData();
+        if (!KWindowSystem::isPlatformWayland()) {
+            QTextStream(stdout) << QStringLiteral("\n========================xrandr --verbose==========================\n");
+            QProcess proc;
+            proc.setProcessChannelMode(QProcess::MergedChannels);
+            proc.start(QStringLiteral("xrandr"), QStringList(QStringLiteral("--verbose")));
+            proc.waitForFinished();
+            QTextStream(stdout) << proc.readAll().constData();
+        }
         QTextStream(stdout) << QStringLiteral("\n========================Outputs===================================\n");
         console->printConfig();
         QTextStream(stdout) << QStringLiteral("\n========================Configurations============================\n");
