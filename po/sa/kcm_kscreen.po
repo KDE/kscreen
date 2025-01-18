@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:42+0000\n"
+"POT-Creation-Date: 2025-01-18 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -339,19 +339,27 @@ msgid "Built-in"
 msgstr "अन्तर्निर्मितम्"
 
 #: ui/OutputPanel.qml:241
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Note that built-in color profiles are sometimes wrong, and often "
+#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
+#| "is recommended."
 msgctxt "@info:tooltip"
 msgid ""
-"Note that built-in color profiles are sometimes wrong, and often inaccurate. "
-"For optimal color fidelity, calibration using a colorimeter is recommended."
+"Use the color profile built into the screen itself, if present. Note that "
+"built-in color profiles are sometimes wrong, and often inaccurate. For "
+"optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 "ध्यानं कुर्वन्तु यत् अन्तःनिर्मितवर्णरूपरेखाः कदाचित् गलताः भवन्ति, प्रायः अशुद्धाः च भवन्ति । "
 "इष्टतमवर्णनिष्ठायाः कृते वर्णमापकस्य उपयोगेन मापनं अनुशंसितम् अस्ति ।"
 
 #: ui/OutputPanel.qml:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "The built-in color profile is always used with HDR."
 msgctxt "@info:tooltip"
-msgid "The built-in color profile is always used with HDR."
+msgid "The screen's built-in color profile is always used with HDR."
 msgstr "अन्तःनिर्मितं वर्णप्रोफाइलं सर्वदा HDR इत्यनेन सह उपयुज्यते ।"
 
 #: ui/OutputPanel.qml:258

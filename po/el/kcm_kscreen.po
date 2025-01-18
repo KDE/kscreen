@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:42+0000\n"
+"POT-Creation-Date: 2025-01-18 00:42+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -340,14 +340,15 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"Note that built-in color profiles are sometimes wrong, and often inaccurate. "
-"For optimal color fidelity, calibration using a colorimeter is recommended."
+"Use the color profile built into the screen itself, if present. Note that "
+"built-in color profiles are sometimes wrong, and often inaccurate. For "
+"optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
 #: ui/OutputPanel.qml:245
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "The built-in color profile is always used with HDR."
+msgid "The screen's built-in color profile is always used with HDR."
 msgstr ""
 
 #: ui/OutputPanel.qml:258
