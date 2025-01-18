@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-03 09:48+0100\n"
+"PO-Revision-Date: 2025-01-18 09:25+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -345,29 +345,24 @@ msgid "Built-in"
 msgstr "Barneratua"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Ohar zaitez barneratutako kolore-profilak batzuetan oker daudela, eta maiz, "
+"Pantailan bertan barneratuta datorren kolore-profila erabili, baldin badago."
+"Kontuan izan barneratutako kolore-profilak batzuetan oker daudela, eta maiz, "
 "ez direla zehatzak. Kolore fideltasun optimorako, kolorimetro bat erabiliz "
 "kalibratzea gomendatzen da."
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Barneratutako kolore-profila beti erabiltzen da HDRrekin."
+msgstr ""
+"Pantailan barneratuta datorren kolore-profila beti HDRrekin erabiltzen da."
 
 #: ui/OutputPanel.qml:258
 #, kde-format

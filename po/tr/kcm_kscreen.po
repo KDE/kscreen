@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-03 20:33+0300\n"
+"PO-Revision-Date: 2025-01-18 13:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -342,29 +342,22 @@ msgid "Built-in"
 msgstr "Yerleşik"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Yerleşik renk profillerinin bazen yanlış ve sıklıkla kesin olmayacağını not "
-"edin. En iyi renk sadakati için bir renkölçer ile kalibrasyon yapılması "
-"önerilir."
+"Varsa ekrana yerleşik renk profilini kullanın. Yerleşik renk profillerinin "
+"bazen yanlış ve sıklıkla kesin olmayacağını not edin. En iyi renk sadakati "
+"için bir renkölçer ile kalibrasyon yapılması önerilir."
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Yerleşik renk profili, her zaman HDR ile kullanılır."
+msgstr "HDR ile her zaman ekranın yerleşik renk profili kullanılır."
 
 #: ui/OutputPanel.qml:258
 #, kde-format
