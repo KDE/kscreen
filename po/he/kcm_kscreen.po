@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-03 21:23+0200\n"
+"PO-Revision-Date: 2025-01-18 13:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -338,28 +338,22 @@ msgid "Built-in"
 msgstr "מובנה"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"נא לשים לב שפרופילי צבע מובנים הם לפעמים שגויים ובדרך כלל לא מדויקים. לקבלת "
-"צבע אמין, מומלץ לכייל באמצעות מד צבע (קולורימטר)."
+"להשתמש בפרופיל הצבע שמובנה במסך עצמו, אם יש כזה. נא לשים לב שפרופילי צבע "
+"מובנים הם לפעמים שגויים ובדרך כלל לא מדויקים. לקבלת צבע אמין, מומלץ לכייל "
+"באמצעות מד צבע (קולורימטר)."
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "פרופיל הצבע המובנה תמיד בשימוש עם HDR (אבחנה גבוהה)."
+msgstr "פרופיל הצבע המובנה של המסך תמיד בשימוש עם HDR (אבחנה גבוהה)."
 
 #: ui/OutputPanel.qml:258
 #, kde-format
