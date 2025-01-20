@@ -332,28 +332,22 @@ msgid "Built-in"
 msgstr "内建"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"请注意：系统内建的色彩特性文件很可能并不精确，甚至有时会包含错误的数值。为了"
-"保证显示色彩的准确性，建议使用校色仪进行色彩校准。"
+"使用屏幕内建的色彩特性文件 (如果存在)。请注意：屏幕内建的色彩特性文件很可能并"
+"不精确，甚至有时会包含错误的数值。为了保证显示色彩的准确性，建议使用校色仪进"
+"行色彩校准。"
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "系统内建的色彩特性文件总是与 HDR 配合使用。"
+msgstr "屏幕内建的色彩特性文件总是与 HDR 配合使用。"
 
 #: ui/OutputPanel.qml:258
 #, kde-format
