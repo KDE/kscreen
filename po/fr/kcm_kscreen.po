@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-04 10:42+0100\n"
+"PO-Revision-Date: 2025-01-19 09:54+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:156 kcm.cpp:178
@@ -356,29 +356,24 @@ msgid "Built-in"
 msgstr "Intégré"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Veuillez noter que les profils de couleurs intégrés sont parfois erronés et "
-"souvent inexacts. Pour une fidélité optimale des couleurs, un étalonnage à "
-"l'aide d'un colorimètre est recommandé."
+"Utilisez le profil de couleurs intégré à l’écran, s’il est présent. Veuillez "
+"noter que les profils de couleurs intégrés sont parfois erronés et souvent "
+"inexacts. Pour une fidélité optimale des couleurs, un étalonnage à l'aide "
+"d'un colorimètre est recommandé."
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Le profil intégré de couleurs est toujours utilisé en mode « HDR »."
+msgstr ""
+"Le profil de couleurs intégré à l'écran est toujours utilisé en mode « HDR »."
 
 #: ui/OutputPanel.qml:258
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-08 15:11+0100\n"
+"PO-Revision-Date: 2025-01-20 12:22+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -343,29 +343,22 @@ msgid "Built-in"
 msgstr "Includite"
 
 #: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Nota que profilos de color includite es tal vices errate, e sovente "
-"inaccurate. Per optime fidelitate de color, il es recommendate usar un "
-"colorimetro de calibration."
+"Usa le profilode color construite in le mesme schermo. Nota que profilos de "
+"color includite es tal vices errate, e sovente inaccurate. Per optime "
+"fidelitate de color, il es recommendate usar un colorimetro de calibration."
 
 #: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Le profilo de color includite es sempre usate con HDR."
+msgstr "Le profilo de color includite del schermo es sempre usate con HDR."
 
 #: ui/OutputPanel.qml:258
 #, kde-format
