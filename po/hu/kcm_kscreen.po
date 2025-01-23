@@ -3,13 +3,13 @@
 #
 # Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2018.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020.
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2024-11-15 20:29+0100\n"
+"PO-Revision-Date: 2025-01-22 20:20+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Implementációs hiba"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "A kimenet megváltozott a beállítások alkalmazására tett kísérlet során"
 
 #: output_model.cpp:96
 #, kde-format
@@ -101,11 +101,10 @@ msgstr ""
 "kijelző érintkezik."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Megtartja a kijelzőbeállításokat?"
+msgstr "Nem sikerült alkalmazni a kijelzőbeállításokat: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -403,12 +402,10 @@ msgid "High Dynamic Range:"
 msgstr "HDR:"
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "HDR bekapcsolása"
+msgstr "&HDR bekapcsolása"
 
 #: ui/OutputPanel.qml:340
 #, kde-format
@@ -423,25 +420,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Színhűség:"
 
 #: ui/OutputPanel.qml:357
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Hatékonyság preferálása"
 
 #: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Színhűség preferálása"
 
 #: ui/OutputPanel.qml:368
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Ez a beállítás nagy hatással lehet a teljesítményre"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
@@ -462,26 +459,22 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Növel a képernyőn megjelenő sRGB tartalom intenzitását"
 
 #: ui/OutputPanel.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR fényerő:"
+msgstr "Maximális SDR fényerő:"
 
 #: ui/OutputPanel.qml:447
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "A maximális fényerő beállítása a normál fényerőcsúszka számára"
 
 #: ui/OutputPanel.qml:458
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR fényerő:"
+msgstr "Fényerő:"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
