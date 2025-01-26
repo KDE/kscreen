@@ -399,19 +399,19 @@ msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr "色彩精度："
+msgstr "色彩准确性："
 
 #: ui/OutputPanel.qml:357
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr "速度优先"
+msgstr "性能优先"
 
 #: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr "色彩精度优先"
+msgstr "色彩准确性优先"
 
 #: ui/OutputPanel.qml:368
 #, kde-format
