@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-03 00:42+0000\n"
-"PO-Revision-Date: 2024-11-13 02:01+0200\n"
+"PO-Revision-Date: 2025-01-27 14:31+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Įgyvendinimo klaida"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Išvedimai pasikeitė bandant taikyti nuostatas"
 
 #: output_model.cpp:96
 #, kde-format
@@ -101,11 +101,10 @@ msgid ""
 msgstr "Tarpai tarp ekranų nėra palaikomi. Įsitikinkite, kad ekranai liečiasi."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Palikti ekrano konfigūraciją?"
+msgstr "Nepavyko pritaikyti ekrano konfigūracijos: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -395,50 +394,43 @@ msgid "High Dynamic Range:"
 msgstr "Didelis dinaminis rėžis (HDR):"
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Įjungti HDR"
+msgstr "Įjungti &HDR"
 
 #: ui/OutputPanel.qml:340
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR leidžia suderinamoms programoms atvaizduoti ryškesnes ar labiau "
-"vaizdingas spalvas. Turėkite omenyje, kad ši ypatybė vis dar yra "
-"eksperimentinė"
+"HDR leidžia suderinamoms programoms atvaizduoti ryškesnes ir labiau "
+"vaizdingas spalvas"
 
 #: ui/OutputPanel.qml:348
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Spalvų tikslumas:"
 
 #: ui/OutputPanel.qml:357
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Teikti pirmenybę efektyvumui"
 
 #: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Teikti pirmenybę spalvų tikslumui"
 
 #: ui/OutputPanel.qml:368
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Ši nuostata gali turėti didelės įtakos našumui"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
@@ -459,26 +451,22 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Padidina sRGB turinio ekrane intensyvumą"
 
 #: ui/OutputPanel.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR ryškumas:"
+msgstr "Didžiausias SDR ryškumas:"
 
 #: ui/OutputPanel.qml:447
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Nustato didžiausią įprasto ryškumo slankiklio ryškumą"
 
 #: ui/OutputPanel.qml:458
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR ryškumas:"
+msgstr "Ryškumas:"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
