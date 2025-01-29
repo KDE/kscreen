@@ -219,7 +219,7 @@ Kirigami.FormLayout {
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:listbox", "Color Profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
-        visible: element.capabilities & KScreen.Output.Capability.IccProfile
+        visible: element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltinColorProfile)
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
@@ -227,15 +227,33 @@ Kirigami.FormLayout {
             enabled: !element.hdr || !root.hdrAvailable
             Layout.minimumWidth: Kirigami.Units.gridUnit * 11
             model: [
-                { label: i18nc("@item:inlistbox color profile", "None"), value: KScreen.Output.ColorProfileSource.sRGB },
-                { label: i18nc("@item:inlistbox color profile", "ICC profile"), value: KScreen.Output.ColorProfileSource.ICC },
-                { label: i18nc("@item:inlistbox color profile", "Built-in"), value: KScreen.Output.ColorProfileSource.EDID }
+                {
+                    text: i18nc("@item:inlistbox color profile", "None"),
+                    value: KScreen.Output.ColorProfileSource.sRGB,
+                    available: true
+                },
+                {
+                    text: i18nc("@item:inlistbox color profile", "ICC profile"),
+                    value: KScreen.Output.ColorProfileSource.ICC,
+                    available: element.capabilities & KScreen.Output.Capability.IccProfile
+                },
+                {
+                    text: i18nc("@item:inlistbox color profile", "Built-in"),
+                    value: KScreen.Output.ColorProfileSource.EDID,
+                    available: element.capabilities & KScreen.Output.Capability.BuiltinColorProfile
+                }
             ]
-            textRole: "label"
+            textRole: "text"
             valueRole: "value"
 
             onActivated: element.colorProfileSource = currentValue;
             Component.onCompleted: currentIndex = indexOfValue(element.colorProfileSource);
+
+            delegate: QQC2.ItemDelegate {
+                width: colorProfileCombobox.width
+                text: modelData.text
+                enabled: modelData.available
+            }
         }
         Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Use the color profile built into the screen itself, if present. Note that built-in color profiles are sometimes wrong, and often inaccurate. For optimal color fidelity, calibration using a colorimeter is recommended.")
