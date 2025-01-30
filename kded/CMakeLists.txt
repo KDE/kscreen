@@ -39,7 +39,7 @@ target_link_libraries(kscreen PRIVATE
 )
 
 if(WITH_X11)
-    target_link_libraries(kscreen PRIVATE Qt::GuiPrivate X11::X11 X11::Xi X11::XCB XCB::ATOM)
+    target_link_libraries(kscreen PRIVATE X11::X11 X11::Xi X11::XCB XCB::ATOM)
 endif()
 
 

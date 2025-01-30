@@ -30,7 +30,6 @@
 #include <QTransform>
 
 #if WITH_X11
-#include <QtGui/private/qtx11extras_p.h>
 #include <X11/Xatom.h>
 #include <X11/Xlib-xcb.h>
 #include <X11/extensions/XInput.h>
@@ -259,11 +258,12 @@ void KScreenDaemon::alignX11TouchScreen()
     if (qGuiApp->platformName() != QStringLiteral("xcb")) {
         return;
     }
-    auto *display = QX11Info::display();
+    auto x11App = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    auto *display = x11App->display();
     if (!display) {
         return;
     }
-    auto *connection = QX11Info::connection();
+    auto *connection = x11App->connection();
     if (!connection) {
         return;
     }
