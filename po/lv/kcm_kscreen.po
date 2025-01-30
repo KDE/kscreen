@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 # Māris Nartišs <maris.kde@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:42+0000\n"
-"PO-Revision-Date: 2024-11-04 16:08+0200\n"
+"POT-Creation-Date: 2025-01-30 00:42+0000\n"
+"PO-Revision-Date: 2025-01-28 18:17+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Implementācijas kļūda"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Iestatījumu pielietošanas laikā ir mainītas izvades"
 
 #: output_model.cpp:96
 #, kde-format
@@ -102,11 +102,10 @@ msgstr ""
 "displeji saskaras."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Vai paturēt displeja konfigurāciju?"
+msgstr "Neizdevās pielietot displeja konfigurāciju: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -199,7 +198,7 @@ msgstr "Ieslēgts"
 #: ui/OutputPanel.qml:38
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Mainīt ekrāna prioritātes..."
+msgstr "Mainīt ekrāna prioritātes…"
 
 #: ui/OutputPanel.qml:51
 #, kde-kuit-format
@@ -324,170 +323,153 @@ msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Krāsu profils:"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Nav"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC profils"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:241
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Iebūvētais"
 
-#: ui/OutputPanel.qml:241
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#: ui/OutputPanel.qml:259
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Ievērojiet, ka reizēm iebūvētie krāsu profili ir nepareizi, bet bieži — "
-"neprecīzi. Lai iegūtu optimālu krāsu atveidošanu, ieteicams veikt "
-"kalibrāciju ar kolorimetru."
+"Izmantot krāsu profilu, kas ir iebūvēts pašā ekrānā, ja tāds ir. Ievērojiet, "
+"ka reizēm iebūvētie krāsu profili ir nepareizi, bet bieži — neprecīzi. Lai "
+"iegūtu optimālu krāsu atveidošanu, ieteicams veikt kalibrāciju ar "
+"kolorimetru."
 
-#: ui/OutputPanel.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#: ui/OutputPanel.qml:263
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
 msgstr "Ar HDR vienmēr izmanto iebūvēto krāsu profilu."
 
-#: ui/OutputPanel.qml:258
+#: ui/OutputPanel.qml:276
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Ievadīt ICC profila ceļu..."
+msgstr "Ievadīt ICC profila ceļu…"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:292
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Atlasīt ICC profilu..."
+msgstr "Atlasīt ICC profilu…"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:303
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Atver datņu atlasītāju ICC profilam"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:312
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Atlasīt ICC profilu"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC profili pagaidām nav saderīgi ar HDR"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Augsts dinamiskais diapazons:"
 
-#: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#: ui/OutputPanel.qml:352
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Ieslēgt HDR"
+msgstr "Ieslēgt &HDR"
 
-#: ui/OutputPanel.qml:340
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#: ui/OutputPanel.qml:358
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR ļauj saderīgām programmām izskatīties spilgtākām un ar dzīvīgākām "
-"krāsām. Ievērojiet, ka šī iespēja vēl ir eksperimentāla."
+"HDR ļauj saderīgām programmām izskatīties spilgtākām un ar dzīvīgākām krāsām."
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Krāsu precizitāte:"
 
-#: ui/OutputPanel.qml:357
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Dot priekšroku veiktspējai"
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Dot priekšroku krāsu precizitātei"
 
-#: ui/OutputPanel.qml:368
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Šim iestatījumam ir liela ietekme uz sistēmas veiktspēju"
 
-#: ui/OutputPanel.qml:379
+#: ui/OutputPanel.qml:397
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "sRGB krāsu intensitāte:"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:415
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Palielina ekrāna sRGB satura intensitāti"
 
-#: ui/OutputPanel.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#: ui/OutputPanel.qml:444
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "SDR gaišums:"
+msgstr "Maksimālais SDR gaišums:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Norādiet maksimālo gaišumu gaišuma norādīšanas slīdnim"
 
-#: ui/OutputPanel.qml:458
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#: ui/OutputPanel.qml:476
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR gaišums:"
+msgstr "Gaišums:"
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopē:"

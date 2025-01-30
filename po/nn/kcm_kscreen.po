@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-30 00:42+0000\n"
 "PO-Revision-Date: 2024-09-01 15:21+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -320,25 +320,25 @@ msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Fargeprofil:"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Ingen"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:236
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC-profil"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:241
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Innebygd"
 
-#: ui/OutputPanel.qml:241
+#: ui/OutputPanel.qml:259
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -355,7 +355,7 @@ msgstr ""
 "For best mogleg farge­attgjeving bør du kalibrera skjermen med eit "
 "kolorimeter."
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:263
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "The built-in color profile is always used with HDR."
@@ -363,48 +363,48 @@ msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
 msgstr "Den innebygde fargeprofilen vert alltid brukt ved HDR."
 
-#: ui/OutputPanel.qml:258
+#: ui/OutputPanel.qml:276
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Skriv inn adressa til ICC-profilen …"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:292
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Vel ICC-profil …"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:303
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Opna filveljar for ICC-profilen"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:312
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Vel ICC-profil"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC-profilar er ikkje kompatible med HDR enno"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Stort dynamisk omfang (HDR):"
 
-#: ui/OutputPanel.qml:334
+#: ui/OutputPanel.qml:352
 #, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Bruk HDR"
 
-#: ui/OutputPanel.qml:340
+#: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -413,67 +413,67 @@ msgstr ""
 "HDR-modus lèt kompatible program visa lysare og meir fargesterke fargar. "
 "Merk at denne funksjonen førebels er eksperimentell."
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:357
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:368
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr ""
 
-#: ui/OutputPanel.qml:379
+#: ui/OutputPanel.qml:397
 #, fuzzy, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "Intensitet for SDR-fargar:"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:415
+#: ui/OutputPanel.qml:433
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Aukar intensiteten til ikkje-HDR-innhald vist på skjermen"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:444
 #, fuzzy, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "SDR-lysstyrke:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
-#: ui/OutputPanel.qml:458
+#: ui/OutputPanel.qml:476
 #, fuzzy, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR-lysstyrke:"
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "Duplikat av:"
