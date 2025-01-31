@@ -69,15 +69,18 @@ void Osd::showActionSelector()
         layerWindow->setAnchors({});
         layerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
         m_osdActionSelector->setScreen(screen);
+        m_osdActionSelector->setVisible(true);
     } else {
         auto newGeometry = m_osdActionSelector->geometry();
         newGeometry.moveCenter(screen->geometry().center());
-        m_osdActionSelector->setGeometry(newGeometry);
         KX11Extras::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
         KX11Extras::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
+        m_osdActionSelector->setVisible(true);
+        // Workaround wrong geometry by setting geometry after it is visible, not before.
+        // Because KWin replace OSD at lower area of the screen.
+        m_osdActionSelector->setGeometry(newGeometry);
         m_osdActionSelector->requestActivate();
     }
-    m_osdActionSelector->setVisible(true);
 }
 
 void Osd::onOsdActionSelected(int action)
