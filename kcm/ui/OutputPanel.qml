@@ -219,7 +219,7 @@ Kirigami.FormLayout {
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:listbox", "Color Profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
-        visible: element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltinColorProfile)
+        visible: element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
@@ -240,7 +240,7 @@ Kirigami.FormLayout {
                 {
                     text: i18nc("@item:inlistbox color profile", "Built-in"),
                     value: KScreen.Output.ColorProfileSource.EDID,
-                    available: element.capabilities & KScreen.Output.Capability.BuiltinColorProfile
+                    available: element.capabilities & KScreen.Output.Capability.BuiltInColorProfile
                 }
             ]
             textRole: "text"
