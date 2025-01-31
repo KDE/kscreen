@@ -62,6 +62,10 @@ void Osd::showActionSelector()
         screen = qGuiApp->primaryScreen();
     }
 
+    if (m_osdActionSelector->isVisible()) {
+        QMetaObject::invokeMethod(m_osdActionSelector->rootObject(), "moveRight");
+    }
+
     if (KWindowSystem::isPlatformWayland()) {
         auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
         layerWindow->setScope(QStringLiteral("on-screen-display"));

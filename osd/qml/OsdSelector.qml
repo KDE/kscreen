@@ -21,6 +21,11 @@ Control {
     property var actions
     signal clicked(int actionId)
 
+    function moveRight() {
+        actionRepeater.currentIndex = contentItem.wrappingAdd(actionRepeater.count, 
+            actionRepeater.currentIndex, 1, false);
+    }
+
     leftPadding: shadow.margins.left + background.margins.left
     rightPadding: shadow.margins.right + background.margins.right
     topPadding: shadow.margins.top + background.margins.top
