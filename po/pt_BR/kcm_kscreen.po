@@ -5,13 +5,14 @@
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2015, 2016, 2019, 2020.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-30 00:42+0000\n"
-"PO-Revision-Date: 2025-02-04 08:38-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-02-05 22:19-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -345,29 +346,23 @@ msgid "Built-in"
 msgstr "Interno"
 
 #: ui/OutputPanel.qml:259
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Observe que os perfis de cores integrados às vezes estão errados e muitas "
-"vezes imprecisos. Para uma fidelidade de cores ideal, recomenda-se a "
-"calibração usando um colorímetro."
+"Usa o perfil de cores integrado da própria tela, se presente. Note que "
+"perfis integrados às vezes estão errados, e frequentemente são imprecisos. "
+"Para uma maior fidelidade de cores, a calibração com um colorímetro é "
+"recomendada."
 
 #: ui/OutputPanel.qml:263
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "O perfil de cor integrado é sempre usado com HDR."
+msgstr "O perfil de cor integrado da tela é sempre usado com HDR."
 
 #: ui/OutputPanel.qml:276
 #, kde-format
