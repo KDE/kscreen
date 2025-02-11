@@ -103,11 +103,10 @@ msgstr ""
 "obrazovky dotýkají."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Ponechat nastavení zobrazení?"
+msgstr ""
 
 #: ui/main.qml:116
 #, kde-format
@@ -344,12 +343,10 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:263
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Zabudovaný barevný profil je vždy použit s HDR."
+msgstr ""
 
 #: ui/OutputPanel.qml:276
 #, kde-format
@@ -387,12 +384,10 @@ msgid "High Dynamic Range:"
 msgstr "High Dynamic Range:"
 
 #: ui/OutputPanel.qml:352
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Povolit HDR"
+msgstr ""
 
 #: ui/OutputPanel.qml:358
 #, kde-format
@@ -426,12 +421,10 @@ msgid "This setting can have a large impact on performance"
 msgstr ""
 
 #: ui/OutputPanel.qml:397
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Intenzita barev SDR:"
+msgstr ""
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -446,12 +439,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr ""
 
 #: ui/OutputPanel.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Jas SDR:"
+msgstr ""
 
 #: ui/OutputPanel.qml:465
 #, kde-format
@@ -460,12 +451,10 @@ msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
 #: ui/OutputPanel.qml:476
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Jas SDR:"
+msgstr ""
 
 #: ui/OutputPanel.qml:499
 #, kde-format
