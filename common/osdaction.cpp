@@ -83,10 +83,13 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         if (commonModes.isEmpty()) {
             return nullptr;
         }
-        std::sort(commonModes.begin(), commonModes.end(), [](const auto &left, const auto &right) {
-            return left->size().width() < right->size().width() && left->size().height() < right->size().height();
+        const auto biggestSizeIt = std::max_element(commonModes.begin(), commonModes.end(), [](const auto &left, const auto &right) {
+            if (left->size().width() != right->size().width()) {
+                return left->size().width() < right->size().width();
+            }
+            return left->size().height() < right->size().height();
         });
-        const auto biggestSize = commonModes.back()->size();
+        const auto biggestSize = (*biggestSizeIt)->size();
         const auto findBestMode = [&biggestSize](const KScreen::OutputPtr &output) {
             auto list = output->modes();
             list.erase(std::remove_if(list.begin(),
