@@ -1,34 +1,34 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Alexander Potashev <aspotashev@gmail.com>, 2015, 2016, 2017, 2018, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
 # SPDX-FileCopyrightText: 2022, 2024 Olesya Gerasimenko <translation-team@basealt.ru>
+# Alexander Potashev <aspotashev@gmail.com>, 2015, 2016, 2017, 2018, 2019.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-30 00:42+0000\n"
-"PO-Revision-Date: 2024-09-16 16:44+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2025-02-13 12:42+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 21.08.3\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Ошибка реализации"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Конфигурация выходов изменилась при применении параметров"
 
 #: output_model.cpp:96
 #, kde-format
@@ -102,11 +102,10 @@ msgid ""
 msgstr "Экраны должны соприкасаться друг с другом без промежутков."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Сохранить параметры экрана?"
+msgstr "Не удалось применить параметры экрана: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -347,29 +346,23 @@ msgid "Built-in"
 msgstr "Встроенный"
 
 #: ui/OutputPanel.qml:259
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Обратите внимание, что встроенные цветовые профили иногда некорректны и "
-"часто неточны.  Для точной передачи цветов рекомендуется калибровка с "
-"использованием колориметра."
+"Использовать цветовой профиль, предоставляемый экраном.Обратите внимание, "
+"что встроенные цветовые профили иногда некорректны и часто неточны. Для "
+"точной передачи цветов рекомендуется калибровка экрана с использованием "
+"колориметра."
 
 #: ui/OutputPanel.qml:263
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "В режиме HDR всегда используются встроенные профили."
+msgstr "В режиме HDR всегда используются встроенные цветовые профили."
 
 #: ui/OutputPanel.qml:276
 #, kde-format
@@ -407,58 +400,50 @@ msgid "High Dynamic Range:"
 msgstr "Расширенный динамический диапазон (HDR):"
 
 #: ui/OutputPanel.qml:352
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Включить HDR"
+msgstr "Включить &HDR"
 
 #: ui/OutputPanel.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
 "Использование режима расширенного динамического диапазона позволяет "
-"приложениям выводить более яркие и насыщенные цвета. Поддержка HDR пока "
-"является экспериментальной."
+"приложениям выводить более яркие и насыщенные цвета. "
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Точность цветопередачи:"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Быстродействие"
 
 #: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Точность"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr ""
+"Использование этого параметра может значительно влиять на производительность"
 
 #: ui/OutputPanel.qml:397
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Цветовая насыщенность SDR:"
+msgstr "Цветовая насыщенность sRGB:"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -467,34 +452,30 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Увеличивает насыщенность обычного (не-HDR) содержимого экрана"
+msgstr "Увеличивает насыщенность обычного (sRGB) содержимого экрана"
 
 #: ui/OutputPanel.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Яркость SDR:"
+msgstr "Максимальная яркость SDR:"
 
 #: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
+"Позволяет задать максимальный уровень, который возможно установить ползунком "
+"яркости."
 
 #: ui/OutputPanel.qml:476
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Яркость SDR:"
+msgstr "Яркость:"
 
 #: ui/OutputPanel.qml:499
 #, kde-format
