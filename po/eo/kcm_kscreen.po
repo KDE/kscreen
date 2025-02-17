@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-30 00:42+0000\n"
-"PO-Revision-Date: 2025-02-12 22:59+0100\n"
+"PO-Revision-Date: 2025-02-16 17:10+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -340,21 +340,16 @@ msgid "Built-in"
 msgstr "Enkonstruita"
 
 #: ui/OutputPanel.qml:259
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Rimarku, ke enkonstruitaj kolorprofiloj foje estas malĝustaj, kaj ofte "
-"malprecizaj.Por optimuma kolora fideleco, kalibrado per kolorimetro estas "
-"rekomendita."
+"Uzu la kolorprofilon enkonsruitan en ka ekrano mem, se haveblas.  Rimarku, "
+"ke enkonstruitaj kolorprofiloj foje estas malĝustaj, kaj ofte malprecizaj. "
+"Por optimuma kolora fideleco, kalibrado per kolorimetro estas rekomendita."
 
 #: ui/OutputPanel.qml:263
 #, kde-format
