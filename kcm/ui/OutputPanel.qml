@@ -104,12 +104,13 @@ Kirigami.FormLayout {
             id: spinbox
             // Because QQC2 SpinBox doesn't natively support decimal step
             // sizes: https://bugreports.qt.io/browse/QTBUG-67349
-            readonly property real factor: 20.0
+            // 120 is from the Wayland fractional scale protocol
+            readonly property real factor: 120.0
             readonly property real realValue: value / factor
 
             from: 0.5 * factor
             to: 3.0 * factor
-            stepSize: 1
+            stepSize: factor * 0.05 // 5% steps
             value: element.scale * factor
             validator: DoubleValidator {
                 bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
