@@ -3,25 +3,26 @@
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2019, 2022, 2023 Roman Paholik <wizzardsk@gmail.com>
 # Mthw <jari_45@hotmail.com>, 2018.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2025 Lucia Mrenica <lucia.mrenica@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-03 00:42+0000\n"
-"PO-Revision-Date: 2024-03-24 11:37+0100\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2025-02-23 13:57+0100\n"
+"Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Chyba implementácie"
 
 #: kcm.cpp:204
 #, kde-format
@@ -56,12 +57,11 @@ msgid "Replicated by other output"
 msgstr "Replikované iným výstupom"
 
 #: ui/main.qml:26
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Identifikovať"
+msgstr "Identifikovať obrazovky"
 
 #: ui/main.qml:41
 #, kde-format
@@ -288,6 +288,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen"
 msgstr ""
+"Určuje, koľko výplne sa vloží okolo obrazu odosielaného na displej, aby sa "
+"kompenzovala časť obsahu odrezaného na okrajoch.<nl/><nl/>Toto je niekedy "
+"potrebné pri používaní televízora ako obrazovky."
 
 #: ui/OutputPanel.qml:195
 #, kde-format
@@ -305,48 +308,40 @@ msgid "Limited"
 msgstr "Obmedzený"
 
 #: ui/OutputPanel.qml:215
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether or not the range of possible color values needs to be "
 "limited for the display. This should only be changed if the colors on the "
 "screen look washed out."
 msgstr ""
-"Určuje, či rozsah možných hodnôt farieb na zobrazenie musí alebo nemusí byť "
-"obmedzený."
+"Určuje, či je potrebné obmedziť rozsah možných hodnôt farieb pre zobrazenie. "
+"Toto nastavenie by sa malo zmeniť len vtedy, ak farby na obrazovke vyzerajú "
+"vyblednuté."
 
 #: ui/OutputPanel.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Farebný profil:"
 
 #: ui/OutputPanel.qml:230
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Žiadne"
 
 #: ui/OutputPanel.qml:231
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr "Vybrať profil ICC"
+msgstr "ICC profil"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr ""
+msgstr "Zabudované"
 
 #: ui/OutputPanel.qml:241
 #, kde-format
@@ -355,12 +350,15 @@ msgid ""
 "Note that built-in color profiles are sometimes wrong, and often inaccurate. "
 "For optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Všimnite si, že vstavané farebné profily sú niekedy nesprávne a často "
+"nepresné. Na dosiahnutie optimálnej vernosti farieb sa odporúča kalibrácia "
+"pomocou kolorimetra."
 
 #: ui/OutputPanel.qml:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
-msgstr ""
+msgstr "Zabudovaný profil je vždy použitý s HDR."
 
 #: ui/OutputPanel.qml:258
 #, kde-format
@@ -398,25 +396,18 @@ msgid "High Dynamic Range:"
 msgstr "Vysoký dynamický rozsah:"
 
 #: ui/OutputPanel.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Povoliť HDR"
 
 #: ui/OutputPanel.qml:340
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"HDR umožňuje kompatibilným aplikáciám zobrazovať jasnejšie a živšie farby. "
-"Upozorňujeme, že táto funkcia je stále experimentálna."
+"HDR umožňuje kompatibilným aplikáciám zobrazovať jasnejšie a živšie farby."
 
 #: ui/OutputPanel.qml:348
 #, kde-format
@@ -443,12 +434,10 @@ msgid "This setting can have a large impact on performance"
 msgstr ""
 
 #: ui/OutputPanel.qml:379
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "Intenzita farieb SDR:"
+msgstr "Intenzita farieb sRGB:"
 
 #: ui/OutputPanel.qml:407
 #, kde-format
@@ -465,12 +454,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
 
 #: ui/OutputPanel.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
-msgstr "Jas SDR:"
+msgstr "Maximálny SDR jas:"
 
 #: ui/OutputPanel.qml:447
 #, kde-format
@@ -479,12 +466,10 @@ msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr ""
 
 #: ui/OutputPanel.qml:458
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Jas SDR:"
+msgstr "Jas:"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
