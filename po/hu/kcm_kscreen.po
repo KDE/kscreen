@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:42+0000\n"
+"POT-Creation-Date: 2025-02-25 02:34+0000\n"
 "PO-Revision-Date: 2025-01-22 20:20+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -170,7 +170,7 @@ msgstr "Prioritás csökkentése"
 msgid "Orientation:"
 msgstr "Tájolás:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:161 ui/OutputPanel.qml:203
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:162 ui/OutputPanel.qml:204
 #, kde-format
 msgid "Automatic"
 msgstr "Automatikus"
@@ -236,49 +236,49 @@ msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "a normál skála százalékában"
 
-#: ui/OutputPanel.qml:119 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:131
+#: ui/OutputPanel.qml:132
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Frissítési gyakoriság:"
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "„%1” a kijelző által támogatott egyetlen frissítési frekvencia."
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptív szinkron:"
 
-#: ui/OutputPanel.qml:160
+#: ui/OutputPanel.qml:161
 #, kde-format
 msgid "Never"
 msgstr "Soha"
 
-#: ui/OutputPanel.qml:162
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Always"
 msgstr "Mindig"
 
-#: ui/OutputPanel.qml:173
+#: ui/OutputPanel.qml:174
 #, kde-format
 msgid "Overscan:"
 msgstr "Túlpásztázás"
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:185
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -290,22 +290,22 @@ msgstr ""
 "hogy kompenzálja a tartalom egy részének a széleken történő levágását.<nl/"
 "><nl/>Ez néha szükséges, ha a TV-t képernyőként használják"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB tartomány:"
 
-#: ui/OutputPanel.qml:204
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "Full"
 msgstr "Teljes"
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "Limited"
 msgstr "Korlátozott"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:216
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -317,31 +317,31 @@ msgstr ""
 "vagy sem a megjelenítéshez. Ezt csak akkor kell megváltoztatni, ha a színek "
 "a képernyőn elmosódottnak tűnnek."
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Színprofil:"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Nincs"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC-profil"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:233
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Beépített"
 
-#: ui/OutputPanel.qml:241
+#: ui/OutputPanel.qml:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -352,54 +352,54 @@ msgstr ""
 "pontatlanok. Az optimális színhűség érdekében ajánlott a kalibrálás "
 "koloriméterrel."
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:246
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "HDR esetén mindig a beépített színprofil használatos."
 
-#: ui/OutputPanel.qml:258
+#: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Adja meg az ICC-profil elérési útját…"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC-profil kiválasztása…"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:286
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Megnyit egy fájlválasztót az ICC-profilhoz"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC-profil kiválasztása"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "Az ICC-profilok még nem kompatibilisek a HDR-rel"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR:"
 
-#: ui/OutputPanel.qml:334
+#: ui/OutputPanel.qml:335
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "&HDR bekapcsolása"
 
-#: ui/OutputPanel.qml:340
+#: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -408,67 +408,67 @@ msgstr ""
 "A HDR lehetővé teszi a kompatibilis alkalmazásoknak fényesebb és élénkebb "
 "színek megjelenítését"
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:349
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Színhűség:"
 
-#: ui/OutputPanel.qml:357
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Hatékonyság preferálása"
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Színhűség preferálása"
 
-#: ui/OutputPanel.qml:368
+#: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr "Ez a beállítás nagy hatással lehet a teljesítményre"
 
-#: ui/OutputPanel.qml:379
+#: ui/OutputPanel.qml:380
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "sRGB színintenzitás:"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:408
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:415
+#: ui/OutputPanel.qml:416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Növel a képernyőn megjelenő sRGB tartalom intenzitását"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:427
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "Maximális SDR fényerő:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:448
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr "A maximális fényerő beállítása a normál fényerőcsúszka számára"
 
-#: ui/OutputPanel.qml:458
+#: ui/OutputPanel.qml:459
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Fényerő:"
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:482
 #, kde-format
 msgid "Replica of:"
 msgstr "Replikája ennek:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:42+0000\n"
+"POT-Creation-Date: 2025-02-25 02:34+0000\n"
 "PO-Revision-Date: 2025-02-13 12:42+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -173,7 +173,7 @@ msgstr "Уменьшить приоритет"
 msgid "Orientation:"
 msgstr "Ориентация:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:161 ui/OutputPanel.qml:203
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:162 ui/OutputPanel.qml:204
 #, kde-format
 msgid "Automatic"
 msgstr "Автоматически"
@@ -239,49 +239,49 @@ msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "в процентах от обычного масштаба"
 
-#: ui/OutputPanel.qml:119 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:131
+#: ui/OutputPanel.qml:132
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Частота кадров:"
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr "Это дисплей поддерживает только частоту кадров %1."
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Адаптивная синхронизация"
 
-#: ui/OutputPanel.qml:160
+#: ui/OutputPanel.qml:161
 #, kde-format
 msgid "Never"
 msgstr "Никогда"
 
-#: ui/OutputPanel.qml:162
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Always"
 msgstr "Всегда"
 
-#: ui/OutputPanel.qml:173
+#: ui/OutputPanel.qml:174
 #, kde-format
 msgid "Overscan:"
 msgstr "Масштабирование"
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:185
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -294,22 +294,22 @@ msgstr ""
 "<nl/><nl/>Иногда требуется использование этого параметра при использовании "
 "телевизора в качестве экрана"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "RGB range:"
 msgstr "Диапазон RGB:"
 
-#: ui/OutputPanel.qml:204
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "Full"
 msgstr "Полный"
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "Limited"
 msgstr "Ограниченный"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:216
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -321,31 +321,31 @@ msgstr ""
 "изображения. Этот параметр следует использовать только в случае, когда "
 "изображение выглядит очень блёклым."
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "Цветовой профиль:"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Отсутствует"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC-профиль"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:233
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Встроенный"
 
-#: ui/OutputPanel.qml:241
+#: ui/OutputPanel.qml:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -356,54 +356,54 @@ msgstr ""
 "часто неточны.  Для точной передачи цветов рекомендуется калибровка с "
 "использованием колориметра."
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:246
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "В режиме HDR всегда используются встроенные профили."
 
-#: ui/OutputPanel.qml:258
+#: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Введите путь к цветовому профилю ICC…"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Выбрать профиль ICC…"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:286
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Открывает диалог выбора цветового профиля ICC"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Выбор цветового профиля ICC"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "Цветовые профили в настоящее время несовместимы с HDR"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Расширенный динамический диапазон (HDR):"
 
-#: ui/OutputPanel.qml:334
+#: ui/OutputPanel.qml:335
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Включить &HDR"
 
-#: ui/OutputPanel.qml:340
+#: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -412,56 +412,56 @@ msgstr ""
 "Использование режима расширенного динамического диапазона позволяет "
 "приложениям выводить более яркие и насыщенные цвета. "
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:349
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Точность цветопередачи:"
 
-#: ui/OutputPanel.qml:357
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Быстродействие"
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Точность"
 
-#: ui/OutputPanel.qml:368
+#: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr ""
 "Использование этого параметра может значительно влиять на производительность"
 
-#: ui/OutputPanel.qml:379
+#: ui/OutputPanel.qml:380
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "Цветовая насыщенность sRGB:"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:408
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:415
+#: ui/OutputPanel.qml:416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Увеличивает насыщенность обычного (sRGB) содержимого экрана"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:427
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "Максимальная яркость SDR:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:448
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
@@ -469,13 +469,13 @@ msgstr ""
 "Позволяет задать максимальный уровень, который возможно установить ползунком "
 "яркости."
 
-#: ui/OutputPanel.qml:458
+#: ui/OutputPanel.qml:459
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яркость:"
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:482
 #, kde-format
 msgid "Replica of:"
 msgstr "Синхронизация с:"

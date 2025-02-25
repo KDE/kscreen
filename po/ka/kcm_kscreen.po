@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:42+0000\n"
+"POT-Creation-Date: 2025-02-25 02:34+0000\n"
 "PO-Revision-Date: 2025-01-03 04:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "პრიორიტეტის შემცირება"
 msgid "Orientation:"
 msgstr "ორიენტაცია:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:161 ui/OutputPanel.qml:203
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:162 ui/OutputPanel.qml:204
 #, kde-format
 msgid "Automatic"
 msgstr "ავტომატური"
@@ -235,50 +235,50 @@ msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "ჩვეულებრივი შკალის პროცენტებში"
 
-#: ui/OutputPanel.qml:119 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:113
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:131
+#: ui/OutputPanel.qml:132
 #, kde-format
 msgid "Refresh rate:"
 msgstr "განახლების სიხშირე:"
 
-#: ui/OutputPanel.qml:152
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
 "\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ განახლების სიხშირეს წარმოადგენს."
 
-#: ui/OutputPanel.qml:157
+#: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "ადაპტიური სინქი:"
 
-#: ui/OutputPanel.qml:160
+#: ui/OutputPanel.qml:161
 #, kde-format
 msgid "Never"
 msgstr "არასდროს"
 
-#: ui/OutputPanel.qml:162
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Always"
 msgstr "ყოველთვის"
 
-#: ui/OutputPanel.qml:173
+#: ui/OutputPanel.qml:174
 #, kde-format
 msgid "Overscan:"
 msgstr "გადასკანირება:"
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:185
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:190
+#: ui/OutputPanel.qml:191
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -291,22 +291,22 @@ msgstr ""
 "გამოსახულებას წიბოებთან მოეჭრება.<nl/><nl/>ეს ხანდახან დაგჭირდებათ, როცა "
 "ეკრანად ტელევიზორს იყენებთ"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:196
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB დიაპაზონი:"
 
-#: ui/OutputPanel.qml:204
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "Full"
 msgstr "სრული"
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "Limited"
 msgstr "შეზღუდული"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:216
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -317,31 +317,31 @@ msgstr ""
 "განსაზღვრავს, საჭიროა თუ არა ნაჩვენები ფერების რაოდენობის შეზღუდვა. ეს, "
 "მხოლოდ, მაშინ შეცვალეთ, თუ ეკრანი გარეცხილს წააგავს."
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:221
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color Profile:"
 msgstr "ფერის პროფილი:"
 
-#: ui/OutputPanel.qml:230
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "არაფერი"
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC პროფილი"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:233
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "ჩაშენებული"
 
-#: ui/OutputPanel.qml:241
+#: ui/OutputPanel.qml:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -351,54 +351,54 @@ msgstr ""
 "დაიმახსოვრეთ, რომ ჩაშენებული ფერის პროფილები ხანდახან არასწორია, თან ხშირად. "
 "ფერების სისწორისთვის რეკომენდებულია, კალიბრაცია colorimeter-ით გააკეთოთ."
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:246
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The built-in color profile is always used with HDR."
 msgstr "HDR-სთან ერთად ყოველთვის ჩაშენებული ფერის პროფილი გამოიყენება."
 
-#: ui/OutputPanel.qml:258
+#: ui/OutputPanel.qml:259
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "შეიყვანეთ ICC პროფილის ბილიკი…"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "აირჩიეთ ICC პროფილი…"
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:286
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "გახსნის ფაილის არჩევის ფანჯარას ICC პროფილისთვის"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "აირჩიეთ ICC პროფილი"
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren't compatible with HDR yet"
 msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა"
 
-#: ui/OutputPanel.qml:327
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "მაღალი დინამიკური დიაპაზონი:"
 
-#: ui/OutputPanel.qml:334
+#: ui/OutputPanel.qml:335
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "&HDR-ის ჩართვა"
 
-#: ui/OutputPanel.qml:340
+#: ui/OutputPanel.qml:341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -407,67 +407,67 @@ msgstr ""
 "HDR თავსებად აპლიკაციებს საშუალებას აძლევს, უფრო კაშკაშა და მკვეთრი ფერებით "
 "გამოჩნდეს"
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:349
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "ფერის სიზუსტე:"
 
-#: ui/OutputPanel.qml:357
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "მირჩევნია ეფექტურობა"
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "მირჩევნია ფერის სიზუსტე"
 
-#: ui/OutputPanel.qml:368
+#: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
 msgstr "ამ პარამეტრს, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს"
 
-#: ui/OutputPanel.qml:379
+#: ui/OutputPanel.qml:380
 #, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
 msgstr "sRGB ფერი ინტენსივობა:"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:408
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:415
+#: ui/OutputPanel.qml:416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:427
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR Brightness:"
 msgstr "მაქსიმალური SDR სიკაშკაშე:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:448
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
 msgstr "აყენებს მაქსიმალურ სიკაშკაშეს ნორმალური სიკაშკაშის მქონე სლაიდერისთვის"
 
-#: ui/OutputPanel.qml:458
+#: ui/OutputPanel.qml:459
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "სიკაშკაშე:"
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:482
 #, kde-format
 msgid "Replica of:"
 msgstr "რისი რეპლიკა:"
