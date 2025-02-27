@@ -104,7 +104,7 @@ KCM.SimpleKCM {
             invalidConfigMsg.visible = true;
         }
         function onErrorOnSave(reason) {
-            errSaveMsg.text = i18nc("The argument contains the reason for the failure", "Couldn't apply display configuration: %1", reason)
+            errSaveMsg.text = i18nc("The argument contains the reason for the failure", "Couldn’t apply display configuration: %1", reason)
             errSaveMsg.visible = true;
         }
         function onGlobalScaleWritten() {

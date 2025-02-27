@@ -16,6 +16,10 @@ Item {
     readonly property bool isSelected: root.selectedOutput === model.index
     property size outputSize: model.size
 
+    property string textWithScale: i18nc("Width, height, scale; separated with no-break space", "(%1 × %2, %3%)",
+                                         model.resolution.width, model.resolution.height, Math.round(model.scale * 100.0))
+    property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)", model.resolution.width, model.resolution.height)
+
     onIsSelectedChanged: {
         if (isSelected) {
             z = 89;
@@ -122,8 +126,7 @@ Item {
                 id: resolutionLabel
                 Layout.fillWidth: true
 
-                text: "(" + model.resolution.width + "x" + model.resolution.height +
-                      (model.scale !== 1 ? "\u200B@" + Math.round(model.scale * 100.0) + "%": "") + ")"
+                text: model.scale !== 1 ? textWithScale : textWithoutScale
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
@@ -210,7 +213,7 @@ Item {
             y: 2
             x: 2
 
-            text: model.normalizedPosition.x + "," + model.normalizedPosition.y
+            text: i18n("%1, %2", model.normalizedPosition.x, model.normalizedPosition.y)
             color: "white"
         }
 

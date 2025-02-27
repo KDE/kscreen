@@ -74,7 +74,7 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             visible: resolutionCombobox.count <= 1
-            toolTipText: xi18nc("@info", "&quot;%1&quot; is the only resolution supported by this display.", singleResolutionLabel.text)
+            toolTipText: i18nc("@info", "“%1” is the only resolution supported by this display.", singleResolutionLabel.text)
         }
     }
 
@@ -150,7 +150,7 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             visible: refreshRateCombobox.count <= 1
-            toolTipText: i18n("\"%1\" is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
+            toolTipText: i18nc("@info", "“%1” is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
         }
     }
 
@@ -218,7 +218,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:listbox", "Color Profile:")
+        Kirigami.FormData.label: i18nc("@label:listbox", "Color profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
         visible: element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)
         spacing: Kirigami.Units.smallSpacing
@@ -335,7 +335,7 @@ Kirigami.FormLayout {
 
         Kirigami.ContextualHelpButton {
             visible: root.hdrAvailable && element.hdr
-            toolTipText: i18nc("@info:tooltip", "ICC profiles aren't compatible with HDR yet")
+            toolTipText: i18nc("@info:tooltip", "ICC profiles aren’t compatible with HDR yet")
         }
     }
 
@@ -395,7 +395,7 @@ Kirigami.FormLayout {
         spacing: Kirigami.Units.smallSpacing
 
         visible: (root.hdrAvailable && element.hdr) || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
-        Kirigami.FormData.label: i18nc("@label", "sRGB Color Intensity:")
+        Kirigami.FormData.label: i18nc("@label", "sRGB color intensity:")
         Kirigami.FormData.buddyFor: sdrGamutSlider
 
         QQC2.Slider {
@@ -442,7 +442,7 @@ Kirigami.FormLayout {
         spacing: Kirigami.Units.smallSpacing
 
         visible: root.hdrAvailable && element.hdr
-        Kirigami.FormData.label: i18nc("@label", "Maximum SDR Brightness:")
+        Kirigami.FormData.label: i18nc("@label", "Maximum SDR brightness:")
         Kirigami.FormData.buddyFor: sdrBrightnessSlider
 
         QQC2.Slider {
