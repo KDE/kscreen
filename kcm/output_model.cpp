@@ -657,8 +657,7 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
     const auto resolutionList = resolutions(output);
     for (const QSize &size : resolutionList) {
         if (size.isEmpty()) {
-            const QString text = i18nc("Width x height",
-                                       "%1x%2",
+            const QString text = i18nc("Width x height", "%1 × %2",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()));
@@ -676,8 +675,7 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
                 divisor *= 41;
             }
 
-            const QString text = i18nc("Width x height (aspect ratio)",
-                                       "%1x%2 (%3:%4)",
+            const QString text = i18nc("Width x height (aspect ratio)", "%1 × %2 (%3:%4)",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()),

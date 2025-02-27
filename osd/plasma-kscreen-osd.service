@@ -3,7 +3,7 @@ Description=KScreen OSD service
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=@KDE_INSTALL_FULL_LIBEXECDIR@/kscreen_osd_service
+ExecStart=/usr/lib/x86_64-linux-gnu/libexec/kscreen_osd_service
 Type=dbus
 BusName=org.kde.kscreen.osdService
 TimeoutSec=5sec

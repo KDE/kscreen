@@ -144,7 +144,7 @@ ColumnLayout {
                 QQC2.ButtonGroup.group: x11AppsScaling
             }
             Kirigami.ContextualHelpButton {
-                toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don't will not be scaled at all.")
+                toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don’t will not be scaled at all.")
             }
         }
 
