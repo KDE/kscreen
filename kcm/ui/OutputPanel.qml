@@ -18,7 +18,7 @@ Kirigami.FormLayout {
 
     property KSortFilterProxyModel enabledOutputs
     property var element: model
-    readonly property int comboboxWidth: Kirigami.Units.gridUnit * 11
+    readonly property int comboboxWidth: Kirigami.Units.gridUnit * 12
 
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
@@ -393,6 +393,88 @@ Kirigami.FormLayout {
                   && !(root.hdrAvailable && element.hdr)
             toolTipText: xi18nc("@info:tooltip", "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving performance at the cost of color accuracy.<nl/><nl/>
                                                   Note that changing this setting can have a large impact on performance.")
+        }
+    }
+
+    RowLayout {
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Kirigami.FormData.label: i18nc("@label:listbox", "Limit color resolution to:")
+        Kirigami.FormData.buddyFor: colorResolutionCombobox
+        visible: element.capabilities & KScreen.Output.Capability.MaxBitsPerColor
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.ComboBox {
+            id: colorResolutionCombobox
+            Layout.minimumWidth: root.comboboxWidth
+            model: [
+                { value: 0 },
+                { value: 6 },
+                { value: 8 },
+                { value: 10 },
+                { value: 12 },
+                { value: 14 },
+                { value: 16 },
+            ]
+            valueRole: "value"
+            readonly property var automaticMaxBpc: {
+                var ret = element.maxSupportedMaxBitsPerColor;
+                if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
+                    ret = Math.min(ret, 10);
+                }
+                if (element.automaticMaxBitsPerColorLimit != 0) {
+                    ret = Math.min(ret, element.automaticMaxBitsPerColorLimit);
+                }
+                return ret;
+            }
+            displayText: {
+                if (element.maxBitsPerColor == 0) {
+                    return i18nc("@item:inlistbox color resolution", "Automatic  (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
+                } else {
+                    return i18nc("@item:inlistbox color resolution", "%1 bits per color", element.maxBitsPerColor)
+                }
+            }
+
+            onActivated: element.maxBitsPerColor = currentValue;
+            Component.onCompleted: currentIndex = indexOfValue(element.maxBitsPerColor);
+
+            delegate: QQC2.ItemDelegate {
+                width: colorResolutionCombobox.width
+                text: {
+                    if (modelData.value == 0) {
+                        return i18nc("@item:inlistbox color resolution", "Automatic (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
+                    } else {
+                        return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData.value)
+                    }
+                }
+                enabled: {
+                    if (modelData.value == 0) {
+                        return true;
+                    }
+                    if (modelData.value < element.minSupportedMaxBitsPerColor
+                        || modelData.value > element.maxSupportedMaxBitsPerColor) {
+                        return false;
+                    }
+                    if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
+                        return modelData.value <= 10;
+                    } else {
+                        return modelData.value <= 16;
+                    }
+                }
+            }
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: {
+                if (element.automaticMaxBitsPerColorLimit != 0 && element.maxBitsPerColor != 0 && element.maxSupportedMaxBitsPerColor > 8) {
+                    return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
+                                                    Because the display is currently connected through a dock, automatic color resolution has been temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>
+                                                    Due to graphics driver limitations, the actually used resolution is not known")
+                } else {
+                    return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
+                                                    Limiting color resolution can be useful to work around display or graphics driver issues.<nl/><nl/>
+                                                    Due to graphics driver limitations, the actually used resolution is not known")
+                }
+            }
         }
     }
 
