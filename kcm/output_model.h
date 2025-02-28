@@ -51,6 +51,10 @@ public:
         InteractiveMoveRole, // This output is currently repositioned interactively
         BrightnessRole,
         ColorPowerPreference,
+        MaxBitsPerColorRole,
+        AutomaticMaxBitsPerColorRole,
+        MinSupportedMaxBitsPerColorRole,
+        MaxSupportedMaxBitsPerColorRole,
     };
 
     explicit OutputModel(ConfigHandler *configHandler);

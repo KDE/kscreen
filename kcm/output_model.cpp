@@ -123,6 +123,14 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->brightness();
     case ColorPowerPreference:
         return static_cast<uint32_t>(output->colorPowerPreference());
+    case MaxBitsPerColorRole:
+        return output->maxBitsPerColor().value_or(0);
+    case AutomaticMaxBitsPerColorRole:
+        return output->automaticMaxBitsPerColor();
+    case MinSupportedMaxBitsPerColorRole:
+        return output->bitsPerColorRange().min;
+    case MaxSupportedMaxBitsPerColorRole:
+        return output->bitsPerColorRange().max;
     }
     return QVariant();
 }
@@ -293,6 +301,16 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setColorPowerPreference(static_cast<KScreen::Output::ColorPowerTradeoff>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case MaxBitsPerColorRole: {
+        uint32_t v = value.toUInt();
+        if (v == 0) {
+            output.ptr->setMaxBitsPerColor(std::nullopt);
+        } else {
+            output.ptr->setMaxBitsPerColor(v);
+        }
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
+    }
     }
     return false;
 }
@@ -330,6 +348,10 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ColorProfileSource] = "colorProfileSource";
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
+    roles[MaxBitsPerColorRole] = "maxBitsPerColor";
+    roles[AutomaticMaxBitsPerColorRole] = "automaticMaxBitsPerColor";
+    roles[MinSupportedMaxBitsPerColorRole] = "minSupportedMaxBitsPerColor";
+    roles[MaxSupportedMaxBitsPerColorRole] = "maxSupportedMaxBitsPerColor";
     return roles;
 }
 

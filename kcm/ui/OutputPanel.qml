@@ -383,8 +383,70 @@ Kirigami.FormLayout {
             Component.onCompleted: currentIndex = indexOfValue(element.colorPowerPreference);
         }
         Kirigami.ContextualHelpButton {
-            visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferAccuracy
-            toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance")
+            toolTipText: xi18nc("@info:tooltip", "Preferring color accuracy limits hardware offloading of color operations and increases the maximum color resolution.<nl/><nl/>Note that this setting can have a large impact on performance")
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Kirigami.FormData.label: i18nc("@label:listbox", "Limit color resolution to:")
+        Kirigami.FormData.buddyFor: colorResolutionCombobox
+        visible: element.capabilities & KScreen.Output.Capability.MaxBitsPerColor
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.ComboBox {
+            id: colorResolutionCombobox
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            model: [
+                { value: 0 },
+                { value: 6 },
+                { value: 8 },
+                { value: 10 },
+                { value: 12 },
+                { value: 14 },
+                { value: 16 },
+            ]
+            valueRole: "value"
+            displayText: {
+                if (element.maxBitsPerColor == 0) {
+                    return i18nc("@item:inlistbox color resolution", "Automatic (%1)", element.automaticMaxBitsPerColor)
+                } else {
+                    return i18nc("@item:inlistbox color resolution", "%1 bits per color", element.maxBitsPerColor)
+                }
+            }
+
+            onActivated: element.maxBitsPerColor = currentValue;
+            Component.onCompleted: currentIndex = indexOfValue(element.maxBitsPerColor);
+
+            delegate: QQC2.ItemDelegate {
+                width: colorResolutionCombobox.width
+                text: {
+                    if (modelData.value == 0) {
+                        return i18nc("@item:inlistbox color resolution", "Automatic (%1)", element.automaticMaxBitsPerColor)
+                    } else {
+                        return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData.value)
+                    }
+                }
+                enabled: {
+                    if (modelData.value == 0) {
+                        return true;
+                    }
+                    if (modelData.value < minSupportedMaxBitsPerColor
+                        || modelData.value > maxSupportedMaxBitsPerColor) {
+                        return false;
+                    }
+                    if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
+                        return modelData.value <= 10;
+                    } else {
+                        return modelData.value <= 16;
+                    }
+                }
+            }
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: xi18nc("@info:tooltip", "Limiting color resolution can be useful to work around display issues.<nl/><nl/>Due to graphics driver limitations, the actually used resolution is not known")
         }
     }
 
