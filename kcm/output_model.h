@@ -52,6 +52,10 @@ public:
         BrightnessRole,
         ColorPowerPreference,
         DdcCiAllowedRole,
+        MaxBitsPerColorRole,
+        AutomaticMaxBitsPerColorLimitRole,
+        MinSupportedMaxBitsPerColorRole,
+        MaxSupportedMaxBitsPerColorRole,
     };
     Q_ENUM(OutputRoles)
 

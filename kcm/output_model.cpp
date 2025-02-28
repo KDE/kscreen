@@ -125,6 +125,14 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->colorPowerPreference());
     case DdcCiAllowedRole:
         return output->ddcCiAllowed();
+    case MaxBitsPerColorRole:
+        return output->maxBitsPerColor();
+    case AutomaticMaxBitsPerColorLimitRole:
+        return output->automaticMaxBitsPerColorLimit();
+    case MinSupportedMaxBitsPerColorRole:
+        return output->bitsPerColorRange().min;
+    case MaxSupportedMaxBitsPerColorRole:
+        return output->bitsPerColorRange().max;
     }
     return QVariant();
 }
@@ -299,6 +307,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setDdcCiAllowed(value.toBool());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case MaxBitsPerColorRole:
+        output.ptr->setMaxBitsPerColor(value.toUInt());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -337,6 +349,10 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
     roles[DdcCiAllowedRole] = "ddcCiAllowed";
+    roles[MaxBitsPerColorRole] = "maxBitsPerColor";
+    roles[AutomaticMaxBitsPerColorLimitRole] = "automaticMaxBitsPerColorLimit";
+    roles[MinSupportedMaxBitsPerColorRole] = "minSupportedMaxBitsPerColor";
+    roles[MaxSupportedMaxBitsPerColorRole] = "maxSupportedMaxBitsPerColor";
     return roles;
 }
 

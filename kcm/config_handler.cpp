@@ -171,7 +171,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || (isSaveCheck && output->brightness() != config->brightness())
                     || output->colorPowerPreference() != config->colorPowerPreference()
                     || output->replicationSource() != config->replicationSource()
-                    || output->ddcCiAllowed() != config->ddcCiAllowed()) {
+                    || output->ddcCiAllowed() != config->ddcCiAllowed()
+                    || output->maxBitsPerColor() != config->maxBitsPerColor()) {
                         return true;
                     }
             }
