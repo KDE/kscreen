@@ -18,6 +18,7 @@ Kirigami.FormLayout {
 
     property KSortFilterProxyModel enabledOutputs
     property var element: model
+    property var comboboxWidth: Kirigami.Units.gridUnit * 12
 
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
@@ -58,7 +59,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: resolutionCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             visible: count > 1
             model: element.resolutions
             onActivated: element.resolutionIndex = currentIndex;
@@ -134,7 +135,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: refreshRateCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             visible: count > 1
             model: element.refreshRates
             onActivated: element.refreshRateIndex = currentIndex;
@@ -156,7 +157,7 @@ Kirigami.FormLayout {
 
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Adaptive sync:")
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        Layout.minimumWidth: root.comboboxWidth
         model: [
             { label: i18n("Never"), value: KScreen.Output.VrrPolicy.Never },
             { label: i18n("Automatic"), value: KScreen.Output.VrrPolicy.Automatic },
@@ -199,7 +200,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: rgbRangeCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
                 { label: i18n("Full"), value: KScreen.Output.RgbRange.Full },
@@ -226,7 +227,7 @@ Kirigami.FormLayout {
         QQC2.ComboBox {
             id: colorProfileCombobox
             enabled: !element.hdr || !root.hdrAvailable
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 {
                     text: i18nc("@item:inlistbox color profile", "None"),
@@ -360,7 +361,6 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label:listbox", "Color accuracy:")
@@ -370,7 +370,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: colorAccuracyCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer efficiency"), value: KScreen.Output.ColorPowerTradeoff.PreferEfficiency },
                 { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer color accuracy"), value: KScreen.Output.ColorPowerTradeoff.PreferAccuracy }
@@ -384,6 +384,92 @@ Kirigami.FormLayout {
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferAccuracy
             toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance.")
+        }
+    }
+
+    RowLayout {
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Kirigami.FormData.label: i18nc("@label:listbox First part of a sentence like 'Limit color resolution to [number of bits]'", "Limit color resolution to:")
+        Kirigami.FormData.buddyFor: colorResolutionCombobox
+        visible: element.capabilities & KScreen.Output.Capability.MaxBitsPerColor
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.ComboBox {
+            id: colorResolutionCombobox
+            Layout.minimumWidth: root.comboboxWidth
+            model: [
+                { value: 0 },
+                { value: 6 },
+                { value: 8 },
+                { value: 10 },
+                { value: 12 },
+                { value: 14 },
+                { value: 16 },
+            ]
+            valueRole: "value"
+            readonly property var automaticMaxBpc: {
+                var ret = element.maxSupportedMaxBitsPerColor;
+                if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
+                    ret = Math.min(ret, 10);
+                }
+                if (element.automaticMaxBitsPerColorLimit != 0) {
+                    ret = Math.min(ret, element.automaticMaxBitsPerColorLimit);
+                }
+                return ret;
+            }
+            displayText: {
+                if (element.maxBitsPerColor == 0) {
+                    return i18nc("@item:inlistbox Second part of a sentence like 'Limit color resolution to [number of bits]'",
+                                 "Automatic (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
+                } else {
+                    return i18nc("@item:inlistbox Second part of a sentence like 'Limit color resolution to [number of bits]'",
+                                 "%1 bits per color", element.maxBitsPerColor)
+                }
+            }
+
+            onActivated: element.maxBitsPerColor = currentValue;
+            Component.onCompleted: currentIndex = indexOfValue(element.maxBitsPerColor);
+
+            delegate: QQC2.ItemDelegate {
+                width: colorResolutionCombobox.width
+                text: {
+                    if (modelData.value == 0) {
+                        return i18nc("@item:inlistbox Second part of a sentence like 'Limit color resolution to: [number of bits]'",
+                                     "Automatic (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
+                    } else {
+                        return i18nc("@item:inlistbox Second part of a sentence like 'Limit color resolution to: [number of bits]'",
+                                     "%1 bits per color", modelData.value)
+                    }
+                }
+                enabled: {
+                    if (modelData.value == 0) {
+                        return true;
+                    }
+                    if (modelData.value < element.minSupportedMaxBitsPerColor
+                        || modelData.value > element.maxSupportedMaxBitsPerColor) {
+                        return false;
+                    }
+                    if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
+                        return modelData.value <= 10;
+                    } else {
+                        return modelData.value <= 16;
+                    }
+                }
+            }
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: {
+                if (element.automaticMaxBitsPerColorLimit != 0 && element.maxBitsPerColor != 0 && element.maxSupportedMaxBitsPerColor > 8) {
+                    return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
+                                                    Because the display is currently connected through a dock, to avoid common issues with them, color resolution is by default reduced to 8 bits.<nl/><nl/>
+                                                    Due to graphics driver limitations, the actually used resolution is not known.")
+                } else {
+                    return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
+                                                    Limiting color resolution can be useful to work around display or graphics driver issues.<nl/><nl/>
+                                                    Due to graphics driver limitations, the actually used resolution is not known.")
+                }
+            }
         }
     }
 
@@ -499,7 +585,7 @@ Kirigami.FormLayout {
 
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        Layout.minimumWidth: root.comboboxWidth
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         model: element.replicationSourceModel
         visible: kcm.outputReplicationSupported && kcm.multipleScreensAvailable
