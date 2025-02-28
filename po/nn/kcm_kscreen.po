@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-09-01 15:21+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -33,24 +33,26 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1 × %2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "Ingen"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Duplisert av anna uteining"
@@ -102,7 +104,7 @@ msgstr ""
 #: ui/main.qml:107
 #, fuzzy, kde-format
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "Vil du behalda det nye skjermoppsettet?"
 
 #: ui/main.qml:116
@@ -183,7 +185,24 @@ msgstr "Berre i teikneplate-modus"
 msgid "Manual"
 msgstr "Manuell"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "Duplikateiningar"
@@ -218,9 +237,11 @@ msgid "Resolution:"
 msgstr "Oppløysing:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "«%1» er einaste oppløysinga støtta av denne skjermen."
 
 #: ui/OutputPanel.qml:87
@@ -246,8 +267,10 @@ msgid "Refresh rate:"
 msgstr "Oppfriskingsrate:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "«%1» er einaste oppfriskings­rate støtta av denne skjermen."
 
 #: ui/OutputPanel.qml:158
@@ -315,9 +338,11 @@ msgstr ""
 "bør berre endra dette viss fargane på skjermen ser utvaska ut."
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "Fargeprofil:"
 
 #: ui/OutputPanel.qml:232
@@ -387,9 +412,11 @@ msgid "Select ICC Profile"
 msgstr "Vel ICC-profil"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC-profilar er ikkje kompatible med HDR enno"
 
 #: ui/OutputPanel.qml:346
@@ -440,7 +467,7 @@ msgstr ""
 #: ui/OutputPanel.qml:398
 #, fuzzy, kde-format
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "Intensitet for SDR-fargar:"
 
 #: ui/OutputPanel.qml:426
@@ -458,7 +485,7 @@ msgstr "Aukar intensiteten til ikkje-HDR-innhald vist på skjermen"
 #: ui/OutputPanel.qml:445
 #, fuzzy, kde-format
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "SDR-lysstyrke:"
 
 #: ui/OutputPanel.qml:466
@@ -500,10 +527,13 @@ msgid "Apply scaling themselves"
 msgstr "Skalerer seg sjølve"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "Eldre program som støttar skalering, vil bruka det og sjå klare ut, men dei "
 "som ikkje støttar det, vert ikkje skalerte i det heile teke."
@@ -579,3 +609,7 @@ msgstr "Inga rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermane for å byta skjermplassering"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1 × %2"

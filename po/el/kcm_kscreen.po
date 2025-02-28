@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -33,24 +33,26 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
+msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "Κανένα"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Αντιγράφτηκε από άλλη έξοδο"
@@ -102,7 +104,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
 
 #: ui/main.qml:116
@@ -188,7 +190,24 @@ msgstr "Μόνο σε λειτουργία πινακίου"
 msgid "Manual"
 msgstr "Χειροκίνητα"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "Αντίγραφα"
@@ -219,10 +238,10 @@ msgid "Resolution:"
 msgstr "Ανάλυση:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-kuit-format
+#, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "«%1» είναι ο μόνος ρυθμός ανανέωσης που υποστηρίζει η οθόνη."
 
 #: ui/OutputPanel.qml:87
@@ -248,8 +267,10 @@ msgid "Refresh rate:"
 msgstr "Ρυθμός ανανέωσης:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "«%1» είναι ο μόνος ρυθμός ανανέωσης που υποστηρίζει η οθόνη."
 
 #: ui/OutputPanel.qml:158
@@ -312,10 +333,11 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Active profile"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
-msgstr ""
+msgid "Color profile:"
+msgstr "Ενεργό προφίλ"
 
 #: ui/OutputPanel.qml:232
 #, kde-format
@@ -377,7 +399,7 @@ msgstr ""
 #: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr ""
 
 #: ui/OutputPanel.qml:346
@@ -427,7 +449,7 @@ msgstr ""
 #: ui/OutputPanel.qml:398
 #, kde-format
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr ""
 
 #: ui/OutputPanel.qml:426
@@ -445,7 +467,7 @@ msgstr ""
 #: ui/OutputPanel.qml:445
 #, kde-format
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr ""
 
 #: ui/OutputPanel.qml:466
@@ -490,7 +512,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 
 #: ui/Panel.qml:158

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-01-09 19:02+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -33,24 +33,26 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "なし"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "他の出力による複製"
@@ -105,7 +107,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "ディスプレイの設定を保持しますか？"
 
 #: ui/main.qml:116
@@ -187,7 +189,24 @@ msgstr "タブレットモード時のみ"
 msgid "Manual"
 msgstr "手動"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "複製"
@@ -222,9 +241,11 @@ msgid "Resolution:"
 msgstr "解像度:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr ""
 "&quot;%1&quot; は、このディスプレイによってサポートされている唯一の解像度で"
 "す。"
@@ -252,8 +273,10 @@ msgid "Refresh rate:"
 msgstr "リフレッシュレート:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
 "\"%1\" は、このディスプレイによってサポートされている唯一のリフレッシュレート"
 "です。"
@@ -324,7 +347,7 @@ msgstr ""
 #| msgctxt "@label:textbox"
 #| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "カラープロファイル:"
 
 #: ui/OutputPanel.qml:232
@@ -387,9 +410,11 @@ msgid "Select ICC Profile"
 msgstr "ICC プロファイルを選択"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC プロファイルはまだ HDR に対応していません"
 
 #: ui/OutputPanel.qml:346
@@ -448,7 +473,7 @@ msgstr ""
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "SDR 彩度:"
 
 #: ui/OutputPanel.qml:426
@@ -470,7 +495,7 @@ msgstr "スクリーン上の非 HDR コンテンツの彩度を高めます"
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "SDR 明るさ:"
 
 #: ui/OutputPanel.qml:466
@@ -514,10 +539,13 @@ msgid "Apply scaling themselves"
 msgstr "アプリケーションによるスケーリング"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "スケーリングをサポートするレガシーなアプリケーションは明瞭にスケールされま"
 "す。しかし、サポートしないアプリケーションは全くスケールされません。"
@@ -594,6 +622,10 @@ msgstr "回転なし"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "スクリーンをドラッグして再配置"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Sets the brightness of non-HDR content on the screen, in nits"

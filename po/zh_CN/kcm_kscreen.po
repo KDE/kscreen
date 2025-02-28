@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,24 +32,26 @@ msgstr "输出在尝试应用设置时发生更改"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "无"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
@@ -96,9 +98,11 @@ msgid ""
 msgstr "不支持显示器之间的空隙。请确保所有显示器均相邻紧贴放置。"
 
 #: ui/main.qml:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The argument contains the reason for the failure"
+#| msgid "Couldn't apply display configuration: %1"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "无法应用显示器配置：%1"
 
 #: ui/main.qml:116
@@ -178,7 +182,24 @@ msgstr "仅在平板模式"
 msgid "Manual"
 msgstr "手动"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "复制"
@@ -212,9 +233,11 @@ msgid "Resolution:"
 msgstr "分辨率："
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "&quot;%1&quot; 是此显示器支持的唯一分辨率。"
 
 #: ui/OutputPanel.qml:87
@@ -240,8 +263,10 @@ msgid "Refresh rate:"
 msgstr "刷新率："
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "“%1”是此显示器支持的唯一刷新率。"
 
 #: ui/OutputPanel.qml:158
@@ -308,9 +333,11 @@ msgstr ""
 "纯度、对比度低于应有状态时才应更改此选项。"
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "色彩特性文件："
 
 #: ui/OutputPanel.qml:232
@@ -373,9 +400,11 @@ msgid "Select ICC Profile"
 msgstr "选择 ICC 特性文件"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC 特性文件目前尚未兼容 HDR"
 
 #: ui/OutputPanel.qml:346
@@ -422,9 +451,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "此设置可能会对性能产生重大影响"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "sRGB 色彩鲜艳度："
 
 #: ui/OutputPanel.qml:426
@@ -440,9 +471,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "最大 SDR 亮度："
 
 #: ui/OutputPanel.qml:466
@@ -484,10 +517,13 @@ msgid "Apply scaling themselves"
 msgstr "由应用程序进行缩放"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "支持缩放的旧式应用程序将使用内建的缩放功能得到清晰的显示效果，但是不支持缩放"
 "的应用程序将不会进行缩放。"
@@ -561,3 +597,7 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"

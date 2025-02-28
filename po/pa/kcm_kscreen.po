@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-01-03 14:34-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -32,24 +32,26 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "ਕੋਈ ਨਹੀਂ"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "ਹੋਰ ਆਉਟਪੁੱਟ ਦੀ ਹੂ-ਬਹੂ ਨਕਲ ਕੀਤੀ"
@@ -101,7 +103,7 @@ msgstr "ਡਿਸਪਲੇਅ ਵਿਚਾਲੇ ਫ਼਼ਾਸਲੇ ਲਈ ਸ�
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਰੱਖਣੀ ਹੈ?"
 
 #: ui/main.qml:116
@@ -181,7 +183,24 @@ msgstr "ਸਿਰਫ਼ ਜਦੋਂ ਟੇਬਲੇਟ ਢੰਗ ਵਿੱਚ ਹ�
 msgid "Manual"
 msgstr "ਖੁਦ"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "ਹੂ-ਬਹੂ ਨਕਲ"
@@ -212,9 +231,11 @@ msgid "Resolution:"
 msgstr "ਰੈਜ਼ੋਲੂਸ਼ਨ:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "ਇਸ ਡਿਸਪਲੇਅ ਵਲੋਂ ਸਿਰਫ਼ &quot;%1&quot; ਰੀਫਰੈਸ਼ ਰੇਟ ਸਹਾਇਕ ਹੈ।"
 
 #: ui/OutputPanel.qml:87
@@ -240,8 +261,10 @@ msgid "Refresh rate:"
 msgstr "ਤਾਜ਼ਾ ਕਰਨ ਰੇਟ:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "ਇਸ ਡਿਸਪਲੇਅ ਵਲੋਂ ਸਿਰਫ਼ \"%1\" ਰੀਫਰੈਸ਼ ਰੇਟ ਸਹਾਇਕ ਹੈ।"
 
 #: ui/OutputPanel.qml:158
@@ -308,7 +331,7 @@ msgstr ""
 #| msgctxt "@label:textbox"
 #| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "ਰੰਗ ਪਰਫਾਇਲ:"
 
 #: ui/OutputPanel.qml:232
@@ -373,7 +396,7 @@ msgstr "ICC ਪਰੋਫਾਇਲ ਚੁਣੋ"
 #: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr ""
 
 #: ui/OutputPanel.qml:346
@@ -426,7 +449,7 @@ msgstr ""
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "SDR ਰੰਗ ਇਨਟੈਂਸਟੀ:"
 
 #: ui/OutputPanel.qml:426
@@ -446,7 +469,7 @@ msgstr ""
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "SDR ਚਮਕ:"
 
 #: ui/OutputPanel.qml:466
@@ -493,7 +516,7 @@ msgstr "ਸਕੇਲਿੰਗਾਂ ਨੂੰ ਖੁਦ ਲਾਗੂ ਕਰੋ"
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 
 #: ui/Panel.qml:158
@@ -565,6 +588,10 @@ msgstr "ਘੁੰਮਾਉਣਾ ਨਹੀਂ"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ਸਕਰੀਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦੇਣ ਲਈ ਉਹਨਾਂ ਨੂੰ ਖਿੱਚੋ"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "ਡਿਸਪਲੇਅ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸੰਭਾਲੋ:"

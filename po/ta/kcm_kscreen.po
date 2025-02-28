@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2025-01-26 17:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -32,24 +32,26 @@ msgstr "அமைப்புகளை செயல்படுத்தும�
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "ஏதுமில்லை"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
@@ -98,9 +100,11 @@ msgstr ""
 "திரைகளுக்கிடையே காலியிடம் இருக்கக்கூடாது. திரைகளை ஒன்றுடன் ஒன்று ஒட்டியவாறு வைக்கவும்."
 
 #: ui/main.qml:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The argument contains the reason for the failure"
+#| msgid "Couldn't apply display configuration: %1"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "திரைகளின் அமைப்பை செயல்படுத்த முடியவில்லை: %1"
 
 #: ui/main.qml:116
@@ -181,7 +185,24 @@ msgstr "பலகைக்கணினி பயன்முறையில் �
 msgid "Manual"
 msgstr "கைமுறை"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "நகலிகள்"
@@ -216,9 +237,11 @@ msgid "Resolution:"
 msgstr "பகுதிறன்:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "இத்திரை, &quot;%1&quot; எனும் பகுதிறனளவை மட்டுமே ஆதரிக்கும்."
 
 #: ui/OutputPanel.qml:87
@@ -244,8 +267,10 @@ msgid "Refresh rate:"
 msgstr "புதுப்பிக்கும் வீதம் :"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "இத்திரை, \"%1\" புதுப்பிப்புவிகித‍த்தை மட்டுமே ஆதரிக்கும்."
 
 #: ui/OutputPanel.qml:158
@@ -313,9 +338,11 @@ msgstr ""
 "தீர்மானிக்கும். திரையில் காட்டப்படும் நிறங்கள் மங்கலாக தெரிந்தால் மட்டுமே இதை மாற்ற வேண்டும்."
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "நிறமிடும் முறை:"
 
 #: ui/OutputPanel.qml:232
@@ -385,9 +412,11 @@ msgid "Select ICC Profile"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடுப்பது"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC பயன்முறைகள் தற்போது HDR-உடன் வேலை செய்யாது"
 
 #: ui/OutputPanel.qml:346
@@ -434,9 +463,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "கணினியின் செயல்திறனை இவ்வமைப்பு பாதிக்கலாம்"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "sRGB நிறச்செறிவு:"
 
 #: ui/OutputPanel.qml:426
@@ -452,9 +483,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "அதிகபட்ச SDR பிரகாசம்:"
 
 #: ui/OutputPanel.qml:466
@@ -496,10 +529,13 @@ msgid "Apply scaling themselves"
 msgstr "தானே தன் அளவைமாற்றும்"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "அளவுமாற்றத்தை ஆதரிக்கும் செயலிகள் சரியான அளவிலும் தெளிவாகவும் தெரியும், ஆனால் அதை "
 "ஆதிரிக்காதவை தவறான அளவில் காட்டப்படும்."
@@ -575,6 +611,10 @@ msgstr "திருப்ப வேண்டாம்"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "காட்சிக்கருவிகளை நகர்த்த அவற்றை இழுங்கள்"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Sets the brightness of non-HDR content on the screen, in nits"

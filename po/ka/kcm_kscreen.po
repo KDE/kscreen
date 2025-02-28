@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2025-01-18 03:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -33,24 +33,26 @@ msgstr "პარამეტრების გადატარების �
 msgid "%1 Hz"
 msgstr "%1 ჰც"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "არაფერი"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
@@ -99,9 +101,11 @@ msgstr ""
 "ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: ui/main.qml:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The argument contains the reason for the failure"
+#| msgid "Couldn't apply display configuration: %1"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "ვერ გადავატარე ეკრანის კონფიგურაცია: %1"
 
 #: ui/main.qml:116
@@ -183,7 +187,24 @@ msgstr "მხოლოდ ტაბლეტის რეჟიმში"
 msgid "Manual"
 msgstr "ხელით"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "რეპლიკები"
@@ -218,9 +239,11 @@ msgid "Resolution:"
 msgstr "გარჩევადობა:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr ""
 "&quot;%1&quot; ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ გაფართოებას წარმოადგენს."
 
@@ -247,8 +270,10 @@ msgid "Refresh rate:"
 msgstr "განახლების სიხშირე:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
 "\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ განახლების სიხშირეს წარმოადგენს."
 
@@ -318,9 +343,11 @@ msgstr ""
 "მხოლოდ, მაშინ შეცვალეთ, თუ ეკრანი გარეცხილს წააგავს."
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "ფერის პროფილი:"
 
 #: ui/OutputPanel.qml:232
@@ -384,9 +411,11 @@ msgid "Select ICC Profile"
 msgstr "აირჩიეთ ICC პროფილი"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა"
 
 #: ui/OutputPanel.qml:346
@@ -435,9 +464,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "ამ პარამეტრს, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "sRGB ფერი ინტენსივობა:"
 
 #: ui/OutputPanel.qml:426
@@ -453,9 +484,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "მაქსიმალური SDR სიკაშკაშე:"
 
 #: ui/OutputPanel.qml:466
@@ -497,10 +530,13 @@ msgid "Apply scaling themselves"
 msgstr "მასშტაბირების მათზევე გადატარება"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "მოძველებული აპლიკაციები, რომლებსაც მასშტაბირების მხარდაჭერა გააჩნია, "
 "გამოიყენებს მას. მაგრამ გაითვალისწინეთ, აპლიკაციები, რომლებსაც ამისი "
@@ -577,6 +613,10 @@ msgstr "შეტრიალების გარეშე"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ეკრანების გადასალაგებლად გადაათრიეთ ისინი"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Sets the brightness of non-HDR content on the screen, in nits"

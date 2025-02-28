@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -32,24 +32,26 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 हर्ट्ज"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "कोई नहीं"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "अन्य आउटपुट द्वारा प्रतिकृति"
@@ -102,7 +104,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "प्रदर्शन कॉन्फ़िगरेशन रखें?"
 
 #: ui/main.qml:116
@@ -182,7 +184,24 @@ msgstr "केवल टैबलेट मोड में होने पर"
 msgid "Manual"
 msgstr "नियमावली"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "प्रतिकृतियां"
@@ -217,9 +236,11 @@ msgid "Resolution:"
 msgstr "संकल्प:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "&quot;%1&quot; इस डिस्प्ले द्वारा समर्थित एकमात्र रिज़ॉल्यूशन है।"
 
 #: ui/OutputPanel.qml:87
@@ -245,8 +266,10 @@ msgid "Refresh rate:"
 msgstr "ताज़ा दर:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" इस डिस्प्ले द्वारा समर्थित एकमात्र रिफ्रेश दर है।"
 
 #: ui/OutputPanel.qml:158
@@ -314,9 +337,11 @@ msgstr ""
 "चाहिए या नहीं। इसे केवल तभी बदला जाना चाहिए जब स्क्रीन पर रंग धुले हुए दिखें।"
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "रंग प्रोफ़ाइल:"
 
 #: ui/OutputPanel.qml:232
@@ -385,9 +410,11 @@ msgid "Select ICC Profile"
 msgstr "ICC प्रोफ़ाइल चुनें"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC प्रोफ़ाइल अभी HDR के साथ संगत नहीं हैं"
 
 #: ui/OutputPanel.qml:346
@@ -436,9 +463,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "इस सेटिंग का प्रदर्शन पर बड़ा प्रभाव पड़ सकता है"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "sRGB रंग तीव्रता:"
 
 #: ui/OutputPanel.qml:426
@@ -454,9 +483,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "स्क्रीन पर sRGB सामग्री की तीव्रता बढ़ाता है"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "अधिकतम एसडीआर चमक:"
 
 #: ui/OutputPanel.qml:466
@@ -498,10 +529,13 @@ msgid "Apply scaling themselves"
 msgstr "स्केलिंग स्वयं लागू करें"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "स्केलिंग का समर्थन करने वाले लीगेसी अनुप्रयोग इसका उपयोग करेंगे और स्पष्ट दिखेंगे, हालांकि जो "
 "नहीं करते हैं, उनका स्केलिंग बिल्कुल नहीं किया जाएगा।"
@@ -577,3 +611,7 @@ msgstr "कोई रोटेशन नहीं"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "स्क्रीन को पुनः व्यवस्थित करने के लिए उन्हें खींचें"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"

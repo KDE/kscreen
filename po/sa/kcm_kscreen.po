@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -34,24 +34,26 @@ msgstr "सेटिङ्ग्स् प्रयोक्तुं प्र�
 msgid "%1 Hz"
 msgstr "%1 हर्ट्ज"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1x%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "न कश्चित्"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "अन्येन निर्गमेन प्रतिकृतम्"
@@ -101,9 +103,11 @@ msgstr ""
 "सुनिश्चितं कुर्वन्तु।"
 
 #: ui/main.qml:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The argument contains the reason for the failure"
+#| msgid "Couldn't apply display configuration: %1"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "प्रदर्शनविन्यासं प्रयोक्तुं न शक्तम्: %1"
 
 #: ui/main.qml:116
@@ -183,7 +187,24 @@ msgstr "केवलं यदा टैब्लेट् मोड् मध�
 msgid "Manual"
 msgstr "शास्त्र"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "प्रतिकृतयः"
@@ -218,9 +239,11 @@ msgid "Resolution:"
 msgstr "प्रस्ताव:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "&quot;%1&quot; अस्मिन् प्रदर्शने समर्थितः एकमात्रः संकल्पः अस्ति ।"
 
 #: ui/OutputPanel.qml:87
@@ -246,8 +269,10 @@ msgid "Refresh rate:"
 msgstr "ताजगी दरः :"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" इति एकमात्रं ताजगीकरणदरम् अस्मिन् प्रदर्शने समर्थितम् अस्ति ।"
 
 #: ui/OutputPanel.qml:158
@@ -315,9 +340,11 @@ msgstr ""
 "एतत् केवलं तदा एव परिवर्तनीयम् यदा पर्दायां वर्णाः प्रक्षालिताः दृश्यन्ते ।"
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "रङ्गरूपरेखा :"
 
 #: ui/OutputPanel.qml:232
@@ -386,9 +413,11 @@ msgid "Select ICC Profile"
 msgstr "ICC Profile इति चिनोतु"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC प्रोफाइल् अद्यापि HDR इत्यनेन सह सङ्गताः न सन्ति"
 
 #: ui/OutputPanel.qml:346
@@ -437,9 +466,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "एतस्य सेटिंग् इत्यस्य कार्यप्रदर्शने महत् प्रभावः भवितुम् अर्हति"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "sRGB रङ्ग तीव्रता:"
 
 #: ui/OutputPanel.qml:426
@@ -455,9 +486,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "पर्दायां sRGB सामग्रीयाः तीव्रताम् वर्धयति"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "अधिकतमं SDR प्रकाशः :"
 
 #: ui/OutputPanel.qml:466
@@ -499,10 +532,13 @@ msgid "Apply scaling themselves"
 msgstr "स्वयं स्केलिंग् प्रयोजयन्तु"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "स्केलिंग् समर्थयन्ति ये विरासतः अनुप्रयोगाः तस्य उपयोगं करिष्यन्ति तथा च कुरकुराणि दृश्यन्ते "
 "तथापि ये न कुर्वन्ति ते सर्वथा स्केल न भविष्यन्ति ।"
@@ -578,3 +614,7 @@ msgstr "न परिभ्रमणम्"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "पुनः व्यवस्थापयितुं पटलान् कर्षयन्तु"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"

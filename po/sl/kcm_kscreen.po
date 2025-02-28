@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:42+0000\n"
 "PO-Revision-Date: 2025-01-18 08:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -38,24 +38,26 @@ msgstr "Izhodi so bili spremenjeni med poskusom uveljavitve nastavitev"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:661
+#: output_model.cpp:660
 #, kde-format
 msgctxt "Width x height"
-msgid "%1x%2"
-msgstr "%1×%2"
+msgid "%1 × %2"
+msgstr ""
 
-#: output_model.cpp:680
-#, kde-format
+#: output_model.cpp:678
+#, fuzzy, kde-format
+#| msgctxt "Width x height (aspect ratio)"
+#| msgid "%1x%2 (%3:%4)"
 msgctxt "Width x height (aspect ratio)"
-msgid "%1x%2 (%3:%4)"
+msgid "%1 × %2 (%3:%4)"
 msgstr "%1×%2 (%3:%4)"
 
-#: output_model.cpp:761
+#: output_model.cpp:759
 #, kde-format
 msgid "None"
 msgstr "Brez"
 
-#: output_model.cpp:768
+#: output_model.cpp:766
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Podvojeno na drugem izhodu"
@@ -107,9 +109,11 @@ msgstr ""
 "med sabo."
 
 #: ui/main.qml:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The argument contains the reason for the failure"
+#| msgid "Couldn't apply display configuration: %1"
 msgctxt "The argument contains the reason for the failure"
-msgid "Couldn't apply display configuration: %1"
+msgid "Couldn’t apply display configuration: %1"
 msgstr "Konfiguracije zaslona ni bilo mogoče uveljaviti: %1"
 
 #: ui/main.qml:116
@@ -191,7 +195,24 @@ msgstr "Samo v načinu tablice"
 msgid "Manual"
 msgstr "Ročno"
 
-#: ui/Output.qml:239
+#: ui/Output.qml:19
+#, kde-format
+msgctxt "Width, height, scale; separated with no-break space"
+msgid "(%1 × %2, %3%)"
+msgstr ""
+
+#: ui/Output.qml:21
+#, kde-format
+msgctxt "Width, height; separated with no-break space"
+msgid "(%1 × %2)"
+msgstr ""
+
+#: ui/Output.qml:216
+#, kde-format
+msgid "%1, %2"
+msgstr ""
+
+#: ui/Output.qml:242
 #, kde-format
 msgid "Replicas"
 msgstr "Replike"
@@ -226,9 +247,11 @@ msgid "Resolution:"
 msgstr "Ločljivost:"
 
 #: ui/OutputPanel.qml:77
-#, kde-kuit-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "&quot;%1&quot; is the only resolution supported by this display."
 msgctxt "@info"
-msgid "&quot;%1&quot; is the only resolution supported by this display."
+msgid "“%1” is the only resolution supported by this display."
 msgstr "&quot;%1&quot; je edina hitrost osveževanja, ki jo podpira ta zaslon."
 
 #: ui/OutputPanel.qml:87
@@ -254,8 +277,10 @@ msgid "Refresh rate:"
 msgstr "Hitrost osveževanja:"
 
 #: ui/OutputPanel.qml:153
-#, kde-format
-msgid "\"%1\" is the only refresh rate supported by this display."
+#, fuzzy, kde-format
+#| msgid "\"%1\" is the only refresh rate supported by this display."
+msgctxt "@info"
+msgid "“%1” is the only refresh rate supported by this display."
 msgstr "»%1« je edina hitrost osveževanja, ki jo podpira ta zaslon."
 
 #: ui/OutputPanel.qml:158
@@ -323,9 +348,11 @@ msgstr ""
 "naj bi spremenili le v primeru, ko barve na zaslonu izgledajo izprano."
 
 #: ui/OutputPanel.qml:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Color Profile:"
 msgctxt "@label:listbox"
-msgid "Color Profile:"
+msgid "Color profile:"
 msgstr "Barvni profil:"
 
 #: ui/OutputPanel.qml:232
@@ -388,9 +415,11 @@ msgid "Select ICC Profile"
 msgstr "Izbor profila ICC"
 
 #: ui/OutputPanel.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren't compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "Profili ICC še niso kompatibilni s HDR"
 
 #: ui/OutputPanel.qml:346
@@ -438,9 +467,11 @@ msgid "This setting can have a large impact on performance"
 msgstr "Ta nastavitev ima lahko velik vpliv na zmogljivost"
 
 #: ui/OutputPanel.qml:398
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "sRGB Color Intensity:"
 msgctxt "@label"
-msgid "sRGB Color Intensity:"
+msgid "sRGB color intensity:"
 msgstr "Intenzivnost barv sRGB:"
 
 #: ui/OutputPanel.qml:426
@@ -456,9 +487,11 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Poveča intenzivnost vsebine sRGB na zaslonu"
 
 #: ui/OutputPanel.qml:445
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Maximum SDR Brightness:"
 msgctxt "@label"
-msgid "Maximum SDR Brightness:"
+msgid "Maximum SDR brightness:"
 msgstr "Največja svetlost SDR:"
 
 #: ui/OutputPanel.qml:466
@@ -500,10 +533,13 @@ msgid "Apply scaling themselves"
 msgstr "Naj izvedejo prilagoditev merila kar same"
 
 #: ui/Panel.qml:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Legacy applications that support scaling will use it and look crisp, "
+#| "however those that don't will not be scaled at all."
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
-"those that don't will not be scaled at all."
+"those that don’t will not be scaled at all."
 msgstr ""
 "Aplikacije iz programske zapuščine, ki podpirajo spremembo merila, bodo to "
 "uporabile in bodo videti ostre, a te, ki tega ne podpirajo, sploh ne bodo "
@@ -580,6 +616,10 @@ msgstr "Brez obračanja"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Povlecite zaslone, da jih postavite na mesta"
+
+#~ msgctxt "Width x height"
+#~ msgid "%1x%2"
+#~ msgstr "%1×%2"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
