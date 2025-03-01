@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-18 10:14+0100\n"
+"PO-Revision-Date: 2025-02-28 09:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -40,15 +40,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -105,9 +103,7 @@ msgstr ""
 "pantalles estan en contacte."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "No s'ha pogut aplicar la configuració de la pantalla: %1"
@@ -194,18 +190,18 @@ msgstr "Manual"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -242,9 +238,7 @@ msgid "Resolution:"
 msgstr "Resolució:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "L'única resolució admesa per aquesta pantalla és «%1»."
@@ -272,8 +266,7 @@ msgid "Refresh rate:"
 msgstr "Freqüència d'actualització:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
@@ -346,9 +339,7 @@ msgstr ""
 "la pantalla semblen destenyits."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Perfil de color:"
@@ -415,9 +406,7 @@ msgid "Select ICC Profile"
 msgstr "Selecció de perfil ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "Els perfils ICC encara no són compatibles amb HDR"
@@ -468,9 +457,7 @@ msgid "This setting can have a large impact on performance"
 msgstr "Aquest paràmetre pot tenir un impacte gran en el rendiment"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensitat de color de l'sRGB:"
@@ -488,9 +475,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Augmenta la intensitat del contingut sRGB a la pantalla"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Lluminositat màxima de l'SDR:"
@@ -535,10 +520,7 @@ msgid "Apply scaling themselves"
 msgstr "Aplica el seu propi canvi d'escala"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
@@ -617,7 +599,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-18 08:38+0100\n"
+"PO-Revision-Date: 2025-02-28 19:42+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -36,15 +36,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1 x %2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -101,9 +99,7 @@ msgstr ""
 "vid varandra."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Kunde inte verkställa bildskärmsinställning: %1"
@@ -190,18 +186,18 @@ msgstr "Manuell"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -238,12 +234,10 @@ msgid "Resolution:"
 msgstr "Upplösning:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "Den enda upplösningen som stöds av bildskärmen är &quot;%1&quot;."
+msgstr "Den enda upplösningen som stöds av bildskärmen är “%1”."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -268,8 +262,7 @@ msgid "Refresh rate:"
 msgstr "Uppdateringsfrekvens:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
@@ -339,9 +332,7 @@ msgstr ""
 "eller inte. Det ska bara ändras om färgerna på skärmen ser urvattnade ut."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Färgprofil:"
@@ -409,12 +400,10 @@ msgid "Select ICC Profile"
 msgstr "Välj ICC-profil"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
-msgstr "ICC-profiler är inte ännu kompatibla med stort dynamiskt intervall"
+msgstr "ICC-profiler är inte kompatibla med stort dynamiskt intervall ännu"
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -462,9 +451,7 @@ msgid "This setting can have a large impact on performance"
 msgstr "Inställningen kan ha stor prestandapåverkan"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-färgintensitet:"
@@ -482,9 +469,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Ökar intensiteten för sRGB-innehåll på skärmen"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Maximal ljusstyrka för litet dynamiskt intervall:"
@@ -528,10 +513,7 @@ msgid "Apply scaling themselves"
 msgstr "Verkställer skalning själva"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."

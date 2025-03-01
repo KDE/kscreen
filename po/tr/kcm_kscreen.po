@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-18 13:22+0300\n"
+"PO-Revision-Date: 2025-02-28 11:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -38,12 +38,10 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
@@ -103,9 +101,7 @@ msgstr ""
 "dokunduklarından emin olun."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Görüntü yapılandırması uygulanamadı: %1"
@@ -193,18 +189,18 @@ msgstr "El ile"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %‍%3)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -241,12 +237,10 @@ msgid "Resolution:"
 msgstr "Çözünürlük:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "Bu görüntü, yalnızca &quot;%1&quot; çözünürlüğünü destekliyor."
+msgstr "Bu ekran yalnızca “%1” çözünürlüğünü destekliyor."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -271,8 +265,7 @@ msgid "Refresh rate:"
 msgstr "Yenileme hızı:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "Bu ekran yalnızca “%1” yenileme hızını destekliyor."
@@ -343,9 +336,7 @@ msgstr ""
 "değiştirilmelidir."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Renk profili:"
@@ -410,9 +401,7 @@ msgid "Select ICC Profile"
 msgstr "ICC Profili Seç"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC profilleri henüz HDR uyumlu değiller"
@@ -463,9 +452,7 @@ msgid "This setting can have a large impact on performance"
 msgstr "Bu ayarın başarım üzerinde büyük bir etkisi olabilir."
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB renk yoğunluğu:"
@@ -483,9 +470,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Ekrandaki sRGB içeriğin yoğunluğunu artırır"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "En çok SDR parlaklığı:"
@@ -529,10 +514,7 @@ msgid "Apply scaling themselves"
 msgstr "Ölçeklemeyi uygulamaya bırak"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."

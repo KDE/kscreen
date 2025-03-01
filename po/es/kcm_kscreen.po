@@ -1,15 +1,15 @@
-# Spanish translations for kcm_displayconfiguration.po package.
-# Copyright (C) 2015 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for kcm_kscreen.po package.
+# Copyright (C) 2015-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kscreen package.
 #
 # Automatically generated, 2015.
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_displayconfiguration\n"
+"Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-18 11:59+0100\n"
+"PO-Revision-Date: 2025-03-01 01:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -38,15 +38,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -103,9 +101,7 @@ msgstr ""
 "pantallas se tocan."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "No se ha podido aplicar la configuración de la pantalla: %1"
@@ -195,18 +191,18 @@ msgstr "Manual"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3 %)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -221,7 +217,7 @@ msgstr "Activada"
 #: ui/OutputPanel.qml:38
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Cambiar prioridades de la pantalla..."
+msgstr "Cambiar prioridades de la pantalla…"
 
 #: ui/OutputPanel.qml:51
 #, kde-kuit-format
@@ -244,9 +240,7 @@ msgid "Resolution:"
 msgstr "Resolución:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "«%1» es la única resolución permitida por esta pantalla."
@@ -274,8 +268,7 @@ msgid "Refresh rate:"
 msgstr "Velocidad de refresco:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "«%1» es la única velocidad de refresco permitida por esta pantalla."
@@ -347,9 +340,7 @@ msgstr ""
 "parecen desgastados."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Perfil de color:"
@@ -395,13 +386,13 @@ msgstr "El perfil de color integrado en la pantalla siempre se usa con HDR."
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Introduzca la ruta del perfil ICC..."
+msgstr "Introduzca la ruta del perfil ICC…"
 
 #: ui/OutputPanel.qml:293
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Seleccionar perfil ICC..."
+msgstr "Seleccionar perfil ICC…"
 
 #: ui/OutputPanel.qml:304
 #, kde-format
@@ -415,9 +406,7 @@ msgid "Select ICC Profile"
 msgstr "Seleccionar perfil ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "Los perfiles ICC todavía no son compatibles con HDR"
@@ -468,9 +457,7 @@ msgid "This setting can have a large impact on performance"
 msgstr "Este ajuste puede tener un gran impacto en el rendimiento"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensidad de color sRGB:"
@@ -488,9 +475,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Aumenta la intensidad del contenido sRGB de la pantalla"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Brillo SDR máximo:"
@@ -534,10 +519,7 @@ msgid "Apply scaling themselves"
 msgstr "Aplicar el escalado por sí mismas"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."

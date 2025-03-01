@@ -3,13 +3,13 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-24 09:27+0200\n"
+"PO-Revision-Date: 2025-02-28 11:52+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -39,15 +39,13 @@ msgstr "%1 הרץ"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1×%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -104,9 +102,7 @@ msgid ""
 msgstr "אין תמיכה ברווח בין התצוגות. נא לוודא שכל התצוגות נוגעות זו בזו."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "לא ניתן להחיל את הגדרות התצוגה: %1"
@@ -192,18 +188,18 @@ msgstr "ידני"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -239,12 +235,10 @@ msgid "Resolution:"
 msgstr "רזולוציה:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "&quot;%1&quot; היא הרזולוציה היחידה בה תומך הצג הזה."
+msgstr "„%1” היא הרזולוציה היחידה בה תומך הצג הזה."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -269,11 +263,10 @@ msgid "Refresh rate:"
 msgstr "קצב ריענון:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "התצוגה הזאת תומכת רק בקצב הריענון „%1” ."
+msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד."
 
 #: ui/OutputPanel.qml:158
 #, kde-format
@@ -339,9 +332,7 @@ msgstr ""
 "של המסך נראים כאילו נשטפו במים."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "פרופיל צבע:"
@@ -406,9 +397,7 @@ msgid "Select ICC Profile"
 msgstr "בחירת פרופיל ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "פרופילי ה־ICC לא תואמים ל־HDR עדיין"
@@ -457,9 +446,7 @@ msgid "This setting can have a large impact on performance"
 msgstr "להגדרה הזאת יכולה להיות השפעה משמעותית על הביצועים"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "עומק צבע sRGB:"
@@ -477,9 +464,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "הגברת עוצמת תוכן ה־sRGB על המסך"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "בהירות טווח דינמי רגיל מרבית:"
@@ -523,15 +508,12 @@ msgid "Apply scaling themselves"
 msgstr "החלת קנה מידה עצמאי"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
-"יישומים מיושנים שתומכים בשינוי קנה מידע ישתמשו בזה וייראו חדים מדי, עם זאת, "
+"יישומים מיושנים שתומכים בשינוי קנה מידה ישתמשו בזה וייראו פריכים, עם זאת, "
 "אלו שלא לא יגיבו לשינוי קנה המידה כלל."
 
 #: ui/Panel.qml:158

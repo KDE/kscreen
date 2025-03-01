@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-18 03:31+0100\n"
+"PO-Revision-Date: 2025-03-01 01:12+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -37,15 +37,13 @@ msgstr "%1 ჰც"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -101,9 +99,7 @@ msgstr ""
 "ეკრანებს შორის ადგილი მხარდაუჭერელია. დარწმუნდით, რომ ყველა ეკრანი ეხება."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "ვერ გადავატარე ეკრანის კონფიგურაცია: %1"
@@ -191,18 +187,18 @@ msgstr "ხელით"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -239,13 +235,10 @@ msgid "Resolution:"
 msgstr "გარჩევადობა:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr ""
-"&quot;%1&quot; ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ გაფართოებას წარმოადგენს."
+msgstr "\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ გაფართოებას წარმოადგენს."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -270,12 +263,11 @@ msgid "Refresh rate:"
 msgstr "განახლების სიხშირე:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
-"\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთად ერთ განახლების სიხშირეს წარმოადგენს."
+"\"%1\" ამ ეკრანის მიერ მხარდაჭერილ ერთადერთ განახლების სიხშირეს წარმოადგენს."
 
 #: ui/OutputPanel.qml:158
 #, kde-format
@@ -343,9 +335,7 @@ msgstr ""
 "მხოლოდ, მაშინ შეცვალეთ, თუ ეკრანი გარეცხილს წააგავს."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "ფერის პროფილი:"
@@ -411,9 +401,7 @@ msgid "Select ICC Profile"
 msgstr "აირჩიეთ ICC პროფილი"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა"
@@ -464,12 +452,10 @@ msgid "This setting can have a large impact on performance"
 msgstr "ამ პარამეტრს, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr "sRGB ფერი ინტენსივობა:"
+msgstr "sRGB ფერის ინტენსივობა:"
 
 #: ui/OutputPanel.qml:426
 #, kde-format
@@ -484,9 +470,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "მაქსიმალური SDR სიკაშკაშე:"
@@ -530,10 +514,7 @@ msgid "Apply scaling themselves"
 msgstr "მასშტაბირების მათზევე გადატარება"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
