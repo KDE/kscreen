@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-25 02:34+0000\n"
-"PO-Revision-Date: 2025-01-06 18:58+0100\n"
+"PO-Revision-Date: 2025-03-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -177,7 +177,7 @@ msgstr "Aŭtomata"
 #: ui/Orientation.qml:43
 #, kde-format
 msgid "Only when in tablet mode"
-msgstr "Nur kiam en tablojda reĝimo"
+msgstr "Nur kiam en tabuleta reĝimo"
 
 #: ui/Orientation.qml:59
 #, kde-format
