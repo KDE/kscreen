@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-02-16 17:10+0100\n"
+"PO-Revision-Date: 2025-03-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -40,12 +40,10 @@ msgid "%1 × %2"
 msgstr ""
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -102,9 +100,7 @@ msgstr ""
 "tuŝas."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Ne eblis apliki ekranan agordon: %1"
@@ -240,12 +236,10 @@ msgid "Resolution:"
 msgstr "Distingivo:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "&quot;%1&quot; estas la sola distingivo subtenata de ĉi tiu ekrano."
+msgstr "“%1” estas la sola distingivo subtenata de ĉi tiu ekrano."
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -270,11 +264,10 @@ msgid "Refresh rate:"
 msgstr "Refreŝiga indico:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "\"%1\" estas la nura refreŝiga indico subtenata de ĉi tiu ekrano."
+msgstr "“%1” estas la nura refreŝiga indico subtenata de ĉi tiu ekrano."
 
 #: ui/OutputPanel.qml:158
 #, kde-format
@@ -341,9 +334,7 @@ msgstr ""
 "Tion oni ŝanĝu nur se la ekrankoloroj aspektas degeneraj."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Kolorprofilo:"
@@ -408,9 +399,7 @@ msgid "Select ICC Profile"
 msgstr "Elekti ICC-profilon"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr "ICC-profiloj ankoraŭ ne estas kongruaj kun HDR"
@@ -460,12 +449,10 @@ msgid "This setting can have a large impact on performance"
 msgstr "Ĉi tiu meto eble havos grandan influon al rendimento"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr "DR-sRGBKolorintenseco:"
+msgstr "sRGB-kolorintenseco:"
 
 #: ui/OutputPanel.qml:426
 #, kde-format
@@ -480,12 +467,10 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Pliigas la intensecon de sRGB-enhavo sur la ekrano"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
-msgstr "Maksimuma SDR-Brileco:"
+msgstr "Maksimuma SDR-brileco:"
 
 #: ui/OutputPanel.qml:466
 #, kde-format
@@ -526,10 +511,7 @@ msgid "Apply scaling themselves"
 msgstr "Apliki skaladon mem"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
@@ -608,7 +590,3 @@ msgstr "Neniu Rotacio"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Trenu ekranojn por reordigi ilin"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
