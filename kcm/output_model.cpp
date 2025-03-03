@@ -119,6 +119,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->sdrGamutWideness();
     case ColorProfileSource:
         return static_cast<uint32_t>(output->colorProfileSource());
+    case BrightnessControlModeRole:
+        return static_cast<uint32_t>(output->brightnessControlMode());
     case BrightnessRole:
         return output->brightness();
     case ColorPowerPreference:
@@ -285,6 +287,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setColorProfileSource(static_cast<KScreen::Output::ColorProfileSource>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case BrightnessControlModeRole:
+        output.ptr->setBrightnessControlMode(static_cast<KScreen::Output::BrightnessControlMode>(value.toUInt()));
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     case BrightnessRole:
         output.ptr->setBrightness(value.toDouble());
         Q_EMIT dataChanged(index, index, {role});
@@ -328,6 +334,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[MaxBrightnessRole] = "peakBrightness";
     roles[SdrGamutWideness] = "sdrGamutWideness";
     roles[ColorProfileSource] = "colorProfileSource";
+    roles[BrightnessControlModeRole] = "brightnessControlMode";
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
     return roles;
@@ -657,7 +664,8 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
     const auto resolutionList = resolutions(output);
     for (const QSize &size : resolutionList) {
         if (size.isEmpty()) {
-            const QString text = i18nc("Width x height", "%1 × %2",
+            const QString text = i18nc("Width x height",
+                                       "%1 × %2",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()));
@@ -675,7 +683,8 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
                 divisor *= 41;
             }
 
-            const QString text = i18nc("Width x height (aspect ratio)", "%1 × %2 (%3:%4)",
+            const QString text = i18nc("Width x height (aspect ratio)",
+                                       "%1 × %2 (%3:%4)",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()),

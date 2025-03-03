@@ -435,6 +435,51 @@ Kirigami.FormLayout {
         }
     }
 
+    QQC2.ComboBox {
+        id: brightnessControlMode
+        Kirigami.FormData.label: i18nc("@label select which brightness controls are used", "Brightness controls:")
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        enabled: currentIndex >= 0 && currentIndex < count //&& model.reduce((sum, elem) => sum + (elem.available ? 1 : 0), 0) > 1
+        visible: enabled
+
+        model: [
+            {
+                text: i18nc("@item:inlistbox brightness controls", "Disabled"),
+                value: KScreen.Output.BrightnessControlMode.Disabled,
+                available: element.capabilities & KScreen.Output.Capability.DisabledBrightnessControlMode
+            },
+            {
+                text: i18nc("@item:inlistbox brightness controls", "Software dimming"),
+                value: KScreen.Output.BrightnessControlMode.Software,
+                available: element.capabilities & KScreen.Output.Capability.SoftwareBrightnessControlMode
+            },
+            {
+                text: i18nc("@item:inlistbox brightness controls", "Hardware brightness"),
+                value: KScreen.Output.BrightnessControlMode.Hardware,
+                available: element.capabilities & KScreen.Output.Capability.HardwareBrightnessControlMode
+            },
+            {
+                text: i18nc("@item:inlistbox brightness controls", "Hardware & software (extended range)"),
+                value: KScreen.Output.BrightnessControlMode.Hybrid,
+                available: element.capabilities & KScreen.Output.Capability.HybridBrightnessControlMode
+            }
+        ]
+        textRole: "text"
+        valueRole: "value"
+
+        delegate: QQC2.ItemDelegate {
+            width: brightnessControlMode.width
+            text: modelData.text
+            enabled: modelData.available
+        }
+
+        onActivated: element.brightnessControlMode = currentIndex;
+        Component.onCompleted: currentIndex = indexOfValue(element.brightnessControlMode);
+    }
+
     RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
