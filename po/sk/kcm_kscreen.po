@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-25 02:34+0000\n"
-"PO-Revision-Date: 2025-02-23 13:57+0100\n"
+"PO-Revision-Date: 2025-03-02 17:23+0100\n"
 "Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -27,7 +27,7 @@ msgstr "Chyba implementácie"
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Výstupy sa zmenili počas ukladania nastavení"
 
 #: output_model.cpp:96
 #, kde-format
@@ -102,11 +102,10 @@ msgstr ""
 "displeje dotýkajú."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Ponechať nastavenia obrazovky?"
+msgstr "Nepodarilo sa použiť konfiguráciu zobrazenia: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -236,7 +235,7 @@ msgstr "Mierka:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "V percentách z bežnej mierky"
 
 #: ui/OutputPanel.qml:120 ui/Panel.qml:113
 #, kde-format
@@ -413,25 +412,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Presnosť farieb:"
 
 #: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Preferovať efektivitu"
 
 #: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Prefeorovať presnosť farieb"
 
 #: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Toto nastavenie môže mať vysoký vplyv na výkon zariadenia"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
@@ -446,12 +445,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:416
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
-msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
+msgstr "Zvyšuje intenzitu obsahu sRGB na obrazovke"
 
 #: ui/OutputPanel.qml:427
 #, kde-format
@@ -463,7 +460,7 @@ msgstr "Maximálny SDR jas:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Nastaví maximálny jas pre posuvník normálneho jasu"
 
 #: ui/OutputPanel.qml:459
 #, kde-format
