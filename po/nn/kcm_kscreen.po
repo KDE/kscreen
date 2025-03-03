@@ -609,7 +609,3 @@ msgstr "Inga rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermane for å byta skjermplassering"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1 × %2"
