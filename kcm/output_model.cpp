@@ -123,6 +123,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->brightness();
     case ColorPowerPreference:
         return static_cast<uint32_t>(output->colorPowerPreference());
+    case DdcCiAllowedRole:
+        return output->ddcCiAllowed();
     }
     return QVariant();
 }
@@ -293,6 +295,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setColorPowerPreference(static_cast<KScreen::Output::ColorPowerTradeoff>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case DdcCiAllowedRole:
+        output.ptr->setDdcCiAllowed(value.toBool());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -330,6 +336,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ColorProfileSource] = "colorProfileSource";
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
+    roles[DdcCiAllowedRole] = "ddcCiAllowed";
     return roles;
 }
 
@@ -964,6 +971,11 @@ QModelIndex OutputModel::indexForOutputId(int outputId) const
         }
     }
     return QModelIndex();
+}
+
+QModelIndex OutputModel::indexForOutput(const KScreen::OutputPtr &output) const
+{
+    return indexForOutputId(output->id());
 }
 
 bool OutputModel::positionable(const Output &output) const

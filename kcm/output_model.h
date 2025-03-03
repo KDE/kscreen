@@ -51,6 +51,7 @@ public:
         InteractiveMoveRole, // This output is currently repositioned interactively
         BrightnessRole,
         ColorPowerPreference,
+        DdcCiAllowedRole,
     };
     Q_ENUM(OutputRoles)
 
@@ -63,6 +64,8 @@ public:
 
     void add(const KScreen::OutputPtr &output);
     void remove(int outputId);
+
+    QModelIndex indexForOutput(const KScreen::OutputPtr &output) const;
 
     /**
      * Resets the origin for calculation of positions to the most northwest display corner

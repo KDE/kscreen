@@ -182,6 +182,8 @@ void KCMKScreen::doSave()
         exportGlobalScale();
     }
 
+    m_configHandler->prepareForSave();
+
     m_configHandler->writeControl();
 
     // Store the current config, apply settings. Block until operation is

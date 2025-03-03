@@ -60,6 +60,7 @@ public:
     void writeControl();
 
     void checkNeedsSave();
+    void prepareForSave();
     bool shouldTestNewSettings();
 
 Q_SIGNALS:

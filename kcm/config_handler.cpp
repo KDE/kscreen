@@ -168,7 +168,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->colorProfileSource() != config->colorProfileSource()
                     || (isSaveCheck && output->brightness() != config->brightness())
                     || output->colorPowerPreference() != config->colorPowerPreference()
-                    || output->replicationSource() != config->replicationSource()) {
+                    || output->replicationSource() != config->replicationSource()
+                    || output->ddcCiAllowed() != config->ddcCiAllowed()) {
                         return true;
                     }
             }
@@ -176,6 +177,23 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
         }
     }
     return false;
+}
+
+void ConfigHandler::prepareForSave()
+{
+    const auto outputs = m_config->connectedOutputs();
+    for (const auto &output : outputs) {
+        const QString hash = output->hashMd5();
+        const auto configs = m_initialConfig->outputs();
+        for (const auto &config : configs) {
+            if (hash != config->hashMd5()) {
+                continue;
+            }
+            if (config->ddcCiAllowed() && !output->ddcCiAllowed()) {
+                m_outputModel->setData(m_outputModel->indexForOutput(output), 1.0, OutputModel::BrightnessRole);
+            }
+        }
+    }
 }
 
 QSize ConfigHandler::screenSize() const
