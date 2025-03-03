@@ -9,7 +9,6 @@ import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 
 QQC2.ScrollView {
-    property var outputs
     property size totalSize
 
     function resetTotalSize() {
@@ -56,5 +55,13 @@ QQC2.ScrollView {
         delegate: Output {}
 
         onCountChanged: resetTotalSize()
+    }
+
+    DropArea {
+        anchors.fill: parent
+        id: dropArea
+
+        keys: ["disabledOutput"]
+        onDropped: (drop) => drop.source.enable()
     }
 }
