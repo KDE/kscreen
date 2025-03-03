@@ -123,6 +123,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->brightness();
     case ColorPowerPreference:
         return static_cast<uint32_t>(output->colorPowerPreference());
+    case DdcCiAllowedRole:
+        return output->ddcCiAllowed();
     }
     return QVariant();
 }
@@ -293,6 +295,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setColorPowerPreference(static_cast<KScreen::Output::ColorPowerTradeoff>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case DdcCiAllowedRole:
+        output.ptr->setDdcCiAllowed(value.toBool());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -330,6 +336,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ColorProfileSource] = "colorProfileSource";
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
+    roles[DdcCiAllowedRole] = "ddcCiAllowed";
     return roles;
 }
 
@@ -657,7 +664,8 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
     const auto resolutionList = resolutions(output);
     for (const QSize &size : resolutionList) {
         if (size.isEmpty()) {
-            const QString text = i18nc("Width x height", "%1 × %2",
+            const QString text = i18nc("Width x height",
+                                       "%1 × %2",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()));
@@ -675,7 +683,8 @@ QVariantList OutputModel::resolutionsStrings(const KScreen::OutputPtr &output) c
                 divisor *= 41;
             }
 
-            const QString text = i18nc("Width x height (aspect ratio)", "%1 × %2 (%3:%4)",
+            const QString text = i18nc("Width x height (aspect ratio)",
+                                       "%1 × %2 (%3:%4)",
                                        // Explicitly not have it add thousand-separators.
                                        QString::number(size.width()),
                                        QString::number(size.height()),

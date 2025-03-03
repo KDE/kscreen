@@ -468,6 +468,26 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Kirigami.FormData.buddyFor: ddcCiAllowedCheckbox
+        Kirigami.FormData.label: i18nc("@label", "DDC/CI:")
+        visible: element.capabilities & KScreen.Output.Capability.DdcCi
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.CheckBox {
+            id: ddcCiAllowedCheckbox
+            text: i18nc("@option:check", "Control monitor hardware settings")
+            checked: element.ddcCiAllowed
+            onToggled: element.ddcCiAllowed = checked
+        }
+
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "DDC/CI is a feature supported by many monitors. Plasma can use it to adjust screen brightness with desktop controls, as if using the monitor's own hardware buttons and OSD menu.")
+        }
+    }
+
+    RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
