@@ -274,12 +274,38 @@ KCM.SimpleKCM {
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             color: Kirigami.Theme.backgroundColor
 
-            ScreenView {
-                id: screen
+            clip: true
 
+            RowLayout {
                 anchors.fill: parent
-                enabled: kcm.outputModel && kcm.backendReady
-                outputs: kcm.outputModel
+                spacing: 0
+
+                clip: true // Avoid showing any of our dragged items outside
+
+                ScreenView {
+                    id: screen
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    z: draggingItem ? 3 : 2 // So dragged item goes above siblings
+
+                    enabled: kcm.outputModel && kcm.backendReady
+                }
+
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                    z: 1
+
+                    visible: disabledScreen.visible
+                }
+
+                DisabledScreenView {
+                    id: disabledScreen
+                    Layout.fillHeight: true
+                    z: draggingItem ? 3 : 2 // So dragged item goes above siblings
+
+                    enabled: kcm.outputModel && kcm.backendReady
+                    visible: kcm.multipleScreensAvailable
+                }
             }
 
             Kirigami.Separator {

@@ -9,7 +9,6 @@ import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 
 QQC2.ScrollView {
-    property var outputs
     property size totalSize
 
     function resetTotalSize() {
@@ -36,25 +35,58 @@ QQC2.ScrollView {
     readonly property int xOffset: (width - totalSize.width / relativeFactor) / 2;
     readonly property int yOffset: (height - totalSize.height / relativeFactor) / 2;
 
-    Kirigami.Heading {
-        z: 90
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-            margins: Kirigami.Units.smallSpacing
+    readonly property bool draggingItem: contentChildren.some(child => child instanceof Output && child.isDragging)
+
+    // We have to create our own Flickable as the default
+    // created by ScrollView will clip contents
+    Flickable {
+        anchors.fill: parent
+
+        Rectangle {
+            anchors.fill: parent
+
+            color: Kirigami.Theme.activeBackgroundColor
+            opacity: dropArea.containsDrag ? 1 : 0
+            visible: opacity > 0
+
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: Kirigami.Units.longDuration
+                    easing.type: Easing.InOutQuad
+                }
+            }
         }
-        level: 4
-        opacity: 0.6
-        horizontalAlignment: Text.AlignHCenter
-        text: i18n("Drag screens to re-arrange them")
-        visible: kcm.multipleScreensAvailable
-    }
 
-    Repeater {
-        model: kcm.outputModel
-        delegate: Output {}
+        Kirigami.Heading {
+            z: 90
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+                margins: Kirigami.Units.smallSpacing
+            }
+            level: 4
+            opacity: 0.6
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+            text: i18nc("@info, screens referring to displays or monitors, a panel on the right holds disabled screens and will be reversed in RTL",
+                        "Drag screens to re-arrange them; move to the right to disable them")
+            visible: kcm.multipleScreensAvailable
+        }
 
-        onCountChanged: resetTotalSize()
+        Repeater {
+            model: kcm.outputModel
+            delegate: Output {}
+
+            onCountChanged: resetTotalSize()
+        }
+
+        DropArea {
+            anchors.fill: parent
+            id: dropArea
+
+            keys: ["disabledOutput"]
+            onDropped: (drop) => drop.source.enable()
+        }
     }
 }

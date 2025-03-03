@@ -13,7 +13,8 @@ import org.kde.kirigami as Kirigami
 Item {
     id: output
 
-    readonly property bool isSelected: root.selectedOutput === model.index
+    readonly property bool isSelected: root.selectedOutput === index
+    readonly property bool isDragging: dragHandler.active
     property size outputSize: model.size
 
     onIsSelectedChanged: {
@@ -24,9 +25,20 @@ Item {
         }
     }
 
+    // Scale to get the configured position of outputs
     function getAbsolutePosition(pos) {
         return Qt.point((pos.x - screen.xOffset) * screen.relativeFactor,
                         (pos.y - screen.yOffset) * screen.relativeFactor);
+    }
+
+    // Unscale to get the on-screen position of outputs
+    function getRelativePosition(pos) {
+        return Qt.point((pos.x / screen.relativeFactor) + screen.xOffset,
+                        (pos.y / screen.relativeFactor) + screen.yOffset);
+    }
+
+    function disable() {
+        model.enabled = false;
     }
 
     visible: model.enabled && model.replicationSourceIndex === 0
@@ -34,8 +46,10 @@ Item {
     onVisibleChanged: screen.resetTotalSize()
     onOutputSizeChanged: screen.resetTotalSize()
 
-    x: model.position ? model.position.x / screen.relativeFactor + screen.xOffset : 0
-    y: model.position ? model.position.y / screen.relativeFactor + screen.yOffset : 0
+    x: dragHandler.avoidSnapping ? (dragStartPosition.x + dragHandler.translation.x)
+                                 : (model.position ? model.position.x / screen.relativeFactor + screen.xOffset : 0)
+    y: dragHandler.avoidSnapping ? (dragStartPosition.y + dragHandler.translation.y)
+                                 : (model.position ? model.position.y / screen.relativeFactor + screen.yOffset : 0)
 
     width: model.size ? model.size.width / screen.relativeFactor : 1
     height: model.size ? model.size.height / screen.relativeFactor : 1
@@ -58,6 +72,7 @@ Item {
             Behavior on color {
                 PropertyAnimation {
                     duration: Kirigami.Units.longDuration
+                    easing.type: Easing.InOutQuad
                 }
             }
         }
@@ -199,7 +214,7 @@ Item {
         radius: Kirigami.Units.cornerRadius
 
         opacity: model.enabled &&
-                 (tapHandler.isLongPressed || dragHandler.active) ? 0.9 : 0.0
+                 (tapHandler.isLongPressed || dragHandler.active && !dragHandler.avoidSnapping) ? 0.9 : 0.0
 
 
         color: Kirigami.Theme.disabledTextColor
@@ -217,6 +232,7 @@ Item {
         Behavior on opacity {
             PropertyAnimation {
                 duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
             }
         }
     }
@@ -260,7 +276,8 @@ Item {
         onPressedChanged: {
             if (pressed) {
                 root.selectedOutput = model.index;
-                dragStartPosition = Qt.point(output.x, output.y)
+                output.Drag.hotSpot = point.position;
+                dragStartPosition = Qt.point(output.x, output.y);
             } else {
                 isLongPressed = false;
             }
@@ -268,21 +285,31 @@ Item {
         onLongPressed: isLongPressed = true;
         longPressThreshold: 0.3
     }
+
+    Drag.active: dragHandler.active
+    Drag.dragType: Drag.Internal
+    Drag.keys: ["enabledOutput"]
+
     DragHandler {
         id: dragHandler
         enabled: kcm.multipleScreensAvailable
         acceptedButtons: Qt.LeftButton
-        grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
         target: null
+
+        // Avoid snapping into place when we move 50px away from the snapped position
+        readonly property bool avoidSnapping: active && Math.hypot((dragStartPosition.x + translation.x) - (getRelativePosition(model.position).x),
+                                                                   (dragStartPosition.y + translation.y) - (getRelativePosition(model.position).y)) >= 50
 
         onTranslationChanged: {
             var newX = dragStartPosition.x + translation.x;
             var newY = dragStartPosition.y + translation.y;
             model.position = getAbsolutePosition(Qt.point(newX, newY));
         }
+
         onActiveChanged: {
             model.interactiveMove = active;
             if (!active) {
+                output.Drag.drop();
                 screen.resetTotalSize();
             }
         }
