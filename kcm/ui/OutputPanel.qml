@@ -24,6 +24,7 @@ Kirigami.FormLayout {
     signal reorder()
 
     QQC2.CheckBox {
+       Kirigami.FormData.label: i18nc("@label for a checkbox that says 'Enabled'", "Device:")
        text: i18n("Enabled")
        checked: element.enabled
        onToggled: element.enabled = checked

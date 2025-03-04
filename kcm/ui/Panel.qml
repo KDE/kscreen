@@ -19,32 +19,6 @@ ColumnLayout {
 
     signal reorder()
 
-    Kirigami.FormLayout {
-        twinFormLayouts: globalSettingsLayout
-        visible: kcm.multipleScreensAvailable
-
-        RowLayout {
-            Kirigami.FormData.label: i18n("Device:")
-
-            QQC2.ComboBox {
-                Layout.maximumWidth: Kirigami.Units.gridUnit * 16
-                model: kcm.outputModel
-                textRole: "display"
-                Component.onCompleted: currentIndex = Qt.binding(() => root.selectedOutput);
-                onActivated: index => {
-                    root.selectedOutput = index;
-                    currentIndex = Qt.binding(() => root.selectedOutput);
-                }
-                onCountChanged: {
-                    // Temporary model resets can reset currentIndex to -1 and break the binding.
-                    if (currentIndex == -1 && root.selectedOutput < count) {
-                        currentIndex = Qt.binding(() => root.selectedOutput);
-                    }
-                }
-            }
-        }
-    }
-
     StackLayout {
         id: panelView
         currentIndex: root.selectedOutput
