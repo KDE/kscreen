@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:42+0000\n"
-"PO-Revision-Date: 2025-01-19 09:54+0100\n"
+"PO-Revision-Date: 2025-03-01 09:56+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:156 kcm.cpp:178
@@ -47,15 +47,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3 : %4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -112,12 +110,10 @@ msgstr ""
 "assurer que tous les affichages se touchent."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Impossible d'appliquer la configuration d'affichage  : %1"
+msgstr "Impossible d'appliquer la configuration d'affichage : %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -204,18 +200,18 @@ msgstr "Manuelle"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:216
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:242
 #, kde-format
@@ -253,9 +249,7 @@ msgid "Resolution:"
 msgstr "Résolution :"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "« %1 » est la seule résolution prise en charge par cet écran."
@@ -283,8 +277,7 @@ msgid "Refresh rate:"
 msgstr "Taux de rafraîchissement :"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
@@ -357,9 +350,7 @@ msgstr ""
 "ont l'air délavées."
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Profil de couleurs :"
@@ -426,9 +417,7 @@ msgid "Select ICC Profile"
 msgstr "Sélectionnez un profil « ICC »"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet"
 msgstr ""
@@ -480,12 +469,10 @@ msgid "This setting can have a large impact on performance"
 msgstr "Ce paramètre peut avoir un impact important sur les performances."
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr "Intensité des couleurs « SDR » :"
+msgstr "Intensité des couleurs « sRVB » :"
 
 #: ui/OutputPanel.qml:426
 #, kde-format
@@ -500,9 +487,7 @@ msgid "Increases the intensity of sRGB content on the screen"
 msgstr "Augmente l'intensité des contenus « sRGB » sur l'écran"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Luminosité « SDR » maximale :"
@@ -546,17 +531,14 @@ msgid "Apply scaling themselves"
 msgstr "Appliquer la mise à l'échelle par elles même"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
 "Les applications anciennes prenant en charge la mise à l'échelle "
-"l'utiliseront et auront un aspect net. Cependant, celles qui ne le font pas "
-"ne seront pas mises à l'échelle du tout."
+"l'utiliseront et présenteront un aspect net. Cependant, celles non prises en "
+"charge ne seront pas mises à l'échelle du tout."
 
 #: ui/Panel.qml:158
 #, kde-format
