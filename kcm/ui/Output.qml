@@ -13,6 +13,8 @@ import org.kde.kirigami as Kirigami
 Item {
     id: output
 
+    property bool interactive: false
+
     readonly property bool isSelected: root.selectedOutput === model.index
     property size outputSize: model.size
 
@@ -93,7 +95,7 @@ Item {
         anchors.fill: parent
         // So we can show a grabby hand cursor when hovered over
         HoverHandler {
-            cursorShape: kcm.multipleScreensAvailable ? Qt.SizeAllCursor : undefined
+            cursorShape: output.interactive ? Qt.SizeAllCursor : undefined
         }
         z: 2
     }
@@ -111,15 +113,18 @@ Item {
             anchors.centerIn: parent
             spacing: 0
             width: parent.width
-            Layout.maximumHeight: parent.height
 
             QQC2.Label {
+                id: nameLabel
                 Layout.fillWidth: true
-                Layout.maximumHeight: labelContainer.height - resolutionLabel.implicitHeight
+
+                // Don't exceed our bounds
+                Layout.maximumHeight: labelContainer.height
 
                 text: model.display
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
             }
 
@@ -127,9 +132,13 @@ Item {
                 id: resolutionLabel
                 Layout.fillWidth: true
 
+                // Only show if we have room for both
+                visible: labelContainer.height >= implicitHeight + nameLabel.implicitHeight
+
                 text: model.scale !== 1 ? textWithScale : textWithoutScale
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
             }
         }
@@ -274,7 +283,7 @@ Item {
     }
     DragHandler {
         id: dragHandler
-        enabled: kcm.multipleScreensAvailable
+        enabled: output.interactive
         acceptedButtons: Qt.LeftButton
         grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
         target: null

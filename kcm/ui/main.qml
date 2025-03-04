@@ -1,10 +1,11 @@
 /*
     SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
+    SPDX-FileCopyrightText: 2025 Oliver Beard <olib141@outlook.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick.Layouts
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kirigami.delegates as KD
@@ -13,7 +14,7 @@ import org.kde.kitemmodels 1.0
 import org.kde.kcmutils as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
-KCM.SimpleKCM {
+KCM.AbstractKCM {
     id: root
 
     property int selectedOutput: 0
@@ -32,9 +33,7 @@ KCM.SimpleKCM {
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
-    // This is to fix Output dragging
-    flickable.interactive: Kirigami.Settings.hasTransientTouchInput
+    bottomPadding: 0
 
     Kirigami.PromptDialog {
         id: confirmMsg
@@ -139,6 +138,20 @@ KCM.SimpleKCM {
         }
     }
 
+    Timer {
+        id: revertTimer
+        interval: 1000
+        running: false
+        repeat: true
+
+        onTriggered: {
+            revertCountdown -= 1;
+            if (revertCountdown < 1) {
+                confirmDialogButtonBox.rejected();
+            }
+        }
+    }
+
     headerPaddingEnabled: false // Let the InlineMessage touch the edges
     header: ColumnLayout {
         spacing: 0
@@ -204,7 +217,9 @@ KCM.SimpleKCM {
     }
 
     ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
+        anchors.fill: parent
+
+        spacing: 0
 
         Kirigami.Dialog {
             id: reorderDialog
@@ -267,52 +282,142 @@ KCM.SimpleKCM {
             }
         }
 
-        Rectangle {
-            Layout.preferredHeight: Math.max(root.height * 0.35, Kirigami.Units.gridUnit * 12)
+        QQC2.ScrollView {
+            id: navigationScrollView
             Layout.fillWidth: true
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            color: Kirigami.Theme.backgroundColor
 
-            ScreenView {
-                id: screen
+            visible: kcm.multipleScreensAvailable
 
-                anchors.fill: parent
+            RowLayout {
+                spacing: 0
+
+                width: Math.max(implicitWidth, navigationScrollView.width)
                 enabled: kcm.outputModel && kcm.backendReady
-                outputs: kcm.outputModel
-            }
 
-            Kirigami.Separator {
-                anchors {
-                    bottom: parent.bottom
-                    left: parent.left
-                    right: parent.right
+                // Surrounding items around layout provide centering when
+                // excessive free space is available, without taking extra
+                // space when not available due to uniformCellSizes.
+
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                RowLayout {
+                    spacing: 0
+                    uniformCellSizes: true
+
+                    Repeater {
+                        model: kcm.outputModel
+                        delegate: Kirigami.NavigationTabButton {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.minimumWidth: Kirigami.Units.gridUnit * 8
+                            Layout.maximumWidth: Kirigami.Units.gridUnit * 12
+                            Layout.fillWidth: true
+
+                            text: model.display
+                            icon.name: "monitor-symbolic"
+
+                            Binding {
+                                target: contentItem
+                                when: !model.enabled
+                                property: "opacity"
+                                value: 0.6
+                            }
+
+                            checked: root.selectedOutput === model.index
+                            onClicked: root.selectedOutput = model.index
+                        }
+                    }
+                }
+
+                Item {
+                    Layout.fillWidth: true
                 }
             }
         }
 
-        Panel {
-            enabled: kcm.outputModel && kcm.backendReady
+        Kirigami.Separator {
             Layout.fillWidth: true
-            enabledOutputs: enabledOutputsModel
-            selectedOutput: root.selectedOutput
-            onSelectedOutputChanged: {
-                root.selectedOutput = selectedOutput;
-                selectedOutput = Qt.binding(() => root.selectedOutput);
-            }
-            onReorder: reorderDialog.open()
+
+            visible: navigationScrollView.visible
         }
 
-        Timer {
-            id: revertTimer
-            interval: 1000
-            running: false
-            repeat: true
+        Rectangle {
+            id: screenContainer
+            Layout.preferredHeight: Math.floor(Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 14) * heightMultiplier)
+            Layout.fillWidth: true
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-            onTriggered: {
-                revertCountdown -= 1;
-                if (revertCountdown < 1) {
-                    confirmDialogButtonBox.rejected();
+            color: Kirigami.Theme.backgroundColor
+
+            // Animating height directly would occur during window resize
+            property real heightMultiplier: screen.interactive ? 1 : 0.5
+            Behavior on heightMultiplier {
+                PropertyAnimation {
+                    easing.type: Easing.InOutQuad
+                    duration: Kirigami.Units.shortDuration
+                }
+            }
+
+            visible: kcm.multipleScreensAvailable
+
+            ScreenView {
+                id: screen
+                anchors.fill: parent
+
+                enabled: kcm.outputModel && kcm.backendReady
+                outputs: kcm.outputModel
+
+                interactive: false
+            }
+
+            QQC2.ToolButton {
+                id: screenEdit
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                anchors.margins: Kirigami.Units.smallSpacing
+
+                enabled: kcm.outputModel && kcm.backendReady
+
+                Accessible.description: text
+                text: screen.interactive ? i18nc("@action:button Shrink the height of a view", "Collapse")
+                                         : i18nc("@action:button Edit the arrangement of display outputs", "Edit Arrangement")
+
+                icon.name: screen.interactive ? "collapse-symbolic"
+                                              : "edit-symbolic"
+
+                onClicked: screen.interactive = !screen.interactive
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+
+            visible: screenContainer.visible
+        }
+
+        QQC2.ScrollView {
+            id: panelScrollView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            contentHeight: panel.height + Kirigami.Units.smallSpacing * 2
+
+            Item {
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
+
+                Panel {
+                    id: panel
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+
+                    enabled: kcm.outputModel && kcm.backendReady
+                    enabledOutputs: enabledOutputsModel
+                    selectedOutput: root.selectedOutput
+                    onReorder: reorderDialog.open()
                 }
             }
         }

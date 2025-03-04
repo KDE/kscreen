@@ -9,7 +9,11 @@ import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 
 QQC2.ScrollView {
-    property var outputs
+    id: screenView
+
+    required property var outputs
+    required property bool interactive
+
     property size totalSize
 
     function resetTotalSize() {
@@ -45,15 +49,24 @@ QQC2.ScrollView {
             margins: Kirigami.Units.smallSpacing
         }
         level: 4
-        opacity: 0.6
         horizontalAlignment: Text.AlignHCenter
         text: i18n("Drag screens to re-arrange them")
-        visible: kcm.multipleScreensAvailable
+
+        opacity: interactive ? 0.6 : 0
+        visible: opacity > 0
+        Behavior on opacity {
+            PropertyAnimation {
+                easing.type: Easing.InOutQuad
+                duration: Kirigami.Units.shortDuration
+            }
+        }
     }
 
     Repeater {
         model: kcm.outputModel
-        delegate: Output {}
+        delegate: Output {
+            interactive: screenView.interactive
+        }
 
         onCountChanged: resetTotalSize()
     }
