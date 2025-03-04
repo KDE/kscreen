@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2019 Roman Gilg <subdiff@gmail.com>
+    SPDX-FileCopyrightText: 2025 Oliver Beard <olib141@outlook.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -13,7 +14,7 @@ import org.kde.kitemmodels 1.0
 import org.kde.kcmutils as KCM
 import org.kde.private.kcm.kscreen 1.0 as KScreen
 
-KCM.SimpleKCM {
+KCM.AbstractKCM {
     id: root
 
     property int selectedOutput: 0
@@ -32,9 +33,7 @@ KCM.SimpleKCM {
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
-    // This is to fix Output dragging
-    flickable.interactive: Kirigami.Settings.hasTransientTouchInput
+    bottomPadding: 0
 
     Kirigami.PromptDialog {
         id: confirmMsg
@@ -139,6 +138,20 @@ KCM.SimpleKCM {
         }
     }
 
+    Timer {
+        id: revertTimer
+        interval: 1000
+        running: false
+        repeat: true
+
+        onTriggered: {
+            revertCountdown -= 1;
+            if (revertCountdown < 1) {
+                confirmDialogButtonBox.rejected();
+            }
+        }
+    }
+
     headerPaddingEnabled: false // Let the InlineMessage touch the edges
     header: ColumnLayout {
         spacing: 0
@@ -204,7 +217,9 @@ KCM.SimpleKCM {
     }
 
     ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
+        anchors.fill: parent
+
+        spacing: 0
 
         Kirigami.Dialog {
             id: reorderDialog
@@ -268,51 +283,136 @@ KCM.SimpleKCM {
         }
 
         Rectangle {
-            Layout.preferredHeight: Math.max(root.height * 0.35, Kirigami.Units.gridUnit * 12)
+            Layout.preferredHeight: Math.max(root.height * 0.4, Kirigami.Units.gridUnit * 14) * heightMultiplier
             Layout.fillWidth: true
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
+
             color: Kirigami.Theme.backgroundColor
+
+            property real heightMultiplier: screen.expanded ? 1 : 0.5
+            Behavior on heightMultiplier {
+                PropertyAnimation {
+                    easing.type: Easing.InOutQuad
+                    duration: Kirigami.Units.shortDuration
+                }
+            }
 
             ScreenView {
                 id: screen
-
                 anchors.fill: parent
+
                 enabled: kcm.outputModel && kcm.backendReady
                 outputs: kcm.outputModel
+
+                property bool expanded: false
+                interactive: expanded && kcm.multipleScreensAvailable
+            }
+
+            QQC2.ToolButton {
+                id: screenEdit
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                anchors.margins: Kirigami.Units.smallSpacing
+
+                enabled: kcm.outputModel && kcm.backendReady
+
+                Accessible.description: text
+                text: screen.expanded ? i18nc("@action:button Shrink the height of a view", "Collapse")
+                                      : (kcm.multipleScreensAvailable ? i18nc("@action:button Grow the height of a view to edit it", "Edit")
+                                                                      : i18nc("@action:button Grow the height of a view", "Expand"))
+
+                icon.name: screen.expanded ? "collapse-symbolic"
+                                           : (kcm.multipleScreensAvailable ? "edit-symbolic"
+                                                                           : "expand-symbolic")
+
+                onClicked: screen.expanded = !screen.expanded
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        RowLayout {
+            spacing: 0
+
+            QQC2.ScrollView {
+                id: navigationScrollView
+                Layout.fillHeight: true
+
+                visible: kcm.multipleScreensAvailable
+
+                contentWidth: navLayout.width
+                contentHeight: navLayout.height
+
+                // For the time being, Kirigami.NavigationTabBar does not
+                // support a vertical orientation, so we'll do it ourselves:
+                ColumnLayout {
+                    id: navLayout
+
+                    spacing: 0
+                    width: Kirigami.Units.gridUnit * 6
+                    height: Math.max(implicitHeight, navigationScrollView.height)
+                    enabled: kcm.outputModel && kcm.backendReady
+
+                    Item {
+                        Layout.fillHeight: true
+                    }
+
+                    Repeater {
+                        model: kcm.outputModel
+                        delegate: Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignVCenter
+
+                            text: model.display
+                            icon.name: "monitor-symbolic"
+                            opacity: model.enabled ? 1 : 0.6
+
+                            checked: root.selectedOutput === model.index
+                            onClicked: root.selectedOutput = model.index
+                        }
+                    }
+
+                    Item {
+                        Layout.fillHeight: true
+                    }
+                }
             }
 
             Kirigami.Separator {
-                anchors {
-                    bottom: parent.bottom
-                    left: parent.left
-                    right: parent.right
-                }
+                Layout.fillHeight: true
+
+                visible: navigationScrollView.visible
             }
-        }
 
-        Panel {
-            enabled: kcm.outputModel && kcm.backendReady
-            Layout.fillWidth: true
-            enabledOutputs: enabledOutputsModel
-            selectedOutput: root.selectedOutput
-            onSelectedOutputChanged: {
-                root.selectedOutput = selectedOutput;
-                selectedOutput = Qt.binding(() => root.selectedOutput);
-            }
-            onReorder: reorderDialog.open()
-        }
+            QQC2.ScrollView {
+                id: panelScrollView
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-        Timer {
-            id: revertTimer
-            interval: 1000
-            running: false
-            repeat: true
+                contentHeight: panel.height + Kirigami.Units.smallSpacing * 2
 
-            onTriggered: {
-                revertCountdown -= 1;
-                if (revertCountdown < 1) {
-                    confirmDialogButtonBox.rejected();
+                Item {
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.smallSpacing
+
+                    Panel {
+                        id: panel
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+
+                        enabled: kcm.outputModel && kcm.backendReady
+                        enabledOutputs: enabledOutputsModel
+                        selectedOutput: root.selectedOutput
+                        onSelectedOutputChanged: {
+                            root.selectedOutput = selectedOutput;
+                            selectedOutput = Qt.binding(() => root.selectedOutput);
+                        }
+                        onReorder: reorderDialog.open()
+                    }
                 }
             }
         }
