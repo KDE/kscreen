@@ -17,8 +17,9 @@ Item {
     property size outputSize: model.size
 
     property string textWithScale: i18nc("Width, height, scale; separated with no-break space", "(%1 × %2, %3%)",
-                                         model.resolution.width, model.resolution.height, Math.round(model.scale * 100.0))
-    property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)", model.resolution.width, model.resolution.height)
+                                         model.resolution.width.toString(), model.resolution.height.toString(), Math.round(model.scale * 100.0))
+    property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)",
+                                            model.resolution.width.toString(), model.resolution.height.toString())
 
     onIsSelectedChanged: {
         if (isSelected) {
