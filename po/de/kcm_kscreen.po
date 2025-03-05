@@ -4,6 +4,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2021, 2022, 2023.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 #
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-25 02:34+0000\n"
-"PO-Revision-Date: 2024-10-27 20:04+0100\n"
+"PO-Revision-Date: 2025-02-18 14:25+0100\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -451,12 +452,10 @@ msgid "This setting can have a large impact on performance"
 msgstr ""
 
 #: ui/OutputPanel.qml:380
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB Color Intensity:"
-msgstr "SDR-Farbintensität:"
+msgstr "sRGB-Farbintensität:"
 
 #: ui/OutputPanel.qml:408
 #, kde-format
@@ -465,14 +464,12 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:416
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen"
 msgstr ""
-"Mit dieser Einstellung wird die Intensität von Nicht-Hochkontrastinhalten "
-"auf dem Bildschirm erhöht"
+"Mit dieser Einstellung wird die Intensität von sRGB-Inhalten auf dem "
+"Bildschirm erhöht"
 
 #: ui/OutputPanel.qml:427
 #, fuzzy, kde-format
@@ -551,7 +548,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Bildvermischung:"
+msgstr "Screen Tearing:"
 
 #: ui/Panel.qml:171
 #, kde-format
@@ -567,7 +564,7 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
-"Die Bildvermischung reduziert Verzögerungen bei vielen Monitoren. Bitte "
+"Screen Tearing reduziert Verzögerungen bei den meisten Monitoren. Bitte "
 "beachten Sie, dass diese Einstellung nicht von allen Grafiktreibern "
 "unterstützt wird."
 
