@@ -499,6 +499,7 @@ Kirigami.FormLayout {
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         model: element.replicationSourceModel
         visible: kcm.outputReplicationSupported && kcm.multipleScreensAvailable
 
