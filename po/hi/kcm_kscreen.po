@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:42+0000\n"
+"POT-Creation-Date: 2025-03-07 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -196,12 +196,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr ""
 
-#: ui/Output.qml:216
+#: ui/Output.qml:217
 #, kde-format
 msgid "%1, %2"
 msgstr ""
 
-#: ui/Output.qml:242
+#: ui/Output.qml:243
 #, kde-format
 msgid "Replicas"
 msgstr "प्रतिकृतियां"

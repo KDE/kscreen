@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:42+0000\n"
+"POT-Creation-Date: 2025-03-07 00:43+0000\n"
 "PO-Revision-Date: 2025-01-18 09:25+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -203,12 +203,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr ""
 
-#: ui/Output.qml:216
+#: ui/Output.qml:217
 #, kde-format
 msgid "%1, %2"
 msgstr ""
 
-#: ui/Output.qml:242
+#: ui/Output.qml:243
 #, kde-format
 msgid "Replicas"
 msgstr "Erreplikak"

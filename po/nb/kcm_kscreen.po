@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:42+0000\n"
+"POT-Creation-Date: 2025-03-07 00:43+0000\n"
 "PO-Revision-Date: 2015-08-27 16:59+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -193,12 +193,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr ""
 
-#: ui/Output.qml:216
+#: ui/Output.qml:217
 #, kde-format
 msgid "%1, %2"
 msgstr ""
 
-#: ui/Output.qml:242
+#: ui/Output.qml:243
 #, kde-format
 msgid "Replicas"
 msgstr ""
