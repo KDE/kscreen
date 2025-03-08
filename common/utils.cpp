@@ -17,13 +17,38 @@ QString Utils::outputName(const KScreen::OutputPtr &output, bool shouldShowSeria
 
 QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNumber, bool shouldShowConnector)
 {
+    Q_UNUSED(shouldShowSerialNumber);
+    Q_UNUSED(shouldShowConnector);
+
+    QString name;
     if (output->type() == KScreen::Output::Panel) {
-        return i18nd("kscreen_common", "Built-in Screen");
+        // Give laptop panels a good name!
+        name = i18nd("kscreen_common", "Built-in Screen");
+    } else if (!output->model().isEmpty()) {
+        // Otherwise, first, try the model...
+        name = output->model();
+
+        // Prepend vendor if it's unlikely to be part of the model string
+        // This seems typical of older displays, but not of newer ones.
+        if (output->model().split(' ').length() <= 1 && !output->vendor().isEmpty()) {
+            name.prepend(output->vendor() + ' ');
+        }
+    } else if (output->edid() && !output->edid()->serial().isEmpty()) {
+        // Maybe the serial is good?
+        name = output->edid()->serial();
+    } else {
+        // Bugger all.
+        name = i18nd("kscreen_common", "Unknown");
     }
 
-        // The name will be "VendorName ModelName (ConnectorName)",
-        // but some components may be empty.
-    QString name;
+    // Let's always show the index // TODO only when there are more than one display!
+    name.append(QStringLiteral(" (%1)").arg(output->id()));
+
+    return name;
+
+    /*
+    // The name will be "VendorName ModelName (ConnectorName)",
+    // but some components may be empty.
     if (!(output->vendor().isEmpty())) {
         name = output->vendor() + QLatin1Char(' ');
     }
@@ -42,6 +67,7 @@ QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNu
         return name;
     }
     return output->name();
+    */
 }
 
 QString Utils::sizeToString(const QSize &size)
