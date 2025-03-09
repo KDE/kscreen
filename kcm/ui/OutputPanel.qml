@@ -188,7 +188,7 @@ Kirigami.FormLayout {
         }
 
         Kirigami.ContextualHelpButton {
-            toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display to compensate for part of the content being cut off around the edges.<nl/><nl/>This is sometimes needed when using a TV as a screen")
+            toolTipText: xi18nc("@info", "Determines how much padding is put around the image sent to the display to compensate for part of the content being cut off around the edges.<nl/><nl/>This is sometimes needed when using a TV as a screen.")
         }
     }
 
@@ -213,7 +213,7 @@ Kirigami.FormLayout {
         }
 
         Kirigami.ContextualHelpButton {
-            toolTipText: xi18nc("@info", "Determines whether or not the range of possible color values needs to be limited for the display. This should only be changed if the colors on the screen look washed out.")
+            toolTipText: xi18nc("@info", "Determines whether the range of possible color values needs to be limited for the display. This should only be changed if the colors on the screen look washed out.")
         }
     }
 
@@ -335,7 +335,7 @@ Kirigami.FormLayout {
 
         Kirigami.ContextualHelpButton {
             visible: root.hdrAvailable && element.hdr
-            toolTipText: i18nc("@info:tooltip", "ICC profiles aren’t compatible with HDR yet")
+            toolTipText: i18nc("@info:tooltip", "ICC profiles aren’t compatible with HDR yet.")
         }
     }
 
@@ -356,7 +356,7 @@ Kirigami.FormLayout {
         }
 
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors")
+            toolTipText: i18nc("@info:tooltip", "HDR allows compatible applications to show brighter and more vivid colors.")
         }
     }
 
@@ -384,7 +384,7 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferAccuracy
-            toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance")
+            toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance.")
         }
     }
 
@@ -431,7 +431,7 @@ Kirigami.FormLayout {
             onValueModified: element.sdrGamutWideness = realValue
         }
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen")
+            toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen.")
         }
     }
 
@@ -463,7 +463,7 @@ Kirigami.FormLayout {
             onValueModified: element.sdrBrightness = value
         }
         Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider")
+            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider.")
         }
     }
 
