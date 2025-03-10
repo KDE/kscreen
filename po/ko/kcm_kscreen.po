@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:43+0000\n"
+"POT-Creation-Date: 2025-03-10 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 17:37+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -298,12 +298,17 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines how much padding is put around the image sent to the display "
+#| "to compensate for part of the content being cut off around the edges.<nl/"
+#| "><nl/>This is sometimes needed when using a TV as a screen"
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
-">This is sometimes needed when using a TV as a screen"
+">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "모서리 근처에서 디스플레이 내용이 잘리는 것을 보상하기 위해서 표시된 화면에 "
 "여백을 얼마나 표시할지 결정합니다.<nl/><nl/>TV를 화면으로 사용할 때 필요할 "
@@ -325,12 +330,17 @@ msgid "Limited"
 msgstr "제한됨"
 
 #: ui/OutputPanel.qml:216
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display. This should only be changed if the colors on the "
+#| "screen look washed out."
 msgctxt "@info"
 msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display. This should only be changed if the colors on the "
-"screen look washed out."
+"Determines whether the range of possible color values needs to be limited "
+"for the display. This should only be changed if the colors on the screen "
+"look washed out."
 msgstr ""
 "디스플레이의 색상값 범위를 제한할지 여부를 결정합니다. 화면 색상이 선명하지 "
 "않을 때에만 변경하십시오."
@@ -413,7 +423,7 @@ msgstr "ICC 프로필 선택"
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren’t compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
 
 #: ui/OutputPanel.qml:346
@@ -431,10 +441,13 @@ msgid "Enable &HDR"
 msgstr "HDR 활성화"
 
 #: ui/OutputPanel.qml:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HDR allows compatible applications to show brighter and more vivid colors"
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors"
+"HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다"
 
@@ -457,9 +470,11 @@ msgid "Prefer color accuracy"
 msgstr "색 정밀도 선호"
 
 #: ui/OutputPanel.qml:387
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "This setting can have a large impact on performance"
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance"
+msgid "This setting can have a large impact on performance."
 msgstr "이 설정은 성능에 큰 영향을 줄 수 있음"
 
 #: ui/OutputPanel.qml:398
@@ -477,9 +492,11 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of sRGB content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
+msgid "Increases the intensity of sRGB content on the screen."
 msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도 증가"
 
 #: ui/OutputPanel.qml:445
@@ -491,9 +508,11 @@ msgid "Maximum SDR brightness:"
 msgstr "최대 SDR 밝기:"
 
 #: ui/OutputPanel.qml:466
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Sets the maximum brightness for the normal brightness slider"
 msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "일반 밝기 슬라이더의 최대 밝기 설정"
 
 #: ui/OutputPanel.qml:477

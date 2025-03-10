@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:43+0000\n"
+"POT-Creation-Date: 2025-03-10 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -299,12 +299,17 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines how much padding is put around the image sent to the display "
+#| "to compensate for part of the content being cut off around the edges.<nl/"
+#| "><nl/>This is sometimes needed when using a TV as a screen"
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
-">This is sometimes needed when using a TV as a screen"
+">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "यह निर्धारित करता है कि डिस्प्ले पर भेजी जाने वाली छवि के चारों ओर कितनी पैडिंग लगाई "
 "जाए, ताकि किनारों के आसपास कटी हुई सामग्री के हिस्से की भरपाई की जा सके।<nl/><nl/"
@@ -326,12 +331,17 @@ msgid "Limited"
 msgstr "सीमित"
 
 #: ui/OutputPanel.qml:216
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display. This should only be changed if the colors on the "
+#| "screen look washed out."
 msgctxt "@info"
 msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display. This should only be changed if the colors on the "
-"screen look washed out."
+"Determines whether the range of possible color values needs to be limited "
+"for the display. This should only be changed if the colors on the screen "
+"look washed out."
 msgstr ""
 "यह निर्धारित करता है कि डिस्प्ले के लिए संभावित रंग मानों की सीमा को सीमित किया जाना "
 "चाहिए या नहीं। इसे केवल तभी बदला जाना चाहिए जब स्क्रीन पर रंग धुले हुए दिखें।"
@@ -414,7 +424,7 @@ msgstr "ICC प्रोफ़ाइल चुनें"
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren’t compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC प्रोफ़ाइल अभी HDR के साथ संगत नहीं हैं"
 
 #: ui/OutputPanel.qml:346
@@ -432,10 +442,13 @@ msgid "Enable &HDR"
 msgstr "HDR सक्षम करें"
 
 #: ui/OutputPanel.qml:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HDR allows compatible applications to show brighter and more vivid colors"
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors"
+"HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR संगत अनुप्रयोगों को अधिक चमकीले और अधिक जीवंत रंग दिखाने की अनुमति देता है"
 
 #: ui/OutputPanel.qml:367
@@ -457,9 +470,11 @@ msgid "Prefer color accuracy"
 msgstr "रंग सटीकता को प्राथमिकता दें"
 
 #: ui/OutputPanel.qml:387
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "This setting can have a large impact on performance"
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance"
+msgid "This setting can have a large impact on performance."
 msgstr "इस सेटिंग का प्रदर्शन पर बड़ा प्रभाव पड़ सकता है"
 
 #: ui/OutputPanel.qml:398
@@ -477,9 +492,11 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of sRGB content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
+msgid "Increases the intensity of sRGB content on the screen."
 msgstr "स्क्रीन पर sRGB सामग्री की तीव्रता बढ़ाता है"
 
 #: ui/OutputPanel.qml:445
@@ -491,9 +508,11 @@ msgid "Maximum SDR brightness:"
 msgstr "अधिकतम एसडीआर चमक:"
 
 #: ui/OutputPanel.qml:466
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Sets the maximum brightness for the normal brightness slider"
 msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "सामान्य चमक स्लाइडर के लिए अधिकतम चमक सेट करता है"
 
 #: ui/OutputPanel.qml:477

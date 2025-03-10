@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:43+0000\n"
-"PO-Revision-Date: 2025-01-12 17:24+0200\n"
+"POT-Creation-Date: 2025-03-10 00:43+0000\n"
+"PO-Revision-Date: 2025-02-15 19:48+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -303,12 +303,17 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:191
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines how much padding is put around the image sent to the display "
+#| "to compensate for part of the content being cut off around the edges.<nl/"
+#| "><nl/>This is sometimes needed when using a TV as a screen"
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
-">This is sometimes needed when using a TV as a screen"
+">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "Määrittää, kuinka paljon lähtevän kuvan ympärille asetetaan mustaa "
 "marginaalia. Osa sisällöstä leikataan pois reunojen ympäriltä.<nl/><nl/>Tätä "
@@ -330,12 +335,17 @@ msgid "Limited"
 msgstr "Rajoitettu"
 
 #: ui/OutputPanel.qml:216
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display. This should only be changed if the colors on the "
+#| "screen look washed out."
 msgctxt "@info"
 msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display. This should only be changed if the colors on the "
-"screen look washed out."
+"Determines whether the range of possible color values needs to be limited "
+"for the display. This should only be changed if the colors on the screen "
+"look washed out."
 msgstr ""
 "Asettaa, tarvitseeko näytöllä rajoittaa mahdollisten väriarvojen aluetta. "
 "Tätä muutetaan vain, jos näytön värit näyttävät haalistuneilta."
@@ -367,28 +377,22 @@ msgid "Built-in"
 msgstr "Sisään rakennettu"
 
 #: ui/OutputPanel.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Huomaa, että sisään rakennetut väriprofiilit ovat joskus väärässä ja usein "
-"epätarkkoja. Optimaalista värintoistoa varten kalibrointia suositellaan."
+"Käytä näyttöön rakennettua väriprofiilia, jos sellainen on. Huomaa, että "
+"sisään rakennetut väriprofiilit ovat joskus väärässä ja usein epätarkkoja. "
+"Optimaalista värintoistoa varten kalibrointia suositellaan."
 
 #: ui/OutputPanel.qml:264
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "HDR käyttää aina sisään rakennettua väriprofiilia."
+msgstr "HDR käyttää aina näytön sisään rakennettua väriprofiilia."
 
 #: ui/OutputPanel.qml:277
 #, kde-format
@@ -418,7 +422,7 @@ msgstr "Valitse ICC-profiili"
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren’t compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC-profiilit eivät toistaiseksi ole yhteensopivia HDR:n kanssa"
 
 #: ui/OutputPanel.qml:346
@@ -434,10 +438,13 @@ msgid "Enable &HDR"
 msgstr "Käytä H&DR:ää"
 
 #: ui/OutputPanel.qml:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HDR allows compatible applications to show brighter and more vivid colors"
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors"
+"HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "Yhteensopivissa sovelluksissa HDR mahdollistaa kirkkaammat ja eloisammat "
 "värit"
@@ -461,9 +468,11 @@ msgid "Prefer color accuracy"
 msgstr "Suosi väritarkkuutta"
 
 #: ui/OutputPanel.qml:387
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "This setting can have a large impact on performance"
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance"
+msgid "This setting can have a large impact on performance."
 msgstr "Asetuksella voi olla suorituskykyyn suuri vaikutus"
 
 #: ui/OutputPanel.qml:398
@@ -481,9 +490,11 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of sRGB content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
+msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä"
 
 #: ui/OutputPanel.qml:445
@@ -495,9 +506,11 @@ msgid "Maximum SDR brightness:"
 msgstr "SDR-enimmäiskirkkaus:"
 
 #: ui/OutputPanel.qml:466
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Sets the maximum brightness for the normal brightness slider"
 msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Asettaa enimmäiskirkkauden tavalliseen kirkkaussäätimeen"
 
 #: ui/OutputPanel.qml:477

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:43+0000\n"
+"POT-Creation-Date: 2025-03-10 00:43+0000\n"
 "PO-Revision-Date: 2024-10-26 12:47+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -303,12 +303,17 @@ msgid "%1%"
 msgstr "%1%X"
 
 #: ui/OutputPanel.qml:191
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines how much padding is put around the image sent to the display "
+#| "to compensate for part of the content being cut off around the edges.<nl/"
+#| "><nl/>This is sometimes needed when using a TV as a screen"
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
-">This is sometimes needed when using a TV as a screen"
+">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "Bestemmer, hvor meget polstring, der lægges omkring det billede, der sendes "
 "til skærmen, for at kompensere for, at dele af indholdet skæres af i "
@@ -331,12 +336,17 @@ msgid "Limited"
 msgstr "Begrænset"
 
 #: ui/OutputPanel.qml:216
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Determines whether or not the range of possible color values needs to be "
+#| "limited for the display. This should only be changed if the colors on the "
+#| "screen look washed out."
 msgctxt "@info"
 msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display. This should only be changed if the colors on the "
-"screen look washed out."
+"Determines whether the range of possible color values needs to be limited "
+"for the display. This should only be changed if the colors on the screen "
+"look washed out."
 msgstr ""
 "Bestemmer, om intervallet af mulige farveværdier skal begrænses for skærmen. "
 "Dette bør kun ændres hvis farverne på skærmen ser udvaskede ud."
@@ -420,7 +430,7 @@ msgstr "Vælg ICC-profil"
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren’t compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC-profiler er ikke kompatible med HDR endnu"
 
 #: ui/OutputPanel.qml:346
@@ -445,7 +455,7 @@ msgstr "Aktivér HDR"
 #| "colors. Note that this feature is still experimental"
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors"
+"HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "HDR giver kompatible applikationer muligheden for at vise lysere og mere "
 "levende farver. Bemærk, at denne funktion stadig er eksperimental."
@@ -471,7 +481,7 @@ msgstr ""
 #: ui/OutputPanel.qml:387
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance"
+msgid "This setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:398
@@ -489,9 +499,11 @@ msgid "%1%"
 msgstr "X%1%"
 
 #: ui/OutputPanel.qml:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Increases the intensity of sRGB content on the screen"
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
+msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Øger intensiteten af sRGB-indhold på skærmen"
 
 #: ui/OutputPanel.qml:445
@@ -505,7 +517,7 @@ msgstr "SDR-lysstyrke:"
 #: ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
 #: ui/OutputPanel.qml:477

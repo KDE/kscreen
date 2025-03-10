@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:43+0000\n"
+"POT-Creation-Date: 2025-03-10 00:43+0000\n"
 "PO-Revision-Date: 2020-05-15 08:25+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -306,7 +306,7 @@ msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
-">This is sometimes needed when using a TV as a screen"
+">This is sometimes needed when using a TV as a screen."
 msgstr ""
 
 #: ui/OutputPanel.qml:196
@@ -328,9 +328,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"Determines whether or not the range of possible color values needs to be "
-"limited for the display. This should only be changed if the colors on the "
-"screen look washed out."
+"Determines whether the range of possible color values needs to be limited "
+"for the display. This should only be changed if the colors on the screen "
+"look washed out."
 msgstr ""
 
 #: ui/OutputPanel.qml:221
@@ -401,7 +401,7 @@ msgstr ""
 #: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "ICC profiles aren’t compatible with HDR yet"
+msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr ""
 
 #: ui/OutputPanel.qml:346
@@ -421,7 +421,7 @@ msgstr "Lubatud"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"HDR allows compatible applications to show brighter and more vivid colors"
+"HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 
 #: ui/OutputPanel.qml:367
@@ -445,7 +445,7 @@ msgstr ""
 #: ui/OutputPanel.qml:387
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance"
+msgid "This setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:398
@@ -465,7 +465,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:434
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Increases the intensity of sRGB content on the screen"
+msgid "Increases the intensity of sRGB content on the screen."
 msgstr ""
 
 #: ui/OutputPanel.qml:445
@@ -477,7 +477,7 @@ msgstr ""
 #: ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider"
+msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
 #: ui/OutputPanel.qml:477
