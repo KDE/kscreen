@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 00:43+0000\n"
-"PO-Revision-Date: 2025-03-01 01:08+0100\n"
+"PO-Revision-Date: 2025-03-10 12:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -300,12 +300,7 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -333,12 +328,7 @@ msgid "Limited"
 msgstr "Limitado"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -416,12 +406,10 @@ msgid "Select ICC Profile"
 msgstr "Seleccionar perfil ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "Los perfiles ICC todavía no son compatibles con HDR"
+msgstr "Los perfiles ICC todavía no son compatibles con HDR."
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -436,10 +424,7 @@ msgid "Enable &HDR"
 msgstr "Activar &HDR"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -466,12 +451,10 @@ msgid "Prefer color accuracy"
 msgstr "Preferir precisión del color"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "Este ajuste puede tener un gran impacto en el rendimiento"
+msgstr "Este ajuste puede tener un gran impacto en el rendimiento."
 
 #: ui/OutputPanel.qml:398
 #, kde-format
@@ -486,12 +469,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Aumenta la intensidad del contenido sRGB de la pantalla"
+msgstr "Aumenta la intensidad del contenido sRGB de la pantalla."
 
 #: ui/OutputPanel.qml:445
 #, kde-format
@@ -500,12 +481,10 @@ msgid "Maximum SDR brightness:"
 msgstr "Brillo SDR máximo:"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "Fija el brillo máximo para el deslizador de brillo normal"
+msgstr "Fija el brillo máximo para el deslizador de brillo normal."
 
 #: ui/OutputPanel.qml:477
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 00:43+0000\n"
-"PO-Revision-Date: 2025-02-28 09:34+0200\n"
+"PO-Revision-Date: 2025-03-10 16:34+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -301,12 +301,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -316,7 +311,7 @@ msgstr ""
 "Визначає розмір полів, які слід використати навколо зображення, яке "
 "надіслано на дисплей, для компенсації частини вмісту, яку було обрізано на "
 "краях.<nl/><nl/>Така компенсація іноді потрібна, якщо замість екрана "
-"використано телевізор"
+"використано телевізор."
 
 #: ui/OutputPanel.qml:196
 #, kde-format
@@ -334,12 +329,7 @@ msgid "Limited"
 msgstr "Обмежений"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -419,12 +409,10 @@ msgid "Select ICC Profile"
 msgstr "Вибір профілю ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "Сумісність профілів ICC з HDR ще не реалізовано"
+msgstr "Сумісність профілів ICC з HDR ще не реалізовано."
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -439,10 +427,7 @@ msgid "Enable &HDR"
 msgstr "Увімкнути &HDR"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -469,12 +454,10 @@ msgid "Prefer color accuracy"
 msgstr "Перевага точності кольорів"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "Цей параметр може значно вплинути на швидкодію"
+msgstr "Цей параметр може значно вплинути на швидкодію."
 
 #: ui/OutputPanel.qml:398
 #, kde-format
@@ -489,12 +472,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Збільшує інтенсивність зображень sRGB на екрані"
+msgstr "Збільшує інтенсивність зображень sRGB на екрані."
 
 #: ui/OutputPanel.qml:445
 #, kde-format
@@ -503,12 +484,10 @@ msgid "Maximum SDR brightness:"
 msgstr "Максимальна яскравість SDR:"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "Встановлює максимальну яскравість для повзунка звичайної яскравості"
+msgstr "Встановлює максимальну яскравість для повзунка звичайної яскравості."
 
 #: ui/OutputPanel.qml:477
 #, kde-format
