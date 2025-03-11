@@ -43,9 +43,6 @@ public:
         : QSortFilterProxyModel(parent)
     {
     }
-
-protected:
-    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 };
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
@@ -59,7 +56,6 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     setButtons(Apply);
 
     m_outputProxyModel = new ScreenSortProxyModel(this);
-    m_outputProxyModel->sort(0);
 
     m_loadCompressor = new QTimer(this);
     m_loadCompressor->setInterval(1000);
@@ -544,17 +540,6 @@ bool KCMKScreen::tearingSupported() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
-}
-
-bool ScreenSortProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
-{
-    const bool leftEnabled = source_left.data(OutputModel::EnabledRole).toBool();
-    const bool rightEnabled = source_right.data(OutputModel::EnabledRole).toBool();
-
-    if (leftEnabled != rightEnabled) {
-        return leftEnabled;
-    }
-    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 #include "kcm.moc"
