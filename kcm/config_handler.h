@@ -76,7 +76,7 @@ private:
     void initOutput(const KScreen::OutputPtr &output);
     /**
      * @brief checkSaveandTestCommon - compairs common config changes that would make the config dirty and needed to have the config checked when applied.
-     * @param isSaveCheck - True  if your checking to see if the changes should request a save.
+     * @param isSaveCheck - True  if you're checking to see if the changes should request a save.
      *                      False if you want to check if you should test the config when applied.
      * @return true, if you should check for a save or test the new configuration
      */
