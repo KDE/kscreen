@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 00:43+0000\n"
-"PO-Revision-Date: 2025-03-01 01:12+0100\n"
+"PO-Revision-Date: 2025-03-11 03:14+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -296,12 +296,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -311,7 +306,7 @@ msgstr ""
 "დაადგენს, რამდენითაა საჭირო შევსება გამოსახულების გარშემო, რომელიც "
 "საჩვენებლადაა განკუთვნილი, რომ მოხდეს იმ ნაწილების კომპენსაცია, რომელის "
 "გამოსახულებას წიბოებთან მოეჭრება.<nl/><nl/>ეს ხანდახან დაგჭირდებათ, როცა "
-"ეკრანად ტელევიზორს იყენებთ"
+"ეკრანად ტელევიზორს იყენებთ."
 
 #: ui/OutputPanel.qml:196
 #, kde-format
@@ -329,12 +324,7 @@ msgid "Limited"
 msgstr "შეზღუდული"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -411,12 +401,10 @@ msgid "Select ICC Profile"
 msgstr "აირჩიეთ ICC პროფილი"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა"
+msgstr "ICC პროფილები, ჯერჯერობით, HDR-სთან თავსებადი არაა."
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -431,16 +419,13 @@ msgid "Enable &HDR"
 msgstr "&HDR-ის ჩართვა"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "HDR თავსებად აპლიკაციებს საშუალებას აძლევს, უფრო კაშკაშა და მკვეთრი ფერებით "
-"გამოჩნდეს"
+"გამოჩნდეს."
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -461,12 +446,10 @@ msgid "Prefer color accuracy"
 msgstr "მირჩევნია ფერის სიზუსტე"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "ამ პარამეტრს, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს"
+msgstr "ამ პარამეტრს, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს."
 
 #: ui/OutputPanel.qml:398
 #, kde-format
@@ -481,12 +464,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე"
+msgstr "ზრდის sRGB შემცველობის ინტენსივობას ეკრანზე."
 
 #: ui/OutputPanel.qml:445
 #, kde-format
@@ -495,12 +476,11 @@ msgid "Maximum SDR brightness:"
 msgstr "მაქსიმალური SDR სიკაშკაშე:"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "აყენებს მაქსიმალურ სიკაშკაშეს ნორმალური სიკაშკაშის მქონე სლაიდერისთვის"
+msgstr ""
+"აყენებს მაქსიმალურ სიკაშკაშეს ნორმალური სიკაშკაშის მქონე სლაიდერისთვის."
 
 #: ui/OutputPanel.qml:477
 #, kde-format
