@@ -5,83 +5,33 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
+
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+
 import org.kde.kirigami as Kirigami
 
 Item {
     id: output
 
-    /* Whether the delegate can be dragged around */
     property bool interactive: false
 
-    /* Whether the delegate is being dragged around */
-    readonly property bool isDragging: dragHandler.active
-
-    /* Whether the delegate should manage its own position on a parent screenView */
-    property bool positionOnScreen: true
+    property bool showPosition: false
 
     readonly property bool isSelected: root.selectedOutput === model.index
-    property size outputSize: model.size
-    property string textWithScale: i18nc("Width, height, scale; separated with no-break space", "(%1 × %2, %3%)",
-                                         model.resolution.width.toString(), model.resolution.height.toString(), Math.round(model.scale * 100.0))
-    property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)",
-                                            model.resolution.width.toString(), model.resolution.height.toString())
 
-    onIsSelectedChanged: {
-        if (isSelected) {
-            z = 89;
-        } else {
-            z = 0;
-        }
+    readonly property string textWithScale: i18nc("Width, height, scale; separated with no-break space", "(%1 × %2, %3%)",
+                                                  model.resolution.width.toString(), model.resolution.height.toString(), Math.round(model.scale * 100.0))
+    readonly property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)",
+                                                     model.resolution.width.toString(), model.resolution.height.toString())
+
+    function enable() {
+        model.disabled = true;
     }
 
-    // Transform a position from screen-space to the display configuration space
-    function getAbsolutePosition(pos) {
-        return Qt.point((pos.x - screenView.xOffset) * screenView.relativeFactor,
-                        (pos.y - screenView.yOffset) * screenView.relativeFactor);
-    }
-
-    // Transform a position from display configuration space to screen-space
-    function getRelativePosition(pos) {
-        return Qt.point((pos.x / screenView.relativeFactor) + screenView.xOffset,
-                        (pos.y / screenView.relativeFactor) + screenView.yOffset);
-    }
-
-    visible: model.enabled && model.replicationSourceIndex === 0 // TODO: Remove model.enabled
-
-    onVisibleChanged: if (output.positionOnScreen) screenView.resetTotalSize()
-    onOutputSizeChanged: if (output.positionOnScreen) screenView.resetTotalSize()
-
-    Binding {
-        when: output.positionOnScreen
-        target: output
-        property: "x"
-        value: dragHandler.avoidSnapping ? (dragStartPosition.x + dragHandler.translation.x)
-                                         : (model.position ? model.position.x / screenView.relativeFactor + screenView.xOffset : 0)
-    }
-
-    Binding {
-        when: output.positionOnScreen
-        target: output
-        property: "y"
-        value: dragHandler.avoidSnapping ? (dragStartPosition.y + dragHandler.translation.y)
-                                         : (model.position ? model.position.y / screenView.relativeFactor + screenView.yOffset : 0);
-    }
-
-    Binding {
-        when: output.positionOnScreen
-        target: output
-        property: "width"
-        value: model.size ? model.size.width / screenView.relativeFactor : 1
-    }
-
-    Binding {
-        when: output.positionOnScreen
-        target: output
-        property: "height"
-        value: model.size ? model.size.height / screenView.relativeFactor : 1
+    function disable() {
+        model.enabled = false;
     }
 
     Rectangle {
@@ -250,7 +200,8 @@ Item {
 
         color: Kirigami.Theme.disabledTextColor
 
-        opacity: (model.enabled && dragHandler.active && !dragHandler.avoidSnapping) ? 0.9 : 0.0
+        opacity: output.showPosition ? 0.9 : 0.0
+        visible: opacity > 0
         Behavior on opacity {
             PropertyAnimation {
                 duration: Kirigami.Units.longDuration
@@ -297,62 +248,4 @@ Item {
             }
         }
     }
-
-    property point dragStartPosition
-
-    TapHandler {
-        id: tapHandler
-        property bool isLongPressed: false
-        gesturePolicy: TapHandler.WithinBounds
-
-        onPressedChanged: {
-            if (pressed) {
-                root.selectedOutput = model.index;
-                output.Drag.hotSpot = point.position;
-                dragStartPosition = Qt.point(output.x, output.y);
-            } else {
-                isLongPressed = false;
-            }
-        }
-        onLongPressed: isLongPressed = true;
-        longPressThreshold: 0.3
-    }
-
-    Drag.active: dragHandler.active
-    Drag.dragType: Drag.Internal
-    Drag.keys: output.enabled ? ["enabledOutput"] : ["disabledOutput"]
-
-    DragHandler {
-        id: dragHandler
-        enabled: kcm.multipleScreensAvailable
-        acceptedButtons: Qt.LeftButton
-        target: null
-
-        // Avoid snapping into place when we move 50px away from the snapped position
-        readonly property bool avoidSnapping: active && Math.hypot((dragStartPosition.x + translation.x) - (getRelativePosition(model.position).x),
-                                                                   (dragStartPosition.y + translation.y) - (getRelativePosition(model.position).y)) >= 50
-
-        onTranslationChanged: {
-            if (output.positionOnScreen) {
-                var newX = dragStartPosition.x + translation.x;
-                var newY = dragStartPosition.y + translation.y;
-                model.position = getAbsolutePosition(Qt.point(newX, newY));
-            }
-        }
-
-        onActiveChanged: {
-            if (output.positionOnScreen) {
-                model.interactiveMove = active;
-            }
-
-            if (!active) {
-                output.Drag.drop();
-
-                if (output.positionOnScreen) {
-                    screenView.resetTotalSize();
-                }
-            }
-        }
-    }
 }
-

@@ -366,9 +366,31 @@ KCM.AbstractKCM {
             Kirigami.Theme.colorSet: Kirigami.Theme.View
 
             color: Kirigami.Theme.backgroundColor
+            visible: kcm.multipleScreensAvailable
+
+            states: [
+                State {
+                    name: "collapsed"
+                    when: !screenView.interactive
+                    AnchorChanges {
+                        target: disabledScreenViewPanel
+                        anchors.left: undefined
+                        anchors.right: parent.left
+                    }
+                },
+                State {
+                    name: "expanded"
+                    when: screenView.interactive
+                    AnchorChanges {
+                        target: disabledScreenViewPanel
+                        anchors.left: parent.left
+                        anchors.right: undefined
+                    }
+                }
+            ]
 
             // Animating height directly would occur during window resize
-            property real heightMultiplier: screen.interactive ? 1 : 0.5
+            property real heightMultiplier: screenView.interactive ? 1 : 0.5
             Behavior on heightMultiplier {
                 PropertyAnimation {
                     easing.type: Easing.InOutQuad
@@ -376,11 +398,43 @@ KCM.AbstractKCM {
                 }
             }
 
-            visible: kcm.multipleScreensAvailable
+            transitions: Transition {
+                AnchorAnimation {
+                    easing.type: Easing.InOutQuad
+                    duration: Kirigami.Units.shortDuration
+                }
+            }
+
+            RowLayout {
+                id: disabledScreenViewPanel
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+
+                z: disabledScreenView.draggingItem ? 2 : 1 // So dragged item goes above siblings
+
+                height: parent.height
+
+                spacing: 0
+
+                DisabledScreenView {
+                    id: disabledScreenView
+                    Layout.fillHeight: true
+                }
+
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                }
+            }
 
             ScreenView {
-                id: screen
-                anchors.fill: parent
+                id: screenView
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.left: disabledScreenViewPanel.right
+                anchors.right: parent.right
+
+                z: draggingItem ? 2 : 1 // So dragged item goes above siblings
+                onDraggingItemChanged: console.log(draggingItem)
 
                 enabled: kcm.outputModel && kcm.backendReady
                 outputs: kcm.outputModel
@@ -394,16 +448,18 @@ KCM.AbstractKCM {
                 anchors.bottom: parent.bottom
                 anchors.margins: Kirigami.Units.smallSpacing
 
+                z: 3
+
                 enabled: kcm.outputModel && kcm.backendReady
 
                 Accessible.description: text
-                text: screen.interactive ? i18nc("@action:button Shrink the height of a view", "Collapse")
-                                         : i18nc("@action:button Edit the arrangement of display outputs", "Edit Arrangement")
+                text: screenView.interactive ? i18nc("@action:button Shrink the height of a view", "Collapse")
+                                             : i18nc("@action:button Edit the arrangement of display outputs", "Edit Arrangement")
 
-                icon.name: screen.interactive ? "collapse-symbolic"
+                icon.name: screenView.interactive ? "collapse-symbolic"
                                               : "edit-symbolic"
 
-                onClicked: screen.interactive = !screen.interactive
+                onClicked: screenView.interactive = !screenView.interactive
             }
         }
 
