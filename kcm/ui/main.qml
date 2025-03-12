@@ -17,7 +17,21 @@ import org.kde.private.kcm.kscreen 1.0 as KScreen
 KCM.AbstractKCM {
     id: root
 
-    property int selectedOutput: 0
+    // This will be overriden on selection, but ensures we start with an
+    // enabled display as the initial selection
+    property int selectedOutput: firstEnabledDisplayIndex()
+
+    function firstEnabledDisplayIndex() {
+        if (!(kcm.outputModel && kcm.backendReady)) return -1; // Wait for model
+
+        for (let i = 0; i < kcm.outputModel.rowCount(); ++i) {
+            // Return index of first enabled display, 257 is EnabledRole
+            if (kcm.outputModel.data(kcm.outputModel.index(i, 0), 257) === true) return i;
+        }
+
+        return 0; // Otherwise, select the first display
+    }
+
     property int revertCountdown: 15
 
     implicitWidth: Kirigami.Units.gridUnit * 32
@@ -110,7 +124,7 @@ KCM.AbstractKCM {
             scaleMsg.visible = true;
         }
         function onOutputConnect(connected) {
-            root.selectedOutput = 0;
+            root.selectedOutput = Qt.binding(firstEnabledDisplayIndex());
             if (connected) {
                 connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
             } else {
