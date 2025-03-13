@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 00:43+0000\n"
-"PO-Revision-Date: 2025-03-01 09:56+0100\n"
+"PO-Revision-Date: 2025-03-11 08:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:156 kcm.cpp:178
@@ -310,20 +310,15 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
-"Détermine la quantité du remplissage est placé autour de l'image envoyée à "
-"l'écran pour compenser une partie du contenu coupé autour des bords. <nl/"
+"Détermine la quantité du remplissage est à placer autour de l'image envoyée "
+"à l'écran pour compenser une partie du contenu coupé autour des bords. <nl/"
 "><nl/>Ceci est parfois nécessaire lors de l'utilisation d'un téléviseur "
 "comme écran."
 
@@ -343,12 +338,7 @@ msgid "Limited"
 msgstr "Limité"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -427,9 +417,7 @@ msgid "Select ICC Profile"
 msgstr "Sélectionnez un profil « ICC »"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr ""
@@ -448,10 +436,7 @@ msgid "Enable &HDR"
 msgstr "Activer le rendu « &HDR »"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -478,9 +463,7 @@ msgid "Prefer color accuracy"
 msgstr "Préférez la précision des couleurs"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr "Ce paramètre peut avoir un impact important sur les performances."
@@ -498,12 +481,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Augmente l'intensité des contenus « sRGB » sur l'écran"
+msgstr "Augmente l'intensité des contenus « sRGB » sur l'écran."
 
 #: ui/OutputPanel.qml:445
 #, kde-format
@@ -512,12 +493,10 @@ msgid "Maximum SDR brightness:"
 msgstr "Luminosité « SDR » maximale :"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "Définit la luminosité maximale pour le curseur de luminosité normale"
+msgstr "Définit la luminosité maximale pour le curseur de luminosité normale."
 
 #: ui/OutputPanel.qml:477
 #, kde-format
