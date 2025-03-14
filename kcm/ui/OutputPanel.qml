@@ -492,6 +492,8 @@ Kirigami.FormLayout {
             stepSize: 5
             value: element.brightness * 100.0
             onValueModified: element.brightness = value / 100.0
+            textFromValue: (value, locale) => i18nc("Brightness expressed in percentage form", "%1%", value)
+            valueFromText: (text, locale) => Number.fromLocaleString(locale, text.replace("%", ""))
         }
     }
 
