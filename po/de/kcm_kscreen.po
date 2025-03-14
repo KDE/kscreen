@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:43+0000\n"
+"POT-Creation-Date: 2025-03-14 00:44+0000\n"
 "PO-Revision-Date: 2025-02-18 14:25+0100\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -445,13 +445,13 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC-Profile sind noch nicht mit HDR kompatibel"
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Hochkontrast (HDR):"
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -459,7 +459,7 @@ msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "HDR aktivieren"
 
-#: ui/OutputPanel.qml:359
+#: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -472,31 +472,31 @@ msgstr ""
 "Mit HDR können kompatible Anwendungen hellere und lebendigere Farben zeigen. "
 "Bitte beachten Sie, dass diese Funktion noch experimentell ist"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:387
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:397
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
@@ -504,13 +504,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "SDR-Farbintensität:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:433
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of sRGB content on the screen"
@@ -520,7 +520,7 @@ msgstr ""
 "Mit dieser Einstellung wird die Intensität von sRGB-Inhalten auf dem "
 "Bildschirm erhöht"
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:444
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -528,13 +528,13 @@ msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "SDR-Helligkeit:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:476
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -542,7 +542,7 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR-Helligkeit:"
 
-#: ui/OutputPanel.qml:500
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopie von:"

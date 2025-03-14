@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:43+0000\n"
+"POT-Creation-Date: 2025-03-14 00:44+0000\n"
 "PO-Revision-Date: 2024-03-24 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -417,13 +417,13 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "Profily ICC zatiaľ nie sú kompatibilné s HDR"
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Vysoký dynamický rozsah:"
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -431,7 +431,7 @@ msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Povoliť HDR"
 
-#: ui/OutputPanel.qml:359
+#: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -444,31 +444,31 @@ msgstr ""
 "HDR umožňuje kompatibilným aplikáciám zobrazovať jasnejšie a živšie farby. "
 "Upozorňujeme, že táto funkcia je stále experimentálna."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:387
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:397
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
@@ -476,13 +476,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intenzita farieb SDR:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:433
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of non-HDR content on the screen"
@@ -490,7 +490,7 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:444
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -498,13 +498,13 @@ msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Jas SDR:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:476
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -512,7 +512,7 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "Jas SDR:"
 
-#: ui/OutputPanel.qml:500
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "Replikuje:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:43+0000\n"
+"POT-Creation-Date: 2025-03-14 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -427,13 +427,13 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC प्रोफ़ाइल अभी HDR के साथ संगत नहीं हैं"
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "उच्च गतिशील रेंज:"
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -441,7 +441,7 @@ msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "HDR सक्षम करें"
 
-#: ui/OutputPanel.qml:359
+#: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -451,25 +451,25 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR संगत अनुप्रयोगों को अधिक चमकीले और अधिक जीवंत रंग दिखाने की अनुमति देता है"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "रंग सटीकता:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "दक्षता को प्राथमिकता दें"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "रंग सटीकता को प्राथमिकता दें"
 
-#: ui/OutputPanel.qml:387
+#: ui/OutputPanel.qml:386
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "This setting can have a large impact on performance"
@@ -477,7 +477,7 @@ msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr "इस सेटिंग का प्रदर्शन पर बड़ा प्रभाव पड़ सकता है"
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:397
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "sRGB Color Intensity:"
@@ -485,13 +485,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB रंग तीव्रता:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:433
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of sRGB content on the screen"
@@ -499,7 +499,7 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "स्क्रीन पर sRGB सामग्री की तीव्रता बढ़ाता है"
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:444
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Maximum SDR Brightness:"
@@ -507,7 +507,7 @@ msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "अधिकतम एसडीआर चमक:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:465
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Sets the maximum brightness for the normal brightness slider"
@@ -515,13 +515,13 @@ msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "सामान्य चमक स्लाइडर के लिए अधिकतम चमक सेट करता है"
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:476
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "चमक:"
 
-#: ui/OutputPanel.qml:500
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "प्रतिकृति:"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:43+0000\n"
-"PO-Revision-Date: 2025-03-02 10:58+0400\n"
+"POT-Creation-Date: 2025-03-14 00:44+0000\n"
+"PO-Revision-Date: 2025-03-13 11:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -296,12 +296,7 @@ msgid "%1%"
 msgstr "%1٪"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -328,20 +323,15 @@ msgid "Limited"
 msgstr "محدود"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
-"يحدد ما إذا كان يجب تحديد نطاق قيم الألوان الممكنة للعرض أم لا. هذا يجب في "
-"حالة ظهور الألوان في الشاشة باهتة."
+"يحدد ما إذا كان يجب تحديد نطاق قيم الألوان الممكنة للعرض. هذا يجب في حالة "
+"ظهور الألوان في الشاشة باهتة."
 
 #: ui/OutputPanel.qml:221
 #, kde-format
@@ -409,102 +399,91 @@ msgid "Select ICC Profile"
 msgstr "حدد تشكيلة ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "تشكيلات ICC غير متوافقة مع HDR بعد"
+msgstr "تشكيلات ICC غير متوافقة مع HDR بعد."
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "النطاق الحركي العالي:"
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "&مكّن HDR"
 
-#: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#: ui/OutputPanel.qml:358
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "تتيح HDR للتطبيقات المتوافقة عرض ألوان أكثر سطوعًا وحيوية."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "دقة الألوان:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "فضّل الكفاءة"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "فضّل دقة الألوان"
 
-#: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#: ui/OutputPanel.qml:386
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "يمكن أن يكون لهذا الإعداد تأثير كبير على الأداء"
+msgstr "يمكن أن يكون لهذا الإعداد تأثير كبير على الأداء."
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:397
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "كثافة اللون sRGB:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1٪"
 
-#: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#: ui/OutputPanel.qml:433
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "يزيد من كثافة sRGB على الشاشة"
+msgstr "يزيد من كثافة sRGB على الشاشة."
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:444
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "أقصى سطوع حركي عادي:"
 
-#: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#: ui/OutputPanel.qml:465
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "تُعين الحد الأقصى للسطوع لمنزلق السطوع العادي"
+msgstr "تُعين الحد الأقصى للسطوع لمنزلق السطوع العادي."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:476
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "السّطوع:"
 
-#: ui/OutputPanel.qml:500
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "نسخة من:"

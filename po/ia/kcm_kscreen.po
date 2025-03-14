@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:43+0000\n"
+"POT-Creation-Date: 2025-03-14 00:44+0000\n"
 "PO-Revision-Date: 2025-03-11 10:15+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -407,19 +407,19 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "Profilos ICC non es compatibile ancora con HDR."
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "High Dynamic Range (HDR-Alte Extension Dynamic):"
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Habilita &HDR"
 
-#: ui/OutputPanel.qml:359
+#: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -428,67 +428,67 @@ msgstr ""
 "HDR permitte a applicationes compatibile monstrar colores plus brillante e "
 "vivide.."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Accuratessa de color:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Prefere efficacia"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Prefere accuratessa de color"
 
-#: ui/OutputPanel.qml:387
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr "Iste preferentia pote haber un grande impacto sur prestation."
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:397
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensitate de color sRGB:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Augmenta le intensitate de contento sRGB sur le schermo."
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:444
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Maxime Brillantia SDR:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:465
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Assigan lemaxime brillantia per le glissator de nrillantia normal."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:476
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Brillantia:"
 
-#: ui/OutputPanel.qml:500
+#: ui/OutputPanel.qml:499
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica de:"
