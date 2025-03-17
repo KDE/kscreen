@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-14 00:44+0000\n"
-"PO-Revision-Date: 2025-03-09 16:50+0530\n"
+"PO-Revision-Date: 2025-03-16 14:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -293,12 +293,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -306,8 +301,7 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "திரைக்கு அனுப்பப்படும் படத்தின் ஓரத்தில் எவ்வளவு காலியிடத்தை சேர்க்க வேண்டுமென்பதை இது "
-"அமைக்கும்.<nl/><nl/>சில தொலைக்காட்சி திரைகள் காட்சியின் ஓரப்பகுதியை வெட்டியே "
-"காட்டுவதால் இது தேவைப்படலாம்."
+"அமைக்கும்.<nl/><nl/>தொலைக்காட்சியை கணினித்திரையாகப் பயன்படுத்தம்போது இது தேவைப்படலாம்."
 
 #: ui/OutputPanel.qml:196
 #, kde-format
@@ -325,12 +319,7 @@ msgid "Limited"
 msgstr "வரம்புப்பட்டது"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -407,12 +396,10 @@ msgid "Select ICC Profile"
 msgstr "ICC பயன்முறையைத் தேர்ந்தெடுப்பது"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC பயன்முறைகள் தற்போது HDR-உடன் வேலை செய்யாது"
+msgstr "ICC பயன்முறைகள் தற்போது HDR-உடன் வேலை செய்யாது."
 
 #: ui/OutputPanel.qml:345
 #, kde-format
@@ -427,10 +414,7 @@ msgid "Enable &HDR"
 msgstr "HDR-ஐ இயக்கு"
 
 #: ui/OutputPanel.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -455,12 +439,10 @@ msgid "Prefer color accuracy"
 msgstr "துல்லியத்தை விரும்பு"
 
 #: ui/OutputPanel.qml:386
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "கணினியின் செயல்திறனை இவ்வமைப்பு பாதிக்கலாம்"
+msgstr "கணினியின் செயல்திறனை இவ்வமைப்பு பாதிக்கலாம்."
 
 #: ui/OutputPanel.qml:397
 #, kde-format
@@ -475,12 +457,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்"
+msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்."
 
 #: ui/OutputPanel.qml:444
 #, kde-format
@@ -489,12 +469,10 @@ msgid "Maximum SDR brightness:"
 msgstr "அதிகபட்ச SDR பிரகாசம்:"
 
 #: ui/OutputPanel.qml:465
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "சாதாரண படங்களுக்கான அதிகபட்ச பிரகாசம்"
+msgstr "சாதாரண படங்களுக்கான அதிகபட்ச பிரகாசம்."
 
 #: ui/OutputPanel.qml:476
 #, kde-format
