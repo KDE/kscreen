@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:44+0000\n"
+"POT-Creation-Date: 2025-03-18 00:43+0000\n"
 "PO-Revision-Date: 2019-09-27 23:39+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -484,7 +484,15 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:499
+#: ui/OutputPanel.qml:495
+#, fuzzy, kde-format
+#| msgctxt "Scale factor (e.g. 1.0x, 1.5x, 2.0x)"
+#| msgid "%1x"
+msgctxt "Brightness expressed in percentage form"
+msgid "%1%"
+msgstr "%1x"
+
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgid "Replica of:"
 msgstr "Инъиқоси:"

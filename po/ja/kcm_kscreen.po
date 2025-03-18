@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fuminobu TAKEYAMA <ftake@geeko.jp>, 2015.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:44+0000\n"
-"PO-Revision-Date: 2024-01-09 19:02+0900\n"
+"POT-Creation-Date: 2025-03-18 00:43+0000\n"
+"PO-Revision-Date: 2025-03-15 14:31+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "実装エラー"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "設定の適用中に出力が変更されました"
 
 #: output_model.cpp:96
 #, kde-format
@@ -37,15 +37,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -58,12 +56,11 @@ msgid "Replicated by other output"
 msgstr "他の出力による複製"
 
 #: ui/main.qml:26
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "特定する"
+msgstr "スクリーンを特定する"
 
 #: ui/main.qml:41
 #, kde-format
@@ -104,11 +101,10 @@ msgstr ""
 "てください。"
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "ディスプレイの設定を保持しますか？"
+msgstr "ディスプレイの設定を適用できませんでした: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -193,18 +189,18 @@ msgstr "手動"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:217
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:243
 #, kde-format
@@ -241,14 +237,10 @@ msgid "Resolution:"
 msgstr "解像度:"
 
 #: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr ""
-"&quot;%1&quot; は、このディスプレイによってサポートされている唯一の解像度で"
-"す。"
+msgstr "“%1” は、このディスプレイによってサポートされている唯一の解像度です。"
 
 #: ui/OutputPanel.qml:87
 #, kde-format
@@ -259,7 +251,7 @@ msgstr "スケール:"
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "通常スケールのパーセント比"
 
 #: ui/OutputPanel.qml:120 ui/Panel.qml:113
 #, kde-format
@@ -273,13 +265,12 @@ msgid "Refresh rate:"
 msgstr "リフレッシュレート:"
 
 #: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
-"\"%1\" は、このディスプレイによってサポートされている唯一のリフレッシュレート"
-"です。"
+"“%1” は、このディスプレイによってサポートされている唯一のリフレッシュレートで"
+"す。"
 
 #: ui/OutputPanel.qml:158
 #, kde-format
@@ -302,9 +293,7 @@ msgid "Overscan:"
 msgstr "オーバースキャン:"
 
 #: ui/OutputPanel.qml:185
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -343,33 +332,28 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "カラープロファイル:"
 
 #: ui/OutputPanel.qml:232
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "なし"
 
 #: ui/OutputPanel.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select ICC Profile"
+#, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr "ICC プロファイルを選択"
+msgstr "ICC プロファイル"
 
 #: ui/OutputPanel.qml:242
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr ""
+msgstr "内蔵"
 
 #: ui/OutputPanel.qml:260
 #, kde-format
@@ -424,12 +408,10 @@ msgid "High Dynamic Range:"
 msgstr "ハイダイナミックレンジ (HDR):"
 
 #: ui/OutputPanel.qml:352
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "HDR を有効化"
+msgstr "HDR を有効化(&H)"
 
 #: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
@@ -448,19 +430,19 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "色の正確性:"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "効率性を優先"
 
 #: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "色の正確性を優先"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -469,12 +451,10 @@ msgid "This setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:397
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr "SDR 彩度:"
+msgstr "sRGB 彩度:"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -491,12 +471,10 @@ msgid "Increases the intensity of sRGB content on the screen."
 msgstr "スクリーン上の非 HDR コンテンツの彩度を高めます"
 
 #: ui/OutputPanel.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
-msgstr "SDR 明るさ:"
+msgstr "SDR 最大の明るさ:"
 
 #: ui/OutputPanel.qml:465
 #, kde-format
@@ -505,14 +483,20 @@ msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
 #: ui/OutputPanel.qml:476
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR 明るさ:"
+msgstr "明るさ:"
 
-#: ui/OutputPanel.qml:499
+#: ui/OutputPanel.qml:495
+#, fuzzy, kde-format
+#| msgctxt "Global scale factor expressed in percentage form"
+#| msgid "%1%"
+msgctxt "Brightness expressed in percentage form"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgid "Replica of:"
 msgstr "複製するディスプレイ:"
@@ -530,7 +514,7 @@ msgstr "グローバルスケール:"
 #: ui/Panel.qml:137 ui/Panel.qml:157
 #, kde-format
 msgid "Legacy applications (X11):"
-msgstr "レガシーなアプリケーション (X11):"
+msgstr "レガシーアプリケーション (X11):"
 
 #: ui/Panel.qml:142
 #, kde-format
@@ -539,16 +523,13 @@ msgid "Apply scaling themselves"
 msgstr "アプリケーションによるスケーリング"
 
 #: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
-"スケーリングをサポートするレガシーなアプリケーションは明瞭にスケールされま"
-"す。しかし、サポートしないアプリケーションは全くスケールされません。"
+"スケーリングをサポートするレガシーアプリケーションは明瞭にスケールされます。"
+"しかし、サポートしないレガシーアプリケーションは全くスケールされません。"
 
 #: ui/Panel.qml:158
 #, kde-format
@@ -562,8 +543,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
-"すべてのレガシーなアプリケーションがシステムによってスケールされます。正しい"
-"サイズにスケールされますが、常に少しぼやけて見えるようになります。"
+"すべてのレガシーアプリケーションがシステムによってスケールされます。正しいサ"
+"イズにスケールされますが、常に少しぼやけて見えるようになります。"
 
 #: ui/Panel.qml:168
 #, kde-format
@@ -622,11 +603,3 @@ msgstr "回転なし"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "スクリーンをドラッグして再配置"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr "スクリーン上の非 HDR コンテンツの明るさを設定します (nit)"
