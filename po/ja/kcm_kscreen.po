@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fuminobu TAKEYAMA <ftake@geeko.jp>, 2015.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2023-09-20 01:32+0900\n"
+"PO-Revision-Date: 2025-03-15 14:31+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -286,7 +286,7 @@ msgstr "グローバルスケール:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr "レガシーなアプリケーション (X11):"
+msgstr "レガシーアプリケーション (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
@@ -300,8 +300,8 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
-"スケーリングをサポートするレガシーなアプリケーションは明瞭にスケールされま"
-"す。しかし、サポートしないアプリケーションは全くスケールされません。"
+"スケーリングをサポートするレガシーアプリケーションは明瞭にスケールされます。"
+"しかし、サポートしないレガシーアプリケーションは全くスケールされません。"
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
@@ -315,8 +315,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
-"すべてのレガシーなアプリケーションがシステムによってスケールされます。正しい"
-"サイズにスケールされますが、常に少しぼやけて見えるようになります。"
+"すべてのレガシーアプリケーションがシステムによってスケールされます。正しいサ"
+"イズにスケールされますが、常に少しぼやけて見えるようになります。"
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
@@ -330,7 +330,7 @@ msgstr ""
 #: package/contents/ui/Panel.qml:183
 #, kde-format
 msgid "Save displays' properties:"
-msgstr "ディスプレイの設定を保存する:"
+msgstr "ディスプレイの設定を保存:"
 
 #: package/contents/ui/Panel.qml:189
 #, kde-format
