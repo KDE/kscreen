@@ -476,9 +476,7 @@ msgid "Brightness:"
 msgstr "亮度："
 
 #: ui/OutputPanel.qml:495
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"

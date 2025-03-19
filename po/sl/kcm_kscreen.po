@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:43+0000\n"
-"PO-Revision-Date: 2025-03-10 07:37+0100\n"
+"PO-Revision-Date: 2025-03-18 07:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -492,12 +492,10 @@ msgid "Brightness:"
 msgstr "Svetlost:"
 
 #: ui/OutputPanel.qml:495
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1%"
 
 #: ui/OutputPanel.qml:501
 #, kde-format
