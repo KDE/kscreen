@@ -204,7 +204,7 @@ msgstr ""
 #: ui/Output.qml:217
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:243
 #, kde-format

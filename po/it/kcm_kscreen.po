@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:43+0000\n"
-"PO-Revision-Date: 2025-03-01 08:00+0100\n"
+"PO-Revision-Date: 2025-03-18 19:07+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
@@ -299,12 +299,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -313,8 +308,7 @@ msgid ""
 msgstr ""
 "Determina la quantità di riempimento attorno all'immagine inviata allo "
 "schermo per compensare la parte del contenuto tagliata attorno ai bordi.<nl/"
-"><nl/>Questa operazione è talvolta necessaria quando si utilizza una TV come "
-"schermo"
+"><nl/>Questo è talvolta necessario quando si utilizza una TV come schermo."
 
 #: ui/OutputPanel.qml:196
 #, kde-format
@@ -332,12 +326,7 @@ msgid "Limited"
 msgstr "Limitato"
 
 #: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -345,8 +334,8 @@ msgid ""
 "look washed out."
 msgstr ""
 "Determina se la gamma dei possibili valori di colore deve essere limitata o "
-"meno per lo schermo. Questa opzione dovrebbe essere modificata solo se i "
-"colori sullo schermo appaiono sbiaditi."
+"meno per lo schermo. Questa dovrebbe essere modificata solo se i colori "
+"sullo schermo appaiono sbiaditi."
 
 #: ui/OutputPanel.qml:221
 #, kde-format
@@ -416,12 +405,10 @@ msgid "Select ICC Profile"
 msgstr "Seleziona profilo ICC"
 
 #: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "I profili ICC non sono ancora compatibili con HDR"
+msgstr "I profili ICC non sono ancora compatibili con HDR."
 
 #: ui/OutputPanel.qml:345
 #, kde-format
@@ -436,10 +423,7 @@ msgid "Enable &HDR"
 msgstr "Abilita &HDR"
 
 #: ui/OutputPanel.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -466,12 +450,10 @@ msgid "Prefer color accuracy"
 msgstr "Preferisci la precisione del colore"
 
 #: ui/OutputPanel.qml:386
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "Questa impostazione può avere un impatto notevole sulle prestazioni"
+msgstr "Questa impostazione può avere un impatto notevole sulle prestazioni."
 
 #: ui/OutputPanel.qml:397
 #, kde-format
@@ -486,12 +468,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Aumenta l'intensità dei contenuti non sRGB sullo schermo"
+msgstr "Aumenta l'intensità dei contenuti non sRGB sullo schermo."
 
 #: ui/OutputPanel.qml:444
 #, kde-format
@@ -500,12 +480,10 @@ msgid "Maximum SDR brightness:"
 msgstr "Luminosità SDR massima:"
 
 #: ui/OutputPanel.qml:465
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "Imposta la luminosità massima per il cursore della luminosità normale"
+msgstr "Imposta la luminosità massima per il cursore della luminosità normale."
 
 #: ui/OutputPanel.qml:476
 #, kde-format
@@ -514,9 +492,7 @@ msgid "Brightness:"
 msgstr "Luminosità:"
 
 #: ui/OutputPanel.qml:495
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
