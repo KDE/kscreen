@@ -360,7 +360,6 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label:listbox", "Color accuracy:")
@@ -383,7 +382,15 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferAccuracy
-            toolTipText: i18nc("@info:tooltip", "This setting can have a large impact on performance.")
+            toolTipText: xi18nc("@info:tooltip", "Preferring color accuracy limits potentially inaccurate offloading of color operations to the display driver and increases the maximum color resolution.<nl/><nl/>
+                                                  Note that this setting can have a large impact on performance.")
+        }
+        Kirigami.ContextualHelpButton {
+            visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency
+                  && element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC
+                  && !(root.hdrAvailable && element.hdr)
+            toolTipText: xi18nc("@info:tooltip", "Preferring efficiency simplifies the ICC profile, improving performance at the cost of color accuracy.<nl/><nl/>
+                                                  Note that changing this setting can have a large impact on performance.")
         }
     }
 
