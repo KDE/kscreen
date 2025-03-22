@@ -247,7 +247,7 @@ msgstr "“%1”是此显示器支持的唯一刷新率。"
 #: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "自适应垂直同步："
+msgstr "自适应同步："
 
 #: ui/OutputPanel.qml:161
 #, kde-format
