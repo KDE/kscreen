@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2015-08-27 16:59+0200\n"
-"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"PO-Revision-Date: 2025-03-23 20:22+0100\n"
+"Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -28,51 +28,51 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:657
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr ""
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:738
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: output_model.cpp:745
 #, kde-format
 msgid "Replicated by other output"
-msgstr ""
+msgstr "Duplisert av annen utenhet"
 
 #: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
-msgstr ""
+msgstr "Vil du beholde det nye skjermoppsettet?"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Går tilbake til forrige oppsett om %1 sekund."
+msgstr[1] "Går tilbake til forrige oppsett om %1 sekunder."
 
 #: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
-msgstr ""
+msgstr "&Behold"
 
 #: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
-msgstr ""
+msgstr "&Tilbakestill"
 
 #: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Alle skjermene er slått av. Slå på minst én."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -80,63 +80,66 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Mellomrom mellom skjermer er ikke støttet. Se til at alle skjermene er i "
+"kontakt."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
-msgstr ""
+msgstr "En ny utenhet ble koblet til. Innstillingene er lastet inn på nytt."
 
 #: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
-msgstr ""
+msgstr "En ny utenhet ble fjernet. Innstillingene er lastet inn på nytt."
 
 #: package/contents/ui/main.qml:171
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
+"Fant ikke noen KScreen-motor. Kontroller at KScreen er rett installert."
 
 #: package/contents/ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr ""
+msgstr "Klarte ikke lagre utganger, grunnet feil."
 
 #: package/contents/ui/main.qml:191
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
+msgstr "Endringer i global skalering får virkning etter omstart."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Start på nytt"
 
 #: package/contents/ui/main.qml:217
 #, kde-format
 msgid "Display configuration reverted."
-msgstr ""
+msgstr "Skjermoppsett ble tilbakestilt."
 
 #: package/contents/ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Endre prioritet"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
 msgid "Primary"
-msgstr ""
+msgstr "Hovedskjerm"
 
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Hev prioritet"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Senk prioritet"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -148,32 +151,32 @@ msgstr "Orientering:"
 #: package/contents/ui/OutputPanel.qml:195
 #, kde-format
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisk"
 
 #: package/contents/ui/Orientation.qml:35
 #, kde-format
 msgid "Only when in tablet mode"
-msgstr ""
+msgstr "Bare i tegneplate-modus"
 
 #: package/contents/ui/Orientation.qml:44
 #, kde-format
 msgid "Manual"
-msgstr ""
+msgstr "Manuelt"
 
 #: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
-msgstr ""
+msgstr "Duplikatenheter"
 
 #: package/contents/ui/OutputPanel.qml:24
 #, kde-format
 msgid "Enabled"
-msgstr "Slått på"
+msgstr "Bruk skjermen"
 
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Endre skjermprioritet …"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -183,6 +186,10 @@ msgid ""
 "older games also use it to decide which screen to appear on.<nl/><nl/>It has "
 "no effect on what screen notifications or other windows appear on."
 msgstr ""
+"Hvilken skjerm hovedskrivebordet og panelet skal vises på. Noen gamle spill "
+"bruker og innstillingen til å velge hvilken skjerm de skal vises på.<nl/><nl/"
+">Det påvirker ikke hvilken for en skjerm varslinger og andre vinduer vises "
+"på."
 
 #: package/contents/ui/OutputPanel.qml:53
 #, kde-format
@@ -198,88 +205,91 @@ msgid ""
 "they were never guaranteed to work and are not available in this Plasma "
 "Wayland session."
 msgstr ""
+"«%1» er eneste oppløsning støttet av denne skjermen.<nl/><nl/>Bruk av ikke-"
+"støttet oppløsninger var mulig i X11-økter, men de var aldri garantert å "
+"virke, og de er ikke støttet i Wayland-økter."
 
 #: package/contents/ui/OutputPanel.qml:83
 #, kde-format
 msgid "Scale:"
-msgstr ""
+msgstr "Skalering:"
 
 #: package/contents/ui/OutputPanel.qml:112 package/contents/ui/Panel.qml:107
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
 msgid "Refresh rate:"
-msgstr "Oppfriskingsrate:"
+msgstr "Oppdateringsfrekvens:"
 
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
+msgstr "«%1» er den eneste oppdateringsfrekvensen støttet av denne skjermen."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
 msgid "Adaptive sync:"
-msgstr ""
+msgstr "Adaptiv synkronisering:"
 
 #: package/contents/ui/OutputPanel.qml:152
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 #: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Alltid"
 
 #: package/contents/ui/OutputPanel.qml:165
 #, kde-format
 msgid "Overscan:"
-msgstr ""
+msgstr "Overskanning:"
 
 #: package/contents/ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB Range:"
-msgstr ""
+msgstr "RGB-område:"
 
 #: package/contents/ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Fullt"
 
 #: package/contents/ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
-msgstr ""
+msgstr "Avgrenset"
 
 #: package/contents/ui/OutputPanel.qml:213
 #, kde-format
 msgid "Replica of:"
-msgstr ""
+msgstr "Duplikat av:"
 
 #: package/contents/ui/Panel.qml:29
 #, kde-format
 msgid "Device:"
-msgstr ""
+msgstr "Enhet:"
 
 #: package/contents/ui/Panel.qml:71
 #, kde-format
 msgid "Global scale:"
-msgstr ""
+msgstr "Global skalering:"
 
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "Eldre programmer (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Skalerer seg selv"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -287,12 +297,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"Eldre program som støtter skalering, vil bruke det og se klare ut, men de "
+"som ikke støtter det, skaleres ikke i det hele tatt."
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Skalert av systemet"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -300,6 +312,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Alle eldre program skaleres av systemet til rett størrelse, men de kan da "
+"ses litt uklare ut."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
@@ -307,26 +321,28 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
+"Global skalering er avgrenset til multiplum av 6,25 %. Det er for å unngå "
+"visningsproblem i program under vindussystemet X11."
 
 #: package/contents/ui/Panel.qml:183
 #, kde-format
 msgid "Save displays' properties:"
-msgstr ""
+msgstr "Lagre skjermegenskaper:"
 
 #: package/contents/ui/Panel.qml:189
 #, kde-format
 msgid "For any display arrangement"
-msgstr ""
+msgstr "For alle skjermutforminger"
 
 #: package/contents/ui/Panel.qml:196
 #, kde-format
 msgid "For only this specific display arrangement"
-msgstr ""
+msgstr "Bare for denne skjermutformingen"
 
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
-msgstr "90° medurs"
+msgstr "90° med klokka"
 
 #: package/contents/ui/RotationButton.qml:54
 #, kde-format
@@ -336,19 +352,19 @@ msgstr "Opp ned"
 #: package/contents/ui/RotationButton.qml:58
 #, kde-format
 msgid "90° Counterclockwise"
-msgstr "90° moturs"
+msgstr "90° mot klokka"
 
 #: package/contents/ui/RotationButton.qml:63
 #, kde-format
 msgid "No Rotation"
-msgstr ""
+msgstr "Ingen rotering"
 
 #: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr ""
+msgstr "Dra skjermene for å bytte skjermplassering"
 
 #: package/contents/ui/Screen.qml:61
 #, kde-format
 msgid "Identify"
-msgstr ""
+msgstr "Identifiser"
