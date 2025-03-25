@@ -52,6 +52,8 @@ public:
         BrightnessRole,
         ColorPowerPreference,
         DdcCiAllowedRole,
+        PeakBrightnessOverride,
+        OutputNameRole,
     };
     Q_ENUM(OutputRoles)
 

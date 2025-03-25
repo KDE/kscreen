@@ -33,7 +33,7 @@ include(ECMQmlModule)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test Sensors)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test Sensors QuickControls2)
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
@@ -54,6 +54,14 @@ set_package_properties(LayerShellQt PROPERTIES
     URL "https://invent.kde.org/plasma/layer-shell-qt"
     PURPOSE "Required for the screen selection osd"
     TYPE REQUIRED
+)
+
+find_package(Qt6WaylandClient COMPONENTS Private)
+find_package(WaylandProtocols 1.41)
+set_package_properties(WaylandProtocols PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Collection of Wayland protocols that add functionality not available in the Wayland core protocol"
+    URL "https://gitlab.freedesktop.org/wayland/wayland-protocols/"
 )
 
 option(WITH_X11 "Enable X11 support" ON)
@@ -83,6 +91,7 @@ add_subdirectory(osd)
 add_subdirectory(plasmoid)
 add_subdirectory(tests)
 add_subdirectory(console)
+add_subdirectory(hdrcalibrator)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)

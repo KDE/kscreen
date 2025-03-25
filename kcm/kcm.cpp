@@ -74,6 +74,10 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     connect(KWinCompositingSetting::self(), &KWinCompositingSetting::allowTearingChanged, this, &KCMKScreen::tearingAllowedChanged);
 }
 
+KCMKScreen::~KCMKScreen()
+{
+}
+
 void KCMKScreen::configReady(ConfigOperation *op)
 {
     qCDebug(KSCREEN_KCM) << "Reading in config now.";
@@ -542,6 +546,11 @@ bool KCMKScreen::tearingSupported() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
+}
+
+void KCMKScreen::startHdrCalibrator(const QString &outputName)
+{
+    QProcess::execute("hdrcalibrator", {outputName});
 }
 
 #include "kcm.moc"

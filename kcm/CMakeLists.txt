@@ -34,4 +34,6 @@ target_link_libraries(kcm_kscreen PRIVATE
     Plasma::PlasmaQuick
     KF6::KCMUtilsQuick
     KF6::Screen
+    Qt::WaylandClient
+    Qt::GuiPrivate
 )

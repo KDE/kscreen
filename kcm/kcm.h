@@ -50,6 +50,7 @@ public:
     Q_ENUM(InvalidConfigReason)
 
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
+    ~KCMKScreen() override;
 
     void load() override;
     void save() override;
@@ -93,6 +94,8 @@ public:
 
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
+
+    Q_INVOKABLE void startHdrCalibrator(const QString &outputName);
 
 Q_SIGNALS:
     void backendReadyChanged();

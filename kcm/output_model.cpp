@@ -125,6 +125,10 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return static_cast<uint32_t>(output->colorPowerPreference());
     case DdcCiAllowedRole:
         return output->ddcCiAllowed();
+    case PeakBrightnessOverride:
+        return output->maxPeakBrightnessOverride().value_or(output->maxPeakBrightness());
+    case OutputNameRole:
+        return output->name();
     }
     return QVariant();
 }
@@ -299,6 +303,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setDdcCiAllowed(value.toBool());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case PeakBrightnessOverride:
+        output.ptr->setMaxPeakBrightnessOverride(value.toDouble());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -337,6 +345,8 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
     roles[DdcCiAllowedRole] = "ddcCiAllowed";
+    roles[PeakBrightnessOverride] = "peakBrightnessOverride";
+    roles[OutputNameRole] = "name";
     return roles;
 }
 
