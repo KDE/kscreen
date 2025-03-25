@@ -544,6 +544,11 @@ bool KCMKScreen::multipleScreensAvailable() const
     return m_outputProxyModel->rowCount() > 1;
 }
 
+void KCMKScreen::startHdrCalibrator(const QString &outputName)
+{
+    QProcess::startDetached("hdrcalibrator", {outputName});
+}
+
 #include "kcm.moc"
 
 #include "moc_kcm.cpp"

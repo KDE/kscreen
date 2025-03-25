@@ -56,6 +56,8 @@ public:
         AutomaticMaxBitsPerColorLimitRole,
         MinSupportedMaxBitsPerColorRole,
         MaxSupportedMaxBitsPerColorRole,
+        PeakBrightnessOverride,
+        OutputNameRole,
     };
     Q_ENUM(OutputRoles)
 

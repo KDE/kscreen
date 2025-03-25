@@ -361,6 +361,25 @@ Kirigami.FormLayout {
         }
     }
 
+    QQC2.Button {
+        id: hdrCalibrationButton
+        text: i18nc("@action:button", "Calibrate HDR Brightness…")
+        onClicked: kcm.startHdrCalibrator(element.name);
+
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        visible: root.hdrAvailable && element.hdr
+
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+        Accessible.role: Accessible.Button
+        Accessible.name: text
+        Accessible.description: i18n("Opens a window to calibrate HDR brightness")
+        Accessible.onPressAction: onClicked();
+    }
+
     RowLayout {
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
@@ -522,38 +541,6 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Increases the intensity of sRGB content on the screen.")
-        }
-    }
-
-    RowLayout {
-        Layout.fillWidth: true
-        // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
-        spacing: Kirigami.Units.smallSpacing
-
-        visible: root.hdrAvailable && element.hdr
-        Kirigami.FormData.label: i18nc("@label", "Maximum SDR brightness:")
-        Kirigami.FormData.buddyFor: sdrBrightnessSlider
-
-        QQC2.Slider {
-            id: sdrBrightnessSlider
-            Layout.fillWidth: true
-            from: 50
-            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
-            stepSize: 50
-            live: true
-            value: element.sdrBrightness
-            onMoved: element.sdrBrightness = value
-        }
-        QQC2.SpinBox {
-            from: 50
-            to: element.peakBrightness === 0 ? 500 : element.peakBrightness
-            stepSize: 10
-            value: element.sdrBrightness
-            onValueModified: element.sdrBrightness = value
-        }
-        Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Sets the maximum brightness for the normal brightness slider.")
         }
     }
 

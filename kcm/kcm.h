@@ -94,6 +94,8 @@ public:
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
 
+    Q_INVOKABLE void startHdrCalibrator(const QString &outputName);
+
 Q_SIGNALS:
     void backendReadyChanged();
     void backendError();
