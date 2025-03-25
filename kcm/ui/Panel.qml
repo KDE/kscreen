@@ -62,7 +62,7 @@ ColumnLayout {
                 Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
 
                 Layout.fillWidth: true
-                from: 100
+                from: 25
                 to: 300
                 stepSize: 25
                 live: true
@@ -78,7 +78,7 @@ ColumnLayout {
                 readonly property real factor: 16.0
                 readonly property real realValue: value / factor
 
-                from: 1.0 * factor
+                from: 0.25 * factor
                 to: 3.0 * factor
                 // On X11 We set the increment to this weird value to compensate
                 // for inherent difficulties with floating-point math and this
