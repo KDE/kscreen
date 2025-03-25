@@ -51,6 +51,7 @@ public:
         InteractiveMoveRole, // This output is currently repositioned interactively
         BrightnessRole,
         ColorPowerPreference,
+        PeakBrightnessOverride,
     };
     Q_ENUM(OutputRoles)
 

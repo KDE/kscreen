@@ -6,6 +6,7 @@ target_sources(kcm_kscreen PRIVATE
     config_handler.cpp config_handler.h
     kcm.cpp kcm.h
     output_model.cpp output_model.h
+    hdrhelper.cpp hdrhelper.h
     ${kwincompositing_SRC}
     ${CMAKE_SOURCE_DIR}/common/utils.cpp ${CMAKE_SOURCE_DIR}/common/utils.h
     ${CMAKE_SOURCE_DIR}/common/control.cpp ${CMAKE_SOURCE_DIR}/common/control.h
@@ -23,6 +24,10 @@ ecm_qt_declare_logging_category(kcm_kscreen
      DESCRIPTION "kscreen kcm (kscreen)" EXPORT KSCREEN
 )
 
+qt6_generate_wayland_protocol_client_sources(kcm_kscreen
+    FILES ${WaylandProtocols_DATADIR}/staging/color-management/color-management-v1.xml
+)
+
 kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC globalscalesettings.kcfgc)
 kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC kwincompositing_setting.kcfgc)
 target_link_libraries(kcm_kscreen PRIVATE
@@ -34,4 +39,6 @@ target_link_libraries(kcm_kscreen PRIVATE
     Plasma::PlasmaQuick
     KF6::KCMUtilsQuick
     KF6::Screen
+    Qt::WaylandClient
+    Qt::GuiPrivate
 )

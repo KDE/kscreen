@@ -55,6 +55,14 @@ set_package_properties(LayerShellQt PROPERTIES
     TYPE REQUIRED
 )
 
+find_package(Qt6WaylandClient COMPONENTS Private)
+find_package(WaylandProtocols 1.41)
+set_package_properties(WaylandProtocols PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Collection of Wayland protocols that add functionality not available in the Wayland core protocol"
+    URL "https://gitlab.freedesktop.org/wayland/wayland-protocols/"
+)
+
 option(WITH_X11 "Enable X11 support" ON)
 
 if(WITH_X11)

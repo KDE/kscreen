@@ -542,6 +542,10 @@ bool KCMKScreen::multipleScreensAvailable() const
     return m_outputProxyModel->rowCount() > 1;
 }
 
+void KCMKScreen::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance)
+{
+    m_hdrHelper.setHdrParameters(window, bt2020pq, referenceLuminance, maximumLuminance);
+}
 #include "kcm.moc"
 
 #include "moc_kcm.cpp"
