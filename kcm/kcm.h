@@ -9,6 +9,7 @@
 
 #include <KQuickManagedConfigModule>
 
+#include "hdrhelper.h"
 #include "output_model.h"
 
 namespace KScreen
@@ -19,6 +20,7 @@ class ConfigOperation;
 class ConfigHandler;
 class OrientationSensor;
 class OutputIdentifier;
+class QQuickWindow;
 
 class QSortFilterProxyModel;
 
@@ -94,6 +96,8 @@ public:
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
 
+    Q_INVOKABLE void setHdrParameters(QQuickWindow *window, uint32_t referenceLuminance, uint32_t maximumLuminance);
+
 Q_SIGNALS:
     void backendReadyChanged();
     void backendError();
@@ -139,4 +143,6 @@ private:
     QSortFilterProxyModel *m_outputProxyModel;
 
     QTimer *m_loadCompressor;
+
+    HdrHelper m_hdrHelper;
 };

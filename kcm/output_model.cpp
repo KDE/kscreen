@@ -123,6 +123,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->brightness();
     case ColorPowerPreference:
         return static_cast<uint32_t>(output->colorPowerPreference());
+    case PeakBrightnessOverride:
+        return output->maxPeakBrightnessOverride().value_or(output->maxPeakBrightness());
     }
     return QVariant();
 }
@@ -293,6 +295,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setColorPowerPreference(static_cast<KScreen::Output::ColorPowerTradeoff>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case PeakBrightnessOverride:
+        output.ptr->setMaxPeakBrightnessOverride(value.toDouble());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -330,6 +336,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[ColorProfileSource] = "colorProfileSource";
     roles[BrightnessRole] = "brightness";
     roles[ColorPowerPreference] = "colorPowerPreference";
+    roles[PeakBrightnessOverride] = "peakBrightnessOverride";
     return roles;
 }
 

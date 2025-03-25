@@ -467,6 +467,32 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        Kirigami.FormData.label: i18nc("@label:listbox", "HDR calibration:")
+        Kirigami.FormData.buddyFor: hdrCalibrationButton
+        visible: root.hdrAvailable && element.hdr
+
+        QQC2.Button {
+            id: hdrCalibrationButton
+            icon.name: "video-display-brightness-symbolic"
+            text: i18nc("@action:button", "Calibrate HDR brightness…")
+            display: QQC2.AbstractButton.IconOnly
+            onClicked: hdrCalibration.showFullScreen()
+
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+            Accessible.role: Accessible.Button
+            Accessible.name: text
+            Accessible.description: i18n("Opens a window to calibrate HDR brightness")
+            Accessible.onPressAction: onClicked();
+        }
+        HdrCalibrationWindow {
+            id: hdrCalibration
+        }
+    }
+
+    RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
