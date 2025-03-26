@@ -7,6 +7,7 @@
 
 #include <QQuickWindow>
 #include <qpa/qplatformwindow_p.h>
+#include <wayland-client-protocol.h>
 
 ColorManagementGlobal::ColorManagementGlobal()
     : QWaylandClientExtensionTemplate<ColorManagementGlobal>(1)
@@ -29,8 +30,9 @@ ColorManagementSurface::~ColorManagementSurface()
     wp_color_management_surface_v1_destroy(object());
 }
 
-PendingImageDescription::PendingImageDescription(ColorManagementSurface *surface, ::wp_image_description_v1 *descr)
+PendingImageDescription::PendingImageDescription(QQuickWindow *window, ColorManagementSurface *surface, ::wp_image_description_v1 *descr)
     : QtWayland::wp_image_description_v1(descr)
+    , m_window(window)
     , m_surface(surface)
 {
 }
@@ -42,8 +44,9 @@ PendingImageDescription::~PendingImageDescription()
 
 void PendingImageDescription::wp_image_description_v1_ready([[maybe_unused]] uint32_t identity)
 {
-    if (m_surface) {
+    if (m_window && m_surface) {
         wp_color_management_surface_v1_set_image_description(m_surface->object(), object(), WP_COLOR_MANAGER_V1_RENDER_INTENT_RELATIVE_BPC);
+        m_window->requestUpdate();
     }
     delete this;
 }
@@ -51,6 +54,11 @@ void PendingImageDescription::wp_image_description_v1_ready([[maybe_unused]] uin
 HdrHelper::HdrHelper()
     : m_global(std::make_unique<ColorManagementGlobal>())
 {
+    connect(m_global.get(), &ColorManagementGlobal::activeChanged, this, [this]() {
+        for (const auto &[window, params] : m_surfaces) {
+            setImageDescription(window);
+        }
+    });
 }
 
 HdrHelper::~HdrHelper()
@@ -68,7 +76,7 @@ void HdrHelper::setHdrParameters(QQuickWindow *window, uint32_t referenceLuminan
     params.referenceLuminance = referenceLuminance;
     params.maximumLuminance = maximumLuminance;
 
-    auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
+    const auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
     if (!waylandWindow || !waylandWindow->surface()) {
         window->installEventFilter(this);
         return;
@@ -78,27 +86,25 @@ void HdrHelper::setHdrParameters(QQuickWindow *window, uint32_t referenceLuminan
 
 void HdrHelper::setImageDescription(QQuickWindow *window)
 {
-    const auto initWayland = [this, window]() {
-        auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
-        auto &params = m_surfaces[window];
-        if (!m_global->isActive()) {
-            params.surface.reset();
-            return;
-        }
-        if (!params.surface) {
-            params.surface = std::make_unique<ColorManagementSurface>(m_global->get_surface(waylandWindow->surface()));
-        }
-        auto creator = m_global->create_parametric_creator();
-        wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_srgb);
-        wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_gamma22);
-        wp_image_description_creator_params_v1_set_luminances(creator, 0, params.maximumLuminance, params.referenceLuminance);
-        wp_image_description_creator_params_v1_set_mastering_luminance(creator, 0, params.maximumLuminance);
-        new PendingImageDescription(params.surface.get(), wp_image_description_creator_params_v1_create(creator));
-    };
-    if (m_global->isActive()) {
-        initWayland();
+    auto &params = m_surfaces[window];
+    if (!m_global->isActive()) {
+        params.surface.reset();
+        return;
     }
-    connect(m_global.get(), &ColorManagementGlobal::activeChanged, this, initWayland);
+    const auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
+    if (!waylandWindow || !waylandWindow->surface()) {
+        qDebug() << "Wayland window or surface don't exist yet";
+        return;
+    }
+    if (!params.surface) {
+        params.surface = std::make_unique<ColorManagementSurface>(m_global->get_surface(waylandWindow->surface()));
+    }
+    auto creator = m_global->create_parametric_creator();
+    wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_srgb);
+    wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_ext_linear);
+    wp_image_description_creator_params_v1_set_luminances(creator, 0, params.maximumLuminance, params.referenceLuminance);
+    wp_image_description_creator_params_v1_set_mastering_luminance(creator, 0, params.maximumLuminance);
+    new PendingImageDescription(window, params.surface.get(), wp_image_description_creator_params_v1_create(creator));
 }
 
 bool HdrHelper::eventFilter(QObject *watched, QEvent *event)

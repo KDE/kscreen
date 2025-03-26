@@ -34,11 +34,12 @@ public:
 class PendingImageDescription : public QtWayland::wp_image_description_v1
 {
 public:
-    explicit PendingImageDescription(ColorManagementSurface *surface, ::wp_image_description_v1 *descr);
+    explicit PendingImageDescription(QQuickWindow *window, ColorManagementSurface *surface, ::wp_image_description_v1 *descr);
     ~PendingImageDescription();
 
     void wp_image_description_v1_ready(uint32_t identity) override;
 
+    QPointer<QQuickWindow> m_window;
     QPointer<ColorManagementSurface> m_surface;
 };
 

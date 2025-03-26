@@ -1,5 +1,5 @@
 import QtCore
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
@@ -26,46 +26,52 @@ Window {
     //
     //
     // TODO:
-    // - make the peak luminance test work, and make it intuitive
     // - add a second page for the max average / max reference luminance
-    // - min luminance setting? Probably isn't necessary
     // - check out what exactly the Windows tool for this is doing
     // - remove the max SDR level slider from the main page
     // - make the button on the main page look ok
     // - add next, reset, cancel and (on last page) apply buttons
-
-    onVisibleChanged: kcm.setHdrParameters(hdrCalibration, 203, element.peakBrightnessOverride)
+    // - change peak luminance rect to be 10% of screen area
 
     ColumnLayout {
         Layout.fillWidth: true
         anchors.centerIn: parent
 
-        // boo, the Window parent doesn't work!
-        // Item {
-        //     id: brightnessPresentation
-        //     Window {
-        //         visible: true
-        //         parent: brightnessPresentation
+        WindowContainer {
+            Layout.alignment: Qt.AlignHCenter
+            window: Window {
+                id: hdrTest
+                visible: true
+                onVisibleChanged: kcm.setHdrParameters(hdrTest, element.sdrBrightness, 10000)
+                width: peakLuminanceRect.width
+                height: peakLuminanceRect.height
                 Rectangle {
                     id: peakLuminanceRect
-                    Layout.alignment: Qt.AlignHCenter
                     color: "white"
-                    // TODO change the size to be about 10% of the fullscreen window area
-                    // so that it matches the common definition of "peak" luminance
-                    width: 200
-                    height: 200
+                    width: Math.sqrt(hdrCalibration.width * hdrCalibration.height * 0.1)
+                    height: width
 
-                    Kirigami.Icon {
-                        // TODO this should be extremely bright white / 10k nits
-                        source: "plasma-symbolic"
-                        color: "blue"
-                        width: 200
-                        height: 200
-                        anchors.centerIn: parent
+                    WindowContainer {
+                        width: peakLuminanceRect.width
+                        height: peakLuminanceRect.height
+                        window: Window {
+                            id: hdrIcon
+                            visible: true
+                            onVisibleChanged: kcm.setHdrParameters(hdrIcon, element.sdrBrightness, element.peakBrightnessOverride)
+                            flags: Qt.WA_TranslucentBackground
+                            color: "#00000000"
+                            Kirigami.Icon {
+                                source: "plasma-symbolic"
+                                color: "white"
+                                width: peakLuminanceRect.width
+                                height: peakLuminanceRect.height
+                                anchors.centerIn: parent
+                            }
+                        }
                     }
                 }
-        //     }
-        // }
+            }
+        }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
@@ -77,29 +83,29 @@ Window {
                 id: sdrBrightnessSlider
                 Layout.fillWidth: true
                 from: 100
-                to: 10000
+                to: 2000
                 live: true
                 value: element.peakBrightnessOverride
                 onMoved: {
-                    element.peakBrightnessOverride = value
-                    kcm.setHdrParameters(hdrCalibration, 203, value)
+                    element.peakBrightnessOverride = value;
+                    kcm.setHdrParameters(hdrIcon, element.sdrBrightness, value);
                 }
             }
             QQC2.SpinBox {
                 from: 100
-                to: 10000
+                to: 2000
                 stepSize: 10
                 value: element.peakBrightnessOverride
                 onValueModified: {
-                    element.peakBrightnessOverride = value
-                    kcm.setHdrParameters(hdrCalibration, 203, value)
+                    element.peakBrightnessOverride = value;
+                    kcm.setHdrParameters(hdrIcon, element.sdrBrightness, element.peakBrightnessOverride);
                 }
             }
         }
         QQC2.Label {
             Layout.alignment: Qt.AlignHCenter
-            text: i18n("Set brightness so that you can barely not see the logo anymore")
+            text: i18n("To determine the maximum brightness of the screen, move the slider until you can just barely not see the logo anymore")
+            color: "white"
         }
     }
 }
-
