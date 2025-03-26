@@ -25,8 +25,10 @@ KCM.AbstractKCM {
         if (!(kcm.outputModel && kcm.backendReady)) return -1; // Wait for model
 
         for (let i = 0; i < kcm.outputModel.rowCount(); ++i) {
-            // Return index of first enabled display, 257 is EnabledRole
-            if (kcm.outputModel.data(kcm.outputModel.index(i, 0), 257) === true) return i;
+            // Return index of first enabled display
+            if (kcm.outputModel.data(kcm.outputModel.index(i, 0), KScreen.OutputModel.EnabledRole)) {
+                return i;
+            }
         }
 
         return 0; // Otherwise, select the first display

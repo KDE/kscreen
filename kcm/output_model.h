@@ -52,6 +52,7 @@ public:
         BrightnessRole,
         ColorPowerPreference,
     };
+    Q_ENUM(OutputRoles)
 
     explicit OutputModel(ConfigHandler *configHandler);
     ~OutputModel() override = default;

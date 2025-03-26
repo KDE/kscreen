@@ -48,7 +48,7 @@ public:
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     : KQuickManagedConfigModule(parent, data)
 {
-    qmlRegisterAnonymousType<OutputModel>("org.kde.private.kcm.screen", 1);
+    qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
     Log::instance();
