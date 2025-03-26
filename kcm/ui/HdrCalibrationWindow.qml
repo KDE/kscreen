@@ -12,35 +12,23 @@ Window {
     visible: false
     color: "black"
 
+    readonly property var tenPercentSize: Math.sqrt(hdrCalibration.width * hdrCalibration.height * 0.1);
+
     onVisibleChanged: {
         if (!visible) {
             return;
         }
-        // we have to reset the values, otherwise calibration will be modified with
-        element.peakBrightnessOverride = 2000;
-        kcm.doSave();
-    }
+        // we have to reset the values, otherwise
+        // - KWin will clamp peak luminance to the previous value
+        // - we need to show this calibration page at full brightness
+        // TODO add some sort of calibration protocol, to take care of this in a better way?
 
-    // FIXME deal with preconfigured parameters. Specifically
-    // - reference luminance, which changes the brightness mapping
-    // - peak luminance, which KWin clamps brightness levels to
-    //
-    // A quick but bad solution could be to just set the values as desired
-    // through the output management protocol.
-    //
-    // A better solution could be a small calibration / profiling protocol, which
-    // - makes KWin assume 10k as the maximum luminance, only while this window is visible
-    // - removes reference luminance mapping, or adjusts it to the window while it's visible
-    // - places the window on the correct screen
-    //
-    //
-    // TODO:
-    // - add a second page for the max average / max reference luminance
-    // - check out what exactly the Windows tool for this is doing
-    // - remove the max SDR level slider from the main page
-    // - make the button on the main page look ok
-    // - add next, reset, cancel and (on last page) apply buttons
-    // - change peak luminance rect to be 10% of screen area
+        var oldPeakBrightness = element.peakBrightnessOverride == 0 ? element.peakBrightness : element.peakBrightnessOverride;
+        element.peakBrightnessOverride = 2000;
+        element.brightness = 1.0;
+        kcm.doSave();
+        element.peakBrightnessOverride = oldPeakBrightness;
+    }
 
     ColumnLayout {
         id: peakLuminanceConfiguration
@@ -52,29 +40,31 @@ Window {
             window: Window {
                 id: peakLuminanceWindow
                 visible: true
-                onVisibleChanged: kcm.setHdrParameters(peakLuminanceWindow, element.sdrBrightness, 10000)
-                width: peakLuminanceRect.width
-                height: peakLuminanceRect.height
+                onVisibleChanged: kcm.setHdrParameters(peakLuminanceWindow, false, element.sdrBrightness, 10000)
+                width: hdrCalibration.tenPercentSize
+                height: hdrCalibration.tenPercentSize
                 Rectangle {
                     id: peakLuminanceRect
                     color: "white"
-                    width: Math.sqrt(hdrCalibration.width * hdrCalibration.height * 0.1)
-                    height: width
+                    width: hdrCalibration.tenPercentSize
+                    height: hdrCalibration.tenPercentSize
 
                     WindowContainer {
-                        width: peakLuminanceRect.width
-                        height: peakLuminanceRect.height
+                        width: hdrCalibration.tenPercentSize
+                        height: hdrCalibration.tenPercentSize
                         window: Window {
                             id: hdrIcon
                             visible: true
-                            onVisibleChanged: kcm.setHdrParameters(hdrIcon, element.sdrBrightness, element.peakBrightnessOverride)
+                            onVisibleChanged: kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, element.peakBrightnessOverride)
                             flags: Qt.WA_TranslucentBackground
                             color: "#00000000"
+                            width: hdrCalibration.tenPercentSize
+                            height: hdrCalibration.tenPercentSize
                             Kirigami.Icon {
                                 source: "plasma-symbolic"
                                 color: "white"
-                                width: peakLuminanceRect.width
-                                height: peakLuminanceRect.height
+                                width: hdrCalibration.tenPercentSize
+                                height: hdrCalibration.tenPercentSize
                                 anchors.centerIn: parent
                             }
                         }
@@ -86,7 +76,7 @@ Window {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
-            Layout.maximumWidth: peakLuminanceRect.width
+            Layout.maximumWidth: peakLuminanceWindow.width
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.Slider {
@@ -98,7 +88,7 @@ Window {
                 value: element.peakBrightnessOverride
                 onMoved: {
                     element.peakBrightnessOverride = value;
-                    kcm.setHdrParameters(hdrIcon, element.sdrBrightness, value);
+                    kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, value);
                 }
             }
             QQC2.SpinBox {
@@ -108,7 +98,7 @@ Window {
                 value: element.peakBrightnessOverride
                 onValueModified: {
                     element.peakBrightnessOverride = value;
-                    kcm.setHdrParameters(hdrIcon, element.sdrBrightness, element.peakBrightnessOverride);
+                    kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, element.peakBrightnessOverride);
                 }
             }
             QQC2.Button {
@@ -139,22 +129,51 @@ Window {
         anchors.centerIn: parent
         visible: false
 
-        Rectangle {
+        RowLayout {
+            id: testImages
             Layout.alignment: Qt.AlignHCenter
-            id: sdrGradientRect
-            width: hdrCalibration.width
-            height: Math.sqrt(hdrCalibration.width * hdrCalibration.height * 0.1)
-            gradient: Gradient {
-                orientation: Gradient.Horizontal
-                GradientStop { position: 0.0; color: "black"}
-                GradientStop { position: 1.0; color: "red"}
+            Layout.fillWidth: true
+            spacing: Kirigami.Units.smallSpacing
+
+            WindowContainer {
+                Layout.preferredWidth: hdrCalibration.tenPercentSize
+                Layout.preferredHeight: hdrCalibration.tenPercentSize
+                window: Window {
+                    id: hdrTestImageSurface
+                    visible: true
+                    width: hdrCalibration.tenPercentSize
+                    height: hdrCalibration.tenPercentSize
+                    onVisibleChanged: kcm.setHdrParameters(hdrTestImageSurface, true, 203, 1000)
+
+                    // TODO: replace this with some BT2020PQ HDR image
+                    Rectangle {
+                        width: hdrCalibration.tenPercentSize
+                        height: hdrCalibration.tenPercentSize
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: "black"}
+                            GradientStop { position: 1.0; color: "red"}
+                        }
+                    }
+                }
+            }
+
+            // TODO replace this with some SDR image
+            Rectangle {
+                Layout.preferredWidth: hdrCalibration.tenPercentSize
+                Layout.preferredHeight: hdrCalibration.tenPercentSize
+                gradient: Gradient {
+                    orientation: Gradient.Horizontal
+                    GradientStop { position: 0.0; color: "black"}
+                    GradientStop { position: 1.0; color: "blue"}
+                }
             }
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
-            Layout.maximumWidth: peakLuminanceRect.width
+            Layout.maximumWidth: hdrCalibration.tenPercentSize
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.Slider {
@@ -181,11 +200,13 @@ Window {
                 }
             }
             QQC2.Button {
-                icon.name: "arrow-right"
-                text: i18nc("@action:button", "Next")
+                icon.name: "dialog-ok-apply"
+                text: i18nc("@action:button", "Done")
                 onClicked: {
-                    peakLuminanceConfiguration.visible = true;
+                    kcm.doSave();
+                    hdrCalibration.visible = false;
                     sdrLuminanceConfiguration.visible = false;
+                    peakLuminanceConfiguration.visible = true;
                 }
 
                 Accessible.role: Accessible.Button
@@ -196,7 +217,7 @@ Window {
         }
         QQC2.Label {
             Layout.alignment: Qt.AlignHCenter
-            text: i18n("To determine the maximum brightness of SDR content, set brightness as high as possible before the gradient looks bad")
+            text: xi18nc("@label", "Configure how bright \"100\%\" on the normal brightness slider makes the screen.")
             color: "white"
         }
     }

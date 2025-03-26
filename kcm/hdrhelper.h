@@ -50,7 +50,7 @@ public:
     explicit HdrHelper();
     ~HdrHelper();
 
-    void setHdrParameters(QQuickWindow *window, uint32_t referenceLuminance, uint32_t maximumLuminance);
+    void setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance);
 
 private:
     void setImageDescription(QQuickWindow *window);
@@ -59,6 +59,7 @@ private:
     const std::unique_ptr<ColorManagementGlobal> m_global;
     struct WindowParams {
         std::unique_ptr<ColorManagementSurface> surface;
+        bool bt2020pq;
         uint32_t referenceLuminance;
         uint32_t maximumLuminance;
     };

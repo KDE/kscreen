@@ -65,7 +65,7 @@ HdrHelper::~HdrHelper()
 {
 }
 
-void HdrHelper::setHdrParameters(QQuickWindow *window, uint32_t referenceLuminance, uint32_t maximumLuminance)
+void HdrHelper::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance)
 {
     if (!m_surfaces.contains(window)) {
         connect(window, &QObject::destroyed, this, [this, window]() {
@@ -75,6 +75,7 @@ void HdrHelper::setHdrParameters(QQuickWindow *window, uint32_t referenceLuminan
     auto &params = m_surfaces[window];
     params.referenceLuminance = referenceLuminance;
     params.maximumLuminance = maximumLuminance;
+    params.bt2020pq = bt2020pq;
 
     const auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
     if (!waylandWindow || !waylandWindow->surface()) {
@@ -100,8 +101,13 @@ void HdrHelper::setImageDescription(QQuickWindow *window)
         params.surface = std::make_unique<ColorManagementSurface>(m_global->get_surface(waylandWindow->surface()));
     }
     auto creator = m_global->create_parametric_creator();
-    wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_srgb);
-    wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_ext_linear);
+    if (params.bt2020pq) {
+        wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_bt2020);
+        wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_st2084_pq);
+    } else {
+        wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_srgb);
+        wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_ext_linear);
+    }
     wp_image_description_creator_params_v1_set_luminances(creator, 0, params.maximumLuminance, params.referenceLuminance);
     wp_image_description_creator_params_v1_set_mastering_luminance(creator, 0, params.maximumLuminance);
     new PendingImageDescription(window, params.surface.get(), wp_image_description_creator_params_v1_create(creator));

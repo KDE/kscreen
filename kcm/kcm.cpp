@@ -557,9 +557,9 @@ bool ScreenSortProxyModel::lessThan(const QModelIndex &source_left, const QModel
     return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
-void KCMKScreen::setHdrParameters(QQuickWindow *window, uint32_t referenceLuminance, uint32_t maximumLuminance)
+void KCMKScreen::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance)
 {
-    m_hdrHelper.setHdrParameters(window, referenceLuminance, maximumLuminance);
+    m_hdrHelper.setHdrParameters(window, bt2020pq, referenceLuminance, maximumLuminance);
 }
 
 #include "kcm.moc"

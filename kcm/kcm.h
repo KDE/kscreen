@@ -89,8 +89,6 @@ public:
 
     bool multipleScreensAvailable() const;
 
-    // FIXME this should not be called from the HDR calibration page
-    // maybe it needs its own method for setting only the HDR parameters - without a revert page
     Q_INVOKABLE void doSave();
     Q_INVOKABLE void revertSettings();
     Q_INVOKABLE void requestReboot();
@@ -98,7 +96,7 @@ public:
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
 
-    Q_INVOKABLE void setHdrParameters(QQuickWindow *window, uint32_t referenceLuminance, uint32_t maximumLuminance);
+    Q_INVOKABLE void setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance);
 
 Q_SIGNALS:
     void backendReadyChanged();
