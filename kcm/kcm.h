@@ -89,7 +89,9 @@ public:
 
     bool multipleScreensAvailable() const;
 
-    void doSave();
+    // FIXME this should not be called from the HDR calibration page
+    // maybe it needs its own method for setting only the HDR parameters - without a revert page
+    Q_INVOKABLE void doSave();
     Q_INVOKABLE void revertSettings();
     Q_INVOKABLE void requestReboot();
 
