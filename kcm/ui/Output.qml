@@ -212,7 +212,7 @@ Item {
         radius: Kirigami.Units.cornerRadius
 
         opacity: model.enabled &&
-                 (tapHandler.isLongPressed || dragHandler.active) ? 0.9 : 0.0
+                 (tapHandler.isLongPressed || output.isDragging) ? 0.9 : 0.0
 
 
         color: Kirigami.Theme.disabledTextColor
@@ -263,6 +263,8 @@ Item {
         }
     }
 
+    property bool preciseDrag: false
+
     property point dragStartPosition
 
     TapHandler {
@@ -281,16 +283,41 @@ Item {
         onLongPressed: isLongPressed = true;
         longPressThreshold: 0.3
     }
+
+    readonly property bool isDragging: impreciseDragHandler.active || preciseDragHandler.active
+
     DragHandler {
-        id: dragHandler
-        enabled: output.interactive
+        id: impreciseDragHandler
+        enabled: output.interactive && !preciseDragHandler.active
         acceptedButtons: Qt.LeftButton
+        acceptedModifiers: Qt.KeyboardModifierMask
         grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
         target: null
 
         onTranslationChanged: {
             var newX = dragStartPosition.x + translation.x;
             var newY = dragStartPosition.y + translation.y;
+            model.position = getAbsolutePosition(Qt.point(newX, newY));
+        }
+        onActiveChanged: {
+            model.interactiveMove = active;
+            if (!active) {
+                screen.resetTotalSize();
+            }
+        }
+    }
+
+    DragHandler {
+        id: preciseDragHandler
+        enabled: output.interactive
+        acceptedButtons: Qt.LeftButton
+        acceptedModifiers: active ? Qt.KeyboardModifierMask : Qt.ControlModifier
+        grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
+        target: null
+
+        onTranslationChanged: {
+            var newX = dragStartPosition.x + (translation.x / (screen.relativeFactor / 2));
+            var newY = dragStartPosition.y + (translation.y / (screen.relativeFactor / 2));
             model.position = getAbsolutePosition(Qt.point(newX, newY));
         }
         onActiveChanged: {
