@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:43+0000\n"
+"POT-Creation-Date: 2025-03-28 00:43+0000\n"
 "PO-Revision-Date: 2023-02-17 01:07+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.2\n"
 
-#: kcm.cpp:156 kcm.cpp:178
+#: kcm.cpp:152 kcm.cpp:174
 #, kde-format
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:204
+#: kcm.cpp:200
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -56,7 +56,7 @@ msgstr "Heç biri"
 msgid "Replicated by other output"
 msgstr "Başqa çıxışlar ilə əvəzlənib"
 
-#: ui/main.qml:26
+#: ui/main.qml:43
 #, fuzzy, kde-format
 #| msgid "Identify"
 msgctxt ""
@@ -64,70 +64,70 @@ msgctxt ""
 msgid "Identify Screens"
 msgstr "Müəyyən edin"
 
-#: ui/main.qml:41
+#: ui/main.qml:56
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Ekran tənzimlənməsi saxlanılsın?"
 
-#: ui/main.qml:50
+#: ui/main.qml:65
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 saniyəyə əvvəlki tənzimləmələrə qaytarılacaq."
 msgstr[1] "%1 saniyəyə əvvəlki tənzimləməyə qaytarılacaq."
 
-#: ui/main.qml:67
+#: ui/main.qml:82
 #, kde-format
 msgid "&Keep"
 msgstr "&Saxlayın"
 
-#: ui/main.qml:80
+#: ui/main.qml:95
 #, kde-format
 msgid "&Revert"
 msgstr "&Geri qaytarın"
 
-#: ui/main.qml:100
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr ""
 
-#: ui/main.qml:102
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: ui/main.qml:107
+#: ui/main.qml:122
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Ekran tənzimlənməsi saxlanılsın?"
 
-#: ui/main.qml:116
+#: ui/main.qml:131
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Yeni çıxış kanalı əlavə olundu. Ayarlar yeniləndi."
 
-#: ui/main.qml:118
+#: ui/main.qml:133
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Çıxış kanalı silindi. Ayarlar yeniləndi."
 
-#: ui/main.qml:158
+#: ui/main.qml:187
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Heç bir KScreen modulu tapılmadı. Lütfən KScreen quraşdırıldığını yoxlayın."
 
-#: ui/main.qml:167
+#: ui/main.qml:196
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Çıxışlar xəta olduğu müddətdə saxlanıla bilməz."
 
-#: ui/main.qml:176
+#: ui/main.qml:205
 #, fuzzy, kde-format
 #| msgid ""
 #| "New global scale applied. Change will come into effect after restart."
@@ -137,43 +137,56 @@ msgstr ""
 "Yeni qlobal miqyas tətbiq edilib. Dəyişiklik, yenidən başladıqdan sonra "
 "qüvvəyə minəcək."
 
-#: ui/main.qml:182
+#: ui/main.qml:211
 #, kde-format
 msgid "Restart"
 msgstr "Yenidən başladın"
 
-#: ui/main.qml:200
+#: ui/main.qml:229
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Ekran tənizmlənməsi geri qaytarıldı."
 
-#: ui/main.qml:212
+#: ui/main.qml:243
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr ""
 
-#: ui/main.qml:242 ui/OutputPanel.qml:45
+#: ui/main.qml:273 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "Əsas"
 
-#: ui/main.qml:247
+#: ui/main.qml:278
 #, kde-format
 msgid "Raise priority"
 msgstr ""
 
-#: ui/main.qml:257
+#: ui/main.qml:288
 #, kde-format
 msgid "Lower priority"
 msgstr ""
+
+#: ui/main.qml:400
+#, kde-format
+msgctxt "@action:button Shrink the height of a view"
+msgid "Collapse"
+msgstr ""
+
+#: ui/main.qml:401
+#, fuzzy, kde-format
+#| msgid "For any display arrangement"
+msgctxt "@action:button Edit the arrangement of display outputs"
+msgid "Edit Arrangement"
+msgstr "İstənilən ekran düzülüşü üçün"
 
 #: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "İstiqamət:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:162 ui/OutputPanel.qml:204
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:163 ui/OutputPanel.qml:205
 #, kde-format
 msgid "Automatic"
 msgstr "Avtomatik"
@@ -188,39 +201,46 @@ msgstr "Yalnız planşet rejimində"
 msgid "Manual"
 msgstr "Əl ilə"
 
-#: ui/Output.qml:19
+#: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
 msgstr ""
 
-#: ui/Output.qml:21
+#: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr ""
 
-#: ui/Output.qml:217
+#: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
 msgstr ""
 
-#: ui/Output.qml:243
+#: ui/Output.qml:252
 #, kde-format
 msgid "Replicas"
 msgstr "Replikalar"
 
 #: ui/OutputPanel.qml:27
+#, fuzzy, kde-format
+#| msgid "Device:"
+msgctxt "@label for a checkbox that says 'Enabled'"
+msgid "Device:"
+msgstr "Cihaz:"
+
+#: ui/OutputPanel.qml:28
 #, kde-format
 msgid "Enabled"
 msgstr "İşə salınıb"
 
-#: ui/OutputPanel.qml:38
+#: ui/OutputPanel.qml:39
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr ""
 
-#: ui/OutputPanel.qml:51
+#: ui/OutputPanel.qml:52
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -239,68 +259,68 @@ msgstr ""
 "bunu istifadə edir.<nl/><nl/>Bu, hansı ekran bilirişlərinin və ya digər "
 "pəncərələrin göstəriləcəyinə heç bir təsir etmir."
 
-#: ui/OutputPanel.qml:56
+#: ui/OutputPanel.qml:57
 #, kde-format
 msgid "Resolution:"
 msgstr "Görüntü icazələri:"
 
-#: ui/OutputPanel.qml:77
+#: ui/OutputPanel.qml:78
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "\"%1\" bu ekran tərəfindən dəstəklənən yeganə yenilənmə aralığıdır."
 
-#: ui/OutputPanel.qml:87
+#: ui/OutputPanel.qml:88
 #, kde-format
 msgid "Scale:"
 msgstr "Miqyas:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:94 ui/Panel.qml:56
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr ""
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:121 ui/Panel.qml:87
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:132
+#: ui/OutputPanel.qml:133
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Yenilənmə tezliyi:"
 
-#: ui/OutputPanel.qml:153
+#: ui/OutputPanel.qml:154
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" bu ekran tərəfindən dəstəklənən yeganə yenilənmə aralığıdır."
 
-#: ui/OutputPanel.qml:158
+#: ui/OutputPanel.qml:159
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Uyğunlaşdırılmış eyniləşdirmə:"
 
-#: ui/OutputPanel.qml:161
+#: ui/OutputPanel.qml:162
 #, kde-format
 msgid "Never"
 msgstr "Heç vaxt"
 
-#: ui/OutputPanel.qml:163
+#: ui/OutputPanel.qml:164
 #, kde-format
 msgid "Always"
 msgstr "Həmişə"
 
-#: ui/OutputPanel.qml:174
+#: ui/OutputPanel.qml:175
 #, kde-format
 msgid "Overscan:"
 msgstr "Sahə:"
 
-#: ui/OutputPanel.qml:185
+#: ui/OutputPanel.qml:186
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -308,7 +328,7 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:191
+#: ui/OutputPanel.qml:192
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -317,23 +337,23 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:197
 #, fuzzy, kde-format
 #| msgid "RGB Range:"
 msgid "RGB range:"
 msgstr "RGB aralığı:"
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "Full"
 msgstr "Tam"
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:207
 #, kde-format
 msgid "Limited"
 msgstr "Məhdud"
 
-#: ui/OutputPanel.qml:216
+#: ui/OutputPanel.qml:217
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -348,32 +368,32 @@ msgstr ""
 "Ekran üçün mümkün rəng dəyərləri aralığının məhdudlaşdırılıb-"
 "məhdudlaşdırılmayacağını müəyyən edir."
 
-#: ui/OutputPanel.qml:221
+#: ui/OutputPanel.qml:222
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:233
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Heç biri"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:242
+#: ui/OutputPanel.qml:243
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr ""
 
-#: ui/OutputPanel.qml:260
+#: ui/OutputPanel.qml:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -382,92 +402,92 @@ msgid ""
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
-#: ui/OutputPanel.qml:264
+#: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
 msgstr ""
 
-#: ui/OutputPanel.qml:277
+#: ui/OutputPanel.qml:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:293
+#: ui/OutputPanel.qml:294
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:304
+#: ui/OutputPanel.qml:305
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:313
+#: ui/OutputPanel.qml:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:338
+#: ui/OutputPanel.qml:339
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr ""
 
-#: ui/OutputPanel.qml:345
+#: ui/OutputPanel.qml:346
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:352
+#: ui/OutputPanel.qml:353
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "İşə salınıb"
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:367
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:377
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:386
+#: ui/OutputPanel.qml:387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:397
+#: ui/OutputPanel.qml:398
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr ""
 
-#: ui/OutputPanel.qml:425
+#: ui/OutputPanel.qml:426
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -475,31 +495,31 @@ msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:433
+#: ui/OutputPanel.qml:434
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:444
+#: ui/OutputPanel.qml:445
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:465
+#: ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
-#: ui/OutputPanel.qml:476
+#: ui/OutputPanel.qml:477
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:495
+#: ui/OutputPanel.qml:496
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -507,34 +527,29 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:501
+#: ui/OutputPanel.qml:502
 #, kde-format
 msgid "Replica of:"
 msgstr "Replika mənbəyi:"
 
-#: ui/Panel.qml:27
-#, kde-format
-msgid "Device:"
-msgstr "Cihaz:"
-
-#: ui/Panel.qml:75
+#: ui/Panel.qml:49
 #, kde-format
 msgid "Global scale:"
 msgstr "Qlobal miqyas:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:111 ui/Panel.qml:131
 #, fuzzy, kde-format
 #| msgid "Legacy Applications (X11):"
 msgid "Legacy applications (X11):"
 msgstr "Köhnə tətbiqlər (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:116
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Öz-özünə genişlənməni tətbiq edin"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:121
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -546,13 +561,13 @@ msgstr ""
 "Miqyaslama, miqyaslamanı dəstəkləyən köhnə tətbiqlər üçün istifadə olunacaq, "
 "Miqyaslanma nəzərdə tutulmayan pəncərələr ümumiyyətlə miqyaslanmayacaq."
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:132
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistemə görə miqyaslanıb"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:137
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -561,20 +576,20 @@ msgstr ""
 "Bütün köhnə tətbiqlər sistemə uyğun olaraq düzgün ölçüsünə miqyaslanacaq, "
 "bununla belə onlar azca bulanıq görünəcək."
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:142
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr ""
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:145
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr ""
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -582,7 +597,7 @@ msgid ""
 "graphics drivers support this setting."
 msgstr ""
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:164
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -611,7 +626,7 @@ msgstr "90° saat ərəbinin əksinə"
 msgid "No Rotation"
 msgstr "Dönməsiz"
 
-#: ui/ScreenView.qml:50
+#: ui/ScreenView.qml:53
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Ekranların yerini dəyişərək düzün"
@@ -637,9 +652,6 @@ msgstr "Ekranların yerini dəyişərək düzün"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "Ekran xüsusiyyətləri yadda saxlanılsın:"
-
-#~ msgid "For any display arrangement"
-#~ msgstr "İstənilən ekran düzülüşü üçün"
 
 #~ msgid "For only this specific display arrangement"
 #~ msgstr "Yalnız xüsusi ekran düzülüşü üçün"

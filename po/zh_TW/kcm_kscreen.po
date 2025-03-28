@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:43+0000\n"
-"PO-Revision-Date: 2025-02-06 20:15+0900\n"
+"POT-Creation-Date: 2025-03-28 00:43+0000\n"
+"PO-Revision-Date: 2025-03-27 21:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 24.12.3\n"
 
-#: kcm.cpp:156 kcm.cpp:178
+#: kcm.cpp:152 kcm.cpp:174
 #, kde-format
 msgid "Implementation error"
 msgstr "實作錯誤"
 
-#: kcm.cpp:204
+#: kcm.cpp:200
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "在嘗試套用設定時有輸出變更了"
@@ -39,15 +39,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -59,118 +57,129 @@ msgstr "無"
 msgid "Replicated by other output"
 msgstr "已被其他輸出複製"
 
-#: ui/main.qml:26
+#: ui/main.qml:43
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "識別螢幕"
 
-#: ui/main.qml:41
+#: ui/main.qml:56
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "保留顯示器設定嗎？"
 
-#: ui/main.qml:50
+#: ui/main.qml:65
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "將於 %1 秒後回復至先前的配置。"
 
-#: ui/main.qml:67
+#: ui/main.qml:82
 #, kde-format
 msgid "&Keep"
 msgstr "保留(&K)"
 
-#: ui/main.qml:80
+#: ui/main.qml:95
 #, kde-format
 msgid "&Revert"
 msgstr "回復(&R)"
 
-#: ui/main.qml:100
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "所有螢幕都被停用了。請至少啟用一個。"
 
-#: ui/main.qml:102
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "不支援螢幕間有空白。請確保所有螢幕都有接觸到彼此。"
 
-#: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#: ui/main.qml:122
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "無法套用顯示器設定：%1"
 
-#: ui/main.qml:116
+#: ui/main.qml:131
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "已新增輸出。設定已重新載入。"
 
-#: ui/main.qml:118
+#: ui/main.qml:133
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "已移除輸出。設定已重新載入。"
 
-#: ui/main.qml:158
+#: ui/main.qml:187
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "找不到 KScreen 後端介面。請檢查您的 KScreen 安裝。"
 
-#: ui/main.qml:167
+#: ui/main.qml:196
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "發生錯誤導致無法儲存輸出。"
 
-#: ui/main.qml:176
+#: ui/main.qml:205
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "全域縮放比例的變更將在系統重新啟動後生效。"
 
-#: ui/main.qml:182
+#: ui/main.qml:211
 #, kde-format
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ui/main.qml:200
+#: ui/main.qml:229
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "已回復顯示器設定。"
 
-#: ui/main.qml:212
+#: ui/main.qml:243
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "變更優先值"
 
-#: ui/main.qml:242 ui/OutputPanel.qml:45
+#: ui/main.qml:273 ui/OutputPanel.qml:46
 #, kde-format
 msgid "Primary"
 msgstr "主顯示"
 
-#: ui/main.qml:247
+#: ui/main.qml:278
 #, kde-format
 msgid "Raise priority"
 msgstr "提升優先順序"
 
-#: ui/main.qml:257
+#: ui/main.qml:288
 #, kde-format
 msgid "Lower priority"
 msgstr "降低優先順序"
+
+#: ui/main.qml:400
+#, kde-format
+msgctxt "@action:button Shrink the height of a view"
+msgid "Collapse"
+msgstr ""
+
+#: ui/main.qml:401
+#, fuzzy, kde-format
+#| msgid "For any display arrangement"
+msgctxt "@action:button Edit the arrangement of display outputs"
+msgid "Edit Arrangement"
+msgstr "用於任意顯示器排序"
 
 #: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
 msgstr "方向："
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:162 ui/OutputPanel.qml:204
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:163 ui/OutputPanel.qml:205
 #, kde-format
 msgid "Automatic"
 msgstr "自動"
@@ -185,39 +194,46 @@ msgstr "只在平板模式時"
 msgid "Manual"
 msgstr "手動"
 
-#: ui/Output.qml:19
+#: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
-#: ui/Output.qml:21
+#: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
-#: ui/Output.qml:217
+#: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
-#: ui/Output.qml:243
+#: ui/Output.qml:252
 #, kde-format
 msgid "Replicas"
 msgstr "複本"
 
 #: ui/OutputPanel.qml:27
+#, fuzzy, kde-format
+#| msgid "Device:"
+msgctxt "@label for a checkbox that says 'Enabled'"
+msgid "Device:"
+msgstr "裝置："
+
+#: ui/OutputPanel.qml:28
 #, kde-format
 msgid "Enabled"
 msgstr "已開啟"
 
-#: ui/OutputPanel.qml:38
+#: ui/OutputPanel.qml:39
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "變更螢幕優先值…"
 
-#: ui/OutputPanel.qml:51
+#: ui/OutputPanel.qml:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -230,81 +246,73 @@ msgstr ""
 "用這個設定來決定要出現在哪個螢幕上。<nl/><nl/>它不影響通知或是其他視窗會出現"
 "在的螢幕。"
 
-#: ui/OutputPanel.qml:56
+#: ui/OutputPanel.qml:57
 #, kde-format
 msgid "Resolution:"
 msgstr "解析度(&R)："
 
-#: ui/OutputPanel.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#: ui/OutputPanel.qml:78
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "&quot;%1&quot; 是這個顯示器唯一支援的解析度。"
+msgstr "“%1” 是這個顯示器唯一支援的解析度。"
 
-#: ui/OutputPanel.qml:87
+#: ui/OutputPanel.qml:88
 #, kde-format
 msgid "Scale:"
 msgstr "比例："
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:94 ui/Panel.qml:56
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "單位為普通縮放的百分比"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:121 ui/Panel.qml:87
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:132
+#: ui/OutputPanel.qml:133
 #, kde-format
 msgid "Refresh rate:"
 msgstr "刷新頻率："
 
-#: ui/OutputPanel.qml:153
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#: ui/OutputPanel.qml:154
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "\"%1\" 是這個顯示器唯一支援的刷新頻率。"
+msgstr "“%1” 是這個顯示器唯一支援的刷新頻率。"
 
-#: ui/OutputPanel.qml:158
+#: ui/OutputPanel.qml:159
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "自適應同步："
 
-#: ui/OutputPanel.qml:161
+#: ui/OutputPanel.qml:162
 #, kde-format
 msgid "Never"
 msgstr "永不"
 
-#: ui/OutputPanel.qml:163
+#: ui/OutputPanel.qml:164
 #, kde-format
 msgid "Always"
 msgstr "總是"
 
-#: ui/OutputPanel.qml:174
+#: ui/OutputPanel.qml:175
 #, kde-format
 msgid "Overscan:"
 msgstr "Overscan："
 
-#: ui/OutputPanel.qml:185
+#: ui/OutputPanel.qml:186
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:191
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#: ui/OutputPanel.qml:192
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -312,30 +320,25 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "決定傳送至顯示器的影像週邊要加上多大的間隙，來彌補會將內容邊緣的一部分切掉的"
-"情況。<nl/><nl/>有的時候將電視作為顯示器使用時會需要這個選項"
+"情況。<nl/><nl/>有的時候將電視作為顯示器使用時會需要這個選項。"
 
-#: ui/OutputPanel.qml:196
+#: ui/OutputPanel.qml:197
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 範圍："
 
-#: ui/OutputPanel.qml:205
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "Full"
 msgstr "完整"
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:207
 #, kde-format
 msgid "Limited"
 msgstr "有限"
 
-#: ui/OutputPanel.qml:216
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#: ui/OutputPanel.qml:217
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -345,33 +348,31 @@ msgstr ""
 "決定是否要為該顯示器限制可以使用的顏色數值範圍。只有在螢幕上的顏色好像褪色一"
 "樣的情況下才適合調整這個選項。"
 
-#: ui/OutputPanel.qml:221
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#: ui/OutputPanel.qml:222
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "色彩描述檔："
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:233
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "無"
 
-#: ui/OutputPanel.qml:237
+#: ui/OutputPanel.qml:238
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC 描述檔"
 
-#: ui/OutputPanel.qml:242
+#: ui/OutputPanel.qml:243
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "內建"
 
-#: ui/OutputPanel.qml:260
+#: ui/OutputPanel.qml:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -382,174 +383,149 @@ msgstr ""
 "如果有的話，使用螢幕本身內建的色彩描述檔。請注意，內建的色彩描述檔也有可能是"
 "錯誤的，且經常是不準確的。要確保最好的顏色品質，建議使用色度計進行測量校正。"
 
-#: ui/OutputPanel.qml:264
+#: ui/OutputPanel.qml:265
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
 msgstr "使用 HDR 時只會使用螢幕的內建色彩描述檔。"
 
-#: ui/OutputPanel.qml:277
+#: ui/OutputPanel.qml:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "輸入 ICC 設定檔路徑…"
 
-#: ui/OutputPanel.qml:293
+#: ui/OutputPanel.qml:294
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "選取 ICC 設定檔…"
 
-#: ui/OutputPanel.qml:304
+#: ui/OutputPanel.qml:305
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "會開啟檔案選取工具來選取 ICC 設定檔"
 
-#: ui/OutputPanel.qml:313
+#: ui/OutputPanel.qml:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "選取 ICC 設定檔"
 
-#: ui/OutputPanel.qml:338
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#: ui/OutputPanel.qml:339
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC 設定檔目前與 HDR 尚不相容"
+msgstr "ICC 設定檔目前與 HDR 尚不相容。"
 
-#: ui/OutputPanel.qml:345
+#: ui/OutputPanel.qml:346
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "高動態範圍 (HDR)："
 
-#: ui/OutputPanel.qml:352
+#: ui/OutputPanel.qml:353
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "啟用 &HDR"
 
-#: ui/OutputPanel.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#: ui/OutputPanel.qml:359
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
-msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色"
+msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。"
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:367
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "色彩準確度："
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "注重效能"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:377
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "注重色彩準確度"
 
-#: ui/OutputPanel.qml:386
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#: ui/OutputPanel.qml:387
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "這個設定可能會嚴重影響效能"
+msgstr "這個設定可能會嚴重影響效能。"
 
-#: ui/OutputPanel.qml:397
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#: ui/OutputPanel.qml:398
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩強度："
 
-#: ui/OutputPanel.qml:425
+#: ui/OutputPanel.qml:426
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#: ui/OutputPanel.qml:434
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "提高螢幕上 sRGB 內容的色彩強度"
+msgstr "提高螢幕上 sRGB 內容的色彩強度。"
 
-#: ui/OutputPanel.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#: ui/OutputPanel.qml:445
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "最高 SDR 亮度："
 
-#: ui/OutputPanel.qml:465
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#: ui/OutputPanel.qml:466
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "設定普通亮度滑條的最高亮度"
+msgstr "設定普通亮度滑條的最高亮度。"
 
-#: ui/OutputPanel.qml:476
+#: ui/OutputPanel.qml:477
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:495
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#: ui/OutputPanel.qml:496
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:501
+#: ui/OutputPanel.qml:502
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："
 
-#: ui/Panel.qml:27
-#, kde-format
-msgid "Device:"
-msgstr "裝置："
-
-#: ui/Panel.qml:75
+#: ui/Panel.qml:49
 #, kde-format
 msgid "Global scale:"
 msgstr "全域縮放比例："
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:111 ui/Panel.qml:131
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "舊式應用程式 (X11)："
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:116
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "讓它們自行套用縮放"
 
-#: ui/Panel.qml:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#: ui/Panel.qml:121
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
@@ -557,33 +533,33 @@ msgstr ""
 "支援縮放的舊式應用程式將自行進行縮放並以清晰方式呈現，但不支援的就完全不會被"
 "縮放。"
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:132
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "由系統縮放"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:137
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr "所有舊式應用程式都會由系統縮放到正確大小，但它們全部都會有一點模糊。"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:142
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "螢幕撕裂："
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:145
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "在全螢幕視窗中允許"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -593,7 +569,7 @@ msgstr ""
 "在大部分顯示器上，允許螢幕撕裂會降低延遲。請注意，不是所有顯示卡驅動程式都支"
 "援這個設定。"
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:164
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
@@ -622,7 +598,7 @@ msgstr "逆時針轉 90°"
 msgid "No Rotation"
 msgstr "無旋轉"
 
-#: ui/ScreenView.qml:50
+#: ui/ScreenView.qml:53
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖曳螢幕以重新排列"
@@ -648,9 +624,6 @@ msgstr "拖曳螢幕以重新排列"
 
 #~ msgid "Save displays' properties:"
 #~ msgstr "儲存顯示器的屬性："
-
-#~ msgid "For any display arrangement"
-#~ msgstr "用於任意顯示器排序"
 
 #~ msgid "For only this specific display arrangement"
 #~ msgstr "僅用於此指定顯示器排序"
