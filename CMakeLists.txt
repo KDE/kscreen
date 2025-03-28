@@ -72,7 +72,7 @@ endif()
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 
 ecm_set_disabled_deprecation_versions(QT 6.8.0
-    KF 6.9.0
+    KF 6.12.0
 )
 
 
