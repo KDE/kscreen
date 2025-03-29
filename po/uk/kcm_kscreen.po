@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:43+0000\n"
-"PO-Revision-Date: 2025-03-18 08:46+0200\n"
+"PO-Revision-Date: 2025-03-28 12:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -173,14 +173,13 @@ msgstr "Знизити пріоритет"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Згорнути"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Arrangement settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Параметри впорядковування"
+msgstr "Редагувати впорядковування"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -225,8 +224,7 @@ msgid "Replicas"
 msgstr "Репліки"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Пристрій:"
