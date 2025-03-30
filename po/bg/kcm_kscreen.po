@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:43+0000\n"
-"PO-Revision-Date: 2025-03-22 16:59+0100\n"
+"PO-Revision-Date: 2025-03-29 14:11+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -166,13 +166,13 @@ msgstr "По-нисък приоритет"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Свиване"
 
 #: ui/main.qml:401
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr ""
+msgstr "Редактиране на подреждането"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -217,8 +217,7 @@ msgid "Replicas"
 msgstr "Реплики"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Устройство:"

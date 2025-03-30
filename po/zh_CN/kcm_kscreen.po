@@ -162,13 +162,13 @@ msgstr "降低优先级"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "折叠"
 
 #: ui/main.qml:401
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr ""
+msgstr "编辑排列方式"
 
 #: ui/Orientation.qml:14
 #, kde-format
