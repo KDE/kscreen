@@ -32,6 +32,12 @@ ColumnLayout {
                 enabledOutputs: root.enabledOutputs
                 onReorder: root.reorder()
             }
+
+            // "Since 6.5, inserting/removing a new Item at an index less than or equal to the current
+            // index will increment/decrement the current index, but keep the current Item."
+            // This causes BUG: 490586 and the following works around it:
+            onItemAdded: panelView.currentIndex = Qt.binding(() => root.selectedOutput)
+            onItemRemoved: panelView.currentIndex = Qt.binding(() => root.selectedOutput)
         }
     }
 
