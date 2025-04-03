@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:43+0000\n"
-"PO-Revision-Date: 2025-03-20 19:07+0100\n"
+"PO-Revision-Date: 2025-04-02 16:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -169,14 +169,13 @@ msgstr "Bassa prioritate"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Plica"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "For any display arrangement"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Per ulle arrangiamento de monstrator"
+msgstr "Modifica arrangiamento"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -221,8 +220,7 @@ msgid "Replicas"
 msgstr "Replicas"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Dispositivo:"
