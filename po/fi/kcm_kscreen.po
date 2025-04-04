@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:43+0000\n"
-"PO-Revision-Date: 2025-02-15 19:48+0200\n"
+"PO-Revision-Date: 2025-03-23 14:20+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -37,12 +37,10 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
@@ -102,9 +100,7 @@ msgstr ""
 "toisiaan."
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Näyttömääritystä ei voitu ottaa käyttöön: %1"
@@ -205,18 +201,18 @@ msgstr "Manuaalinen"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3 %)"
 
 #: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:252
 #, kde-format
@@ -260,9 +256,7 @@ msgid "Resolution:"
 msgstr "Tarkkuus:"
 
 #: ui/OutputPanel.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "”%1” on ainoa tämän näytön tukema tarkkuus."
@@ -290,11 +284,10 @@ msgid "Refresh rate:"
 msgstr "Virkistystaajuus:"
 
 #: ui/OutputPanel.qml:154
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "Tämä näyttö tukee ainoastaan virkistystaajuutta ”%1”."
+msgstr "”%1” on ainoa tämän näytön tukema virkistystaajuus."
 
 #: ui/OutputPanel.qml:159
 #, kde-format
@@ -371,9 +364,7 @@ msgstr ""
 "Tätä muutetaan vain, jos näytön värit näyttävät haalistuneilta."
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Väriprofiili:"
@@ -496,9 +487,7 @@ msgid "This setting can have a large impact on performance."
 msgstr "Asetuksella voi olla suorituskykyyn suuri vaikutus"
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-väri-intensiteetti:"
@@ -518,9 +507,7 @@ msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä"
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "SDR-enimmäiskirkkaus:"
@@ -569,10 +556,7 @@ msgid "Apply scaling themselves"
 msgstr "Sovellukset skaalaavat itse"
 
 #: ui/Panel.qml:121
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."

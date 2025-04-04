@@ -1,6 +1,5 @@
 # Translation of plasma_applet_org.kde.kscreen to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
