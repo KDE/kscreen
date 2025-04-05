@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:43+0000\n"
+"POT-Creation-Date: 2025-04-05 00:43+0000\n"
 "PO-Revision-Date: 2025-03-16 14:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -263,13 +263,13 @@ msgstr "இத்திரை, \"%1\" எனும் பகுதிறனள�
 msgid "Scale:"
 msgstr "அளவுமாற்றம்:"
 
-#: ui/OutputPanel.qml:94 ui/Panel.qml:56
+#: ui/OutputPanel.qml:94 ui/Panel.qml:62
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "இயல்பான அளவின் சதவீதமாக"
 
-#: ui/OutputPanel.qml:121 ui/Panel.qml:87
+#: ui/OutputPanel.qml:121 ui/Panel.qml:93
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -513,23 +513,23 @@ msgstr "%1%"
 msgid "Replica of:"
 msgstr "எதன் நகலி:"
 
-#: ui/Panel.qml:49
+#: ui/Panel.qml:55
 #, kde-format
 msgid "Global scale:"
 msgstr "பொதுவான அளவுமாற்றம்:"
 
-#: ui/Panel.qml:111 ui/Panel.qml:131
+#: ui/Panel.qml:117 ui/Panel.qml:137
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "பழையவகை செயலிகள் (X11):"
 
-#: ui/Panel.qml:116
+#: ui/Panel.qml:122
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "தானே தன் அளவைமாற்றும்"
 
-#: ui/Panel.qml:121
+#: ui/Panel.qml:127
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -538,13 +538,13 @@ msgstr ""
 "அளவுமாற்றத்தை ஆதரிக்கும் செயலிகள் சரியான அளவிலும் தெளிவாகவும் தெரியும், ஆனால் அதை "
 "ஆதிரிக்காதவை தவறான அளவில் காட்டப்படும்."
 
-#: ui/Panel.qml:132
+#: ui/Panel.qml:138
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "சாளரநிரலால் அளவுமாற்றப்படும்"
 
-#: ui/Panel.qml:137
+#: ui/Panel.qml:143
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -553,20 +553,20 @@ msgstr ""
 "X11 செயலிகளை சாளரநிரலே சரியான அளவுக்கு பெரிதாக்கி காட்டும், ஆனால் அவை சற்று மங்கலாக "
 "தெரியலாம்."
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "திரைக் கிழிவு:"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:151
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "முழுத்திரை சாளரங்களில் அனுமதி"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -576,7 +576,7 @@ msgstr ""
 "திரைக் கிழிவை அனுமதிப்பது, பெரும்பாலான திரைகளில் வரைவுத் தாமத‍த்தைக் குறைக்கும். ஆனால் "
 "சில வரைகலை சாதனநிரல்கள் இவ்வமைப்பை ஆதரிக்காது."
 
-#: ui/Panel.qml:164
+#: ui/Panel.qml:170
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:43+0000\n"
+"POT-Creation-Date: 2025-04-05 00:43+0000\n"
 "PO-Revision-Date: 2025-03-28 07:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -271,13 +271,13 @@ msgstr "“%1” je edina ločljivost, ki jo podpira ta zaslon."
 msgid "Scale:"
 msgstr "Merilo:"
 
-#: ui/OutputPanel.qml:94 ui/Panel.qml:56
+#: ui/OutputPanel.qml:94 ui/Panel.qml:62
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "v odstotku regularne lestvice"
 
-#: ui/OutputPanel.qml:121 ui/Panel.qml:87
+#: ui/OutputPanel.qml:121 ui/Panel.qml:93
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -520,23 +520,23 @@ msgstr "%1%"
 msgid "Replica of:"
 msgstr "Replika od:"
 
-#: ui/Panel.qml:49
+#: ui/Panel.qml:55
 #, kde-format
 msgid "Global scale:"
 msgstr "Globalno merilo:"
 
-#: ui/Panel.qml:111 ui/Panel.qml:131
+#: ui/Panel.qml:117 ui/Panel.qml:137
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplikacije iz programske zapuščine (X11):"
 
-#: ui/Panel.qml:116
+#: ui/Panel.qml:122
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Naj izvedejo prilagoditev merila kar same"
 
-#: ui/Panel.qml:121
+#: ui/Panel.qml:127
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -546,13 +546,13 @@ msgstr ""
 "bodo videti jasno, tiste, ki ga ne podpirajo, pa sploh ne bodo prilagojene "
 "merilu."
 
-#: ui/Panel.qml:132
+#: ui/Panel.qml:138
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistem prilagaja merilo"
 
-#: ui/Panel.qml:137
+#: ui/Panel.qml:143
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -561,20 +561,20 @@ msgstr ""
 "Vse aplikacije iz programske zapuščine bo sistem prilagodil glede na merilo "
 "na pravilno velikost, a bodo vedno videti rahlo motno."
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Trganje zaslona:"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:151
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Dovoli v celozaslonskih oknih"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -584,7 +584,7 @@ msgstr ""
 "Trganje zaslona zmanjšuje zakasnitev pri večini zaslonov. Upoštevajte, da "
 "vsi grafični gonilniki ne podpirajo te nastavitve."
 
-#: ui/Panel.qml:164
+#: ui/Panel.qml:170
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

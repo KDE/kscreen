@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:43+0000\n"
+"POT-Creation-Date: 2025-04-05 00:43+0000\n"
 "PO-Revision-Date: 2025-02-13 12:42+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -275,13 +275,13 @@ msgstr "Это дисплей поддерживает только разреш
 msgid "Scale:"
 msgstr "Масштаб:"
 
-#: ui/OutputPanel.qml:94 ui/Panel.qml:56
+#: ui/OutputPanel.qml:94 ui/Panel.qml:62
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "в процентах от обычного масштаба"
 
-#: ui/OutputPanel.qml:121 ui/Panel.qml:87
+#: ui/OutputPanel.qml:121 ui/Panel.qml:93
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -561,23 +561,23 @@ msgstr "%1%"
 msgid "Replica of:"
 msgstr "Синхронизация с:"
 
-#: ui/Panel.qml:49
+#: ui/Panel.qml:55
 #, kde-format
 msgid "Global scale:"
 msgstr "Глобальный масштаб:"
 
-#: ui/Panel.qml:111 ui/Panel.qml:131
+#: ui/Panel.qml:117 ui/Panel.qml:137
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Устаревшие приложения (X11):"
 
-#: ui/Panel.qml:116
+#: ui/Panel.qml:122
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Масштабирование средствами приложений"
 
-#: ui/Panel.qml:121
+#: ui/Panel.qml:127
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -590,13 +590,13 @@ msgstr ""
 "средствами. В случае, если приложение не поддерживает масштабирование, оно "
 "будет отображаться в исходном размере."
 
-#: ui/Panel.qml:132
+#: ui/Panel.qml:138
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Масштабирование средствами системы"
 
-#: ui/Panel.qml:137
+#: ui/Panel.qml:143
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -606,20 +606,20 @@ msgstr ""
 "масштабирования системы, в результате чего они могут выглядеть слегка "
 "размытыми."
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Разрывы изображения (тиринг):"
 
-#: ui/Panel.qml:145
+#: ui/Panel.qml:151
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Разрешить для окон, распахнутых во весь экран"
 
-#: ui/Panel.qml:150
+#: ui/Panel.qml:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -630,7 +630,7 @@ msgstr ""
 "экранов. Обратите внимание, что не все драйверы видеокарт поддерживают эту "
 "функцию."
 
-#: ui/Panel.qml:164
+#: ui/Panel.qml:170
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
