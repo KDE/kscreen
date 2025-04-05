@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 02:34+0000\n"
+"POT-Creation-Date: 2025-04-05 02:39+0000\n"
 "PO-Revision-Date: 2025-03-01 17:13-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -234,13 +234,13 @@ msgstr "&quot;%1&quot; é a única resolução suportada por esta tela."
 msgid "Scale:"
 msgstr "Escala:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:88
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "em porcentagem da escala regular"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:119
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -482,23 +482,23 @@ msgstr "Réplica de:"
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ui/Panel.qml:75
+#: ui/Panel.qml:81
 #, kde-format
 msgid "Global scale:"
 msgstr "Escala global:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:143 ui/Panel.qml:163
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplicativos legados (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Aplicar escala eles mesmos"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:153
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -507,13 +507,13 @@ msgstr ""
 "Aplicativos legados que suportem escala irão usá-la e parecerão nítidos, mas "
 "aqueles que não suportam não serão escalados."
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:164
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Escalados pelo sistema"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -522,20 +522,20 @@ msgstr ""
 "Todos os aplicativos legados serão escalados pelo sistema para o tamanho "
 "correto, mas eles parecerão ligeiramente embaçados."
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Rasgo de tela:"
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:177
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Permitir em janelas em tela cheia"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -545,7 +545,7 @@ msgstr ""
 "O rasgo de tela reduz a latência na maioria dos monitores. Observe que nem "
 "todos os drivers gráficos suportam esta configuração."
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:196
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

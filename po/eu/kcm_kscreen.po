@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 02:34+0000\n"
+"POT-Creation-Date: 2025-04-05 02:39+0000\n"
 "PO-Revision-Date: 2025-01-03 09:48+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -233,13 +233,13 @@ msgstr ""
 msgid "Scale:"
 msgstr "Eskala:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:88
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "eskala arruntaren ehunekotan"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:119
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -481,23 +481,23 @@ msgstr "Honen erreplika:"
 msgid "Device:"
 msgstr "Gailua:"
 
-#: ui/Panel.qml:75
+#: ui/Panel.qml:81
 #, kde-format
 msgid "Global scale:"
 msgstr "Eskala globala:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:143 ui/Panel.qml:163
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Aplikazio heredatuak (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Ezarri haien burua eskalatzea"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:153
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -506,13 +506,13 @@ msgstr ""
 "Eskalatzea onartzen duten aplikazioek erabiliko dute eta garbi agertuko "
 "dira, hala ere, onartzen ez dutenak ez dira eskalatuko."
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:164
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Sistemak eskalatua"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -521,20 +521,20 @@ msgstr ""
 "Sistemak, heredatutako aplikazio guztiak neurri zuzenera eskalatuko ditu, "
 "dena den, beti izango dute itxura pixka bat gandutsua."
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Pantailaren urradura:"
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:177
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Baimendu pantaila-osoko leihoetan"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -544,7 +544,7 @@ msgstr ""
 "Pantailaren urradurak, pantaila gehienekin, latentzia murrizten du. Kontuan "
 "izan gidari grafiko guztien ez dutela ezarpen hori onartzen."
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:196
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 02:34+0000\n"
+"POT-Creation-Date: 2025-04-05 02:39+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -227,13 +227,13 @@ msgstr "&quot;%1&quot; इस डिस्प्ले द्वारा सम
 msgid "Scale:"
 msgstr "पैमाना:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:88
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "नियमित पैमाने के प्रतिशत में"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:119
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -473,23 +473,23 @@ msgstr "प्रतिकृति:"
 msgid "Device:"
 msgstr "उपकरण:"
 
-#: ui/Panel.qml:75
+#: ui/Panel.qml:81
 #, kde-format
 msgid "Global scale:"
 msgstr "वैश्विक स्तर:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:143 ui/Panel.qml:163
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "विरासत अनुप्रयोग (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "स्केलिंग स्वयं लागू करें"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:153
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -498,13 +498,13 @@ msgstr ""
 "स्केलिंग का समर्थन करने वाले लीगेसी अनुप्रयोग इसका उपयोग करेंगे और स्पष्ट दिखेंगे, हालांकि जो "
 "नहीं करते हैं, उनका स्केलिंग बिल्कुल नहीं किया जाएगा।"
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:164
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "सिस्टम द्वारा स्केल किया गया"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -513,20 +513,20 @@ msgstr ""
 "सभी लीगेसी अनुप्रयोगों को सिस्टम द्वारा सही आकार में स्केल किया जाएगा, हालांकि वे हमेशा "
 "थोड़े धुंधले दिखाई देंगे।"
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "स्क्रीन फाड़ना:"
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:177
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "पूर्णस्क्रीन विंडो में अनुमति दें"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -536,7 +536,7 @@ msgstr ""
 "स्क्रीन टियरिंग अधिकांश डिस्प्ले के साथ विलंबता को कम करता है। ध्यान दें कि सभी ग्राफ़िक्स "
 "ड्राइवर इस सेटिंग का समर्थन नहीं करते हैं।"
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:196
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

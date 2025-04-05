@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 02:34+0000\n"
+"POT-Creation-Date: 2025-04-05 02:39+0000\n"
 "PO-Revision-Date: 2025-01-03 04:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -229,13 +229,13 @@ msgstr ""
 msgid "Scale:"
 msgstr "გაფართოება:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:88
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "ჩვეულებრივი შკალის პროცენტებში"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:119
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -477,23 +477,23 @@ msgstr "რისი რეპლიკა:"
 msgid "Device:"
 msgstr "მოწყობიობა:"
 
-#: ui/Panel.qml:75
+#: ui/Panel.qml:81
 #, kde-format
 msgid "Global scale:"
 msgstr "გლობალურის მასშტაბი:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:143 ui/Panel.qml:163
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "მოძველებული აპლიკაციები (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "მასშტაბირების მათზევე გადატარება"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:153
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -503,13 +503,13 @@ msgstr ""
 "გამოიყენებს მას. მაგრამ გაითვალისწინეთ, აპლიკაციები, რომლებსაც ამისი "
 "მხარდაჭერა არ გააჩნია, საერთოდ არ იქნებიან მასშტაბირებული."
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:164
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "მასშტაბირებულია სისტემის მიერ"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -518,20 +518,20 @@ msgstr ""
 "ყველა მოძველებული აპლიკაცია გადიდდება სისტემის მიერ სწორ ზომამდე. მაგრამ "
 "ისინი ყოველთვის ბუნდოვნების იქნებიან."
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "ეკრანის დაჭრა:"
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:177
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "სრულ ეკრანზე გაშლილი ფანჯრების დაშვება"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -541,7 +541,7 @@ msgstr ""
 "ეკრანის დაჭრა ამცირებს დაყოვნებას უმეტესი ეკრანებისთვის. დაიმახსოვრეთ, რომ "
 "ამ პარამეტრის მხარდაჭერა, ბევრ დრაივერს არ გააჩნია."
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:196
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

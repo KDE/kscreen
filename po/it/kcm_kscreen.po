@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 02:34+0000\n"
+"POT-Creation-Date: 2025-04-05 02:39+0000\n"
 "PO-Revision-Date: 2025-03-01 08:00+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -231,13 +231,13 @@ msgstr "&quot;%1&quot; è l'unica risoluzione supportata da questo schermo."
 msgid "Scale:"
 msgstr "Scala:"
 
-#: ui/OutputPanel.qml:93 ui/Panel.qml:82
+#: ui/OutputPanel.qml:93 ui/Panel.qml:88
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "in percentuale della scala normale"
 
-#: ui/OutputPanel.qml:120 ui/Panel.qml:113
+#: ui/OutputPanel.qml:120 ui/Panel.qml:119
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -481,23 +481,23 @@ msgstr "Replica di:"
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ui/Panel.qml:75
+#: ui/Panel.qml:81
 #, kde-format
 msgid "Global scale:"
 msgstr "Scala globale:"
 
-#: ui/Panel.qml:137 ui/Panel.qml:157
+#: ui/Panel.qml:143 ui/Panel.qml:163
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Applicazioni obsolete (X11):"
 
-#: ui/Panel.qml:142
+#: ui/Panel.qml:148
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Ridimensionamento autonomo"
 
-#: ui/Panel.qml:147
+#: ui/Panel.qml:153
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -507,13 +507,13 @@ msgstr ""
 "utilizzeranno e avranno un aspetto nitido, tuttavia quelle che non lo "
 "supportano non saranno ridimensionate affatto."
 
-#: ui/Panel.qml:158
+#: ui/Panel.qml:164
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Ridimensionate dal sistema"
 
-#: ui/Panel.qml:163
+#: ui/Panel.qml:169
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -522,20 +522,20 @@ msgstr ""
 "Tutte le applicazioni obsolete saranno ridimensionate dal sistema alle "
 "dimensioni corrette, tuttavia appariranno sempre leggermente sfocate."
 
-#: ui/Panel.qml:168
+#: ui/Panel.qml:174
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Tearing dello schermo"
 
-#: ui/Panel.qml:171
+#: ui/Panel.qml:177
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Consenti nelle finestre a schermo intero"
 
-#: ui/Panel.qml:176
+#: ui/Panel.qml:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -545,7 +545,7 @@ msgstr ""
 "Il tearing dello schermo riduce la latenza con la maggior parte dei monitor. "
 "Tieni presente che non tutti i driver grafici supportano questa impostazione."
 
-#: ui/Panel.qml:190
+#: ui/Panel.qml:196
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
