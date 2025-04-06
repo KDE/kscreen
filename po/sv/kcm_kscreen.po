@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:43+0000\n"
-"PO-Revision-Date: 2025-02-28 19:42+0100\n"
+"PO-Revision-Date: 2025-04-05 18:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -166,14 +166,13 @@ msgstr "Sänk prioritet"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Dra ihop"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Arrangement settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Arrangemangsinställningar"
+msgstr "Redigera arrangemang"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -218,8 +217,7 @@ msgid "Replicas"
 msgstr "Kopior"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Enhet:"
@@ -314,12 +312,7 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:192
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -346,20 +339,15 @@ msgid "Limited"
 msgstr "begränsat"
 
 #: ui/OutputPanel.qml:217
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
-"Bestämmer om intervallet av möjliga färgvärden behöver begränsas för skärmen "
-"eller inte. Det ska bara ändras om färgerna på skärmen ser urvattnade ut."
+"Bestämmer om intervallet av möjliga färgvärden behöver begränsas för "
+"skärmen. Det ska bara ändras om färgerna på skärmen ser urvattnade ut."
 
 #: ui/OutputPanel.qml:222
 #, kde-format
@@ -430,12 +418,10 @@ msgid "Select ICC Profile"
 msgstr "Välj ICC-profil"
 
 #: ui/OutputPanel.qml:339
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren’t compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC-profiler är inte kompatibla med stort dynamiskt intervall ännu"
+msgstr "ICC-profiler är inte kompatibla med stort dynamiskt intervall ännu."
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -450,10 +436,7 @@ msgid "Enable &HDR"
 msgstr "Aktivera stort &dynamiskt intervall"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
@@ -480,12 +463,10 @@ msgid "Prefer color accuracy"
 msgstr "Föredra färgnoggrannhet"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "Inställningen kan ha stor prestandapåverkan"
+msgstr "Inställningen kan ha stor prestandapåverkan."
 
 #: ui/OutputPanel.qml:398
 #, kde-format
@@ -500,12 +481,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Ökar intensiteten för sRGB-innehåll på skärmen"
+msgstr "Ökar intensiteten för sRGB-innehåll på skärmen."
 
 #: ui/OutputPanel.qml:445
 #, kde-format
@@ -514,12 +493,10 @@ msgid "Maximum SDR brightness:"
 msgstr "Maximal ljusstyrka för litet dynamiskt intervall:"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "Ställer in maximal ljusstyrka för skjutreglaget för normal ljusstyrka"
+msgstr "Ställer in maximal ljusstyrka för skjutreglaget för normal ljusstyrka."
 
 #: ui/OutputPanel.qml:477
 #, kde-format
@@ -528,9 +505,7 @@ msgid "Brightness:"
 msgstr "Ljusstyrka:"
 
 #: ui/OutputPanel.qml:496
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
