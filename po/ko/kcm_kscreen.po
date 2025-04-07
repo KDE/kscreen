@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:43+0000\n"
-"PO-Revision-Date: 2024-12-24 17:37+0100\n"
+"PO-Revision-Date: 2025-04-07 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -36,15 +36,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:678
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2(%3:%4)"
+msgstr "%1 × %2(%3:%4)"
 
 #: output_model.cpp:759
 #, kde-format
@@ -100,9 +98,7 @@ msgstr ""
 "십시오."
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "디스플레이 설정을 적용할 수 없음: %1"
@@ -168,14 +164,13 @@ msgstr "우선 순위 감소"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "접기"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "고급 설정"
+msgstr "배열 편집"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -201,18 +196,18 @@ msgstr "수동"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:252
 #, kde-format
@@ -220,8 +215,7 @@ msgid "Replicas"
 msgstr "복제"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "장치:"
@@ -255,12 +249,10 @@ msgid "Resolution:"
 msgstr "해상도:"
 
 #: ui/OutputPanel.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "이 디스플레이에서는 &quot;%1&quot; 해상도만 지원합니다."
+msgstr "이 디스플레이에서는 \"%1\" 해상도만 지원합니다."
 
 #: ui/OutputPanel.qml:88
 #, kde-format
@@ -285,8 +277,7 @@ msgid "Refresh rate:"
 msgstr "화면 주사율:"
 
 #: ui/OutputPanel.qml:154
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
@@ -318,12 +309,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:192
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -332,7 +318,7 @@ msgid ""
 msgstr ""
 "모서리 근처에서 디스플레이 내용이 잘리는 것을 보상하기 위해서 표시된 화면에 "
 "여백을 얼마나 표시할지 결정합니다.<nl/><nl/>TV를 화면으로 사용할 때 필요할 "
-"수 있습니다"
+"수 있습니다."
 
 #: ui/OutputPanel.qml:197
 #, kde-format
@@ -350,12 +336,7 @@ msgid "Limited"
 msgstr "제한됨"
 
 #: ui/OutputPanel.qml:217
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -366,9 +347,7 @@ msgstr ""
 "않을 때에만 변경하십시오."
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "색 프로필:"
@@ -392,28 +371,22 @@ msgid "Built-in"
 msgstr "내장"
 
 #: ui/OutputPanel.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Note that built-in color profiles are sometimes wrong, and often "
-#| "inaccurate. For optimal color fidelity, calibration using a colorimeter "
-#| "is recommended."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"내장 색 프로필은 때때로 잘못되었거나 부정확할 수도 있습니다. 최적 색 품질을 "
-"위해서는 외부 색도계로 교정하십시오."
+"사용 가능한 경우 화면에 내장된 색 프로필을 사용합니다. 내장 색 프로필은 때때"
+"로 잘못되었거나 부정확할 수도 있습니다. 최적 색 품질을 위해서는 외부 색도계"
+"로 교정하십시오."
 
 #: ui/OutputPanel.qml:265
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The built-in color profile is always used with HDR."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
-msgstr "HDR에서는 내장 색 프로필을 항상 사용합니다."
+msgstr "HDR에서는 화면 내장 색 프로필을 항상 사용합니다."
 
 #: ui/OutputPanel.qml:278
 #, kde-format
@@ -439,12 +412,10 @@ msgid "Select ICC Profile"
 msgstr "ICC 프로필 선택"
 
 #: ui/OutputPanel.qml:339
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC 프로필은 HDR과 호환되지 않습니다"
+msgstr "ICC 프로필은 HDR과 호환되지 않습니다."
 
 #: ui/OutputPanel.qml:346
 #, kde-format
@@ -453,23 +424,18 @@ msgid "High Dynamic Range:"
 msgstr "HDR:"
 
 #: ui/OutputPanel.qml:353
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "HDR 활성화"
+msgstr "HDR 활성화(&H)"
 
 #: ui/OutputPanel.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
-"HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다"
+"HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다."
 
 #: ui/OutputPanel.qml:367
 #, kde-format
@@ -490,17 +456,13 @@ msgid "Prefer color accuracy"
 msgstr "색 정밀도 선호"
 
 #: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance."
-msgstr "이 설정은 성능에 큰 영향을 줄 수 있음"
+msgstr "이 설정은 성능에 큰 영향을 줄 수 있습니다."
 
 #: ui/OutputPanel.qml:398
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 색상 강도:"
@@ -512,28 +474,22 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:434
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도 증가"
+msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도를 증가시킵니다."
 
 #: ui/OutputPanel.qml:445
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Maximum SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "최대 SDR 밝기:"
 
 #: ui/OutputPanel.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Sets the maximum brightness for the normal brightness slider"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "일반 밝기 슬라이더의 최대 밝기 설정"
+msgstr "일반 밝기 슬라이더의 최대 밝기 설정입니다."
 
 #: ui/OutputPanel.qml:477
 #, kde-format
@@ -542,9 +498,7 @@ msgid "Brightness:"
 msgstr "밝기:"
 
 #: ui/OutputPanel.qml:496
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -571,10 +525,7 @@ msgid "Apply scaling themselves"
 msgstr "자체적으로 크기 조정"
 
 #: ui/Panel.qml:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
