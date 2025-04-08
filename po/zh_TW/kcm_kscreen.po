@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:43+0000\n"
-"PO-Revision-Date: 2025-03-27 21:54+0900\n"
+"PO-Revision-Date: 2025-04-07 13:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -165,14 +165,13 @@ msgstr "降低優先順序"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "折疊"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "For any display arrangement"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "用於任意顯示器排序"
+msgstr "編輯排列"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -217,8 +216,7 @@ msgid "Replicas"
 msgstr "複本"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "裝置："
