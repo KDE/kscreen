@@ -167,7 +167,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || (isSaveCheck && output->sdrGamutWideness() != config->sdrGamutWideness())
                     || output->colorProfileSource() != config->colorProfileSource()
                     || (isSaveCheck && output->brightness() != config->brightness())
-                    || output->colorPowerPreference() != config->colorPowerPreference()) {
+                    || output->colorPowerPreference() != config->colorPowerPreference()
+                    || output->replicationSource() != config->replicationSource()) {
                         return true;
                     }
             }
