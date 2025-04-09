@@ -747,11 +747,17 @@ QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
 
 int OutputModel::replicationSourceId(const Output &output) const
 {
-    const KScreen::OutputPtr source = m_config->replicationSource(output.ptr);
-    if (!source) {
-        return 0;
+    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
+        // on Wayland, just return the output's replication source...
+        return output.ptr->replicationSource();
+    } else {
+        // keep the old behavior for X11
+        const KScreen::OutputPtr source = m_config->replicationSource(output.ptr);
+        if (!source) {
+            return 0;
+        }
+        return source->id();
     }
-    return source->id();
 }
 
 QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
@@ -822,6 +828,7 @@ static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScr
 bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
     if (outputIndex <= sourceIndex) {
+        // the output itself isn't in the list of the model
         sourceIndex++;
     }
     if (sourceIndex >= m_outputs.count()) {
@@ -831,47 +838,58 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     Output &output = m_outputs[outputIndex];
     const int oldSourceId = replicationSourceId(output);
 
-    if (sourceIndex < 0) {
-        if (oldSourceId == 0) {
-            // no change
-            return false;
+    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
+        // on Wayland, we just set the replication source, and that's all
+        if (sourceIndex >= 0) {
+            output.ptr->setReplicationSource(m_outputs[sourceIndex].ptr->id());
+        } else {
+            output.ptr->setReplicationSource(0);
         }
-        m_config->setReplicationSource(output.ptr, nullptr);
-        output.ptr->setExplicitLogicalSize(QSizeF());
-        resetPosition(output);
     } else {
-        const auto source = m_outputs[sourceIndex].ptr;
-        if (oldSourceId == source->id()) {
-            // no change
-            return false;
-        }
+        // keep the old behavior for X11, to avoid breaking it
+        if (sourceIndex < 0) {
+            if (oldSourceId == 0) {
+                // no change
+                return false;
+            }
+            m_config->setReplicationSource(output.ptr, nullptr);
+            output.ptr->setExplicitLogicalSize(QSizeF());
+            resetPosition(output);
+        } else {
+            const auto source = m_outputs[sourceIndex].ptr;
+            if (oldSourceId == source->id()) {
+                // no change
+                return false;
+            }
 
-        // In replicating outputs, we don't change the source
-        // Step 1: set the destination mode, if possible
-        const auto bestMode = getBestMode(output.ptr, source);
-        if (!bestMode) {
-            return false;
-        }
-        // Step 2: reposition ans scale destination output to be centered inside the source output
-        auto sourceSize = source->currentMode()->size();
-        auto destinationSize = bestMode->size();
-        if (source->rotation() == KScreen::Output::Left || source->rotation() == KScreen::Output::Right) {
-            sourceSize = sourceSize.transposed();
-        }
-        if (output.ptr->rotation() == KScreen::Output::Left || output.ptr->rotation() == KScreen::Output::Right) {
-            destinationSize = destinationSize.transposed();
-        }
-        qreal scale = source->scale() * std::max(destinationSize.width() / qreal(sourceSize.width()), destinationSize.height() / qreal(sourceSize.height()));
-        // round up to integer multiples of 1/120 to avoid issues with triggering hidden panels from the edge
-        scale = std::ceil(scale * 120.0) / 120.0;
-        const QPoint relPos((sourceSize.width() / source->scale() - destinationSize.width() / scale) / 2,
-                            (sourceSize.height() / source->scale() - destinationSize.height() / scale) / 2);
+            // In replicating outputs, we don't change the source
+            // Step 1: set the destination mode, if possible
+            const auto bestMode = getBestMode(output.ptr, source);
+            if (!bestMode) {
+                return false;
+            }
+            // Step 2: reposition ans scale destination output to be centered inside the source output
+            auto sourceSize = source->currentMode()->size();
+            auto destinationSize = bestMode->size();
+            if (source->rotation() == KScreen::Output::Left || source->rotation() == KScreen::Output::Right) {
+                sourceSize = sourceSize.transposed();
+            }
+            if (output.ptr->rotation() == KScreen::Output::Left || output.ptr->rotation() == KScreen::Output::Right) {
+                destinationSize = destinationSize.transposed();
+            }
+            qreal scale =
+                source->scale() * std::max(destinationSize.width() / qreal(sourceSize.width()), destinationSize.height() / qreal(sourceSize.height()));
+            // round up to integer multiples of 1/120 to avoid issues with triggering hidden panels from the edge
+            scale = std::ceil(scale * 120.0) / 120.0;
+            const QPoint relPos((sourceSize.width() / source->scale() - destinationSize.width() / scale) / 2,
+                                (sourceSize.height() / source->scale() - destinationSize.height() / scale) / 2);
 
-        output.ptr->setCurrentModeId(bestMode->id());
-        output.ptr->setScale(scale);
-        m_config->setReplicationSource(output.ptr, source);
-        output.posReset = std::optional(output.ptr->pos());
-        output.ptr->setPos(source->pos() + relPos);
+            output.ptr->setCurrentModeId(bestMode->id());
+            output.ptr->setScale(scale);
+            m_config->setReplicationSource(output.ptr, source);
+            output.posReset = std::optional(output.ptr->pos());
+            output.ptr->setPos(source->pos() + relPos);
+        }
     }
 
     reposition();

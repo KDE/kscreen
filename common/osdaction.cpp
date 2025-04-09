@@ -67,44 +67,53 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
     case KScreen::OsdAction::Action::Clone: {
         internal->setEnabled(true);
         external->setEnabled(true);
-        internal->setPos(QPoint());
-        external->setPos(QPoint());
-        QList<KScreen::ModePtr> commonModes;
-        const auto internalModes = internal->modes();
-        const auto externalModes = external->modes();
-        for (const auto &mode : internalModes) {
-            const bool shared = std::any_of(externalModes.begin(), externalModes.end(), [&mode](const auto &otherMode) {
-                return mode->size() == otherMode->size();
-            });
-            if (shared) {
-                commonModes.push_back(mode);
+        if (config->supportedFeatures() & Config::Feature::PerOutputScaling) {
+            // on Wayland, KWin deals with modes, we just set the replication source
+            external->setReplicationSource(internal->id());
+            internal->setReplicationSource(0);
+        } else {
+            // keep the old code path for Xorg
+            internal->setEnabled(true);
+            external->setEnabled(true);
+            internal->setPos(QPoint());
+            external->setPos(QPoint());
+            QList<KScreen::ModePtr> commonModes;
+            const auto internalModes = internal->modes();
+            const auto externalModes = external->modes();
+            for (const auto &mode : internalModes) {
+                const bool shared = std::any_of(externalModes.begin(), externalModes.end(), [&mode](const auto &otherMode) {
+                    return mode->size() == otherMode->size();
+                });
+                if (shared) {
+                    commonModes.push_back(mode);
+                }
             }
-        }
-        if (commonModes.isEmpty()) {
-            return nullptr;
-        }
-        const auto biggestSizeIt = std::max_element(commonModes.begin(), commonModes.end(), [](const auto &left, const auto &right) {
-            if (left->size().width() != right->size().width()) {
-                return left->size().width() < right->size().width();
+            if (commonModes.isEmpty()) {
+                return nullptr;
             }
-            return left->size().height() < right->size().height();
-        });
-        const auto biggestSize = (*biggestSizeIt)->size();
-        const auto findBestMode = [&biggestSize](const KScreen::OutputPtr &output) {
-            auto list = output->modes();
-            list.erase(std::remove_if(list.begin(),
-                                      list.end(),
-                                      [&biggestSize](const auto &mode) {
-                                          return mode->size() != biggestSize;
-                                      }),
-                       list.end());
-            return *std::max_element(list.begin(), list.end(), [](const auto &left, const auto &right) {
-                return left->refreshRate() < right->refreshRate();
+            const auto biggestSizeIt = std::max_element(commonModes.begin(), commonModes.end(), [](const auto &left, const auto &right) {
+                if (left->size().width() != right->size().width()) {
+                    return left->size().width() < right->size().width();
+                }
+                return left->size().height() < right->size().height();
             });
-        };
-        internal->setCurrentModeId(findBestMode(internal)->id());
-        external->setCurrentModeId(findBestMode(external)->id());
-        external->setScale(internal->scale());
+            const auto biggestSize = (*biggestSizeIt)->size();
+            const auto findBestMode = [&biggestSize](const KScreen::OutputPtr &output) {
+                auto list = output->modes();
+                list.erase(std::remove_if(list.begin(),
+                                          list.end(),
+                                          [&biggestSize](const auto &mode) {
+                                              return mode->size() != biggestSize;
+                                          }),
+                           list.end());
+                return *std::max_element(list.begin(), list.end(), [](const auto &left, const auto &right) {
+                    return left->refreshRate() < right->refreshRate();
+                });
+            };
+            internal->setCurrentModeId(findBestMode(internal)->id());
+            external->setCurrentModeId(findBestMode(external)->id());
+            external->setScale(internal->scale());
+        }
         break;
     }
     case KScreen::OsdAction::Action::ExtendRight: {
