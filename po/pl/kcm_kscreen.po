@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:43+0000\n"
+"POT-Creation-Date: 2025-04-12 00:42+0000\n"
 "PO-Revision-Date: 2025-02-01 12:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -474,33 +474,42 @@ msgid ""
 msgstr ""
 "HDR umożliwia obsługującym go aplikacjom pokazywać jaśniejsze i żywsze barwy"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Dokładność kolorów:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Skłaniaj się ku wydajności"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Skłaniaj się ku dokładności kolorów"
 
-#: ui/OutputPanel.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This setting can have a large impact on performance"
+#: ui/OutputPanel.qml:386
+#, kde-kuit-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance."
-msgstr "To ustawienie może mieć duży wpływ na wydajność"
+msgid ""
+"Preferring color accuracy limits potentially inaccurate offloading of color "
+"operations to the display driver and increases the maximum color resolution."
+"<nl/><nl/>"
+msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:393
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
+"performance at the cost of color accuracy.<nl/><nl/>"
+msgstr ""
+
+#: ui/OutputPanel.qml:405
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "sRGB Color Intensity:"
@@ -508,13 +517,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Natężenie barwy sRGB:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:441
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of sRGB content on the screen"
@@ -522,7 +531,7 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Zwiększa natężenie treści sRGB na ekranie"
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:452
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Maximum SDR Brightness:"
@@ -530,7 +539,7 @@ msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Najwyższa jasność SDR:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:473
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Sets the maximum brightness for the normal brightness slider"
@@ -538,13 +547,13 @@ msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Ustawia najwyższą jasność dla zwyczajnego suwaka jasności"
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:484
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Jasność:"
 
-#: ui/OutputPanel.qml:496
+#: ui/OutputPanel.qml:503
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -552,7 +561,7 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:502
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgid "Replica of:"
 msgstr "Powiel na:"
@@ -658,6 +667,13 @@ msgstr "Bez obrotu"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Aby zmieniać układ ekranów, przeciągnij je"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "This setting can have a large impact on performance"
+#~ msgctxt "@info:tooltip"
+#~ msgid "This setting can have a large impact on performance."
+#~ msgstr "To ustawienie może mieć duży wpływ na wydajność"
 
 #~ msgctxt "Width x height"
 #~ msgid "%1x%2"

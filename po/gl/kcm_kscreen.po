@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:43+0000\n"
+"POT-Creation-Date: 2025-04-12 00:42+0000\n"
 "PO-Revision-Date: 2025-03-20 08:28+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -445,73 +445,84 @@ msgid ""
 msgstr ""
 "O HDR permite ás aplicacións compatíbeis amosar cores máis claras e vívidas."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Precisión da cor:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Preferir eficiencia"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Preferir precisión de cor"
 
-#: ui/OutputPanel.qml:387
-#, kde-format
+#: ui/OutputPanel.qml:386
+#, kde-kuit-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance."
-msgstr "Esta opción pode ter un grande impacto no rendemento."
+msgid ""
+"Preferring color accuracy limits potentially inaccurate offloading of color "
+"operations to the display driver and increases the maximum color resolution."
+"<nl/><nl/>"
+msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:393
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
+"performance at the cost of color accuracy.<nl/><nl/>"
+msgstr ""
+
+#: ui/OutputPanel.qml:405
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensidade da cor de sRGB:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:441
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Aumenta a intensidade na pantalla de contido sRGB."
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:452
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Brillo máximo de SDR:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:473
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Define o brillo máximo para o control esvaradío do brillo normal."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:484
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Brillo:"
 
-#: ui/OutputPanel.qml:496
+#: ui/OutputPanel.qml:503
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:502
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplica de:"
@@ -612,6 +623,10 @@ msgstr "Sen rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastra as pantallas para recolocalas"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This setting can have a large impact on performance."
+#~ msgstr "Esta opción pode ter un grande impacto no rendemento."
 
 #~ msgctxt "Width x height"
 #~ msgid "%1x%2"

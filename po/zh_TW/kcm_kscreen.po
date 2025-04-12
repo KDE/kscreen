@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:43+0000\n"
+"POT-Creation-Date: 2025-04-12 00:42+0000\n"
 "PO-Revision-Date: 2025-04-07 13:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -435,73 +435,84 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。"
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "色彩準確度："
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "注重效能"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "注重色彩準確度"
 
-#: ui/OutputPanel.qml:387
-#, kde-format
+#: ui/OutputPanel.qml:386
+#, kde-kuit-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance."
-msgstr "這個設定可能會嚴重影響效能。"
+msgid ""
+"Preferring color accuracy limits potentially inaccurate offloading of color "
+"operations to the display driver and increases the maximum color resolution."
+"<nl/><nl/>"
+msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:393
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
+"performance at the cost of color accuracy.<nl/><nl/>"
+msgstr ""
+
+#: ui/OutputPanel.qml:405
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩強度："
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:441
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "提高螢幕上 sRGB 內容的色彩強度。"
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:452
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "最高 SDR 亮度："
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:473
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "設定普通亮度滑條的最高亮度。"
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:484
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:496
+#: ui/OutputPanel.qml:503
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:502
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："
@@ -600,6 +611,10 @@ msgstr "無旋轉"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖曳螢幕以重新排列"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This setting can have a large impact on performance."
+#~ msgstr "這個設定可能會嚴重影響效能。"
 
 #~ msgctxt "Width x height"
 #~ msgid "%1x%2"

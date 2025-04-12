@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:43+0000\n"
+"POT-Creation-Date: 2025-04-12 00:42+0000\n"
 "PO-Revision-Date: 2025-03-28 12:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -453,73 +453,84 @@ msgstr ""
 "Розширений динамічний діапазон (HDR) надає змогу сумісним програмам "
 "показувати яскравіші та природніші кольори."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Точність кольорів:"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Перевага ефективності"
 
-#: ui/OutputPanel.qml:377
+#: ui/OutputPanel.qml:376
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Перевага точності кольорів"
 
-#: ui/OutputPanel.qml:387
-#, kde-format
+#: ui/OutputPanel.qml:386
+#, kde-kuit-format
 msgctxt "@info:tooltip"
-msgid "This setting can have a large impact on performance."
-msgstr "Цей параметр може значно вплинути на швидкодію."
+msgid ""
+"Preferring color accuracy limits potentially inaccurate offloading of color "
+"operations to the display driver and increases the maximum color resolution."
+"<nl/><nl/>"
+msgstr ""
 
-#: ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:393
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
+"performance at the cost of color accuracy.<nl/><nl/>"
+msgstr ""
+
+#: ui/OutputPanel.qml:405
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Інтенсивність кольорів sRGB:"
 
-#: ui/OutputPanel.qml:426
+#: ui/OutputPanel.qml:433
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:434
+#: ui/OutputPanel.qml:441
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Збільшує інтенсивність зображень sRGB на екрані."
 
-#: ui/OutputPanel.qml:445
+#: ui/OutputPanel.qml:452
 #, kde-format
 msgctxt "@label"
 msgid "Maximum SDR brightness:"
 msgstr "Максимальна яскравість SDR:"
 
-#: ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:473
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Встановлює максимальну яскравість для повзунка звичайної яскравості."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:484
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яскравість:"
 
-#: ui/OutputPanel.qml:496
+#: ui/OutputPanel.qml:503
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:502
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgid "Replica of:"
 msgstr "Джерело репліки:"
@@ -623,6 +634,10 @@ msgstr "Без обертання"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Перетягніть екрани, щоб змінити порядок"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This setting can have a large impact on performance."
+#~ msgstr "Цей параметр може значно вплинути на швидкодію."
 
 #~ msgctxt "Width x height"
 #~ msgid "%1x%2"
