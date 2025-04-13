@@ -4,13 +4,14 @@
 #
 # Automatically generated, 2015.
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2025 Gabriel Gazzán <gabcorreo@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-30 01:24+0100\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"PO-Revision-Date: 2025-04-12 21:39+0100\n"
+"Last-Translator: Gabriel Gazzán <gabcorreo@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -476,6 +477,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Preferir la precisión del color limita la descarga potencialmente inexacta "
+"de operaciones de color al controlador de pantalla y aumenta la resolución "
+"máxima de color.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -484,6 +488,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Preferir la eficiencia simplifica el perfil ICC a matriz+moldeador, "
+"mejorando el rendimiento a cambio de precisión de color.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -629,7 +635,3 @@ msgstr "Sin rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastre las pantallas para modificar su distribución"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "Este ajuste puede tener un gran impacto en el rendimiento."

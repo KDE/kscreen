@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-28 10:58+0100\n"
+"PO-Revision-Date: 2025-04-12 10:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -476,6 +476,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Preferir la precisió del color limita la descàrrega potencialment inexacta "
+"de les operacions de color al controlador de visualització i augmenta la "
+"resolució màxima del color.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -484,6 +487,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Preferir l'eficiència simplifica el perfil ICC a matrix+shaper, millorant el "
+"rendiment a costa de la precisió del color.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -629,7 +634,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "Aquest paràmetre pot tenir un impacte gran en el rendiment."

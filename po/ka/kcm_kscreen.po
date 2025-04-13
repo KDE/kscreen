@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-28 02:54+0100\n"
+"PO-Revision-Date: 2025-04-12 03:31+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -471,6 +471,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"ფერის სიზუსტისთვის მეტი პრიორიტეტის მინიჭებამ, შეიძლება, ფერების ოპერაციების "
+"დატვირთვის ვიდეობარათის დრაივერზე გადატანის უზუსტობები გამოიწვიოს და "
+"გაზარდოს მაქსიმალური ფერის გაფართოება.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -479,6 +482,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"ეფექტურობისთვის პრიორიტეტის მინიჭება ამარტივებს ICC პროფილს მატრიცამდე"
+"+შეიპერამდე, რაც ზრდის წარმადობას ფერის სიზუსტის ხარჯზე.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format

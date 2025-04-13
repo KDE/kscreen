@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-28 17:42+0100\n"
+"PO-Revision-Date: 2025-04-12 13:56+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -472,6 +472,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Voorkeur hebben voor kleurnauwkeurigheid beperkt potentieel inaccuraat "
+"offloading van kleurbewerkingen naar het schermstuurprogramma en verhoogt de "
+"maximale kleurresolutie.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -480,6 +483,9 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Voorkeur hebben voor efficiëntie vereenvoudigt het ICC-profiel tot matrix"
+"+shaper, waarmee prestaties worden verbeterd ten koste van "
+"kleurnauwkeurigheid.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format

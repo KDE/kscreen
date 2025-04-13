@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-28 12:52+0200\n"
+"PO-Revision-Date: 2025-04-12 09:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -479,6 +479,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Бажана точність кольорів обмежує потенційне неточне вивантаження дій з "
+"кольорами до драйвера дисплея і збільшує максимальну роздільність кольорів."
+"<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -487,6 +490,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Бажане ефективність спрощує застосування профілю ICC до матриці+шейпера, "
+"збільшуючи швидкодію за рахунок точності кольорів.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format

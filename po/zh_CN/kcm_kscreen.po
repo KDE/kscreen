@@ -609,7 +609,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "此设置可能会对性能产生重大影响。"

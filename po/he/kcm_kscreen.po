@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-28 22:29+0300\n"
+"PO-Revision-Date: 2025-04-12 10:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -465,6 +465,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"העדפת דיוק צבע מגבילה פריקה של פעולות צבע שעלולה להיות בלתי מדויקת למנהל "
+"התקן התצוגה ומגבירה את רזולוציית הצבע המרבית.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -473,6 +475,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"העדפת יעילות מפשטת את פרופיל ה־ICC למטריצה+מעצב, ובכך העלות משתפרת על חשבון "
+"דיוק הצבע.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
