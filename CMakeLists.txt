@@ -32,7 +32,7 @@ include(ECMDeprecationSettings)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test Sensors)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test)
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
