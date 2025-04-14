@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-18 19:07+0100\n"
+"PO-Revision-Date: 2025-04-13 09:47+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -169,14 +169,13 @@ msgstr "Riduci la priorità"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Contrai"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Arrangement settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Impostazioni di disposizione"
+msgstr "Modifica disposizione"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -221,8 +220,7 @@ msgid "Replicas"
 msgstr "Repliche"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Dispositivo:"
@@ -477,6 +475,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Privilegiare la precisione del colore limita il potenziale trasferimento "
+"impreciso delle operazioni di colore al driver dello schermo e aumenta la "
+"risoluzione massima del colore.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -485,6 +486,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Preferire l'efficienza semplifica il profilo ICC in matrice+shaper, "
+"migliorando le prestazioni a scapito della precisione del colore.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format

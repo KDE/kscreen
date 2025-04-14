@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-16 14:15+0530\n"
+"PO-Revision-Date: 2025-04-13 16:53+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -165,14 +165,13 @@ msgstr "முன்னிலையை குறை"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "சுருக்கு"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "For any display arrangement"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "எந்த தளவமைப்புக்கேனும்"
+msgstr "தளவமைப்பை திருத்து"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -217,8 +216,7 @@ msgid "Replicas"
 msgstr "நகலிகள்"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "சாதனம்:"
@@ -512,9 +510,7 @@ msgid "Brightness:"
 msgstr "பிரகாசம்:"
 
 #: ui/OutputPanel.qml:503
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"

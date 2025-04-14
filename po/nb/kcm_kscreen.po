@@ -619,7 +619,3 @@ msgstr "Ingen rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermene for å bytte skjermplassering"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "Denne innstillingen kan ha en stor påvirkning på ytelse"
