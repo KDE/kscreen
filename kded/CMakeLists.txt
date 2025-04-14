@@ -11,7 +11,6 @@ target_sources(kscreen PRIVATE
     ${CMAKE_SOURCE_DIR}/common/osdaction.cpp ${CMAKE_SOURCE_DIR}/common/osdaction.h
     ${CMAKE_SOURCE_DIR}/common/globals.cpp ${CMAKE_SOURCE_DIR}/common/globals.h
     ${CMAKE_SOURCE_DIR}/common/control.cpp ${CMAKE_SOURCE_DIR}/common/control.h
-    ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp ${CMAKE_SOURCE_DIR}/common/orientation_sensor.h
     ${CMAKE_SOURCE_DIR}/common/utils.cpp ${CMAKE_SOURCE_DIR}/common/utils.h
 )
 
@@ -30,7 +29,6 @@ target_link_libraries(kscreen PRIVATE
                               Qt::Widgets
                               Qt::DBus
                               Qt::Quick
-                              Qt::Sensors
                               KF6::CoreAddons
                               KF6::Screen
                               KF6::DBusAddons

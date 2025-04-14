@@ -35,8 +35,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(bool tearingSupported READ tearingSupported NOTIFY tearingSupportedChanged)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
-    Q_PROPERTY(bool autoRotationSupported READ autoRotationSupported NOTIFY autoRotationSupportedChanged)
-    Q_PROPERTY(bool orientationSensorAvailable READ orientationSensorAvailable NOTIFY orientationSensorAvailableChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
@@ -81,8 +79,6 @@ public:
     bool allowTearing() const;
     bool tearingSupported() const;
 
-    bool autoRotationSupported() const;
-    bool orientationSensorAvailable() const;
     bool tabletModeAvailable() const;
 
     bool multipleScreensAvailable() const;
@@ -131,7 +127,6 @@ private:
     void checkConfig();
 
     std::unique_ptr<ConfigHandler> m_configHandler;
-    OrientationSensor *m_orientationSensor;
     bool m_backendReady = false;
     bool m_screenNormalized = true;
     bool m_settingsReverted = false;

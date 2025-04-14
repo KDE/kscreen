@@ -19,8 +19,7 @@ ColumnLayout {
     ColumnLayout {
         id: autoRotateColumn
 
-        enabled: element.internal
-        visible: kcm.autoRotationSupported && kcm.orientationSensorAvailable
+        visible: element.capabilities & KScreen.Output.Capability.AutoRotation
 
         ColumnLayout {
             QQC2.RadioButton {

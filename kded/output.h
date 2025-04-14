@@ -12,7 +12,6 @@
 #include <kscreen/output.h>
 #include <kscreen/types.h>
 
-#include <QOrientationReading>
 #include <QVariantMap>
 
 #include <optional>
@@ -26,8 +25,6 @@ public:
     static bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info, const KScreen::OutputPtr &fallback);
 
     static QString dirPath();
-
-    static bool updateOrientation(KScreen::OutputPtr &output, QOrientationReading::Orientation orientation);
 
     struct GlobalConfig {
         std::optional<qreal> scale;

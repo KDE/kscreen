@@ -6,7 +6,6 @@
 #include "kcm.h"
 
 #include "../common/control.h"
-#include "../common/orientation_sensor.h"
 #include "config_handler.h"
 #include "globalscalesettings.h"
 #include "kcm_screen_debug.h"
@@ -62,9 +61,6 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     m_loadCompressor->setSingleShot(true);
     connect(m_loadCompressor, &QTimer::timeout, this, &KCMKScreen::load);
 
-    m_orientationSensor = new OrientationSensor(this);
-    connect(m_orientationSensor, &OrientationSensor::availableChanged, this, &KCMKScreen::orientationSensorAvailableChanged);
-
     connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KCMKScreen::updateFromBackend);
 
     registerSettings(GlobalScaleSettings::self());
@@ -86,8 +82,6 @@ void KCMKScreen::configReady(ConfigOperation *op)
     }
 
     KScreen::ConfigPtr config = qobject_cast<GetConfigOperation *>(op)->config();
-    const bool autoRotationSupported = config->supportedFeatures() & (KScreen::Config::Feature::AutoRotation | KScreen::Config::Feature::TabletMode);
-    m_orientationSensor->setEnabled(autoRotationSupported);
 
     m_configHandler->setConfig(config);
     Q_EMIT multipleScreensAvailableChanged();
@@ -295,19 +289,6 @@ bool KCMKScreen::outputReplicationSupported() const
         return false;
     }
     return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::OutputReplication);
-}
-
-bool KCMKScreen::autoRotationSupported() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    return m_configHandler->config()->supportedFeatures() & (KScreen::Config::Feature::AutoRotation | KScreen::Config::Feature::TabletMode);
-}
-
-bool KCMKScreen::orientationSensorAvailable() const
-{
-    return m_orientationSensor->available();
 }
 
 bool KCMKScreen::tabletModeAvailable() const

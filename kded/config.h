@@ -7,8 +7,6 @@
 
 #include <kscreen/config.h>
 
-#include <QOrientationReading>
-
 #include <memory>
 
 class ControlConfig;

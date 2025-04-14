@@ -33,7 +33,7 @@ include(ECMQmlModule)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test Sensors QuickControls2)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Test QuickControls2)
 if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
     find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 endif()
