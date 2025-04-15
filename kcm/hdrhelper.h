@@ -12,6 +12,8 @@
 #include <qwayland-color-management-v1.h>
 #include <unordered_map>
 
+#include "kcm.h"
+
 class QQuickWindow;
 class QEvent;
 
@@ -34,13 +36,17 @@ public:
 class PendingImageDescription : public QtWayland::wp_image_description_v1
 {
 public:
-    explicit PendingImageDescription(QQuickWindow *window, ColorManagementSurface *surface, ::wp_image_description_v1 *descr);
+    explicit PendingImageDescription(QQuickWindow *window,
+                                     ColorManagementSurface *surface,
+                                     ::wp_image_description_v1 *descr,
+                                     KCMKScreen::RenderIntent renderIntent);
     ~PendingImageDescription();
 
     void wp_image_description_v1_ready(uint32_t identity) override;
 
     QPointer<QQuickWindow> m_window;
     QPointer<ColorManagementSurface> m_surface;
+    KCMKScreen::RenderIntent m_renderIntent;
 };
 
 class HdrHelper : public QObject
@@ -50,7 +56,11 @@ public:
     explicit HdrHelper();
     ~HdrHelper();
 
-    void setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance);
+    void setHdrParameters(QQuickWindow *window,
+                          KCMKScreen::Colorspace colorspace,
+                          uint32_t referenceLuminance,
+                          uint32_t maximumLuminance,
+                          KCMKScreen::RenderIntent renderIntent);
 
 private:
     void setImageDescription(QQuickWindow *window);
@@ -59,7 +69,8 @@ private:
     const std::unique_ptr<ColorManagementGlobal> m_global;
     struct WindowParams {
         std::unique_ptr<ColorManagementSurface> surface;
-        bool bt2020pq;
+        KCMKScreen::Colorspace colorspace;
+        KCMKScreen::RenderIntent renderIntent;
         uint32_t referenceLuminance;
         uint32_t maximumLuminance;
     };

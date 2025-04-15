@@ -30,10 +30,14 @@ ColorManagementSurface::~ColorManagementSurface()
     wp_color_management_surface_v1_destroy(object());
 }
 
-PendingImageDescription::PendingImageDescription(QQuickWindow *window, ColorManagementSurface *surface, ::wp_image_description_v1 *descr)
+PendingImageDescription::PendingImageDescription(QQuickWindow *window,
+                                                 ColorManagementSurface *surface,
+                                                 ::wp_image_description_v1 *descr,
+                                                 KCMKScreen::RenderIntent renderIntent)
     : QtWayland::wp_image_description_v1(descr)
     , m_window(window)
     , m_surface(surface)
+    , m_renderIntent(renderIntent)
 {
 }
 
@@ -45,7 +49,11 @@ PendingImageDescription::~PendingImageDescription()
 void PendingImageDescription::wp_image_description_v1_ready([[maybe_unused]] uint32_t identity)
 {
     if (m_window && m_surface) {
-        wp_color_management_surface_v1_set_image_description(m_surface->object(), object(), WP_COLOR_MANAGER_V1_RENDER_INTENT_RELATIVE_BPC);
+        if (m_renderIntent == KCMKScreen::RenderIntent::Perceptual) {
+            wp_color_management_surface_v1_set_image_description(m_surface->object(), object(), WP_COLOR_MANAGER_V1_RENDER_INTENT_PERCEPTUAL);
+        } else {
+            wp_color_management_surface_v1_set_image_description(m_surface->object(), object(), WP_COLOR_MANAGER_V1_RENDER_INTENT_RELATIVE_BPC);
+        }
         m_window->requestUpdate();
     }
     delete this;
@@ -65,7 +73,11 @@ HdrHelper::~HdrHelper()
 {
 }
 
-void HdrHelper::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance)
+void HdrHelper::setHdrParameters(QQuickWindow *window,
+                                 KCMKScreen::Colorspace colorspace,
+                                 uint32_t referenceLuminance,
+                                 uint32_t maximumLuminance,
+                                 KCMKScreen::RenderIntent renderIntent)
 {
     if (!m_surfaces.contains(window)) {
         connect(window, &QObject::destroyed, this, [this, window]() {
@@ -73,9 +85,10 @@ void HdrHelper::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t r
         });
     }
     auto &params = m_surfaces[window];
+    params.colorspace = colorspace;
+    params.renderIntent = renderIntent;
     params.referenceLuminance = referenceLuminance;
     params.maximumLuminance = maximumLuminance;
-    params.bt2020pq = bt2020pq;
 
     const auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
     if (!waylandWindow || !waylandWindow->surface()) {
@@ -101,7 +114,7 @@ void HdrHelper::setImageDescription(QQuickWindow *window)
         params.surface = std::make_unique<ColorManagementSurface>(m_global->get_surface(waylandWindow->surface()));
     }
     auto creator = m_global->create_parametric_creator();
-    if (params.bt2020pq) {
+    if (params.colorspace == KCMKScreen::Colorspace::BT2020PQ) {
         wp_image_description_creator_params_v1_set_primaries_named(creator, QtWayland::wp_color_manager_v1::primaries_bt2020);
         wp_image_description_creator_params_v1_set_tf_named(creator, QtWayland::wp_color_manager_v1::transfer_function_st2084_pq);
     } else {
@@ -110,7 +123,7 @@ void HdrHelper::setImageDescription(QQuickWindow *window)
     }
     wp_image_description_creator_params_v1_set_luminances(creator, 0, params.maximumLuminance, params.referenceLuminance);
     wp_image_description_creator_params_v1_set_mastering_luminance(creator, 0, params.maximumLuminance);
-    new PendingImageDescription(window, params.surface.get(), wp_image_description_creator_params_v1_create(creator));
+    new PendingImageDescription(window, params.surface.get(), wp_image_description_creator_params_v1_create(creator), params.renderIntent);
 }
 
 bool HdrHelper::eventFilter(QObject *watched, QEvent *event)

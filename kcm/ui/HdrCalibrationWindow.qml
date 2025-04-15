@@ -40,7 +40,7 @@ Window {
             window: Window {
                 id: peakLuminanceWindow
                 visible: true
-                onVisibleChanged: kcm.setHdrParameters(peakLuminanceWindow, false, element.sdrBrightness, 10000)
+                onVisibleChanged: kcm.setHdrParameters(peakLuminanceWindow, KScreen.KCMKScreen.Colorspace.BT709Linear, element.sdrBrightness, 10000, KScreen.KCMKScreen.RenderIntent.RelativeColorimetricBPC)
                 width: hdrCalibration.tenPercentSize
                 height: hdrCalibration.tenPercentSize
                 Rectangle {
@@ -55,7 +55,7 @@ Window {
                         window: Window {
                             id: hdrIcon
                             visible: true
-                            onVisibleChanged: kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, element.peakBrightnessOverride)
+                            onVisibleChanged: kcm.setHdrParameters(hdrIcon, KScreen.KCMKScreen.Colorspace.BT709Linear, element.sdrBrightness, element.peakBrightnessOverride, KScreen.KCMKScreen.RenderIntent.RelativeColorimetricBPC)
                             flags: Qt.WA_TranslucentBackground
                             color: "#00000000"
                             width: hdrCalibration.tenPercentSize
@@ -88,7 +88,7 @@ Window {
                 value: element.peakBrightnessOverride
                 onMoved: {
                     element.peakBrightnessOverride = value;
-                    kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, value);
+                    kcm.setHdrParameters(hdrIcon, KScreen.KCMKScreen.Colorspace.BT709Linear, element.sdrBrightness, value, KScreen.KCMKScreen.RenderIntent.RelativeColorimetricBPC);
                 }
             }
             QQC2.SpinBox {
@@ -98,15 +98,13 @@ Window {
                 value: element.peakBrightnessOverride
                 onValueModified: {
                     element.peakBrightnessOverride = value;
-                    kcm.setHdrParameters(hdrIcon, false, element.sdrBrightness, element.peakBrightnessOverride);
+                    kcm.setHdrParameters(hdrIcon, KScreen.KCMKScreen.Colorspace.BT709Linear, element.sdrBrightness, element.peakBrightnessOverride, KScreen.KCMKScreen.RenderIntent.RelativeColorimetricBPC);
                 }
             }
             QQC2.Button {
                 icon.name: "arrow-right"
                 text: i18nc("@action:button", "Next")
                 onClicked: {
-                    // this is to compensate for the logo still being barely visible when the user is done
-                    element.peakBrightnessOverride = element.peakBrightnessOverride + 10;
                     peakLuminanceConfiguration.visible = false;
                     sdrLuminanceConfiguration.visible = true;
                     kcm.doSave();
@@ -137,37 +135,54 @@ Window {
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
 
-            WindowContainer {
-                Layout.preferredWidth: hdrCalibration.tenPercentSize
-                Layout.preferredHeight: hdrCalibration.tenPercentSize
-                window: Window {
-                    id: hdrTestImageSurface
-                    visible: true
-                    width: hdrCalibration.tenPercentSize
+            Rectangle {
+                // To give an "SDR white" background to compare the images to
+                Layout.preferredWidth: hdrCalibration.tenPercentSize * 16/9.0 * 1.05625
+                Layout.preferredHeight: hdrCalibration.tenPercentSize * 1.1
+                color: "white"
+                WindowContainer {
+                    width: hdrCalibration.tenPercentSize * 16/9.0
                     height: hdrCalibration.tenPercentSize
-                    onVisibleChanged: kcm.setHdrParameters(hdrTestImageSurface, true, 203, 1000)
+                    anchors.centerIn: parent
+                    window: Window {
+                        id: hdrTestImageSurface
+                        visible: true
+                        width: parent.width
+                        height: parent.height
+                        onVisibleChanged: kcm.setHdrParameters(hdrTestImageSurface, KScreen.KCMKScreen.Colorspace.BT2020PQ, 203, 1000, KScreen.KCMKScreen.RenderIntent.Perceptual)
 
-                    // TODO: replace this with some BT2020PQ HDR image
-                    Rectangle {
-                        width: hdrCalibration.tenPercentSize
-                        height: hdrCalibration.tenPercentSize
-                        gradient: Gradient {
-                            orientation: Gradient.Horizontal
-                            GradientStop { position: 0.0; color: "black"}
-                            GradientStop { position: 1.0; color: "red"}
+                        Rectangle {
+                            width: parent.width
+                            height: parent.height
+                            color: "black"
+                            Image {
+                                width: parent.width
+                                height: parent.height
+                                source: "images/HDR outside.png"
+                                fillMode: Image.PreserveAspectFit
+                            }
                         }
                     }
                 }
             }
 
-            // TODO replace this with some SDR image
             Rectangle {
-                Layout.preferredWidth: hdrCalibration.tenPercentSize
-                Layout.preferredHeight: hdrCalibration.tenPercentSize
-                gradient: Gradient {
-                    orientation: Gradient.Horizontal
-                    GradientStop { position: 0.0; color: "black"}
-                    GradientStop { position: 1.0; color: "blue"}
+                // To give an "SDR white" background to compare the images to
+                Layout.preferredWidth: hdrCalibration.tenPercentSize * 16/9.0 * 1.05625
+                Layout.preferredHeight: hdrCalibration.tenPercentSize * 1.1
+                color: "white"
+
+                // TODO replace this with some SDR image
+                // either a picture, or a screenshot of some game perhaps?
+                Rectangle {
+                    width: hdrCalibration.tenPercentSize * 16/9.0
+                    height: hdrCalibration.tenPercentSize
+                    anchors.centerIn: parent
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "black"}
+                        GradientStop { position: 1.0; color: "blue"}
+                    }
                 }
             }
         }

@@ -9,6 +9,7 @@
 #include "../common/orientation_sensor.h"
 #include "config_handler.h"
 #include "globalscalesettings.h"
+#include "hdrhelper.h"
 #include "kcm_screen_debug.h"
 #include "kwincompositing_setting.h"
 
@@ -47,6 +48,7 @@ public:
 
 KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     : KQuickManagedConfigModule(parent, data)
+    , m_hdrHelper(std::make_unique<HdrHelper>())
 {
     qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
@@ -72,6 +74,10 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
 
     registerSettings(KWinCompositingSetting::self());
     connect(KWinCompositingSetting::self(), &KWinCompositingSetting::allowTearingChanged, this, &KCMKScreen::tearingAllowedChanged);
+}
+
+KCMKScreen::~KCMKScreen()
+{
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -542,9 +548,13 @@ bool KCMKScreen::multipleScreensAvailable() const
     return m_outputProxyModel->rowCount() > 1;
 }
 
-void KCMKScreen::setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance)
+void KCMKScreen::setHdrParameters(QQuickWindow *window,
+                                  Colorspace colorspace,
+                                  uint32_t referenceLuminance,
+                                  uint32_t maximumLuminance,
+                                  RenderIntent renderIntent)
 {
-    m_hdrHelper.setHdrParameters(window, bt2020pq, referenceLuminance, maximumLuminance);
+    m_hdrHelper->setHdrParameters(window, colorspace, referenceLuminance, maximumLuminance, renderIntent);
 }
 #include "kcm.moc"
 

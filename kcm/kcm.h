@@ -9,7 +9,6 @@
 
 #include <KQuickManagedConfigModule>
 
-#include "hdrhelper.h"
 #include "output_model.h"
 
 namespace KScreen
@@ -21,6 +20,7 @@ class ConfigHandler;
 class OrientationSensor;
 class OutputIdentifier;
 class QQuickWindow;
+class HdrHelper;
 
 class QSortFilterProxyModel;
 
@@ -52,6 +52,7 @@ public:
     Q_ENUM(InvalidConfigReason)
 
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
+    ~KCMKScreen() override;
 
     void load() override;
     void save() override;
@@ -96,7 +97,18 @@ public:
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
 
-    Q_INVOKABLE void setHdrParameters(QQuickWindow *window, bool bt2020pq, uint32_t referenceLuminance, uint32_t maximumLuminance);
+    enum class Colorspace {
+        BT709Linear,
+        BT2020PQ,
+    };
+    Q_ENUM(Colorspace);
+    enum class RenderIntent {
+        Perceptual,
+        RelativeColorimetricBPC,
+    };
+    Q_ENUM(RenderIntent);
+    Q_INVOKABLE void
+    setHdrParameters(QQuickWindow *window, Colorspace colorspace, uint32_t referenceLuminance, uint32_t maximumLuminance, RenderIntent renderIntent);
 
 Q_SIGNALS:
     void backendReadyChanged();
@@ -144,5 +156,5 @@ private:
 
     QTimer *m_loadCompressor;
 
-    HdrHelper m_hdrHelper;
+    std::unique_ptr<HdrHelper> m_hdrHelper;
 };
