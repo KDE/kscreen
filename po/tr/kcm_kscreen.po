@@ -471,6 +471,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Renk doğruluğunu tercih etmek, potansiyel olarak doğru olmayan renk "
+"işlemlerinin görüntü sürücüsüne devredilmesini sınırlar ve en yüksek renk "
+"çözünürlüğünü artırır.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -479,6 +482,9 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Verimliliği tercih etmek, ICC profilini matris artı şekillendirici olarak "
+"yalınlaştırır ve bu da renk doğruluğundan ödün vererek başarımı iyileştirir."
+"<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -623,15 +629,3 @@ msgstr "Döndürme yok"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Ekranları yeniden düzenlemek için onları sürükleyin"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "Bu ayarın başarım üzerinde büyük bir etkisi olabilir."
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1 × %2"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr "Nit türünden, ekranda HDR olmayan içeriğin parlaklığını ayarlar"

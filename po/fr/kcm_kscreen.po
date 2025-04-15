@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:42+0000\n"
-"PO-Revision-Date: 2025-03-29 10:56+0100\n"
+"PO-Revision-Date: 2025-04-13 14:02+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -488,6 +488,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"En préférant la précision des couleurs, vous limitez le délestage "
+"potentiellement inexact des opérations de couleurs vers le pilote "
+"d’affichage et vous augmentez la résolution maximale des couleurs. <nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -496,6 +499,9 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"La préférence pour l’efficacité simplifie le profil « ICC » envers la "
+"matrice et le façonneur, améliorant ainsi les performances au détriment de "
+"la précision des couleurs. <nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
