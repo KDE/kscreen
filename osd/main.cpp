@@ -12,9 +12,9 @@
 
 int main(int argc, char **argv)
 {
-    KScreen::OsdManager osdManager;
     LayerShellQt::Shell::useLayerShell();
     QGuiApplication app(argc, argv);
     QGuiApplication::setQuitOnLastWindowClosed(false);
+    KScreen::OsdManager osdManager;
     return app.exec();
 }
