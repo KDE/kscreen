@@ -93,7 +93,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         QVariantList ret;
         const auto rates = refreshRates(output);
         for (const auto rate : rates) {
-            ret << i18n("%1 Hz", int(rate + 0.5));
+            ret << i18n("%1 Hz", QString::number(rate, 'f', 2));
         }
         return ret;
     }
@@ -493,7 +493,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
 inline bool refreshRateCompare(float rate1, float rate2)
 {
-    return qAbs(rate1 - rate2) < 0.5;
+    return qAbs(rate1 - rate2) < 0.01;
 }
 
 bool OutputModel::setResolution(int outputIndex, int resIndex)
