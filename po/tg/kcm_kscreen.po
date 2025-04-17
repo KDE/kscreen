@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:42+0000\n"
 "PO-Revision-Date: 2019-09-27 23:39+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -44,12 +44,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr ""
 
-#: output_model.cpp:759
+#: output_model.cpp:765
 #, kde-format
 msgid "None"
 msgstr "Ҳеҷ чиз"
 
-#: output_model.cpp:766
+#: output_model.cpp:772
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Аз тарафи барориши дигар инъикос карда шуд"

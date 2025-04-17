@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:42+0000\n"
 "PO-Revision-Date: 2024-08-30 16:25+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -49,12 +49,12 @@ msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
 # žádné parametry funkce v inspektoru funkcí
-#: output_model.cpp:759
+#: output_model.cpp:765
 #, kde-format
 msgid "None"
 msgstr "Nic"
 
-#: output_model.cpp:766
+#: output_model.cpp:772
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopírováno druhým výstupem"
