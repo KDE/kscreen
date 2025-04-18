@@ -14,7 +14,6 @@ import org.kde.kcmutils as KCM
 ColumnLayout {
     id: root
 
-    property KSortFilterProxyModel enabledOutputs
     property int selectedOutput
 
     readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
@@ -31,7 +30,6 @@ ColumnLayout {
             model: kcm.outputModel
             OutputPanel {
                 twinFormLayouts: globalSettingsLayout
-                enabledOutputs: root.enabledOutputs
                 onReorder: root.reorder()
             }
 

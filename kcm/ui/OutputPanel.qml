@@ -16,13 +16,19 @@ import org.kde.private.kcm.kscreen 1.0 as KScreen
 Kirigami.FormLayout {
     id: root
 
-    property KSortFilterProxyModel enabledOutputs
     property var element: model
     readonly property int comboboxWidth: Kirigami.Units.gridUnit * 12
     readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
     signal reorder()
+
+    KSortFilterProxyModel {
+        id: enabledOutputsModel
+        sourceModel: kcm.outputModel
+        filterRoleName: "enabled"
+        filterString: "true"
+    }
 
     QQC2.CheckBox {
        Kirigami.FormData.label: i18nc("@label for a checkbox that says 'Enabled'", "Device:")
@@ -33,17 +39,17 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        visible: kcm.primaryOutputSupported && root.enabledOutputs.count >= 2
+        visible: kcm.primaryOutputSupported && enabledOutputsModel.count >= 2
 
         QQC2.Button {
-            visible: root.enabledOutputs.count >= 3
+            visible: enabledOutputsModel.count >= 3
             text: i18n("Change Screen Priorities…")
             icon.name: "document-edit"
             onClicked: root.reorder();
         }
 
         QQC2.RadioButton {
-            visible: root.enabledOutputs.count === 2
+            visible: enabledOutputsModel.count === 2
             text: i18n("Primary")
             checked: element.priority === 1
             onToggled: element.priority = 1
