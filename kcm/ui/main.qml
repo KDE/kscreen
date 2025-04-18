@@ -237,67 +237,6 @@ KCM.AbstractKCM {
 
         spacing: 0
 
-        Kirigami.Dialog {
-            id: reorderDialog
-
-            title: i18nc("@title:window", "Change Priorities")
-            showCloseButton: true
-            standardButtons: Kirigami.Dialog.Ok
-            padding: 0
-
-            contentItem: ListView {
-                id: reorderView
-
-                implicitWidth: Math.min(root.width * 0.75, Kirigami.Units.gridUnit * 32)
-                implicitHeight: contentHeight
-
-                reuseItems: true
-                model: KSortFilterProxyModel {
-                    id: enabledOutputsModel
-                    sourceModel: kcm.outputModel
-                    filterRoleName: "enabled"
-                    filterString: "true"
-                    sortRoleName: "priority"
-                    sortOrder: Qt.AscendingOrder
-                }
-                delegate: Kirigami.SwipeListItem {
-                    id: delegate
-
-                    property var output: model
-
-                    width: ListView.view.width
-
-                    background: null
-                    contentItem: KD.TitleSubtitle {
-                        title: delegate.output.display
-                        subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
-                    }
-                    actions: [
-                        Kirigami.Action {
-                            icon.name: "arrow-up"
-                            text: i18n("Raise priority")
-                            enabled: delegate.output.priority > 1
-                            onTriggered: {
-                                if (enabled) {
-                                    delegate.output.priority -= 1;
-                                }
-                            }
-                        },
-                        Kirigami.Action {
-                            icon.name: "arrow-down"
-                            text: i18n("Lower priority")
-                            enabled: delegate.output.priority < reorderView.count
-                            onTriggered: {
-                                if (enabled) {
-                                    delegate.output.priority += 1;
-                                }
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-
         QQC2.ScrollView {
             id: navigationScrollView
             Layout.fillWidth: true
@@ -431,11 +370,23 @@ KCM.AbstractKCM {
                     anchors.right: parent.right
 
                     enabled: kcm.outputModel && kcm.backendReady
-                    enabledOutputs: enabledOutputsModel
                     selectedOutput: root.selectedOutput
-                    onReorder: reorderDialog.open()
+                    onReorder: _cReorderDialog.incubateObject(root, {}, Qt.Asynchronous)
                 }
             }
+        }
+    }
+
+    Component {
+        id: _cReorderDialog
+
+        PriorityDialog {
+            visible: false
+
+            Component.onCompleted: open()
+            onAccepted: destroy()
+            onRejected: destroy()
+
         }
     }
 }
