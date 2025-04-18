@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-05 18:03+0200\n"
+"PO-Revision-Date: 2025-04-17 12:27+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -470,6 +470,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Att föredra färgnoggrannhet begränsar potentiellt felaktig överföring av "
+"färgoperationer till bildskärmsdrivrutinen och ökar den maximala "
+"färgupplösningen.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -478,6 +481,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Att föredra effektivitet förenklar ICC-profilen till matris+formning, vilket "
+"förbättrar prestandan till priset av färgnoggrannhet.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
