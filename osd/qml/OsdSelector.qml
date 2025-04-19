@@ -37,6 +37,8 @@ Control {
                 property int currentIndex: 0
                 model: root.actions
                 delegate: PlasmaComponents.Button {
+                    required property var modelData
+                    required property int index
                     property int actionId: modelData.action
 
                     Accessible.name: modelData.label
