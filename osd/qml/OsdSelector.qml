@@ -22,7 +22,7 @@ Control {
     signal clicked(int actionId)
 
     function moveRight() {
-        actionRepeater.currentIndex = contentItem.wrappingAdd(actionRepeater.count, 
+        actionRepeater.currentIndex = content.wrappingAdd(actionRepeater.count,
             actionRepeater.currentIndex, 1, false);
     }
 
@@ -32,6 +32,8 @@ Control {
     bottomPadding: shadow.margins.bottom + background.margins.bottom
 
     contentItem : ColumnLayout {
+        id: content
+
         RowLayout {
             Repeater {
                 id: actionRepeater
