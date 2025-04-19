@@ -43,7 +43,7 @@ void Osd::showActionSelector()
     if (!m_osdActionSelector) {
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
         m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}});
-        m_osdActionSelector->setSource(QUrl(QStringLiteral("qrc:/qml/OsdSelector.qml")));
+        m_osdActionSelector->loadFromModule("org.kde.kscreen.osd", "OsdSelector");
         m_osdActionSelector->setColor(Qt::transparent);
         m_osdActionSelector->setFlag(Qt::FramelessWindowHint);
 

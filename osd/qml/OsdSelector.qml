@@ -12,8 +12,7 @@ import org.kde.ksvg 1.0 as KSvg
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
-import org.kde.KScreen 1.0
-
+import org.kde.kscreen.osd
 
 Control {
     id: root
