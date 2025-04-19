@@ -3,6 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -111,14 +112,14 @@ Control {
             switch (event.key) {
                 case Qt.Key_Return:
                 case Qt.Key_Enter:
-                    clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId)
+                    root.clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId)
                     break
                 case Qt.Key_Right:
                 case Qt.Key_Left:
                     move(event)
                     break
                 case Qt.Key_Escape:
-                    clicked(OsdAction.NoAction)
+                    root.clicked(OsdAction.NoAction)
                     break
             }
         }
