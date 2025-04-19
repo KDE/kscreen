@@ -29,6 +29,7 @@ include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
+include(ECMQmlModule)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 

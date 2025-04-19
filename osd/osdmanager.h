@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QString>
 #include <QTimer>
+#include <qqmlregistration.h>
 
 #include "../common/osdaction.h"
 
@@ -18,6 +19,13 @@ namespace KScreen
 class ConfigOperation;
 class Osd;
 class Output;
+
+struct OsdActionForeign : public QObject {
+    Q_OBJECT
+    QML_NAMED_ELEMENT(OsdAction)
+    QML_UNCREATABLE("Only for enums")
+    QML_EXTENDED_NAMESPACE(KScreen::OsdAction)
+};
 
 class OsdManager : public QObject
 {
