@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-07 13:55+0900\n"
+"PO-Revision-Date: 2025-04-19 15:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -461,6 +461,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"「注重色彩準確度」會讓依賴顯示驅動時可能不準確的色彩操作用 CPU 處理而不交給顯"
+"示驅動，並且會提高最高的色彩深度。<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -469,6 +471,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"「注重效能」會將 ICC 色彩描述檔簡化為矩陣 + 賦形器 (matrix+shaper)，提升效能"
+"但犧牲色彩準確度。<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:42+0000\n"
-"PO-Revision-Date: 2025-03-29 14:11+0100\n"
+"PO-Revision-Date: 2025-04-19 11:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
 msgid "Implementation error"
-msgstr "Грешка в имплементацията"
+msgstr "ьГрешка в имплементацията"
 
 #: kcm.cpp:200
 #, kde-format
@@ -470,6 +470,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Предпочитането на точността на цветовете ограничава потенциално неточното "
+"разтоварване на цветови операции към драйвера на екрана и увеличава "
+"максималната разделителна способност на цветовете.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -478,6 +481,9 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Предпочитането на ефективността опростява ICC профила до матрица+оформител, "
+"подобрявайки производителността за сметка на точността на цветовете.<nl/><nl/"
+">"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
