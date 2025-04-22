@@ -265,6 +265,39 @@ Item {
 
     property point dragStartPosition
 
+    Rectangle {
+        id: priorityBadge
+
+        visible: opacity > 0
+        opacity: output.interactive ? 1 : 0
+
+        Behavior on opacity {
+            PropertyAnimation {
+                easing.type: Easing.InOutQuad
+                duration: Kirigami.Units.shortDuration
+            }
+        }
+
+        color: outline.border.color
+        radius: Kirigami.Units.cornerRadius
+        width: Math.max(priorityLabel.width, priorityLabel.height) + Kirigami.Units.smallSpacing
+        height: Math.max(priorityLabel.height, priorityLabel.width) + Kirigami.Units.smallSpacing
+
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            rightMargin: (model.rotation === 8 ? outline.orientationPanelWidth : 0) + Kirigami.Units.smallSpacing
+            bottomMargin: (model.rotation === 1 ? outline.orientationPanelWidth : 0) + Kirigami.Units.smallSpacing
+        }
+
+        QQC2.Label {
+            id: priorityLabel
+            text: model.priority
+            anchors.centerIn: parent
+            color: isSelected ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+        }
+    }
+
     TapHandler {
         id: tapHandler
         property bool isLongPressed: false
