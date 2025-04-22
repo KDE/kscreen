@@ -161,6 +161,10 @@ Item {
                 target: labelContainer
                 anchors.bottomMargin: outline.orientationPanelWidth + outline.border.width
             }
+            PropertyChanges {
+                target: priorityBadge
+                anchors.bottomMargin: outline.orientationPanelWidth + Kirigami.Units.smallSpacing
+            }
         },
         State {
             name: "rot90"
@@ -173,6 +177,10 @@ Item {
             PropertyChanges {
                 target: labelContainer
                 anchors.leftMargin: outline.orientationPanelWidth + outline.border.width
+            }
+            PropertyChanges {
+                target: priorityBadge
+                anchors.rightMargin: (LayoutMirroring.enabled ? outline.orientationPanelWidth : 0) + Kirigami.Units.smallSpacing
             }
         },
         State {
@@ -198,6 +206,10 @@ Item {
             PropertyChanges {
                 target: labelContainer
                 anchors.rightMargin: outline.orientationPanelWidth + outline.border.width
+            }
+            PropertyChanges {
+                target: priorityBadge
+                anchors.rightMargin: (LayoutMirroring.enabled ? 0 : outline.orientationPanelWidth) + Kirigami.Units.smallSpacing
             }
         }
     ]
@@ -264,6 +276,40 @@ Item {
     }
 
     property point dragStartPosition
+
+    Rectangle {
+        id: priorityBadge
+
+        visible: opacity > 0
+        opacity: output.interactive ? 1 : 0
+
+        Behavior on opacity {
+            PropertyAnimation {
+                easing.type: Easing.InOutQuad
+                duration: Kirigami.Units.shortDuration
+            }
+        }
+
+        color: outline.border.color
+        radius: Kirigami.Units.cornerRadius
+        width: Math.max(priorityLabel.implicitWidth, priorityLabel.implicitHeight) + Kirigami.Units.smallSpacing
+        height: Math.max(priorityLabel.implicitHeight, priorityLabel.implicitWidth) + Kirigami.Units.smallSpacing
+
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            margins: Kirigami.Units.smallSpacing
+        }
+
+        QQC2.Label {
+            id: priorityLabel
+            text: model.priority
+            anchors.fill: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            color: output.isSelected ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+        }
+    }
 
     TapHandler {
         id: tapHandler
