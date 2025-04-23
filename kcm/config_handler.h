@@ -69,6 +69,7 @@ Q_SIGNALS:
     void screenNormalizationUpdate(bool normalized);
     void needsSaveChecked(bool need);
     void outputConnect(bool connected);
+    void prioritiesChanged();
 
 private:
     void checkScreenNormalization();

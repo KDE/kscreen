@@ -96,6 +96,7 @@ void KCMKScreen::configReady(ConfigOperation *op)
     Q_EMIT outputReplicationSupportedChanged();
     Q_EMIT tabletModeAvailableChanged();
     Q_EMIT autoRotationSupportedChanged();
+    Q_EMIT primaryScreenChanged();
 }
 
 void KCMKScreen::save()
@@ -364,6 +365,8 @@ void KCMKScreen::load()
 
     connect(m_configHandler.get(), &ConfigHandler::changed, this, &KCMKScreen::changed);
 
+    connect(m_configHandler.get(), &ConfigHandler::prioritiesChanged, this, &KCMKScreen::primaryScreenChanged);
+
     connect(new GetConfigOperation(), &GetConfigOperation::finished, this, &KCMKScreen::configReady);
 
     Q_EMIT changed();
@@ -539,6 +542,20 @@ bool KCMKScreen::multipleScreensAvailable() const
 void KCMKScreen::startHdrCalibrator(const QString &outputName)
 {
     QProcess::startDetached("hdrcalibrator", {outputName});
+}
+
+QString KCMKScreen::primaryScreen() const
+{
+    if (!m_configHandler || !m_configHandler->config()) {
+        return QString();
+    }
+
+    auto primaryOutput = m_configHandler->config()->primaryOutput();
+    if (!primaryOutput) {
+        return QString();
+    }
+
+    return primaryOutput->name();
 }
 
 #include "kcm.moc"
