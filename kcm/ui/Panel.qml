@@ -30,7 +30,6 @@ ColumnLayout {
             model: kcm.outputModel
             OutputPanel {
                 twinFormLayouts: globalSettingsLayout
-                onReorder: root.reorder()
             }
 
             // "Since 6.5, inserting/removing a new Item at an index less than or equal to the current
@@ -48,6 +47,46 @@ ColumnLayout {
         Kirigami.Separator {
             Layout.fillWidth: true
             Kirigami.FormData.isSection: true
+        }
+
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Primary Screen:")
+            visible: kcm.primaryOutputSupported && enabledOutputsModel.count > 1
+
+            KSortFilterProxyModel {
+                id: enabledOutputsModel
+                sourceModel: kcm.outputModel
+                filterRoleName: "enabled"
+                filterString: "true"
+            }
+
+            QQC2.Label {
+                Layout.maximumWidth: Kirigami.Units.gridUnit * 11
+                text: kcm.primaryScreen
+                elide: Text.ElideRight
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hoverHandler.hovered
+
+                HoverHandler {
+                    id: hoverHandler
+                    enabled: parent.truncated
+                }
+            }
+
+            QQC2.ToolButton {
+                icon.name: "document-edit"
+                onClicked: root.reorder();
+
+                QQC2.ToolTip.text: i18n("Edit Screen Priorities…")
+                QQC2.ToolTip.visible: hovered
+            }
+
+            Kirigami.ContextualHelpButton {
+                toolTipText: xi18nc("@info", "This determines which screen your main desktop appears on, along with any Plasma Panels in it. Some older games also use this setting to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
+            }
         }
 
         RowLayout {

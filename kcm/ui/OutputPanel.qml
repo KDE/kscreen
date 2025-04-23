@@ -21,43 +21,12 @@ Kirigami.FormLayout {
     readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
-    signal reorder()
-
-    KSortFilterProxyModel {
-        id: enabledOutputsModel
-        sourceModel: kcm.outputModel
-        filterRoleName: "enabled"
-        filterString: "true"
-    }
-
     QQC2.CheckBox {
        Kirigami.FormData.label: i18nc("@label for a checkbox that says 'Enabled'", "Device:")
        text: i18n("Enabled")
        checked: element.enabled
        onToggled: element.enabled = checked
        visible: kcm.multipleScreensAvailable
-    }
-
-    RowLayout {
-        visible: kcm.primaryOutputSupported && enabledOutputsModel.count >= 2
-
-        QQC2.Button {
-            visible: enabledOutputsModel.count >= 3
-            text: i18n("Change Screen Priorities…")
-            icon.name: "document-edit"
-            onClicked: root.reorder();
-        }
-
-        QQC2.RadioButton {
-            visible: enabledOutputsModel.count === 2
-            text: i18n("Primary")
-            checked: element.priority === 1
-            onToggled: element.priority = 1
-        }
-
-        Kirigami.ContextualHelpButton {
-            toolTipText: xi18nc("@info", "This determines which screen your main desktop appears on, along with any Plasma Panels in it. Some older games also use this setting to decide which screen to appear on.<nl/><nl/>It has no effect on what screen notifications or other windows appear on.")
-        }
     }
 
     RowLayout {

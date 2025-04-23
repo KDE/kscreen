@@ -39,6 +39,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
     Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
+    Q_PROPERTY(QString primaryScreen READ primaryScreen NOTIFY primaryScreenChanged)
 
 public:
     enum InvalidConfigReason {
@@ -83,6 +84,8 @@ public:
 
     bool multipleScreensAvailable() const;
 
+    QString primaryScreen() const;
+
     void doSave();
     Q_INVOKABLE void revertSettings();
     Q_INVOKABLE void requestReboot();
@@ -115,6 +118,7 @@ Q_SIGNALS:
     void tearingSupportedChanged();
     void tearingAllowedChanged();
     void multipleScreensAvailableChanged();
+    void primaryScreenChanged();
 
 private:
     void setBackendReady(bool error);

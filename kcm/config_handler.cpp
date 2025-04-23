@@ -252,7 +252,7 @@ void ConfigHandler::checkScreenNormalization()
 void ConfigHandler::outputPrioritiesChanged()
 {
     checkNeedsSave();
-    Q_EMIT changed();
+    Q_EMIT prioritiesChanged();
 }
 
 KScreen::OutputPtr ConfigHandler::replicationSource(const KScreen::OutputPtr &output) const
