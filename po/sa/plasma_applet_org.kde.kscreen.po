@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:43+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -17,33 +17,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 
-#: package/contents/ui/main.qml:26
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "प्रस्तुतिविधिः सक्षमः अस्ति"
 
-#: package/contents/ui/main.qml:67
+#: main.qml:67
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "प्रदर्शनसेटिंग्स् विन्यस्तं कुर्वन्तु..."
 
-#: package/contents/ui/PresentationModeItem.qml:27
+#: PresentationModeItem.qml:27
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "प्रस्तुतिविधिं सक्षमं कुर्वन्तु"
 
-#: package/contents/ui/PresentationModeItem.qml:37
+#: PresentationModeItem.qml:37
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "उपयोक्ता सक्षमः प्रस्तुतिविधिः"
 
-#: package/contents/ui/PresentationModeItem.qml:58
+#: PresentationModeItem.qml:58
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "एतेन भवतः स्क्रीनः सङ्गणकः च स्वयमेव निष्क्रियः न भविष्यति ।"
 
-#: package/contents/ui/PresentationModeItem.qml:72
+#: PresentationModeItem.qml:72
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -51,25 +51,25 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "%2 तथा %1 अन्यः अनुप्रयोगः प्रस्तुतिविधिं प्रवर्तयति ।"
 msgstr[1] "%2 तथा %1 अन्ये अनुप्रयोगाः प्रस्तुतिविधिं प्रवर्तयन्ति ।"
 
-#: package/contents/ui/PresentationModeItem.qml:78
+#: PresentationModeItem.qml:78
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 प्रस्तुतिविधिं प्रवर्तयति ।"
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: PresentationModeItem.qml:81
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 प्रस्तुतिविधिं प्रवर्तयति: %2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:52
 #, kde-format
 msgid "Screen Layout"
 msgstr "स्क्रीन लेआउट"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:93
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

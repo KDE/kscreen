@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:43+0000\n"
 "PO-Revision-Date: 2024-02-27 13:46+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: package/contents/ui/main.qml:26
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Ir ieslēgts prezentācijas režīms"
 
-#: package/contents/ui/main.qml:67
+#: main.qml:67
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Konfigurēt displeja iestatījumus..."
 
-#: package/contents/ui/PresentationModeItem.qml:27
+#: PresentationModeItem.qml:27
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "Ieslēgt prezentācijas režīmu"
 
-#: package/contents/ui/PresentationModeItem.qml:37
+#: PresentationModeItem.qml:37
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "Lietotājs ir ieslēdzis prezentācijas režīmu"
 
-#: package/contents/ui/PresentationModeItem.qml:58
+#: PresentationModeItem.qml:58
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "Šis liegs ekrānam un datoram automātiski izslēgties."
 
-#: package/contents/ui/PresentationModeItem.qml:72
+#: PresentationModeItem.qml:72
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -54,25 +54,25 @@ msgstr[0] "„%2“ un vēl %1 programma uzspiež prezentācijas režīmu."
 msgstr[1] "„%2“ un vēl %1 programmas uzspiež prezentācijas režīmu."
 msgstr[2] "„%2“ un vēl %1 programmu uzspiež prezentācijas režīmu."
 
-#: package/contents/ui/PresentationModeItem.qml:78
+#: PresentationModeItem.qml:78
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "„%1“ uzspiež prezentācijas režīmu."
 
-#: package/contents/ui/PresentationModeItem.qml:81
+#: PresentationModeItem.qml:81
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "„%1“ uzspiež prezentācijas režīmu: %2"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:52
 #, kde-format
 msgid "Screen Layout"
 msgstr "Ekrānu izkārtojums"
 
-#: package/contents/ui/ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:93
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "
