@@ -46,8 +46,10 @@ void ConfigHandler::setConfig(KScreen::ConfigPtr config)
     m_lastNormalizedScreenSize = screenSize();
 
     connect(m_outputModel, &OutputModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight, const QList<int> &roles) {
+        Q_UNUSED(topLeft)
         Q_UNUSED(bottomRight)
-        // Do not run checks during interactive reaarange
+        Q_UNUSED(roles)
+        // Do not run checks during interactive rearrange
         if (!m_outputModel->isMoving()) {
             checkNeedsSave();
         }
