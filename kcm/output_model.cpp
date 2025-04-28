@@ -133,6 +133,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->bitsPerColorRange().min;
     case MaxSupportedMaxBitsPerColorRole:
         return output->bitsPerColorRange().max;
+    case EdrPolicyRole:
+        return static_cast<uint32_t>(output->edrPolicy());
     }
     return QVariant();
 }
@@ -317,6 +319,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         Q_EMIT dataChanged(index, index, {role});
         return true;
     }
+    case EdrPolicyRole:
+        output.ptr->setEdrPolicy(static_cast<KScreen::Output::EdrPolicy>(value.toUInt()));
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -359,6 +365,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[AutomaticMaxBitsPerColorLimitRole] = "automaticMaxBitsPerColorLimit";
     roles[MinSupportedMaxBitsPerColorRole] = "minSupportedMaxBitsPerColor";
     roles[MaxSupportedMaxBitsPerColorRole] = "maxSupportedMaxBitsPerColor";
+    roles[EdrPolicyRole] = "edrPolicy";
     return roles;
 }
 

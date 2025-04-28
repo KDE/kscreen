@@ -56,6 +56,7 @@ public:
         AutomaticMaxBitsPerColorLimitRole,
         MinSupportedMaxBitsPerColorRole,
         MaxSupportedMaxBitsPerColorRole,
+        EdrPolicyRole,
     };
     Q_ENUM(OutputRoles)
 
