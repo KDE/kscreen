@@ -172,7 +172,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->colorPowerPreference() != config->colorPowerPreference()
                     || output->replicationSource() != config->replicationSource()
                     || output->ddcCiAllowed() != config->ddcCiAllowed()
-                    || output->maxBitsPerColor() != config->maxBitsPerColor()) {
+                    || output->maxBitsPerColor() != config->maxBitsPerColor()
+                    || (isSaveCheck && output->edrPolicy() != config->edrPolicy())) {
                         return true;
                     }
             }

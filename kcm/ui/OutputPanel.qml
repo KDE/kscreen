@@ -596,6 +596,27 @@ Kirigami.FormLayout {
         }
     }
 
+    RowLayout {
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: !root.hdrAvailable && (element.capabilities & KScreen.Output.Capability.ExtendedDynamicRange)
+        Kirigami.FormData.label: i18nc("@label", "Extended Dynamic Range:")
+        Kirigami.FormData.buddyFor: edrCheckbox
+
+        QQC2.CheckBox {
+            id: edrCheckbox
+            text: i18nc("@option:check", "Enable EDR")
+            checked: element.edrPolicy == KScreen.Output.EdrPolicy.Always
+            onToggled: element.edrPolicy = (checked ? KScreen.Output.EdrPolicy.Always : KScreen.Output.EdrPolicy.Never)
+        }
+
+        Kirigami.ContextualHelpButton {
+            toolTipText: xi18nc("@info:tooltip", "EDR allows viewing HDR content on SDR displays by dynamically adjusting the backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR content.")
+        }
+    }
+
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: root.comboboxWidth

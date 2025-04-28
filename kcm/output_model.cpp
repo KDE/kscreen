@@ -137,6 +137,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->maxPeakBrightnessOverride().value_or(output->maxPeakBrightness());
     case OutputNameRole:
         return output->name();
+    case EdrPolicyRole:
+        return static_cast<uint32_t>(output->edrPolicy());
     }
     return QVariant();
 }
@@ -319,6 +321,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setMaxPeakBrightnessOverride(value.toDouble());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case EdrPolicyRole:
+        output.ptr->setEdrPolicy(static_cast<KScreen::Output::EdrPolicy>(value.toUInt()));
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -363,6 +369,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[MaxSupportedMaxBitsPerColorRole] = "maxSupportedMaxBitsPerColor";
     roles[PeakBrightnessOverride] = "peakBrightnessOverride";
     roles[OutputNameRole] = "name";
+    roles[EdrPolicyRole] = "edrPolicy";
     return roles;
 }
 
