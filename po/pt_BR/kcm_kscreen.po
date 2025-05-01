@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:42+0000\n"
+"POT-Creation-Date: 2025-05-01 00:43+0000\n"
 "PO-Revision-Date: 2025-03-10 00:52-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr "Erro de implementação"
 
-#: kcm.cpp:200
+#: kcm.cpp:202
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "As saídas foram alteradas ao tentar aplicar as configurações"
@@ -36,24 +36,24 @@ msgstr "As saídas foram alteradas ao tentar aplicar as configurações"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:660
+#: output_model.cpp:668
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:678
+#: output_model.cpp:687
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:765
+#: output_model.cpp:774
 #, kde-format
 msgid "None"
 msgstr "Nenhum"
 
-#: output_model.cpp:772
+#: output_model.cpp:781
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicado por outra saída"
@@ -517,13 +517,28 @@ msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr "Define o brilho máximo para o controle deslizante de brilho normal."
 
-#: ui/OutputPanel.qml:484
+#: ui/OutputPanel.qml:482
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Brilho:"
 
-#: ui/OutputPanel.qml:503
+#: ui/OutputPanel.qml:488
+#, kde-format
+msgctxt "@option:check"
+msgid "Control hardware brightness with DDC/CI"
+msgstr ""
+
+#: ui/OutputPanel.qml:494
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"DDC/CI is a feature supported by many monitors. Plasma can use it to adjust "
+"screen brightness with desktop controls, as if using the monitor's own "
+"hardware buttons and OSD menu."
+msgstr ""
+
+#: ui/OutputPanel.qml:524
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -531,7 +546,7 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:509
+#: ui/OutputPanel.qml:530
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplica de:"

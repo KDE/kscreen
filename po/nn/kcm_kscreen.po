@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:42+0000\n"
+"POT-Creation-Date: 2025-05-01 00:43+0000\n"
 "PO-Revision-Date: 2024-09-01 15:21+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:200
+#: kcm.cpp:202
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -33,24 +33,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:660
+#: output_model.cpp:668
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:678
+#: output_model.cpp:687
 #, fuzzy, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:765
+#: output_model.cpp:774
 #, kde-format
 msgid "None"
 msgstr "Ingen"
 
-#: output_model.cpp:772
+#: output_model.cpp:781
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Duplisert av anna uteining"
@@ -507,19 +507,34 @@ msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider."
 msgstr ""
 
-#: ui/OutputPanel.qml:484
+#: ui/OutputPanel.qml:482
 #, fuzzy, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR-lysstyrke:"
 
-#: ui/OutputPanel.qml:503
+#: ui/OutputPanel.qml:488
+#, kde-format
+msgctxt "@option:check"
+msgid "Control hardware brightness with DDC/CI"
+msgstr ""
+
+#: ui/OutputPanel.qml:494
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"DDC/CI is a feature supported by many monitors. Plasma can use it to adjust "
+"screen brightness with desktop controls, as if using the monitor's own "
+"hardware buttons and OSD menu."
+msgstr ""
+
+#: ui/OutputPanel.qml:524
 #, fuzzy, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:509
+#: ui/OutputPanel.qml:530
 #, kde-format
 msgid "Replica of:"
 msgstr "Duplikat av:"
