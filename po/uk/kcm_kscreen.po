@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 09:56+0300\n"
+"PO-Revision-Date: 2025-05-01 12:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -533,7 +533,7 @@ msgstr "Яскравість:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Керування апаратною яскравістю за допомогою DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -543,6 +543,10 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI є можливістю, підтримку якої передбачено у багатьох моніторах. Плазма "
+"може скористатися нею для коригування яскравості за допомогою засобів "
+"керування стільницею, так, наче використано апаратні кнопки і накладне меню "
+"самого монітора."
 
 #: ui/OutputPanel.qml:524
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-19 15:03+0900\n"
+"PO-Revision-Date: 2025-05-01 17:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -514,7 +514,7 @@ msgstr "亮度："
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "用 DDC/CI 來控制硬體亮度"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -524,6 +524,8 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI 是一個受許多螢幕支援的功能。Plasma 能夠透過它讓您從桌面來控制螢幕亮"
+"度，而不用使用螢幕自己的硬體按鈕和使用者介面。"
 
 #: ui/OutputPanel.qml:524
 #, kde-format

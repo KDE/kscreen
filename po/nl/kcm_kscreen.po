@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 13:56+0200\n"
+"PO-Revision-Date: 2025-05-01 18:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -527,7 +527,7 @@ msgstr "Helderheid:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Bestuur helderheid van hardware met DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -537,6 +537,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI is een functie ondersteunt door vele monitors. Plasma kan het "
+"gebruiken om de helderheid van het scherm met bureaubladbesturingen, alsof "
+"de eigen hardwareknoppen van de monitor worden gebruikt en het OSD-menu."
 
 #: ui/OutputPanel.qml:524
 #, kde-format

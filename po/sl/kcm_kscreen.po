@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 06:58+0200\n"
+"PO-Revision-Date: 2025-05-01 06:04+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -528,7 +528,7 @@ msgstr "Svetlost:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Nadzoruj svetlost strojne opreme z DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -538,6 +538,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI je zmožnost, ki jo podpira veliko monitorjev. Plasma jo lahko "
+"uporablja za prilagajanje svetlosti zaslona z namiznimi gumbi, kot če bi "
+"uporabljal lastne strojne gumbe in zaslonski meni monitorja."
 
 #: ui/OutputPanel.qml:524
 #, kde-format
