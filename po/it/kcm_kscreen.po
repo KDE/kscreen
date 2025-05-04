@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-13 09:47+0200\n"
+"PO-Revision-Date: 2025-05-01 17:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -529,7 +529,7 @@ msgstr "Luminosità:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Controlla la luminosità hardware con DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -539,6 +539,10 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI è una funzionalità supportata da molti monitor. I monitor al plasma "
+"possono utilizzarla per regolare la luminosità dello schermo tramite i "
+"controlli del desktop, come se si utilizzassero i pulsanti hardware e il "
+"menu OSD del monitor."
 
 #: ui/OutputPanel.qml:524
 #, kde-format

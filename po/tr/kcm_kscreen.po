@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-03-28 14:46+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-05-03 20:54+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -526,7 +526,7 @@ msgstr "Parlaklık:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "DDC/CI ile donanım parlaklığını denetle"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -536,6 +536,10 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DCC/CI, birçok monitör tarafından desteklenen bir özelliktir. Plasma bunu, "
+"sanki monitörün kendi donanımsal düğmelerini veya Ekran Üzeri Görüntü "
+"menüsünü kullanırmışçasına ekran parlaklığını masaüstü yazılım "
+"denetimleriyle ayarlamak için kullanabilir."
 
 #: ui/OutputPanel.qml:524
 #, kde-format

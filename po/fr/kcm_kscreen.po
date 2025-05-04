@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-13 14:02+0200\n"
+"PO-Revision-Date: 2025-05-02 16:21+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:152 kcm.cpp:174
@@ -544,6 +544,7 @@ msgstr "Luminosité :"
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
+"Contrôler la luminosité du matériel avec la fonctionnalité « DDC / CI »"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -553,6 +554,10 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"La fonctionnalité « DDC / CI » est prise en charge par de nombreux écrans. "
+"Plasma peut l'utiliser pour ajuster la luminosité de l'écran avec les "
+"commandes de bureau, comme si vous utilisiez les boutons réels et le menu en "
+"incrustation vidéo « OSD » du moniteur."
 
 #: ui/OutputPanel.qml:524
 #, kde-format

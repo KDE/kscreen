@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 10:55+0300\n"
+"PO-Revision-Date: 2025-05-03 14:23+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -518,7 +518,7 @@ msgstr "בהירות:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "שליטה בבהירות החומרה עם DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -528,6 +528,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI היא יכולת שנתמכת במגוון רחב של צגים. פלזמה יכולה להשתמש בה כדי לכוון "
+"את בהירות המסך עם פקדי שולחן העבודה, ממש כמו להשתמש בכפתורי החומרה ותפריט "
+"הבקרה הצף המובנה (OSD)."
 
 #: ui/OutputPanel.qml:524
 #, kde-format
