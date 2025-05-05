@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-17 09:43+0400\n"
+"PO-Revision-Date: 2025-05-04 06:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -520,7 +520,7 @@ msgstr "السّطوع:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "تحكم في سطوع الأجهزة باستخدام DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -530,6 +530,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI ميزة تدعمها العديد من الشاشات. يمكن لشاشات البلازما استخدامها لضبط "
+"سطوع الشاشة باستخدام أدوات التحكم المكتبية، كما لو كانت تستخدم أزرار الشاشة "
+"نفسها وقائمة OSD."
 
 #: ui/OutputPanel.qml:524
 #, kde-format
