@@ -18,6 +18,7 @@ Kirigami.FormLayout {
 
     property KSortFilterProxyModel enabledOutputs
     property var element: model
+    readonly property int comboboxWidth: Kirigami.Units.gridUnit * 11
 
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
@@ -59,7 +60,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: resolutionCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             visible: count > 1
             model: element.resolutions
             onActivated: element.resolutionIndex = currentIndex;
@@ -135,7 +136,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: refreshRateCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             visible: count > 1
             model: element.refreshRates
             onActivated: element.refreshRateIndex = currentIndex;
@@ -157,7 +158,7 @@ Kirigami.FormLayout {
 
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Adaptive sync:")
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        Layout.minimumWidth: root.comboboxWidth
         model: [
             { label: i18n("Never"), value: KScreen.Output.VrrPolicy.Never },
             { label: i18n("Automatic"), value: KScreen.Output.VrrPolicy.Automatic },
@@ -200,7 +201,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: rgbRangeCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 { label: i18n("Automatic"), value: KScreen.Output.RgbRange.Automatic },
                 { label: i18n("Full"), value: KScreen.Output.RgbRange.Full },
@@ -227,7 +228,7 @@ Kirigami.FormLayout {
         QQC2.ComboBox {
             id: colorProfileCombobox
             enabled: !element.hdr || !root.hdrAvailable
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 {
                     text: i18nc("@item:inlistbox color profile", "None"),
@@ -370,7 +371,7 @@ Kirigami.FormLayout {
 
         QQC2.ComboBox {
             id: colorAccuracyCombobox
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+            Layout.minimumWidth: root.comboboxWidth
             model: [
                 { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer efficiency"), value: KScreen.Output.ColorPowerTradeoff.PreferEfficiency },
                 { label: i18nc("@item:inlistbox tradeoff between efficiency and color accuracy", "Prefer color accuracy"), value: KScreen.Output.ColorPowerTradeoff.PreferAccuracy }
@@ -528,7 +529,7 @@ Kirigami.FormLayout {
 
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 11
+        Layout.minimumWidth: root.comboboxWidth
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         model: element.replicationSourceModel
         visible: kcm.outputReplicationSupported && kcm.multipleScreensAvailable
