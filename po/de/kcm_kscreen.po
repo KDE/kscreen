@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2024-10-27 20:04+0100\n"
+"PO-Revision-Date: 2025-04-06 20:57+0200\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -185,7 +185,7 @@ msgstr "Aktiviert"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Anzeigepriorität ändern ..."
+msgstr "Anzeigenpriorität ändern …"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -244,7 +244,7 @@ msgstr ""
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "Adaptiver Abgleich:"
+msgstr "Adaptive-Sync:"
 
 #: package/contents/ui/OutputPanel.qml:152
 #, kde-format
