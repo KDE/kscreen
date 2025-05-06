@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 02:39+0000\n"
-"PO-Revision-Date: 2025-02-18 14:25+0100\n"
+"PO-Revision-Date: 2025-04-06 20:57+0200\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,17 +20,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:156 kcm.cpp:178
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Implementierungs-Fehler"
 
 #: kcm.cpp:204
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
+"Beim Versuch, die Einstellungen zu übernehmen, wurden die Ausgaben geändert"
 
 #: output_model.cpp:96
 #, kde-format
@@ -105,11 +106,10 @@ msgstr ""
 "alle Anzeigen sich berühren."
 
 #: ui/main.qml:107
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn't apply display configuration: %1"
-msgstr "Anzeige-Einrichtung beibehalten?"
+msgstr "Anzeigen-Einstellung kann nicht angewendet werden: %1"
 
 #: ui/main.qml:116
 #, kde-format
@@ -207,7 +207,7 @@ msgstr "Aktiviert"
 #: ui/OutputPanel.qml:38
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Anzeigepriorität ändern ..."
+msgstr "Anzeigenpriorität ändern …"
 
 #: ui/OutputPanel.qml:51
 #, kde-kuit-format
@@ -267,7 +267,7 @@ msgstr ""
 #: ui/OutputPanel.qml:158
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "Adaptiver Abgleich:"
+msgstr "Adaptive-Sync:"
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -407,49 +407,42 @@ msgid "High Dynamic Range:"
 msgstr "Hochkontrast (HDR):"
 
 #: ui/OutputPanel.qml:335
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "HDR aktivieren"
+msgstr "&HDR aktivieren"
 
 #: ui/OutputPanel.qml:341
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors"
 msgstr ""
-"Mit HDR können kompatible Anwendungen hellere und lebendigere Farben zeigen. "
-"Bitte beachten Sie, dass diese Funktion noch experimentell ist"
+"Mit HDR können kompatible Anwendungen hellere und lebendigere Farben zeigen."
 
 #: ui/OutputPanel.qml:349
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Farbgenauigkeit:"
 
 #: ui/OutputPanel.qml:358
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Effizienz bevorzugen"
 
 #: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Farbgenauigkeit bevorzugen"
 
 #: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This setting can have a large impact on performance"
-msgstr ""
+msgstr "Diese Einstellung kann einen großen Einfluss auf die Leistung haben"
 
 #: ui/OutputPanel.qml:380
 #, kde-format
@@ -483,15 +476,13 @@ msgstr "SDR-Helligkeit:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sets the maximum brightness for the normal brightness slider"
-msgstr ""
+msgstr "Legt die maximale Helligkeit für den normalen Helligkeitsregler fest"
 
 #: ui/OutputPanel.qml:459
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "SDR Brightness:"
+#, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "SDR-Helligkeit:"
+msgstr "Helligkeit:"
 
 #: ui/OutputPanel.qml:482
 #, kde-format
