@@ -51,4 +51,4 @@ msgstr "Залишити без змін"
 #: utils.cpp:21
 #, kde-format
 msgid "Built-in Screen"
-msgstr "Будований екран"
+msgstr "Вбудований екран"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-03 17:51+0300\n"
+"PO-Revision-Date: 2025-05-03 15:11+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -471,6 +471,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Vēlamā krāsu precizitāte ierobežo potenciāli neprecīzu krāsu darbību izlādi "
+"uz displeja draiveri un palielina maksimālo krāsu izšķirtspēju.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:393
 #, kde-kuit-format
@@ -479,6 +481,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Priekšrokas došanas efektivitātei vienkāršo ICC profilu līdz matricai un "
+"formētājam, palielinot veiktspēju uz krāsu precizitātes rēķina.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:405
 #, kde-format
@@ -520,7 +524,7 @@ msgstr "Gaišums:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Pārvaldiet aparatūras gaišumu ar DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -530,6 +534,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI ir iespēja, ko atbalsta daudzi monitori. „Plasma“ var to lietot, lai "
+"koriģētu ekrāna gaišumu, izmantojot darbvirsmas vadīklas gluži tāpat, kā "
+"izmantojat pogas vai izvēlni pašā monitorā."
 
 #: ui/OutputPanel.qml:524
 #, kde-format
