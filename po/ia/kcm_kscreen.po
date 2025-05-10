@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:43+0000\n"
-"PO-Revision-Date: 2025-04-15 15:30+0200\n"
+"PO-Revision-Date: 2025-05-09 17:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -526,7 +526,7 @@ msgstr "Brillantia:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Controla brillantia de hardware con DDC/CI"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -536,6 +536,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI es un characteristica supportate permulte monitores. Plasma pote usar "
+"lo per adaptar brillantia de schermo con controles de scriptorio, como si il "
+"usa le proprie buttones hardware del monitor e le menu OSD."
 
 #: ui/OutputPanel.qml:524
 #, kde-format
