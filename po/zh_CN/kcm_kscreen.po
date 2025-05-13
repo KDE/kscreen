@@ -512,7 +512,7 @@ msgstr "亮度："
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "使用 DDC/CI 控制硬件亮度"
 
 #: ui/OutputPanel.qml:494
 #, kde-format
@@ -522,6 +522,8 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI 是许多显示器支持的一项功能。Plasma 可以使用此功能直接通过桌面控件调节"
+"屏幕亮度，效果与使用显示器自身的硬件按钮和 OSD 菜单一样。"
 
 #: ui/OutputPanel.qml:524
 #, kde-format

@@ -41,12 +41,10 @@ msgid "%1 × %2"
 msgstr ""
 
 #: output_model.cpp:687
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr ""
 
 # žádné parametry funkce v inspektoru funkcí
 #: output_model.cpp:774
@@ -105,11 +103,10 @@ msgstr ""
 "obrazovky dotýkají."
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Ponechat nastavení zobrazení?"
+msgstr ""
 
 #: ui/main.qml:131
 #, kde-format
@@ -224,11 +221,10 @@ msgid "Replicas"
 msgstr "Kopie"
 
 #: ui/OutputPanel.qml:27
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
-msgstr "Zařízení:"
+msgstr ""
 
 #: ui/OutputPanel.qml:28
 #, kde-format
@@ -349,12 +345,10 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
-msgstr "Profil barev:"
+msgstr ""
 
 # žádné parametry funkce v inspektoru funkcí
 #: ui/OutputPanel.qml:233
@@ -525,12 +519,10 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:524
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: ui/OutputPanel.qml:530
 #, kde-format
@@ -625,7 +617,3 @@ msgstr "Žádné otočení"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Přetáhněte obrazovky jak chcete aby byly sestaveny"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
