@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:43+0000\n"
+"POT-Creation-Date: 2025-05-15 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,24 +32,24 @@ msgstr "输出在尝试应用设置时发生更改"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:668
+#: output_model.cpp:701
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:687
+#: output_model.cpp:720
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:774
+#: output_model.cpp:807
 #, kde-format
 msgid "None"
 msgstr "无"
 
-#: output_model.cpp:781
+#: output_model.cpp:814
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
@@ -143,7 +143,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "更改优先级"
 
-#: ui/main.qml:273 ui/OutputPanel.qml:46
+#: ui/main.qml:273 ui/OutputPanel.qml:47
 #, kde-format
 msgid "Primary"
 msgstr "主要"
@@ -175,7 +175,7 @@ msgstr "编辑排列方式"
 msgid "Orientation:"
 msgstr "方向："
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:163 ui/OutputPanel.qml:205
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:164 ui/OutputPanel.qml:206
 #, kde-format
 msgid "Automatic"
 msgstr "自动"
@@ -212,23 +212,23 @@ msgstr "%1，%2"
 msgid "Replicas"
 msgstr "复制"
 
-#: ui/OutputPanel.qml:27
+#: ui/OutputPanel.qml:28
 #, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "设备："
 
-#: ui/OutputPanel.qml:28
+#: ui/OutputPanel.qml:29
 #, kde-format
 msgid "Enabled"
 msgstr "已启用"
 
-#: ui/OutputPanel.qml:39
+#: ui/OutputPanel.qml:40
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "更改屏幕优先级…"
 
-#: ui/OutputPanel.qml:52
+#: ui/OutputPanel.qml:53
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -241,72 +241,72 @@ msgstr ""
 "来决定游戏画面显示在哪个屏幕上。<nl/><nl/>此选项对屏幕通知、其他类型的窗口的"
 "显示位置没有影响。"
 
-#: ui/OutputPanel.qml:57
+#: ui/OutputPanel.qml:58
 #, kde-format
 msgid "Resolution:"
 msgstr "分辨率："
 
-#: ui/OutputPanel.qml:78
+#: ui/OutputPanel.qml:79
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "“%1”是此显示器支持的唯一分辨率。"
 
-#: ui/OutputPanel.qml:88
+#: ui/OutputPanel.qml:89
 #, kde-format
 msgid "Scale:"
 msgstr "缩放率："
 
-#: ui/OutputPanel.qml:94 ui/Panel.qml:62
+#: ui/OutputPanel.qml:95 ui/Panel.qml:62
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "正常缩放率的百分比"
 
-#: ui/OutputPanel.qml:121 ui/Panel.qml:93
+#: ui/OutputPanel.qml:122 ui/Panel.qml:93
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:133
+#: ui/OutputPanel.qml:134
 #, kde-format
 msgid "Refresh rate:"
 msgstr "刷新率："
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:155
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "“%1”是此显示器支持的唯一刷新率。"
 
-#: ui/OutputPanel.qml:159
+#: ui/OutputPanel.qml:160
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "自适应同步："
 
-#: ui/OutputPanel.qml:162
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Never"
 msgstr "永不"
 
-#: ui/OutputPanel.qml:164
+#: ui/OutputPanel.qml:165
 #, kde-format
 msgid "Always"
 msgstr "总是"
 
-#: ui/OutputPanel.qml:175
+#: ui/OutputPanel.qml:176
 #, kde-format
 msgid "Overscan:"
 msgstr "过扫描："
 
-#: ui/OutputPanel.qml:186
+#: ui/OutputPanel.qml:187
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:192
+#: ui/OutputPanel.qml:193
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -317,22 +317,22 @@ msgstr ""
 "此选项决定了发送到显示器的图像周围的边距大小，用于对画面边缘附近被裁切掉的内"
 "容进行补偿。<nl/><nl/>使用电视机作为屏幕时可能需要此功能。"
 
-#: ui/OutputPanel.qml:197
+#: ui/OutputPanel.qml:198
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB 范围："
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:207
 #, kde-format
 msgid "Full"
 msgstr "完整"
 
-#: ui/OutputPanel.qml:207
+#: ui/OutputPanel.qml:208
 #, kde-format
 msgid "Limited"
 msgstr "限幅"
 
-#: ui/OutputPanel.qml:217
+#: ui/OutputPanel.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -343,31 +343,31 @@ msgstr ""
 "此选项决定了是否要对输出到显示器的颜色数值范围进行限制。只有在屏幕显示的颜色"
 "纯度、对比度低于应有状态时才应更改此选项。"
 
-#: ui/OutputPanel.qml:222
+#: ui/OutputPanel.qml:223
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "色彩特性文件："
 
-#: ui/OutputPanel.qml:233
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "无"
 
-#: ui/OutputPanel.qml:238
+#: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC 特性文件"
 
-#: ui/OutputPanel.qml:243
+#: ui/OutputPanel.qml:244
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "内建"
 
-#: ui/OutputPanel.qml:261
+#: ui/OutputPanel.qml:262
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -379,54 +379,54 @@ msgstr ""
 "不精确，甚至有时会包含错误的数值。为了保证显示色彩的准确性，建议使用校色仪进"
 "行色彩校准。"
 
-#: ui/OutputPanel.qml:265
+#: ui/OutputPanel.qml:266
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The screen's built-in color profile is always used with HDR."
 msgstr "屏幕内建的色彩特性文件总是与 HDR 配合使用。"
 
-#: ui/OutputPanel.qml:278
+#: ui/OutputPanel.qml:279
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "输入 ICC 特性文件路径…"
 
-#: ui/OutputPanel.qml:294
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "选择 ICC 特性文件…"
 
-#: ui/OutputPanel.qml:305
+#: ui/OutputPanel.qml:306
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "打开文件选择器指定一个 ICC 特性文件"
 
-#: ui/OutputPanel.qml:314
+#: ui/OutputPanel.qml:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "选择 ICC 特性文件"
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC 特性文件目前尚未兼容 HDR。"
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:347
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "高动态范围 (HDR)："
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:354
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "启用 &HDR"
 
-#: ui/OutputPanel.qml:359
+#: ui/OutputPanel.qml:360
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -435,23 +435,34 @@ msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色。"
 
 #: ui/OutputPanel.qml:366
 #, kde-format
+msgctxt "@action:button"
+msgid "Calibrate HDR Brightness…"
+msgstr ""
+
+#: ui/OutputPanel.qml:379
+#, kde-format
+msgid "Opens a window to calibrate HDR brightness"
+msgstr ""
+
+#: ui/OutputPanel.qml:386
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "色彩准确性："
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:395
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "性能优先"
 
-#: ui/OutputPanel.qml:376
+#: ui/OutputPanel.qml:396
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "色彩准确性优先"
 
-#: ui/OutputPanel.qml:386
+#: ui/OutputPanel.qml:406
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -462,7 +473,7 @@ msgstr ""
 "色彩准确性优先会限制可能导致失真的将色彩操作交给显示驱动程序行为，并提升颜色"
 "分辨率。<nl/><nl/>"
 
-#: ui/OutputPanel.qml:393
+#: ui/OutputPanel.qml:413
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -472,49 +483,69 @@ msgstr ""
 "性能优先会将 ICC 特性文件简化为 matrix+shaper，以牺牲色彩准确性为代价来提高性"
 "能。<nl/><nl/>"
 
-#: ui/OutputPanel.qml:405
+#: ui/OutputPanel.qml:421
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Limit color resolution to:"
+msgstr ""
+
+#: ui/OutputPanel.qml:451
+#, kde-format
+msgctxt "@item:inlistbox color resolution"
+msgid "Automatic  (%1 bits per color)"
+msgstr ""
+
+#: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
+#, kde-format
+msgctxt "@item:inlistbox color resolution"
+msgid "%1 bits per color"
+msgstr ""
+
+#: ui/OutputPanel.qml:464
+#, kde-format
+msgctxt "@item:inlistbox color resolution"
+msgid "Automatic (%1 bits per color)"
+msgstr ""
+
+#: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Limits the color resolution of the image that is sent to the display. This "
+"does not affect screenshots or recordings.<nl/><nl/>"
+msgstr ""
+
+#: ui/OutputPanel.qml:507
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩鲜艳度："
 
-#: ui/OutputPanel.qml:433
+#: ui/OutputPanel.qml:535
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:441
+#: ui/OutputPanel.qml:543
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度。"
 
-#: ui/OutputPanel.qml:452
-#, kde-format
-msgctxt "@label"
-msgid "Maximum SDR brightness:"
-msgstr "最大 SDR 亮度："
-
-#: ui/OutputPanel.qml:473
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Sets the maximum brightness for the normal brightness slider."
-msgstr "设置正常亮度滑动条的最大亮度值。"
-
-#: ui/OutputPanel.qml:482
+#: ui/OutputPanel.qml:552
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:488
+#: ui/OutputPanel.qml:558
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "使用 DDC/CI 控制硬件亮度"
 
-#: ui/OutputPanel.qml:494
+#: ui/OutputPanel.qml:564
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -525,13 +556,38 @@ msgstr ""
 "DDC/CI 是许多显示器支持的一项功能。Plasma 可以使用此功能直接通过桌面控件调节"
 "屏幕亮度，效果与使用显示器自身的硬件按钮和 OSD 菜单一样。"
 
-#: ui/OutputPanel.qml:524
+#: ui/OutputPanel.qml:594
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:530
+#: ui/OutputPanel.qml:605
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "High Dynamic Range:"
+msgctxt "@label"
+msgid "Extended Dynamic Range:"
+msgstr "高动态范围 (HDR)："
+
+#: ui/OutputPanel.qml:610
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable &HDR"
+msgctxt "@option:check"
+msgid "Enable EDR"
+msgstr "启用 &HDR"
+
+#: ui/OutputPanel.qml:616
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"EDR allows viewing HDR content on SDR displays by dynamically adjusting the "
+"backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
+"content."
+msgstr ""
+
+#: ui/OutputPanel.qml:621
 #, kde-format
 msgid "Replica of:"
 msgstr "复制自："
@@ -630,3 +686,11 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
+
+#~ msgctxt "@label"
+#~ msgid "Maximum SDR brightness:"
+#~ msgstr "最大 SDR 亮度："
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Sets the maximum brightness for the normal brightness slider."
+#~ msgstr "设置正常亮度滑动条的最大亮度值。"
