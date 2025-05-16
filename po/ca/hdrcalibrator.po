@@ -1,0 +1,76 @@
+# Translation of hdrcalibrator.po to Catalan
+# Copyright (C) 2025 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-15 00:44+0000\n"
+"PO-Revision-Date: 2025-05-15 21:35+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "Calibratge de l'HDR"
+
+#: ui/Main.qml:130
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Següent"
+
+#: ui/Main.qml:138 ui/Main.qml:307
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Canvia a la pàgina següent"
+
+#: ui/Main.qml:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: ui/Main.qml:149
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Cancel·la el procés de calibratge"
+
+#: ui/Main.qml:154
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Per a determinar la lluminositat màxima de la pantalla, ajusteu el control "
+"lliscant fins que el logotip sigui visible amb prou feines"
+
+#: ui/Main.qml:301
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Fet"
+
+#: ui/Main.qml:316
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Configura com de lluminós hauria de ser el «100%» en el control lliscant la "
+"lluminositat normal. Feu-lo tan brillant com ho faríeu servir, sempre que la "
+"imatge HDR encara es vegi bé i els degradats siguin suaus."

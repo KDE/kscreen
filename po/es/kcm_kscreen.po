@@ -1,15 +1,15 @@
 # Spanish translations for kcm_kscreen.po package.
-# Copyright (C) 2015-2025 This_file_is_part_of_KDE
+# Copyright (C) 2015-2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-#
 # Automatically generated, 2015.
+#
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-02 01:57+0100\n"
+"PO-Revision-Date: 2025-05-15 19:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -454,12 +454,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Calibrar el brillo HDR…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Abre una ventana para calibrar el brillo HDR"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -505,25 +505,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Limitar la resolución de color a:"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automática (%1 bits por color)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bits por color"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automática (%1 bits por color)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -532,6 +532,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Limita la resolución de los colores de la imagen que se envía a la pantalla. "
+"Esto no afecta a las capturas de pantalla ni a las grabaciones.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -582,20 +584,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Alto rango dinámico:"
+msgstr "Rango dinámico extendido:"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Activar &HDR"
+msgstr "Activar EDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -605,6 +603,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR permite ver contenido HDR en pantallas SDR ajustando dinámicamente la "
+"luz de fondo.<nl/><nl/>Tenga en cuenta que esto aumenta el consumo de "
+"batería cuando se visualiza contenido HDR."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
@@ -708,11 +709,3 @@ msgstr "Sin rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastre las pantallas para modificar su distribución"
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "Brillo SDR máximo:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the maximum brightness for the normal brightness slider."
-#~ msgstr "Fija el brillo máximo para el deslizador de brillo normal."

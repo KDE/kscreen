@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-01 06:04+0200\n"
+"PO-Revision-Date: 2025-05-15 07:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -453,12 +453,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Kalibriraj svetlost HDR…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Odpre okno za kalibracijo svetlosti HDR"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -503,25 +503,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Omeji barvno ločljivost na:"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Samodejno  (%1 bitov na barvo)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bitov na barvo"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Samodejno (%1 bitov na barvo)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -530,6 +530,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Omejuje barvno ločljivost slike, ki je poslana na zaslon. To ne vpliva na "
+"posnetke zaslona ali posnetke.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -580,20 +582,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Visoki dinamični obseg (HDR):"
+msgstr "Razširjeni dinamični razpon (EDR):"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Omogoči HDR"
+msgstr "Omogoči EDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -603,6 +601,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR omogoča ogled vsebine HDR na zaslonih SDR z dinamičnim prilagajanjem "
+"osvetlitve ozadja.<nl/><nl/>Upoštevajte, da to poveča porabo baterije med "
+"ogledom vsebine HDR."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
