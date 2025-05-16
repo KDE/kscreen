@@ -563,20 +563,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "高动态范围 (HDR)："
+msgstr ""
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "启用 &HDR"
+msgstr ""
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -686,11 +682,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "最大 SDR 亮度："
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the maximum brightness for the normal brightness slider."
-#~ msgstr "设置正常亮度滑动条的最大亮度值。"

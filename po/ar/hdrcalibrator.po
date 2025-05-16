@@ -1,0 +1,74 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-15 00:44+0000\n"
+"PO-Revision-Date: 2025-05-15 18:18+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "معايرة HDR"
+
+#: ui/Main.qml:130
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "التالي"
+
+#: ui/Main.qml:138 ui/Main.qml:307
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "يبدّل إلى الصفحة التالية"
+
+#: ui/Main.qml:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "ألغِ"
+
+#: ui/Main.qml:149
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "يُلغي عملية المعايرة"
+
+#: ui/Main.qml:154
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"لتحديد الحد الأقصى لسطوع الشاشة، اضبط شريط التمرير حتى يصبح الشعار بالكاد "
+"مرئيًا"
+
+#: ui/Main.qml:301
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "تمّ"
+
+#: ui/Main.qml:316
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"اضبط مدى سطوع ”100٪“ على شريط تمرير السطوع العادي. اجعله ساطعًا بقدر ما "
+"تستخدمه، طالما أن صورة HDR لا تزال تبدو جيدة والتدرجات سلسة."

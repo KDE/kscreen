@@ -1,0 +1,75 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2025 Matjaž Jeran <matjaz.jeran@amis.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-15 00:44+0000\n"
+"PO-Revision-Date: 2025-05-15 07:47+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 25.04.0\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "Kalibracija HDR"
+
+#: ui/Main.qml:130
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Naslednji"
+
+#: ui/Main.qml:138 ui/Main.qml:307
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Preklopi na naslednjo stran"
+
+#: ui/Main.qml:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: ui/Main.qml:149
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Prekliče proces kalibracije"
+
+#: ui/Main.qml:154
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Če želite določiti največjo svetlost zaslona, ​​​​prilagodite drsnik, dokler "
+"logotip ni komaj viden."
+
+#: ui/Main.qml:301
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Narejeno"
+
+#: ui/Main.qml:316
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Nastavite svetlost \"100%\"  na drsniku za običajno svetlost. Naj bo čim "
+"bolj svetla, kot bi jo kdajkoli uporabili, dokler je slika HDR še vedno "
+"videti dobro in so prelivi gladki."

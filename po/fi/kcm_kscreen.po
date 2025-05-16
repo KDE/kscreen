@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-03-23 14:20+0200\n"
+"PO-Revision-Date: 2025-04-08 08:13+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -168,14 +168,13 @@ msgstr "Laske etusijaisuutta"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Supista"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Lisäasetukset"
+msgstr "Muokkaa asettelua"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -220,8 +219,7 @@ msgid "Replicas"
 msgstr "Näyttöjen monistus"
 
 #: ui/OutputPanel.qml:28
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Laite:"
@@ -245,9 +243,9 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Asettaa, mille näytölle päätyöpöytäsi mahdollisine Plasma-paneeleineen "
-"ilmestyy. Vanhat pelit voivat käyttää tätä myös päättääkseen, mille näytölle "
-"avautuvat.<nl/><nl/>Tällä ei ole vaikutusta näyttöön, jolle ilmoitukset tai "
+"Määrittää, mille näytölle päätyöpöytä mahdollisine Plasma-paneeleineen "
+"ilmestyy. Myös vanhat pelit käyttävät tätä päättääkseen mille näytölle "
+"avautuvat.<nl/><nl/>Asetus ei vaikuta siihen, mille näytölle ilmoitukset tai "
 "muut ikkunat ilmestyvät."
 
 #: ui/OutputPanel.qml:58
@@ -316,21 +314,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:193
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
-"Määrittää, kuinka paljon lähtevän kuvan ympärille asetetaan mustaa "
-"marginaalia. Osa sisällöstä leikataan pois reunojen ympäriltä.<nl/><nl/>Tätä "
-"saatat tarvita, jos käytät televisiota näyttönä"
+"Määrittää, paljonko lähtevän kuvan ympärille pannaan täytettä estämään se, "
+"että osa sisällöstä leikkautuisi reunoilta.<nl/><nl/>Tätä tarvitaan joskus, "
+"kun näyttönä on televisio."
 
 #: ui/OutputPanel.qml:198
 #, kde-format
@@ -348,20 +341,15 @@ msgid "Limited"
 msgstr "Rajoitettu"
 
 #: ui/OutputPanel.qml:218
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
-"Asettaa, tarvitseeko näytöllä rajoittaa mahdollisten väriarvojen aluetta. "
-"Tätä muutetaan vain, jos näytön värit näyttävät haalistuneilta."
+"Määrittää, tarvitseeko näytön mahdollista värialuetta rajoittaa. Tätä tulisi "
+"muuttaa vain, jos näyttövärit näyttävät haalistuneilta."
 
 #: ui/OutputPanel.qml:223
 #, kde-format
@@ -429,12 +417,10 @@ msgid "Select ICC Profile"
 msgstr "Valitse ICC-profiili"
 
 #: ui/OutputPanel.qml:340
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC-profiilit eivät toistaiseksi ole yhteensopivia HDR:n kanssa"
+msgstr "ICC-profiilit eivät toistaiseksi ole yhteensopivia HDR:n kanssa."
 
 #: ui/OutputPanel.qml:347
 #, kde-format
@@ -449,16 +435,13 @@ msgid "Enable &HDR"
 msgstr "Käytä H&DR:ää"
 
 #: ui/OutputPanel.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "Yhteensopivissa sovelluksissa HDR mahdollistaa kirkkaammat ja eloisammat "
-"värit"
+"värit."
 
 #: ui/OutputPanel.qml:366
 #, kde-format
@@ -551,12 +534,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:543
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä"
+msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä."
 
 #: ui/OutputPanel.qml:552
 #, kde-format
@@ -580,9 +561,7 @@ msgid ""
 msgstr ""
 
 #: ui/OutputPanel.qml:594
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
