@@ -1,66 +1,64 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-15 16:31+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"PO-Revision-Date: 2025-05-16 16:17+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "HDR-kalibratie"
+msgstr "HDR 校準"
 
 #: ui/Main.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "Volgende"
+msgstr "下一步"
 
 #: ui/Main.qml:138 ui/Main.qml:307
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "Schakelt over naar de volgende pagina"
+msgstr "切換到下一頁"
 
 #: ui/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "取消"
 
 #: ui/Main.qml:149
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "Annuleert het kalibratieproces"
+msgstr "取消校準"
 
 #: ui/Main.qml:154
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
-msgstr ""
-"Om de maximale helderheid van het scherm te bepalen, pas de schuifregelaar "
-"aan totdat het logo nauwelijks zichtbaar is"
+msgstr "要辨別螢幕的最高亮度，請調整滑動條直到標誌幾乎看不到"
 
 #: ui/Main.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "Gereed"
+msgstr "完成"
 
 #: ui/Main.qml:316
 #, kde-format
@@ -69,6 +67,5 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
-"Configureer hoe helder \"100%\" op de schuifregelaar voor normale helderheid "
-"zou moeten zijn. Maak het zo helder als u het ooit zou gebruiken, zolang de "
-"HDR-afbeelding er nog steeds goed uitziet en het kleurverloop gladjes is."
+"調整普通亮度滑動條的 \"100%\" 應該要多亮。請將它調整成您會使用的最大亮度，只"
+"要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。"

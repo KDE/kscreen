@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kscreen/kcm_kscreen.pot\n"
-"X-Crowdin-File-ID: 43283\n"
+"X-Crowdin-File: /kf6-stable/messages/kscreen/kcm_kscreen.pot\n"
+"X-Crowdin-File-ID: 51656\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -437,12 +437,12 @@ msgstr "HDR 允许兼容的应用程序显示更明亮和生动的颜色。"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "校准 HDR 亮度…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "打开 HDR 亮度校准窗口"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -487,25 +487,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "限制颜色分辨率为："
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "自动 (%1 位/每种颜色)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 位/每种颜色"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "自动 (%1 位/每种颜色)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -513,7 +513,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
-msgstr ""
+msgstr "限制发送到显示器的图像的颜色分辨率。这不会影响截图或录屏。<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -566,13 +566,13 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr ""
+msgstr "扩展动态范围："
 
 #: ui/OutputPanel.qml:610
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr ""
+msgstr "启用 EDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -582,6 +582,8 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR 能够通过动态调整背光亮度在 SDR 显示屏上显示 HDR 内容。<nl/><nl/>请注意："
+"在观看 HDR 内容时，此功能将增加耗电量。"
 
 #: ui/OutputPanel.qml:621
 #, kde-format

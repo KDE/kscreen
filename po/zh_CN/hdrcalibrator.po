@@ -14,51 +14,51 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kscreen/hdrcalibrator.pot\n"
-"X-Crowdin-File-ID: 57512\n"
+"X-Crowdin-File: /kf6-stable/messages/kscreen/hdrcalibrator.pot\n"
+"X-Crowdin-File-ID: 57542\n"
 
 #: ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr ""
+msgstr "HDR 校准"
 
 #: ui/Main.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr ""
+msgstr "下一步"
 
 #: ui/Main.qml:138 ui/Main.qml:307
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr ""
+msgstr "切换到下一页"
 
 #: ui/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ui/Main.qml:149
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr ""
+msgstr "取消校准过程"
 
 #: ui/Main.qml:154
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
-msgstr ""
+msgstr "请调整滑动条直至标志几乎看不见为止，以确定屏幕的最大可用亮度。"
 
 #: ui/Main.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: ui/Main.qml:316
 #, kde-format
@@ -67,3 +67,5 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
+"配置正常亮度滑动条的“100%”的亮度水平。您应将其调到您实际使用时所需的最大亮"
+"度，前提是确保 HDR 图像的观感正常且色彩渐变平滑。"
