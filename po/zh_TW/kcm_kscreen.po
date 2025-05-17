@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-01 17:44+0900\n"
+"PO-Revision-Date: 2025-05-16 16:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -439,12 +439,12 @@ msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "校準 HDR 亮度…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "開啟視窗來校準 HDR 亮度"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -489,25 +489,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "限制色彩深度至："
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "自動（每個原色 %1 位元）"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "每個原色 %1 位元"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "自動（每個原色 %1 位元）"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -515,7 +515,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
-msgstr ""
+msgstr "限制送出給顯示器的影像的色彩深度。這不會影響螢幕截圖或螢幕錄影。"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -565,20 +565,20 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@label"
 #| msgid "High Dynamic Range:"
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "高動態範圍 (HDR)："
+msgstr "擴展動態範圍："
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable &HDR"
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "啟用 &HDR"
+msgstr "啟用 EDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -587,7 +587,7 @@ msgid ""
 "EDR allows viewing HDR content on SDR displays by dynamically adjusting the "
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
-msgstr ""
+msgstr "EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這會增加顯示 HDR 內容時的電池使用量。"
 
 #: ui/OutputPanel.qml:621
 #, kde-format

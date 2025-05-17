@@ -1,51 +1,46 @@
-# Copyright (C) 2025 This file is copyright:
-# This file is distributed under the same license as the kscreen package.
-#
-# SPDX-FileCopyrightText: 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-15 16:31+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"PO-Revision-Date: 2025-05-16 05:31+0200\n"
+"Last-Translator: KDE Francophone <kde-francophone@kde.org>\n"
+"Language-Team: KDE Francophone <kde-francophone@kde.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "HDR-kalibratie"
+msgstr ""
 
 #: ui/Main.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "Volgende"
+msgstr ""
 
 #: ui/Main.qml:138 ui/Main.qml:307
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "Schakelt over naar de volgende pagina"
+msgstr ""
 
 #: ui/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr ""
 
 #: ui/Main.qml:149
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "Annuleert het kalibratieproces"
+msgstr ""
 
 #: ui/Main.qml:154
 #, kde-format
@@ -53,14 +48,12 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
-"Om de maximale helderheid van het scherm te bepalen, pas de schuifregelaar "
-"aan totdat het logo nauwelijks zichtbaar is"
 
 #: ui/Main.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "Gereed"
+msgstr ""
 
 #: ui/Main.qml:316
 #, kde-format
@@ -69,6 +62,3 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
-"Configureer hoe helder \"100%\" op de schuifregelaar voor normale helderheid "
-"zou moeten zijn. Maak het zo helder als u het ooit zou gebruiken, zolang de "
-"HDR-afbeelding er nog steeds goed uitziet en het kleurverloop gladjes is."
