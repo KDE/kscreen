@@ -281,7 +281,7 @@ Window {
                 stepSize: 10
                 live: true
                 value: HdrCalibrator.sdrBrightness
-                onMoved: {
+                onValueChanged: {
                     HdrCalibrator.sdrBrightness = value
                     HdrCalibrator.applyConfig();
                 }
