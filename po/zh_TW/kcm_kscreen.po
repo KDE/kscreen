@@ -566,16 +566,12 @@ msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "擴展動態範圍："
 
 #: ui/OutputPanel.qml:610
 #, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "啟用 EDR"
@@ -587,7 +583,9 @@ msgid ""
 "EDR allows viewing HDR content on SDR displays by dynamically adjusting the "
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
-msgstr "EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這會增加顯示 HDR 內容時的電池使用量。"
+msgstr ""
+"EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這"
+"會增加顯示 HDR 內容時的電池使用量。"
 
 #: ui/OutputPanel.qml:621
 #, kde-format
