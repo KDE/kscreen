@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-02 16:21+0200\n"
+"PO-Revision-Date: 2025-05-16 09:18+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:152 kcm.cpp:174
@@ -466,12 +466,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Étalonner la luminosité « HDR »..."
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Ouvre une fenêtre l'étalonnage de la luminosité « HDR »"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -518,25 +518,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Limiter la résolution des couleurs à :"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automatique  (%1 bits par couleur)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bits par couleur"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automatique (%1 bits par couleur)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -545,6 +545,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Limite la résolution des couleurs de l'image envoyée à l'écran. Cela "
+"n'affecte pas les copies d'écran ou les enregistrements.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -597,20 +599,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "HDR (High Dynamic Range) :"
+msgstr "EDR (Extended Dynamic Range) :"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Activer le rendu « &HDR »"
+msgstr "Activer le rendu « EDR »"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -620,6 +618,10 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"L'option « EDR » permet d'afficher le contenu « HDR » sur des écrans « SDR » "
+"en ajustant dynamiquement le rétroéclairage.<nl/><nl/>Veuillez noter que "
+"cela augmente l'utilisation de la batterie lors de l'affichage de contenu "
+"« HDR »."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
