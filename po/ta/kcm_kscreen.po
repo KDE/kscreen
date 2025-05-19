@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-04-13 16:53+0530\n"
+"PO-Revision-Date: 2025-05-18 20:22+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -442,12 +442,12 @@ msgstr "ஆதரிக்கும் செயலிகள் பொலிவ�
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "HDR பிரகாசத்தை அளதிருத்து…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "HDR பிரகாசத்தை அளதிருத்த உதவும் சாளரத்தைத் திறக்கும்"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -475,6 +475,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"துல்லியத்தை விரும்புவது, நிறச்செயல்பாடுகளை வரைகலை சாதனநிரலின் மூலம் செய்வதைத் தவிர்த்து "
+"நிறங்களின் பகுதிறனை அதிகரிக்கும்.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:413
 #, kde-kuit-format
@@ -483,30 +485,32 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"வேகத்தை விரும்புவது, ICC பயன்முறையை எளிதாக்கி வேகத்தை அதிகரிக்கும். இதனால் நிறங்களின் "
+"துல்லியம் பாதிக்கப்படலாம்.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:421
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "நிறப்பகுதிறனை இதற்கு வரம்புபடுத்து"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "தானியக்கம் (முதநிறத்திற்கு %1 பிட்டுகள்)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "முதனிறத்திற்கு %1 பிட்டுகள்"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "தானியக்கம் (முதநிறத்திற்கு %1 பிட்டுகள்)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -515,6 +519,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"திரைக்கு அனுப்பப்படும் படத்தின் நிறப்பகுதிறனை வரம்புபடுத்தும். இது திரைப்பிடிப்புகளையோ "
+"திரைப்பதிவுகளையோ பாதிக்காது.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -544,7 +550,7 @@ msgstr "பிரகாசம்:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "DDC/CI மூலம் பிரகாசத்தைக் கட்டுப்படுத்து"
 
 #: ui/OutputPanel.qml:564
 #, kde-format
@@ -554,6 +560,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI தனை பல நிறுவனங்களின் திரைகள் ஆதரிக்கின்றன. இது ஆதரிக்கப்பட்டால், பிளாஸ்மா "
+"மூலமாகவே திரையின் பிரகாசத்தை கட்டுப்படுத்தலாம் (திரையில் உள்ள பட்டன்களை அழுத்துவது போலே "
+"இது செயல்படும்)."
 
 #: ui/OutputPanel.qml:594
 #, kde-format
@@ -562,20 +571,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "அதிக நிறவீச்சு:"
+msgstr "மேம்பட்ட நிறவீச்சு:"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "HDR-ஐ இயக்கு"
+msgstr "EDR-ஐ இயக்கு"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -585,6 +590,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"HDR படங்களை SDR திரைகளில் காண EDR உதவும். திரையின் பிரகாசத்தை படத்திற்கேற்ப இது "
+"மாற்றும்.<nl/><nl/>HDR படங்களைக் காணும்போது மின்கல பயன்பாட்டை இது அதிகமாக்கும் என்பதை "
+"நினைவில் கொள்ளவும்."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
