@@ -1,15 +1,15 @@
 # Spanish translations for plasma_applet_org.kde.kscreen.po package.
-# Copyright (C) 2018 This file is copyright:
+# Copyright (C) 2018-2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-#
 # Automatically generated, 2018.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2018, 2021.
+#
+# SPDX-FileCopyrightText: 2018, 2021, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma_applet_org\n"
+"Project-Id-Version: plasma_applet_org.kde.kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:43+0000\n"
-"PO-Revision-Date: 2021-11-10 12:42+0100\n"
+"PO-Revision-Date: 2025-05-18 14:18+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr "El modo de presentación está activado"
 #: main.qml:67
 #, kde-format
 msgid "Configure Display Settings…"
-msgstr "Configurar las preferencias de la pantalla..."
+msgstr "Configurar las preferencias de la pantalla…"
 
 #: PresentationModeItem.qml:27
 #, kde-format

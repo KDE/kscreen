@@ -1,53 +1,51 @@
-# Spanish translations for hdrcalibrator.po package.
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# Automatically generated, 2025.
 #
-# SPDX-FileCopyrightText: 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: hdrcalibrator\n"
+"Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-18 14:17+0100\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
-"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2025-05-18 17:11+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.1\n"
 
 #: ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "Calibración HDR"
+msgstr "כיול HDR"
 
 #: ui/Main.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "Siguiente"
+msgstr "הבא"
 
 #: ui/Main.qml:138 ui/Main.qml:307
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "Cambia a la siguiente página"
+msgstr "מעבר לעמוד הבא"
 
 #: ui/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "ביטול"
 
 #: ui/Main.qml:149
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "Cancela el proceso de calibración"
+msgstr "ביטול תהליך הכיול הזה"
 
 #: ui/Main.qml:154
 #, kde-format
@@ -55,14 +53,14 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
-"Para determinar el brillo máximo de la pantalla, ajuste el control "
-"deslizante hasta que el logotipo sea apenas visible."
+"כדי לקבוע את בהירות המסך המרבית, יש לכוון את המחוון עד שבקושי ניתן לראות את "
+"הלוגו"
 
 #: ui/Main.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "Terminado"
+msgstr "סיום"
 
 #: ui/Main.qml:316
 #, kde-format
@@ -71,6 +69,5 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
-"Configure cómo debería ser el brillo al «100 %» en el control deslizante de "
-"brillo normal. Haga que sea tan brillante como lo usa habitualmente, siempre "
-"que la imagen HDR se vea bien y los degradados sean suaves."
+"הגדרה כיצד „100%” בהירות אמורה להיות במחוון הרגיל. יש להפוך אותה להכי בהירה "
+"שאי פעם יהיה לך צורך, כל עוד תמונת ה־HDR עדיין נראית טוב והמדרגים חלקים."
