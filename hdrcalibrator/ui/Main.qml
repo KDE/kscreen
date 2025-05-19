@@ -111,8 +111,10 @@ Window {
                 live: true
                 value: HdrCalibrator.peakBrightnessOverride
                 onMoved: {
-                    HdrCalibrator.peakBrightnessOverride = value;
-                    HdrHelper.setHdrParameters(hdrIcon, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, value, HdrHelper.RenderIntent.RelativeColorimetricBPC);
+                    if (value != HdrCalibrator.peakBrightnessOverride) {
+                        HdrCalibrator.peakBrightnessOverride = value;
+                        HdrHelper.setHdrParameters(hdrIcon, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, value, HdrHelper.RenderIntent.RelativeColorimetricBPC);
+                    }
                 }
             }
             QQC2.SpinBox {
@@ -282,8 +284,10 @@ Window {
                 live: true
                 value: HdrCalibrator.sdrBrightness
                 onMoved: {
-                    HdrCalibrator.sdrBrightness = value
-                    HdrCalibrator.applyConfig();
+                    if (HdrCalibrator.sdrBrightness != value) {
+                        HdrCalibrator.sdrBrightness = value;
+                        HdrCalibrator.applyConfig();
+                    }
                 }
             }
             QQC2.SpinBox {
