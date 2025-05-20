@@ -201,7 +201,7 @@ Window {
                             Image {
                                 width: parent.width
                                 height: parent.height
-                                source: "images/graz.png"
+                                source: "images/graz.avif"
                                 fillMode: Image.PreserveAspectFit
                             }
                         }

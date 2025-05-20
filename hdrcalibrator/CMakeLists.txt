@@ -7,7 +7,7 @@ qt_add_qml_module(hdrcalibrator
     QML_FILES
         ui/Main.qml
     RESOURCES
-        "ui/images/graz.png"
+        ui/images/graz.avif
     DEPENDENCIES
         QtQuick
 )
