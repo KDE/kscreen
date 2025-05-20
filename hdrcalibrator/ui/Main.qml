@@ -201,7 +201,7 @@ Window {
                             Image {
                                 width: parent.width
                                 height: parent.height
-                                source: "images/graz.png"
+                                source: StandardPaths.locate(StandardPaths.GenericDataLocation, "kscreen/graz.png")
                                 fillMode: Image.PreserveAspectFit
                             }
                         }

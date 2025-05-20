@@ -6,11 +6,10 @@ qt_add_qml_module(hdrcalibrator
     URI org.kde.hdrcalibrator
     QML_FILES
         ui/Main.qml
-    RESOURCES
-        "ui/images/graz.png"
     DEPENDENCIES
         QtQuick
 )
+install(FILES "ui/images/graz.png" DESTINATION "${KDE_INSTALL_DATADIR}/kscreen")
 
 qt6_generate_wayland_protocol_client_sources(hdrcalibrator
     FILES ${WaylandProtocols_DATADIR}/staging/color-management/color-management-v1.xml
