@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hdrcalibrator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:44+0000\n"
+"POT-Creation-Date: 2025-05-20 00:43+0000\n"
 "PO-Revision-Date: 2025-05-18 14:18+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -25,31 +25,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Calibración HDR"
 
-#: ui/Main.qml:130
+#: ui/Main.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Siguiente"
 
-#: ui/Main.qml:138 ui/Main.qml:307
+#: ui/Main.qml:140 ui/Main.qml:311
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Cambia a la siguiente página"
 
-#: ui/Main.qml:142
+#: ui/Main.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ui/Main.qml:149
+#: ui/Main.qml:151
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Cancela el proceso de calibración"
 
-#: ui/Main.qml:154
+#: ui/Main.qml:156
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -58,13 +58,13 @@ msgstr ""
 "Para determinar el brillo máximo de la pantalla, ajuste el control "
 "deslizante hasta que el logotipo sea apenas visible."
 
-#: ui/Main.qml:301
+#: ui/Main.qml:305
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Terminado"
 
-#: ui/Main.qml:316
+#: ui/Main.qml:320
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "

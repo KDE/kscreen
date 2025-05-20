@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:44+0000\n"
+"POT-Creation-Date: 2025-05-20 00:43+0000\n"
 "PO-Revision-Date: 2025-05-16 04:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -24,31 +24,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR-ის კალიბრაცია"
 
-#: ui/Main.qml:130
+#: ui/Main.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "შემდეგი"
 
-#: ui/Main.qml:138 ui/Main.qml:307
+#: ui/Main.qml:140 ui/Main.qml:311
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "გადაერთვება შემდეგ გვერდზე"
 
-#: ui/Main.qml:142
+#: ui/Main.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: ui/Main.qml:149
+#: ui/Main.qml:151
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "გააუქმებს კალიბრაციის პროცესს"
 
-#: ui/Main.qml:154
+#: ui/Main.qml:156
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -57,13 +57,13 @@ msgstr ""
 "იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური სიკაშკაშე, გადაწიეთ ჩოჩია "
 "მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
-#: ui/Main.qml:301
+#: ui/Main.qml:305
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "მზადაა"
 
-#: ui/Main.qml:316
+#: ui/Main.qml:320
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
