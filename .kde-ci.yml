@@ -23,5 +23,10 @@ Dependencies:
     'plasma/libkscreen': '@same'
     'plasma/layer-shell-qt': '@same'
 
+RuntimeDependencies:
+ - 'on': ['@all']
+   'require':
+    'frameworks/kimageformats': '@latest-kf6'
+
 Options:
  json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
