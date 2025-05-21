@@ -690,11 +690,3 @@ msgstr "Ingen rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermene for å bytte skjermplassering"
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "Maksimal SDR-lysstyrke:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the maximum brightness for the normal brightness slider."
-#~ msgstr "Angir maksimal lysstyrke for glidebryter for normal lysstyrke"

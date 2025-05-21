@@ -689,8 +689,3 @@ msgstr "Inga rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermane for å byta skjermplassering"
-
-#, fuzzy
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "SDR-lysstyrke:"

@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2022, 2024 Olesya Gerasimenko <translation-team@basealt.ru>
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2016, 2017, 2018, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-02-13 12:42+0300\n"
+"PO-Revision-Date: 2025-05-20 14:02+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -39,12 +39,10 @@ msgstr "%1 Гц"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:720
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1×%2 (%3:%4)"
@@ -104,9 +102,7 @@ msgid ""
 msgstr "Экраны должны соприкасаться друг с другом без промежутков."
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Не удалось применить параметры экрана: %1"
@@ -176,13 +172,13 @@ msgstr "Уменьшить приоритет"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Свернуть"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Дополнительные параметры"
+msgstr "Изменить расположение"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -208,18 +204,18 @@ msgstr "Вручную"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:252
 #, kde-format
@@ -227,8 +223,7 @@ msgid "Replicas"
 msgstr "Синхронизация выходов"
 
 #: ui/OutputPanel.qml:28
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Устройство:"
@@ -263,9 +258,7 @@ msgid "Resolution:"
 msgstr "Разрешение:"
 
 #: ui/OutputPanel.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "Это дисплей поддерживает только разрешение &quot;%1&quot;."
@@ -293,8 +286,7 @@ msgid "Refresh rate:"
 msgstr "Частота кадров:"
 
 #: ui/OutputPanel.qml:155
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "Это дисплей поддерживает только частоту кадров %1."
@@ -326,12 +318,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:193
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -341,7 +328,7 @@ msgstr ""
 "Параметр позволяет задать размер отступа от изображения, передаваемого на "
 "экран, чтобы компенсировать части изображения, остающегося за рамками экрана."
 "<nl/><nl/>Иногда требуется использование этого параметра при использовании "
-"телевизора в качестве экрана"
+"телевизора в качестве экрана."
 
 #: ui/OutputPanel.qml:198
 #, kde-format
@@ -359,12 +346,7 @@ msgid "Limited"
 msgstr "Ограниченный"
 
 #: ui/OutputPanel.qml:218
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -376,9 +358,7 @@ msgstr ""
 "изображение выглядит очень блёклым."
 
 #: ui/OutputPanel.qml:223
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Цветовой профиль:"
@@ -444,12 +424,10 @@ msgid "Select ICC Profile"
 msgstr "Выбор цветового профиля ICC"
 
 #: ui/OutputPanel.qml:340
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "Цветовые профили в настоящее время несовместимы с HDR"
+msgstr "Цветовые профили в настоящее время несовместимы с HDR."
 
 #: ui/OutputPanel.qml:347
 #, kde-format
@@ -464,27 +442,24 @@ msgid "Enable &HDR"
 msgstr "Включить &HDR"
 
 #: ui/OutputPanel.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "Использование режима расширенного динамического диапазона позволяет "
-"приложениям выводить более яркие и насыщенные цвета. "
+"приложениям выводить более яркие и насыщенные цвета."
 
 #: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Настроить яркость HDR…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Открыть окно для калибровки яркости HDR"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -512,6 +487,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Предпочтение точности цветопередачи ограничивает потенциально неточное "
+"выполнение цветовых операций драйвером дисплея и увеличивает максимальное "
+"цветовое разрешение.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:413
 #, kde-kuit-format
@@ -520,30 +498,33 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Выбор производительности упрощает профиль ICC до использования матричных "
+"преобразований и индивидуальных цветовых кривых, повышая производительность "
+"за счёт точности цветопередачи.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:421
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Ограничение цветового разрешения:"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Автоматически (%1 бит на цвет)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 бит на цвет"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Автоматически (%1 бит на цвет)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -552,11 +533,11 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Ограничивать цветовое разрешение изображения, отправляемого на экран. Это не "
+"влияет на снимки или записи экрана.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Цветовая насыщенность sRGB:"
@@ -568,9 +549,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:543
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Увеличивает насыщенность обычного (sRGB) содержимого экрана"
@@ -585,7 +564,7 @@ msgstr "Яркость:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Управление аппаратной яркостью DDC/CI"
 
 #: ui/OutputPanel.qml:564
 #, kde-format
@@ -595,30 +574,28 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI — это протокол, поддерживаемый многими мониторами. Plasma может "
+"использовать её для управления яркостью экрана с помощью элементов "
+"управления на рабочем столе, как если бы использовались аппаратные кнопки "
+"монитора и его экранное меню (OSD)."
 
 #: ui/OutputPanel.qml:594
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Расширенный динамический диапазон (HDR):"
+msgstr "Расширенный динамический диапазон:"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Включить &HDR"
+msgstr "Включить HDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -628,6 +605,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR позволяет просматривать HDR-контент на SDR-дисплеях за счёт динамической "
+"настройки подсветки.<nl/><nl/>Обратите внимание, что просмотр HDR-контента "
+"увеличивает расход заряда батареи."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
@@ -651,10 +631,7 @@ msgid "Apply scaling themselves"
 msgstr "Масштабирование средствами приложений"
 
 #: ui/Panel.qml:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
