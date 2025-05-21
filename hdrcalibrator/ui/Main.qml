@@ -76,16 +76,19 @@ Window {
                         width: hdrCalibration.tenPercentSize
                         height: hdrCalibration.tenPercentSize
                         window: Window {
-                            id: hdrIcon
+                            id: hdrIconWindow
                             visible: true
-                            onVisibleChanged: HdrHelper.setHdrParameters(hdrIcon, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, HdrCalibrator.peakBrightnessOverride, HdrHelper.RenderIntent.RelativeColorimetricBPC)
+                            onVisibleChanged: HdrHelper.setHdrParameters(hdrIconWindow, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, 2550.0, HdrHelper.RenderIntent.RelativeColorimetricBPC)
                             flags: Qt.WA_TranslucentBackground
                             color: "#00000000"
                             width: hdrCalibration.tenPercentSize
                             height: hdrCalibration.tenPercentSize
                             Kirigami.Icon {
+                                id: hdrIcon
                                 source: "plasma-symbolic"
-                                color: "white"
+                                // TODO once QTBUG-135232 is fixed, switch back to color: "white"
+                                // and setting the color management parameters instead
+                                color: Qt.rgba(HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, 1.0)
                                 width: hdrCalibration.tenPercentSize
                                 height: hdrCalibration.tenPercentSize
                                 anchors.centerIn: parent
@@ -113,7 +116,7 @@ Window {
                 onMoved: {
                     if (value != HdrCalibrator.peakBrightnessOverride) {
                         HdrCalibrator.peakBrightnessOverride = value;
-                        HdrHelper.setHdrParameters(hdrIcon, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, value, HdrHelper.RenderIntent.RelativeColorimetricBPC);
+                        hdrIcon.color = Qt.rgba(HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, 1.0);
                     }
                 }
             }
@@ -124,7 +127,7 @@ Window {
                 value: HdrCalibrator.peakBrightnessOverride
                 onValueModified: {
                     HdrCalibrator.peakBrightnessOverride = value;
-                    HdrHelper.setHdrParameters(hdrIcon, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, HdrCalibrator.peakBrightnessOverride, HdrHelper.RenderIntent.RelativeColorimetricBPC);
+                    hdrIcon.color = Qt.rgba(HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, 1.0);
                 }
             }
             QQC2.Button {
