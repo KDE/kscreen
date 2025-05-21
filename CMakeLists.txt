@@ -46,8 +46,8 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Svg
     XmlGui
 )
-find_package(KF6KImageFormats ${KF6_MIN_VERSION} CONFIG)
-set_package_properties(KF6KImageFormats PROPERTIES
+find_package(KF6ImageFormats ${KF6_MIN_VERSION} CONFIG)
+set_package_properties(KF6ImageFormats PROPERTIES
     DESCRIPTION "Provides support for more image formats in Qt"
     PURPOSE "Required to load the HDR test image"
     TYPE RUNTIME
