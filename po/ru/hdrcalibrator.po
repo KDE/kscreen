@@ -1,0 +1,76 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2025 Alexander Yavorsky <kekcuha@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-20 00:43+0000\n"
+"PO-Revision-Date: 2025-05-20 14:04+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.04.1\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "Калибровка HDR"
+
+#: ui/Main.qml:132
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Далее"
+
+#: ui/Main.qml:140 ui/Main.qml:311
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Переход на следующую страницу"
+
+#: ui/Main.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ui/Main.qml:151
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Отменить процесс калибровки"
+
+#: ui/Main.qml:156
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Чтобы определить максимальную яркость экрана, перемещайте ползунок до тех "
+"пор, пока логотип едва не станет видимым."
+
+#: ui/Main.qml:305
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Готово"
+
+#: ui/Main.qml:320
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Настройте, насколько ярким должно быть значение «100%» на обычном ползунке "
+"яркости. Установите такую яркость, которую вы максимально используете в "
+"обычной работе, при условии, что HDR-изображение по-прежнему выглядит "
+"хорошо, а градиенты остаются плавными."
