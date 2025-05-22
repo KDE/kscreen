@@ -1,64 +1,66 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2025 Paolo Zamponi <feus73@gmail.com>
 #
-# SPDX-FileCopyrightText: 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 02:42+0000\n"
-"PO-Revision-Date: 2025-05-16 16:17+0900\n"
-"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2025-05-17 09:51+0200\n"
+"Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "HDR 校準"
+msgstr "Calibrazione HDR"
 
 #: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "下一步"
+msgstr "Successivo"
 
 #: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "切換到下一頁"
+msgstr "Passa alla pagina successiva"
 
 #: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "取消"
+msgstr "Annulla"
 
 #: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "取消校準"
+msgstr "Annulla questo processo di calibrazione"
 
 #: ui/Main.qml:159
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
-msgstr "要辨別螢幕的最高亮度，請調整滑動條直到標誌幾乎看不到"
+msgstr ""
+"Per determinare la luminosità massima dello schermo, regola il cursore fino "
+"a quando il logo sarà appena visibile"
 
 #: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "完成"
+msgstr "Fatto"
 
 #: ui/Main.qml:323
 #, kde-format
@@ -67,5 +69,6 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
-"調整普通亮度滑動條的 \"100%\" 應該要多亮。請將它調整成您會使用的最大亮度，只"
-"要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。"
+"Configura quanto dovrebbe essere il \"100%\" del cursore della luminosità "
+"normale. Rendilo luminoso come non lo vorresti mai usare, a patto che "
+"l'immagine HDR abbia un bell'aspetto e che le sfumature siano uniformi."
