@@ -224,6 +224,12 @@ void KCMKScreen::doSave()
         // enough time to change configuration.
         QTimer::singleShot(1000, this, updateInitialData);
     }
+
+    if (m_needsKwinConfigReload) {
+        m_needsKwinConfigReload = false;
+        QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.kde.KWin", "reloadConfig");
+        QDBusConnection::sessionBus().send(message);
+    }
 }
 
 bool KCMKScreen::backendReady() const
@@ -521,6 +527,10 @@ bool KCMKScreen::xwaylandClientsScaleSupported() const
 
 void KCMKScreen::setAllowTearing(bool allow)
 {
+    if (KWinCompositingSetting::self()->allowTearing() == allow) {
+        return;
+    }
+    m_needsKwinConfigReload = true;
     KWinCompositingSetting::self()->setAllowTearing(allow);
     Q_EMIT changed();
 }
