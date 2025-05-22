@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:43+0000\n"
+"POT-Creation-Date: 2025-05-22 00:43+0000\n"
 "PO-Revision-Date: 2025-05-18 17:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -24,31 +24,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "כיול HDR"
 
-#: ui/Main.qml:132
+#: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "הבא"
 
-#: ui/Main.qml:140 ui/Main.qml:311
+#: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "מעבר לעמוד הבא"
 
-#: ui/Main.qml:144
+#: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: ui/Main.qml:151
+#: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "ביטול תהליך הכיול הזה"
 
-#: ui/Main.qml:156
+#: ui/Main.qml:159
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -57,13 +57,13 @@ msgstr ""
 "כדי לקבוע את בהירות המסך המרבית, יש לכוון את המחוון עד שבקושי ניתן לראות את "
 "הלוגו"
 
-#: ui/Main.qml:305
+#: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "סיום"
 
-#: ui/Main.qml:320
+#: ui/Main.qml:323
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "

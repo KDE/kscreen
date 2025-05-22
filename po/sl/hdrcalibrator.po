@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:43+0000\n"
+"POT-Creation-Date: 2025-05-22 00:43+0000\n"
 "PO-Revision-Date: 2025-05-15 07:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -24,31 +24,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Kalibracija HDR"
 
-#: ui/Main.qml:132
+#: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Naslednji"
 
-#: ui/Main.qml:140 ui/Main.qml:311
+#: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Preklopi na naslednjo stran"
 
-#: ui/Main.qml:144
+#: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: ui/Main.qml:151
+#: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Prekliče proces kalibracije"
 
-#: ui/Main.qml:156
+#: ui/Main.qml:159
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -57,13 +57,13 @@ msgstr ""
 "Če želite določiti največjo svetlost zaslona, ​​​​prilagodite drsnik, dokler "
 "logotip ni komaj viden."
 
-#: ui/Main.qml:305
+#: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Narejeno"
 
-#: ui/Main.qml:320
+#: ui/Main.qml:323
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "

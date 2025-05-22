@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:43+0000\n"
+"POT-Creation-Date: 2025-05-22 00:43+0000\n"
 "PO-Revision-Date: 2025-05-16 09:36+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -21,31 +21,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Étalonnage « HDR »"
 
-#: ui/Main.qml:132
+#: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Suivant"
 
-#: ui/Main.qml:140 ui/Main.qml:311
+#: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Bascule vers la page suivante"
 
-#: ui/Main.qml:144
+#: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ui/Main.qml:151
+#: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Annule le processus d'étalonnage"
 
-#: ui/Main.qml:156
+#: ui/Main.qml:159
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -54,13 +54,13 @@ msgstr ""
 "Pour déterminer la luminosité maximale de l'écran, veuillez déplacer le "
 "curseur jusqu'à ce que le logo soit à peine visible."
 
-#: ui/Main.qml:305
+#: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Terminé"
 
-#: ui/Main.qml:320
+#: ui/Main.qml:323
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "

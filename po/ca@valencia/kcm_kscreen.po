@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:44+0000\n"
-"PO-Revision-Date: 2025-05-01 10:27+0200\n"
+"PO-Revision-Date: 2025-05-15 22:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -452,12 +452,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Calibra la brillantor de HDR…"
 
 #: ui/OutputPanel.qml:379
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Obri una finestra per a calibrar la brillantor de HDR"
 
 #: ui/OutputPanel.qml:386
 #, kde-format
@@ -503,25 +503,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Limita la resolució de color a:"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automàtica (%1 bits per color)"
 
 #: ui/OutputPanel.qml:453 ui/OutputPanel.qml:466
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bits per color"
 
 #: ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automàtica (%1 bits per color)"
 
 #: ui/OutputPanel.qml:488 ui/OutputPanel.qml:492
 #, kde-kuit-format
@@ -530,6 +530,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Limita la resolució de color de la imatge que s'envia a la pantalla. Açò no "
+"afecta les captures de pantalla ni les gravacions.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:507
 #, kde-format
@@ -581,20 +583,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:605
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Marge dinàmic elevat:"
+msgstr "Marge dinàmic ampliat:"
 
 #: ui/OutputPanel.qml:610
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Activa &HDR"
+msgstr "Activa EDR"
 
 #: ui/OutputPanel.qml:616
 #, kde-kuit-format
@@ -604,6 +602,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR permet veure contingut HDR a les pantalles SDR ajustant dinàmicament la "
+"retroil·luminació.<nl/><nl/>Cal tindre en compte que açò augmenta l'ús de la "
+"bateria mentre es visualitza el contingut HDR."
 
 #: ui/OutputPanel.qml:621
 #, kde-format
@@ -707,12 +708,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "Brillantor màxima de SDR:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the maximum brightness for the normal brightness slider."
-#~ msgstr ""
-#~ "Establix la brillantor màxima del control lliscant normal de brillantor."
