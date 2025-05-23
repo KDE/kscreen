@@ -1200,9 +1200,14 @@ bool snapToBottom(const QRect &target, const QSize &size, QPoint &dest)
     return false;
 }
 
-bool snapVertical(const QRect &target, const QSize &size, QPoint &dest)
+enum SnapMode {
+    SnapToCenter,
+    DoNotSnapToCenter
+};
+
+bool snapVertical(const QRect &target, const QSize &size, QPoint &dest, SnapMode mode)
 {
-    if (snapToMiddle(target, size, dest)) {
+    if (mode == SnapToCenter && snapToMiddle(target, size, dest)) {
         return true;
     }
     if (snapToBottom(target, size, dest)) {
@@ -1225,6 +1230,8 @@ void OutputModel::snap(const Output &output, QPoint &dest)
         return output.ptr->isPositionable();
     });
 
+    SnapMode mode = m_config->config()->supportedFeatures().testFlag(KScreen::Config::Feature::OutputReplication) ? DoNotSnapToCenter : SnapToCenter;
+
     // Special case for two outputs, we want to make sure they always touch;
     if (positionableOutputs.size() == 2) {
         const Output &other = positionableOutputs.at(0).get().ptr->id() == output.ptr->id() ? positionableOutputs.at(1) : positionableOutputs.at(0);
@@ -1232,7 +1239,7 @@ void OutputModel::snap(const Output &output, QPoint &dest)
         const bool xOverlap = dest.x() <= target.x() + target.width() && target.x() <= dest.x() + size.width();
         const bool yOverlap = dest.y() <= target.y() + target.height() && target.y() <= dest.y() + size.height();
         // Special special case, snap to center if centers are close
-        if (std::abs((outputRect.center() - target.center()).manhattanLength()) < s_snapArea * 2) {
+        if (mode == SnapToCenter && std::abs((outputRect.center() - target.center()).manhattanLength()) < s_snapArea * 2) {
             dest = target.center() - (outputRect.center() - outputRect.topLeft());
             return;
         }
@@ -1257,7 +1264,7 @@ void OutputModel::snap(const Output &output, QPoint &dest)
                 dest.setX(target.x() - size.width());
             }
             // Secondary snap to align the other edges if close - top to top, bottom to bottom, center to center
-            snapVertical(target, size, dest);
+            snapVertical(target, size, dest, mode);
             return;
         }
         // No overlap at all can happen at a corner, do not let the output move away
@@ -1279,14 +1286,14 @@ void OutputModel::snap(const Output &output, QPoint &dest)
 
         // try snap left to right first
         if (snapToRight(target, size, dest)) {
-            snapVertical(target, size, dest);
+            snapVertical(target, size, dest, mode);
             continue;
         }
         if (snapToLeft(target, size, dest)) {
-            snapVertical(target, size, dest);
+            snapVertical(target, size, dest, mode);
             continue;
         }
-        if (snapVertical(target, size, dest)) {
+        if (snapVertical(target, size, dest, mode)) {
             continue;
         }
     }
