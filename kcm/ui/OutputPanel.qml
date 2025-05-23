@@ -422,16 +422,7 @@ Kirigami.FormLayout {
         QQC2.ComboBox {
             id: colorResolutionCombobox
             Layout.minimumWidth: root.comboboxWidth
-            model: [
-                { value: 0 },
-                { value: 6 },
-                { value: 8 },
-                { value: 10 },
-                { value: 12 },
-                { value: 14 },
-                { value: 16 },
-            ]
-            valueRole: "value"
+            model: element.bitsPerColorOptions
             readonly property var automaticMaxBpc: {
                 var ret = element.maxSupportedMaxBitsPerColor;
                 if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
@@ -456,24 +447,24 @@ Kirigami.FormLayout {
             delegate: QQC2.ItemDelegate {
                 width: colorResolutionCombobox.width
                 text: {
-                    if (modelData.value == 0) {
+                    if (modelData == 0) {
                         return i18nc("@item:inlistbox color resolution", "Automatic (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
                     } else {
-                        return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData.value)
+                        return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData)
                     }
                 }
                 enabled: {
-                    if (modelData.value == 0) {
+                    if (modelData == 0) {
                         return true;
                     }
-                    if (modelData.value < element.minSupportedMaxBitsPerColor
-                        || modelData.value > element.maxSupportedMaxBitsPerColor) {
+                    if (modelData < element.minSupportedMaxBitsPerColor
+                        || modelData > element.maxSupportedMaxBitsPerColor) {
                         return false;
                     }
                     if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
-                        return modelData.value <= 10;
+                        return modelData <= 10;
                     } else {
-                        return modelData.value <= 16;
+                        return modelData <= 16;
                     }
                 }
             }
