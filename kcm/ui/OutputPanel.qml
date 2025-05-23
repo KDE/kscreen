@@ -152,7 +152,8 @@ Kirigami.FormLayout {
         }
         Kirigami.ContextualHelpButton {
             visible: refreshRateCombobox.count <= 1
-            toolTipText: i18nc("@info", "“%1” is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
+            toolTipText: resolutionCombobox.count <= 1 ? i18nc("@info", "“%1” is the only refresh rate supported by this display.", singleRefreshRateLabel.text)
+                                                       : i18nc("@info", "“%1” is the only refresh rate supported by this display at the current resolution.", singleRefreshRateLabel.text)
         }
     }
 
