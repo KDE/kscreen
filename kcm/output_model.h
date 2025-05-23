@@ -59,6 +59,7 @@ public:
         PeakBrightnessOverride,
         OutputNameRole,
         EdrPolicyRole,
+        BitsPerColorOptionsRole,
     };
     Q_ENUM(OutputRoles)
 

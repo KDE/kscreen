@@ -139,6 +139,14 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->name();
     case EdrPolicyRole:
         return static_cast<uint32_t>(output->edrPolicy());
+    case BitsPerColorOptionsRole: {
+        QVariantList options;
+        options.push_back(0);
+        for (uint32_t bpc = output->bitsPerColorRange().min; bpc <= output->bitsPerColorRange().max; bpc += 2) {
+            options.push_back(bpc);
+        }
+        return options;
+    }
     }
     return QVariant();
 }
@@ -370,6 +378,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[PeakBrightnessOverride] = "peakBrightnessOverride";
     roles[OutputNameRole] = "name";
     roles[EdrPolicyRole] = "edrPolicy";
+    roles[BitsPerColorOptionsRole] = "bitsPerColorOptions";
     return roles;
 }
 
