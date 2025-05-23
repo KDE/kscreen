@@ -415,7 +415,7 @@ Kirigami.FormLayout {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         Kirigami.FormData.label: i18nc("@label:listbox", "Limit color resolution to:")
         Kirigami.FormData.buddyFor: colorResolutionCombobox
-        visible: element.capabilities & KScreen.Output.Capability.MaxBitsPerColor
+        visible: (element.capabilities & KScreen.Output.Capability.MaxBitsPerColor) && element.minSupportedMaxBitsPerColor != element.maxSupportedMaxBitsPerColor
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
