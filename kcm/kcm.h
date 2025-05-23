@@ -135,6 +135,7 @@ private:
     bool m_settingsReverted = false;
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
+    bool m_needsKwinConfigReload = false;
 
     QSortFilterProxyModel *m_outputProxyModel;
 
