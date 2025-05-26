@@ -223,12 +223,11 @@ Kirigami.FormLayout {
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:listbox", "Color profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
-        visible: element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)
+        visible: (element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)) && !(element.hdr && root.hdrAvailable)
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
             id: colorProfileCombobox
-            enabled: !element.hdr || !root.hdrAvailable
             Layout.minimumWidth: root.comboboxWidth
             model: [
                 {
@@ -262,10 +261,6 @@ Kirigami.FormLayout {
         Kirigami.ContextualHelpButton {
             toolTipText: i18nc("@info:tooltip", "Use the color profile built into the screen itself, if present. Note that built-in color profiles are sometimes wrong, and often inaccurate. For optimal color fidelity, calibration using a colorimeter is recommended.")
             visible: (!element.hdr || !root.hdrAvailable) && element.colorProfileSource == KScreen.Output.ColorProfileSource.EDID
-        }
-        Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "The screen's built-in color profile is always used with HDR.")
-            visible: element.hdr && root.hdrAvailable
         }
     }
 
