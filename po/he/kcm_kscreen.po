@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:44+0000\n"
-"PO-Revision-Date: 2025-05-18 17:09+0300\n"
+"PO-Revision-Date: 2025-05-25 10:16+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -287,14 +287,12 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד."
+msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד ברזולוציה הזאת."
 
 #: ui/OutputPanel.qml:161
 #, kde-format

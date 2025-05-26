@@ -1,7 +1,7 @@
 # Translation for kcm_kscreen.po to Euskara/Basque (eu).
 # Copyright (C) 2019-2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:44+0000\n"
-"PO-Revision-Date: 2025-05-18 17:22+0200\n"
+"PO-Revision-Date: 2025-05-25 22:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -291,14 +291,14 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" da bistaratzaile horrek onartzen duen freskatze-emari bakarra."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "\"%1\" da bistaratzaile horrek onartzen duen freskatze-emari bakarra."
+msgstr ""
+"\"%1\" da bistaratzaile honek uneko bereizmenarekin onartzen duen freskatze-"
+"emari bakarra."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
