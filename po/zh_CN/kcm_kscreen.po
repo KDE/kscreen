@@ -281,14 +281,12 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "“%1”是此显示器支持的唯一刷新率。"
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "“%1”是此显示器支持的唯一刷新率。"
+msgstr ""
 
 #: ui/OutputPanel.qml:161
 #, kde-format
