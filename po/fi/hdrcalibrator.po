@@ -1,0 +1,74 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2025 Tommi Nieminen <translator@legisign.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-22 02:42+0000\n"
+"PO-Revision-Date: 2025-05-25 17:40+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "HDR-kalibrointi"
+
+#: ui/Main.qml:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Seuraava"
+
+#: ui/Main.qml:143 ui/Main.qml:314
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Siirtyy seuraavalle sivulle"
+
+#: ui/Main.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Peru"
+
+#: ui/Main.qml:154
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Peruu kalibrointitoimenpiteen"
+
+#: ui/Main.qml:159
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Määritä näytön enimmäiskirkkaus liu’uttamalla säädintä, kunnes logo näkyy "
+"vain vaivoin."
+
+#: ui/Main.qml:308
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Valmis"
+
+#: ui/Main.qml:323
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Aseta, kuinka kirkas ”100 prosentin” tulisi kirkkaussäätimessä olla. Aseta "
+"se mahdollisimman kirkkaaksi niin, että HDR-kuva yhä näyttää hyvältä ja "
+"väriliu’ut tasaisilta."
