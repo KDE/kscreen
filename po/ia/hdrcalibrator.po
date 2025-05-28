@@ -1,0 +1,74 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2025 giovanni <g.sora@tiscali.it>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-22 00:43+0000\n"
+"PO-Revision-Date: 2025-05-27 12:20+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "Calibration HDR"
+
+#: ui/Main.qml:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Proxime"
+
+#: ui/Main.qml:143 ui/Main.qml:314
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Passa al proxime pagina"
+
+#: ui/Main.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Cancella"
+
+#: ui/Main.qml:154
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Cancella le processo de calibration"
+
+#: ui/Main.qml:159
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Per determinar le maxime brillantia del shermo, accomoda le glissator usque "
+"le logo es apena visibile  "
+
+#: ui/Main.qml:308
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Facite"
+
+#: ui/Main.qml:323
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Configura como brillante \"100%\" deberea esser le glissator per brillantia "
+"normal. Face lo tan brillante como tu jammais lo usa,  usque leimagine HDR "
+"ancora sembla bon e le gradientes es lisie."

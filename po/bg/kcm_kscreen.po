@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-25 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2025-05-18 12:08+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -367,25 +367,25 @@ msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Цветен профил:"
 
-#: ui/OutputPanel.qml:235
+#: ui/OutputPanel.qml:234
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Без"
 
-#: ui/OutputPanel.qml:240
+#: ui/OutputPanel.qml:239
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "Профил ICC"
 
-#: ui/OutputPanel.qml:245
+#: ui/OutputPanel.qml:244
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Вграден"
 
-#: ui/OutputPanel.qml:263
+#: ui/OutputPanel.qml:262
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -398,54 +398,48 @@ msgstr ""
 "неточни. За оптимална точност на цветовете се препоръчва калибриране с "
 "помощта на колориметър."
 
-#: ui/OutputPanel.qml:267
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "The screen's built-in color profile is always used with HDR."
-msgstr "Вграденият цветови профил на монитора винаги се използва с HDR."
-
-#: ui/OutputPanel.qml:280
+#: ui/OutputPanel.qml:275
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Въведете пътя до ICC профила…"
 
-#: ui/OutputPanel.qml:296
+#: ui/OutputPanel.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Избиране на профил ICC…"
 
-#: ui/OutputPanel.qml:307
+#: ui/OutputPanel.qml:302
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Отваря меню за избор на файл с профил на ICC"
 
-#: ui/OutputPanel.qml:316
+#: ui/OutputPanel.qml:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Избиране на профил ICC"
 
-#: ui/OutputPanel.qml:341
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "Профилите ICC все още не са съвместими с HDR"
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:343
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "High Dynamic Range:"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:350
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Активиране на &HDR"
 
-#: ui/OutputPanel.qml:361
+#: ui/OutputPanel.qml:356
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -454,36 +448,36 @@ msgstr ""
 "HDR позволява на съвместимите приложения да показват по-ярки и по-живи "
 "цветове."
 
-#: ui/OutputPanel.qml:367
+#: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Калибриране на яркостта на HDR…"
 
-#: ui/OutputPanel.qml:380
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Отваря прозорец за калибриране на яркостта на HDR"
 
-#: ui/OutputPanel.qml:387
+#: ui/OutputPanel.qml:382
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Точност на цвета:"
 
-#: ui/OutputPanel.qml:396
+#: ui/OutputPanel.qml:391
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Предпочитане на ефективност"
 
-#: ui/OutputPanel.qml:397
+#: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Предпочитане на точност на цвета"
 
-#: ui/OutputPanel.qml:407
+#: ui/OutputPanel.qml:402
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -495,7 +489,7 @@ msgstr ""
 "разтоварване на цветови операции към драйвера на екрана и увеличава "
 "максималната разделителна способност на цветовете.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:414
+#: ui/OutputPanel.qml:409
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -506,31 +500,31 @@ msgstr ""
 "подобрявайки производителността за сметка на точността на цветовете.<nl/><nl/"
 ">"
 
-#: ui/OutputPanel.qml:422
+#: ui/OutputPanel.qml:417
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Ограничаване на разделителната способност на цветовете до:"
 
-#: ui/OutputPanel.qml:452
+#: ui/OutputPanel.qml:447
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Автоматично (%1 бита на цвят)"
 
-#: ui/OutputPanel.qml:454 ui/OutputPanel.qml:467
+#: ui/OutputPanel.qml:449 ui/OutputPanel.qml:462
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 бита на цвят"
 
-#: ui/OutputPanel.qml:465
+#: ui/OutputPanel.qml:460
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Автоматично (%1 бита на цвят)"
 
-#: ui/OutputPanel.qml:489 ui/OutputPanel.qml:493
+#: ui/OutputPanel.qml:484 ui/OutputPanel.qml:488
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -540,37 +534,37 @@ msgstr ""
 "Ограничава цветовата резолюция на изображението, което се изпраща към "
 "дисплея. Това не засяга екранните снимки или записи.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:508
+#: ui/OutputPanel.qml:503
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Интензитет на sRGB цветове:"
 
-#: ui/OutputPanel.qml:536
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:544
+#: ui/OutputPanel.qml:539
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Увеличава интензитета на sRGB съдържание на екрана."
 
-#: ui/OutputPanel.qml:553
+#: ui/OutputPanel.qml:548
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яркост:"
 
-#: ui/OutputPanel.qml:559
+#: ui/OutputPanel.qml:554
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Контролиране на яркостта с DDC/CI"
 
-#: ui/OutputPanel.qml:565
+#: ui/OutputPanel.qml:560
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -582,25 +576,25 @@ msgstr ""
 "настройване на яркостта на екрана чрез меню на работния плот вместо "
 "хардуерните бутони или менюто на монитора."
 
-#: ui/OutputPanel.qml:595
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:606
+#: ui/OutputPanel.qml:601
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Extended Dynamic Range:"
 
-#: ui/OutputPanel.qml:611
+#: ui/OutputPanel.qml:606
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Активиране на EDR"
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:612
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -612,7 +606,7 @@ msgstr ""
 "регулиране на подсветката.<nl/><nl/>Имайте предвид, че това увеличава "
 "разхода на батерията, докато гледате HDR съдържание."
 
-#: ui/OutputPanel.qml:622
+#: ui/OutputPanel.qml:617
 #, kde-format
 msgid "Replica of:"
 msgstr "Реплика на:"
@@ -714,6 +708,10 @@ msgstr "Без завъртане"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Завлечете екраните, за да ги пренаредите"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "The screen's built-in color profile is always used with HDR."
+#~ msgstr "Вграденият цветови профил на монитора винаги се използва с HDR."
 
 #~ msgctxt "@label"
 #~ msgid "Maximum SDR brightness:"
