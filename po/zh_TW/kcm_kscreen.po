@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-28 00:44+0000\n"
-"PO-Revision-Date: 2025-05-16 16:20+0900\n"
+"PO-Revision-Date: 2025-05-28 23:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -275,23 +275,21 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:134
 #, kde-format
 msgid "Refresh rate:"
-msgstr "刷新頻率："
+msgstr "更新頻率："
 
 #: ui/OutputPanel.qml:155
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "“%1” 是這個顯示器唯一支援的刷新頻率。"
+msgstr "“%1” 是這個顯示器唯一支援的更新頻率。"
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "“%1” 是這個顯示器唯一支援的刷新頻率。"
+msgstr "“%1” 是這個顯示器在這個解析度下唯一支援的更新頻率。"
 
 #: ui/OutputPanel.qml:161
 #, kde-format

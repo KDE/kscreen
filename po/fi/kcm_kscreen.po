@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-28 00:44+0000\n"
-"PO-Revision-Date: 2025-05-25 17:46+0300\n"
+"PO-Revision-Date: 2025-05-27 23:39+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -288,14 +288,13 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "”%1” on ainoa tämän näytön tukema virkistystaajuus."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "”%1” on ainoa tämän näytön tukema virkistystaajuus."
+msgstr ""
+"”%1” on ainoa tämän näytön nykyisellä tarkkuudella tukema virkistystaajuus."
 
 #: ui/OutputPanel.qml:161
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-28 00:44+0000\n"
-"PO-Revision-Date: 2025-05-19 09:18+0200\n"
+"PO-Revision-Date: 2025-05-26 16:02+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -291,15 +291,14 @@ msgstr ""
 "«%1» è l'unica frequenza di aggiornamento supportata da questo schermo."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
 msgstr ""
-"«%1» è l'unica frequenza di aggiornamento supportata da questo schermo."
+"«%1» è l'unica frequenza di aggiornamento supportata da questo schermo alla "
+"risoluzione attuale."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
