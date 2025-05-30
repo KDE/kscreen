@@ -139,10 +139,18 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->name();
     case EdrPolicyRole:
         return static_cast<uint32_t>(output->edrPolicy());
-    case BitsPerColorOptionsRole: {
+    case BitsPerColorOptionsPreferEfficiencyRole: {
         QVariantList options;
         options.push_back(0);
-        for (uint32_t bpc = output->bitsPerColorRange().min; bpc <= output->bitsPerColorRange().max; bpc += 2) {
+        for (uint32_t bpc = output->bitsPerColorRange().min; bpc <= std::min(output->bitsPerColorRange().max, 10u); bpc += 2) {
+            options.push_back(bpc);
+        }
+        return options;
+    }
+    case BitsPerColorOptionsPreferAccuracyRole: {
+        QVariantList options;
+        options.push_back(0);
+        for (uint32_t bpc = output->bitsPerColorRange().min; bpc <= std::min(output->bitsPerColorRange().max, 16u); bpc += 2) {
             options.push_back(bpc);
         }
         return options;
@@ -378,7 +386,8 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[PeakBrightnessOverride] = "peakBrightnessOverride";
     roles[OutputNameRole] = "name";
     roles[EdrPolicyRole] = "edrPolicy";
-    roles[BitsPerColorOptionsRole] = "bitsPerColorOptions";
+    roles[BitsPerColorOptionsPreferEfficiencyRole] = "bitsPerColorOptionsPreferEfficiency";
+    roles[BitsPerColorOptionsPreferAccuracyRole] = "bitsPerColorOptionsPreferAccuracy";
     return roles;
 }
 
