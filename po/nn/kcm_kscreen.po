@@ -691,8 +691,3 @@ msgstr "Inga rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermane for å byta skjermplassering"
-
-#, fuzzy
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr "Den innebygde fargeprofilen vert alltid brukt ved HDR."
