@@ -422,7 +422,7 @@ Kirigami.FormLayout {
         QQC2.ComboBox {
             id: colorResolutionCombobox
             Layout.minimumWidth: root.comboboxWidth
-            model: element.bitsPerColorOptions
+            model: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency ? element.bitsPerColorOptionsPreferEfficiency : element.bitsPerColorOptionsPreferAccuracy
             readonly property var automaticMaxBpc: {
                 var ret = element.maxSupportedMaxBitsPerColor;
                 if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
@@ -451,20 +451,6 @@ Kirigami.FormLayout {
                         return i18nc("@item:inlistbox color resolution", "Automatic (%1 bits per color)", colorResolutionCombobox.automaticMaxBpc)
                     } else {
                         return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData)
-                    }
-                }
-                enabled: {
-                    if (modelData == 0) {
-                        return true;
-                    }
-                    if (modelData < element.minSupportedMaxBitsPerColor
-                        || modelData > element.maxSupportedMaxBitsPerColor) {
-                        return false;
-                    }
-                    if (element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency) {
-                        return modelData <= 10;
-                    } else {
-                        return modelData <= 16;
                     }
                 }
             }
