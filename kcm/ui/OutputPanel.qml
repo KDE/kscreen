@@ -452,6 +452,7 @@ Kirigami.FormLayout {
                         return i18nc("@item:inlistbox color resolution", "%1 bits per color", modelData)
                     }
                 }
+                highlighted: colorResolutionCombobox.highlightedIndex == index
             }
         }
         Kirigami.ContextualHelpButton {
