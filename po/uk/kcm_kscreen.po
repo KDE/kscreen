@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:44+0000\n"
+"POT-Creation-Date: 2025-05-31 00:43+0000\n"
 "PO-Revision-Date: 2025-05-25 12:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -35,24 +35,24 @@ msgstr "Під час спроби застосувати параметри з�
 msgid "%1 Hz"
 msgstr "%1 Гц"
 
-#: output_model.cpp:701
+#: output_model.cpp:719
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:720
+#: output_model.cpp:738
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:807
+#: output_model.cpp:825
 #, kde-format
 msgid "None"
 msgstr "Немає"
 
-#: output_model.cpp:814
+#: output_model.cpp:832
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Відтворюється іншим виведенням"
@@ -512,25 +512,25 @@ msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Обмежити роздільність кольорів до:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Автоматичної (%1 бітів на колір)"
 
-#: ui/OutputPanel.qml:449 ui/OutputPanel.qml:462
+#: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 бітів на колір"
 
-#: ui/OutputPanel.qml:460
+#: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Автоматичної (%1 бітів на колір)"
 
-#: ui/OutputPanel.qml:484 ui/OutputPanel.qml:488
+#: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -540,37 +540,37 @@ msgstr ""
 "Обмежує роздільність кольорів зображення, дані щодо якої буде надіслано на "
 "дисплей. Це не стосується знімків екрана або записів з екрана.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:503
+#: ui/OutputPanel.qml:481
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Інтенсивність кольорів sRGB:"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:539
+#: ui/OutputPanel.qml:517
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Збільшує інтенсивність зображень sRGB на екрані."
 
-#: ui/OutputPanel.qml:548
+#: ui/OutputPanel.qml:526
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яскравість:"
 
-#: ui/OutputPanel.qml:554
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Керування апаратною яскравістю за допомогою DDC/CI"
 
-#: ui/OutputPanel.qml:560
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -583,25 +583,25 @@ msgstr ""
 "керування стільницею, так, наче використано апаратні кнопки і накладне меню "
 "самого монітора."
 
-#: ui/OutputPanel.qml:590
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:601
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Розширений динамічний діапазон:"
 
-#: ui/OutputPanel.qml:606
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Увімкнути EDR"
 
-#: ui/OutputPanel.qml:612
+#: ui/OutputPanel.qml:590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -613,7 +613,7 @@ msgstr ""
 "коригування підсвічування.<nl/><nl/>Зауважте, що це збільшує витрату заряду "
 "батареї при перегляді зображень HDR."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgid "Replica of:"
 msgstr "Джерело репліки:"

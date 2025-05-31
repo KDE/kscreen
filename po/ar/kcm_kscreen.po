@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:44+0000\n"
+"POT-Creation-Date: 2025-05-31 00:43+0000\n"
 "PO-Revision-Date: 2025-05-27 18:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -34,24 +34,24 @@ msgstr "تغيرت النواتج أثناء محاولة تطبيق الإعد�
 msgid "%1 Hz"
 msgstr "%1 هرتز"
 
-#: output_model.cpp:701
+#: output_model.cpp:719
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:720
+#: output_model.cpp:738
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:807
+#: output_model.cpp:825
 #, kde-format
 msgid "None"
 msgstr "بدون"
 
-#: output_model.cpp:814
+#: output_model.cpp:832
 #, kde-format
 msgid "Replicated by other output"
 msgstr "منسوخة بإخراج آخر"
@@ -500,25 +500,25 @@ msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "حدد دقة الألوان إلى:"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "آلي (%1 بت لكل لون)"
 
-#: ui/OutputPanel.qml:449 ui/OutputPanel.qml:462
+#: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 بت لكل لون"
 
-#: ui/OutputPanel.qml:460
+#: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "آلي (%1 بت لكل لون)"
 
-#: ui/OutputPanel.qml:484 ui/OutputPanel.qml:488
+#: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -528,37 +528,37 @@ msgstr ""
 "يحدّ من دقة ألوان الصورة المعروضة على الشاشة. لا يؤثر هذا على لقطات الشاشة أو "
 "التسجيلات.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:503
+#: ui/OutputPanel.qml:481
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "كثافة اللون sRGB:"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1٪"
 
-#: ui/OutputPanel.qml:539
+#: ui/OutputPanel.qml:517
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "يزيد من كثافة sRGB على الشاشة."
 
-#: ui/OutputPanel.qml:548
+#: ui/OutputPanel.qml:526
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "السّطوع:"
 
-#: ui/OutputPanel.qml:554
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "تحكم في سطوع الأجهزة باستخدام DDC/CI"
 
-#: ui/OutputPanel.qml:560
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -570,25 +570,25 @@ msgstr ""
 "سطوع الشاشة باستخدام أدوات التحكم المكتبية، كما لو كانت تستخدم أزرار الشاشة "
 "نفسها وقائمة OSD."
 
-#: ui/OutputPanel.qml:590
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1٪"
 
-#: ui/OutputPanel.qml:601
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "النطاق الحركي الموسع:"
 
-#: ui/OutputPanel.qml:606
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "فعّل EDR"
 
-#: ui/OutputPanel.qml:612
+#: ui/OutputPanel.qml:590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -600,7 +600,7 @@ msgstr ""
 "ديناميكيًا.<nl/><nl/>يرجى ملاحظة أن هذا يزيد من استهلاك البطارية أثناء عرض "
 "محتوى HDR."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgid "Replica of:"
 msgstr "نسخة من:"

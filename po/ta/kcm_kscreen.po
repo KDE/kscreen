@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:44+0000\n"
+"POT-Creation-Date: 2025-05-31 00:43+0000\n"
 "PO-Revision-Date: 2025-05-18 20:22+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -32,24 +32,24 @@ msgstr "அமைப்புகளை செயல்படுத்தும�
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:701
+#: output_model.cpp:719
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:720
+#: output_model.cpp:738
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:807
+#: output_model.cpp:825
 #, kde-format
 msgid "None"
 msgstr "ஏதுமில்லை"
 
-#: output_model.cpp:814
+#: output_model.cpp:832
 #, kde-format
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
@@ -498,25 +498,25 @@ msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "நிறப்பகுதிறனை இதற்கு வரம்புபடுத்து"
 
-#: ui/OutputPanel.qml:447
+#: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "தானியக்கம் (முதநிறத்திற்கு %1 பிட்டுகள்)"
 
-#: ui/OutputPanel.qml:449 ui/OutputPanel.qml:462
+#: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "முதனிறத்திற்கு %1 பிட்டுகள்"
 
-#: ui/OutputPanel.qml:460
+#: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "தானியக்கம் (முதநிறத்திற்கு %1 பிட்டுகள்)"
 
-#: ui/OutputPanel.qml:484 ui/OutputPanel.qml:488
+#: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -526,37 +526,37 @@ msgstr ""
 "திரைக்கு அனுப்பப்படும் படத்தின் நிறப்பகுதிறனை வரம்புபடுத்தும். இது திரைப்பிடிப்புகளையோ "
 "திரைப்பதிவுகளையோ பாதிக்காது.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:503
+#: ui/OutputPanel.qml:481
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB நிறச்செறிவு:"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:509
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:539
+#: ui/OutputPanel.qml:517
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்."
 
-#: ui/OutputPanel.qml:548
+#: ui/OutputPanel.qml:526
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "பிரகாசம்:"
 
-#: ui/OutputPanel.qml:554
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "DDC/CI மூலம் பிரகாசத்தைக் கட்டுப்படுத்து"
 
-#: ui/OutputPanel.qml:560
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -568,25 +568,25 @@ msgstr ""
 "மூலமாகவே திரையின் பிரகாசத்தை கட்டுப்படுத்தலாம் (திரையில் உள்ள பட்டன்களை அழுத்துவது போலே "
 "இது செயல்படும்)."
 
-#: ui/OutputPanel.qml:590
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:601
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "மேம்பட்ட நிறவீச்சு:"
 
-#: ui/OutputPanel.qml:606
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR-ஐ இயக்கு"
 
-#: ui/OutputPanel.qml:612
+#: ui/OutputPanel.qml:590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -598,7 +598,7 @@ msgstr ""
 "மாற்றும்.<nl/><nl/>HDR படங்களைக் காணும்போது மின்கல பயன்பாட்டை இது அதிகமாக்கும் என்பதை "
 "நினைவில் கொள்ளவும்."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"
