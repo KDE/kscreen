@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-31 00:43+0000\n"
-"PO-Revision-Date: 2025-04-17 12:27+0200\n"
+"PO-Revision-Date: 2025-05-31 11:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -286,14 +286,14 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "Den enda uppdateringsfrekvens som stöds av bildskärmen är \"%1\"."
+msgstr ""
+"\"%1\" är den enda uppdateringsfrekvens som stöds av bildskärmen med "
+"nuvarande upplösning."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -450,12 +450,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Kalibrera ljusstyrka för stort dynamiskt omfång…"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
+"Öppnar ett fönster för att kalibrera ljusstyrka för stort dynamiskt omfång"
 
 #: ui/OutputPanel.qml:382
 #, kde-format
@@ -501,25 +502,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Begränsa färgupplösning till:"
 
 #: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automatisk (%1 bitar per färg)"
 
 #: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bitar per färg"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automatisk (%1 bitar per färg)"
 
 #: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
@@ -528,6 +529,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Begränsar färgupplösningen på bilden som skickas till bildskärmen. Det "
+"påverkar inte skärmbilder eller inspelningar.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
@@ -557,7 +560,7 @@ msgstr "Ljusstyrka:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Styr maskinvarans ljusstyrka med DDC/CI"
 
 #: ui/OutputPanel.qml:538
 #, kde-format
@@ -567,6 +570,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI är en funktion som stöds av många bildskärmar. Plasma kan använda den "
+"för att justera skärmens ljusstyrka med skrivbordskontroller, som om man "
+"använder skärmens egna maskinvaruknappar och skärmmeny."
 
 #: ui/OutputPanel.qml:568
 #, kde-format
@@ -575,20 +581,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:579
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Stort dynamiskt intervall:"
+msgstr "Utökat dynamiskt omfång:"
 
 #: ui/OutputPanel.qml:584
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Aktivera stort &dynamiskt intervall"
+msgstr "Aktivera utökat dynamiskt omfång"
 
 #: ui/OutputPanel.qml:590
 #, kde-kuit-format
@@ -598,6 +600,10 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"Utökat dynamiskt omfång möjliggör visning av innehåll med stort dynamiskt "
+"omfång på bildskärmar med normalt dynamiskt omfång genom att dynamiskt "
+"justera bakgrundsbelysningen.<nl/><nl/>Observera att det ökar "
+"batteriförbrukningen när du tittar på innehåll med stort dynamiskt omfång."
 
 #: ui/OutputPanel.qml:595
 #, kde-format
