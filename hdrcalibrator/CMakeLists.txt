@@ -8,6 +8,7 @@ qt_add_qml_module(hdrcalibrator
         ui/Main.qml
     RESOURCES
         ui/images/graz.avif
+        ui/images/plasma-symbolic.svg
     DEPENDENCIES
         QtQuick
 )
