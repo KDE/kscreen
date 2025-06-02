@@ -6,6 +6,8 @@ qt_add_qml_module(hdrcalibrator
     URI org.kde.hdrcalibrator
     QML_FILES
         ui/Main.qml
+    RESOURCES
+        ui/images/plasma-symbolic.svg
     DEPENDENCIES
         QtQuick
 )
