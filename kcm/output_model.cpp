@@ -1220,9 +1220,6 @@ bool snapToBottom(const QRect &target, const QSize &size, QPoint &dest)
 
 bool snapVertical(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (snapToMiddle(target, size, dest)) {
-        return true;
-    }
     if (snapToBottom(target, size, dest)) {
         return true;
     }
@@ -1249,11 +1246,6 @@ void OutputModel::snap(const Output &output, QPoint &dest)
         const QRect target(other.pos, other.ptr->geometry().size());
         const bool xOverlap = dest.x() <= target.x() + target.width() && target.x() <= dest.x() + size.width();
         const bool yOverlap = dest.y() <= target.y() + target.height() && target.y() <= dest.y() + size.height();
-        // Special special case, snap to center if centers are close
-        if (std::abs((outputRect.center() - target.center()).manhattanLength()) < s_snapArea * 2) {
-            dest = target.center() - (outputRect.center() - outputRect.topLeft());
-            return;
-        }
         if (xOverlap) {
             const int topDist = std::abs(dest.y() - target.y() - target.height());
             const int bottomDist = std::abs(outputRect.y() + outputRect.height() - target.y());
