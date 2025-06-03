@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-31 00:43+0000\n"
+"POT-Creation-Date: 2025-06-03 00:44+0000\n"
 "PO-Revision-Date: 2025-05-25 11:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: kcm.cpp:152 kcm.cpp:174
+#: kcm.cpp:146 kcm.cpp:168
 #, kde-format
 msgid "Implementation error"
 msgstr "Error de la implementació"
 
-#: kcm.cpp:202
+#: kcm.cpp:196
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Les sortides han canviat mentre s'intentava aplicar la configuració"
@@ -183,17 +183,17 @@ msgstr "Edita l'organització"
 msgid "Orientation:"
 msgstr "Orientació:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:165 ui/OutputPanel.qml:207
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:165 ui/OutputPanel.qml:207
 #, kde-format
 msgid "Automatic"
 msgstr "Automàtica"
 
-#: ui/Orientation.qml:43
+#: ui/Orientation.qml:42
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Només en el mode tauleta"
 
-#: ui/Orientation.qml:59
+#: ui/Orientation.qml:58
 #, kde-format
 msgid "Manual"
 msgstr "Manual"

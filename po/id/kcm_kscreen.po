@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-31 00:43+0000\n"
+"POT-Creation-Date: 2025-06-03 00:44+0000\n"
 "PO-Revision-Date: 2023-02-04 08:10+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: kcm.cpp:152 kcm.cpp:174
+#: kcm.cpp:146 kcm.cpp:168
 #, kde-format
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:202
+#: kcm.cpp:196
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -187,17 +187,17 @@ msgstr "Setelan Lanjutan"
 msgid "Orientation:"
 msgstr "Orientasi:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:165 ui/OutputPanel.qml:207
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:165 ui/OutputPanel.qml:207
 #, kde-format
 msgid "Automatic"
 msgstr "Otomatis"
 
-#: ui/Orientation.qml:43
+#: ui/Orientation.qml:42
 #, kde-format
 msgid "Only when in tablet mode"
 msgstr "Hanya ketika dalam mode tablet"
 
-#: ui/Orientation.qml:59
+#: ui/Orientation.qml:58
 #, kde-format
 msgid "Manual"
 msgstr "Manual"
