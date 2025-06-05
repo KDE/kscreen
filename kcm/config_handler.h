@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "../common/control.h"
+#include "common/control.h"
 
 #include <kscreen/config.h>
 

@@ -16,7 +16,7 @@
 
 #include <memory>
 
-#include "../common/osdaction.h"
+#include "common/osdaction.h"
 
 class QQuickView;
 

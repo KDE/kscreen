@@ -5,7 +5,8 @@
 */
 #include "kcm.h"
 
-#include "../common/control.h"
+
+#include "common/control.h"
 #include "config_handler.h"
 #include "globalscalesettings.h"
 #include "kcm_screen_debug.h"

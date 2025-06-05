@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "config.h"
-#include "../common/control.h"
+#include "common/control.h"
 #include "device.h"
 #include "kscreen_daemon_debug.h"
 #include "output.h"
