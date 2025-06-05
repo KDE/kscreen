@@ -11,7 +11,7 @@
 
 #include <KScreen/Types>
 
-#include "../common/osdaction.h"
+#include "common/osdaction.h"
 
 class KScreenApplet : public Plasma::Applet
 {

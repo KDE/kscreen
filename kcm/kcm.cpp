@@ -5,8 +5,8 @@
 */
 #include "kcm.h"
 
-#include "../common/control.h"
-#include "../common/orientation_sensor.h"
+#include "common/control.h"
+#include "common/orientation_sensor.h"
 #include "config_handler.h"
 #include "globalscalesettings.h"
 #include "kcm_screen_debug.h"

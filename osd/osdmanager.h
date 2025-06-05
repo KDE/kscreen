@@ -12,7 +12,7 @@
 #include <QTimer>
 #include <qqmlregistration.h>
 
-#include "../common/osdaction.h"
+#include "common/osdaction.h"
 
 namespace KScreen
 {

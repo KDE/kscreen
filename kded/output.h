@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "../common/control.h"
-#include "../common/globals.h"
+#include "common/control.h"
+#include "common/globals.h"
 
 #include <kscreen/output.h>
 #include <kscreen/types.h>

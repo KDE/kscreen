@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "../common/globals.h"
-#include "../common/osdaction.h"
+#include "common/globals.h"
+#include "common/osdaction.h"
 #include "config-X11.h"
 
 #include <kscreen/config.h>

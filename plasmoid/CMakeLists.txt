@@ -8,7 +8,6 @@ plasma_add_applet(org.kde.kscreen
     ScreenLayoutSelection.qml
   CPP_SOURCES
     kscreenapplet.cpp
-    ../common/osdaction.cpp
 )
 
 target_link_libraries(org.kde.kscreen PRIVATE
@@ -16,4 +15,5 @@ target_link_libraries(org.kde.kscreen PRIVATE
                       KF6::I18n
                       Plasma::Plasma
                       KF6::Screen
+                      kscreen_common
                       )

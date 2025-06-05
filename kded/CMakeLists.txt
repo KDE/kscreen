@@ -8,11 +8,6 @@ target_sources(kscreen PRIVATE
     output.cpp output.h
     generator.cpp generator.h
     device.cpp device.h
-    ${CMAKE_SOURCE_DIR}/common/osdaction.cpp ${CMAKE_SOURCE_DIR}/common/osdaction.h
-    ${CMAKE_SOURCE_DIR}/common/globals.cpp ${CMAKE_SOURCE_DIR}/common/globals.h
-    ${CMAKE_SOURCE_DIR}/common/control.cpp ${CMAKE_SOURCE_DIR}/common/control.h
-    ${CMAKE_SOURCE_DIR}/common/orientation_sensor.cpp ${CMAKE_SOURCE_DIR}/common/orientation_sensor.h
-    ${CMAKE_SOURCE_DIR}/common/utils.cpp ${CMAKE_SOURCE_DIR}/common/utils.h
 )
 
 ecm_qt_declare_logging_category(kscreen HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
@@ -27,6 +22,7 @@ qt_add_dbus_interface(dbus_SRCS
 target_sources(kscreen PRIVATE ${dbus_SRCS})
 
 target_link_libraries(kscreen PRIVATE
+                              kscreen_common
                               Qt::Widgets
                               Qt::DBus
                               Qt::Quick

@@ -9,9 +9,6 @@ macro(ADD_KDED_TEST testname)
         ${CMAKE_SOURCE_DIR}/kded/device.cpp ${CMAKE_SOURCE_DIR}/kded/device.h
         ${CMAKE_SOURCE_DIR}/kded/config.cpp
         ${CMAKE_SOURCE_DIR}/kded/output.cpp ${CMAKE_SOURCE_DIR}/kded/output.h
-        ${CMAKE_SOURCE_DIR}/common/globals.cpp ${CMAKE_SOURCE_DIR}/common/globals.h
-        ${CMAKE_SOURCE_DIR}/common/control.cpp ${CMAKE_SOURCE_DIR}/common/control.h
-        #${CMAKE_SOURCE_DIR}/kded/daemon.cpp daemon.h
     )
     ecm_qt_declare_logging_category(test_SRCS HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded)
 
@@ -23,7 +20,7 @@ macro(ADD_KDED_TEST testname)
     add_executable(${testname} ${test_SRCS})
     add_dependencies(${testname} kscreen) # make sure the dbus interfaces are generated
     target_compile_definitions(${testname} PRIVATE "-DTEST_DATA=\"${CMAKE_CURRENT_SOURCE_DIR}/\"")
-    target_link_libraries(${testname} Qt::Test Qt::DBus Qt::Gui Qt::Sensors KF6::Screen KF6::CoreAddons)
+    target_link_libraries(${testname} Qt::Test Qt::DBus Qt::Gui Qt::Sensors KF6::Screen KF6::CoreAddons kscreen_common)
     add_test(NAME kscreen-kded-${testname} COMMAND ${testname})
     ecm_mark_as_test(${testname})
 endmacro()

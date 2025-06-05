@@ -1,4 +1,4 @@
-add_executable(kscreen_osd_service main.cpp osdmanager.cpp osd.cpp osd.h ../common/osdaction.cpp ../common/osdaction.h)
+add_executable(kscreen_osd_service main.cpp osdmanager.cpp osd.cpp osd.h)
 
 ecm_add_qml_module(kscreen_osd_service URI "org.kde.kscreen.osd" QML_FILES qml/OsdSelector.qml)
 
@@ -6,6 +6,7 @@ qt_add_dbus_adaptor(DBUS_SRC org.kde.kscreen.osdService.xml osdmanager.h KScreen
 target_sources(kscreen_osd_service PRIVATE ${DBUS_SRC})
 
 target_link_libraries(kscreen_osd_service PRIVATE
+    kscreen_common
     Qt::DBus
     Qt::Quick
     KF6::I18n
