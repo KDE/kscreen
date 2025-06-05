@@ -1,0 +1,117 @@
+{
+    "screen" :
+    {
+        "id" : 1,
+        "maxSize" : {
+            "width" : 8192,
+            "height" : 8192
+        },
+        "minSize" : {
+            "width" : 320,
+            "height" : 200
+        },
+        "currentSize": {
+            "height": 800,
+            "width": 1280
+        },
+        "maxActiveOutputsCount": 2
+    },
+    "outputs" :
+    [
+        {
+            "connected": true,
+            "currentModeId": "85",
+            "enabled": true,
+            "followPreferredMode": false,
+            "icon": "",
+            "id": 82,
+            "modes": [
+                {
+                    "id": "85",
+                    "name": "",
+                    "refreshRate": 90.00389099121094,
+                    "size": {
+                        "height": 1280,
+                        "width": 800
+                    }
+                }
+            ],
+            "name": "eDP",
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "preferredModes": [
+                "85"
+            ],
+            "priority": 1,
+            "replicationSource": 0,
+            "rotation": 8,
+            "scale": 1,
+            "size": {
+                "height": 800,
+                "width": 1280
+            },
+            "sizeMM": {
+                "height": 160,
+                "width": 100
+            },
+            "type": 7
+
+        },
+        {
+            "id" : 2,
+            "name" : "HDMI1",
+            "type" : "HDMI",
+            "modes" :
+            [
+                {
+                    "id" : 4,
+                    "name" : "1920x1080",
+                    "refreshRate" : 60,
+                    "size" : {
+                        "width" : 1920,
+                        "height" : 1080
+                    }
+                },
+                {
+                    "id" : 3,
+                    "name" : "1600x1200",
+                    "refreshRate" : 60,
+                    "size" : {
+                        "width" : 1600,
+                        "height" : 1200
+                    }
+                },
+                {
+                    "id" : 2,
+                    "name" : "1024x768",
+                    "refreshRate" : 59.9,
+                    "size" : {
+                        "width" : 1024,
+                        "height" : 768
+                    }
+                },
+                {
+                    "id" : 1,
+                    "name" : "800x600",
+                    "refreshRate" : 59.9,
+                    "size" : {
+                        "width" : 800,
+                        "height" : 600
+                    }
+                }
+            ],
+            "pos" : {
+                "x" : 1280,
+                "y" : 0
+            },
+            "preferredModes" : [4],
+            "rotation" : 1,
+            "connected" : true,
+            "enabled" : false,
+            "primary" : false,
+            "edid" : "AP///////wAQrBbwTExLQQ4WAQOANCB46h7Frk80sSYOUFSlSwCBgKlA0QBxTwEBAQEBAQEBKDyAoHCwI0AwIDYABkQhAAAaAAAA/wBGNTI1TTI0NUFLTEwKAAAA/ABERUxMIFUyNDEwCiAgAAAA/QA4TB5REQAKICAgICAgAToCAynxUJAFBAMCBxYBHxITFCAVEQYjCQcHZwMMABAAOC2DAQAA4wUDAQI6gBhxOC1AWCxFAAZEIQAAHgEdgBhxHBYgWCwlAAZEIQAAngEdAHJR0B4gbihVAAZEIQAAHowK0Iog4C0QED6WAAZEIQAAGAAAAAAAAAAAAAAAAAAAPg=="
+        }
+    ]
+}
