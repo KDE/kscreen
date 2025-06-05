@@ -5,12 +5,9 @@ kcoreaddons_add_plugin(kscreen INSTALL_NAMESPACE "kf6/kded")
 target_sources(kscreen PRIVATE
     daemon.cpp daemon.h
     config.cpp
-    output.cpp output.h
     generator.cpp generator.h
     device.cpp device.h
 )
-
-ecm_qt_declare_logging_category(kscreen HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
 
 qt_add_dbus_interface(dbus_SRCS
     org.freedesktop.DBus.Properties.xml

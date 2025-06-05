@@ -6,8 +6,8 @@
 */
 
 #include "device.h"
+#include "common/kscreen_daemon_debug.h"
 #include "freedesktop_interface.h"
-#include "kscreen_daemon_debug.h"
 
 Device *Device::m_instance = nullptr;
 

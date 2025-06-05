@@ -8,10 +8,11 @@
 
 #include <cmath>
 
-#include "generator.h"
+#include "common/kscreen_daemon_debug.h"
+#include "common/output.h"
+#include "common/utils.h"
 #include "device.h"
-#include "kscreen_daemon_debug.h"
-#include "output.h"
+#include "generator.h"
 #include <QRect>
 
 #include <kscreen/screen.h>
@@ -317,7 +318,7 @@ void Generator::cloneScreens(const KScreen::ConfigPtr &config)
             }
             output->setEnabled(true);
             output->setPos(QPoint(0, 0));
-            const KScreen::ModePtr mode = biggestMode(output->modes());
+            const KScreen::ModePtr mode = Utils::biggestMode(output->modes());
             Q_ASSERT(mode);
             output->setCurrentModeId(mode->id());
         }
@@ -480,32 +481,6 @@ void Generator::initializeOutput(const KScreen::OutputPtr &output, KScreen::Conf
     }
 }
 
-KScreen::ModePtr Generator::biggestMode(const KScreen::ModeList &modes)
-{
-    Q_ASSERT(!modes.isEmpty());
-
-    int modeArea, biggestArea = 0;
-    KScreen::ModePtr biggestMode;
-    for (const KScreen::ModePtr &mode : modes) {
-        modeArea = mode->size().width() * mode->size().height();
-        if (modeArea < biggestArea) {
-            continue;
-        }
-        if (modeArea == biggestArea && mode->refreshRate() < biggestMode->refreshRate()) {
-            continue;
-        }
-        if (modeArea == biggestArea && mode->refreshRate() > biggestMode->refreshRate()) {
-            biggestMode = mode;
-            continue;
-        }
-
-        biggestArea = modeArea;
-        biggestMode = mode;
-    }
-
-    return biggestMode;
-}
-
 KScreen::ModePtr Generator::bestModeForSize(const KScreen::ModeList &modes, const QSize &size)
 {
     KScreen::ModePtr bestMode;
@@ -579,7 +554,7 @@ KScreen::ModePtr Generator::bestModeForOutput(const KScreen::OutputPtr &output)
         return outputMode;
     }
 
-    return biggestMode(output->modes());
+    return Utils::biggestMode(output->modes());
 }
 
 KScreen::OutputPtr Generator::biggestOutput(const KScreen::OutputList &outputs)
