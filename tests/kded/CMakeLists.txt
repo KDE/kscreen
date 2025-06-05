@@ -8,7 +8,7 @@ macro(ADD_KDED_TEST testname)
         ${CMAKE_SOURCE_DIR}/kded/generator.cpp ${CMAKE_SOURCE_DIR}/kded/generator.h
         ${CMAKE_SOURCE_DIR}/kded/device.cpp ${CMAKE_SOURCE_DIR}/kded/device.h
         ${CMAKE_SOURCE_DIR}/kded/config.cpp
-    )
+   )
 
     qt_add_dbus_interface(test_SRCS
         ${CMAKE_SOURCE_DIR}/kded/org.freedesktop.DBus.Properties.xml
@@ -25,4 +25,6 @@ endmacro()
 
 add_kded_test(testgenerator)
 add_kded_test(configtest)
+add_kded_test(osdactions)
+
 #add_kded_test(testdaemon)

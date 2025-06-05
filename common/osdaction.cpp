@@ -157,6 +157,7 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         ModePtr currentMode = external->currentMode();
         if (!currentMode) { // When the external display is not enabled
             const auto externalModesMap = external->modes();
+            qDebug() << externalModesMap;
             Q_ASSERT(!externalModesMap.empty());
             auto bestModeIt = std::max_element(externalModesMap.cbegin(), externalModesMap.cend(), [](const auto &left, const auto &right) {
                 const QSize leftSize = left->size();
@@ -164,6 +165,7 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
                 return (leftSize.width() < rightSize.width() && leftSize.height() < rightSize.height())
                     || (leftSize == rightSize && left->refreshRate() < right->refreshRate());
             });
+            qDebug() << "Best mode for external display:" << bestModeIt.value()->id() << bestModeIt.value()->size();
             currentMode = bestModeIt.value();
             external->setCurrentModeId(currentMode->id());
         }
