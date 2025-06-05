@@ -51,6 +51,12 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
     const OutputPtr &external = *std::find_if(outputs.cbegin(), outputs.cend(), [&internal](const auto &output) {
         return output != internal;
     });
+
+    if (config->supportedFeatures() & Config::Feature::PerOutputScaling) {
+        external->setReplicationSource(0);
+        internal->setReplicationSource(0);
+    }
+
     switch (action) {
     case KScreen::OsdAction::Action::NoAction:
         return nullptr;
