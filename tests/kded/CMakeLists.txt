@@ -25,4 +25,6 @@ endmacro()
 
 add_kded_test(testgenerator)
 add_kded_test(configtest)
+add_kded_test(osdactions)
+
 #add_kded_test(testdaemon)
