@@ -120,7 +120,6 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         internal->setEnabled(true);
         external->setEnabled(true);
         internal->setPos(QPoint());
-        const double internalScale = internal->scale();
         ModePtr currentMode = internal->currentMode();
         if (!currentMode) { // When the internal display is not enabled
             const auto internalModesMap = internal->modes();
@@ -134,14 +133,13 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
             currentMode = bestModeIt.value();
             internal->setCurrentModeId(currentMode->id());
         }
-        external->setPos(QPoint(std::ceil(currentMode->size().width() / internalScale), 0));
+        external->setPos({copy->logicalSizeForOutputInt(*internal).width(), 0});
         break;
     }
     case KScreen::OsdAction::Action::ExtendLeft: {
         internal->setEnabled(true);
         external->setEnabled(true);
         external->setPos(QPoint());
-        const double externalScale = external->scale();
         ModePtr currentMode = external->currentMode();
         if (!currentMode) { // When the external display is not enabled
             const auto externalModesMap = external->modes();
@@ -155,7 +153,7 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
             currentMode = bestModeIt.value();
             external->setCurrentModeId(currentMode->id());
         }
-        internal->setPos(QPoint(std::ceil(currentMode->size().width() / externalScale), 0));
+        internal->setPos({copy->logicalSizeForOutputInt(*external).width(), 0});
         break;
     }
     }
