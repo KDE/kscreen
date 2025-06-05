@@ -5,8 +5,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "../../common/output.h"
 #include "../../kded/generator.h"
-#include "../../kded/output.h"
 
 #include <QObject>
 #include <QStandardPaths>

@@ -5,10 +5,9 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "output.h"
-#include "config.h"
 
-#include "generator.h"
 #include "kscreen_daemon_debug.h"
+#include "utils.h"
 
 #include <QDir>
 #include <QFile>
@@ -18,7 +17,9 @@
 #include <QStringBuilder>
 #include <QStringList>
 
+#include <kscreen/config.h>
 #include <kscreen/edid.h>
+#include <kscreen/mode.h>
 
 QString Output::s_dirName = QStringLiteral("outputs/");
 
@@ -94,7 +95,7 @@ void Output::readInGlobalPartFromInfo(KScreen::OutputPtr output, const QVariantM
     }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to get a preferred mode, falling back to biggest mode.";
-        matchingMode = Generator::biggestMode(output->modes());
+        matchingMode = Utils::biggestMode(output->modes());
     }
     if (!matchingMode) {
         qCWarning(KSCREEN_KDED) << "\tFailed to get biggest mode. Which means there are no modes. Turning off the screen.";

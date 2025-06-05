@@ -12,7 +12,7 @@
 #include "config.h"
 #include "device.h"
 #include "generator.h"
-#include "kscreen_daemon_debug.h"
+#include "common/kscreen_daemon_debug.h"
 #include "osdservice_interface.h"
 
 #include <kscreen/configmonitor.h>
