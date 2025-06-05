@@ -11,6 +11,7 @@
 */
 
 #include "osdaction.h"
+#include "output.h"
 
 #include <KLocalizedString>
 #include <KScreen/Config>
@@ -55,6 +56,13 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
     if (config->supportedFeatures() & Config::Feature::PerOutputScaling) {
         external->setReplicationSource(0);
         internal->setReplicationSource(0);
+    } else {
+        if (!internal->isEnabled()) {
+            internal->setRotation(::Output::readGlobal(internal).rotation.value_or(Output::Rotation::None));
+        }
+        if (!external->isEnabled()) {
+            external->setRotation(::Output::readGlobal(external).rotation.value_or(Output::Rotation::None));
+        }
     }
 
     switch (action) {
