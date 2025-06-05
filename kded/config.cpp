@@ -6,9 +6,9 @@
 */
 #include "config.h"
 #include "common/control.h"
+#include "common/output.h"
 #include "device.h"
 #include "kscreen_daemon_debug.h"
-#include "output.h"
 
 #include <QDir>
 #include <QFile>

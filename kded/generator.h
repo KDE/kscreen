@@ -42,7 +42,6 @@ public:
     void setForceDocked(bool force);
     void setForceNotLaptop(bool force);
 
-    static KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
     qreal bestScaleForOutput(const KScreen::OutputPtr &output);
 
 Q_SIGNALS:
