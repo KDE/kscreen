@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:44+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2025-05-25 22:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.1\n"
 
-#: kcm.cpp:146 kcm.cpp:168
+#: kcm.cpp:147 kcm.cpp:169
 #, kde-format
 msgid "Implementation error"
 msgstr "Inplementazio errorea"
 
-#: kcm.cpp:196
+#: kcm.cpp:197
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Ezarpenak aplikatzen saiatzean irteerak aldatu dira"

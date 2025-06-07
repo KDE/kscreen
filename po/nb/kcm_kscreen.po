@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:44+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 20:22+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: kcm.cpp:146 kcm.cpp:168
+#: kcm.cpp:147 kcm.cpp:169
 #, kde-format
 msgid "Implementation error"
 msgstr "Feil ved implementering"
 
-#: kcm.cpp:196
+#: kcm.cpp:197
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Utenheter endret ved forsøk på å bruke innstillingene"

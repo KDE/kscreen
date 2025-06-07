@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:44+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2025-05-25 05:52+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -23,12 +23,12 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.6\n"
 
-#: kcm.cpp:146 kcm.cpp:168
+#: kcm.cpp:147 kcm.cpp:169
 #, kde-format
 msgid "Implementation error"
 msgstr "Napaka implementacije"
 
-#: kcm.cpp:196
+#: kcm.cpp:197
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Izhodi so bili spremenjeni med poskusom uveljavitve nastavitev"

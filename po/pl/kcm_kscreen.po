@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:44+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2025-02-01 12:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: kcm.cpp:146 kcm.cpp:168
+#: kcm.cpp:147 kcm.cpp:169
 #, kde-format
 msgid "Implementation error"
 msgstr "Błąd implementacji"
 
-#: kcm.cpp:196
+#: kcm.cpp:197
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Wyjścia zmieniły się podczas próby zastosowania ustawień"

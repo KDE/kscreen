@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:44+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2025-05-30 22:07+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.1\n"
 
-#: kcm.cpp:146 kcm.cpp:168
+#: kcm.cpp:147 kcm.cpp:169
 #, kde-format
 msgid "Implementation error"
 msgstr "Implementációs hiba"
 
-#: kcm.cpp:196
+#: kcm.cpp:197
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "A kimenet megváltozott a beállítások alkalmazására tett kísérlet során"

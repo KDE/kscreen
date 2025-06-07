@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2025-06-07 00:44+0000\n"
 "PO-Revision-Date: 2023-10-22 11:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -19,37 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to external screen"
 msgstr "העברה למסך חיצוני"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:29
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "העברה למסך של המחשב הנייד"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:30
 #, kde-format
 msgid "Unify outputs"
 msgstr "איחוד פלטים"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left"
 msgstr "הרחבה לשמאל"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:32
 #, kde-format
 msgid "Extend to right"
 msgstr "הרחבה לימין"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:33
 #, kde-format
 msgid "Leave unchanged"
 msgstr "להשאיר ללא שינוי"
 
-#: utils.cpp:21
+#: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
 msgstr "מסך מובנה"
