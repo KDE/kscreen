@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2025-06-07 02:33+0000\n"
 "PO-Revision-Date: 2024-02-27 13:41+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -19,37 +19,37 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Pārslēgt uz ārējo ekrānu"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:29
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Pārslēgt uz klēpjdatora ekrānu"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:30
 #, kde-format
 msgid "Unify outputs"
 msgstr "Apvienot izvades"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left"
 msgstr "Paplašināt pa kreisi"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:32
 #, kde-format
 msgid "Extend to right"
 msgstr "Paplašināt pa labi"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:33
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Atstāt nemainītu"
 
-#: utils.cpp:21
+#: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Iebūvētais ekrāns"

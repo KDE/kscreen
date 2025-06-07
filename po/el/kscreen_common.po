@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2025-06-07 02:33+0000\n"
 "PO-Revision-Date: 2021-06-28 15:19+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Εναλλαγή σε εξωτερική οθόνη"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:29
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Εναλλαγή σε οθόνη φορητού υπολογιστή"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:30
 #, kde-format
 msgid "Unify outputs"
 msgstr "Ενοποίηση εξόδων"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left"
 msgstr "Επέκταση στα αριστερά"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:32
 #, kde-format
 msgid "Extend to right"
 msgstr "Επέκταση στα δεξιά"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:33
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Να μείνει απαράλλακτο"
 
-#: utils.cpp:21
+#: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2025-06-07 02:33+0000\n"
 "PO-Revision-Date: 2023-04-01 20:55-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -17,37 +17,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to external screen"
 msgstr "ਬਾਹਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:29
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:30
 #, kde-format
 msgid "Unify outputs"
 msgstr "ਇਕਸਾਰ ਆਉਟਪੁੱਟ"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left"
 msgstr "ਖੱਬੇ ਵੱਲ ਫੈਲਾਓ"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:32
 #, kde-format
 msgid "Extend to right"
 msgstr "ਸੱਜੇ ਪਾਸੇ ਫੈਲਾਓ"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:33
 #, kde-format
 msgid "Leave unchanged"
 msgstr "ਨਾ-ਬਦਲਿਆ ਹੀ ਛੱਡੋ"
 
-#: utils.cpp:21
+#: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
 msgstr "ਬਿਲਟ-ਇਨ ਸਕਰੀਨ"

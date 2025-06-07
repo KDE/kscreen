@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-22 02:42+0000\n"
+"PO-Revision-Date: 2025-06-06 06:07+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "HDR-ის კალიბრაცია"
+
+#: ui/Main.qml:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "შემდეგი"
+
+#: ui/Main.qml:143 ui/Main.qml:314
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "გადაერთვება შემდეგ გვერდზე"
+
+#: ui/Main.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: ui/Main.qml:154
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "გააუქმებს კალიბრაციის პროცესს"
+
+#: ui/Main.qml:159
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური სიკაშკაშე, გადაწიეთ ჩოჩია "
+"მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
+
+#: ui/Main.qml:308
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "მზადაა"
+
+#: ui/Main.qml:323
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"მოირგეთ, რა დონეზე კაშკაშა იქნება \"100%\" ნორმალურ სიკაშკაშესთან შედარებით. "
+"გახადეთ ის ისეთი კაშკაშა, როგორიც ოდესმე გამოგიყენებიათ, მანამდე, სანამ HDR "
+"გამოსახულება ჯერ კიდევ მისაღებად გამოიყურება და გრადიენტები გლუვია."

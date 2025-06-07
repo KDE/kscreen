@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2025-06-07 02:33+0000\n"
 "PO-Revision-Date: 2021-11-17 13:01+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -17,37 +17,37 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:28
 #, kde-format
 msgid "Switch to external screen"
 msgstr "Na eksternu wobrazowku hić"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:29
 #, kde-format
 msgid "Switch to laptop screen"
 msgstr "Na laptopowu wobrazowku hić"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:30
 #, kde-format
 msgid "Unify outputs"
 msgstr "Identiski output"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left"
 msgstr "Nalěwo rozšěrić"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:32
 #, kde-format
 msgid "Extend to right"
 msgstr "Naprawo rozšěrić"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:33
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Njezměnjeny wostajić"
 
-#: utils.cpp:21
+#: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""
