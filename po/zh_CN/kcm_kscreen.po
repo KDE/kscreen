@@ -286,7 +286,7 @@ msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr ""
+msgstr "“%1”是此显示器在当前分辨率下支持的唯一刷新率。"
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -686,7 +686,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr "屏幕内建的色彩特性文件总是与 HDR 配合使用。"
