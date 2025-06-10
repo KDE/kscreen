@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:44+0000\n"
-"PO-Revision-Date: 2025-05-03 15:11+0300\n"
+"PO-Revision-Date: 2025-06-08 10:20+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -289,14 +289,14 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "„%1“ ir vienīgais atsvaidzināšanas biežums, ko atbalsta šis displejs."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "„%1“ ir vienīgais atsvaidzināšanas biežums, ko atbalsta šis displejs."
+msgstr ""
+"„%1“ ir vienīgais atsvaidzināšanas biežums, ko atbalsta šis displejs šādā "
+"izšķirtspējā."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -453,12 +453,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Kalibrēt HDR gaišumu…"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Atver logu HDR gaišuma kalibrēšanai"
 
 #: ui/OutputPanel.qml:382
 #, kde-format
@@ -503,25 +503,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Ierobežot krāsu izšķirtspēju līdz:"
 
 #: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automātisku (līdz %1 bitiem uz krāsu)"
 
 #: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bitiem uz krāsu"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automātisku (līdz %1 bitiem uz krātu)"
 
 #: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
@@ -530,6 +530,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Ierobežo uz displeja nosūtāmā attēla krāsu izšķirtspēju. Šis iestatījums "
+"neietekmē ekrānattēlus un ekrāna ierakstus.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
@@ -580,20 +582,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: ui/OutputPanel.qml:579
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Augsts dinamiskais diapazons:"
+msgstr "Paplašinātais dinamiskais diapazons"
 
 #: ui/OutputPanel.qml:584
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Ieslēgt &HDR"
+msgstr "Ieslēgt EDR"
 
 #: ui/OutputPanel.qml:590
 #, kde-kuit-format
@@ -603,11 +601,14 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR ļauj apskatīt HDR saturu uz SDR displejiem, dinamiski pielāgojot "
+"displeja izgaismojumu.<nl/><nl/>Ievērojiet, ka šis iestatījums palielina "
+"baterijas patēriņu, kad skatāties HDR saturu."
 
 #: ui/OutputPanel.qml:595
 #, kde-format
 msgid "Replica of:"
-msgstr "Kopē:"
+msgstr "Replika no:"
 
 #: ui/Panel.qml:55
 #, kde-format
