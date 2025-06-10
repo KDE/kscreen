@@ -25,11 +25,11 @@ using namespace KScreen;
 QList<OsdAction> OsdAction::availableActions()
 {
     return {
-        {SwitchToExternal, i18nd("kscreen_common", "Switch to external screen"), QStringLiteral("osd-shutd-laptop")},
-        {SwitchToInternal, i18nd("kscreen_common", "Switch to laptop screen"), QStringLiteral("osd-shutd-screen")},
-        {Clone, i18nd("kscreen_common", "Unify outputs"), QStringLiteral("osd-duplicate")},
-        {ExtendLeft, i18nd("kscreen_common", "Extend to left"), QStringLiteral("osd-sbs-left")},
-        {ExtendRight, i18nd("kscreen_common", "Extend to right"), QStringLiteral("osd-sbs-sright")},
+        {SwitchToExternal, i18nd("kscreen_common", "Only use external screen"), QStringLiteral("osd-shutd-laptop")},
+        {SwitchToInternal, i18nd("kscreen_common", "Only use built-in screen"), QStringLiteral("osd-shutd-screen")},
+        {Clone, i18nd("kscreen_common", "Mirror screens"), QStringLiteral("osd-duplicate")},
+        {ExtendLeft, i18nd("kscreen_common", "Extend to left of built-in screen"), QStringLiteral("osd-sbs-left")},
+        {ExtendRight, i18nd("kscreen_common", "Extend to right of built-in screen"), QStringLiteral("osd-sbs-sright")},
         {NoAction, i18nd("kscreen_common", "Leave unchanged"), QStringLiteral("dialog-cancel")},
     };
 }
