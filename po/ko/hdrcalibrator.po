@@ -1,0 +1,74 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2025 Shinjo Park <kde@peremen.name>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-22 02:42+0000\n"
+"PO-Revision-Date: 2025-06-10 23:09+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 24.12.3\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "HDR 교정"
+
+#: ui/Main.qml:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "다음"
+
+#: ui/Main.qml:143 ui/Main.qml:314
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "다음 쪽으로 전환"
+
+#: ui/Main.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "취소"
+
+#: ui/Main.qml:154
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "교정 작업을 취소함"
+
+#: ui/Main.qml:159
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"화면의 최대 밝기를 결정하려면 로고가 흐릿하게 표시될 때까지 슬라이더를 조정하"
+"십시오"
+
+#: ui/Main.qml:308
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "완료"
+
+#: ui/Main.qml:323
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"일반 밝기 슬라이더의 \"100%\" 밝기가 얼마나 밝을지를 설정합니다. HDR 이미지"
+"가 선명하게 보이고, 그라디언트가 부드럽게 보이는 한도 내에서 최대한으로 밝게 "
+"설정하십시오."
