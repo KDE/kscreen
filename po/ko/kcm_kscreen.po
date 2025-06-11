@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:44+0000\n"
-"PO-Revision-Date: 2025-04-15 23:49+0200\n"
+"PO-Revision-Date: 2025-06-10 23:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -283,14 +283,12 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "이 디스플레이에서는 \"%1\" 화면 주사율만 지원합니다."
+msgstr "이 디스플레이의 현재 해상도에서는 \"%1\" 화면 주사율만 지원합니다."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -445,12 +443,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "HDR 밝기 교정…"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "HDR 밝기를 교정하는 창 열기"
 
 #: ui/OutputPanel.qml:382
 #, kde-format
@@ -495,25 +493,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "다음으로 색 농도 제한:"
 
 #: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "자동(색상당 %1비트)"
 
 #: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "색상당 %1비트"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "자동(색상당 %1비트)"
 
 #: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
@@ -522,6 +520,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"디스플레이에 표시된 이미지의 색 농도를 제한합니다. 스크린샷이나 녹화에는 영향"
+"을 주지 않습니다.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
@@ -551,7 +551,7 @@ msgstr "밝기:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "DDC/CI로 하드웨어 밝기 제어"
 
 #: ui/OutputPanel.qml:538
 #, kde-format
@@ -561,6 +561,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI는 여러 모니터에서 지원하는 기능입니다. Plasma에서는 이 기능을 사용하"
+"여 모니터의 하드웨어 버튼과 OSD 메뉴를 사용하는 것처럼 화면 밝기를 데스크톱 "
+"컨트롤로 제어할 수 있습니다."
 
 #: ui/OutputPanel.qml:568
 #, kde-format
@@ -569,20 +572,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:579
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "HDR:"
+msgstr "확장된 다이나믹 레인지:"
 
 #: ui/OutputPanel.qml:584
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "HDR 활성화(&H)"
+msgstr "EDR 활성화"
 
 #: ui/OutputPanel.qml:590
 #, kde-kuit-format
@@ -592,6 +591,8 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR을 사용하면 HDR 콘텐츠를 SDR 디스플레이에 표시할 때 동적으로 백라이트를 조"
+"정합니다.<nl/><nl/>HDR 콘텐츠를 표시하는 동안 배터리 사용량을 증가시킵니다."
 
 #: ui/OutputPanel.qml:595
 #, kde-format
