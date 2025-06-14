@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2022-07-06 17:38+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,30 @@ msgstr ""
 "X-Generator: Lokalize 22.04.2\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Xarici ekrana keçin"
 
 #: osdaction.cpp:29
 #, kde-format
-msgid "Switch to laptop screen"
-msgstr "Noutbuk ekranına keçin"
+msgid "Only use built-in screen"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Çıxışları birləşdirin"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Sola genişləndirin"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Sağa genişləndiirn"
 
 #: osdaction.cpp:33
@@ -51,6 +53,15 @@ msgstr "Dəyişdirmədən çıxın"
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Noutbuk ekranına keçin"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Çıxışları birləşdirin"
+
+#~ msgid "Extend to left"
+#~ msgstr "Sola genişləndirin"
 
 #~ msgid "Switch Display"
 #~ msgstr "Ekranı dəyişin"

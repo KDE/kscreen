@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,28 +18,31 @@ msgstr ""
 "X-Crowdin-File-ID: 42699\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "切换到外接屏幕"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "切换到笔记本屏幕"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "内置屏幕"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "统一输出"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "向左扩展"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "向右扩展"
 
 #: osdaction.cpp:33
@@ -51,3 +54,12 @@ msgstr "保持不变"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "内置屏幕"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "切换到笔记本屏幕"
+
+#~ msgid "Unify outputs"
+#~ msgstr "统一输出"
+
+#~ msgid "Extend to left"
+#~ msgstr "向左扩展"

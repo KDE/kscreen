@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2024-06-20 22:06+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,31 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Byt till extern bildskärm"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Byt till bärbar datorskärm "
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Inbyggd bildskärm"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Sammanslå utgångar"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Utöka åt vänster"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Utökad åt höger"
 
 #: osdaction.cpp:33
@@ -51,6 +54,15 @@ msgstr "Lämna orört"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Inbyggd bildskärm"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Byt till bärbar datorskärm "
+
+#~ msgid "Unify outputs"
+#~ msgstr "Sammanslå utgångar"
+
+#~ msgid "Extend to left"
+#~ msgstr "Utöka åt vänster"
 
 #~ msgid "Switch Display"
 #~ msgstr "Byt bildskärm"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-05-06 19:01+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -19,28 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Ŝanĝi al ekstera ekrano"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Ŝanĝi al tekkomputila ekrano"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Enkonstruita Ekrano"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Unuigu elirojn"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Etendi maldekstren"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Etendi dekstren"
 
 #: osdaction.cpp:33
@@ -52,3 +55,12 @@ msgstr "Lasi senŝanĝe"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Enkonstruita Ekrano"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Ŝanĝi al tekkomputila ekrano"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Unuigu elirojn"
+
+#~ msgid "Extend to left"
+#~ msgstr "Etendi maldekstren"

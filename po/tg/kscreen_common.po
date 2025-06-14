@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2019-09-19 19:17+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,30 @@ msgstr ""
 "X-Generator: Lokalize 19.04.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Гузариш ба экрани берунӣ"
 
 #: osdaction.cpp:29
 #, kde-format
-msgid "Switch to laptop screen"
-msgstr "Гузариш ба экрани лэптоп (ноутбук)"
+msgid "Only use built-in screen"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Муттаҳид кардани намошҳо"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Ба тарафи чап тамдид кардан"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Ба тарафи рост тамдид кардан"
 
 #: osdaction.cpp:33
@@ -51,6 +53,15 @@ msgstr "Тағйир дода нашавад"
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Гузариш ба экрани лэптоп (ноутбук)"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Муттаҳид кардани намошҳо"
+
+#~ msgid "Extend to left"
+#~ msgstr "Ба тарафи чап тамдид кардан"
 
 #~ msgid "Switch Display"
 #~ msgstr "Гузариш байни экранҳо"

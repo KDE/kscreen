@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-05-03 21:37+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -19,27 +19,27 @@ msgstr ""
 
 #: osdaction.cpp:28
 #, kde-format
-msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr ""
 
 #: osdaction.cpp:29
 #, kde-format
-msgid "Switch to laptop screen"
+msgid "Only use built-in screen"
 msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
+msgid "Mirror screens"
 msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
+msgid "Extend to left of built-in screen"
 msgstr ""
 
 #: osdaction.cpp:32
 #, kde-format
-msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr ""
 
 #: osdaction.cpp:33

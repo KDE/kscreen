@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-02-14 09:58-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -20,28 +20,31 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Alternar para tela externa"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Alternar para a tela do laptop"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Tela embutida"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Unificar saídas"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Estender para a esquerda"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Estender para a direita"
 
 #: osdaction.cpp:33
@@ -53,6 +56,15 @@ msgstr "Deixar sem alteração"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Tela embutida"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Alternar para a tela do laptop"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Unificar saídas"
+
+#~ msgid "Extend to left"
+#~ msgstr "Estender para a esquerda"
 
 #~ msgid "Switch Display"
 #~ msgstr "Alternar tela"

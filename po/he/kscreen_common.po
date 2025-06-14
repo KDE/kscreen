@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-10-22 11:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -20,28 +20,31 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "העברה למסך חיצוני"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "העברה למסך של המחשב הנייד"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "מסך מובנה"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "איחוד פלטים"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "הרחבה לשמאל"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "הרחבה לימין"
 
 #: osdaction.cpp:33
@@ -53,3 +56,12 @@ msgstr "להשאיר ללא שינוי"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "מסך מובנה"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "העברה למסך של המחשב הנייד"
+
+#~ msgid "Unify outputs"
+#~ msgstr "איחוד פלטים"
+
+#~ msgid "Extend to left"
+#~ msgstr "הרחבה לשמאל"

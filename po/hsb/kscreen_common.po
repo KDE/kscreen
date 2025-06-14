@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2021-11-17 13:01+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,30 @@ msgstr ""
 "%100==4 ? 2 : 3;\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Na eksternu wobrazowku hić"
 
 #: osdaction.cpp:29
 #, kde-format
-msgid "Switch to laptop screen"
-msgstr "Na laptopowu wobrazowku hić"
+msgid "Only use built-in screen"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Identiski output"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Nalěwo rozšěrić"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Naprawo rozšěrić"
 
 #: osdaction.cpp:33
@@ -51,6 +53,15 @@ msgstr "Njezměnjeny wostajić"
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Na laptopowu wobrazowku hić"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Identiski output"
+
+#~ msgid "Extend to left"
+#~ msgstr "Nalěwo rozšěrić"
 
 #~ msgid "Switch Display"
 #~ msgstr "Na druhu wobrazowku hić"

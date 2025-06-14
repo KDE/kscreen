@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-04-22 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -18,28 +18,31 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "외부 화면으로 전환"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "노트북 화면으로 전환"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "내장 화면"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "출력 통합"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "왼쪽으로 확장"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "오른쪽으로 확장"
 
 #: osdaction.cpp:33
@@ -51,6 +54,15 @@ msgstr "변경하지 않기"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "내장 화면"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "노트북 화면으로 전환"
+
+#~ msgid "Unify outputs"
+#~ msgstr "출력 통합"
+
+#~ msgid "Extend to left"
+#~ msgstr "왼쪽으로 확장"
 
 #~ msgid "Switch Display"
 #~ msgstr "화면 전환"

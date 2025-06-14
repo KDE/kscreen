@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-05-14 03:40+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,28 +17,31 @@ msgstr ""
 "X-Generator: Lokalize 23.04.0\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "外部スクリーンに切り替え"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "ラップトップのスクリーンに切り替え"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "内蔵スクリーン"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "出力を統一"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "左に拡大"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "右に拡大"
 
 #: osdaction.cpp:33
@@ -50,3 +53,12 @@ msgstr "変更しない"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "内蔵スクリーン"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "ラップトップのスクリーンに切り替え"
+
+#~ msgid "Unify outputs"
+#~ msgstr "出力を統一"
+
+#~ msgid "Extend to left"
+#~ msgstr "左に拡大"

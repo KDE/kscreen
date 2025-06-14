@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2025-03-23 19:08+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -20,28 +20,31 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Bytt til ekstern skjerm"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Bytt til skjerm på bærbar"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Innebygd skjerm"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Foren utganger"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Utvid mot venstre"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Utvid mot høyre"
 
 #: osdaction.cpp:33
@@ -53,3 +56,12 @@ msgstr "La være uendret"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Innebygd skjerm"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Bytt til skjerm på bærbar"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Foren utganger"
+
+#~ msgid "Extend to left"
+#~ msgstr "Utvid mot venstre"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2024-01-16 01:16+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -22,28 +22,31 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Perjungti į išorinį ekraną"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Perjungti į nešiojamojo kompiuterio ekraną"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Įtaisytas ekranas"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Suvienyti išvedimus"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Išplėsti į kairę"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Išplėsti į dešinę"
 
 #: osdaction.cpp:33
@@ -55,6 +58,15 @@ msgstr "Nieko nekeisti"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Įtaisytas ekranas"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Perjungti į nešiojamojo kompiuterio ekraną"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Suvienyti išvedimus"
+
+#~ msgid "Extend to left"
+#~ msgstr "Išplėsti į kairę"
 
 #~ msgid "Switch Display"
 #~ msgstr "Perjungti ekraną"

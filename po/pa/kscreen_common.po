@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-04-01 20:55-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,31 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "ਬਾਹਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "ਬਿਲਟ-ਇਨ ਸਕਰੀਨ"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "ਇਕਸਾਰ ਆਉਟਪੁੱਟ"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "ਖੱਬੇ ਵੱਲ ਫੈਲਾਓ"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "ਸੱਜੇ ਪਾਸੇ ਫੈਲਾਓ"
 
 #: osdaction.cpp:33
@@ -51,6 +54,15 @@ msgstr "ਨਾ-ਬਦਲਿਆ ਹੀ ਛੱਡੋ"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "ਬਿਲਟ-ਇਨ ਸਕਰੀਨ"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
+
+#~ msgid "Unify outputs"
+#~ msgstr "ਇਕਸਾਰ ਆਉਟਪੁੱਟ"
+
+#~ msgid "Extend to left"
+#~ msgstr "ਖੱਬੇ ਵੱਲ ਫੈਲਾਓ"
 
 #~ msgid "Switch Display"
 #~ msgstr "ਡਿਸਪਲੇਅ ਬਦਲੋ"

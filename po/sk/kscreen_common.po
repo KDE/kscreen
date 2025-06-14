@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-11-11 15:55+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -17,28 +17,31 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Prepnúť na externú obrazovku"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Prepnúť na obrazovku laptopu"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Zabudovaná obrazovka"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Zjednotiť výstupy"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Rozšíriť doľava"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Rozšíriť doprava"
 
 #: osdaction.cpp:33
@@ -50,6 +53,15 @@ msgstr "Ponechať nezmenené"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Zabudovaná obrazovka"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Prepnúť na obrazovku laptopu"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Zjednotiť výstupy"
+
+#~ msgid "Extend to left"
+#~ msgstr "Rozšíriť doľava"
 
 #~ msgid "Switch Display"
 #~ msgstr "Prepnúť obrazovku"

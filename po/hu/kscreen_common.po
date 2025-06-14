@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2024-01-17 22:33+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -20,28 +20,31 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Váltás külső képernyőre"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Váltás a laptop képernyőjére"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Beépített képernyő"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Kimenetek egyesítése"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Kiterjesztés balra"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Kiterjesztés jobbra"
 
 #: osdaction.cpp:33
@@ -53,6 +56,15 @@ msgstr "Ne változzon"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Beépített képernyő"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Váltás a laptop képernyőjére"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Kimenetek egyesítése"
+
+#~ msgid "Extend to left"
+#~ msgstr "Kiterjesztés balra"
 
 #~ msgid "Switch Display"
 #~ msgstr "Kijelzőváltás"

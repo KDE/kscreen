@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen_common\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-01-30 16:05+0100\n"
 "Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -17,28 +17,31 @@ msgstr ""
 "X-Generator: Lokalize 22.12.1\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Auf externen Bildschirm umschalten"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Auf Notebook-Bildschirm umschalten"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Integrierter Bildschirm"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Ausgaben vereinheitlichen"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Nach links erweitern"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Nach rechts erweitern"
 
 #: osdaction.cpp:33
@@ -50,6 +53,15 @@ msgstr "Unverändert lassen"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Integrierter Bildschirm"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Auf Notebook-Bildschirm umschalten"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Ausgaben vereinheitlichen"
+
+#~ msgid "Extend to left"
+#~ msgstr "Nach links erweitern"
 
 #~ msgid "Switch Display"
 #~ msgstr "Anzeige wechseln"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2019-10-31 00:08+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -18,28 +18,30 @@ msgstr ""
 "X-Generator: Lokalize 19.08.1\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Lülitu välisele ekraanile"
 
 #: osdaction.cpp:29
 #, kde-format
-msgid "Switch to laptop screen"
-msgstr "Lülitu sülearvuti ekraanile"
+msgid "Only use built-in screen"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Ühenda väljundid"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Laienda vasakule"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Laienda paremale"
 
 #: osdaction.cpp:33
@@ -51,6 +53,15 @@ msgstr "Ei muudeta"
 #, kde-format
 msgid "Built-in Screen"
 msgstr ""
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Lülitu sülearvuti ekraanile"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Ühenda väljundid"
+
+#~ msgid "Extend to left"
+#~ msgstr "Laienda vasakule"
 
 #~ msgid "Switch Display"
 #~ msgstr "Vaheta monitori"

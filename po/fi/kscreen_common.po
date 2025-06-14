@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-02-23 19:58+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -18,29 +18,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Vaihda ulkoiseen näyttöön"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Vaihda kannettavan näyttöön"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Sisäänrakennettu näyttö"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Yhdistä näytöt"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Laajenna vasemmalle"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 # *** TARKISTA: ”Extend left” mutta ”Extended right”, jompikumpi lienee väärin?
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Laajenna oikealle"
 
 #: osdaction.cpp:33
@@ -52,6 +55,15 @@ msgstr "Ei muutoksia"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Sisäänrakennettu näyttö"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Vaihda kannettavan näyttöön"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Yhdistä näytöt"
+
+#~ msgid "Extend to left"
+#~ msgstr "Laajenna vasemmalle"
 
 #~ msgid "Switch Display"
 #~ msgstr "Vaihda näyttöä"

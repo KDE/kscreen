@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-06-26 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -20,28 +20,31 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Canvia a la pantalla externa"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Canvia a la pantalla del portàtil"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Pantalla integrada"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Unifica les eixides"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Estén a l'esquerra"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Estén a la dreta"
 
 #: osdaction.cpp:33
@@ -53,3 +56,12 @@ msgstr "Deixa sense canviar"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Pantalla integrada"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Canvia a la pantalla del portàtil"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Unifica les eixides"
+
+#~ msgid "Extend to left"
+#~ msgstr "Estén a l'esquerra"

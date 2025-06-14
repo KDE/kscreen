@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -18,28 +18,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "बाहरी स्क्रीन पर स्विच करें"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "लैपटॉप स्क्रीन पर स्विच करें"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "अंतर्निर्मित स्क्रीन"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "आउटपुट एकीकृत करें"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "बायीं ओर बढाएं"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "दाईं ओर बढ़ाएँ"
 
 #: osdaction.cpp:33
@@ -51,3 +54,12 @@ msgstr "अपरिवर्तित छोड़ें"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "अंतर्निर्मित स्क्रीन"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "लैपटॉप स्क्रीन पर स्विच करें"
+
+#~ msgid "Unify outputs"
+#~ msgstr "आउटपुट एकीकृत करें"
+
+#~ msgid "Extend to left"
+#~ msgstr "बायीं ओर बढाएं"

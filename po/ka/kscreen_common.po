@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-02-09 14:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -19,28 +19,31 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "გარე ეკრანზე გადართვა"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "ნოუთბუქის ეკრანზე გადართვა"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "ჩაშენებული ეკრანი"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "გამოტანის გაერთიანება"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "მარცხნივ გაფართოება"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "მარჯვნივ გაფართოება"
 
 #: osdaction.cpp:33
@@ -52,3 +55,12 @@ msgstr "შეუცვლელად დატოვება"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "ჩაშენებული ეკრანი"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "ნოუთბუქის ეკრანზე გადართვა"
+
+#~ msgid "Unify outputs"
+#~ msgstr "გამოტანის გაერთიანება"
+
+#~ msgid "Extend to left"
+#~ msgstr "მარცხნივ გაფართოება"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-14 00:43+0000\n"
 "PO-Revision-Date: 2023-04-16 16:53+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -21,28 +21,31 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: osdaction.cpp:28
-#, kde-format
-msgid "Switch to external screen"
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Only use external screen"
 msgstr "Aldatu kanpoko pantaila batera"
 
 #: osdaction.cpp:29
-#, kde-format
-msgid "Switch to laptop screen"
-msgstr "Aldatu magalekoaren pantailara"
+#, fuzzy, kde-format
+#| msgid "Built-in Screen"
+msgid "Only use built-in screen"
+msgstr "Barneratutako pantaila"
 
 #: osdaction.cpp:30
 #, kde-format
-msgid "Unify outputs"
-msgstr "Bateratu irteerak"
+msgid "Mirror screens"
+msgstr ""
 
 #: osdaction.cpp:31
 #, kde-format
-msgid "Extend to left"
-msgstr "Hedatu ezkerrera"
+msgid "Extend to left of built-in screen"
+msgstr ""
 
 #: osdaction.cpp:32
-#, kde-format
-msgid "Extend to right"
+#, fuzzy, kde-format
+#| msgid "Extend to right"
+msgid "Extend to right of built-in screen"
 msgstr "Hedatu eskuinera"
 
 #: osdaction.cpp:33
@@ -54,6 +57,15 @@ msgstr "Utzi aldatzeke"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Barneratutako pantaila"
+
+#~ msgid "Switch to laptop screen"
+#~ msgstr "Aldatu magalekoaren pantailara"
+
+#~ msgid "Unify outputs"
+#~ msgstr "Bateratu irteerak"
+
+#~ msgid "Extend to left"
+#~ msgstr "Hedatu ezkerrera"
 
 #~ msgid "Switch Display"
 #~ msgstr "Aldatu bistaratzailea"
