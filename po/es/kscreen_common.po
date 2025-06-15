@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen_common\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:43+0000\n"
-"PO-Revision-Date: 2025-05-18 14:19+0100\n"
+"PO-Revision-Date: 2025-06-15 00:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,35 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Cambiar a la pantalla externa"
+msgstr "Usar solo la pantalla externa"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Pantalla integrada"
+msgstr "Usar solo la pantalla integrada"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Duplicar las pantallas"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Extender a la izquierda de la pantalla integrada"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Extender hacia la derecha"
+msgstr "Extender a la derecha de la pantalla integrada"
 
 #: osdaction.cpp:33
 #, kde-format
@@ -56,12 +53,3 @@ msgstr "Dejar sin cambios"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Pantalla integrada"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Cambiar a la pantalla del portátil"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Unificar las salidas"
-
-#~ msgid "Extend to left"
-#~ msgstr "Extender hacia la izquierda"

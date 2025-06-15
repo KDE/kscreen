@@ -18,16 +18,14 @@ msgstr ""
 "X-Crowdin-File-ID: 42699\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "切换到外接屏幕"
+msgstr ""
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "内置屏幕"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
@@ -40,10 +38,9 @@ msgid "Extend to left of built-in screen"
 msgstr ""
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "向右扩展"
+msgstr ""
 
 #: osdaction.cpp:33
 #, kde-format
@@ -54,12 +51,3 @@ msgstr "保持不变"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "内置屏幕"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "切换到笔记本屏幕"
-
-#~ msgid "Unify outputs"
-#~ msgstr "统一输出"
-
-#~ msgid "Extend to left"
-#~ msgstr "向左扩展"
