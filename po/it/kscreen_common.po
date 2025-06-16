@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2013, 2018, 2023.
+# SPDX-FileCopyrightText: 2013, 2018, 2023, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:43+0000\n"
-"PO-Revision-Date: 2023-01-29 09:52+0100\n"
+"PO-Revision-Date: 2025-06-14 15:32+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,35 +15,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Passa allo schermo esterno"
+msgstr "Utilizza solo lo schermo esterno"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Schermo integrato"
+msgstr "Utilizza solo lo schermo integrato"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Schermi specchiati"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Estendi a sinistra dello schermo integrato"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Estendi a destra"
+msgstr "Estendi a destra dello schermo integrato"
 
 #: osdaction.cpp:33
 #, kde-format

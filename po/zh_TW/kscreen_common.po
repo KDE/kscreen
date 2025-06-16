@@ -4,49 +4,46 @@
 # Franklin, 2015.
 # Jeff Huang <s8321414@gmail.com>, 2016.
 # pan93412 <pan93412@gmail.com>, 2018.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:43+0000\n"
-"PO-Revision-Date: 2023-01-29 22:48+0900\n"
+"PO-Revision-Date: 2025-06-15 18:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "切換到外接螢幕"
+msgstr "只使用外接螢幕"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "內建螢幕"
+msgstr "只使用內建螢幕"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "鏡像螢幕"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "延伸到內建螢幕左邊"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "向右延伸"
+msgstr "延伸到內建螢幕右邊"
 
 #: osdaction.cpp:33
 #, kde-format
