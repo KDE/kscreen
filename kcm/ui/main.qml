@@ -126,7 +126,7 @@ KCM.AbstractKCM {
             scaleMsg.visible = true;
         }
         function onOutputConnect(connected) {
-            root.selectedOutput = Qt.binding(firstEnabledDisplayIndex());
+            root.selectedOutput = Qt.binding(firstEnabledDisplayIndex);
             if (connected) {
                 connectMsg.text = i18n("A new output has been added. Settings have been reloaded.");
             } else {
