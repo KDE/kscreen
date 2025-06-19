@@ -17,6 +17,8 @@ ColumnLayout {
     property KSortFilterProxyModel enabledOutputs
     property int selectedOutput
 
+    readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
+
     signal reorder()
 
     StackLayout {
@@ -71,7 +73,8 @@ ColumnLayout {
             }
             QQC2.SpinBox {
                 id: spinbox
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 6
+                Layout.minimumWidth: root.spinboxWidth
+                Layout.maximumWidth: root.spinboxWidth
 
                 // Because QQC2 SpinBox doesn't natively support decimal step
                 // sizes: https://bugreports.qt.io/browse/QTBUG-67349
