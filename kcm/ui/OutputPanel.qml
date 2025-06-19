@@ -461,11 +461,11 @@ Kirigami.FormLayout {
                 if (element.automaticMaxBitsPerColorLimit != 0 && element.maxBitsPerColor != 0 && element.maxSupportedMaxBitsPerColor > 8) {
                     return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
                                                     Because the display is currently connected through a dock, automatic color resolution has been temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>
-                                                    Due to graphics driver limitations, the actually used resolution is not known")
+                                                    Due to graphics driver limitations, the actually used resolution cannot be known.")
                 } else {
                     return xi18nc("@info:tooltip", "Limits the color resolution of the image that is sent to the display. This does not affect screenshots or recordings.<nl/><nl/>
                                                     Limiting color resolution can be useful to work around display or graphics driver issues.<nl/><nl/>
-                                                    Due to graphics driver limitations, the actually used resolution is not known")
+                                                    Due to graphics driver limitations, the actually used resolution cannot be known.")
                 }
             }
         }
