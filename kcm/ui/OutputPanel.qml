@@ -263,6 +263,7 @@ Kirigami.FormLayout {
                 width: colorProfileCombobox.width
                 text: modelData.text
                 enabled: modelData.available
+                highlighted: colorProfileCombobox.highlightedIndex == index
             }
         }
         Kirigami.ContextualHelpButton {
