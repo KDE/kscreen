@@ -1,0 +1,74 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-22 00:43+0000\n"
+"PO-Revision-Date: 2025-06-19 23:47-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 25.04.2\n"
+
+#: ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "Calibração HDR"
+
+#: ui/Main.qml:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Próximo"
+
+#: ui/Main.qml:143 ui/Main.qml:314
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Alterna para a próxima página"
+
+#: ui/Main.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ui/Main.qml:154
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Cancela o processo de calibração"
+
+#: ui/Main.qml:159
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Para determinar o brilho máximo da tela, ajuste o controle deslizante até "
+"que o logotipo quase não esteja visível"
+
+#: ui/Main.qml:308
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Concluído"
+
+#: ui/Main.qml:323
+#, kde-format
+msgid ""
+"Configure how bright \"100%\" on the normal brightness slider should be. "
+"Make it as bright as you'd ever use it, as long as the HDR image still looks "
+"good and the gradients are smooth."
+msgstr ""
+"Configure o quão brilhante deve ser o \"100%\" no controle deslizante de "
+"brilho normal. Ajuste para o nível mais brilhante que você usaria, desde que "
+"a imagem em HDR ainda pareça boa e os degradês estejam suaves."

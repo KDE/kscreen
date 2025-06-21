@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:44+0000\n"
-"PO-Revision-Date: 2025-03-10 00:52-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-06-19 23:46-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -173,14 +173,13 @@ msgstr "Diminuir prioridade"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Recolher"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "For any display arrangement"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Para qualquer arranjo de telas"
+msgstr "Editar organização"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -225,8 +224,7 @@ msgid "Replicas"
 msgstr "Réplicas"
 
 #: ui/OutputPanel.qml:28
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Dispositivo:"
@@ -295,14 +293,14 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" é a única taxa de atualização suportada por esta tela."
 
 #: ui/OutputPanel.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "\"%1\" é a única taxa de atualização suportada por esta tela."
+msgstr ""
+"\"%1\" é a única taxa de atualização suportada por esta tela na resolução "
+"atual."
 
 #: ui/OutputPanel.qml:161
 #, kde-format
@@ -460,12 +458,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Calibrar brilho HDR…"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Abre uma janela para calibrar o brilho HDR"
 
 #: ui/OutputPanel.qml:382
 #, kde-format
@@ -493,6 +491,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Preferir a precisão das cores limita o descarregamento potencialmente "
+"impreciso de operações de cores para o driver de vídeo e aumenta a resolução "
+"máxima de cor.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:409
 #, kde-kuit-format
@@ -501,30 +502,32 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Preferir eficiência simplifica o perfil ICC para matrix+shaper, melhorando o "
+"desempenho ao custo de precisão de cor.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:417
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Limitar resolução de cor em:"
 
 #: ui/OutputPanel.qml:438
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automático (%1 bits por cor)"
 
 #: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bits por cor"
 
 #: ui/OutputPanel.qml:451
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automático (%1 bits por cor)"
 
 #: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
 #, kde-kuit-format
@@ -533,6 +536,8 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Limita a resolução de cor da imagem que é enviada ao monitor. Isso não afeta "
+"capturas de tela ou gravações.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:481
 #, kde-format
@@ -562,7 +567,7 @@ msgstr "Brilho:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Controlar o brilho do hardware com DDC/CI"
 
 #: ui/OutputPanel.qml:538
 #, kde-format
@@ -572,30 +577,27 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI é uma funcionalidade suportada por vários monitores. O Plasma pode "
+"usá-la para ajustar o brilho da tela com controles na área de trabalho, como "
+"se estivesse utilizando os botões e menu OSD do próprio monitor."
 
 #: ui/OutputPanel.qml:568
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:579
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "HDR"
+msgstr "Alcance Dinâmico Estendido:"
 
 #: ui/OutputPanel.qml:584
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Habilitar &HDR"
+msgstr "Habilitar EDR"
 
 #: ui/OutputPanel.qml:590
 #, kde-kuit-format
@@ -605,6 +607,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"O EDR (Alcance Dinâmico Estendido) permite ver conteúdo HDR em telas SDR ao "
+"ajustar dinâmicamente a luz de fundo.<nl/><nl/>Note que isso aumenta o uso "
+"de bateria durante a visualização de conteúdo HDR."
 
 #: ui/OutputPanel.qml:595
 #, kde-format

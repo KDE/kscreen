@@ -1,7 +1,7 @@
-# Translation for kscreen.po to Euskara/Basque (eu).
-# Copyright (C) 2017-2023 This file is copyright:
+# Translation for kscreen_common.po to Euskara/Basque (eu).
+# Copyright (C) 2017-2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# KDE Euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE Euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalb@ni.eus>, 2017, 2018, 2023.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:43+0000\n"
-"PO-Revision-Date: 2023-04-16 16:53+0200\n"
+"PO-Revision-Date: 2025-06-20 23:11+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,35 +18,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Aldatu kanpoko pantaila batera"
+msgstr "Kanpoko pantaila bakarrik erabili"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Barneratutako pantaila"
+msgstr "Barneratutako pantaila bakarrik erabili"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Islatu pantailak"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Hedatu barneratutako pantailaren ezkerrera"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Hedatu eskuinera"
+msgstr "Hedatu barneratutako pantailaren eskuinera"
 
 #: osdaction.cpp:33
 #, kde-format
