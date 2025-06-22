@@ -708,27 +708,3 @@ msgstr "Без завъртане"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Завлечете екраните, за да ги пренаредите"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr "Вграденият цветови профил на монитора винаги се използва с HDR."
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "Максимална SDR яркост:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the maximum brightness for the normal brightness slider."
-#~ msgstr "Задава максималната яркост за плъзгача за нормална яркост."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "This setting can have a large impact on performance."
-#~ msgstr "Тази настройка може да има голямо влияние върху производителността"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr "Задава яркостта в нитове, когато съдържанието на екрана не е HDR"

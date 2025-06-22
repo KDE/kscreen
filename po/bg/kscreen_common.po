@@ -51,12 +51,3 @@ msgstr "Без промяна"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Вграден екран"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Превключване към екрана на лаптопа"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Обединяване на изходите"
-
-#~ msgid "Extend to left"
-#~ msgstr "Разширяване на ляво"

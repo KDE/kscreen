@@ -57,12 +57,3 @@ msgstr "La vera uendra"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Innebygd skjerm"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Byt til skjerm på berbar"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Samein utgangar"
-
-#~ msgid "Extend to left"
-#~ msgstr "Utvid mot venstre"

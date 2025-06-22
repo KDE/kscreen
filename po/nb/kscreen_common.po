@@ -56,12 +56,3 @@ msgstr "La være uendret"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Innebygd skjerm"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Bytt til skjerm på bærbar"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Foren utganger"
-
-#~ msgid "Extend to left"
-#~ msgstr "Utvid mot venstre"
