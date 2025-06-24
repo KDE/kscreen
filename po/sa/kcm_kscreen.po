@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-31 02:41+0000\n"
+"POT-Creation-Date: 2025-06-24 02:36+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -184,7 +184,7 @@ msgstr ""
 msgid "Orientation:"
 msgstr "आभिमुख्य:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:164 ui/OutputPanel.qml:206
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:167 ui/OutputPanel.qml:213
 #, kde-format
 msgid "Automatic"
 msgstr "स्वतः"
@@ -270,57 +270,57 @@ msgstr "&quot;%1&quot; अस्मिन् प्रदर्शने सम�
 msgid "Scale:"
 msgstr "मापन:"
 
-#: ui/OutputPanel.qml:95 ui/Panel.qml:62
+#: ui/OutputPanel.qml:95 ui/Panel.qml:64
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "नियमितपरिमाणस्य प्रतिशते"
 
-#: ui/OutputPanel.qml:122 ui/Panel.qml:93
+#: ui/OutputPanel.qml:125 ui/Panel.qml:96
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:134
+#: ui/OutputPanel.qml:137
 #, kde-format
 msgid "Refresh rate:"
 msgstr "ताजगी दरः :"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:158
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" इति एकमात्रं ताजगीकरणदरम् अस्मिन् प्रदर्शने समर्थितम् अस्ति ।"
 
-#: ui/OutputPanel.qml:160
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "अनुकूली समन्वयः :"
 
-#: ui/OutputPanel.qml:163
+#: ui/OutputPanel.qml:166
 #, kde-format
 msgid "Never"
 msgstr "कदापि न"
 
-#: ui/OutputPanel.qml:165
+#: ui/OutputPanel.qml:168
 #, kde-format
 msgid "Always"
 msgstr "सर्वदा"
 
-#: ui/OutputPanel.qml:176
+#: ui/OutputPanel.qml:179
 #, kde-format
 msgid "Overscan:"
 msgstr "ओवरस्कैन् :"
 
-#: ui/OutputPanel.qml:187
+#: ui/OutputPanel.qml:194
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:193
+#: ui/OutputPanel.qml:200
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -337,22 +337,22 @@ msgstr ""
 "परितः कियत् पैडिंग् स्थापितं इति निर्धारयति।<nl/><nl/>कदाचित् टीवी इत्यस्य स्क्रीनरूपेण "
 "उपयोगं कुर्वन् एतस्य आवश्यकता भवति"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:205
 #, kde-format
 msgid "RGB range:"
 msgstr "आरजीबी श्रेणी :"
 
-#: ui/OutputPanel.qml:207
+#: ui/OutputPanel.qml:214
 #, kde-format
 msgid "Full"
 msgstr "पूर्ण"
 
-#: ui/OutputPanel.qml:208
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgid "Limited"
 msgstr "सीमित"
 
-#: ui/OutputPanel.qml:218
+#: ui/OutputPanel.qml:225
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -368,7 +368,7 @@ msgstr ""
 "प्रदर्शनार्थं सम्भाव्यवर्णमूल्यानां परिधिः सीमितः भवितुम् अर्हति वा न वा इति निर्धारयति । "
 "एतत् केवलं तदा एव परिवर्तनीयम् यदा पर्दायां वर्णाः प्रक्षालिताः दृश्यन्ते ।"
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:230
 #, fuzzy, kde-format
 #| msgctxt "@label:listbox"
 #| msgid "Color Profile:"
@@ -376,25 +376,25 @@ msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "रङ्गरूपरेखा :"
 
-#: ui/OutputPanel.qml:233
+#: ui/OutputPanel.qml:240
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "न कश्चित्"
 
-#: ui/OutputPanel.qml:238
+#: ui/OutputPanel.qml:245
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "ICC प्रोफाइल"
 
-#: ui/OutputPanel.qml:243
+#: ui/OutputPanel.qml:250
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "अन्तर्निर्मितम्"
 
-#: ui/OutputPanel.qml:261
+#: ui/OutputPanel.qml:269
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -410,30 +410,30 @@ msgstr ""
 "ध्यानं कुर्वन्तु यत् अन्तःनिर्मितवर्णरूपरेखाः कदाचित् गलताः भवन्ति, प्रायः अशुद्धाः च भवन्ति । "
 "इष्टतमवर्णनिष्ठायाः कृते वर्णमापकस्य उपयोगेन मापनं अनुशंसितम् अस्ति ।"
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "ICC प्रोफाइल मार्गं प्रविष्टं कुर्वन्तु..."
 
-#: ui/OutputPanel.qml:290
+#: ui/OutputPanel.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "ICC प्रोफाइल चयनं कुर्वन्तु..."
 
-#: ui/OutputPanel.qml:301
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC प्रोफाइल कृते सञ्चिकाचयनकर्ता उद्घाटयति"
 
-#: ui/OutputPanel.qml:310
+#: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC Profile इति चिनोतु"
 
-#: ui/OutputPanel.qml:335
+#: ui/OutputPanel.qml:343
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
@@ -441,13 +441,13 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC प्रोफाइल् अद्यापि HDR इत्यनेन सह सङ्गताः न सन्ति"
 
-#: ui/OutputPanel.qml:342
+#: ui/OutputPanel.qml:350
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "उच्च गतिशील श्रेणी :"
 
-#: ui/OutputPanel.qml:349
+#: ui/OutputPanel.qml:357
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -455,7 +455,7 @@ msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "HDR सक्षमं कुर्वन्तु"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:363
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -465,36 +465,36 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR इत्यनेन संगत-अनुप्रयोगाः उज्ज्वलतर-सजीव-वर्णान् दर्शयितुं शक्नुवन्ति"
 
-#: ui/OutputPanel.qml:361
+#: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr ""
 
-#: ui/OutputPanel.qml:374
+#: ui/OutputPanel.qml:382
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
 
-#: ui/OutputPanel.qml:381
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "वर्णसटीकता :"
 
-#: ui/OutputPanel.qml:390
+#: ui/OutputPanel.qml:398
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "दक्षतां प्राधान्यं ददातु"
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:399
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "वर्णसटीकतां प्राधान्यं ददातु"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:409
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -503,7 +503,7 @@ msgid ""
 "<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:408
+#: ui/OutputPanel.qml:416
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -511,31 +511,31 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:416
+#: ui/OutputPanel.qml:424
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr ""
 
-#: ui/OutputPanel.qml:437
+#: ui/OutputPanel.qml:445
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:439 ui/OutputPanel.qml:452
+#: ui/OutputPanel.qml:447 ui/OutputPanel.qml:460
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr ""
 
-#: ui/OutputPanel.qml:450
+#: ui/OutputPanel.qml:458
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:461 ui/OutputPanel.qml:465
+#: ui/OutputPanel.qml:469 ui/OutputPanel.qml:473
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -543,7 +543,7 @@ msgid ""
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:488
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "sRGB Color Intensity:"
@@ -551,13 +551,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB रङ्ग तीव्रता:"
 
-#: ui/OutputPanel.qml:508
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:516
+#: ui/OutputPanel.qml:527
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of sRGB content on the screen"
@@ -565,19 +565,19 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "पर्दायां sRGB सामग्रीयाः तीव्रताम् वर्धयति"
 
-#: ui/OutputPanel.qml:525
+#: ui/OutputPanel.qml:536
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "कान्तिः :"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:542
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
 
-#: ui/OutputPanel.qml:537
+#: ui/OutputPanel.qml:548
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -586,7 +586,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:567
+#: ui/OutputPanel.qml:581
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -594,7 +594,7 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:578
+#: ui/OutputPanel.qml:592
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "High Dynamic Range:"
@@ -602,7 +602,7 @@ msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "उच्च गतिशील श्रेणी :"
 
-#: ui/OutputPanel.qml:583
+#: ui/OutputPanel.qml:597
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -610,7 +610,7 @@ msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "HDR सक्षमं कुर्वन्तु"
 
-#: ui/OutputPanel.qml:589
+#: ui/OutputPanel.qml:603
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -619,28 +619,28 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:608
 #, kde-format
 msgid "Replica of:"
 msgstr "प्रतिकृतिः :"
 
-#: ui/Panel.qml:55
+#: ui/Panel.qml:57
 #, kde-format
 msgid "Global scale:"
 msgstr "वैश्विकपरिमाणम् :"
 
-#: ui/Panel.qml:117 ui/Panel.qml:137
+#: ui/Panel.qml:120 ui/Panel.qml:140
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "विरासत अनुप्रयोग (X11): 1.1."
 
-#: ui/Panel.qml:122
+#: ui/Panel.qml:125
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "स्वयं स्केलिंग् प्रयोजयन्तु"
 
-#: ui/Panel.qml:127
+#: ui/Panel.qml:130
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -652,13 +652,13 @@ msgstr ""
 "स्केलिंग् समर्थयन्ति ये विरासतः अनुप्रयोगाः तस्य उपयोगं करिष्यन्ति तथा च कुरकुराणि दृश्यन्ते "
 "तथापि ये न कुर्वन्ति ते सर्वथा स्केल न भविष्यन्ति ।"
 
-#: ui/Panel.qml:138
+#: ui/Panel.qml:141
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "प्रणाल्याः स्केलः कृतः"
 
-#: ui/Panel.qml:143
+#: ui/Panel.qml:146
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -667,20 +667,20 @@ msgstr ""
 "सर्वे विरासतः अनुप्रयोगाः प्रणाल्याः समीचीनप्रमाणेन स्केल भविष्यन्ति, तथापि ते सर्वदा "
 "किञ्चित् धुन्धलाः दृश्यन्ते ।"
 
-#: ui/Panel.qml:148
+#: ui/Panel.qml:151
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "पटलस्य विदारनम् :"
 
-#: ui/Panel.qml:151
+#: ui/Panel.qml:154
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "पूर्णपर्दे विण्डोषु अनुमतिं ददातु"
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:159
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -690,7 +690,7 @@ msgstr ""
 "स्क्रीन टीयरिंग् अधिकांशप्रदर्शनेषु विलम्बं न्यूनीकरोति । ध्यानं कुर्वन्तु यत् सर्वे ग्राफिक्स् "
 "चालकाः एतत् सेटिङ्ग् समर्थयन्ति न ।"
 
-#: ui/Panel.qml:170
+#: ui/Panel.qml:173
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "

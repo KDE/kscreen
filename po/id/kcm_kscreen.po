@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-31 02:41+0000\n"
+"POT-Creation-Date: 2025-06-24 02:36+0000\n"
 "PO-Revision-Date: 2023-02-04 08:10+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -187,7 +187,7 @@ msgstr "Setelan Lanjutan"
 msgid "Orientation:"
 msgstr "Orientasi:"
 
-#: ui/Orientation.qml:28 ui/OutputPanel.qml:164 ui/OutputPanel.qml:206
+#: ui/Orientation.qml:28 ui/OutputPanel.qml:167 ui/OutputPanel.qml:213
 #, kde-format
 msgid "Automatic"
 msgstr "Otomatis"
@@ -278,24 +278,24 @@ msgstr ""
 msgid "Scale:"
 msgstr "Skala:"
 
-#: ui/OutputPanel.qml:95 ui/Panel.qml:62
+#: ui/OutputPanel.qml:95 ui/Panel.qml:64
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr ""
 
-#: ui/OutputPanel.qml:122 ui/Panel.qml:93
+#: ui/OutputPanel.qml:125 ui/Panel.qml:96
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:134
+#: ui/OutputPanel.qml:137
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Laju penyegaran:"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:158
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
@@ -303,27 +303,27 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
 "\"%1\" adalah satu-satunya refresh rate yang didukung oleh display ini."
 
-#: ui/OutputPanel.qml:160
+#: ui/OutputPanel.qml:163
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptive sync:"
 
-#: ui/OutputPanel.qml:163
+#: ui/OutputPanel.qml:166
 #, kde-format
 msgid "Never"
 msgstr "Tidak pernah"
 
-#: ui/OutputPanel.qml:165
+#: ui/OutputPanel.qml:168
 #, kde-format
 msgid "Always"
 msgstr "Selalu"
 
-#: ui/OutputPanel.qml:176
+#: ui/OutputPanel.qml:179
 #, kde-format
 msgid "Overscan:"
 msgstr "Overscan:"
 
-#: ui/OutputPanel.qml:187
+#: ui/OutputPanel.qml:194
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -331,7 +331,7 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:193
+#: ui/OutputPanel.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -340,23 +340,23 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:205
 #, fuzzy, kde-format
 #| msgid "RGB Range:"
 msgid "RGB range:"
 msgstr "Rentang RGB:"
 
-#: ui/OutputPanel.qml:207
+#: ui/OutputPanel.qml:214
 #, kde-format
 msgid "Full"
 msgstr "Penuh"
 
-#: ui/OutputPanel.qml:208
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgid "Limited"
 msgstr "Terbatas"
 
-#: ui/OutputPanel.qml:218
+#: ui/OutputPanel.qml:225
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -371,34 +371,34 @@ msgstr ""
 "Menentukan apakah rentang nilai warna yang mungkin perlu dibatasi untuk "
 "displai atau tidak."
 
-#: ui/OutputPanel.qml:223
+#: ui/OutputPanel.qml:230
 #, fuzzy, kde-format
 #| msgid "Active profile"
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Profil aktiv"
 
-#: ui/OutputPanel.qml:233
+#: ui/OutputPanel.qml:240
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Nihil"
 
-#: ui/OutputPanel.qml:238
+#: ui/OutputPanel.qml:245
 #, fuzzy, kde-format
 #| msgid "Active profile"
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "Profil aktiv"
 
-#: ui/OutputPanel.qml:243
+#: ui/OutputPanel.qml:250
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr ""
 
-#: ui/OutputPanel.qml:261
+#: ui/OutputPanel.qml:269
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -407,85 +407,85 @@ msgid ""
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
-#: ui/OutputPanel.qml:274
+#: ui/OutputPanel.qml:282
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:290
+#: ui/OutputPanel.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:301
+#: ui/OutputPanel.qml:309
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:310
+#: ui/OutputPanel.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:335
+#: ui/OutputPanel.qml:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr ""
 
-#: ui/OutputPanel.qml:342
+#: ui/OutputPanel.qml:350
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:349
+#: ui/OutputPanel.qml:357
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Difungsikan"
 
-#: ui/OutputPanel.qml:355
+#: ui/OutputPanel.qml:363
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 
-#: ui/OutputPanel.qml:361
+#: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr ""
 
-#: ui/OutputPanel.qml:374
+#: ui/OutputPanel.qml:382
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
 
-#: ui/OutputPanel.qml:381
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:390
+#: ui/OutputPanel.qml:398
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:399
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:409
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -494,7 +494,7 @@ msgid ""
 "<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:408
+#: ui/OutputPanel.qml:416
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -502,31 +502,31 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:416
+#: ui/OutputPanel.qml:424
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr ""
 
-#: ui/OutputPanel.qml:437
+#: ui/OutputPanel.qml:445
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:439 ui/OutputPanel.qml:452
+#: ui/OutputPanel.qml:447 ui/OutputPanel.qml:460
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr ""
 
-#: ui/OutputPanel.qml:450
+#: ui/OutputPanel.qml:458
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:461 ui/OutputPanel.qml:465
+#: ui/OutputPanel.qml:469 ui/OutputPanel.qml:473
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -534,13 +534,13 @@ msgid ""
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:488
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr ""
 
-#: ui/OutputPanel.qml:508
+#: ui/OutputPanel.qml:519
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -548,25 +548,25 @@ msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:516
+#: ui/OutputPanel.qml:527
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:525
+#: ui/OutputPanel.qml:536
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:542
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
 
-#: ui/OutputPanel.qml:537
+#: ui/OutputPanel.qml:548
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -575,7 +575,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:567
+#: ui/OutputPanel.qml:581
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -583,20 +583,20 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:578
+#: ui/OutputPanel.qml:592
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:583
+#: ui/OutputPanel.qml:597
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Difungsikan"
 
-#: ui/OutputPanel.qml:589
+#: ui/OutputPanel.qml:603
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -605,29 +605,29 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:608
 #, kde-format
 msgid "Replica of:"
 msgstr "Replikanya:"
 
-#: ui/Panel.qml:55
+#: ui/Panel.qml:57
 #, kde-format
 msgid "Global scale:"
 msgstr "Skala global:"
 
-#: ui/Panel.qml:117 ui/Panel.qml:137
+#: ui/Panel.qml:120 ui/Panel.qml:140
 #, fuzzy, kde-format
 #| msgid "Legacy Applications (X11):"
 msgid "Legacy applications (X11):"
 msgstr "Aplikasi Lama (X11):"
 
-#: ui/Panel.qml:122
+#: ui/Panel.qml:125
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Menerapkan penskalaan sendiri"
 
-#: ui/Panel.qml:127
+#: ui/Panel.qml:130
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -640,13 +640,13 @@ msgstr ""
 "tajam, namun aplikasi yang tidak mendukung penskalaan tidak akan diskalakan "
 "sama sekali."
 
-#: ui/Panel.qml:138
+#: ui/Panel.qml:141
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Diskalakan oleh sistem"
 
-#: ui/Panel.qml:143
+#: ui/Panel.qml:146
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -655,21 +655,21 @@ msgstr ""
 "Semua aplikasi lawas akan diskalakan oleh sistem ke ukuran yang benar, namun "
 "akan selalu terlihat sedikit buram."
 
-#: ui/Panel.qml:148
+#: ui/Panel.qml:151
 #, fuzzy, kde-format
 #| msgid "Screen Scaling"
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Penyekalaan Layar"
 
-#: ui/Panel.qml:151
+#: ui/Panel.qml:154
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr ""
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:159
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -677,7 +677,7 @@ msgid ""
 "graphics drivers support this setting."
 msgstr ""
 
-#: ui/Panel.qml:170
+#: ui/Panel.qml:173
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
