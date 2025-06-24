@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:44+0000\n"
+"POT-Creation-Date: 2025-06-24 00:43+0000\n"
 "PO-Revision-Date: 2024-03-24 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -187,7 +187,7 @@ msgstr "Nastavenia usporiadania"
 msgid "Orientation:"
 msgstr "Orientácia:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:165 ui/OutputPanel.qml:207
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:168 ui/OutputPanel.qml:214
 #, kde-format
 msgid "Automatic"
 msgstr "Automatická"
@@ -273,31 +273,31 @@ msgstr "&quot;%1&quot; je jediné rozlíšenie podporované týmto displejom."
 msgid "Scale:"
 msgstr "Mierka:"
 
-#: ui/OutputPanel.qml:95 ui/Panel.qml:62
+#: ui/OutputPanel.qml:95 ui/Panel.qml:64
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr ""
 
-#: ui/OutputPanel.qml:122 ui/Panel.qml:93
+#: ui/OutputPanel.qml:125 ui/Panel.qml:96
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:134
+#: ui/OutputPanel.qml:137
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Obnovovacia frekvencia:"
 
-#: ui/OutputPanel.qml:155
+#: ui/OutputPanel.qml:158
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "\"%1\" je jediná obnovovacia frekvencia podporovaná týmto displejom."
 
-#: ui/OutputPanel.qml:156
+#: ui/OutputPanel.qml:159
 #, fuzzy, kde-format
 #| msgid "\"%1\" is the only refresh rate supported by this display."
 msgctxt "@info"
@@ -306,33 +306,33 @@ msgid ""
 "resolution."
 msgstr "\"%1\" je jediná obnovovacia frekvencia podporovaná týmto displejom."
 
-#: ui/OutputPanel.qml:161
+#: ui/OutputPanel.qml:164
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptívna synchronizácia:"
 
-#: ui/OutputPanel.qml:164
+#: ui/OutputPanel.qml:167
 #, kde-format
 msgid "Never"
 msgstr "Nikdy"
 
-#: ui/OutputPanel.qml:166
+#: ui/OutputPanel.qml:169
 #, kde-format
 msgid "Always"
 msgstr "Vždy"
 
-#: ui/OutputPanel.qml:177
+#: ui/OutputPanel.qml:180
 #, kde-format
 msgid "Overscan:"
 msgstr "Presnímanie:"
 
-#: ui/OutputPanel.qml:188
+#: ui/OutputPanel.qml:195
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:194
+#: ui/OutputPanel.qml:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -341,22 +341,22 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:199
+#: ui/OutputPanel.qml:206
 #, kde-format
 msgid "RGB range:"
 msgstr "Rozsah RGB:"
 
-#: ui/OutputPanel.qml:208
+#: ui/OutputPanel.qml:215
 #, kde-format
 msgid "Full"
 msgstr "Úplný"
 
-#: ui/OutputPanel.qml:209
+#: ui/OutputPanel.qml:216
 #, kde-format
 msgid "Limited"
 msgstr "Obmedzený"
 
-#: ui/OutputPanel.qml:219
+#: ui/OutputPanel.qml:226
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -371,7 +371,7 @@ msgstr ""
 "Určuje, či rozsah možných hodnôt farieb na zobrazenie musí alebo nemusí byť "
 "obmedzený."
 
-#: ui/OutputPanel.qml:224
+#: ui/OutputPanel.qml:231
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Color Profile:"
@@ -379,14 +379,14 @@ msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Farebný profil:"
 
-#: ui/OutputPanel.qml:234
+#: ui/OutputPanel.qml:241
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Žiadne"
 
-#: ui/OutputPanel.qml:239
+#: ui/OutputPanel.qml:246
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Select ICC Profile"
@@ -394,13 +394,13 @@ msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr "Vybrať profil ICC"
 
-#: ui/OutputPanel.qml:244
+#: ui/OutputPanel.qml:251
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr ""
 
-#: ui/OutputPanel.qml:262
+#: ui/OutputPanel.qml:270
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -409,30 +409,30 @@ msgid ""
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
-#: ui/OutputPanel.qml:275
+#: ui/OutputPanel.qml:283
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Zadajte cestu k profilu ICC..."
 
-#: ui/OutputPanel.qml:291
+#: ui/OutputPanel.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Vybrať ICC profil…"
 
-#: ui/OutputPanel.qml:302
+#: ui/OutputPanel.qml:310
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "Otvorí výber súboru pre profil ICC"
 
-#: ui/OutputPanel.qml:311
+#: ui/OutputPanel.qml:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Vybrať profil ICC"
 
-#: ui/OutputPanel.qml:336
+#: ui/OutputPanel.qml:344
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "ICC profiles aren't compatible with HDR yet"
@@ -440,13 +440,13 @@ msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "Profily ICC zatiaľ nie sú kompatibilné s HDR"
 
-#: ui/OutputPanel.qml:343
+#: ui/OutputPanel.qml:351
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Vysoký dynamický rozsah:"
 
-#: ui/OutputPanel.qml:350
+#: ui/OutputPanel.qml:358
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -454,7 +454,7 @@ msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Povoliť HDR"
 
-#: ui/OutputPanel.qml:356
+#: ui/OutputPanel.qml:364
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -467,36 +467,36 @@ msgstr ""
 "HDR umožňuje kompatibilným aplikáciám zobrazovať jasnejšie a živšie farby. "
 "Upozorňujeme, že táto funkcia je stále experimentálna."
 
-#: ui/OutputPanel.qml:362
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr ""
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:383
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
 
-#: ui/OutputPanel.qml:382
+#: ui/OutputPanel.qml:390
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:391
+#: ui/OutputPanel.qml:399
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:400
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:410
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -505,7 +505,7 @@ msgid ""
 "<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:409
+#: ui/OutputPanel.qml:417
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -513,31 +513,31 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:417
+#: ui/OutputPanel.qml:425
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr ""
 
-#: ui/OutputPanel.qml:438
+#: ui/OutputPanel.qml:446
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:440 ui/OutputPanel.qml:453
+#: ui/OutputPanel.qml:448 ui/OutputPanel.qml:461
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr ""
 
-#: ui/OutputPanel.qml:451
+#: ui/OutputPanel.qml:459
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:462 ui/OutputPanel.qml:466
+#: ui/OutputPanel.qml:470 ui/OutputPanel.qml:474
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -545,7 +545,7 @@ msgid ""
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
 
-#: ui/OutputPanel.qml:481
+#: ui/OutputPanel.qml:489
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Color Intensity:"
@@ -553,13 +553,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intenzita farieb SDR:"
 
-#: ui/OutputPanel.qml:509
+#: ui/OutputPanel.qml:520
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:517
+#: ui/OutputPanel.qml:528
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of non-HDR content on the screen"
@@ -567,7 +567,7 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý nie je v HDR"
 
-#: ui/OutputPanel.qml:526
+#: ui/OutputPanel.qml:537
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -575,13 +575,13 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "Jas SDR:"
 
-#: ui/OutputPanel.qml:532
+#: ui/OutputPanel.qml:543
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
 
-#: ui/OutputPanel.qml:538
+#: ui/OutputPanel.qml:549
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -590,7 +590,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:568
+#: ui/OutputPanel.qml:582
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -598,7 +598,7 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:579
+#: ui/OutputPanel.qml:593
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "High Dynamic Range:"
@@ -606,7 +606,7 @@ msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Vysoký dynamický rozsah:"
 
-#: ui/OutputPanel.qml:584
+#: ui/OutputPanel.qml:598
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -614,7 +614,7 @@ msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Povoliť HDR"
 
-#: ui/OutputPanel.qml:590
+#: ui/OutputPanel.qml:604
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -623,28 +623,28 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:595
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Replica of:"
 msgstr "Replikuje:"
 
-#: ui/Panel.qml:55
+#: ui/Panel.qml:57
 #, kde-format
 msgid "Global scale:"
 msgstr "Globálna mierka:"
 
-#: ui/Panel.qml:117 ui/Panel.qml:137
+#: ui/Panel.qml:120 ui/Panel.qml:140
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Zastarané aplikácie (X11):"
 
-#: ui/Panel.qml:122
+#: ui/Panel.qml:125
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Aplikujú si škálovanie sami"
 
-#: ui/Panel.qml:127
+#: ui/Panel.qml:130
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -656,13 +656,13 @@ msgstr ""
 "Staršie aplikácie, ktoré podporujú škálovanie, ho budú používať a budú "
 "vyzerať ostro, avšak tie, ktoré ho nepodporujú, nebudú škálované vôbec."
 
-#: ui/Panel.qml:138
+#: ui/Panel.qml:141
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Škálovanie podľa systému"
 
-#: ui/Panel.qml:143
+#: ui/Panel.qml:146
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -671,20 +671,20 @@ msgstr ""
 "Všetky staršie aplikácie systém škáluje na správnu veľkosť, budú však vždy "
 "vyzerať mierne rozmazane."
 
-#: ui/Panel.qml:148
+#: ui/Panel.qml:151
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Trhanie obrazovky:"
 
-#: ui/Panel.qml:151
+#: ui/Panel.qml:154
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Povoliť v oknách na celú obrazovku"
 
-#: ui/Panel.qml:156
+#: ui/Panel.qml:159
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -694,7 +694,7 @@ msgstr ""
 "Trhanie obrazovky znižuje latenciu pri väčšine displejov. Berte na vedomie, "
 "že nie všetky grafické ovládače podporujú toto nastavenie."
 
-#: ui/Panel.qml:170
+#: ui/Panel.qml:173
 #, kde-format
 msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
