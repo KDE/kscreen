@@ -567,7 +567,7 @@ Kirigami.FormLayout {
             to: 100
             stepSize: 5
             live: true
-            value: element.brightness * 100.0
+            value: Math.round(element.brightness * 100.0)
             onMoved: element.brightness = value / 100.0
         }
         QQC2.SpinBox {
@@ -577,7 +577,7 @@ Kirigami.FormLayout {
             from: 0
             to: 100
             stepSize: 5
-            value: element.brightness * 100.0
+            value: Math.round(element.brightness * 100.0)
             onValueModified: element.brightness = value / 100.0
             textFromValue: (value, locale) => i18nc("Brightness expressed in percentage form", "%1%", value)
             valueFromText: (text, locale) => Number.fromLocaleString(locale, text.replace("%", ""))
