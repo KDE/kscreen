@@ -44,18 +44,9 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     const KScreen::OutputPtr &output = m_outputs[index.row()].ptr;
     switch (role) {
     case Qt::DisplayRole: {
-        const bool shouldShowSerialNumber = std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
-            return other.ptr->id() != output->id() // avoid same output
-                && other.ptr->edid() && output->edid() //
-                && other.ptr->edid()->vendor() == output->edid()->vendor() //
-                && other.ptr->edid()->name() == output->edid()->name(); // model
-        });
-        const bool shouldShowConnector =
-            shouldShowSerialNumber && std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
-                return other.ptr->id() != output->id() // avoid same output
-                    && other.ptr->edid()->serial() == output->edid()->serial();
-            });
-        return Utils::outputName(output, shouldShowSerialNumber, shouldShowConnector);
+        const bool showSerialNumber = shouldShowSerialNumber(output);
+        const bool showConnector = showSerialNumber && shouldShowConnector(output);
+        return Utils::outputName(output, showSerialNumber, showConnector);
     }
     case EnabledRole:
         return output->isEnabled();
@@ -835,7 +826,10 @@ QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output
                 // This 'out' is a replica. Can't be a replication source.
                 continue;
             }
-            ret.append(Utils::outputName(out.ptr));
+
+            const bool showSerialNumber = shouldShowSerialNumber(out.ptr);
+            const bool showConnector = showSerialNumber && shouldShowConnector(out.ptr);
+            ret.append(Utils::outputName(out.ptr, showSerialNumber, showConnector));
         }
     }
     return ret;
@@ -1003,6 +997,25 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
         }
     }
     return ret;
+}
+
+bool OutputModel::shouldShowSerialNumber(const KScreen::OutputPtr &output) const
+{
+    return std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+        return other.ptr->id() != output->id() // avoid same output
+            && other.ptr->edid() && output->edid() //
+            && other.ptr->edid()->vendor() == output->edid()->vendor() //
+            && other.ptr->edid()->name() == output->edid()->name(); // model
+    });
+}
+
+bool OutputModel::shouldShowConnector(const KScreen::OutputPtr &output) const
+{
+    return std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+        return other.ptr->id() != output->id() // avoid same output
+            && other.ptr->edid() && output->edid() //
+            && other.ptr->edid()->serial() == output->edid()->serial();
+    });
 }
 
 void OutputModel::rolesChanged(int outputId, const QList<int> &roles)

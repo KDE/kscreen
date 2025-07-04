@@ -168,6 +168,9 @@ private:
 
     QVariantList replicasModel(const KScreen::OutputPtr &output) const;
 
+    bool shouldShowSerialNumber(const KScreen::OutputPtr &output) const;
+    bool shouldShowConnector(const KScreen::OutputPtr &output) const;
+
     QList<Output> m_outputs;
 
     ConfigHandler *const m_config;
