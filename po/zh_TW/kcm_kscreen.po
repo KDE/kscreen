@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:43+0000\n"
+"POT-Creation-Date: 2025-07-05 00:43+0000\n"
 "PO-Revision-Date: 2025-05-28 23:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -511,45 +511,59 @@ msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "自動（每個原色 %1 位元）"
 
-#: ui/OutputPanel.qml:470 ui/OutputPanel.qml:474
+#: ui/OutputPanel.qml:471
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
-"does not affect screenshots or recordings.<nl/><nl/>"
-msgstr "限制送出給顯示器的影像的色彩深度。這不會影響螢幕截圖或螢幕錄影。"
+"does not affect screenshots or recordings.<nl/><nl/>Because the display is "
+"currently connected through a dock, automatic color resolution has been "
+"temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
+"graphics driver limitations, the actually used resolution cannot be known."
+msgstr ""
 
-#: ui/OutputPanel.qml:489
+#: ui/OutputPanel.qml:475
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Limits the color resolution of the image that is sent to the display. This "
+"does not affect screenshots or recordings.<nl/><nl/>Limiting color "
+"resolution can be useful to work around display or graphics driver issues."
+"<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
+"cannot be known."
+msgstr ""
+
+#: ui/OutputPanel.qml:490
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩強度："
 
-#: ui/OutputPanel.qml:520
+#: ui/OutputPanel.qml:521
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:528
+#: ui/OutputPanel.qml:529
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "提高螢幕上 sRGB 內容的色彩強度。"
 
-#: ui/OutputPanel.qml:537
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:543
+#: ui/OutputPanel.qml:544
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "用 DDC/CI 來控制硬體亮度"
 
-#: ui/OutputPanel.qml:549
+#: ui/OutputPanel.qml:550
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -560,25 +574,25 @@ msgstr ""
 "DDC/CI 是一個受許多螢幕支援的功能。Plasma 能夠透過它讓您從桌面來控制螢幕亮"
 "度，而不用使用螢幕自己的硬體按鈕和使用者介面。"
 
-#: ui/OutputPanel.qml:582
+#: ui/OutputPanel.qml:583
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:593
+#: ui/OutputPanel.qml:594
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "擴展動態範圍："
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:599
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "啟用 EDR"
 
-#: ui/OutputPanel.qml:604
+#: ui/OutputPanel.qml:605
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -589,7 +603,7 @@ msgstr ""
 "EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這"
 "會增加顯示 HDR 內容時的電池使用量。"
 
-#: ui/OutputPanel.qml:609
+#: ui/OutputPanel.qml:610
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："
@@ -688,6 +702,12 @@ msgstr "無旋轉"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖曳螢幕以重新排列"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Limits the color resolution of the image that is sent to the display. "
+#~ "This does not affect screenshots or recordings.<nl/><nl/>"
+#~ msgstr "限制送出給顯示器的影像的色彩深度。這不會影響螢幕截圖或螢幕錄影。"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "The screen's built-in color profile is always used with HDR."

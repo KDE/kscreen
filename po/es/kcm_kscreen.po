@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:43+0000\n"
+"POT-Creation-Date: 2025-07-05 00:43+0000\n"
 "PO-Revision-Date: 2025-05-25 23:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -529,47 +529,59 @@ msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Automática (%1 bits por color)"
 
-#: ui/OutputPanel.qml:470 ui/OutputPanel.qml:474
+#: ui/OutputPanel.qml:471
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
-"does not affect screenshots or recordings.<nl/><nl/>"
+"does not affect screenshots or recordings.<nl/><nl/>Because the display is "
+"currently connected through a dock, automatic color resolution has been "
+"temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
+"graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
-"Limita la resolución de los colores de la imagen que se envía a la pantalla. "
-"Esto no afecta a las capturas de pantalla ni a las grabaciones.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:489
+#: ui/OutputPanel.qml:475
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Limits the color resolution of the image that is sent to the display. This "
+"does not affect screenshots or recordings.<nl/><nl/>Limiting color "
+"resolution can be useful to work around display or graphics driver issues."
+"<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
+"cannot be known."
+msgstr ""
+
+#: ui/OutputPanel.qml:490
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensidad de color sRGB:"
 
-#: ui/OutputPanel.qml:520
+#: ui/OutputPanel.qml:521
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:528
+#: ui/OutputPanel.qml:529
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Aumenta la intensidad del contenido sRGB de la pantalla."
 
-#: ui/OutputPanel.qml:537
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Brillo:"
 
-#: ui/OutputPanel.qml:543
+#: ui/OutputPanel.qml:544
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Controlar el brillo de hardware con DDC/CI"
 
-#: ui/OutputPanel.qml:549
+#: ui/OutputPanel.qml:550
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -581,25 +593,25 @@ msgstr ""
 "para ajustar el brillo de la pantalla con controles del escritorio, como si "
 "se usaran los botones de hardware del monitor y el menú OSD."
 
-#: ui/OutputPanel.qml:582
+#: ui/OutputPanel.qml:583
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:593
+#: ui/OutputPanel.qml:594
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Rango dinámico extendido:"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:599
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Activar EDR"
 
-#: ui/OutputPanel.qml:604
+#: ui/OutputPanel.qml:605
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -611,7 +623,7 @@ msgstr ""
 "luz de fondo.<nl/><nl/>Tenga en cuenta que esto aumenta el consumo de "
 "batería cuando se visualiza contenido HDR."
 
-#: ui/OutputPanel.qml:609
+#: ui/OutputPanel.qml:610
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplica de:"
@@ -713,6 +725,15 @@ msgstr "Sin rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastre las pantallas para modificar su distribución"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Limits the color resolution of the image that is sent to the display. "
+#~ "This does not affect screenshots or recordings.<nl/><nl/>"
+#~ msgstr ""
+#~ "Limita la resolución de los colores de la imagen que se envía a la "
+#~ "pantalla. Esto no afecta a las capturas de pantalla ni a las grabaciones."
+#~ "<nl/><nl/>"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "The screen's built-in color profile is always used with HDR."

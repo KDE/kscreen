@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:43+0000\n"
+"POT-Creation-Date: 2025-07-05 00:43+0000\n"
 "PO-Revision-Date: 2025-05-18 20:22+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -516,47 +516,59 @@ msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "தானியக்கம் (முதநிறத்திற்கு %1 பிட்டுகள்)"
 
-#: ui/OutputPanel.qml:470 ui/OutputPanel.qml:474
+#: ui/OutputPanel.qml:471
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
-"does not affect screenshots or recordings.<nl/><nl/>"
+"does not affect screenshots or recordings.<nl/><nl/>Because the display is "
+"currently connected through a dock, automatic color resolution has been "
+"temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
+"graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
-"திரைக்கு அனுப்பப்படும் படத்தின் நிறப்பகுதிறனை வரம்புபடுத்தும். இது திரைப்பிடிப்புகளையோ "
-"திரைப்பதிவுகளையோ பாதிக்காது.<nl/><nl/>"
 
-#: ui/OutputPanel.qml:489
+#: ui/OutputPanel.qml:475
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Limits the color resolution of the image that is sent to the display. This "
+"does not affect screenshots or recordings.<nl/><nl/>Limiting color "
+"resolution can be useful to work around display or graphics driver issues."
+"<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
+"cannot be known."
+msgstr ""
+
+#: ui/OutputPanel.qml:490
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB நிறச்செறிவு:"
 
-#: ui/OutputPanel.qml:520
+#: ui/OutputPanel.qml:521
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:528
+#: ui/OutputPanel.qml:529
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "திரையில் காட்டப்படும் sRGB படங்களின் செறிவைக் கூட்டும்."
 
-#: ui/OutputPanel.qml:537
+#: ui/OutputPanel.qml:538
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "பிரகாசம்:"
 
-#: ui/OutputPanel.qml:543
+#: ui/OutputPanel.qml:544
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "DDC/CI மூலம் பிரகாசத்தைக் கட்டுப்படுத்து"
 
-#: ui/OutputPanel.qml:549
+#: ui/OutputPanel.qml:550
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -568,25 +580,25 @@ msgstr ""
 "மூலமாகவே திரையின் பிரகாசத்தை கட்டுப்படுத்தலாம் (திரையில் உள்ள பட்டன்களை அழுத்துவது போலே "
 "இது செயல்படும்)."
 
-#: ui/OutputPanel.qml:582
+#: ui/OutputPanel.qml:583
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:593
+#: ui/OutputPanel.qml:594
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "மேம்பட்ட நிறவீச்சு:"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:599
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR-ஐ இயக்கு"
 
-#: ui/OutputPanel.qml:604
+#: ui/OutputPanel.qml:605
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -598,7 +610,7 @@ msgstr ""
 "மாற்றும்.<nl/><nl/>HDR படங்களைக் காணும்போது மின்கல பயன்பாட்டை இது அதிகமாக்கும் என்பதை "
 "நினைவில் கொள்ளவும்."
 
-#: ui/OutputPanel.qml:609
+#: ui/OutputPanel.qml:610
 #, kde-format
 msgid "Replica of:"
 msgstr "எதன் நகலி:"
@@ -699,6 +711,14 @@ msgstr "திருப்ப வேண்டாம்"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "காட்சிக்கருவிகளை நகர்த்த அவற்றை இழுங்கள்"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Limits the color resolution of the image that is sent to the display. "
+#~ "This does not affect screenshots or recordings.<nl/><nl/>"
+#~ msgstr ""
+#~ "திரைக்கு அனுப்பப்படும் படத்தின் நிறப்பகுதிறனை வரம்புபடுத்தும். இது "
+#~ "திரைப்பிடிப்புகளையோ திரைப்பதிவுகளையோ பாதிக்காது.<nl/><nl/>"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "The screen's built-in color profile is always used with HDR."
