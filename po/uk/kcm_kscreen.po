@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 12:38+0300\n"
+"PO-Revision-Date: 2025-07-05 20:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -540,6 +540,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Обмежує роздільну здатність кольорів зображення, яке надсилається на "
+"дисплей. Це не впливає на знімки екрана чи записи відео.<nl/><nl/>Оскільки "
+"дисплей наразі підключено через док-станцію, автоматичну роздільну здатність "
+"кольорів тимчасово зменшено до 8 біт, щоб уникнути поширених проблем із док-"
+"станціями.<nl/><nl/>Через обмеження графічного драйвера фактично використану "
+"роздільну здатність неможливо визначити."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -551,6 +557,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Обмежує роздільну здатність кольорів зображення, яке надсилається на "
+"дисплей. Це не впливає на знімки екрана або записи відео.<nl/><nl/>Обмеження "
+"роздільної здатності кольорів може бути корисним для вирішення проблем із "
+"дисплеєм або графічним драйвером.<nl/><nl/>Через обмеження графічного "
+"драйвера фактично використану роздільну здатність неможливо визначити."
 
 #: ui/OutputPanel.qml:490
 #, kde-format

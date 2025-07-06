@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 05:52+0200\n"
+"PO-Revision-Date: 2025-07-05 06:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -537,6 +537,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Omejuje barvno ločljivost slike poslane na zaslon. To ne vpliva na posnetke "
+"zaslona ali video snemanja.<nl/><nl/>Ker je zaslon trenutno priključen prek "
+"priklopne postaje, je bila samodejna barvna ločljivost začasno zmanjšana na "
+"8 bitov, da bi se izognili pogostim težavam s priklopno postajo.<nl/><nl/"
+">Zaradi omejitev gonilnika grafične kartice dejansko uporabljene ločljivosti "
+"ni mogoče izvedeti."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -548,6 +554,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Omejuje barvno ločljivost slike poslane na zaslon. To ne vpliva na posnetke "
+"zaslona ali video snemanja.<nl/><nl/>Omejitev barvne ločljivosti je lahko "
+"koristna za reševanje težav z zaslonom ali grafičnim gonilnikom.<nl/><nl/"
+">Zaradi omejitev grafičnega gonilnika dejansko uporabljene ločljivosti ni "
+"mogoče vedeti."
 
 #: ui/OutputPanel.qml:490
 #, kde-format

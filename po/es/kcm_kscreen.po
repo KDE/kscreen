@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 23:45+0100\n"
+"PO-Revision-Date: 2025-07-05 18:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -539,6 +539,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Limita la resolución de color de la imagen que se envía a la pantalla. Esto "
+"no afecta a las capturas de pantalla ni las grabaciones.<nl/><nl/>Como la "
+"pantalla está actualmente conectada a través de una base, la resolución de "
+"color automática se ha reducido temporalmente a 8 bits para evitar problemas "
+"comunes de la base.<nl/><nl/>Debido a limitaciones del controlador gráfico, "
+"no se puede conocer la resolución real que se está usando."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -550,6 +556,12 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Limita la resolución de color de la imagen que se envía a la pantalla. Esto "
+"no afecta a las capturas de pantalla ni las grabaciones.<nl/><nl/>Limitar la "
+"resolución del color puede ser útil para solucionar problemas con la "
+"pantalla o con el controlador gráfico.<nl/><nl/>Debido a limitaciones del "
+"controlador gráfico, no se puede conocer la resolución real que se está "
+"usando."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
@@ -725,16 +737,3 @@ msgstr "Sin rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastre las pantallas para modificar su distribución"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Limits the color resolution of the image that is sent to the display. "
-#~ "This does not affect screenshots or recordings.<nl/><nl/>"
-#~ msgstr ""
-#~ "Limita la resolución de los colores de la imagen que se envía a la "
-#~ "pantalla. Esto no afecta a las capturas de pantalla ni a las grabaciones."
-#~ "<nl/><nl/>"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr "El perfil de color integrado en la pantalla siempre se usa con HDR."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 04:04+0200\n"
+"PO-Revision-Date: 2025-07-05 04:27+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -533,6 +533,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"ზღუდავს ფერის გაფართოებას გამოსახულებებისთვის, რომელიც ეკრანს ეგზავნება. ეს "
+"არ ეხება ეკრანის ანაბეჭდის აღებას და მის ჩაწერას.<nl/><nl/>იმის გამო, რომ "
+"ახლა ეკრანი დოკითაა მიერთებული, ზოგადი პრობლემების თავიდან ასაცილებლად "
+"ავტომატური ფერის გაფართოება დროებით შეიცვალა 8 ბიტამდე.<nl/><nl/>გრაფიკული "
+"დრაივერის შეზღუდვების გამო რეალურად გამოყენებული გაფართოების გაგება "
+"შეუძლებელია."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -544,6 +550,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"ზღუდავს ფერის გაფართოებას გამოსახულებებისთვის, რომელიც ეკრანს ეგზავნება. ეს "
+"არ ეხება ეკრანის ანაბეჭდის აღებას და მის ჩაწერას.<nl/><nl/>ფერის გაფარტოების "
+"შეზღუდვა ეკრანის ან გრაფიკული დრაივერის შეზღუდვების გვერდით ასავლელად "
+"გამოიყენება.<nl/><nl/>გრაფიკული დრაივერის შეზღუდვების გამო რეალურად "
+"გამოყენებული გაფართოების გაგება შეუძლებელია."
 
 #: ui/OutputPanel.qml:490
 #, kde-format

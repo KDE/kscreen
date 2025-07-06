@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 14:06+0200\n"
+"PO-Revision-Date: 2025-07-05 19:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -535,6 +535,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Beperkt de kleurresolutie van de afbeelding die verzonden wordt naar het "
+"scherm. Dit heeft geen effect op schermafdrukken of opnamen.<nl/><nl/>Omdat "
+"het scherm nu verbonden is via een dock, automatische kleurresolutie is "
+"tijdelijk vermindert tot 8 bits om akgemene problemen met docks te vermijden."
+"<nl/><nl/>Vanwege beperkingen van grafische stuurprogramma's, kan de actueel "
+"gebruikte resolutie niet bekend zijn."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -546,6 +552,12 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Beperkt de kleurresolutie van de afbeelding die verzonden is naar het "
+"scherm. Dit heeft geen effect op schermafdrukken of opnamen.<nl/><nl/"
+">Beperken van kleurresolutie kan nuttig zijn om rond problemen met schermen "
+"of grafische stuurprogramma's te werken.<nl/><nl/>Vanwege beperkingen van "
+"grafische stuurprogramma's, kan de actueel gebruikte resolutie niet bekend "
+"zijn."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
