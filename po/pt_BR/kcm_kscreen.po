@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-06-19 23:46-0300\n"
+"PO-Revision-Date: 2025-07-06 01:35-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -539,6 +539,11 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Limita a resolução de cor da imagem que é enviada ao monitor. Isso não afeta "
+"capturas de tela ou gravações.<nl/><nl/>Como o monitor está conectado por "
+"meio de uma dock atualmente, a resolução de cor foi temporariamente reduzida "
+"para 8 bits para evitar problemas comuns.<nl/><nl/>Devido a limitações do "
+"driver gráfico, a resolução realmente utilizada não é conhecida."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -550,6 +555,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Limita a resolução de cor da imagem que é enviada ao monitor. Isso não afeta "
+"capturas de tela ou gravações.<nl/><nl/>Limitar a resolução de cor pode ser "
+"útil para resolver problemas de exibição ou do driver gráfico.<nl/><nl/"
+">Devido a limitações do driver gráfico, a resolução realmente utilizada não "
+"é conhecida."
 
 #: ui/OutputPanel.qml:490
 #, kde-format

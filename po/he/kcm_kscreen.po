@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 10:16+0300\n"
+"PO-Revision-Date: 2025-07-06 12:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -525,6 +525,10 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"הגבלת רזולוציית צבע התמונה שנשלחת לתצוגה. אין לזה השפעה על צילומי או הקלטות "
+"מסך.<nl/><nl/>כיוון שהתצוגה מחוברת דרך תחנת עגינה, רזולוציית הצבע האוטומטית "
+"הופחתה ל־8 סיביות כדי למנוע תקלות נפוצות בתחנות עגינה.<nl/><nl/>עקב מגבלות "
+"של מנהל ההתקן הגרפי, אי אפשר לדעת מה הרזולוציה בפועל."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -536,6 +540,10 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"הגבלת רזולוציית צבע התמונה שנשלחת לתצוגה. אין לזה השפעה על צילומי או הקלטות "
+"מסך.<nl/><nl/>הגבלת רזולוציית הצבע יכולה להיות שימושית לעקוף תקלות תצוגה או "
+"מנהל התקן גרפי<nl/><nl/>עקב מגבלות של מנהל ההתקן הגרפי, אי אפשר לדעת מה "
+"הרזולוציה בפועל."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
