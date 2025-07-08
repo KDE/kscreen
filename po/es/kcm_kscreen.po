@@ -1,15 +1,15 @@
-# Spanish translations for kcm_displayconfiguration.po package.
-# Copyright (C) 2015 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Spanish translations for kcm_kscreen.po package.
+# Copyright (C) 2015-2025 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
 # Automatically generated, 2015.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+#
+# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_displayconfiguration\n"
+"Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2022-12-17 19:04+0100\n"
+"PO-Revision-Date: 2025-07-07 17:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -179,7 +179,7 @@ msgstr "Activada"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Cambiar prioridades de la pantalla..."
+msgstr "Cambiar prioridades de la pantalla…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -373,217 +373,3 @@ msgstr "Arrastre las pantallas para modificar su distribución"
 #, kde-format
 msgid "Identify"
 msgstr "Identificar"
-
-#~ msgid ""
-#~ "Are you sure you want to disable all outputs? This might render the "
-#~ "device unusable."
-#~ msgstr ""
-#~ "¿Seguro que desea desactivar todas las salidas? Esto puede hacer que el "
-#~ "dispositivo no se pueda usar."
-
-#~ msgid "Disable All Outputs"
-#~ msgstr "Desactivar todas las salidas"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines how much padding is put around the image sent to the display"
-#~ msgstr ""
-#~ "Determina la cantidad de relleno que se usa alrededor de la imagen "
-#~ "enviada a la pantalla"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Determines whether or not the range of possible color values needs to be "
-#~ "limited for the display."
-#~ msgstr ""
-#~ "Determina si es necesario limitar el intervalo de posibles valores de "
-#~ "color para la pantalla."
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Eloy Cuadra"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ecuadra@eloihr.net"
-
-#~ msgid "Display Configuration"
-#~ msgstr "Configuración de la pantalla"
-
-#~ msgid "Manage and configure monitors and displays"
-#~ msgstr "Gestionar y configurar monitores y pantallas"
-
-#~ msgid "Copyright © 2019 Roman Gilg"
-#~ msgstr "Copyright © 2019 Roman Gilg"
-
-#~ msgid "Roman Gilg"
-#~ msgstr "Roman Gilg"
-
-#~ msgid "Developer"
-#~ msgstr "Desarrollador"
-
-#~ msgid "Maintainer"
-#~ msgstr "Encargado"
-
-#~ msgid "Settings for %1"
-#~ msgstr "Preferencias de %1"
-
-#~ msgid "Center View"
-#~ msgstr "Centrar la vista"
-
-#~ msgid ""
-#~ "Scale factors that are not a multiple of 0.25 may cause visual glitches "
-#~ "in applications. Consider setting the scale factor to a multiple of 0.25 "
-#~ "and adjusting the font size instead."
-#~ msgstr ""
-#~ "Los factores de escalado que no son múltiplos de 0,25 pueden causar "
-#~ "algunas imperfecciones visuales en las aplicaciones. Considere ajustar el "
-#~ "factor de escalado a un múltiplo de 0,25 y ajustar el tamaño de la letra "
-#~ "en su lugar."
-
-#~ msgid "Disable all outputs"
-#~ msgstr "Desactivar todas las salidas"
-
-#~ msgid "New global scale applied. "
-#~ msgstr "Aplicada nueva escala global. "
-
-#~ msgid "Configuration for displays"
-#~ msgstr "Configuración de las pantallas"
-
-#~ msgid "Output settings"
-#~ msgstr "Preferencias de las salidas"
-
-#~ msgid "Arrangement settings"
-#~ msgstr "Preferencias de organización"
-
-#~ msgid "Save values of an output:"
-#~ msgstr "Guardar los valores de una salida:"
-
-#~ msgid "For this and other combination of outputs"
-#~ msgstr "Para esta y otras combinaciones de salidas"
-
-#~ msgid "For this specific setup independently of others"
-#~ msgstr "Para esta configuración específica independientemente de las demás"
-
-#~ msgid "Tip: Hold Ctrl while dragging a display to disable snapping"
-#~ msgstr ""
-#~ "Consejo: mantenga pulsada la tecla «Ctrl» cuando arrastre una pantalla "
-#~ "para desactivar el ajuste automático"
-
-#~ msgid "Warning: There are no active outputs!"
-#~ msgstr "Advertencia: no existen salidas activas."
-
-#~ msgid "Your system only supports up to %1 active screen"
-#~ msgid_plural "Your system only supports up to %1 active screens"
-#~ msgstr[0] "Su sistema solo permite hasta %1 pantalla activa"
-#~ msgstr[1] "Su sistema solo permite hasta %1 pantallas activas"
-
-#~ msgid "Unified Outputs"
-#~ msgstr "Salidas unificadas"
-
-#~ msgid "Laptop Screen"
-#~ msgstr "Pantalla del portátil"
-
-#~ msgid "(c), 2012-2013 Daniel Vrátil"
-#~ msgstr "© 2012-2013, Daniel Vrátil"
-
-#~ msgid "Daniel Vrátil"
-#~ msgstr "Daniel Vrátil"
-
-#~ msgid "&Disable All Outputs"
-#~ msgstr "&Desactivar todas las salidas"
-
-#~ msgid "&Reconfigure"
-#~ msgstr "Volve&r a configurar"
-
-#~ msgid ""
-#~ "Sorry, your configuration could not be applied.\n"
-#~ "\n"
-#~ "Common reasons are that the overall screen size is too big, or you "
-#~ "enabled more displays than supported by your GPU."
-#~ msgstr ""
-#~ "Disculpe: su configuración no se puede aplicar.\n"
-#~ "\n"
-#~ "Las causas más comunes son que el tamaño total de la pantalla es "
-#~ "demasiado grande o que ha activado más pantallas de las que permite su "
-#~ "GPU."
-
-#~ msgctxt "@title:window"
-#~ msgid "Unsupported Configuration"
-#~ msgstr "Configuración no permitida"
-
-#~ msgid "KCM Test App"
-#~ msgstr "Aplicación de pruebas para KCM"
-
-#~ msgid "Unify Outputs"
-#~ msgstr "Unificar salidas"
-
-#~ msgid "Scale Display"
-#~ msgstr "Escalar pantalla"
-
-#~ msgid "Display:"
-#~ msgstr "Pantalla:"
-
-#~ msgctxt "Scale multiplier, show everything at 2 times normal scale"
-#~ msgid "2x"
-#~ msgstr "x2"
-
-#~ msgid "Retention of values"
-#~ msgstr "Retención de valores"
-
-#~ msgid "Save as new global values for this display."
-#~ msgstr "Guardar como nuevos valores globales para esta pantalla."
-
-#~ msgid "Save values only for display in this specific configuration."
-#~ msgstr "Guardar los valores solo para la pantalla de esta configuración."
-
-#~ msgid "No available resolutions"
-#~ msgstr "Sin resoluciones disponibles"
-
-#~ msgid "Screen Scaling"
-#~ msgstr "Escalado de la pantalla"
-
-#~ msgid "Tab 1"
-#~ msgstr "Pestaña 1"
-
-#~ msgid "Group Box"
-#~ msgstr "Cuadro de grupo"
-
-#~ msgid "Radio button"
-#~ msgstr "Botón de opción"
-
-#~ msgid "Checkbox"
-#~ msgstr "Casilla de verificación"
-
-#~ msgid "Button"
-#~ msgstr "Botón"
-
-#~ msgid "Combobox"
-#~ msgstr "Cuadro combinado"
-
-#~ msgid "Tab 2"
-#~ msgstr "Pestaña 2"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "No Primary Output"
-#~ msgstr "No existe una salida primaria"
-
-#~ msgid "Break Unified Outputs"
-#~ msgstr "Romper la unificación de pantallas"
-
-#~ msgid "Active profile"
-#~ msgstr "Perfil activo"
-
-#~ msgid "Dialog"
-#~ msgstr "Diálogo"
-
-#~ msgid "TextLabel"
-#~ msgstr "EtiquetaDeTexto"
-
-#~ msgid "No primary screen"
-#~ msgstr "No existe una pantalla primaria"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Unificar salidas"
