@@ -45,6 +45,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     KCMUtils
     Svg
     XmlGui
+    Crash
 )
 find_package(KF6ImageFormats ${KF6_MIN_VERSION} CONFIG)
 set_package_properties(KF6ImageFormats PROPERTIES
