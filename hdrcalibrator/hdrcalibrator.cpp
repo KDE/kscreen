@@ -6,8 +6,13 @@
 #include "hdrcalibrator.h"
 #include "hdrcalibrator_debug.h"
 
+#include <KAboutData>
+#include <KCrash>
 #include <KLocalizedQmlContext>
+#include <KLocalizedString>
 #include <QGuiApplication>
+
+using namespace Qt::StringLiterals;
 
 HdrCalibrator::HdrCalibrator()
 {
@@ -108,6 +113,15 @@ int main(int argc, char **argv)
 
     QGuiApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
+
+    KAboutData aboutData(u"KScreen"_s,
+                         i18nc("@title:window", "HDR Calibration"), // this is title:window for cherry picking reasons and can be changed in the future
+                         QLatin1String(KSCREEN_VERSION),
+                         QString() /* description */,
+                         KAboutLicense::GPL_V2);
+
+    KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
 
     // first, get the output
     // we can't do anything until we have it, so this just blocks

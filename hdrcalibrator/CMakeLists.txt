@@ -25,6 +25,7 @@ target_sources(hdrcalibrator PUBLIC
 target_link_libraries(hdrcalibrator PUBLIC
     KF6::ConfigGui
     KF6::CoreAddons
+    KF6::Crash
     KF6::I18n
     KF6::I18nQml
     KF6::Screen
