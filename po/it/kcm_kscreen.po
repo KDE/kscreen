@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-26 16:02+0200\n"
+"PO-Revision-Date: 2025-07-05 17:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -537,6 +537,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Limita la risoluzione del colore dell'immagine inviata allo schermo. Ciò non "
+"influisce su schermate o registrazioni.<nl/><nl/>Poiché lo schermo è "
+"attualmente collegato tramite dock, la risoluzione automatica del colore è "
+"stata temporaneamente ridotta a 8 bit per evitare i comuni problemi della "
+"dock.<nl/><nl/>A causa di limitazioni del driver grafico, non è possibile "
+"conoscere la risoluzione effettivamente utilizzata."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -548,6 +554,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Limita la risoluzione del colore dell'immagine inviata allo schermo. Ciò non "
+"influisce su schermate o registrazioni.<nl/><nl/>Limita la risoluzione del "
+"colore può essere utile per risolvere problemi relativi allo schermo o al "
+"driver grafico.<nl/><nl/>A causa delle limitazioni del driver grafico, non è "
+"possibile conoscere la risoluzione effettivamente utilizzata."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
