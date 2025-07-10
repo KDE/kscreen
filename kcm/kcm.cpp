@@ -54,6 +54,7 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     Log::instance();
 
     setButtons(Apply);
+    setSupportsInstantApply(false);
 
     m_outputProxyModel = new ScreenSortProxyModel(this);
 
