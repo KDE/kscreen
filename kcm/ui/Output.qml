@@ -176,7 +176,8 @@ Item {
             }
             PropertyChanges {
                 target: labelContainer
-                anchors.leftMargin: outline.orientationPanelWidth + outline.border.width
+                anchors.leftMargin: (!LayoutMirroring.enabled ? outline.orientationPanelWidth : 0) + outline.border.width
+                anchors.rightMargin: (LayoutMirroring.enabled ? outline.orientationPanelWidth : 0) + outline.border.width
             }
             PropertyChanges {
                 target: priorityBadge
@@ -205,7 +206,8 @@ Item {
             }
             PropertyChanges {
                 target: labelContainer
-                anchors.rightMargin: outline.orientationPanelWidth + outline.border.width
+                anchors.leftMargin: (!LayoutMirroring.enabled ? 0 : outline.orientationPanelWidth) + outline.border.width
+                anchors.rightMargin: (LayoutMirroring.enabled ? 0 : outline.orientationPanelWidth) + outline.border.width
             }
             PropertyChanges {
                 target: priorityBadge
