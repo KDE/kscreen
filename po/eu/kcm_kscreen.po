@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-25 22:20+0200\n"
+"PO-Revision-Date: 2025-07-12 00:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: kcm.cpp:147 kcm.cpp:169
 #, kde-format
@@ -538,6 +538,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Bistaratzailera bidaltzen den irudiaren kolore-bereizmena mugatzen du. "
+"Horrek ez die pantaila-argazkiei ez eta grabazioei eragiten.<nl/><nl/"
+">Bistaratzailea une honetan atrakatze-estazio baten bidez konektatuta "
+"dagoenez, kolore-bereizmen automatikoa aldi baterako 8 bitera murriztu da "
+"atrakatze-estazioen ohiko arazoak saihesteko.<nl/><nl/> Grafikoen gidariaren "
+"mugak direla eta, ezin da erabilitako benetako bereizmena jakin."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -549,6 +555,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Bistaratzailera bidaltzen den irudiaren kolore-bereizmena mugatzen du. "
+"Horrek ez die pantaila-argazkiei ez eta grabazioei eragiten.<nl/><nl/>Kolore-"
+"bereizmena mugatzea bistaratzaile edo grafikoen gidariaren arazoak "
+"konpontzeko erabilgarria izan daiteke.<nl/><nl/>Grafikoen gidariaren mugak "
+"direla eta, ezin da erabilitako benetako bereizmena jakin."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
