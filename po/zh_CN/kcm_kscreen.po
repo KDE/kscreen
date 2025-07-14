@@ -519,6 +519,9 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"限制发送到显示器的图像的色彩分辨率。这不会影响截图或录屏。<nl/><nl/>由于当前"
+"显示器通过扩展坞连接到主机，为了避免常见的扩展坞问题，自动色彩分辨率已暂时降"
+"低到 8 位。<nl/><nl/>由于显卡驱动的限制，系统无法确定实际使用的分辨率。"
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -530,6 +533,9 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"限制发送到显示器的图像的色彩分辨率。这不会影响截图或录屏。<nl/><nl/>限制色彩"
+"分辨率可能有助于解决显示器或显卡驱动问题。<nl/><nl/>由于显卡驱动的限制，系统"
+"无法确定实际使用的分辨率。"
 
 #: ui/OutputPanel.qml:490
 #, kde-format
@@ -700,10 +706,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖拽屏幕以重新排列它们"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Limits the color resolution of the image that is sent to the display. "
-#~ "This does not affect screenshots or recordings.<nl/><nl/>"
-#~ msgstr ""
-#~ "限制发送到显示器的图像的颜色分辨率。这不会影响截图或录屏。<nl/><nl/>"
