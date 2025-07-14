@@ -17,6 +17,7 @@ Name[eu]=Bistaratze konfigurazio azkarra
 Name[fi]=Näyttöasetusten pikasäätö
 Name[fr]=Configuration rapide de l'affichage
 Name[gl]=Configuración rápida da pantalla
+Name[he]=הגדרות תצוגה מהירות
 Name[hsb]=Spěšne připrawjenje wobrazowki
 Name[hu]=Gyors megjelenítő-beállítás
 Name[ia]=Configuration rapide de monstrator
