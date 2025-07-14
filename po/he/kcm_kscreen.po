@@ -3,20 +3,21 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2017-05-16 11:34-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-07-13 10:34+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -38,109 +39,104 @@ msgstr ""
 #: output_model.cpp:738
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "ללא"
 
 #: output_model.cpp:745
 #, kde-format
 msgid "Replicated by other output"
-msgstr ""
+msgstr "מועתק על ידי פלט אחר"
 
 #: package/contents/ui/main.qml:40
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Keep display configuration?"
-msgstr "הגדרות תצוגה"
+msgstr "לשמור על הגדרות התצוגה?"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ההגדרות הקודמות תשוחזרנה בעוד שנייה."
+msgstr[1] "ההגדרות הקודמות תשוחזרנה בעוד %1 שניות."
 
 #: package/contents/ui/main.qml:72
 #, kde-format
 msgid "&Keep"
-msgstr ""
+msgstr "לה&שאיר"
 
 #: package/contents/ui/main.qml:85
 #, kde-format
 msgid "&Revert"
-msgstr ""
+msgstr "לה&חזיר"
 
 #: package/contents/ui/main.qml:105 package/contents/ui/main.qml:287
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "כל התצוגות מושבתות. יש להפעיל לפחות אחת."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
-msgstr ""
+msgstr "אין תמיכה ברווח בין התצוגות. נא לוודא שכל התצוגות נוגעות זו בזו."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
-msgstr ""
+msgstr "נוסף פלט חדש. ההגדרות נטענו מחדש."
 
 #: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
-msgstr ""
+msgstr "פלט הוסר. ההגדרות נטענו מחדש."
 
 #: package/contents/ui/main.qml:171
-#, fuzzy, kde-format
-#| msgid "No kscreen backend found. Please check your kscreen installation."
+#, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr "לא נמצא kscreen מותקן. בדוק אם kscreen מותקן במערכת."
+msgstr "לא נמצא מנגנון KScreen. נא לבדוק את התקנת KScreen."
 
 #: package/contents/ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr ""
+msgstr "לא ניתן לשמור את הפלטים עקב שגיאה."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid "Scaling changes will come into effect after restart"
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "התאמת קנה מידה תחול לאחר הפעלה מחדש"
+msgstr "שינויים ברמה הכללית יחולו לאחר הפעלת המערכת מחדש."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "הפעלה מחדש"
 
 #: package/contents/ui/main.qml:217
-#, fuzzy, kde-format
-#| msgid "Display Configuration"
+#, kde-format
 msgid "Display configuration reverted."
-msgstr "הגדרות תצוגה"
+msgstr "הגדרות התצוגה שוחזרו."
 
 #: package/contents/ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "שינוי עדיפויות"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
-#, fuzzy, kde-format
-#| msgid "Primary display:"
+#, kde-format
 msgid "Primary"
-msgstr "תצוגה ראשית:"
+msgstr "עיקרית"
 
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "הגדלת עדיפות"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "הנמכת עדיפות"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -150,25 +146,24 @@ msgstr "כיוון:"
 #: package/contents/ui/Orientation.qml:26
 #: package/contents/ui/OutputPanel.qml:154
 #: package/contents/ui/OutputPanel.qml:195
-#, fuzzy, kde-format
-#| msgid "Auto"
+#, kde-format
 msgid "Automatic"
 msgstr "אוטומטי"
 
 #: package/contents/ui/Orientation.qml:35
 #, kde-format
 msgid "Only when in tablet mode"
-msgstr ""
+msgstr "רק כאשר במצב מחשב לוח"
 
 #: package/contents/ui/Orientation.qml:44
 #, kde-format
 msgid "Manual"
-msgstr ""
+msgstr "ידני"
 
 #: package/contents/ui/Output.qml:238
 #, kde-format
 msgid "Replicas"
-msgstr ""
+msgstr "עותקים"
 
 #: package/contents/ui/OutputPanel.qml:24
 #, kde-format
@@ -178,7 +173,7 @@ msgstr "מאופשר"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "החלפת עדיפויות מסכים…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -213,7 +208,7 @@ msgstr "גודל:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
@@ -228,22 +223,22 @@ msgstr ""
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
 msgid "Adaptive sync:"
-msgstr ""
+msgstr "סנכרון מסתגל:"
 
 #: package/contents/ui/OutputPanel.qml:152
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: package/contents/ui/OutputPanel.qml:153
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: package/contents/ui/OutputPanel.qml:165
 #, kde-format
 msgid "Overscan:"
-msgstr ""
+msgstr "סריקת יתר:"
 
 #: package/contents/ui/OutputPanel.qml:189
 #, kde-format
@@ -253,27 +248,27 @@ msgstr ""
 #: package/contents/ui/OutputPanel.qml:196
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "מלאה"
 
 #: package/contents/ui/OutputPanel.qml:197
 #, kde-format
 msgid "Limited"
-msgstr ""
+msgstr "מוגבלת"
 
 #: package/contents/ui/OutputPanel.qml:213
 #, kde-format
 msgid "Replica of:"
-msgstr ""
+msgstr "עותק של:"
 
 #: package/contents/ui/Panel.qml:29
 #, kde-format
 msgid "Device:"
-msgstr ""
+msgstr "התקן:"
 
 #: package/contents/ui/Panel.qml:71
 #, kde-format
 msgid "Global scale:"
-msgstr ""
+msgstr "קנה מידה כולל:"
 
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
@@ -284,7 +279,7 @@ msgstr ""
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "החלת קנה מידה עצמאי"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -297,7 +292,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "קנה המידה השתנה על ידי המערכת"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -305,6 +300,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"קנה המידה של כל היישומים המיושנים ישתנה על ידי המערכת לגודל המתאים, עם זאת "
+"הם תמיד ייראו קצת מטושטשים."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
@@ -312,6 +309,8 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
+"מקדם קנה המידה הכולל מוגבלת לכפולות של 6.25% כדי למזער את השיהוקים החזותיים "
+"ביישומים שמשתמשים במערכת החלונות X11."
 
 #: package/contents/ui/Panel.qml:183
 #, kde-format
@@ -346,12 +345,12 @@ msgstr "90 מעלות נגד כיוון השעון"
 #: package/contents/ui/RotationButton.qml:63
 #, kde-format
 msgid "No Rotation"
-msgstr ""
+msgstr "אין הטיה"
 
 #: package/contents/ui/Screen.qml:48
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr ""
+msgstr "יש לגרור את המסכים כדי לסדר אותם מחדש"
 
 #: package/contents/ui/Screen.qml:61
 #, fuzzy, kde-format
