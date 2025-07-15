@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:43+0000\n"
-"PO-Revision-Date: 2025-05-27 18:12+0400\n"
+"POT-Creation-Date: 2025-07-15 00:45+0000\n"
+"PO-Revision-Date: 2025-07-14 20:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,12 +19,12 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: kcm.cpp:147 kcm.cpp:169
+#: kcm.cpp:148 kcm.cpp:170
 #, kde-format
 msgid "Implementation error"
 msgstr "خطأ في التنفيذ"
 
-#: kcm.cpp:197
+#: kcm.cpp:198
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "تغيرت النواتج أثناء محاولة تطبيق الإعدادات"
@@ -528,6 +528,10 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"يحد من دقة ألوان الصورة التي تُرسل إلى الشاشة. لا يؤثر هذا على لقطات الشاشة "
+"أو التسجيلات.<nl/><nl/>نظرًا لأن الشاشة متصلة حاليًا من خلال قاعدة توصيل، قُلّلت "
+"دقة الألوان آليا مؤقتًا إلى 8 بت لتجنب مشاكل قاعدة التوصيل الشائعة.<nl/><nl/"
+">نظرًا لقيود برنامج تشغيل الرسومات، لا يمكن معرفة الدقة المستخدمة فعليًا."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -539,6 +543,10 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"يحد من دقة ألوان الصورة التي تُرسل إلى الشاشة. لا يؤثر ذلك على لقطات الشاشة "
+"أو التسجيلات.<nl/><nl/>يمكن أن يكون تحديد دقة الألوان مفيداً للتغلب على مشاكل "
+"العرض أو برنامج تشغيل الرسومات.<nl/><nl/>نظراً لقيود برنامج تشغيل الرسومات، "
+"لا يمكن معرفة الدقة المستخدمة فعلياً."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
