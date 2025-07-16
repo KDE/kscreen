@@ -146,6 +146,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         }
         return options;
     }
+    case SharpnessRole:
+        return output->sharpness();
     }
     return QVariant();
 }
@@ -332,6 +334,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setEdrPolicy(static_cast<KScreen::Output::EdrPolicy>(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case SharpnessRole:
+        output.ptr->setSharpness(value.toDouble());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -379,6 +385,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[EdrPolicyRole] = "edrPolicy";
     roles[BitsPerColorOptionsPreferEfficiencyRole] = "bitsPerColorOptionsPreferEfficiency";
     roles[BitsPerColorOptionsPreferAccuracyRole] = "bitsPerColorOptionsPreferAccuracy";
+    roles[SharpnessRole] = "sharpness";
     return roles;
 }
 

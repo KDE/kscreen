@@ -61,6 +61,7 @@ public:
         EdrPolicyRole,
         BitsPerColorOptionsPreferEfficiencyRole,
         BitsPerColorOptionsPreferAccuracyRole,
+        SharpnessRole,
     };
     Q_ENUM(OutputRoles)
 

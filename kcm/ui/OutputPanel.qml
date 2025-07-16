@@ -585,6 +585,36 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         }
     }
 
+    /* Sharpness Slider and Spinbox */
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: element.capabilities & KScreen.Output.Capability.SharpnessControl
+        Kirigami.FormData.label: i18nc("@label", "Sharpness:")
+        Kirigami.FormData.buddyFor: sharpnessSlider
+
+        QQC2.Slider {
+            id: sharpnessSlider
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 5
+            live: true
+            value: element.sharpness * 100.0
+            onMoved: element.sharpness = value / 100.0
+        }
+        QQC2.SpinBox {
+            from: 0
+            to: 100
+            stepSize: 5
+            value: element.sharpness * 100.0
+            onValueModified: element.sharpness = value / 100.0
+        }
+    }
+
     RowLayout {
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
