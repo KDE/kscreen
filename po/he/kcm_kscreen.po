@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2025-07-13 10:34+0300\n"
+"PO-Revision-Date: 2025-07-14 16:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -28,13 +28,13 @@ msgstr "%1 הרץ"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1×%2"
 
 #: output_model.cpp:657
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr ""
+msgstr "%1×%2 (%3:%4)"
 
 #: output_model.cpp:738
 #, kde-format
@@ -218,7 +218,7 @@ msgstr "קצב רענון:"
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
-msgstr ""
+msgstr "התצוגה הזאת תומכת רק בקצב הרענון „%1” ."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
@@ -243,7 +243,7 @@ msgstr "סריקת יתר:"
 #: package/contents/ui/OutputPanel.qml:189
 #, kde-format
 msgid "RGB Range:"
-msgstr ""
+msgstr "טווח RGB"
 
 #: package/contents/ui/OutputPanel.qml:196
 #, kde-format
@@ -273,7 +273,7 @@ msgstr "קנה מידה כולל:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "יישומים מיושנים (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
@@ -287,6 +287,8 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"יישומים מיושנים שתומכים בשינוי קנה מידע ישתמשו בזה וייראו חדים מדי, עם זאת, "
+"אלו שלא לא יגיבו לשינוי קנה המידה כלל."
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
@@ -315,17 +317,17 @@ msgstr ""
 #: package/contents/ui/Panel.qml:183
 #, kde-format
 msgid "Save displays' properties:"
-msgstr ""
+msgstr "שמירת מאפייני צגים:"
 
 #: package/contents/ui/Panel.qml:189
 #, kde-format
 msgid "For any display arrangement"
-msgstr ""
+msgstr "לכל פריסת צגים שהיא"
 
 #: package/contents/ui/Panel.qml:196
 #, kde-format
 msgid "For only this specific display arrangement"
-msgstr ""
+msgstr "רק לפריסת הצגים המסוימת הזאת"
 
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
@@ -353,10 +355,9 @@ msgid "Drag screens to re-arrange them"
 msgstr "יש לגרור את המסכים כדי לסדר אותם מחדש"
 
 #: package/contents/ui/Screen.qml:61
-#, fuzzy, kde-format
-#| msgid "Identify outputs"
+#, kde-format
 msgid "Identify"
-msgstr "אחד מסכים"
+msgstr "זיהוי"
 
 #, fuzzy
 #~| msgid "Are you sure you want to disable all outputs?"
