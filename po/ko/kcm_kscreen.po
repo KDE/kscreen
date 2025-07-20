@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-06-10 23:12+0200\n"
+"PO-Revision-Date: 2025-07-20 01:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -523,6 +523,11 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"디스플레이에 표시되는 이미지의 색 농도를 제한합니다. 스크린샷이나 녹화에는 영"
+"향을 주지 않습니다.<nl/><nl/>현재 디스플레이가 독을 통해서 연결되어 있으므"
+"로, 독 사용 시 문제점을 회피하기 위해서 자동 색 농도가 임시로 8비트로 제한되"
+"었습니다.<nl/><nl/>그래픽 드라이버 제한으로 인해서 실제 사용 중인 색 농도를 "
+"알 수 없습니다."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -534,6 +539,10 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"디스플레이에 표시되는 이미지의 색 농도를 제한합니다. 스크린샷이나 녹화에는 영"
+"향을 주지 않습니다.<nl/><nl/>색 농도를 제한하면 디스플레이나 그래픽 드라이버 "
+"문제 해결에 도움이 될 수 있습니다.<nl/><nl/>그래픽 드라이버 제한으로 인해서 "
+"실제 사용 중인 색 농도를 알 수 없습니다."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
