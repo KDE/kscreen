@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-07-12 00:09+0200\n"
+"PO-Revision-Date: 2025-07-23 14:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -235,7 +235,7 @@ msgstr "Gaituta"
 #: ui/OutputPanel.qml:40
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Aldatu pantaila-lehentasunak..."
+msgstr "Aldatu pantaila-lehentasunak…"
 
 #: ui/OutputPanel.qml:53
 #, kde-kuit-format
@@ -407,13 +407,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Sartu ICC profilaren bide-izena..."
+msgstr "Sartu ICC profilaren bide-izena…"
 
 #: ui/OutputPanel.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Aukeratu ICC profila..."
+msgstr "Aukeratu ICC profila…"
 
 #: ui/OutputPanel.qml:310
 #, kde-format
@@ -457,7 +457,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr "Kalibratu HDR distira..."
+msgstr "Kalibratu HDR distira…"
 
 #: ui/OutputPanel.qml:383
 #, kde-format
