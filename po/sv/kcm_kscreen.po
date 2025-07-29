@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-05-31 11:36+0200\n"
+"PO-Revision-Date: 2025-07-28 18:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -532,6 +532,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Begränsar färgupplösningen på bilden som skickas till skärmen. Det påverkar "
+"inte skärmbilder eller inspelningar.<nl/><nl/>Eftersom skärmen för "
+"närvarande är ansluten via en dockningsstation har den automatiska "
+"färgupplösningen tillfälligt reducerats till 8 bitar för att undvika vanliga "
+"dockningsproblem.<nl/><nl/>På grund av begränsningar i grafikdrivrutinen kan "
+"den faktiskt använda upplösningen inte avgöras."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -543,6 +549,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Begränsar färgupplösningen på bilden som skickas till skärmen. Det påverkar "
+"inte skärmbilder eller inspelningar.<nl/><nl/>Att begränsa färgupplösningen "
+"kan vara användbart för att undvika problem med skärm- eller "
+"grafikdrivrutinen.<nl/><nl/>På grund av begränsningar i grafikdrivrutinen "
+"kan den faktiskt använda upplösningen inte avgöras."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
