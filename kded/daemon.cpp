@@ -7,14 +7,16 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "daemon.h"
+module;
 
-#include "config.h"
-#include "device.h"
-#include "generator.h"
+#include "common/globals.h"
 #include "common/kscreen_daemon_debug.h"
+#include "common/osdaction.h"
+#include "config-X11.h"
 #include "osdservice_interface.h"
 
+#include <kdedmodule.h>
+#include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
 #include <kscreen/log.h>
@@ -28,6 +30,7 @@
 #include <QGuiApplication>
 #include <QTimer>
 #include <QTransform>
+#include <QVariant>
 
 #if WITH_X11
 #include <X11/Xatom.h>
@@ -35,6 +38,61 @@
 #include <X11/extensions/XInput.h>
 #include <X11/extensions/XInput2.h>
 #endif
+
+export module kscreen_kded_daemon;
+
+import kscreen_kded_device;
+import kscreen_kded_generator;
+import kscreen_kded_config;
+
+class KScreenDaemon : public KDEDModule
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.KScreen")
+
+public:
+    KScreenDaemon(QObject *parent, const QList<QVariant> &);
+    ~KScreenDaemon() override;
+
+private:
+    Q_INVOKABLE void getInitialConfig();
+    void init();
+
+    void applyConfig();
+    void applyKnownConfig();
+    void applyIdealConfig();
+    void configChanged();
+    void saveCurrentConfig();
+#if WITH_X11
+    void alignX11TouchScreen();
+#endif
+    void lidClosedChanged(bool lidIsClosed);
+    void disableLidOutput();
+    void setMonitorForChanges(bool enabled);
+
+    void outputConnectedChanged();
+    void showOSD();
+
+    void doApplyConfig(const KScreen::ConfigPtr &config);
+    void doApplyConfig(std::unique_ptr<Config> config);
+    void refreshConfig();
+
+    void monitorConnectedChange();
+    void disableOutput(const KScreen::OutputPtr &output);
+
+    std::unique_ptr<Config> m_monitoredConfig;
+    bool m_monitoring;
+    bool m_configDirty = true;
+    QTimer *const m_changeCompressor;
+    QTimer *m_saveTimer = nullptr;
+    QTimer *const m_lidClosedTimer;
+    OrgKdeKscreenOsdServiceInterface *m_osdServiceInterface = nullptr;
+
+    bool m_startingUp = true;
+
+private Q_SLOTS:
+    void outputAddedSlot(const KScreen::OutputPtr &output);
+};
 
 K_PLUGIN_CLASS_WITH_JSON(KScreenDaemon, "kscreen.json")
 

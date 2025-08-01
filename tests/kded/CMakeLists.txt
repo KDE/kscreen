@@ -5,8 +5,8 @@ add_definitions(-DKDED_UNIT_TEST)
 macro(ADD_KDED_TEST testname)
     set(test_SRCS
         ${testname}.cpp
-        ${CMAKE_SOURCE_DIR}/kded/generator.cpp ${CMAKE_SOURCE_DIR}/kded/generator.h
-        ${CMAKE_SOURCE_DIR}/kded/device.cpp ${CMAKE_SOURCE_DIR}/kded/device.h
+        ${CMAKE_SOURCE_DIR}/kded/generator.cpp
+        ${CMAKE_SOURCE_DIR}/kded/device.cpp
         ${CMAKE_SOURCE_DIR}/kded/config.cpp
     )
 

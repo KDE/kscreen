@@ -2,11 +2,11 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kscreen\")
 
 kcoreaddons_add_plugin(kscreen INSTALL_NAMESPACE "kf6/kded")
 
-target_sources(kscreen PRIVATE
-    daemon.cpp daemon.h
+target_sources(kscreen PRIVATE FILE_SET CXX_MODULES FILES
+    daemon.cpp
     config.cpp
-    generator.cpp generator.h
-    device.cpp device.h
+    generator.cpp
+    device.cpp
 )
 
 qt_add_dbus_interface(dbus_SRCS

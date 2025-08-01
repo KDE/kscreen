@@ -5,17 +5,88 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+module;
+
+#include "common/kscreen_daemon_debug.h"
+#include "common/output.h"
+#include "common/utils.h"
+
+#include <QObject>
+#include <QRect>
+#include <kscreen/config.h>
+#include <kscreen/mode.h>
+#include <kscreen/output.h>
+#include <kscreen/screen.h>
 
 #include <cmath>
 
-#include "common/output.h"
-#include "common/utils.h"
-#include "device.h"
-#include "generator.h"
-#include "common/kscreen_daemon_debug.h"
-#include <QRect>
+export module kscreen_kded_generator;
 
-#include <kscreen/screen.h>
+import kscreen_kded_device;
+
+export class Generator : public QObject
+{
+    Q_OBJECT
+public:
+    enum DisplaySwitchAction {
+        None = 0,
+        Clone = 1,
+        ExtendToLeft = 2,
+        TurnOffEmbedded = 3,
+        TurnOffExternal = 4,
+        ExtendToRight = 5,
+    };
+
+    static Generator *self();
+    static void destroy();
+
+    void setCurrentConfig(const KScreen::ConfigPtr &currentConfig);
+
+    KScreen::ConfigPtr idealConfig(const KScreen::ConfigPtr &currentConfig);
+    KScreen::ConfigPtr displaySwitch(DisplaySwitchAction iteration);
+
+    void setForceLaptop(bool force);
+    void setForceLidClosed(bool force);
+    void setForceDocked(bool force);
+    void setForceNotLaptop(bool force);
+
+    qreal bestScaleForOutput(const KScreen::OutputPtr &output);
+
+Q_SIGNALS:
+    void ready();
+
+private:
+    explicit Generator();
+    ~Generator() override;
+
+    KScreen::ConfigPtr fallbackIfNeeded(const KScreen::ConfigPtr &config);
+
+    void cloneScreens(const KScreen::ConfigPtr &config);
+    void laptop(KScreen::ConfigPtr &config);
+    void singleOutput(KScreen::ConfigPtr &config);
+    void extendToRight(KScreen::ConfigPtr &config, KScreen::OutputList usableOutputs);
+
+    void initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features);
+    KScreen::ModePtr bestModeForSize(const KScreen::ModeList &modes, const QSize &size);
+    KScreen::ModePtr bestModeForOutput(const KScreen::OutputPtr &output);
+
+    KScreen::OutputPtr biggestOutput(const KScreen::OutputList &connectedOutputs);
+    KScreen::OutputPtr embeddedOutput(const KScreen::OutputList &connectedOutputs);
+    void disableAllDisconnectedOutputs(const KScreen::OutputList &connectedOutputs);
+
+    bool isLaptop() const;
+    bool isLidClosed() const;
+    bool isDocked() const;
+
+    bool m_forceLaptop;
+    bool m_forceLidClosed;
+    bool m_forceNotLaptop;
+    bool m_forceDocked;
+
+    KScreen::ConfigPtr m_currentConfig;
+
+    static Generator *instance;
+};
 
 #if defined(QT_NO_DEBUG)
 #define ASSERT_OUTPUTS(outputs)
@@ -650,4 +721,4 @@ void Generator::setForceNotLaptop(bool force)
     m_forceNotLaptop = force;
 }
 
-#include "moc_generator.cpp"
+#include "generator.moc"

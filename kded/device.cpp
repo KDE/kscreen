@@ -4,10 +4,52 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+module;
 
-#include "device.h"
 #include "freedesktop_interface.h"
 #include "common/kscreen_daemon_debug.h"
+
+export module kscreen_kded_device;
+
+export class Device : public QObject
+{
+    Q_OBJECT
+public:
+    static Device *self();
+    static void destroy();
+
+    bool isReady() const;
+    bool isLaptop() const;
+    bool isLidClosed() const;
+
+private Q_SLOTS:
+    void changed();
+    void isLaptopFetched(QDBusPendingCallWatcher *watcher);
+    void isLidClosedFetched(QDBusPendingCallWatcher *watcher);
+
+Q_SIGNALS:
+    void ready();
+    void lidClosedChanged(bool closed);
+    void resumingFromSuspend();
+    void aboutToSuspend();
+
+private:
+    explicit Device(QObject *parent = nullptr);
+    ~Device() override;
+
+    void setReady();
+    void fetchIsLaptop();
+    void fetchLidIsClosed();
+
+    bool m_isReady;
+    bool m_isLaptop;
+    bool m_isLidClosed;
+
+    static Device *m_instance;
+
+    OrgFreedesktopDBusPropertiesInterface *m_freedesktop = nullptr;
+    QDBusInterface *m_suspendSession = nullptr;
+};
 
 Device *Device::m_instance = nullptr;
 
@@ -152,4 +194,4 @@ void Device::isLidClosedFetched(QDBusPendingCallWatcher *watcher)
     setReady();
 }
 
-#include "moc_device.cpp"
+#include "device.moc"

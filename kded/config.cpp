@@ -4,23 +4,80 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "config.h"
+module;
+
 #include "common/control.h"
-#include "common/output.h"
-#include "device.h"
 #include "common/kscreen_daemon_debug.h"
+#include "common/output.h"
 
 #include <QDir>
 #include <QFile>
 #include <QJsonDocument>
+#include <QObject>
 #include <QRect>
 #include <QStandardPaths>
 #include <QStringBuilder>
 
 #include <cstdint>
 
+#include <kscreen/config.h>
 #include <kscreen/output.h>
 #include <kscreen/screen.h>
+
+export module kscreen_kded_config;
+
+import kscreen_kded_device;
+
+export class Config : public QObject
+{
+    Q_OBJECT
+public:
+    explicit Config(KScreen::ConfigPtr config, QObject *parent = nullptr);
+    ~Config() = default;
+
+    QString id() const;
+
+    bool fileExists() const;
+    std::unique_ptr<Config> readFile();
+    std::unique_ptr<Config> readOpenLidFile();
+    bool writeFile();
+    bool writeOpenLidFile();
+    static QString configsDirPath();
+
+    KScreen::ConfigPtr data() const
+    {
+        return m_data;
+    }
+
+    void activateControlWatching();
+    void log();
+
+    void setValidityFlags(KScreen::Config::ValidityFlags flags)
+    {
+        m_validityFlags = flags;
+    }
+
+    bool canBeApplied() const;
+
+Q_SIGNALS:
+    void controlChanged();
+
+private:
+    friend class TestConfig;
+
+    QString filePath() const;
+    std::unique_ptr<Config> readFile(const QString &fileName);
+    bool writeFile(const QString &filePath);
+
+    bool canBeApplied(KScreen::ConfigPtr config) const;
+
+    KScreen::ConfigPtr m_data;
+    KScreen::Config::ValidityFlags m_validityFlags;
+    ControlConfig *m_control;
+
+    static QString s_configsDirName;
+    static QString s_fixedConfigFileName;
+};
 
 QString Config::s_fixedConfigFileName = QStringLiteral("fixed-config");
 QString Config::s_configsDirName = QString();
@@ -245,4 +302,4 @@ void Config::log()
     }
 }
 
-#include "moc_config.cpp"
+#include "config.moc"
