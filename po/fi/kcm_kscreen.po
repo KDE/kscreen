@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-05-27 23:39+0300\n"
+"PO-Revision-Date: 2025-07-21 18:51+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -483,6 +483,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Väritarkkuuden suosiminen voi rajoittaa epätarkkaa väritoimenpiteiden "
+"siirtoa näyttöajurille ja parantaa enimmäisväritarkkuutta.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:417
 #, kde-kuit-format
@@ -491,6 +493,8 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Suorituskyvyn suosiminen yksinkertaistaa ICC-profiilin matriisin + muotoon, "
+"mikä parantaa suorituskykyä väritarkkuuden kustannuksella.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -526,6 +530,11 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Rajoittaa näytölle lähetettävän kuvan väritarkkuutta. Ei vaikuta "
+"ruutukaappauksiin tai -nauhoituksiin.<nl/><nl/>Koska näyttö on tällä "
+"hetkellä kytketty telakasta, automaattista väritarkkuutta on hetkellisesti "
+"vähennetty 8 bittiin yleisten telakkaongelmien välttämiseksi.<nl/><nl/"
+">Näyttöajurin rajoitusten takia todella käytettävää tarkkuutta ei voi tietää."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -537,6 +546,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Rajoittaa näytölle lähetettävän kuvan väritarkkuutta. Ei vaikuta "
+"ruutukaappauksiin tai -nauhoituksiin.<nl/><nl/>Väritarkkuuden "
+"rajoittamisesta voi olla hyötyä näyttö- tai näyttöajuriongelmien "
+"kiertämisessä.<nl/><nl/>Näyttöajurin rajoitusten takia todella käytettävää "
+"tarkkuutta ei voi tietää."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
