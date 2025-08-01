@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2025-05-15 18:08+0400\n"
+"PO-Revision-Date: 2025-07-31 18:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -49,7 +49,7 @@ msgstr "%1 × %2 (%3:%4)"
 #: output_model.cpp:825
 #, kde-format
 msgid "None"
-msgstr "بدون"
+msgstr "لا شيء"
 
 #: output_model.cpp:832
 #, kde-format
@@ -686,7 +686,7 @@ msgstr "90° عكس عقارب السّاعة"
 #: ui/RotationButton.qml:67
 #, kde-format
 msgid "No Rotation"
-msgstr "بدون تدوير"
+msgstr "بلا تدوير"
 
 #: ui/ScreenView.qml:53
 #, kde-format
