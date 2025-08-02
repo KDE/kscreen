@@ -39,6 +39,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
     Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
+    Q_PROPERTY(int defaultSelectedDisplayIndex READ defaultSelectedDisplayIndex CONSTANT)
 
 public:
     enum InvalidConfigReason {
@@ -47,7 +48,7 @@ public:
     };
     Q_ENUM(InvalidConfigReason)
 
-    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
+    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
 
     void load() override;
     void save() override;
@@ -82,6 +83,7 @@ public:
     bool tabletModeAvailable() const;
 
     bool multipleScreensAvailable() const;
+    int defaultSelectedDisplayIndex() const;
 
     void doSave();
     Q_INVOKABLE void revertSettings();
@@ -133,6 +135,7 @@ private:
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
     bool m_needsKwinConfigReload = false;
+    int m_defaultSelectedDisplayIndex = -1;
 
     QSortFilterProxyModel *m_outputProxyModel;
 

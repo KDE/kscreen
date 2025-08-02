@@ -45,9 +45,12 @@ public:
     }
 };
 
-KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
+KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickManagedConfigModule(parent, data)
 {
+    if (args.count() >= 1) {
+        m_defaultSelectedDisplayIndex = args[0].toInt();
+    }
     qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
@@ -87,6 +90,19 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     m_configHandler->setConfig(config);
     Q_EMIT multipleScreensAvailableChanged();
+
+    if (m_defaultSelectedDisplayIndex != -1) {
+        // The arg takes in the output index based on priority, so we have to convert it back into an index usable in the QML
+        int i = 0;
+        const auto outputs = m_configHandler->config()->outputs();
+        for (const auto output : outputs) {
+            if (output->priority() == m_defaultSelectedDisplayIndex) {
+                m_defaultSelectedDisplayIndex = i;
+                break;
+            }
+            i++;
+        }
+    }
 
     setBackendReady(true);
     checkConfig();
@@ -535,6 +551,11 @@ bool KCMKScreen::tearingSupported() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
+}
+
+int KCMKScreen::defaultSelectedDisplayIndex() const
+{
+    return m_defaultSelectedDisplayIndex;
 }
 
 void KCMKScreen::startHdrCalibrator(const QString &outputName)

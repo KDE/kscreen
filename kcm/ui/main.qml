@@ -24,6 +24,9 @@ KCM.AbstractKCM {
     function firstEnabledDisplayIndex() {
         if (!(kcm.outputModel && kcm.backendReady)) return -1; // Wait for model
 
+        // Select the display if passed as an arg to the KCM
+        if (kcm.defaultSelectedDisplayIndex >= 0) return kcm.defaultSelectedDisplayIndex;
+
         for (let i = 0; i < kcm.outputModel.rowCount(); ++i) {
             // Return index of first enabled display
             if (kcm.outputModel.data(kcm.outputModel.index(i, 0), KScreen.OutputModel.EnabledRole)) {
