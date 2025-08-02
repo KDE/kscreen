@@ -45,9 +45,12 @@ public:
     }
 };
 
-KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
+KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickManagedConfigModule(parent, data)
 {
+    if (args.count() >= 1) {
+        m_defaultSelectedDisplayIndex = args[0].toInt();
+    }
     qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
@@ -87,6 +90,26 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     m_configHandler->setConfig(config);
     Q_EMIT multipleScreensAvailableChanged();
+
+    if (m_defaultSelectedDisplayIndex != -1) {
+        // The arg takes in the output index based on priority
+        const auto outputs = m_configHandler->config()->outputs();
+        auto sortedOutputs = outputs.values();
+
+        // Sort the outputs based on priority
+        std::sort(sortedOutputs.begin(), sortedOutputs.end(), [](const auto &o1, const auto &o2) {
+            return o1->priority() < o2->priority();
+        });
+
+        if (m_defaultSelectedDisplayIndex > 0 && m_defaultSelectedDisplayIndex < sortedOutputs.length()) {
+            const auto selectedOutput = sortedOutputs[m_defaultSelectedDisplayIndex];
+
+            const auto outputIndex = m_configHandler->outputModel()->indexForOutput(selectedOutput);
+            if (outputIndex.isValid()) {
+                m_defaultSelectedDisplayIndex = m_outputProxyModel->mapFromSource(outputIndex).row();
+            }
+        }
+    }
 
     setBackendReady(true);
     checkConfig();
@@ -535,6 +558,11 @@ bool KCMKScreen::tearingSupported() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
+}
+
+int KCMKScreen::defaultSelectedDisplayIndex() const
+{
+    return m_defaultSelectedDisplayIndex;
 }
 
 void KCMKScreen::startHdrCalibrator(const QString &outputName)
