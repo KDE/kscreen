@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-07-06 12:21+0300\n"
+"PO-Revision-Date: 2025-08-02 21:43+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -624,7 +624,7 @@ msgstr "עותק של:"
 #: ui/Panel.qml:57
 #, kde-format
 msgid "Global scale:"
-msgstr "קנה מידה כולל:"
+msgstr "קנה מידה מקיף:"
 
 #: ui/Panel.qml:120 ui/Panel.qml:140
 #, kde-format
@@ -690,7 +690,7 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
-"מקדם קנה המידה הכולל מוגבלת לכפולות של 6.25% כדי למזער את השיהוקים החזותיים "
+"מקדם קנה המידה המקיף מוגבל לכפולות של 6.25% כדי למזער את השיהוקים החזותיים "
 "ביישומים שמשתמשים במערכת החלונות X11."
 
 #: ui/RotationButton.qml:54
