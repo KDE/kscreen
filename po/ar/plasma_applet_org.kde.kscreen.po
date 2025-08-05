@@ -41,7 +41,7 @@ msgstr "نمط عرض ممكن بواسطة المستخدم"
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
-msgstr "سيؤدي هذا إلى منع الشاشة والحاسوب من إيقاف التشغيل تلقائيًا."
+msgstr "سيؤدي هذا إلى منع الشاشة والحاسوب من إيقاف التشغيل آليًّا."
 
 #: package/contents/ui/PresentationModeItem.qml:75
 #, kde-format
