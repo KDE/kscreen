@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:45+0000\n"
-"PO-Revision-Date: 2025-07-31 18:27+0400\n"
+"PO-Revision-Date: 2025-08-03 23:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -504,7 +504,7 @@ msgstr "حدد دقة الألوان إلى:"
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr "آلي (%1 بت لكل لون)"
+msgstr "آليّ (%1 بت لكل لون)"
 
 #: ui/OutputPanel.qml:448 ui/OutputPanel.qml:461
 #, kde-format
@@ -516,7 +516,7 @@ msgstr "%1 بت لكل لون"
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr "آلي (%1 بت لكل لون)"
+msgstr "آليّ (%1 بت لكل لون)"
 
 #: ui/OutputPanel.qml:471
 #, kde-kuit-format
@@ -530,8 +530,8 @@ msgid ""
 msgstr ""
 "يحد من دقة ألوان الصورة التي تُرسل إلى الشاشة. لا يؤثر هذا على لقطات الشاشة "
 "أو التسجيلات.<nl/><nl/>نظرًا لأن الشاشة متصلة حاليًا من خلال قاعدة توصيل، قُلّلت "
-"دقة الألوان آليا مؤقتًا إلى 8 بت لتجنب مشاكل قاعدة التوصيل الشائعة.<nl/><nl/"
-">نظرًا لقيود برنامج تشغيل الرسومات، لا يمكن معرفة الدقة المستخدمة فعليًا."
+"دقة الألوان آليّا مؤقتًا إلى 8 بت لتجنب مشاكل قاعدة التوصيل الشائعة.<nl/><nl/"
+">نظرًا لقيود مُشغل الرسومات، لا يمكن معرفة الدقة المستخدمة فعليًا."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -545,8 +545,8 @@ msgid ""
 msgstr ""
 "يحد من دقة ألوان الصورة التي تُرسل إلى الشاشة. لا يؤثر ذلك على لقطات الشاشة "
 "أو التسجيلات.<nl/><nl/>يمكن أن يكون تحديد دقة الألوان مفيداً للتغلب على مشاكل "
-"العرض أو برنامج تشغيل الرسومات.<nl/><nl/>نظراً لقيود برنامج تشغيل الرسومات، "
-"لا يمكن معرفة الدقة المستخدمة فعلياً."
+"العرض أو مُشغل الرسومات.<nl/><nl/>نظراً لقيود مُشغل الرسومات، لا يمكن معرفة "
+"الدقة المستخدمة فعلياً."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
@@ -606,7 +606,7 @@ msgstr "النطاق الحركي الموسع:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "فعّل EDR"
+msgstr "مكّن EDR"
 
 #: ui/OutputPanel.qml:605
 #, kde-kuit-format
