@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2025-07-31 18:27+0400\n"
+"PO-Revision-Date: 2025-08-03 23:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -495,7 +495,7 @@ msgstr "حدد دقة الألوان إلى:"
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr "آلي (%1 بت لكل لون)"
+msgstr "آليّ (%1 بت لكل لون)"
 
 #: ui/OutputPanel.qml:447 ui/OutputPanel.qml:460
 #, kde-format
@@ -507,7 +507,7 @@ msgstr "%1 بت لكل لون"
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr "آلي (%1 بت لكل لون)"
+msgstr "آليّ (%1 بت لكل لون)"
 
 #: ui/OutputPanel.qml:469 ui/OutputPanel.qml:473
 #, kde-kuit-format
@@ -577,7 +577,7 @@ msgstr "النطاق الحركي الموسع:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "فعّل EDR"
+msgstr "مكّن EDR"
 
 #: ui/OutputPanel.qml:603
 #, kde-kuit-format
