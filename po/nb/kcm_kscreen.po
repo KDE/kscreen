@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-06 00:45+0000\n"
 "PO-Revision-Date: 2025-03-23 20:22+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -29,29 +29,29 @@ msgstr "Feil ved implementering"
 msgid "Outputs changed while trying to apply settings"
 msgstr "Utenheter endret ved forsøk på å bruke innstillingene"
 
-#: output_model.cpp:96
+#: output_model.cpp:87
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:719
+#: output_model.cpp:710
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:738
+#: output_model.cpp:729
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:825
+#: output_model.cpp:816
 #, kde-format
 msgid "None"
 msgstr "Ingen"
 
-#: output_model.cpp:832
+#: output_model.cpp:823
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Duplisert av annen utenhet"
@@ -480,7 +480,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
-"<nl/><nl/>"
+"<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:417
@@ -488,7 +488,8 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
-"performance at the cost of color accuracy.<nl/><nl/>"
+"performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
+"setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:425

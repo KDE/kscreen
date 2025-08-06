@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-06 00:45+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,18 +29,18 @@ msgstr "कार्यान्वयनदोषः"
 msgid "Outputs changed while trying to apply settings"
 msgstr "सेटिङ्ग्स् प्रयोक्तुं प्रयतमाने आउटपुट् परिवर्तिताः"
 
-#: output_model.cpp:96
+#: output_model.cpp:87
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 हर्ट्ज"
 
-#: output_model.cpp:719
+#: output_model.cpp:710
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:738
+#: output_model.cpp:729
 #, fuzzy, kde-format
 #| msgctxt "Width x height (aspect ratio)"
 #| msgid "%1x%2 (%3:%4)"
@@ -48,12 +48,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:825
+#: output_model.cpp:816
 #, kde-format
 msgid "None"
 msgstr "न कश्चित्"
 
-#: output_model.cpp:832
+#: output_model.cpp:823
 #, kde-format
 msgid "Replicated by other output"
 msgstr "अन्येन निर्गमेन प्रतिकृतम्"
@@ -509,7 +509,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
-"<nl/><nl/>"
+"<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:417
@@ -517,7 +517,8 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
-"performance at the cost of color accuracy.<nl/><nl/>"
+"performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
+"setting can have a large impact on performance."
 msgstr ""
 
 #: ui/OutputPanel.qml:425

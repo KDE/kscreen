@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-06 00:45+0000\n"
 "PO-Revision-Date: 2025-07-20 01:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,29 +27,29 @@ msgstr "구현 오류"
 msgid "Outputs changed while trying to apply settings"
 msgstr "설정을 적용하는 중 출력이 변경됨"
 
-#: output_model.cpp:96
+#: output_model.cpp:87
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:719
+#: output_model.cpp:710
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:738
+#: output_model.cpp:729
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2(%3:%4)"
 
-#: output_model.cpp:825
+#: output_model.cpp:816
 #, kde-format
 msgid "None"
 msgstr "없음"
 
-#: output_model.cpp:832
+#: output_model.cpp:823
 #, kde-format
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
@@ -469,22 +469,32 @@ msgid "Prefer color accuracy"
 msgstr "색 정밀도 선호"
 
 #: ui/OutputPanel.qml:410
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Preferring color accuracy limits potentially inaccurate offloading of "
+#| "color operations to the display driver and increases the maximum color "
+#| "resolution.<nl/><nl/>"
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
-"<nl/><nl/>"
+"<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 "색 정밀도 선호 설정에서는 정확하지 않을 수도 있는 색상 작업을 디스플레이 드라"
 "이버로 오프로드하는 것을 제한하며 최대 색 해상도를 향상시킵니다.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:417
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
+#| "improving performance at the cost of color accuracy.<nl/><nl/>"
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
-"performance at the cost of color accuracy.<nl/><nl/>"
+"performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
+"setting can have a large impact on performance."
 msgstr ""
 "효율성 선호 설정에서는 ICC 프로필을 Matrix+Shaper로 단순화하며, 색 정확도를 "
 "희생하는 대신 성능을 향상시킵니다.<nl/><nl/>"

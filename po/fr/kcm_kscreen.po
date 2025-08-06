@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-06 00:45+0000\n"
 "PO-Revision-Date: 2025-07-07 09:09+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -38,29 +38,29 @@ msgid "Outputs changed while trying to apply settings"
 msgstr ""
 "Sorties modifiées lors de la tentative d'application de la configuration"
 
-#: output_model.cpp:96
+#: output_model.cpp:87
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:719
+#: output_model.cpp:710
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:738
+#: output_model.cpp:729
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3 : %4)"
 
-#: output_model.cpp:825
+#: output_model.cpp:816
 #, kde-format
 msgid "None"
 msgstr "Aucun"
 
-#: output_model.cpp:832
+#: output_model.cpp:823
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Répliqué par une autre sortie"
@@ -495,23 +495,33 @@ msgid "Prefer color accuracy"
 msgstr "Préférez la précision des couleurs"
 
 #: ui/OutputPanel.qml:410
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Preferring color accuracy limits potentially inaccurate offloading of "
+#| "color operations to the display driver and increases the maximum color "
+#| "resolution.<nl/><nl/>"
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
-"<nl/><nl/>"
+"<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 "En préférant la précision des couleurs, vous limitez le délestage "
 "potentiellement inexact des opérations de couleurs vers le pilote "
 "d’affichage et vous augmentez la résolution maximale des couleurs. <nl/><nl/>"
 
 #: ui/OutputPanel.qml:417
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
+#| "improving performance at the cost of color accuracy.<nl/><nl/>"
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
-"performance at the cost of color accuracy.<nl/><nl/>"
+"performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
+"setting can have a large impact on performance."
 msgstr ""
 "La préférence pour l’efficacité simplifie le profil « ICC » envers la "
 "matrice et le façonneur, améliorant ainsi les performances au détriment de "
