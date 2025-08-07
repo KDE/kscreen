@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-05 11:17+0300\n"
+"PO-Revision-Date: 2025-08-06 22:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -478,12 +478,7 @@ msgid "Prefer color accuracy"
 msgstr "Renk doğruluğunu yeğle"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -492,14 +487,11 @@ msgid ""
 msgstr ""
 "Renk doğruluğunu tercih etmek, potansiyel olarak doğru olmayan renk "
 "işlemlerinin görüntü sürücüsüne devredilmesini sınırlar ve en yüksek renk "
-"çözünürlüğünü artırır.<nl/><nl/>"
+"çözünürlüğünü artırır.<nl/><nl/>Bu ayarın başarım üzerinde büyük bir etkisi "
+"olabileceğini unutmayın."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -508,7 +500,8 @@ msgid ""
 msgstr ""
 "Verimliliği tercih etmek, ICC profilini matris artı şekillendirici olarak "
 "yalınlaştırır ve bu da renk doğruluğundan ödün vererek başarımı iyileştirir."
-"<nl/><nl/>"
+"<nl/><nl/>Bu ayarı değiştirmenin başarım üzerinde büyük bir etkisi "
+"olabileceğini unutmayın."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

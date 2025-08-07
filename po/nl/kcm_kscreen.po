@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-18 07:41+0200\n"
-"Last-Translator: pieter <pieterkristensen@gmail.com>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"PO-Revision-Date: 2025-08-06 09:13+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -479,12 +479,7 @@ msgid "Prefer color accuracy"
 msgstr "Voorkeur voor kleurnauwkeurigheid"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -492,14 +487,11 @@ msgid ""
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 "Kiezen voor kleurnauwkeurigheid zorgt er voor dat het scherm accurater "
-"aangestuurd wordt en verhoogt de maximale kleurresolutie.<nl/><nl/>"
+"aangestuurd wordt en verhoogt de maximale kleurresolutie.<nl/><nl/>Merk op "
+"dat deze instelling een grote impact op prestaties kan hebben."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -508,7 +500,8 @@ msgid ""
 msgstr ""
 "Voorkeur voor efficiëntie vereenvoudigt het ICC-profiel tot matrix+shaper, "
 "waarmee prestaties worden verbeterd. Dit ten koste van kleurnauwkeurigheid."
-"<nl/><nl/>"
+"<nl/><nl/>Merk op dat deze instelling een grote impact op prestaties kan "
+"hebben."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

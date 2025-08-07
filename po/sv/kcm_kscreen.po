@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-28 18:30+0200\n"
+"PO-Revision-Date: 2025-08-06 12:57+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -477,12 +477,7 @@ msgid "Prefer color accuracy"
 msgstr "Föredra färgnoggrannhet"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -491,14 +486,11 @@ msgid ""
 msgstr ""
 "Att föredra färgnoggrannhet begränsar potentiellt felaktig överföring av "
 "färgoperationer till bildskärmsdrivrutinen och ökar den maximala "
-"färgupplösningen.<nl/><nl/>"
+"färgupplösningen.<nl/><nl/>Observera att inställningen kan ha stor inverkan "
+"på prestanda."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -506,7 +498,8 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "Att föredra effektivitet förenklar ICC-profilen till matris+formning, vilket "
-"förbättrar prestandan till priset av färgnoggrannhet.<nl/><nl/>"
+"förbättrar prestandan till priset av färgnoggrannhet.<nl/><nl/>Observera att "
+"inställningen kan ha stor inverkan på prestanda."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-05 06:27+0200\n"
+"PO-Revision-Date: 2025-08-06 07:22+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -483,35 +483,29 @@ msgid "Prefer color accuracy"
 msgstr "Daj prednost barvni natančnosti"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
-"Prednost barvne natančnosti omeji morebitno netočno raztovarjanje barvnih "
-"operacij na gonilnik zaslona in poveča največjo barvno ločljivost.<nl/><nl/>"
+"Če izberete natančnejšo barvo, omejite morebitno netočno prelaganje barvnih "
+"operacij na gonilnik zaslona in povečate največjo barvno ločljivost.<nl/><nl/"
+">Upoštevajte, da ima lahko ta nastavitev velik vpliv na delovanje."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
-"Prednost učinkovitosti poenostavi profil ICC na matriko+oblikovalnik, kar "
-"izboljša zmogljivost za ceno barvne natančnosti.<nl/><nl/>"
+"Če se prednostno odločimo za učinkovitost, se profil ICC poenostavi na "
+"matriko+oblikovalnik, kar izboljša zmogljivost na račun barvne natančnosti."
+"<nl/><nl/>Upoštevajte, da lahko sprememba te nastavitve močno vpliva na "
+"zmogljivost."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

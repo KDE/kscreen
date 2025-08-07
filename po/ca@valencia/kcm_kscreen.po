@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-23 23:11+0200\n"
+"PO-Revision-Date: 2025-08-06 08:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -482,12 +482,7 @@ msgid "Prefer color accuracy"
 msgstr "Preferix la precisió del color"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -496,14 +491,11 @@ msgid ""
 msgstr ""
 "Preferir la precisió del color limita la descàrrega potencialment inexacta "
 "de les operacions de color al controlador de visualització i augmenta la "
-"resolució màxima del color.<nl/><nl/>"
+"resolució màxima del color.<nl/><nl/>Cal tindre en compte que este paràmetre "
+"pot tindre un impacte gran en el rendiment."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -511,7 +503,8 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "Preferir l'eficiència simplifica el perfil ICC a matrix+shaper, millorant el "
-"rendiment a costa de la precisió del color.<nl/><nl/>"
+"rendiment a costa de la precisió del color.<nl/><nl/>Cal tindre en compte "
+"que canviar este paràmetre pot tindre un impacte gran en el rendiment."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

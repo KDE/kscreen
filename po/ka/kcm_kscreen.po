@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-07-05 04:27+0200\n"
+"PO-Revision-Date: 2025-08-06 05:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -478,12 +478,7 @@ msgid "Prefer color accuracy"
 msgstr "მირჩევნია ფერის სიზუსტე"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -492,14 +487,11 @@ msgid ""
 msgstr ""
 "ფერის სიზუსტისთვის მეტი პრიორიტეტის მინიჭებამ, შეიძლება, ფერების ოპერაციების "
 "დატვირთვის ვიდეობარათის დრაივერზე გადატანის უზუსტობები გამოიწვიოს და "
-"გაზარდოს მაქსიმალური ფერის გაფართოება.<nl/><nl/>"
+"გაზარდოს მაქსიმალური ფერის გაფართოება.<nl/><nl/>გაითვალისწინეთ, რომ ამ "
+"პარამეტრის ცვლილებას, შეიძლება, წარმადობაზე დიდი გავლენა ჰქონდეს."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -507,7 +499,9 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "ეფექტურობისთვის პრიორიტეტის მინიჭება ამარტივებს ICC პროფილს მატრიცამდე"
-"+შეიპერამდე, რაც ზრდის წარმადობას ფერის სიზუსტის ხარჯზე.<nl/><nl/>"
+"+შეიპერამდე, რაც ზრდის წარმადობას ფერის სიზუსტის ხარჯზე.<nl/><nl/"
+">დაიმახსოვრეთ, რომ ამ პარამეტრის შეცვლას, შეიძლება, წარმადობაზე დიდი გავლენა "
+"იქონიოს."
 
 #: ui/OutputPanel.qml:425
 #, kde-format
