@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-05-28 23:13+0900\n"
+"PO-Revision-Date: 2025-08-08 01:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -467,12 +467,7 @@ msgid "Prefer color accuracy"
 msgstr "注重色彩準確度"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -480,14 +475,11 @@ msgid ""
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 "「注重色彩準確度」會讓依賴顯示驅動時可能不準確的色彩操作用 CPU 處理而不交給顯"
-"示驅動，並且會提高最高的色彩深度。<nl/><nl/>"
+"示驅動，並且會提高最高的色彩深度。<nl/><nl/>請注意，這個設定可能會大幅影響效"
+"能。"
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -495,7 +487,7 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "「注重效能」會將 ICC 色彩描述檔簡化為矩陣 + 賦形器 (matrix+shaper)，提升效能"
-"但犧牲色彩準確度。<nl/><nl/>"
+"但犧牲色彩準確度。<nl/><nl/>請注意，調整這個設定可能會大幅影響效能。"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -531,6 +523,9 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"限制傳送給顯示器的影像的色彩深度。這不會影響螢幕截圖或是螢幕錄影。<nl/><nl/>"
+"由於顯示器目前透過基座連線，自動色彩深度已暫時降低到 8 位元以避免發生基座常有"
+"的問題。<nl/><nl/>由於圖形驅動程式的限制，無法得知實際使用的解析度。"
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -542,6 +537,9 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"限制傳送給顯示器的影像的色彩深度。這不會影響螢幕截圖或是螢幕錄影。<nl/><nl/>"
+"限制色彩深度能避開一些顯示器或圖形驅動程式的問題。<nl/><nl/>由於圖形驅動程式"
+"的限制，無法得知實際使用的解析度。"
 
 #: ui/OutputPanel.qml:490
 #, kde-format
