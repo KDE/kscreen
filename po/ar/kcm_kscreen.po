@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-06 00:45+0000\n"
-"PO-Revision-Date: 2025-08-03 23:45+0400\n"
+"PO-Revision-Date: 2025-08-10 22:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -474,12 +474,7 @@ msgid "Prefer color accuracy"
 msgstr "فضّل دقة الألوان"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -487,14 +482,11 @@ msgid ""
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 "يؤدي تفضيل دقة الألوان إلى الحد من إمكانية نقل عمليات الألوان إلى برنامج "
-"تشغيل العرض بشكل غير دقيق، ويزيد من دقة الألوان القصوى.<nl/> <nl/>"
+"تشغيل العرض بشكل غير دقيق، ويزيد من دقة الألوان القصوى.<nl/> <nl/> لاحظ أن "
+"هذا الإعداد قد يكون له تأثير كبير على الأداء."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -502,7 +494,8 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "يؤدي تفضيل الكفاءة إلى تبسيط ملف تعريف ICC إلى matrix+shaper، مما يؤدي إلى "
-"تحسين الأداء على حساب دقة الألوان.<nl/><nl/>"
+"تحسين الأداء على حساب دقة الألوان.<nl/><nl/> لاحظ أن هذا الإعداد قد يكون له "
+"تأثير كبير على الأداء."
 
 #: ui/OutputPanel.qml:425
 #, kde-format

@@ -465,35 +465,22 @@ msgid "Prefer color accuracy"
 msgstr "色彩准确性优先"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
-"色彩准确性优先会限制可能导致失真的将色彩操作交给显示驱动程序行为，并提升颜色"
-"分辨率。<nl/><nl/>"
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
-"性能优先会将 ICC 特性文件简化为 matrix+shaper，以牺牲色彩准确性为代价来提高性"
-"能。<nl/><nl/>"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
