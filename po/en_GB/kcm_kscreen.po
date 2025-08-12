@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:45+0000\n"
+"POT-Creation-Date: 2025-08-12 00:45+0000\n"
 "PO-Revision-Date: 2024-11-16 12:57+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -32,13 +32,13 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:710
+#: output_model.cpp:717
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:729
+#: output_model.cpp:736
 #, fuzzy, kde-format
 #| msgctxt "Width x height (aspect ratio)"
 #| msgid "%1x%2 (%3:%4)"
@@ -46,12 +46,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:816
+#: output_model.cpp:823
 #, kde-format
 msgid "None"
 msgstr "None"
 
-#: output_model.cpp:823
+#: output_model.cpp:830
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicated by other output"
@@ -621,7 +621,13 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:596
+#, kde-format
+msgctxt "@label"
+msgid "Sharpness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:624
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "High Dynamic Range:"
@@ -629,7 +635,7 @@ msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "High Dynamic Range:"
 
-#: ui/OutputPanel.qml:599
+#: ui/OutputPanel.qml:629
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -637,7 +643,7 @@ msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Enable HDR"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -646,7 +652,7 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:610
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica of:"

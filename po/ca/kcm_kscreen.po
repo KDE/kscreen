@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:45+0000\n"
+"POT-Creation-Date: 2025-08-12 00:45+0000\n"
 "PO-Revision-Date: 2025-08-06 08:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -36,24 +36,24 @@ msgstr "Les sortides han canviat mentre s'intentava aplicar la configuració"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:710
+#: output_model.cpp:717
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:729
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:816
+#: output_model.cpp:823
 #, kde-format
 msgid "None"
 msgstr "Cap"
 
-#: output_model.cpp:823
+#: output_model.cpp:830
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicat per una altra sortida"
@@ -614,19 +614,25 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:596
+#, kde-format
+msgctxt "@label"
+msgid "Sharpness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Marge dinàmic ampliat:"
 
-#: ui/OutputPanel.qml:599
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Activa l'EDR"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -638,7 +644,7 @@ msgstr ""
 "la retroil·luminació.<nl/><nl/>Tingueu en compte que això augmenta l'ús de "
 "la bateria mentre es visualitza el contingut HDR."
 
-#: ui/OutputPanel.qml:610
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "Rèplica de:"

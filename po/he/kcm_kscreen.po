@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:45+0000\n"
+"POT-Creation-Date: 2025-08-12 00:45+0000\n"
 "PO-Revision-Date: 2025-08-06 08:17+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -35,24 +35,24 @@ msgstr "מסכי הפלט השתנו תוך ניסיון החלת ההגדרות
 msgid "%1 Hz"
 msgstr "%1 הרץ"
 
-#: output_model.cpp:710
+#: output_model.cpp:717
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:729
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:816
+#: output_model.cpp:823
 #, kde-format
 msgid "None"
 msgstr "ללא"
 
-#: output_model.cpp:823
+#: output_model.cpp:830
 #, kde-format
 msgid "Replicated by other output"
 msgstr "מועתק על ידי פלט אחר"
@@ -596,19 +596,25 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:596
+#, kde-format
+msgctxt "@label"
+msgid "Sharpness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "טווח דינמי מורחב (EDR):"
 
-#: ui/OutputPanel.qml:599
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "הפעלת HDR"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -619,7 +625,7 @@ msgstr ""
 "EDR מאפשר הצגת תוכן HDR על מסכי SDR על ידי התאמת התאורה האחורית באופן דימני."
 "<nl/><nl/>נא לשים לב שהמנגנון הזה מגביר את השימוש בסוללה בעת צפייה בתוכן HDR."
 
-#: ui/OutputPanel.qml:610
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "עותק של:"

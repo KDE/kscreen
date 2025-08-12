@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:45+0000\n"
+"POT-Creation-Date: 2025-08-12 00:45+0000\n"
 "PO-Revision-Date: 2025-07-20 01:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -32,24 +32,24 @@ msgstr "설정을 적용하는 중 출력이 변경됨"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:710
+#: output_model.cpp:717
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:729
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2(%3:%4)"
 
-#: output_model.cpp:816
+#: output_model.cpp:823
 #, kde-format
 msgid "None"
 msgstr "없음"
 
-#: output_model.cpp:823
+#: output_model.cpp:830
 #, kde-format
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
@@ -602,19 +602,25 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:596
+#, kde-format
+msgctxt "@label"
+msgid "Sharpness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "확장된 다이나믹 레인지:"
 
-#: ui/OutputPanel.qml:599
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR 활성화"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -625,7 +631,7 @@ msgstr ""
 "EDR을 사용하면 HDR 콘텐츠를 SDR 디스플레이에 표시할 때 동적으로 백라이트를 조"
 "정합니다.<nl/><nl/>HDR 콘텐츠를 표시하는 동안 배터리 사용량을 증가시킵니다."
 
-#: ui/OutputPanel.qml:610
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"

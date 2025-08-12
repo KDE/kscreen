@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:45+0000\n"
+"POT-Creation-Date: 2025-08-12 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,24 +32,24 @@ msgstr "输出在尝试应用设置时发生更改"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:710
+#: output_model.cpp:717
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:729
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:816
+#: output_model.cpp:823
 #, kde-format
 msgid "None"
 msgstr "无"
 
-#: output_model.cpp:823
+#: output_model.cpp:830
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
@@ -472,6 +472,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"色彩准确性优先会限制可能导致失真的将色彩操作交给显示驱动程序行为，并提升颜色"
+"分辨率。<nl/><nl/>请注意：此设置可能会对性能产生较大影响。"
 
 #: ui/OutputPanel.qml:417
 #, kde-kuit-format
@@ -481,6 +483,8 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"性能优先模式将把 ICC 特性文件简化为矩阵+整形器 (matrix+shaper)，以牺牲色彩准"
+"确性为代价提高性能。<nl/><nl/>请注意：更改此设置可能会对性能产生较大影响。"
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -581,19 +585,25 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:594
+#: ui/OutputPanel.qml:596
+#, kde-format
+msgctxt "@label"
+msgid "Sharpness:"
+msgstr ""
+
+#: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "扩展动态范围："
 
-#: ui/OutputPanel.qml:599
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "启用 EDR"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -604,7 +614,7 @@ msgstr ""
 "EDR 能够通过动态调整背光亮度在 SDR 显示屏上显示 HDR 内容。<nl/><nl/>请注意："
 "在观看 HDR 内容时，此功能将增加耗电量。"
 
-#: ui/OutputPanel.qml:610
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "复制自："
