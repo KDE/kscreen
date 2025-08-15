@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-12 00:45+0000\n"
-"PO-Revision-Date: 2025-07-06 01:35-0300\n"
+"PO-Revision-Date: 2025-08-13 23:37-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -484,12 +484,7 @@ msgid "Prefer color accuracy"
 msgstr "Preferir precisão das cores"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -498,14 +493,11 @@ msgid ""
 msgstr ""
 "Preferir a precisão das cores limita o descarregamento potencialmente "
 "impreciso de operações de cores para o driver de vídeo e aumenta a resolução "
-"máxima de cor.<nl/><nl/>"
+"máxima de cor.<nl/><nl/>Note que alterar essa opção pode ter um grande "
+"impacto no desempenho."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -513,7 +505,8 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "Preferir eficiência simplifica o perfil ICC para matrix+shaper, melhorando o "
-"desempenho ao custo de precisão de cor.<nl/><nl/>"
+"desempenho ao custo de precisão de cor.<nl/><nl/>Note que alterar essa opção "
+"pode ter um grande impacto no desempenho."
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -623,7 +616,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Nitidez:"
 
 #: ui/OutputPanel.qml:624
 #, kde-format
