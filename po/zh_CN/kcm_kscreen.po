@@ -589,7 +589,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "锐利度："
 
 #: ui/OutputPanel.qml:624
 #, kde-format
