@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-12 00:45+0000\n"
-"PO-Revision-Date: 2025-08-10 22:05+0400\n"
+"PO-Revision-Date: 2025-08-17 22:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -603,7 +603,7 @@ msgstr "%1٪"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "الوضوح:"
 
 #: ui/OutputPanel.qml:624
 #, kde-format
