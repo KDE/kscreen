@@ -30,3 +30,4 @@ RuntimeDependencies:
 
 Options:
  json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
+ run-qmllint: true
