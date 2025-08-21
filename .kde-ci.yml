@@ -19,6 +19,7 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'frameworks/kcmutils': '@latest-kf6'
+    'frameworks/kirigami': '@latest-kf6'
     'plasma/libplasma': '@same'
     'plasma/libkscreen': '@same'
     'plasma/layer-shell-qt': '@same'
