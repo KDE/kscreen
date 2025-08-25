@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-12 00:45+0000\n"
-"PO-Revision-Date: 2025-06-08 10:20+0300\n"
+"PO-Revision-Date: 2025-08-22 14:57+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -479,27 +479,20 @@ msgid "Prefer color accuracy"
 msgstr "Dot priekšroku krāsu precizitātei"
 
 #: ui/OutputPanel.qml:410
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
-"Vēlamā krāsu precizitāte ierobežo potenciāli neprecīzu krāsu darbību izlādi "
-"uz displeja draiveri un palielina maksimālo krāsu izšķirtspēju.<nl/><nl/>"
+"Dodot priekšroku krāsu precizitātei, šis iestatījums ierobežo potenciāli "
+"neprecīzu krāsu darbību izlādi uz displeja draiveri un palielina maksimālo "
+"krāsu izšķirtspēju.<nl/><nl/>Ievērojiet, ka šis iestatījums samazinās "
+"sistēmas veiktspēju."
 
 #: ui/OutputPanel.qml:417
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -507,7 +500,9 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "Priekšrokas došanas efektivitātei vienkāršo ICC profilu līdz matricai un "
-"formētājam, palielinot veiktspēju uz krāsu precizitātes rēķina.<nl/><nl/>"
+"formētājam, palielinot veiktspēju uz krāsu precizitātes rēķina.<nl/><nl/"
+">Ievērojiet, ka šī iestatījuma izmainīšana var stipri ietekmēt sistēmas "
+"veiktspēju."
 
 #: ui/OutputPanel.qml:425
 #, kde-format
@@ -543,6 +538,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Ierobežo attēla krāsu izšķirtspēju, kas tiek sūtīta uz displeju. Tas "
+"neietekmē ekrānattēlus un ekrāna ierakstus.<nl/><nl/>Tā kā displejs šobrīd "
+"ir pievienots caur dokstaciju, automātiskā krāsu izšķirtspēja ir uz laiku "
+"samazināta līdz 8 bitiem, lai izvairītos no biežākām dokstacijas darbības "
+"problēmām.<nl/><nl/>Grafikas draivera ierobežojuma dēļ faktiskā izmantotā "
+"izšķirtspēja nav zināma."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -554,6 +555,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Ierobežo uz displeja nosūtāmā attēla krāsu izšķirtspēju. Šis iestatījums "
+"neietekmē ekrānattēlus un ekrāna ierakstus.<nl/><nl/>Krāsu izšķirtspējas "
+"samazināšana var būt noderīga, ja saskaraties ar displeja vai grafikas "
+"problēmām.<nl/><nl/>Grafikas draivera ierobežojuma dēļ faktiskā izmantotā "
+"izšķirtspēja nav zināma."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
@@ -607,7 +613,7 @@ msgstr "%1 %"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Asums:"
 
 #: ui/OutputPanel.qml:624
 #, kde-format
