@@ -18,16 +18,14 @@ msgstr ""
 "X-Generator: Lokalize 24.05.2\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Přepnout se na externí obrazovku"
+msgstr ""
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Vestavěná obrazovka"
+msgstr ""
 
 #: osdaction.cpp:30
 #, kde-format
@@ -40,10 +38,9 @@ msgid "Extend to left of built-in screen"
 msgstr ""
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Rozšířit doprava"
+msgstr ""
 
 #: osdaction.cpp:33
 #, kde-format
@@ -54,12 +51,3 @@ msgstr "Ponechat nezměněné"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Vestavěná obrazovka"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Přepnout se na obrazovku notebooku"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Sjednotit výstupy"
-
-#~ msgid "Extend to left"
-#~ msgstr "Rozšířit doleva"
