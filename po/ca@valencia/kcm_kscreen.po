@@ -402,7 +402,7 @@ msgstr "Introduïu el camí del perfil ICC…"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Seleccioneu el perfil ICC…"
+msgstr "Tria el perfil ICC…"
 
 #: ui/OutputPanel.qml:309
 #, kde-format
