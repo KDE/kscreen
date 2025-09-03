@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2017, 2020, 2023.
+# SPDX-FileCopyrightText: 2017, 2020, 2023, 2025 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:43+0000\n"
-"PO-Revision-Date: 2023-02-02 22:46+0100\n"
+"PO-Revision-Date: 2025-09-02 17:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,19 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
 msgstr "Commuta  a schermo externe "
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Schermo includite"
+msgstr "Usa solmente Schermo includite"
 
 #: osdaction.cpp:30
 #, kde-format
@@ -40,10 +38,9 @@ msgid "Extend to left of built-in screen"
 msgstr ""
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Extende a dextera"
+msgstr "Extende a dextera del schermo includite"
 
 #: osdaction.cpp:33
 #, kde-format
