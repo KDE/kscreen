@@ -10,6 +10,7 @@
 #include <kscreen/edid.h>
 #include <kscreen/mode.h>
 
+#include "common/output.h"
 #include "common/utils.h"
 #include "config_handler.h"
 
@@ -394,6 +395,10 @@ void OutputModel::add(const KScreen::OutputPtr &output)
     const int insertPos = m_outputs.count();
     beginInsertRows(QModelIndex(), insertPos, insertPos);
 
+    if (!output->isEnabled() && !(m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling)) {
+        output->setRotation(::Output::readGlobal(output).rotation.value_or(KScreen::Output::Rotation::None));
+    }
+
     int i = 0;
     while (i < m_outputs.size()) {
         const QPoint pos = m_outputs[i].ptr->pos();
@@ -515,6 +520,10 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
     output.ptr->setEnabled(enable);
 
     if (enable) {
+        if (!(m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling)) {
+            output.ptr->setRotation(::Output::readGlobal(output.ptr).rotation.value_or(KScreen::Output::Rotation::None));
+        }
+
         resetPosition(output);
 
         setResolution(outputIndex, resolutionIndex(output.ptr));
