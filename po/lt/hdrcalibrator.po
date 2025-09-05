@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:44+0000\n"
-"PO-Revision-Date: 2025-07-09 00:44+0000\n"
+"PO-Revision-Date: 2025-09-04 12:15+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,46 +17,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: hdrcalibrator.cpp:118 ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr ""
+msgstr "HDR kalibravimas"
 
 #: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr ""
+msgstr "Kitas"
 
 #: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr ""
+msgstr "Perjungia į kitą puslapį"
 
 #: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr ""
+msgstr "Nutraukia kalibravimo procesą"
 
 #: ui/Main.qml:159
 #, kde-format
@@ -64,12 +65,14 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
+"Norėdami nustatyti ,koks yra didžiausias ekrano ryškumas, reguliuokite "
+"slinktuką tol, kol logotipas bus vos matomas"
 
 #: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr ""
+msgstr "Atlikta"
 
 #: ui/Main.qml:323
 #, kde-format
@@ -78,3 +81,6 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
+"Konfigūruokite, koks įprastame ryškumo slinktuke turėtų būti įprastas „100%“ "
+"ryškumas. Padarykite jį tokiu, kokį tik kada nors naudosite, bet tuo pačiu "
+"žiūrėkite, kad HDR paveikslas atrodytų gerai, o gradientai būtų glotnūs."
