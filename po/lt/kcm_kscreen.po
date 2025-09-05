@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2025-01-27 14:31+0200\n"
+"PO-Revision-Date: 2025-09-04 13:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: kcm.cpp:152 kcm.cpp:174
 #, kde-format
@@ -38,15 +38,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:738
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:825
 #, kde-format
@@ -103,9 +101,7 @@ msgid ""
 msgstr "Tarpai tarp ekranų nėra palaikomi. Įsitikinkite, kad ekranai liečiasi."
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgctxt "The argument contains the reason for the failure"
-#| msgid "Couldn't apply display configuration: %1"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Nepavyko pritaikyti ekrano konfigūracijos: %1"
@@ -173,14 +169,13 @@ msgstr "Teikti mažesnę pirmenybę"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Suskleisti"
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "Arrangement settings"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Išdėstymo nuostatos"
+msgstr "Taisyti išdėstymą"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -206,18 +201,18 @@ msgstr "Rankinis"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:252
 #, kde-format
@@ -225,8 +220,7 @@ msgid "Replicas"
 msgstr "Atkartojimai"
 
 #: ui/OutputPanel.qml:28
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Įrenginys:"
@@ -262,12 +256,10 @@ msgid "Resolution:"
 msgstr "Skiriamoji geba:"
 
 #: ui/OutputPanel.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "&quot;%1&quot; is the only resolution supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "&quot;%1&quot; yra vienintelė šio ekrano palaikoma skiriamoji geba."
+msgstr "„%1“ yra vienintelė skiriamoji geba, kurią palaiko šis ekranas."
 
 #: ui/OutputPanel.qml:89
 #, kde-format
@@ -292,11 +284,10 @@ msgid "Refresh rate:"
 msgstr "Atnaujinimo dažnis:"
 
 #: ui/OutputPanel.qml:158
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "„%1“ yra vienintelis atnaujinimo dažnis, kurį šis ekranas palaiko."
+msgstr "„%1“ yra vienintelis atnaujinimo dažnis, kurį palaiko šis ekranas."
 
 #: ui/OutputPanel.qml:163
 #, kde-format
@@ -325,12 +316,7 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:200
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines how much padding is put around the image sent to the display "
-#| "to compensate for part of the content being cut off around the edges.<nl/"
-#| "><nl/>This is sometimes needed when using a TV as a screen"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
@@ -338,8 +324,8 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 "Nustato, kiek užpildo bus aplink paveikslą, kuris yra siunčiamas į ekraną ir "
-"yra naudojamas kompensuoti aplink kraštus nukarpomas turinio dalis.<nl/><nl/"
-">Kartais, to reikia, kai televizorius yra naudojamas kaip ekranas"
+"naudojamas aplink kraštus nukarpomoms turinio dalims kompensuoti.<nl/><nl/"
+">Kartais, to prireikia, kai televizorius yra naudojamas kaip ekranas."
 
 #: ui/OutputPanel.qml:205
 #, kde-format
@@ -357,12 +343,7 @@ msgid "Limited"
 msgstr "Ribotas"
 
 #: ui/OutputPanel.qml:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Determines whether or not the range of possible color values needs to be "
-#| "limited for the display. This should only be changed if the colors on the "
-#| "screen look washed out."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
@@ -373,9 +354,7 @@ msgstr ""
 "turėtų būti keičiama tik tuo atveju, jei spalvos ekrane atrodo išblukusios."
 
 #: ui/OutputPanel.qml:230
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Color Profile:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr "Spalvų profilis:"
@@ -435,12 +414,10 @@ msgid "Select ICC Profile"
 msgstr "Pasirinkti ICC profilį"
 
 #: ui/OutputPanel.qml:343
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "Kol kas ICC profiliai nėra suderinami su HDR"
+msgstr "Kol kas ICC profiliai nėra suderinami su HDR."
 
 #: ui/OutputPanel.qml:350
 #, kde-format
@@ -455,27 +432,24 @@ msgid "Enable &HDR"
 msgstr "Įjungti &HDR"
 
 #: ui/OutputPanel.qml:363
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid colors"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 "HDR leidžia suderinamoms programoms atvaizduoti ryškesnes ir labiau "
-"vaizdingas spalvas"
+"vaizdingas spalvas."
 
 #: ui/OutputPanel.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Kalibruoti HDR ryškumą…"
 
 #: ui/OutputPanel.qml:382
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Atveria langą, skirtą kalibruoti HDR ryškumą"
 
 #: ui/OutputPanel.qml:389
 #, kde-format
@@ -503,6 +477,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>"
 msgstr ""
+"Teikiant pirmenybę spalvų tikslumui, yra apribojamas galimai netikslus "
+"spalvų operacijų iškrovimas į ekrano tvarkytuvę ir padidinama didžiausia "
+"spalvų skiriamoji geba.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:416
 #, kde-kuit-format
@@ -511,30 +488,32 @@ msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>"
 msgstr ""
+"Teikiant pirmenybę efektyvumui, ICC profilis yra supaprastinamas iki matricos"
+"+formuotuvo, pagerinant našumą spalvų tikslumo sąskaita.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:424
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Apriboti skiriamąją gebą iki:"
 
 #: ui/OutputPanel.qml:445
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Automatinė  (%1 bitų spalvai)"
 
 #: ui/OutputPanel.qml:447 ui/OutputPanel.qml:460
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bitų spalvai"
 
 #: ui/OutputPanel.qml:458
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Automatinė (%1 bitų spalvai)"
 
 #: ui/OutputPanel.qml:469 ui/OutputPanel.qml:473
 #, kde-kuit-format
@@ -543,11 +522,11 @@ msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
 "does not affect screenshots or recordings.<nl/><nl/>"
 msgstr ""
+"Apriboja į ekraną siunčiamo paveikslo spalvų skiriamąją gebą. Tai neturi "
+"jokios įtakos ekrano kopijoms ar ekrano įrašams.<nl/><nl/>"
 
 #: ui/OutputPanel.qml:488
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "sRGB Color Intensity:"
+#, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB spalvų intensyvumas:"
@@ -559,12 +538,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:527
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of sRGB content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Padidina sRGB turinio ekrane intensyvumą"
+msgstr "Padidina sRGB turinio ekrane intensyvumą."
 
 #: ui/OutputPanel.qml:536
 #, kde-format
@@ -576,7 +553,7 @@ msgstr "Ryškumas:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Valdyti aparatinės įrangos ryškumą naudojant DDC/CI"
 
 #: ui/OutputPanel.qml:548
 #, kde-format
@@ -586,30 +563,27 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI yra daugelio monitorių palaikoma ypatybė. Plasma gali ją naudoti, kad "
+"pasitelkdama darbalaukio valdiklius reguliuotų ekrano ryškumą taip, tarsi "
+"naudotų monitoriaus mygtukus ir ekrane iškylantįjį meniu."
 
 #: ui/OutputPanel.qml:581
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:592
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Didelis dinaminis rėžis (HDR):"
+msgstr "Išplėstas dinaminis rėžis (EDR):"
 
 #: ui/OutputPanel.qml:597
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Įjungti &HDR"
+msgstr "Įjungti EDR"
 
 #: ui/OutputPanel.qml:603
 #, kde-kuit-format
@@ -619,6 +593,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR leidžia žiūrėti HDR turinį SDR ekranuose dinamiškai reguliuodamas foninį "
+"apšvietimą.<nl/><nl/>Turėkite omenyje, kad tai padidina akumuliatoriaus "
+"energijos naudojimą, kol peržiūrimas HDR turinys."
 
 #: ui/OutputPanel.qml:608
 #, kde-format
@@ -642,16 +619,13 @@ msgid "Apply scaling themselves"
 msgstr "Pačios taikys mastelio keitimą"
 
 #: ui/Panel.qml:130
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
+#, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
 "Pasenusios programos, kurios palaiko mastelio keitimą, jį naudos ir atrodys "
-"ryškiai, o tos kurios nepalaiko – jų mastelis iš viso nebus keičiamas."
+"ryškiai, o tos, kurios nepalaiko – jų mastelis iš viso nebus keičiamas."
 
 #: ui/Panel.qml:141
 #, kde-format
