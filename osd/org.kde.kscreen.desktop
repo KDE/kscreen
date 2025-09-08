@@ -41,7 +41,6 @@ Name[sv]=Bildskärmsinställning
 Name[ta]=திரை அமைப்பு
 Name[tr]=Görüntü Yapılandırması
 Name[uk]=Налаштування дисплея
-Name[x-test]=xxDisplay Configurationxx
 Name[zh_CN]=显示器配置
 Name[zh_TW]=顯示器設定
 Icon=preferences-desktop-display
@@ -88,7 +87,6 @@ Name[sv]=Byt bildskärm
 Name[ta]=திரையை மாற்றியமை
 Name[tr]=Görüntüyü Değiştir
 Name[uk]=Перемикання дисплея
-Name[x-test]=xxSwitch Displayxx
 Name[zh_CN]=切换显示器
 Name[zh_TW]=切換顯示器
 Exec=dbus-send --type=method_call --print-reply --dest=org.kde.kscreen.osdService /org/kde/kscreen/osdService org.kde.kscreen.osdService.showActionSelector
