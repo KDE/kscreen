@@ -44,7 +44,6 @@ Name[ta]=விரை திரை அமைப்பு
 Name[tg]=Танзимоти зудамали экран
 Name[tr]=Hızlı Ekran Yapılandırması
 Name[uk]=Швидке налаштовування дисплея
-Name[x-test]=xxQuick Display Configurationxx
 Name[zh_CN]=快捷显示器配置
 Name[zh_TW]=快速設定顯示器
 Comment=Quick configuration of a new display
@@ -92,7 +91,6 @@ Comment[ta]=புதிய திரையை எளிதில் அமை�
 Comment[tg]=Танзимоти зудамал барои экрани нав
 Comment[tr]=Yeni bir ekranın hızlı yapılandırması
 Comment[uk]=Швидке налаштовування нового дисплея
-Comment[x-test]=xxQuick configuration of a new displayxx
 Comment[zh_CN]=快捷配置新显示器
 Comment[zh_TW]=快速設定新的顯示器
 
