@@ -34,7 +34,6 @@
         "Description[sv]": "Hantera och ställ in bildskärmar",
         "Description[tr]": "Monitörleri ve görüntüleri yönetin ve yapılandırın",
         "Description[uk]": "Керування моніторами і дисплеями та їх налаштовування",
-        "Description[x-test]": "xxManage and configure monitors and displaysxx",
         "Description[zh_CN]": "管理和配置显示器",
         "Description[zh_TW]": "管理並設定螢幕與顯示器",
         "FormFactors": [
@@ -76,7 +75,6 @@
         "Name[sv]": "Inställning av bildskärm",
         "Name[tr]": "Görüntü Yapılandırması",
         "Name[uk]": "Налаштування дисплея",
-        "Name[x-test]": "xxDisplay Configurationxx",
         "Name[zh_CN]": "显示器配置",
         "Name[zh_TW]": "顯示器設定"
     },
@@ -104,7 +102,6 @@
     "X-KDE-Keywords[sl]": "prikaz,monitor,zaslon,merilo,lestvičenje,ločljivost,usmerjenost,vrtenje,rotiranje,izhod,izhodi,osveži,velikost namizja,strojna oprema,naprave,naprava,deljeno,dpi,grafika,hitrost sličic,hitrost slik,fps,hertz,Hz,razvrstitev monitorjev,razporeditev zaslonov,razmerje stranic,sekundarni zaslon,sekundarni monitor,sekundarni zaslon,vrr,spremenljiva hitrost osveževanja,hdr,visoko dinamično območje,freesync,g-sync,kakovost,hdmi,zaslonska vrata,displayport,dp,vga,dvi,type-c,zaslon thunderbolt,zunanji prikazovalnik,zunanji monitor,zunanji zaslon,slikovnih pik,16:9,21:9,4:3,720p,1080p,1440p,4k,5k,8k,12k,16k,mreža zaslona,način tablice",
     "X-KDE-Keywords[sv]": "bildskärm,skärm,skala,skalning,upplösning,orientering,rotera,rotation,utgång,utgångar,uppdatering,skrivbordsstorlek,maskinvara,enheter,enhet,bråkdel,punkter/tum,grafik,bildhastighet,bps,hertz,hz,ordna bildskärmar,skärmarrangemang,bildförhållande,sekundär skärm,sekundär bildskärm,vrr,variabel uppdateringsfrekvens,hdr,högt dynamiskt omfång,freesync,g-sync,kvalitet,hdmi,displayport,displayport,dp,vga,dvi,type-c,thunderbolt-skärm,extern bildskärm,extern skärm,bildpunkter,16:9,21:9,4:3,720p,1080p,1440p,4k,5k,8k,12k,16k,skärmrutnät\",surfplatteläge",
     "X-KDE-Keywords[uk]": "display,monitor,screen,scale,scaling,resolution,orientation,rotate,rotation,output,outputs,refresh,refresh rate,desktop size,hardware,devices,device,fractional,dpi,graphics,framerate,frame rate,fps,hertz,hz,arrange monitors,screen arrangement,aspect ratio,secondary screen,secondary monitor,secondary display,vrr,variable refresh rate,hdr,high dynamic range,freesync,g-sync,quality,hdmi,display port,displayport,dp,vga,dvi,type-c,thunderbolt display,external display,external monitor,external screen,pixels,16:9,21:9,4:3,720p,1080p,1440p,4k,5k,8k,12k,16k,display grid,tablet mode,дисплей,монітор,екран,масштаб,масштабування,роздільність,орієнтація,обертання,виведення,оновлення,частота,розмір,стільниця,обладнання,пристрої,пристрій,дробовий,графіка,кадр,кадрів,герц,герців,упорядкування,змінна,динамічний діапазон,пропорції,високий,якість,зовнішній,режим планшета",
-    "X-KDE-Keywords[x-test]": "xxdisplayxx,xxmonitorxx,xxscreenxx,xxscalexx,xxscalingxx,xxresolutionxx,xxorientationxx,xxrotatexx,xxrotationxx,xxoutputxx,xxoutputsxx,xxrefreshxx,xxdesktop sizexx,xxhardwarexx,xxdevicesxx,xxdevicexx,xxfractionalxx,xxdpixx,xxgraphicsxx,xxframeratexx,xxframe ratexx,xxfpsxx,xxhertzxx,xxhzxx,xxarrange monitorsxx,xxscreen arrangementxx,xxaspect ratioxx,xxsecondary screenxx,xxsecondary monitorxx,xxsecondary displayxx,xxvrrxx,xxvariable refresh ratexx,xxhdrxx,xxhigh dynamic rangexx,xxfreesyncxx,xxg-syncxx,xxqualityxx,xxhdmixx,xxdisplay portxx,xxdisplayportxx,xxdpxx,xxvgaxx,xxdvixx,xxtype-cxx,xxthunderbolt displayxx,xxexternal displayxx,xxexternal monitorxx,xxexternal screenxx,xxpixelsxx,xx16:9xx,xx21:9xx,xx4:3xx,xx720pxx,xx1080pxx,xx1440pxx,xx4kxx,xx5kxx,xx8kxx,xx12kxx,xx16kxx,xxdisplay gridxx,xxtablet modexx",
     "X-KDE-System-Settings-Parent-Category": "display",
     "X-KDE-Weight": 40
 }
