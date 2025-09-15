@@ -17,7 +17,7 @@ import org.kde.private.kcm.kscreen 1.0 as KScreen
 KCM.AbstractKCM {
     id: root
 
-    // This will be overriden on selection, but ensures we start with an
+    // This will be overridden on selection, but ensures we start with an
     // enabled display as the initial selection
     property int selectedOutput: firstEnabledDisplayIndex()
 

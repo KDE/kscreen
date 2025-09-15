@@ -12,7 +12,7 @@ namespace Globals
 {
 QString dirPath();
 /**
- * Tries to find the specified file realtive to dirPath(). Also considers presets if there is no
+ * Tries to find the specified file relative to dirPath(). Also considers presets if there is no
  * existing file under dirPath() yet.
  * @returns The abosolute path to a matching file if on exists or an empty string
  */

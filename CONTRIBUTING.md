@@ -8,7 +8,7 @@
 ## Code of Conduct
 The [KDE Community Code of Conduct][kde-coc] is applied.
 
-You can reach out to the [Commmunity Working Group][community-working-group] if you have questions about the Code of Conduct or if you want to get help on solving an issue with another contributor or maintainer.
+You can reach out to the [Community Working Group][community-working-group] if you have questions about the Code of Conduct or if you want to get help on solving an issue with another contributor or maintainer.
 
 ## Issues
 Please reports issues and suggestions using [KDE's bugzilla][bugzilla].

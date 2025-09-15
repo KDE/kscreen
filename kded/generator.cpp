@@ -124,7 +124,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
 
     KScreen::ConfigPtr newConfig;
 
-    // If the ideal config can't be applied, try clonning
+    // If the ideal config can't be applied, try cloning
     if (!KScreen::Config::canBeApplied(config)) {
         if (isLaptop()) {
             newConfig = displaySwitch(Generator::Clone); // Try to clone at our best

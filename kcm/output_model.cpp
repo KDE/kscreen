@@ -484,7 +484,7 @@ void OutputModel::resetPosition(Output &output)
         output.ptr->setPos(reset);
     }
 
-    // TODO: this function is called when positioning programatically,
+    // TODO: this function is called when positioning programmatically,
     //   it may make sense to run the final positions through the snapping logic
     //   to make sure the results are consistent with manual snapping
 }
@@ -929,7 +929,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             if (!bestMode) {
                 return false;
             }
-            // Step 2: reposition ans scale destination output to be centered inside the source output
+            // Step 2: reposition and scale destination output to be centered inside the source output
             auto sourceSize = source->currentMode()->size();
             auto destinationSize = bestMode->size();
             if (source->rotation() == KScreen::Output::Left || source->rotation() == KScreen::Output::Right) {
