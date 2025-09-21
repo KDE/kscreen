@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2025-07-07 17:04+0100\n"
+"PO-Revision-Date: 2025-09-20 20:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "Escalar:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
@@ -325,7 +325,7 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
-"Es factor de escalado global está limitado a múltiplos de 6,25% para "
+"Es factor de escalado global está limitado a múltiplos de 6,25 % para "
 "minimizar defectos de visualización en las aplicaciones que usan el sistema "
 "de ventanas X11."
 
