@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-12 00:45+0000\n"
-"PO-Revision-Date: 2025-08-12 14:37+0300\n"
+"PO-Revision-Date: 2025-10-05 12:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -284,7 +284,7 @@ msgstr "קצב ריענון:"
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד."
+msgstr "הצג הזה תומך בקצב הריענון „%1” בלבד."
 
 #: ui/OutputPanel.qml:159
 #, kde-format
@@ -292,7 +292,7 @@ msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "הצג הזה תומך בקצב הריענון „%1”  בלבד ברזולוציה הזאת."
+msgstr "הצג הזה תומך בקצב הריענון „%1” בלבד ברזולוציה הזאת."
 
 #: ui/OutputPanel.qml:164
 #, kde-format
