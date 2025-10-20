@@ -48,7 +48,7 @@ PendingImageDescription::~PendingImageDescription()
 
 void PendingImageDescription::wp_image_description_v1_ready([[maybe_unused]] uint32_t identity)
 {
-    if (m_window && m_surface) {
+    if (m_window && m_surface && m_window->handle()) {
         if (m_renderIntent == HdrHelper::RenderIntent::Perceptual) {
             wp_color_management_surface_v1_set_image_description(m_surface->object(), object(), WP_COLOR_MANAGER_V1_RENDER_INTENT_PERCEPTUAL);
         } else {
