@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2015, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2015, 2020, 2021, 2022, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-26 02:49+0000\n"
-"PO-Revision-Date: 2022-04-30 11:46+0100\n"
+"PO-Revision-Date: 2025-10-05 02:12+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -27,7 +27,7 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr ""
+msgstr "%1x%2"
 
 #: output_model.cpp:657
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "&Restabilește"
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Toate afișajele sunt dezactivate. Activați cel puțin unul."
 
 #: package/contents/ui/main.qml:107 package/contents/ui/main.qml:289
 #, kde-format
@@ -80,6 +80,8 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Golurile între afișaje nu sunt susținute. Asigurați-vă că toate afișajele se "
+"ating."
 
 #: package/contents/ui/main.qml:119 package/contents/ui/main.qml:302
 #, kde-format
@@ -102,18 +104,17 @@ msgid "Outputs could not be saved due to error."
 msgstr "Ieșirile nu au putut fi salvate din cauza erorii."
 
 #: package/contents/ui/main.qml:191
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Scala globală e aplicată. Modificarea va intra în vigoare după repornire."
+"Modificările de scalare globală vor intra în vigoare după repornirea "
+"sistemului."
 
 #: package/contents/ui/main.qml:197
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Repornește"
 
 #: package/contents/ui/main.qml:217
 #, kde-format
@@ -124,7 +125,7 @@ msgstr "Configurația afișajului a fost restabilită."
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Schimbă prioritățile"
 
 #: package/contents/ui/main.qml:254 package/contents/ui/OutputPanel.qml:42
 #, kde-format
@@ -134,12 +135,12 @@ msgstr "Primar"
 #: package/contents/ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Crește prioritatea"
 
 #: package/contents/ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Scade prioritatea"
 
 #: package/contents/ui/Orientation.qml:12
 #, kde-format
@@ -176,7 +177,7 @@ msgstr "Activat"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Schimbă prioritățile ecranelor…"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
@@ -197,13 +198,7 @@ msgid "Resolution:"
 msgstr "Rezoluție:"
 
 #: package/contents/ui/OutputPanel.qml:73
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "\"%1\" is the only resolution supported by this display.<nl/><nl/>Using "
-#| "unsupported resolutions was possible in the Plasma X11 session, but they "
-#| "were never guaranteed to work and are not available in this Plasma "
-#| "Wayland session."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "&quot;%1&quot; is the only resolution supported by this display.<nl/><nl/"
@@ -290,13 +285,13 @@ msgstr "Scală globală:"
 #: package/contents/ui/Panel.qml:131 package/contents/ui/Panel.qml:151
 #, kde-format
 msgid "Legacy Applications (X11):"
-msgstr ""
+msgstr "Aplicațiile moștenite (X11):"
 
 #: package/contents/ui/Panel.qml:136
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Aplică singure scalarea"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -304,12 +299,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 msgstr ""
+"Aplicațiile moștenite ce susțin scalarea o vor folosi și vor arăta clar, dar "
+"cele ce nu o susțin nu vor fi scalate deloc."
 
 #: package/contents/ui/Panel.qml:152
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Scalate de către sistem"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -317,6 +314,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Toate aplicațiile moștenite vor fi scalate de către sistem la dimensiunea "
+"corectă, însă acestea vor fi mereu puțin neclare."
 
 #: package/contents/ui/Panel.qml:171
 #, kde-format
