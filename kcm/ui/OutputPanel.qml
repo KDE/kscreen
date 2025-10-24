@@ -19,6 +19,7 @@ Kirigami.FormLayout {
     property KSortFilterProxyModel enabledOutputs
     property var element: model
     readonly property int comboboxWidth: Kirigami.Units.gridUnit * 12
+    readonly property int sliderWidth: Kirigami.Units.gridUnit * 12
     readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
@@ -95,6 +96,7 @@ Kirigami.FormLayout {
             Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
 
             Layout.fillWidth: true
+            Layout.minimumWidth: root.sliderWidth
             from: 50
             to: 300
             stepSize: 25
@@ -493,6 +495,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         QQC2.Slider {
             id: sdrGamutSlider
             Layout.fillWidth: true
+            Layout.minimumWidth: root.sliderWidth
             from: 0
             to: 100
             stepSize: 10
@@ -564,6 +567,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         QQC2.Slider {
             id: brightnessSlider
             Layout.fillWidth: true
+            Layout.minimumWidth: root.sliderWidth
             from: 0
             to: 100
             stepSize: 5
@@ -599,6 +603,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         QQC2.Slider {
             id: sharpnessSlider
             Layout.fillWidth: true
+            Layout.minimumWidth: root.sliderWidth
             from: 0
             to: 100
             stepSize: 5
