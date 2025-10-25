@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:45+0000\n"
+"POT-Creation-Date: 2025-10-25 00:43+0000\n"
 "PO-Revision-Date: 2021-11-17 13:23+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -148,7 +148,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr ""
 
-#: ui/main.qml:273 ui/OutputPanel.qml:47
+#: ui/main.qml:273 ui/OutputPanel.qml:48
 #, kde-format
 msgid "Primary"
 msgstr "Primarne"
@@ -181,7 +181,7 @@ msgstr "Za kóžda rjadowanje wobrazowkow"
 msgid "Orientation:"
 msgstr "Orientacija:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:168 ui/OutputPanel.qml:214
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:170 ui/OutputPanel.qml:216
 #, kde-format
 msgid "Automatic"
 msgstr "Awtomatiska"
@@ -218,24 +218,24 @@ msgstr ""
 msgid "Replicas"
 msgstr ""
 
-#: ui/OutputPanel.qml:28
+#: ui/OutputPanel.qml:29
 #, fuzzy, kde-format
 #| msgid "Device:"
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Grat:"
 
-#: ui/OutputPanel.qml:29
+#: ui/OutputPanel.qml:30
 #, kde-format
 msgid "Enabled"
 msgstr "Zaswěćene"
 
-#: ui/OutputPanel.qml:40
+#: ui/OutputPanel.qml:41
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr ""
 
-#: ui/OutputPanel.qml:53
+#: ui/OutputPanel.qml:54
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -245,46 +245,46 @@ msgid ""
 "or other windows appear on."
 msgstr ""
 
-#: ui/OutputPanel.qml:58
+#: ui/OutputPanel.qml:59
 #, kde-format
 msgid "Resolution:"
 msgstr "Rozpušćenje:"
 
-#: ui/OutputPanel.qml:79
+#: ui/OutputPanel.qml:80
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr ""
 
-#: ui/OutputPanel.qml:89
+#: ui/OutputPanel.qml:90
 #, kde-format
 msgid "Scale:"
 msgstr "Skalěrować:"
 
-#: ui/OutputPanel.qml:95 ui/Panel.qml:64
+#: ui/OutputPanel.qml:96 ui/Panel.qml:64
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr ""
 
-#: ui/OutputPanel.qml:125 ui/Panel.qml:96
+#: ui/OutputPanel.qml:127 ui/Panel.qml:96
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:137
+#: ui/OutputPanel.qml:139
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Frekwenca:"
 
-#: ui/OutputPanel.qml:158
+#: ui/OutputPanel.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
 
-#: ui/OutputPanel.qml:159
+#: ui/OutputPanel.qml:161
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -292,27 +292,27 @@ msgid ""
 "resolution."
 msgstr ""
 
-#: ui/OutputPanel.qml:164
+#: ui/OutputPanel.qml:166
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptiwny sync:"
 
-#: ui/OutputPanel.qml:167
+#: ui/OutputPanel.qml:169
 #, kde-format
 msgid "Never"
 msgstr "Ženje"
 
-#: ui/OutputPanel.qml:169
+#: ui/OutputPanel.qml:171
 #, kde-format
 msgid "Always"
 msgstr "Přeco"
 
-#: ui/OutputPanel.qml:180
+#: ui/OutputPanel.qml:182
 #, kde-format
 msgid "Overscan:"
 msgstr "Overscan:"
 
-#: ui/OutputPanel.qml:195
+#: ui/OutputPanel.qml:197
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -320,7 +320,7 @@ msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:201
+#: ui/OutputPanel.qml:203
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -329,23 +329,23 @@ msgid ""
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:206
+#: ui/OutputPanel.qml:208
 #, fuzzy, kde-format
 #| msgid "RGB Range:"
 msgid "RGB range:"
 msgstr "RGB rozsah:"
 
-#: ui/OutputPanel.qml:215
+#: ui/OutputPanel.qml:217
 #, kde-format
 msgid "Full"
 msgstr "Połne"
 
-#: ui/OutputPanel.qml:216
+#: ui/OutputPanel.qml:218
 #, kde-format
 msgid "Limited"
 msgstr "Wobmjezowane"
 
-#: ui/OutputPanel.qml:226
+#: ui/OutputPanel.qml:228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -354,32 +354,32 @@ msgid ""
 "look washed out."
 msgstr ""
 
-#: ui/OutputPanel.qml:231
+#: ui/OutputPanel.qml:233
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
 msgstr ""
 
-#: ui/OutputPanel.qml:241
+#: ui/OutputPanel.qml:243
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox color profile"
 msgid "None"
 msgstr "Žane"
 
-#: ui/OutputPanel.qml:246
+#: ui/OutputPanel.qml:248
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:251
+#: ui/OutputPanel.qml:253
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr ""
 
-#: ui/OutputPanel.qml:270
+#: ui/OutputPanel.qml:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -388,85 +388,85 @@ msgid ""
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 
-#: ui/OutputPanel.qml:283
+#: ui/OutputPanel.qml:285
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr ""
 
-#: ui/OutputPanel.qml:299
+#: ui/OutputPanel.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr ""
 
-#: ui/OutputPanel.qml:310
+#: ui/OutputPanel.qml:312
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:319
+#: ui/OutputPanel.qml:321
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/OutputPanel.qml:344
+#: ui/OutputPanel.qml:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr ""
 
-#: ui/OutputPanel.qml:351
+#: ui/OutputPanel.qml:353
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:358
+#: ui/OutputPanel.qml:360
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Zaswěćene"
 
-#: ui/OutputPanel.qml:364
+#: ui/OutputPanel.qml:366
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
 
-#: ui/OutputPanel.qml:370
+#: ui/OutputPanel.qml:372
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr ""
 
-#: ui/OutputPanel.qml:383
+#: ui/OutputPanel.qml:385
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
 
-#: ui/OutputPanel.qml:390
+#: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:399
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:400
+#: ui/OutputPanel.qml:402
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:410
+#: ui/OutputPanel.qml:412
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -475,7 +475,7 @@ msgid ""
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:417
+#: ui/OutputPanel.qml:419
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -484,31 +484,31 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:425
+#: ui/OutputPanel.qml:427
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr ""
 
-#: ui/OutputPanel.qml:446
+#: ui/OutputPanel.qml:448
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:448 ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr ""
 
-#: ui/OutputPanel.qml:459
+#: ui/OutputPanel.qml:461
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:473
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -519,7 +519,7 @@ msgid ""
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
 
-#: ui/OutputPanel.qml:475
+#: ui/OutputPanel.qml:477
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -530,13 +530,13 @@ msgid ""
 "cannot be known."
 msgstr ""
 
-#: ui/OutputPanel.qml:490
+#: ui/OutputPanel.qml:492
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr ""
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:524
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -544,25 +544,25 @@ msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:529
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr ""
 
-#: ui/OutputPanel.qml:538
+#: ui/OutputPanel.qml:541
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:544
+#: ui/OutputPanel.qml:547
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
 
-#: ui/OutputPanel.qml:550
+#: ui/OutputPanel.qml:553
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -571,7 +571,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:583
+#: ui/OutputPanel.qml:587
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -579,26 +579,26 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:596
+#: ui/OutputPanel.qml:600
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:624
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:629
+#: ui/OutputPanel.qml:634
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Zaswěćene"
 
-#: ui/OutputPanel.qml:635
+#: ui/OutputPanel.qml:640
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -607,7 +607,7 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:640
+#: ui/OutputPanel.qml:645
 #, kde-format
 msgid "Replica of:"
 msgstr ""
