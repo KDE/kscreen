@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-25 00:43+0000\n"
-"PO-Revision-Date: 2025-06-30 15:54+0300\n"
+"PO-Revision-Date: 2025-10-24 11:16+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -483,12 +483,7 @@ msgid "Prefer color accuracy"
 msgstr "Точность"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -497,14 +492,11 @@ msgid ""
 msgstr ""
 "Предпочтение точности цветопередачи ограничивает потенциально неточное "
 "выполнение цветовых операций драйвером дисплея и увеличивает максимальное "
-"цветовое разрешение.<nl/><nl/>"
+"цветовое разрешение.<nl/><nl/>Использование этого параметра может "
+"значительно влиять на производительность"
 
 #: ui/OutputPanel.qml:419
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -513,7 +505,8 @@ msgid ""
 msgstr ""
 "Выбор производительности упрощает профиль ICC до использования матричных "
 "преобразований и индивидуальных цветовых кривых, повышая производительность "
-"за счёт точности цветопередачи.<nl/><nl/>"
+"за счёт точности цветопередачи.<nl/><nl/>Использование этого параметра может "
+"значительно влиять на производительность"
 
 #: ui/OutputPanel.qml:427
 #, kde-format
@@ -614,7 +607,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Уровень резкости:"
 
 #: ui/OutputPanel.qml:629
 #, kde-format
