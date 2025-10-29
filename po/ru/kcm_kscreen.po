@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-25 00:43+0000\n"
-"PO-Revision-Date: 2025-10-24 11:16+0300\n"
+"PO-Revision-Date: 2025-10-28 19:23+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -542,6 +542,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Ограничивает цветовую глубину изображения, выводимого на экран.Это не влияет "
+"на создание снимков и видеозаписей экрана.<nl/><nl/>Поскольку дисплей в "
+"данный момент подключён через док-станцию, автоматическая цветовая глубина "
+"временно снижена до 8 бит во избежание распространённых проблем с док-"
+"станциями.<nl/><nl/>Из-за ограничений графического драйвера фактически "
+"используемая глубина цвета может быть неизвестна."
 
 #: ui/OutputPanel.qml:477
 #, kde-kuit-format
@@ -553,6 +559,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Ограничивает цветовую глубину изображения, выводимого на экран.Это не влияет "
+"на создание снимков и видеозаписей экрана.<nl/><nl/>Ограничение цветовой "
+"глубины может быть полезно для обхода проблем с дисплеем или графическим "
+"драйвером.<nl/><nl/>Из-за ограничений графического драйвера фактически "
+"используемая глубина цвета может быть неизвестна."
 
 #: ui/OutputPanel.qml:492
 #, kde-format
