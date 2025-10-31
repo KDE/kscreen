@@ -20,7 +20,10 @@ class HdrCalibrator : public QObject
 
     Q_PROPERTY(QString outputName READ outputName CONSTANT);
     Q_PROPERTY(qreal peakBrightness READ peakBrightness CONSTANT);
+    Q_PROPERTY(qreal maxAverageBrightness READ maxAverageBrightness CONSTANT);
     Q_PROPERTY(qreal peakBrightnessOverride READ peakBrightnessOverride WRITE setPeakBrightnessOverride NOTIFY peakBrightnessOverrideChanged);
+    Q_PROPERTY(
+        qreal maxAverageBrightnessOverride READ maxAverageBrightnessOverride WRITE setMaxAverageBrightnessOverride NOTIFY maxAverageBrightnessOverrideChanged);
     Q_PROPERTY(qreal brightness READ brightness WRITE setBrightness NOTIFY brightnessChanged);
     Q_PROPERTY(qreal sdrBrightness READ sdrBrightness WRITE setSdrBrightness NOTIFY sdrBrightnessChanged);
 
@@ -33,9 +36,13 @@ public:
 
     QString outputName() const;
     qreal peakBrightness() const;
+    qreal maxAverageBrightness() const;
 
     qreal peakBrightnessOverride() const;
     void setPeakBrightnessOverride(qreal override);
+
+    qreal maxAverageBrightnessOverride() const;
+    void setMaxAverageBrightnessOverride(qreal override);
 
     qreal brightness() const;
     void setBrightness(qreal brightness);
@@ -47,6 +54,7 @@ public:
 
 Q_SIGNALS:
     void peakBrightnessOverrideChanged();
+    void maxAverageBrightnessOverrideChanged();
     void brightnessChanged();
     void sdrBrightnessChanged();
 

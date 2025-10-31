@@ -63,6 +63,11 @@ qreal HdrCalibrator::peakBrightness() const
     return m_output->maxPeakBrightness();
 }
 
+qreal HdrCalibrator::maxAverageBrightness() const
+{
+    return m_output->maxAverageBrightness();
+}
+
 qreal HdrCalibrator::peakBrightnessOverride() const
 {
     return m_output->maxPeakBrightnessOverride().value_or(0);
@@ -71,6 +76,16 @@ qreal HdrCalibrator::peakBrightnessOverride() const
 void HdrCalibrator::setPeakBrightnessOverride(qreal override)
 {
     m_output->setMaxPeakBrightnessOverride(override);
+}
+
+qreal HdrCalibrator::maxAverageBrightnessOverride() const
+{
+    return m_output->maxAverageBrightnessOverride().value_or(0);
+}
+
+void HdrCalibrator::setMaxAverageBrightnessOverride(qreal override)
+{
+    m_output->setMaxAverageBrightnessOverride(override);
 }
 
 qreal HdrCalibrator::brightness() const
@@ -99,6 +114,7 @@ void HdrCalibrator::setOutput(const KScreen::ConfigPtr &config, const KScreen::O
     m_output = output;
     connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::maxPeakBrightnessOverrideChanged, this, &HdrCalibrator::peakBrightnessOverrideChanged);
+    connect(output.get(), &KScreen::Output::maxAverageBrightnessOverrideChanged, this, &HdrCalibrator::maxAverageBrightnessOverrideChanged);
     connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::sdrBrightnessChanged, this, &HdrCalibrator::sdrBrightnessChanged);
 }
