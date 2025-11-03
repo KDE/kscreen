@@ -241,10 +241,10 @@ void Output::adjustPositions(KScreen::ConfigPtr config, const QVariantList &outp
         const bool yOverlap = prevInfoGeo.y() + prevInfoGeo.height() > curInfoGeo.y() && prevInfoGeo.y() < curInfoGeo.y() + curInfoGeo.height();
 
         // these values determine which horizontal edge of previous output we align with
-        const int topToTopDiffAbs = qAbs(prevInfoGeo.y() - curInfoGeo.y());
-        const int topToBottomDiffAbs = qAbs(prevInfoGeo.y() - curInfoGeo.y() - curInfoGeo.height());
-        const int bottomToBottomDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y() - curInfoGeo.height());
-        const int bottomToTopDiffAbs = qAbs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y());
+        const int topToTopDiffAbs = std::abs(prevInfoGeo.y() - curInfoGeo.y());
+        const int topToBottomDiffAbs = std::abs(prevInfoGeo.y() - curInfoGeo.y() - curInfoGeo.height());
+        const int bottomToBottomDiffAbs = std::abs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y() - curInfoGeo.height());
+        const int bottomToTopDiffAbs = std::abs(prevInfoGeo.y() + prevInfoGeo.height() - curInfoGeo.y());
 
         const bool yTopAligned = (topToTopDiffAbs < bottomToBottomDiffAbs && topToTopDiffAbs <= bottomToTopDiffAbs) //
             || topToBottomDiffAbs < bottomToBottomDiffAbs;
