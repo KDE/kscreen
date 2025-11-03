@@ -448,7 +448,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
 
 void OutputModel::remove(int outputId)
 {
-    auto it = std::find_if(m_outputs.begin(), m_outputs.end(), [outputId](const Output &output) {
+    auto it = std::ranges::find_if(m_outputs, [outputId](const Output &output) {
         return output.ptr->id() == outputId;
     });
     if (it != m_outputs.end()) {
@@ -570,7 +570,7 @@ bool OutputModel::setResolution(int outputIndex, int resIndex)
     const float oldRate = output.ptr->currentMode() ? output.ptr->currentMode()->refreshRate() : -1;
     const auto modes = output.ptr->modes();
 
-    auto modeIt = std::find_if(modes.begin(), modes.end(), [size, oldRate](const KScreen::ModePtr &mode) {
+    auto modeIt = std::ranges::find_if(modes, [size, oldRate](const KScreen::ModePtr &mode) {
         // TODO: we don't want to compare against old refresh rate if
         //       refresh rate selection is auto.
         return mode->size() == size && refreshRateCompare(mode->refreshRate(), oldRate);
@@ -624,7 +624,7 @@ bool OutputModel::setRefreshRate(int outputIndex, int refIndex)
     const auto modes = output.ptr->modes();
     const auto oldMode = output.ptr->currentMode();
 
-    auto modeIt = std::find_if(modes.begin(), modes.end(), [oldMode, refreshRate](const KScreen::ModePtr &mode) {
+    auto modeIt = std::ranges::find_if(modes, [oldMode, refreshRate](const KScreen::ModePtr &mode) {
         // TODO: we don't want to compare against old refresh rate if
         //       refresh rate selection is auto.
         return mode->size() == oldMode->size() && refreshRateCompare(mode->refreshRate(), refreshRate);
@@ -675,7 +675,7 @@ int OutputModel::resolutionIndex(const KScreen::OutputPtr &output) const
 
     const auto sizes = resolutions(output);
 
-    const auto it = std::find_if(sizes.begin(), sizes.end(), [currentResolution](const QSize &size) {
+    const auto it = std::ranges::find_if(sizes, [currentResolution](const QSize &size) {
         return size == currentResolution;
     });
     if (it == sizes.end()) {
@@ -703,7 +703,7 @@ int OutputModel::refreshRateIndex(const KScreen::OutputPtr &output) const
     const auto rates = refreshRates(output);
     const float currentRate = output->currentMode()->refreshRate();
 
-    const auto it = std::find_if(rates.begin(), rates.end(), [currentRate](float rate) {
+    const auto it = std::ranges::find_if(rates, [currentRate](float rate) {
         return refreshRateCompare(rate, currentRate);
     });
     if (it == rates.end()) {
@@ -770,7 +770,7 @@ QList<QSize> OutputModel::resolutions(const KScreen::OutputPtr &output) const
             hits << size;
         }
     }
-    std::sort(hits.begin(), hits.end(), [](const QSize &a, const QSize &b) {
+    std::ranges::sort(hits, [](const QSize &a, const QSize &b) {
         if (a.width() > b.width()) {
             return true;
         }
@@ -802,17 +802,14 @@ QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
             continue;
         }
         const float rate = mode->refreshRate();
-        if (std::find_if(hits.begin(),
-                         hits.end(),
-                         [rate](float r) {
-                             return refreshRateCompare(r, rate);
-                         })
-            != hits.end()) {
-            continue;
+        const bool hasDuplicate = std::ranges::any_of(hits, [rate](float r) {
+            return refreshRateCompare(r, rate);
+        });
+        if (!hasDuplicate) {
+            hits << rate;
         }
-        hits << rate;
     }
-    std::stable_sort(hits.begin(), hits.end(), std::greater<>());
+    std::ranges::stable_sort(hits, std::greater<>());
     return hits;
 }
 
@@ -889,7 +886,7 @@ static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScr
         return mode->size();
     };
     const auto sourceSize = getRotatedSize(source, source->currentMode());
-    const auto it = std::find_if(availableModes.begin(), availableModes.end(), [sourceSize](const auto &mode) {
+    const auto it = std::ranges::find_if(availableModes, [sourceSize](const auto &mode) {
         return mode->size().width() >= sourceSize.width();
     });
     if (it != availableModes.end()) {
@@ -975,7 +972,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         {ReplicationSourceIndexRole, SizeRole, NormalizedPositionRole, ScaleRole, RefreshRatesRole, RefreshRateIndexRole, ResolutionRole, ResolutionIndexRole});
 
     if (oldSourceId != 0) {
-        auto it = std::find_if(m_outputs.begin(), m_outputs.end(), [oldSourceId](const Output &out) {
+        auto it = std::ranges::find_if(m_outputs, [oldSourceId](const Output &out) {
             return out.ptr->id() == oldSourceId;
         });
         if (it != m_outputs.end()) {
@@ -1021,7 +1018,7 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
 
 bool OutputModel::shouldShowSerialNumber(const KScreen::OutputPtr &output) const
 {
-    return std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+    return std::ranges::any_of(m_outputs, [output](const OutputModel::Output &other) {
         return other.ptr->id() != output->id() // avoid same output
             && other.ptr->edid() && output->edid() //
             && other.ptr->edid()->vendor() == output->edid()->vendor() //
@@ -1031,7 +1028,7 @@ bool OutputModel::shouldShowSerialNumber(const KScreen::OutputPtr &output) const
 
 bool OutputModel::shouldShowConnector(const KScreen::OutputPtr &output) const
 {
-    return std::any_of(m_outputs.cbegin(), m_outputs.cend(), [output](const OutputModel::Output &other) {
+    return std::ranges::any_of(m_outputs, [output](const OutputModel::Output &other) {
         return other.ptr->id() != output->id() // avoid same output
             && other.ptr->edid() && output->edid() //
             && other.ptr->edid()->serial() == output->edid()->serial();
