@@ -555,7 +555,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
 inline bool refreshRateCompare(float rate1, float rate2)
 {
-    return qAbs(rate1 - rate2) < 0.001;
+    return std::abs(rate1 - rate2) < 0.001;
 }
 
 bool OutputModel::setResolution(int outputIndex, int resIndex)
@@ -1170,12 +1170,12 @@ bool isVerticalClose(const QRect &rect1, const QRect &rect2)
 
 bool snapToRight(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.x() + target.width() - dest.x()) < s_snapArea) {
+    if (std::abs(target.x() + target.width() - dest.x()) < s_snapArea) {
         // In snap zone for left to right snap.
         dest.setX(target.x() + target.width());
         return true;
     }
-    if (qAbs(target.x() + target.width() - (dest.x() + size.width())) < s_snapArea) {
+    if (std::abs(target.x() + target.width() - (dest.x() + size.width())) < s_snapArea) {
         // In snap zone for right to right snap.
         dest.setX(target.x() + target.width() - size.width());
         return true;
@@ -1185,12 +1185,12 @@ bool snapToRight(const QRect &target, const QSize &size, QPoint &dest)
 
 bool snapToLeft(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.left() - dest.x()) < s_snapArea) {
+    if (std::abs(target.left() - dest.x()) < s_snapArea) {
         // In snap zone for left to left snap.
         dest.setX(target.left());
         return true;
     }
-    if (qAbs(target.left() - (dest.x() + size.width())) < s_snapArea) {
+    if (std::abs(target.left() - (dest.x() + size.width())) < s_snapArea) {
         // In snap zone for right to left snap.
         dest.setX(target.left() - size.width());
         return true;
@@ -1213,7 +1213,7 @@ bool snapToMiddle(const QRect &target, const QSize &size, QPoint &dest)
 {
     const int outputMid = dest.y() + size.height() / 2;
     const int targetMid = target.top() + target.height() / 2;
-    if (qAbs(targetMid - outputMid) < s_snapArea) {
+    if (std::abs(targetMid - outputMid) < s_snapArea) {
         // In snap zone for middle to middle snap.
         dest.setY(targetMid - size.height() / 2);
         return true;
@@ -1223,12 +1223,12 @@ bool snapToMiddle(const QRect &target, const QSize &size, QPoint &dest)
 
 bool snapToTop(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.top() - dest.y()) < s_snapArea) {
+    if (std::abs(target.top() - dest.y()) < s_snapArea) {
         // In snap zone for bottom to top snap.
         dest.setY(target.top());
         return true;
     }
-    if (qAbs(target.top() - (dest.y() + size.height())) < s_snapArea) {
+    if (std::abs(target.top() - (dest.y() + size.height())) < s_snapArea) {
         // In snap zone for top to top snap.
         dest.setY(target.top() - size.height());
         return true;
@@ -1238,12 +1238,12 @@ bool snapToTop(const QRect &target, const QSize &size, QPoint &dest)
 
 bool snapToBottom(const QRect &target, const QSize &size, QPoint &dest)
 {
-    if (qAbs(target.y() + target.height() - dest.y()) < s_snapArea) {
+    if (std::abs(target.y() + target.height() - dest.y()) < s_snapArea) {
         // In snap zone for top to bottom snap.
         dest.setY(target.y() + target.height());
         return true;
     }
-    if (qAbs(target.y() + target.height() - (dest.y() + size.height())) < s_snapArea) {
+    if (std::abs(target.y() + target.height() - (dest.y() + size.height())) < s_snapArea) {
         // In snap zone for bottom to bottom snap.
         dest.setY(target.y() + target.height() - size.height());
         return true;
