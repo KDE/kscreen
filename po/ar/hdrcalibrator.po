@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-09 00:44+0000\n"
+"POT-Creation-Date: 2025-11-05 00:45+0000\n"
 "PO-Revision-Date: 2025-07-14 20:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: hdrcalibrator.cpp:118 ui/Main.qml:15
+#: hdrcalibrator.cpp:134 ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "معايرة HDR"
 
-#: ui/Main.qml:135
+#: ui/Main.qml:139 ui/Main.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "التالي"
 
-#: ui/Main.qml:143 ui/Main.qml:314
+#: ui/Main.qml:147 ui/Main.qml:240 ui/Main.qml:414
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "يبدّل إلى الصفحة التالية"
 
-#: ui/Main.qml:147
+#: ui/Main.qml:151 ui/Main.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: ui/Main.qml:154
+#: ui/Main.qml:158 ui/Main.qml:253
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "يُلغي عملية المعايرة"
 
-#: ui/Main.qml:159
+#: ui/Main.qml:163
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -67,18 +67,36 @@ msgstr ""
 "لتحديد الحد الأقصى لسطوع الشاشة، اضبط شريط التمرير حتى يصبح الشعار بالكاد "
 "مرئيًا"
 
-#: ui/Main.qml:308
+#: ui/Main.qml:258
+#, fuzzy, kde-format
+#| msgid ""
+#| "To determine the maximum brightness of the screen, adjust the slider "
+#| "until the logo is barely visible"
+msgid ""
+"To determine the maximum average brightness of the screen, adjust the slider "
+"until the logo is barely visible"
+msgstr ""
+"لتحديد الحد الأقصى لسطوع الشاشة، اضبط شريط التمرير حتى يصبح الشعار بالكاد "
+"مرئيًا"
+
+#: ui/Main.qml:408
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "تمّ"
 
-#: ui/Main.qml:323
-#, kde-format
+#: ui/Main.qml:423
+#, fuzzy, kde-format
+#| msgid ""
+#| "Configure how bright \"100%\" on the normal brightness slider should be. "
+#| "Make it as bright as you'd ever use it, as long as the HDR image still "
+#| "looks good and the gradients are smooth."
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
-"good and the gradients are smooth."
+"good and the gradients are smooth.\n"
+"To avoid brightness fluctuations, it's recommended to not exceed the "
+"display's maximum average brightness of %1cd/m²"
 msgstr ""
 "اضبط مدى سطوع ”100٪“ على شريط تمرير السطوع العادي. اجعله ساطعًا بقدر ما "
 "تستخدمه، طالما أن صورة HDR لا تزال تبدو جيدة والتدرجات سلسة."
