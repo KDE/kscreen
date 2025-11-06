@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:45+0000\n"
-"PO-Revision-Date: 2025-07-09 08:40+0200\n"
+"PO-Revision-Date: 2025-11-05 09:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,16 +69,13 @@ msgstr ""
 "lliscant fins que el logotip sigui visible amb prou feines"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"Per a determinar la lluminositat màxima de la pantalla, ajusteu el control "
-"lliscant fins que el logotip sigui visible amb prou feines"
+"Per a determinar la lluminositat mitjana màxima de la pantalla, ajusteu el "
+"control lliscant fins que el logotip sigui visible amb prou feines"
 
 #: ui/Main.qml:408
 #, kde-format
@@ -87,11 +84,7 @@ msgid "Done"
 msgstr "Fet"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -100,5 +93,7 @@ msgid ""
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
 "Configura com de lluminós hauria de ser el «100%» en el control lliscant la "
-"lluminositat normal. Feu-lo tan brillant com ho faríeu servir, sempre que la "
-"imatge HDR encara es vegi bé i els degradats siguin suaus."
+"lluminositat normal. Feu-lo tan lluminós com ho faríeu servir, sempre que la "
+"imatge HDR encara es vegi bé i els degradats siguin suaus.\n"
+"Per evitar fluctuacions de la lluminositat, es recomana no excedir la "
+"lluminositat mitjana màxima de la pantalla de %1cd/m²"

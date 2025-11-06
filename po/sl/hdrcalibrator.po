@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:45+0000\n"
-"PO-Revision-Date: 2025-07-09 07:21+0200\n"
+"PO-Revision-Date: 2025-11-05 06:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,16 +68,13 @@ msgstr ""
 "logotip ni komaj viden"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"Če želite določiti največjo svetlost zaslona, ​​​​prilagodite drsnik, dokler "
-"logotip ni komaj viden"
+"Če želite določiti največjo povprečno svetlost zaslona, ​​​​prilagodite drsnik, "
+"dokler logotip ni komaj viden"
 
 #: ui/Main.qml:408
 #, kde-format
@@ -86,11 +83,7 @@ msgid "Done"
 msgstr "Narejeno"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -98,6 +91,8 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Nastavite svetlost \"100%\"  na drsniku za običajno svetlost. Naj bo čim "
-"bolj svetla, kot bi jo kdajkoli uporabili, dokler je slika HDR še vedno "
-"videti dobro in so prelivi gladki."
+"Nastavite svetlost \"100%\" na drsniku za običajno svetlost. Naj bo tako "
+"svetla, kot bi jo kdajkoli uporabljali, dokler je slika HDR še vedno videti "
+"dobro in so prelivi gladki.\n"
+"Da bi se izognili nihanjem svetlosti, je priporočljivo, da ne presežete "
+"največje povprečne svetlosti zaslona, ​​ki znaša %1cd/m²."

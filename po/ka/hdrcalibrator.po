@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:45+0000\n"
-"PO-Revision-Date: 2025-07-09 05:26+0200\n"
+"PO-Revision-Date: 2025-11-05 05:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,16 +68,13 @@ msgstr ""
 "მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური სიკაშკაშე, გადაწიეთ ჩოჩია "
-"მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
+"იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური საშუალო სიკაშკაშე, გადაწიეთ "
+"ჩოჩია მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
 #: ui/Main.qml:408
 #, kde-format
@@ -86,11 +83,7 @@ msgid "Done"
 msgstr "მზადაა"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -100,4 +93,6 @@ msgid ""
 msgstr ""
 "მოირგეთ, რამდენად კაშკაშაა \"100%\" ეკრანის სიკაშკაშე. დარწმუნდით, რომ ის "
 "ისეთი კაშკაშაა, როგორიც ოდესმე მაინც მოგინდებათ, სანამ HDR გამოსახულება ჯერ "
-"კიდევ კარგად ჩანს და გრადიენტები გლუვია."
+"კიდევ კარგად ჩანს და გრადიენტები გლუვია.\n"
+"იმისათვის, რომ თავიდან აიცილოთ სიკაშკაშის რყევა, რეკომენდებულია, რომ არ "
+"გადააცილოთ ეკრანის საშუალო მაქსიმალურ სიკაშკაშეს %1cd/m²"
