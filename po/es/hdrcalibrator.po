@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hdrcalibrator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:45+0000\n"
-"PO-Revision-Date: 2025-07-09 03:54+0100\n"
+"PO-Revision-Date: 2025-11-06 01:59+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,15 +69,12 @@ msgstr ""
 "deslizante hasta que el logotipo sea apenas visible."
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"Para determinar el brillo máximo de la pantalla, ajuste el control "
+"Para determinar el brillo medio máximo de la pantalla, ajuste el control "
 "deslizante hasta que el logotipo sea apenas visible."
 
 #: ui/Main.qml:408
@@ -87,11 +84,7 @@ msgid "Done"
 msgstr "Terminado"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -101,4 +94,6 @@ msgid ""
 msgstr ""
 "Configure cómo debería ser el brillo al «100 %» en el control deslizante de "
 "brillo normal. Haga que sea tan brillante como lo usa habitualmente, siempre "
-"que la imagen HDR se vea bien y los degradados sean suaves."
+"que la imagen HDR se vea bien y los degradados sean suaves.\n"
+"Para evitar fluctuaciones de brillo, se recomienda no sobrepasar el brillo "
+"medio máximo de la pantalla de %1 cd/m²"
