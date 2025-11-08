@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:45+0000\n"
-"PO-Revision-Date: 2025-07-11 23:49+0200\n"
+"PO-Revision-Date: 2025-11-07 23:02+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -67,16 +67,13 @@ msgstr ""
 "логото стане едва видимо"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"За да определите максималната яркост на екрана, регулирайте плъзгача, докато "
-"логото стане едва видимо"
+"За да определите максималната средна яркост на екрана, регулирайте плъзгача, "
+"докато логото стане едва видимо"
 
 #: ui/Main.qml:408
 #, kde-format
@@ -85,11 +82,7 @@ msgid "Done"
 msgstr "Готово"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -97,6 +90,8 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Конфигурирайте колко ярко трябва да бъде „100%“ на плъзгача за нормална "
-"яркост. Направете я толкова ярка, колкото бихте я използвали, стига HDR "
-"изображението да изглежда добре и градиентите да са плавни."
+"Настройте колко ярко трябва да бъде „100%“ на нормалния плъзгач за яркост. "
+"Направете го толкова светло, колкото искате да го използвате, докато "
+"изображението на HDR все още изглежда добре и преходите са гладки.\n"
+"За да се избегнат колебания на яркостта, се препоръчва да не се превишава "
+"максималната средна яркост на %1cd/m²"
