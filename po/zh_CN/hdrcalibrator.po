@@ -65,14 +65,11 @@ msgid ""
 msgstr "请调整滑动条直至标志几乎看不见为止，以确定屏幕的最大可用亮度。"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
-msgstr "请调整滑动条直至标志几乎看不见为止，以确定屏幕的最大可用亮度。"
+msgstr "请调整滑动条直至标志几乎看不见为止，以确定屏幕的最大平均亮度。"
 
 #: ui/Main.qml:408
 #, kde-format
@@ -81,11 +78,7 @@ msgid "Done"
 msgstr "完成"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -93,5 +86,6 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"配置正常亮度滑动条的“100%”的亮度水平。您应将其调到您实际使用时所需的最大亮"
-"度，前提是确保 HDR 图像的观感正常且色彩渐变平滑。"
+"配置正常亮度滑动条的“100%“位置的亮度。在 HDR 图像的观感正常且颜色过渡平滑的前"
+"提下，将其设置为您日常使用的最大可接受亮度。\n"
+"为了避免亮度波动，建议不要超出显示器的最大平均亮度 %1cd/m²"

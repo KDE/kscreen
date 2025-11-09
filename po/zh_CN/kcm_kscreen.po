@@ -712,4 +712,4 @@ msgstr "不旋转"
 #: ui/ScreenView.qml:53
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr "拖拽屏幕以重新排列它们"
+msgstr "拖动屏幕以重新排列它们"
