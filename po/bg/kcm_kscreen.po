@@ -743,11 +743,3 @@ msgstr "Без завъртане"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Завлечете екраните, за да ги пренаредите"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Limits the color resolution of the image that is sent to the display. "
-#~ "This does not affect screenshots or recordings.<nl/><nl/>"
-#~ msgstr ""
-#~ "Ограничава цветовата резолюция на изображението, което се изпраща към "
-#~ "дисплея. Това не засяга екранните снимки или записи.<nl/><nl/>"
