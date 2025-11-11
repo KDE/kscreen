@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-25 00:43+0000\n"
-"PO-Revision-Date: 2025-05-30 22:07+0200\n"
+"PO-Revision-Date: 2025-11-10 21:56+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -289,13 +289,14 @@ msgid "“%1” is the only refresh rate supported by this display."
 msgstr "„%1” a kijelző által támogatott egyetlen frissítési frekvencia."
 
 #: ui/OutputPanel.qml:161
-#, fuzzy, kde-format
-#| msgid "\"%1\" is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
-msgstr "„%1” a kijelző által támogatott egyetlen frissítési frekvencia."
+msgstr ""
+"„%1” a kijelző által támogatott egyetlen frissítési frekvencia a jelenlegi "
+"felbontáson."
 
 #: ui/OutputPanel.qml:166
 #, kde-format
@@ -479,12 +480,7 @@ msgid "Prefer color accuracy"
 msgstr "Színhűség preferálása"
 
 #: ui/OutputPanel.qml:412
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring color accuracy limits potentially inaccurate offloading of "
-#| "color operations to the display driver and increases the maximum color "
-#| "resolution.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
@@ -493,14 +489,11 @@ msgid ""
 msgstr ""
 "A színpontosság előnyben részesítése korlátozza a színes műveleteknek a "
 "kijelző illesztőprogramjára történő, potenciálisan pontatlan áthelyezését, "
-"és növeli a maximális színfelbontást.<nl/><nl/>"
+"és növeli a maximális színfelbontást.<nl/><nl/>Ne feledje, hogy ez a "
+"beállítás jelentősen befolyásolhatja a teljesítményt."
 
 #: ui/OutputPanel.qml:419
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Preferring efficiency simplifies the ICC profile to matrix+shaper, "
-#| "improving performance at the cost of color accuracy.<nl/><nl/>"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
@@ -508,7 +501,8 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 "A hatékonyság előnyben részesítése leegyszerűsíti az ICC-profilt mátrix"
-"+formázóra, javítva a teljesítményt a színhelyesség rovására.<nl/><nl/>"
+"+formázóra, javítva a teljesítményt a színhelyesség rovására.<nl/><nl/>Ne "
+"feledje, hogy ez a beállítás jelentősen befolyásolhatja a teljesítményt."
 
 #: ui/OutputPanel.qml:427
 #, kde-format
@@ -544,6 +538,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Korlátozza a kijelzőre küldött kép színmélységét. Ez nem befolyásolja a "
+"képernyőképeket vagy felvételeket.<nl/><nl/>Mivel a kijelző jelenleg egy "
+"dokkolón keresztül csatlakozik, az automatikus színmélység ideiglenesen 8 "
+"bitre csökkentett a gyakori dokkolóproblémák elkerülése érdekében.<nl/><nl/"
+">A grafikus illesztőprogram korlátai miatt a ténylegesen használt felbontás "
+"nem ismert."
 
 #: ui/OutputPanel.qml:477
 #, kde-kuit-format
@@ -555,6 +555,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Korlátozza a kijelzőre küldött kép színmélységét. Ez nem befolyásolja a "
+"képernyőképeket vagy felvételeket.<nl/><nl/>A színmélység korlátozása "
+"hasznos lehet a kijelző- vagy grafikus-illesztőprogram-problémák "
+"megkerülésére.<nl/><nl/>A grafikus illesztőprogram korlátai miatt a "
+"ténylegesen használt felbontás nem ismert."
 
 #: ui/OutputPanel.qml:492
 #, kde-format
@@ -608,7 +613,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Élesség:"
 
 #: ui/OutputPanel.qml:629
 #, kde-format
