@@ -115,7 +115,7 @@ void TestConfig::testSimpleConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::None);
     QCOMPARE(output->pos(), QPoint(0, 0));
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     auto screen = config->screen();
     QCOMPARE(screen->currentSize(), QSize(1920, 1280));
@@ -138,7 +138,7 @@ void TestConfig::testTwoScreenConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::None);
     QCOMPARE(output->pos(), QPoint(0, 0));
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     output = config->connectedOutputs().last();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-2"));
@@ -147,7 +147,7 @@ void TestConfig::testTwoScreenConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::None);
     QCOMPARE(output->pos(), QPoint(1920, 0));
-    QCOMPARE(output->isPrimary(), false);
+    QCOMPARE(output->priority(), 1);
 
     auto screen = config->screen();
     QCOMPARE(screen->currentSize(), QSize(3200, 1280));
@@ -170,7 +170,7 @@ void TestConfig::testRotatedScreenConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::None);
     QCOMPARE(output->pos(), QPoint(0, 0));
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     output = config->connectedOutputs().last();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-2"));
@@ -179,7 +179,7 @@ void TestConfig::testRotatedScreenConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::Left);
     QCOMPARE(output->pos(), QPoint(1920, 0));
-    QCOMPARE(output->isPrimary(), false);
+    QCOMPARE(output->priority(), 1);
 
     auto screen = config->screen();
     QCOMPARE(screen->currentSize(), QSize(2944, 1280));
@@ -202,7 +202,7 @@ void TestConfig::testDisabledScreenConfig()
     QCOMPARE(output->isEnabled(), true);
     QCOMPARE(output->rotation(), KScreen::Output::None);
     QCOMPARE(output->pos(), QPoint(0, 0));
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     output = config->connectedOutputs().last();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-2"));
@@ -412,26 +412,26 @@ void TestConfig::testMoveConfig()
     auto output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
     QCOMPARE(output->isEnabled(), true);
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     auto output2 = config->connectedOutputs().last();
     QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
     QCOMPARE(output2->isEnabled(), true);
-    QCOMPARE(output2->isPrimary(), false);
+    QCOMPARE(output2->priority(), 1);
 
     // we fake the lid being closed, first save our current config to _lidOpened
     configWrapper->writeOpenLidFile();
 
     // ... then switch off the panel, set primary to the other output
     output->setEnabled(false);
-    config->setPrimaryOutput(output2);
+    config->setOutputPriority(output2, 0);
 
     // save config as the current one, this is the config we don't want restored, and which we'll overwrite
     configWrapper->writeFile();
 
     QCOMPARE(output->isEnabled(), false);
-    QCOMPARE(output->isPrimary(), false);
-    QCOMPARE(output2->isPrimary(), true);
+    QCOMPARE(output->priority(), 1);
+    QCOMPARE(output2->priority(), 0);
 
     // Check if both files exist
     const QString closedPath = Config::configsDirPath() % configWrapper->id();
@@ -456,12 +456,12 @@ void TestConfig::testMoveConfig()
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
     QCOMPARE(output->isEnabled(), true);
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     output2 = config->connectedOutputs().last();
     QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
     QCOMPARE(output2->isEnabled(), true);
-    QCOMPARE(output2->isPrimary(), false);
+    QCOMPARE(output2->priority(), 1);
 
     // Make sure we don't screw up when there's no _lidOpened config
     configWrapper = configWrapper->readOpenLidFile();
@@ -470,12 +470,12 @@ void TestConfig::testMoveConfig()
     output = config->connectedOutputs().first();
     QCOMPARE(output->name(), QLatin1String("OUTPUT-1"));
     QCOMPARE(output->isEnabled(), true);
-    QCOMPARE(output->isPrimary(), true);
+    QCOMPARE(output->priority(), 0);
 
     output2 = config->connectedOutputs().last();
     QCOMPARE(output2->name(), QLatin1String("OUTPUT-2"));
     QCOMPARE(output2->isEnabled(), true);
-    QCOMPARE(output2->isPrimary(), false);
+    QCOMPARE(output2->priority(), 1);
 }
 
 void TestConfig::testFixedConfig()
