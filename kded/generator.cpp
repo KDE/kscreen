@@ -134,7 +134,7 @@ KScreen::ConfigPtr Generator::fallbackIfNeeded(const KScreen::ConfigPtr &config)
             if (connectedOutputs.isEmpty()) {
                 return config;
             } else {
-                config->setPrimaryOutput(connectedOutputs.first());
+                config->setOutputPriority(connectedOutputs.first(), 0);
                 cloneScreens(config);
             }
         }
@@ -180,12 +180,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     // for instance), then pretend the current primary one is embedded
     if (!embedded) {
         // Find primary screen
-        for (auto &screen : connectedOutputs) {
-            if (screen->isPrimary()) {
-                embedded = screen;
-                break;
-            }
-        }
+        embedded = config->primaryOutput();
         if (!embedded) {
             // If all else fail take the first screen
             embedded = connectedOutputs.first();
@@ -198,7 +193,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
 
     if (action == Generator::Clone) {
         qCDebug(KSCREEN_KDED) << "Cloning";
-        config->setPrimaryOutput(embedded);
+        config->setOutputPriority(embedded, 0);
         cloneScreens(config);
         return config;
     }
@@ -214,7 +209,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
     Q_ASSERT(external->currentMode());
 
     // Change action to be relative to embedded screen
-    if (!embedded->isPrimary()) {
+    if (embedded != config->primaryOutput()) {
         switch (action) {
         case Generator::ExtendToLeft:
             action = Generator::ExtendToRight;
@@ -243,7 +238,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         qCDebug(KSCREEN_KDED) << "Turn off embedded (laptop)";
         embedded->setEnabled(false);
         external->setEnabled(true);
-        config->setPrimaryOutput(external);
+        config->setOutputPriority(external, 0);
         return config;
     }
     case Generator::TurnOffExternal: {
@@ -251,7 +246,7 @@ KScreen::ConfigPtr Generator::displaySwitch(DisplaySwitchAction action)
         embedded->setPos(QPoint(0, 0));
         embedded->setEnabled(true);
         external->setEnabled(false);
-        config->setPrimaryOutput(embedded);
+        config->setOutputPriority(embedded, 0);
         return config;
     }
     case Generator::ExtendToRight: {
@@ -359,7 +354,7 @@ void Generator::singleOutput(KScreen::ConfigPtr &config)
         return;
     }
 
-    config->setPrimaryOutput(output);
+    config->setOutputPriority(output, 0);
     output->setPos(QPoint(0, 0));
 }
 
@@ -399,7 +394,7 @@ void Generator::laptop(KScreen::ConfigPtr &config)
         if (external->modes().isEmpty()) {
             return;
         }
-        config->setPrimaryOutput(external);
+        config->setOutputPriority(external, 0);
         external->setPos(QPoint(0, 0));
         return;
     }
@@ -435,9 +430,9 @@ void Generator::laptop(KScreen::ConfigPtr &config)
 
     if (isDocked()) {
         qCDebug(KSCREEN_KDED) << "Docked";
-        config->setPrimaryOutput(biggest);
+        config->setOutputPriority(biggest, 0);
     } else {
-        config->setPrimaryOutput(embedded);
+        config->setOutputPriority(embedded, 0);
     }
 }
 
@@ -464,7 +459,7 @@ void Generator::extendToRight(KScreen::ConfigPtr &config, KScreen::OutputList us
         globalWidth += output->geometry().width();
     }
 
-    config->setPrimaryOutput(biggest);
+    config->setOutputPriority(biggest, 0);
 }
 
 void Generator::initializeOutput(const KScreen::OutputPtr &output, KScreen::Config::Features features)
