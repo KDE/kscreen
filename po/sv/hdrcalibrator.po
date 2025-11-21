@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-07-28 18:28+0200\n"
+"PO-Revision-Date: 2025-11-21 01:45+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,15 +67,12 @@ msgstr ""
 "logotypen knappt syns"
 
 #: ui/Main.qml:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"För att bestämma skärmens maximala ljusstyrka, justera reglaget tills "
+"För att bestämma skärmens maximala medelljusstyrka, justera reglaget tills "
 "logotypen knappt syns"
 
 #: ui/Main.qml:408
@@ -85,11 +82,7 @@ msgid "Done"
 msgstr "Klar"
 
 #: ui/Main.qml:423
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -100,4 +93,6 @@ msgstr ""
 "Ställ in vad ljusstyrkan \"100 %\" ska vara på reglaget för normal "
 "ljusstyrka. Gör den så ljus som du någonsin skulle använda den, så länge "
 "bilden med stort dynamiskt omfång fortfarande ser bra ut och toningar är "
-"jämna.."
+"jämna.\n"
+"För att undvika ljusstyrkevariationer rekommenderas att inte överskrida "
+"skärmens maximala medelljusstyrka på %1 cd/m²."
