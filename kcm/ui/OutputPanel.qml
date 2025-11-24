@@ -19,7 +19,7 @@ Kirigami.FormLayout {
     property KSortFilterProxyModel enabledOutputs
     property var element: model
     readonly property int comboboxWidth: Kirigami.Units.gridUnit * 12
-    readonly property int spinboxWidth: Kirigami.Units.gridUnit * 4
+    readonly property int maxSpinboxWidth: Kirigami.Units.gridUnit * 7
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
 
     signal reorder()
@@ -110,8 +110,7 @@ Kirigami.FormLayout {
             readonly property real factor: 120.0
             readonly property real realValue: value / factor
 
-            Layout.minimumWidth: root.spinboxWidth
-            Layout.maximumWidth: root.spinboxWidth
+            Layout.maximumWidth: root.maxSpinboxWidth
 
             from: 0.5 * factor
             to: 3.0 * factor
@@ -184,8 +183,7 @@ Kirigami.FormLayout {
         QQC2.SpinBox {
             id: overscanSpinbox
 
-            Layout.minimumWidth: root.spinboxWidth
-            Layout.maximumWidth: root.spinboxWidth
+            Layout.maximumWidth: root.maxSpinboxWidth
 
             from: 0
             to: 100
@@ -506,8 +504,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
             readonly property real factor: 20.0
             readonly property real realValue: value / factor
 
-            Layout.minimumWidth: root.spinboxWidth
-            Layout.maximumWidth: root.spinboxWidth
+            Layout.maximumWidth: root.maxSpinboxWidth
 
             from: 0
             to: 1.0 * factor
@@ -572,8 +569,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
             onMoved: element.brightness = value / 100.0
         }
         QQC2.SpinBox {
-            Layout.minimumWidth: root.spinboxWidth
-            Layout.maximumWidth: root.spinboxWidth
+            Layout.maximumWidth: root.maxSpinboxWidth
 
             from: 0
             to: 100
