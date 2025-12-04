@@ -86,7 +86,7 @@ Kirigami.FormLayout {
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
 
-        visible: kcm.perOutputScaling
+        visible: kcm.perOutputScaling && element.replicationSourceIndex == 0
         Kirigami.FormData.label: i18n("Scale:")
         Kirigami.FormData.buddyFor: scaleSlider
 
