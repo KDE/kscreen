@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:44+0000\n"
+"POT-Creation-Date: 2025-12-05 00:44+0000\n"
 "PO-Revision-Date: 2025-03-15 14:31+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -28,29 +28,29 @@ msgstr "実装エラー"
 msgid "Outputs changed while trying to apply settings"
 msgstr "設定の適用中に出力が変更されました"
 
-#: output_model.cpp:87
+#: output_model.cpp:100
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:717
+#: output_model.cpp:730
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:736
+#: output_model.cpp:749
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:823
+#: output_model.cpp:833
 #, kde-format
 msgid "None"
 msgstr "なし"
 
-#: output_model.cpp:830
+#: output_model.cpp:840
 #, kde-format
 msgid "Replicated by other output"
 msgstr "他の出力による複製"
