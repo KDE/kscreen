@@ -828,26 +828,37 @@ int OutputModel::replicationSourceId(const Output &output) const
     }
 }
 
-QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
+QList<KScreen::OutputPtr> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
 {
-    QStringList ret = {i18n("None")};
-
+    QList<KScreen::OutputPtr> ret;
     for (const auto &out : m_outputs) {
         if (out.ptr->id() != output->id()) {
             const int outSourceId = replicationSourceId(out);
             if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
-                return {i18n("Replicated by other output")};
+                return {};
             }
             if (outSourceId) {
                 // This 'out' is a replica. Can't be a replication source.
                 continue;
             }
-
-            const bool showSerialNumber = shouldShowSerialNumber(out.ptr);
-            const bool showConnector = showSerialNumber && shouldShowConnector(out.ptr);
-            ret.append(Utils::outputName(out.ptr, showSerialNumber, showConnector));
+            ret.push_back(out.ptr);
         }
+    }
+    return ret;
+}
+
+QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
+{
+    const auto sources = possibleReplicationSources(output);
+    if (sources.empty()) {
+        return {i18n("Replicated by other output")};
+    }
+    QStringList ret = {i18n("None")};
+    for (const auto &other : sources) {
+        const bool showSerialNumber = shouldShowSerialNumber(other);
+        const bool showConnector = showSerialNumber && shouldShowConnector(other);
+        ret.append(Utils::outputName(other, showSerialNumber, showConnector));
     }
     return ret;
 }
@@ -898,6 +909,8 @@ static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScr
 
 bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
+    // TODO once X11 support is dropped, change this to use output
+    // UUIDs instead of more error prone indices
     if (outputIndex <= sourceIndex) {
         // the output itself isn't in the list of the model
         sourceIndex++;
@@ -909,10 +922,14 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     Output &output = m_outputs[outputIndex];
     const int oldSourceId = replicationSourceId(output);
 
+    const auto sources = possibleReplicationSources(output.ptr);
+    if (sourceIndex >= sources.size()) {
+        return false;
+    }
     if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
         // on Wayland, we just set the replication source, and that's all
         if (sourceIndex >= 0) {
-            output.ptr->setReplicationSource(m_outputs[sourceIndex].ptr->id());
+            output.ptr->setReplicationSource(sources[sourceIndex]->id());
         } else {
             output.ptr->setReplicationSource(0);
         }
@@ -927,7 +944,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
             output.ptr->setExplicitLogicalSize(QSizeF());
             resetPosition(output);
         } else {
-            const auto source = m_outputs[sourceIndex].ptr;
+            const auto &source = sources[sourceIndex];
             if (oldSourceId == source->id()) {
                 // no change
                 return false;
@@ -981,8 +998,13 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         }
     }
     if (sourceIndex >= 0) {
-        QModelIndex index = createIndex(sourceIndex, 0);
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+        auto it = std::ranges::find_if(m_outputs, [oldSourceId](const Output &out) {
+            return out.ptr->id() == oldSourceId;
+        });
+        if (it != m_outputs.end()) {
+            QModelIndex index = createIndex(std::distance(m_outputs.begin(), it), 0);
+            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+        }
     }
     return true;
 }

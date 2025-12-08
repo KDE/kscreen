@@ -162,6 +162,7 @@ private:
 
     bool positionable(const Output &output) const;
 
+    QList<KScreen::OutputPtr> possibleReplicationSources(const KScreen::OutputPtr &output) const;
     QStringList replicationSourceModel(const KScreen::OutputPtr &output) const;
     bool setReplicationSourceIndex(int outputIndex, int sourceIndex);
     int replicationSourceIndex(int outputIndex) const;
