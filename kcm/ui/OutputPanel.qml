@@ -642,7 +642,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Layout.minimumWidth: root.comboboxWidth
         Layout.maximumWidth: Kirigami.Units.gridUnit * 16
         model: element.replicationSourceModel
-        visible: kcm.outputReplicationSupported && kcm.multipleScreensAvailable
+        visible: kcm.outputReplicationSupported && count > 0
 
         onModelChanged: enabled = (count > 1);
         onCountChanged: enabled = (count > 1);

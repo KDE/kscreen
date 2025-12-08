@@ -17,6 +17,7 @@
 
 #include <QRect>
 #include <numeric>
+#include <ranges>
 
 OutputModel::OutputModel(ConfigHandler *configHandler)
     : QAbstractListModel(configHandler)
@@ -550,6 +551,11 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
     QModelIndex index = createIndex(outputIndex, 0);
     Q_EMIT dataChanged(index, index, {EnabledRole});
+
+    for (int outputIndex : std::views::iota(0, m_outputs.size())) {
+        const QModelIndex index = createIndex(outputIndex, 0);
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole});
+    }
     return true;
 }
 
@@ -828,7 +834,7 @@ int OutputModel::replicationSourceId(const Output &output) const
     }
 }
 
-QList<KScreen::OutputPtr> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
+std::optional<QList<KScreen::OutputPtr>> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
 {
     QList<KScreen::OutputPtr> ret;
     for (const auto &out : m_outputs) {
@@ -836,10 +842,13 @@ QList<KScreen::OutputPtr> OutputModel::possibleReplicationSources(const KScreen:
             const int outSourceId = replicationSourceId(out);
             if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
-                return {};
+                return std::nullopt;
             }
             if (outSourceId) {
                 // This 'out' is a replica. Can't be a replication source.
+                continue;
+            }
+            if (!out.ptr->isEnabled()) {
                 continue;
             }
             ret.push_back(out.ptr);
@@ -851,11 +860,13 @@ QList<KScreen::OutputPtr> OutputModel::possibleReplicationSources(const KScreen:
 QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output) const
 {
     const auto sources = possibleReplicationSources(output);
-    if (sources.empty()) {
+    if (!sources.has_value()) {
         return {i18n("Replicated by other output")};
+    } else if (sources->isEmpty()) {
+        return {};
     }
     QStringList ret = {i18n("None")};
-    for (const auto &other : sources) {
+    for (const auto &other : *sources) {
         const bool showSerialNumber = shouldShowSerialNumber(other);
         const bool showConnector = showSerialNumber && shouldShowConnector(other);
         ret.append(Utils::outputName(other, showSerialNumber, showConnector));
@@ -922,10 +933,11 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     Output &output = m_outputs[outputIndex];
     const int oldSourceId = replicationSourceId(output);
 
-    const auto sources = possibleReplicationSources(output.ptr);
-    if (sourceIndex >= sources.size()) {
+    const auto optSources = possibleReplicationSources(output.ptr);
+    if (!optSources.has_value() || sourceIndex >= optSources->size()) {
         return false;
     }
+    const auto &sources = *optSources;
     if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
         // on Wayland, we just set the replication source, and that's all
         if (sourceIndex >= 0) {
