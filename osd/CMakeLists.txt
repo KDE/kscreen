@@ -28,4 +28,4 @@ ecm_install_configured_files(INPUT plasma-kscreen-osd.service @ONLY
     DESTINATION ${KDE_INSTALL_SYSTEMDUSERUNITDIR}
 )
 
-install(FILES org.kde.kscreen.desktop DESTINATION ${KDE_INSTALL_DATADIR}/kglobalaccel)
+install(PROGRAMS org.kde.kscreen.desktop DESTINATION ${KDE_INSTALL_DATADIR}/kglobalaccel)
