@@ -1095,7 +1095,14 @@ QModelIndex OutputModel::indexForOutput(const KScreen::OutputPtr &output) const
 
 bool OutputModel::positionable(const Output &output) const
 {
-    return output.ptr->isPositionable();
+    // KScreen::Output::isPositionable reports false if the screen
+    // is mirrored, which is not the case on Wayland, so override
+    // it here. TODO delete the other code path once X11 support is dropped
+    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
+        return output.ptr->isEnabled();
+    } else {
+        return output.ptr->isPositionable();
+    }
 }
 
 bool OutputModel::isMoving() const
