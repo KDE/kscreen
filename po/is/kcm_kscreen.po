@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-05 00:44+0000\n"
-"PO-Revision-Date: 2025-10-23 15:04+0000\n"
+"PO-Revision-Date: 2025-12-07 13:10+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -531,6 +531,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Takmarkar litupplausnina sem send er til skjásins. Þetta hefur ekki áhrif á "
+"skjámyndatöku eða skjáupptokur.<nl/><nl/>Þar sem skjárinn er núna tengdur í "
+"gegnum dokku eða tengikví hefur sjálfvirk litupplausn verit tímabundið "
+"stillt á 8 bita til að komast framhjá algengum vandamálum varðandi dokkur."
+"<nl/><nl/>Vegna takmarkana í skjáreklum er ómögulegt að vita raunverulega "
+"litupplausn sem verið er að nota."
 
 #: ui/OutputPanel.qml:475
 #, kde-kuit-format
@@ -542,6 +548,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Takmarkar litupplausnina sem send er til skjásins. Þetta hefur ekki áhrif á "
+"skjámyndatöku eða skjáupptokur.<nl/><nl/>Takmörkun á litupplausn getur nýst "
+"til að komast framhjá vandamálum varðandi skjá eða skjárekla.<nl/><nl/>Vegna "
+"takmarkana í skjáreklum er ómögulegt að vita raunverulega litupplausn sem "
+"verið er að nota."
 
 #: ui/OutputPanel.qml:490
 #, kde-format
