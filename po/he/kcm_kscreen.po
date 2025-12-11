@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:46+0000\n"
 "PO-Revision-Date: 2025-10-05 12:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -30,32 +30,32 @@ msgstr "שגיאת מימוש"
 msgid "Outputs changed while trying to apply settings"
 msgstr "מסכי הפלט השתנו תוך ניסיון החלת ההגדרות"
 
-#: output_model.cpp:100
+#: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 הרץ"
 
-#: output_model.cpp:730
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:749
+#: output_model.cpp:755
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:833
-#, kde-format
-msgid "None"
-msgstr "ללא"
-
-#: output_model.cpp:840
+#: output_model.cpp:864
 #, kde-format
 msgid "Replicated by other output"
 msgstr "מועתק על ידי פלט אחר"
+
+#: output_model.cpp:868
+#, kde-format
+msgid "None"
+msgstr "ללא"
 
 #: ui/main.qml:43
 #, kde-format

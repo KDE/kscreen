@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:46+0000\n"
 "PO-Revision-Date: 2025-04-06 20:57+0200\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -32,18 +32,18 @@ msgid "Outputs changed while trying to apply settings"
 msgstr ""
 "Beim Versuch, die Einstellungen zu übernehmen, wurden die Ausgaben geändert"
 
-#: output_model.cpp:100
+#: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:730
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:749
+#: output_model.cpp:755
 #, fuzzy, kde-format
 #| msgctxt "Width x height (aspect ratio)"
 #| msgid "%1x%2 (%3:%4)"
@@ -51,15 +51,15 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1×%2 (%3:%4)"
 
-#: output_model.cpp:833
-#, kde-format
-msgid "None"
-msgstr "Kein"
-
-#: output_model.cpp:840
+#: output_model.cpp:864
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Von anderer Ausgabe kopiert"
+
+#: output_model.cpp:868
+#, kde-format
+msgid "None"
+msgstr "Kein"
 
 #: ui/main.qml:43
 #, kde-format

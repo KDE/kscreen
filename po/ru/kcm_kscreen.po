@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:46+0000\n"
 "PO-Revision-Date: 2025-10-28 19:23+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -30,32 +30,32 @@ msgstr "Ошибка реализации"
 msgid "Outputs changed while trying to apply settings"
 msgstr "Конфигурация выходов изменилась при применении параметров"
 
-#: output_model.cpp:100
+#: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Гц"
 
-#: output_model.cpp:730
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:749
+#: output_model.cpp:755
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1×%2 (%3:%4)"
 
-#: output_model.cpp:833
-#, kde-format
-msgid "None"
-msgstr "Отсутствует"
-
-#: output_model.cpp:840
+#: output_model.cpp:864
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Синхронизировано с другим выходом"
+
+#: output_model.cpp:868
+#, kde-format
+msgid "None"
+msgstr "Отсутствует"
 
 #: ui/main.qml:43
 #, kde-format

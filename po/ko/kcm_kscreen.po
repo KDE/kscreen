@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:46+0000\n"
 "PO-Revision-Date: 2025-10-09 01:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,32 +27,32 @@ msgstr "구현 오류"
 msgid "Outputs changed while trying to apply settings"
 msgstr "설정을 적용하는 중 출력이 변경됨"
 
-#: output_model.cpp:100
+#: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:730
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:749
+#: output_model.cpp:755
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2(%3:%4)"
 
-#: output_model.cpp:833
-#, kde-format
-msgid "None"
-msgstr "없음"
-
-#: output_model.cpp:840
+#: output_model.cpp:864
 #, kde-format
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
+
+#: output_model.cpp:868
+#, kde-format
+msgid "None"
+msgstr "없음"
 
 #: ui/main.qml:43
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:46+0000\n"
 "PO-Revision-Date: 2025-08-10 19:35+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -27,32 +27,32 @@ msgstr "நிரலக சிக்கல்"
 msgid "Outputs changed while trying to apply settings"
 msgstr "அமைப்புகளை செயல்படுத்தும்போது திரைகள் மாறின"
 
-#: output_model.cpp:100
+#: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:730
+#: output_model.cpp:736
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:749
+#: output_model.cpp:755
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:833
-#, kde-format
-msgid "None"
-msgstr "ஏதுமில்லை"
-
-#: output_model.cpp:840
+#: output_model.cpp:864
 #, kde-format
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
+
+#: output_model.cpp:868
+#, kde-format
+msgid "None"
+msgstr "ஏதுமில்லை"
 
 #: ui/main.qml:43
 #, kde-format
