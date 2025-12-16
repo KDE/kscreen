@@ -32,6 +32,7 @@ target_link_libraries(hdrcalibrator PUBLIC
     Qt::WaylandClient
     Qt::GuiPrivate
     Qt::QuickControls2
+    Qt::DBus
 )
 target_include_directories(hdrcalibrator PUBLIC ${CMAKE_BINARY_DIR})
 

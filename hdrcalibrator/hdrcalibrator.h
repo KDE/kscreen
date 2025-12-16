@@ -31,6 +31,7 @@ public:
     explicit HdrCalibrator();
 
     Q_INVOKABLE void applyConfig();
+    Q_INVOKABLE void applyConfigForWindowsApps();
     // ensures that pending operations are finished before quitting
     Q_INVOKABLE void safeQuit();
 
