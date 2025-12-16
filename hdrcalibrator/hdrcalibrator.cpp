@@ -7,10 +7,13 @@
 #include "hdrcalibrator_debug.h"
 
 #include <KAboutData>
+#include <KConfigGroup>
 #include <KCrash>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QGuiApplication>
+#include <QtDBus/QtDBus>
 
 using namespace Qt::StringLiterals;
 
@@ -32,6 +35,18 @@ void HdrCalibrator::applyConfig()
     // won't override the settings we just changed
     m_setOp = new KScreen::SetConfigOperation(m_config->clone());
     connect(m_setOp, &KScreen::SetConfigOperation::finished, this, &HdrCalibrator::setOpFinished);
+}
+
+void HdrCalibrator::applyConfigForWindowsApps()
+{
+    auto config = KSharedConfig::openConfig("kwinrc");
+    auto group = config->group("Windows_HDR");
+    group.writeEntry("Reference", sdrBrightness());
+    group.writeEntry("MaxFrameAverage", maxAverageBrightnessOverride());
+    group.writeEntry("MaxLuminance", peakBrightnessOverride());
+    config->sync();
+    QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.kde.KWin", "reloadConfig");
+    QDBusConnection::sessionBus().send(message);
 }
 
 void HdrCalibrator::safeQuit()

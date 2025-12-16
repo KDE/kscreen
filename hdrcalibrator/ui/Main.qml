@@ -449,14 +449,21 @@ Window {
                         }
                     }
                     QQC2.Button {
-                        icon.name: "dialog-ok-apply"
-                        text: i18nc("@action:button", "Done")
+                        icon.name: "go-next"
+                        text: i18nc("@action:button", "Next")
                         onClicked: {
                             HdrCalibrator.applyConfig();
-                            hdrCalibration.close();
+                            stack.push(windowsHdrConfiguration);
                         }
 
                         Accessible.description: i18nc("@info accessible description of a push button", "Switches to the next page")
+                    }
+                    QQC2.Button {
+                        icon.name: "dialog-cancel"
+                        text: i18nc("@action:button", "Cancel")
+                        onClicked: hdrCalibration.resetConfigAndQuit();
+
+                        Accessible.description: i18nc("@info accessible description of a push button", "Cancels the calibration process")
                     }
                 }
                 Text {
@@ -466,6 +473,128 @@ Window {
                     wrapMode: Text.WordWrap
 
                     text: i18n("Configure how bright \"100\%\" on the normal brightness slider should be. Make it as bright as you'd ever use it, as long as the HDR image still looks good and the gradients are smooth.\nTo avoid brightness fluctuations, it's recommended to not exceed the display's maximum average brightness of %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
+                    color: "white"
+                }
+            }
+        }
+    }
+
+    Component {
+        id: windowsHdrConfiguration
+
+        Rectangle {
+            color: "black"
+
+            ColumnLayout {
+                anchors.centerIn: parent
+                RowLayout {
+                    WindowContainer {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: hdrCalibration.tenPercentSize * 0.5
+                        Layout.preferredHeight: hdrCalibration.tenPercentSize * 0.5
+                        window: Window {
+                            visible: true
+                            onVisibleChanged: HdrHelper.setHdrParameters(this, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, HdrCalibrator.peakBrightnessOverride, HdrHelper.RenderIntent.RelativeColorimetricBPC)
+                            color: "white"
+                            width: hdrCalibration.tenPercentSize
+                            height: hdrCalibration.tenPercentSize
+                            // NOTE that the text requires a separate window, as it looks terrible with linear brightness values
+                            WindowContainer {
+                                anchors.fill: parent
+                                window: Window {
+                                    visible: true
+                                    width: hdrCalibration.tenPercentSize
+                                    height: hdrCalibration.tenPercentSize
+                                    flags: Qt.WA_TranslucentBackground
+                                    color: "#00000000"
+                                    QQC2.Label {
+                                        anchors.centerIn: parent
+                                        color: "black"
+                                        text: i18n("Maximum luminance: %1cd/m²", HdrCalibrator.peakBrightnessOverride)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    WindowContainer {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: hdrCalibration.tenPercentSize * 0.5
+                        Layout.preferredHeight: hdrCalibration.tenPercentSize * 0.5
+                        window: Window {
+                            visible: true
+                            onVisibleChanged: HdrHelper.setHdrParameters(this, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, HdrCalibrator.maxAverageBrightnessOverride, HdrHelper.RenderIntent.RelativeColorimetricBPC)
+                            color: "white"
+                            width: hdrCalibration.tenPercentSize
+                            height: hdrCalibration.tenPercentSize
+                            // NOTE that the text requires a separate window, as it looks terrible with linear brightness values
+                            WindowContainer {
+                                anchors.fill: parent
+                                window: Window {
+                                    visible: true
+                                    width: hdrCalibration.tenPercentSize
+                                    height: hdrCalibration.tenPercentSize
+                                    flags: Qt.WA_TranslucentBackground
+                                    color: "#00000000"
+                                    QQC2.Label {
+                                        anchors.centerIn: parent
+                                        color: "black"
+                                        text: i18n("Maximum fullscreen luminance: %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: hdrCalibration.tenPercentSize * 0.5
+                        Layout.preferredHeight: hdrCalibration.tenPercentSize * 0.5
+                        color: "white"
+                        QQC2.Label {
+                            anchors.centerIn: parent
+                            color: "black"
+                            text: i18n("Reference luminance / paper white: %1cd/m²", HdrCalibrator.sdrBrightness)
+                        }
+                    }
+                }
+                RowLayout {
+                    id: windowsHdrRow
+
+                    Layout.alignment: Qt.AlignHCenter
+                    QQC2.CheckBox {
+                        id: applyToWindowsApps
+                        checked: true
+                        text: i18nc("@action:checkbox", "Assume Windows HDR applications are calibrated for this screen")
+                        Kirigami.Theme.textColor: "white"
+                    }
+                    QQC2.Button {
+                        icon.name: "dialog-cancel"
+                        text: i18nc("@action:button", "Cancel")
+                        onClicked: hdrCalibration.resetConfigAndQuit();
+
+                        Accessible.description: i18nc("@info accessible description of a push button", "Cancels the calibration process")
+                    }
+                    QQC2.Button {
+                        icon.name: "dialog-ok-apply"
+                        text: i18nc("@action:button", "Done")
+                        onClicked: {
+                            HdrCalibrator.applyConfig();
+                            if (applyToWindowsApps.checked) {
+                                HdrCalibrator.applyConfigForWindowsApps();
+                            }
+                            hdrCalibration.close();
+                        }
+
+                        Accessible.description: i18nc("@info accessible description of a push button", "Finish the calibration process")
+                    }
+                }
+                QQC2.Label {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.maximumWidth: windowsHdrRow.width
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    text: i18n("Many Windows applications come with their own calibration settings, which this system wide configuration conflicts with. If this option is set, their calibration settings will work as expected on this specific display.")
                     color: "white"
                 }
             }
