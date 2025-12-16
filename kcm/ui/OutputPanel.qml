@@ -84,7 +84,7 @@ Kirigami.FormLayout {
     RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
 
         visible: kcm.perOutputScaling && element.replicationSourceIndex == 0
         Kirigami.FormData.label: i18n("Scale:")
@@ -228,6 +228,8 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.label: i18nc("@label:listbox", "Color profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
         visible: (element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)) && !(element.hdr && root.hdrAvailable)
@@ -347,7 +349,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.label: i18nc("@label", "High Dynamic Range:")
         Kirigami.FormData.buddyFor: hdrCheckbox
         visible: root.hdrAvailable
@@ -371,7 +373,7 @@ Kirigami.FormLayout {
         onClicked: kcm.startHdrCalibrator(element.name);
 
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         visible: root.hdrAvailable && element.hdr
 
         QQC2.ToolTip.visible: hovered
@@ -386,7 +388,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.label: i18nc("@label:listbox", "Color accuracy:")
         Kirigami.FormData.buddyFor: colorAccuracyCombobox
         visible: element.capabilities & KScreen.Output.Capability.IccProfile
@@ -421,7 +423,7 @@ Note that changing this setting can have a large impact on performance.")
 
     RowLayout {
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.label: i18nc("@label:listbox", "Limit color resolution to:")
         Kirigami.FormData.buddyFor: colorResolutionCombobox
         visible: (element.capabilities & KScreen.Output.Capability.MaxBitsPerColor) && element.minSupportedMaxBitsPerColor != element.maxSupportedMaxBitsPerColor
@@ -483,7 +485,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
         visible: (root.hdrAvailable && element.hdr) || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
@@ -533,7 +535,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     RowLayout {
         id: ddcCiAllowedContainer
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.buddyFor: ddcCiAllowedCheckbox
         Kirigami.FormData.label: i18nc("@label", "Brightness:")
         visible: element.capabilities & KScreen.Output.Capability.DdcCi
@@ -554,7 +556,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
         visible: (root.hdrAvailable && element.hdr) || (element.capabilities & KScreen.Output.Capability.BrightnessControl)
@@ -589,7 +591,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     RowLayout {
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
         visible: element.capabilities & KScreen.Output.Capability.SharpnessControl
@@ -618,7 +620,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
 
     RowLayout {
         // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
         visible: !root.hdrAvailable && (element.capabilities & KScreen.Output.Capability.ExtendedDynamicRange)
@@ -640,7 +642,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     QQC2.ComboBox {
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: root.comboboxWidth
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 16
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         model: element.replicationSourceModel
         visible: kcm.outputReplicationSupported && count > 0
 
