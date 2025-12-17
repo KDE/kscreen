@@ -554,6 +554,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     }
 
     RowLayout {
+        id: brightnessRow
         Layout.fillWidth: true
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
@@ -584,6 +585,24 @@ Due to graphics driver limitations, the actually used resolution cannot be known
             onValueModified: element.brightness = value / 100.0
             textFromValue: (value, locale) => i18nc("Brightness expressed in percentage form", "%1%", value)
             valueFromText: (text, locale) => Number.fromLocaleString(locale, text.replace("%", ""))
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: brightnessRow.visible && (element.capabilities & KScreen.Output.Capability.AutomaticBrightness)
+
+        QQC2.CheckBox {
+            text: i18n("Automatically adapt to environment")
+            checked: element.automaticBrightness
+            onToggled: element.automaticBrightness = !element.automaticBrightness
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Automatically adjust the screen’s brightness based on the lighting level of the environment, as detected by the device’s ambient light sensor. If you adjust the brightness manually, those adjustments will be remembered and taken into account.")
         }
     }
 

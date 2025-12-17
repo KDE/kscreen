@@ -62,6 +62,7 @@ public:
         BitsPerColorOptionsPreferEfficiencyRole,
         BitsPerColorOptionsPreferAccuracyRole,
         SharpnessRole,
+        AutoBrightnessRole,
     };
     Q_ENUM(OutputRoles)
 

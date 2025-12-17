@@ -174,7 +174,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->ddcCiAllowed() != config->ddcCiAllowed()
                     || output->maxBitsPerColor() != config->maxBitsPerColor()
                     || (isSaveCheck && output->edrPolicy() != config->edrPolicy())
-                    || output->sharpness() != config->sharpness()) {
+                    || output->sharpness() != config->sharpness()
+                    || (isSaveCheck && output->automaticBrightness() != config->automaticBrightness())) {
                         return true;
                     }
             }
