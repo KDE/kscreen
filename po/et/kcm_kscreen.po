@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-17 00:45+0000\n"
+"POT-Creation-Date: 2025-12-19 00:45+0000\n"
 "PO-Revision-Date: 2020-05-15 08:25+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -32,13 +32,13 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:736
+#: output_model.cpp:743
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:755
+#: output_model.cpp:762
 #, fuzzy, kde-format
 #| msgctxt "Width x height (aspect ratio)"
 #| msgid "%1x%2 (%3:%4)"
@@ -46,12 +46,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:864
+#: output_model.cpp:871
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Teise väljundi koopia"
 
-#: output_model.cpp:868
+#: output_model.cpp:875
 #, kde-format
 msgid "None"
 msgstr "Puudub"
@@ -580,7 +580,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:585
+#: ui/OutputPanel.qml:586
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -588,26 +588,41 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:600
+#, kde-format
+msgid "Automatically adapt to environment"
+msgstr ""
+
+#: ui/OutputPanel.qml:605
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Automatically adjust the screen’s brightness based on the lighting level of "
+"the environment, as detected by the device’s ambient light sensor. If you "
+"adjust the brightness manually, those adjustments will be remembered and "
+"taken into account."
+msgstr ""
+
+#: ui/OutputPanel.qml:617
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:627
+#: ui/OutputPanel.qml:646
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr ""
 
-#: ui/OutputPanel.qml:632
+#: ui/OutputPanel.qml:651
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Lubatud"
 
-#: ui/OutputPanel.qml:638
+#: ui/OutputPanel.qml:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -616,7 +631,7 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:643
+#: ui/OutputPanel.qml:662
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopeerib:"

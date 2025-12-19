@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-17 00:45+0000\n"
+"POT-Creation-Date: 2025-12-19 00:45+0000\n"
 "PO-Revision-Date: 2025-08-12 05:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -33,24 +33,24 @@ msgstr "პარამეტრების გადატარების �
 msgid "%1 Hz"
 msgstr "%1 ჰც"
 
-#: output_model.cpp:736
+#: output_model.cpp:743
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:755
+#: output_model.cpp:762
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:864
+#: output_model.cpp:871
 #, kde-format
 msgid "Replicated by other output"
 msgstr "რეპლიცირებულია სხვა გამოტანის მიერ"
 
-#: output_model.cpp:868
+#: output_model.cpp:875
 #, kde-format
 msgid "None"
 msgstr "არაფერი"
@@ -602,31 +602,46 @@ msgstr ""
 "გამოიყენოთ ის ეკრანის სიკაშკაშის სამართავად, თითქოს ეკრანის აპარატურულ "
 "ღილაკებს და OSD მენიუს იყენებდეთ."
 
-#: ui/OutputPanel.qml:585
+#: ui/OutputPanel.qml:586
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:600
+#, kde-format
+msgid "Automatically adapt to environment"
+msgstr ""
+
+#: ui/OutputPanel.qml:605
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Automatically adjust the screen’s brightness based on the lighting level of "
+"the environment, as detected by the device’s ambient light sensor. If you "
+"adjust the brightness manually, those adjustments will be remembered and "
+"taken into account."
+msgstr ""
+
+#: ui/OutputPanel.qml:617
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "სიმკვეთრე:"
 
-#: ui/OutputPanel.qml:627
+#: ui/OutputPanel.qml:646
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "გაფართოებული დინამიკური შუალედი:"
 
-#: ui/OutputPanel.qml:632
+#: ui/OutputPanel.qml:651
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR-ის ჩართვა"
 
-#: ui/OutputPanel.qml:638
+#: ui/OutputPanel.qml:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -638,7 +653,7 @@ msgstr ""
 "დინამიკურად გასწორებით.<nl/><nl/>დაიმახსოვრეთ, რომ ეს მეტ ელემენტს ხარჯავს "
 "HDR შემცველობის დათვალიერებისას."
 
-#: ui/OutputPanel.qml:643
+#: ui/OutputPanel.qml:662
 #, kde-format
 msgid "Replica of:"
 msgstr "რისი რეპლიკა:"

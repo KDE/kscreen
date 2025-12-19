@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-17 00:45+0000\n"
+"POT-Creation-Date: 2025-12-19 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 21:10-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -37,24 +37,24 @@ msgstr "As saídas foram alteradas ao tentar aplicar as configurações"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:736
+#: output_model.cpp:743
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:755
+#: output_model.cpp:762
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:864
+#: output_model.cpp:871
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replicado por outra saída"
 
-#: output_model.cpp:868
+#: output_model.cpp:875
 #, kde-format
 msgid "None"
 msgstr "Nenhum"
@@ -607,31 +607,46 @@ msgstr ""
 "usá-la para ajustar o brilho da tela com controles na área de trabalho, como "
 "se estivesse utilizando os botões e menu OSD do próprio monitor."
 
-#: ui/OutputPanel.qml:585
+#: ui/OutputPanel.qml:586
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:600
+#, kde-format
+msgid "Automatically adapt to environment"
+msgstr ""
+
+#: ui/OutputPanel.qml:605
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Automatically adjust the screen’s brightness based on the lighting level of "
+"the environment, as detected by the device’s ambient light sensor. If you "
+"adjust the brightness manually, those adjustments will be remembered and "
+"taken into account."
+msgstr ""
+
+#: ui/OutputPanel.qml:617
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Nitidez:"
 
-#: ui/OutputPanel.qml:627
+#: ui/OutputPanel.qml:646
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Alcance Dinâmico Estendido:"
 
-#: ui/OutputPanel.qml:632
+#: ui/OutputPanel.qml:651
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Habilitar EDR"
 
-#: ui/OutputPanel.qml:638
+#: ui/OutputPanel.qml:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -643,7 +658,7 @@ msgstr ""
 "ajustar dinâmicamente a luz de fundo.<nl/><nl/>Note que isso aumenta o uso "
 "de bateria durante a visualização de conteúdo HDR."
 
-#: ui/OutputPanel.qml:643
+#: ui/OutputPanel.qml:662
 #, kde-format
 msgid "Replica of:"
 msgstr "Réplica de:"

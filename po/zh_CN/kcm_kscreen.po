@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-17 00:45+0000\n"
+"POT-Creation-Date: 2025-12-19 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,24 +32,24 @@ msgstr "输出在尝试应用设置时发生更改"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:736
+#: output_model.cpp:743
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:755
+#: output_model.cpp:762
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:864
+#: output_model.cpp:871
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
 
-#: output_model.cpp:868
+#: output_model.cpp:875
 #, kde-format
 msgid "None"
 msgstr "无"
@@ -579,31 +579,46 @@ msgstr ""
 "DDC/CI 是许多显示器支持的一项功能。Plasma 可以使用此功能直接通过桌面控件调节"
 "屏幕亮度，效果与使用显示器自身的硬件按钮和 OSD 菜单一样。"
 
-#: ui/OutputPanel.qml:585
+#: ui/OutputPanel.qml:586
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:598
+#: ui/OutputPanel.qml:600
+#, kde-format
+msgid "Automatically adapt to environment"
+msgstr ""
+
+#: ui/OutputPanel.qml:605
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Automatically adjust the screen’s brightness based on the lighting level of "
+"the environment, as detected by the device’s ambient light sensor. If you "
+"adjust the brightness manually, those adjustments will be remembered and "
+"taken into account."
+msgstr ""
+
+#: ui/OutputPanel.qml:617
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "锐利度："
 
-#: ui/OutputPanel.qml:627
+#: ui/OutputPanel.qml:646
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "扩展动态范围："
 
-#: ui/OutputPanel.qml:632
+#: ui/OutputPanel.qml:651
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "启用 EDR"
 
-#: ui/OutputPanel.qml:638
+#: ui/OutputPanel.qml:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -614,7 +629,7 @@ msgstr ""
 "EDR 能够通过动态调整背光亮度在 SDR 显示屏上显示 HDR 内容。<nl/><nl/>请注意："
 "在观看 HDR 内容时，此功能将增加耗电量。"
 
-#: ui/OutputPanel.qml:643
+#: ui/OutputPanel.qml:662
 #, kde-format
 msgid "Replica of:"
 msgstr "复制自："
