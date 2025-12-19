@@ -31,6 +31,34 @@ Control {
     topPadding: shadow.margins.top + background.margins.top
     bottomPadding: shadow.margins.bottom + background.margins.bottom
 
+    component OsdButton : PlasmaComponents.Button {
+        required property int index
+        display: PlasmaComponents.Button.IconOnly
+
+        // use checked only indirectly, since its binding will break
+        readonly property bool current: index === actionRepeater.currentIndex
+        onCurrentChanged: {
+            if (current) {
+                checked = true;
+                root.infoText = text;
+                forceActiveFocus();
+            } else {
+                checked = false;
+            }
+        }
+
+        onHoveredChanged: {
+            if (hovered) {
+                actionRepeater.currentIndex = index;
+            }
+        }
+        onActiveFocusChanged: {
+            if (activeFocus) {
+                actionRepeater.currentIndex = index;
+            }
+        }
+    }
+
     contentItem : ColumnLayout {
         id: content
 
@@ -39,42 +67,16 @@ Control {
                 id: actionRepeater
                 property int currentIndex: 0
                 model: root.actions
-                delegate: PlasmaComponents.Button {
+                delegate: OsdButton {
                     required property var modelData
-                    required property int index
                     property int actionId: modelData.action
 
-                    Accessible.name: modelData.label
-
+                    text: modelData.label
                     icon.name: modelData.iconName
                     icon.height: Kirigami.Units.gridUnit * 8
                     icon.width: Kirigami.Units.gridUnit * 8
 
                     onClicked: root.clicked(actionId)
-                    onHoveredChanged: {
-                        if (hovered) {
-                            actionRepeater.currentIndex = index
-                        }
-                    }
-
-                    activeFocusOnTab: true
-
-                    // use checked only indirectly, since its binding will break
-                    property bool current: index == actionRepeater.currentIndex
-                    onCurrentChanged: {
-                        if (current) {
-                            checked = true
-                            root.infoText = modelData.label
-                            forceActiveFocus()
-                        } else {
-                            checked = false
-                        }
-                    }
-                    onActiveFocusChanged: {
-                        if (activeFocus) {
-                            actionRepeater.currentIndex = index
-                        }
-                    }
                 }
             }
         }
