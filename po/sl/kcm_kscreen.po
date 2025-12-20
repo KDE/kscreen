@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-12 07:22+0200\n"
+"PO-Revision-Date: 2025-12-19 06:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -615,7 +615,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Samodejno se prilagajaj okolju"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -626,6 +626,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Samodejno prilagajaj svetlost zaslona glede na raven osvetlitve okolja, ki "
+"jo zazna senzor svetlobe okolice v napravi. Če svetlost prilagodite ročno, "
+"se bodo te prilagoditve zapomnile in upoštevale."
 
 #: ui/OutputPanel.qml:617
 #, kde-format

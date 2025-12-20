@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-10-05 12:30+0300\n"
+"PO-Revision-Date: 2025-12-19 09:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -599,7 +599,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "התאמה אוטומטית לסביבה"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -610,6 +610,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"להתאים את בהירות המסך לעוצמת התאורה בסביבה, לפי מה שמזהה חיישן התאורה "
+"ההיקפית של המכשיר. אם כיוונת את התאורה ידנית, הכוונון הזה יישמר ויילקח "
+"בחשבון."
 
 #: ui/OutputPanel.qml:617
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-12 20:11+0100\n"
+"PO-Revision-Date: 2025-12-19 10:46+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -618,7 +618,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Adaptarse automáticamente al entorno"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -629,6 +629,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Ajustar automáticamente el brillo de la pantalla según el nivel de "
+"iluminación del entorno detectado por el sensor de luz ambiente del "
+"dispositivo. Si ajusta el brillo de forma manual, esos ajustes se recordarán "
+"y se tendrán en cuenta."
 
 #: ui/OutputPanel.qml:617
 #, kde-format

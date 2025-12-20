@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-12 11:20+0200\n"
+"PO-Revision-Date: 2025-12-19 11:45+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -611,7 +611,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Automatisch aanpassen aan de omgeving"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -622,6 +622,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"De schermhelderheid wordt automatisch aangepast aan de omgevingsverlichting, "
+"zoals gedetecteerd door de omgevingslichtsensor van het apparaat. Als u de "
+"helderheid handmatig aanpast, worden deze aanpassingen onthouden en "
+"meegenomen."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
