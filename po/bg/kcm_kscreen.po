@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-31 23:36+0200\n"
+"PO-Revision-Date: 2025-12-20 19:21+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -614,7 +614,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Автоматично адаптиране към осветеността на околната среда"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -625,6 +625,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Яркостта на екрана се регулира автоматично въз основа на нивото на "
+"осветеност на околната среда, засечено от светлинния сензор на устройството. "
+"Ако регулирате яркостта ръчно, тези корекции ще бъдат запомнени и взети "
+"предвид."
 
 #: ui/OutputPanel.qml:617
 #, kde-format

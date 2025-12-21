@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-16 14:42+0900\n"
+"PO-Revision-Date: 2025-12-21 06:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -591,7 +591,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "自動適應環境"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -602,6 +602,8 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"自動依裝置環境光感測器所偵測的環境亮度來調整螢幕亮度。如果您手動調整了亮度，"
+"這些調整會被記住並加入自動亮度的考量。"
 
 #: ui/OutputPanel.qml:617
 #, kde-format

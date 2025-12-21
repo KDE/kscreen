@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-21 10:17+0400\n"
+"PO-Revision-Date: 2025-12-20 11:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -602,7 +602,7 @@ msgstr "%1٪"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "تكيف آليًا مع البيئة"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -613,6 +613,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"اضبط سطوع الشاشة آليًا بناءً على مستوى الإضاءة في البيئة المحيطة، كما يكتشفه "
+"مستشعر الإضاءة المحيطة بالجهاز. إذا ضبّطت السطوع يدويًا، سيُحفظ هذه الضبط ويؤخذ "
+"في الاعتبار."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
