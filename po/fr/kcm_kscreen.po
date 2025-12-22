@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-13 09:10+0200\n"
+"PO-Revision-Date: 2025-12-20 09:47+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.12.0\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:148 kcm.cpp:170
@@ -632,7 +632,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "S'adapter automatiquement à l'environnement"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -643,6 +643,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Régler automatiquement la luminosité de l'écran en fonction du niveau "
+"d'éclairage de l'environnement, tel que mesuré par le capteur de lumière "
+"ambiante du périphérique. Si vous réglez la luminosité manuellement, ces "
+"réglages seront mémorisés et pris en compte."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
