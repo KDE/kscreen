@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-14 21:03+0200\n"
+"PO-Revision-Date: 2025-12-19 14:46+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -616,7 +616,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Adatta automaticamente all'ambiente"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -627,6 +627,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Regola automaticamente la luminosità dello schermo in base al livello di "
+"illuminazione dell'ambiente, rilevato dal sensore di luce ambientale del "
+"dispositivo. Se regoli manualmente la luminosità, tali modifiche saranno "
+"memorizzate e prese in considerazione."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
