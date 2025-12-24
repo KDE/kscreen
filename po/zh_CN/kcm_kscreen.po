@@ -588,7 +588,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "自动适应环境亮度"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -599,6 +599,8 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"基于设备的环境光传感器检测到的环境亮度自动调整屏幕亮度。如果您手动调整亮度，"
+"系统将记住您的调整并在自动调整时参考手动调整的亮度级别。"
 
 #: ui/OutputPanel.qml:617
 #, kde-format
