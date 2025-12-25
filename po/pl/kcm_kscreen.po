@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-11-01 09:27+0100\n"
+"PO-Revision-Date: 2025-12-24 16:53+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -539,6 +539,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Ogranicza rozdzielczość barwną obrazu wysyłanego na wyświetlacz. Nie wpływa "
+"to ani na zrzuty ekranu, ani na nagrania.<nl/><nl/>Ze względu na to, że "
+"wyświetlacz jest obecnie podłączony przez stację dokującą, to samoczynnie "
+"ustawiana rozdzielczość barwna została ograniczona do 8 bitów, aby uniknąć "
+"znanych kłopotów.<nl/><nl/>Ze względu na ograniczenia sterownika, nie jest "
+"znana obecnie używana rozdzielczość."
 
 #: ui/OutputPanel.qml:477
 #, kde-kuit-format
@@ -550,6 +556,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Ogranicza rozdzielczość barwną obrazu wysyłanego na wyświetlacz. Nie wpływa "
+"to ani na zrzuty ekranu, ani na nagrania.<nl/><nl/>Ograniczenie "
+"rozdzielczości barwnej może być użyteczne do omijania błędów w sterownikach "
+"grafiki.<nl/><nl/>Ze względu na ograniczenia sterownika, nie jest znana "
+"obecnie używana rozdzielczość."
 
 #: ui/OutputPanel.qml:492
 #, kde-format
@@ -602,7 +613,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Sam dostosowuj do środowiska"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -613,12 +624,15 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Sam dostosuj jasność ekranu na podstawie poziomu naświetlenia w otoczeniu wg "
+"wskazań przetwornika światła otoczenia danego urządzenia. Jeśli dostosujesz "
+"jasność ręcznie, to zostanie ona zapamiętana i wzięta pod uwagę."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Ostrość:"
 
 #: ui/OutputPanel.qml:646
 #, kde-format
