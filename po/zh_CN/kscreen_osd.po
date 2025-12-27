@@ -21,4 +21,4 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure displays in more detail"
-msgstr ""
+msgstr "配置显示器详细设置"
