@@ -1,48 +1,46 @@
 # SPDX-FileCopyrightText: 2015, 2016 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2018 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen_common\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2023-01-30 16:05+0100\n"
-"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
+"PO-Revision-Date: 2025-11-30 14:37+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Auf externen Bildschirm umschalten"
+msgstr "Nur externen Bildschirm verwenden"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Integrierter Bildschirm"
+msgstr "Nur integrierten Bildschirm verwenden"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Bildschirme spiegeln"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Nach links vom integrierten Bildschirm erweitern"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Nach rechts erweitern"
+msgstr "Nach rechts vom integrierten Bildschirm erweitern"
 
 #: osdaction.cpp:33
 #, kde-format
