@@ -2,19 +2,21 @@
 # German translation for kscreen.
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:41+0000\n"
-"PO-Revision-Date: 2025-05-15 11:58+0200\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-12-25 12:25+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,31 +32,31 @@ msgstr "kde-i18n-de@kde.org"
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr ""
+msgstr "HDR-Kalibrierung"
 
 #: ui/Main.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr ""
+msgstr "Weiter"
 
 #: ui/Main.qml:143 ui/Main.qml:314
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr ""
+msgstr "Wechselt zur nächsten Seite"
 
 #: ui/Main.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: ui/Main.qml:154
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr ""
+msgstr "Bricht den Kablibrierungsprozess ab"
 
 #: ui/Main.qml:159
 #, kde-format
@@ -62,12 +64,14 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
+"Um die maximale Helligkeit des Bildschirms festzustellen, verschieben Sie "
+"den Schieberegler bis das Logo kaum noch sichtbar ist."
 
 #: ui/Main.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: ui/Main.qml:323
 #, kde-format
@@ -76,3 +80,6 @@ msgid ""
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
 "good and the gradients are smooth."
 msgstr ""
+"Helligkeit für „100 %“ am  Schieberegler für normale Helligkeit einstellen. "
+"Stellen Sie sie so hell ein, wie Sie sie jemals nutzen werden, solange das "
+"HDR-Bild gut aussieht und die Verläufe weich sind."
