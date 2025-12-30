@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 16:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#: package/contents/ui/main.qml:22
+#, kde-format
+msgid "Presentation mode is enabled"
+msgstr ""
+
+#: package/contents/ui/main.qml:70
+#, kde-format
+msgid "Configure Display Settings…"
+msgstr ""
+
+#: package/contents/ui/PresentationModeItem.qml:23
+#, kde-format
+msgid "Enable Presentation Mode"
+msgstr ""
+
+#: package/contents/ui/PresentationModeItem.qml:37
+#, kde-format
+msgid "User enabled presentation mode"
+msgstr ""
+
+#: package/contents/ui/PresentationModeItem.qml:61
+#, kde-format
+msgid ""
+"This will prevent your screen and computer from turning off automatically."
+msgstr ""
+
+#: package/contents/ui/PresentationModeItem.qml:75
+#, kde-format
+msgctxt "Some Application and n others enforce presentation mode"
+msgid "%2 and %1 other application are enforcing presentation mode."
+msgid_plural "%2 and %1 other applications are enforcing presentation mode."
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/PresentationModeItem.qml:81
+#, kde-format
+msgctxt "Some Application enforce presentation mode"
+msgid "%1 is enforcing presentation mode."
+msgstr ""
+
+#: package/contents/ui/PresentationModeItem.qml:84
+#, kde-format
+msgctxt ""
+"Some Application enforce presentation mode: Reason provided by the app"
+msgid "%1 is enforcing presentation mode: %2"
+msgstr ""
+
+#: package/contents/ui/ScreenLayoutSelection.qml:49
+#, kde-format
+msgid "Screen Layout"
+msgstr ""
+
+#: package/contents/ui/ScreenLayoutSelection.qml:89
+#, kde-format
+msgid ""
+"You can only apply a different screen layout when there is more than one "
+"display device plugged in."
+msgstr ""
