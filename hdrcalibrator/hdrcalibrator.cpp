@@ -154,8 +154,14 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
 
-    // first, get the output
-    // we can't do anything until we have it, so this just blocks
+    // HDR calibration doesn't work properly while night light is enabled -> inhibit it
+    const QString s_serviceName = QStringLiteral("org.kde.KWin.NightLight");
+    const QString s_path = QStringLiteral("/org/kde/KWin/NightLight");
+    const QString s_interface = QStringLiteral("org.kde.KWin.NightLight");
+    const QDBusMessage message = QDBusMessage::createMethodCall(s_serviceName, s_path, s_interface, QStringLiteral("inhibit"));
+    QDBusConnection::sessionBus().asyncCall(message);
+
+    // Get the output. we can't do anything until we have it, so this just blocks
     auto getOp = std::make_unique<KScreen::GetConfigOperation>();
     if (!getOp->exec()) {
         qCWarning(HDRCALIBRATOR) << "failed to get a config!";
