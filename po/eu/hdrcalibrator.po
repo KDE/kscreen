@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-01-13 08:42+0000\n"
 "PO-Revision-Date: 2025-12-06 11:22+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -30,37 +30,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: hdrcalibrator.cpp:134 ui/Main.qml:15
+#: hdrcalibrator.cpp:149 ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR Kalibratzea"
 
-#: ui/Main.qml:139 ui/Main.qml:233
+#: ui/Main.qml:190 ui/Main.qml:280 ui/Main.qml:453
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: ui/Main.qml:147 ui/Main.qml:240 ui/Main.qml:414
+#: ui/Main.qml:197 ui/Main.qml:286 ui/Main.qml:459
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Hurrengo orrira aldatzen du"
 
-#: ui/Main.qml:151 ui/Main.qml:244
+#: ui/Main.qml:201 ui/Main.qml:290 ui/Main.qml:463 ui/Main.qml:573
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: ui/Main.qml:158 ui/Main.qml:253
+#: ui/Main.qml:204 ui/Main.qml:293 ui/Main.qml:466 ui/Main.qml:576
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Kalibratzeko prozesua bertan behera uzten du"
 
-#: ui/Main.qml:163
+#: ui/Main.qml:209
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -69,7 +69,7 @@ msgstr ""
 "Pantailaren distira maximoa zehazteko, egokitu graduatzailea logoa nekez "
 "ikus daitekeen arte"
 
-#: ui/Main.qml:258
+#: ui/Main.qml:298
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -78,13 +78,7 @@ msgstr ""
 "Pantailaren gehienezko batezbesteko distira zehazteko, egokitu graduatzailea "
 "logoa nekez ikus daitekeen arte"
 
-#: ui/Main.qml:408
-#, kde-format
-msgctxt "@action:button"
-msgid "Done"
-msgstr "Eginda"
-
-#: ui/Main.qml:423
+#: ui/Main.qml:475
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -98,3 +92,46 @@ msgstr ""
 "ikusi eta gradienteak leunak diren bitartean.\n"
 "Distira fluktuazioak saihesteko, erakusleihoaren %1cd/m² gehienezko "
 "batezbesteko distira ez gainditzea gomendatzen da."
+
+#: ui/Main.qml:513
+#, kde-format
+msgid "Maximum luminance: %1cd/m²"
+msgstr ""
+
+#: ui/Main.qml:542
+#, kde-format
+msgid "Maximum fullscreen luminance: %1cd/m²"
+msgstr ""
+
+#: ui/Main.qml:557
+#, kde-format
+msgid "Reference luminance / paper white: %1cd/m²"
+msgstr ""
+
+#: ui/Main.qml:568
+#, kde-format
+msgctxt "@action:checkbox"
+msgid "Assume Windows HDR applications are calibrated for this screen"
+msgstr ""
+
+#: ui/Main.qml:580
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Eginda"
+
+#: ui/Main.qml:589
+#, fuzzy, kde-format
+#| msgctxt "@info accessible description of a push button"
+#| msgid "Cancels the calibration process"
+msgctxt "@info accessible description of a push button"
+msgid "Finish the calibration process"
+msgstr "Kalibratzeko prozesua bertan behera uzten du"
+
+#: ui/Main.qml:597
+#, kde-format
+msgid ""
+"Many Windows applications come with their own calibration settings, which "
+"this system wide configuration conflicts with. If this option is set, their "
+"calibration settings will work as expected on this specific display."
+msgstr ""
