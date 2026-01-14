@@ -371,6 +371,7 @@ Kirigami.FormLayout {
         id: hdrCalibrationButton
         text: i18nc("@action:button", "Calibrate HDR Brightness…")
         onClicked: kcm.startHdrCalibrator(element.name);
+        enabled: !kcm.needsSave
 
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
