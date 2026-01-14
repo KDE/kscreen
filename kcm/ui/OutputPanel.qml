@@ -367,24 +367,30 @@ Kirigami.FormLayout {
         }
     }
 
-    QQC2.Button {
-        id: hdrCalibrationButton
-        text: i18nc("@action:button", "Calibrate HDR Brightness…")
-        onClicked: kcm.startHdrCalibrator(element.name);
-        enabled: !kcm.needsSave
+    RowLayout {
+        QQC2.Button {
+            id: hdrCalibrationButton
+            text: i18nc("@action:button", "Calibrate HDR Brightness…")
+            onClicked: kcm.startHdrCalibrator(element.name);
+            enabled: !kcm.needsSave
 
-        // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-        visible: root.hdrAvailable && element.hdr
+            // Set the same limit as the device ComboBox
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 14
+            visible: root.hdrAvailable && element.hdr
 
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-        Accessible.role: Accessible.Button
-        Accessible.name: text
-        Accessible.description: i18n("Opens a window to calibrate HDR brightness")
-        Accessible.onPressAction: onClicked();
+            Accessible.role: Accessible.Button
+            Accessible.name: text
+            Accessible.description: i18n("Opens a window to calibrate HDR brightness")
+            Accessible.onPressAction: onClicked();
+        }
+        Kirigami.ContextualHelpButton {
+            visible: hdrCalibrationButton.visible && !hdrCalibrationButton.enabled
+            toolTipText: xi18nc("@info:tooltip", "HDR calibration can only be started if all settings are applied.")
+        }
     }
 
     RowLayout {
