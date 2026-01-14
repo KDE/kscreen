@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-06 16:00+0200\n"
+"PO-Revision-Date: 2026-01-14 02:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -95,23 +95,25 @@ msgstr ""
 #: ui/Main.qml:513
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Максимальна освітленість: %1кд/м²"
 
 #: ui/Main.qml:542
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Максимальна освітленість у повноекранному режимі: %1кд/м²"
 
 #: ui/Main.qml:557
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Еталонна освітленість / білий папір: %1кд/м²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Припускати щодо програми високого динамічного діапазону для Windows на цьому "
+"екрані калібровано"
 
 #: ui/Main.qml:580
 #, kde-format
@@ -120,12 +122,10 @@ msgid "Done"
 msgstr "Виконано"
 
 #: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Скасовує процедуру калібрування"
+msgstr "Завершити процедуру калібрування"
 
 #: ui/Main.qml:597
 #, kde-format
@@ -134,3 +134,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Багато програм Windows постачаються з власними параметрами калібрування, з "
+"якими конфліктують ці загальносистемні налаштування. Якщо позначено цей "
+"пункт, їхні налаштування калібрування працюватимуть належним чином на цьому "
+"конкретному дисплеї."
