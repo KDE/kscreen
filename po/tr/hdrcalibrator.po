@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2025 Emir SARI <emir_sari@îcloud.com>
+# SPDX-FileCopyrightText: 2025, 2026 Emir SARI <emir_sari@îcloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-05 19:22+0300\n"
+"PO-Revision-Date: 2026-01-13 18:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -93,23 +93,23 @@ msgstr ""
 #: ui/Main.qml:513
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "En yüksek aydınlık %1 cd/m²"
 
 #: ui/Main.qml:542
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "En yüksek tam ekran aydınlığı: %1 cd/m²"
 
 #: ui/Main.qml:557
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Başvurulan aydınlık / beyaz kâğıt: %1 cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
+msgstr "Windows HDR uygulamalarının bu ekrana göre kalibre edildiğini varsay"
 
 #: ui/Main.qml:580
 #, kde-format
@@ -118,12 +118,10 @@ msgid "Done"
 msgstr "Bitti"
 
 #: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Kalibrasyon sürecini iptal eder"
+msgstr "Kalibrasyon sürecini bitir"
 
 #: ui/Main.qml:597
 #, kde-format
@@ -132,3 +130,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Birçok Windows uygulaması, bu sistem genelindeki yapılandırmayla çakışan "
+"kendi kalibrasyon ayarlarıyla birlikte gelir. Bu seçenek ayarlanırsa "
+"kalibrasyon ayarları bu belirli ekrandan beklendiği gibi çalışacaktır."

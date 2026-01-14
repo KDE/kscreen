@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 # SPDX-FileCopyrightText: 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
-# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-05 07:52-0300\n"
+"PO-Revision-Date: 2026-01-13 08:37-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -95,23 +95,24 @@ msgstr ""
 #: ui/Main.qml:513
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminância máxima: %1cd/m²"
 
 #: ui/Main.qml:542
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminância máxima em tela cheia: %1cd/m²"
 
 #: ui/Main.qml:557
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Luminância de referência / branco do papel: %1cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Supor que os aplicativos HDR do Windows estejam calibrados para esta tela"
 
 #: ui/Main.qml:580
 #, kde-format
@@ -120,12 +121,10 @@ msgid "Done"
 msgstr "Concluído"
 
 #: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Cancela o processo de calibração"
+msgstr "Terminar o processo de calibração"
 
 #: ui/Main.qml:597
 #, kde-format
@@ -134,3 +133,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Muitos aplicativos do Windows vêm com suas próprias configurações de "
+"calibração, com as quais a configuração do sistema entra em conflito. Se "
+"esta opção estiver ativada, as configurações de calibração funcionarão "
+"conforme o esperado nesta tela específica."

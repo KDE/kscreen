@@ -1,15 +1,15 @@
 # Translation of hdrcalibrator.po to Catalan
-# Copyright (C) 2025 This_file_is_part_of_KDE
+# Copyright (C) 2025-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-05 09:39+0100\n"
+"PO-Revision-Date: 2026-01-13 12:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -95,23 +95,25 @@ msgstr ""
 #: ui/Main.qml:513
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminància màxima: %1 cd/m²"
 
 #: ui/Main.qml:542
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminància màxima a pantalla completa: %1 cd/m²"
 
 #: ui/Main.qml:557
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Referència luminància / paper blanc: %1 cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Assumeix que les aplicacions HDR del Windows estan calibrades per a aquesta "
+"pantalla"
 
 #: ui/Main.qml:580
 #, kde-format
@@ -120,12 +122,10 @@ msgid "Done"
 msgstr "Fet"
 
 #: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Cancel·la el procés de calibratge"
+msgstr "Acaba el procés de calibratge"
 
 #: ui/Main.qml:597
 #, kde-format
@@ -134,3 +134,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Moltes aplicacions Windows venen amb la seva configuració pròpia de "
+"calibratge, amb la qual la configuració bàsica d'aquest sistema entra en "
+"conflicte. Si s'estableix aquesta opció, la seva configuració de calibratge "
+"funcionarà com s'espera en aquesta pantalla específica."
