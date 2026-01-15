@@ -764,16 +764,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Limits the color resolution of the image that is sent to the display. "
-#~ "This does not affect screenshots or recordings.<nl/><nl/>"
-#~ msgstr ""
-#~ "Limita la resolució de color de la imatge que s'envia a la pantalla. Això "
-#~ "no afecta les captures de pantalla ni els enregistraments.<nl/><nl/>"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr ""
-#~ "El perfil de color integrat de la pantalla sempre es fa servir amb HDR."

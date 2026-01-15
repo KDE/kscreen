@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:42+0000\n"
+"POT-Creation-Date: 2026-01-15 03:00+0000\n"
 "PO-Revision-Date: 2025-07-20 01:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -33,31 +33,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR 교정"
 
-#: ui/Main.qml:190 ui/Main.qml:280 ui/Main.qml:453
+#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "다음"
 
-#: ui/Main.qml:197 ui/Main.qml:286 ui/Main.qml:459
+#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "다음 쪽으로 전환"
 
-#: ui/Main.qml:201 ui/Main.qml:290 ui/Main.qml:463 ui/Main.qml:573
+#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "취소"
 
-#: ui/Main.qml:204 ui/Main.qml:293 ui/Main.qml:466 ui/Main.qml:576
+#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "교정 작업을 취소함"
 
-#: ui/Main.qml:209
+#: ui/Main.qml:214
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -66,7 +66,7 @@ msgstr ""
 "화면의 최대 밝기를 결정하려면 로고가 흐릿하게 표시될 때까지 슬라이더를 조정하"
 "십시오"
 
-#: ui/Main.qml:298
+#: ui/Main.qml:303
 #, fuzzy, kde-format
 #| msgid ""
 #| "To determine the maximum brightness of the screen, adjust the slider "
@@ -78,7 +78,7 @@ msgstr ""
 "화면의 최대 밝기를 결정하려면 로고가 흐릿하게 표시될 때까지 슬라이더를 조정하"
 "십시오"
 
-#: ui/Main.qml:475
+#: ui/Main.qml:480
 #, fuzzy, kde-format
 #| msgid ""
 #| "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -95,34 +95,34 @@ msgstr ""
 "가 선명하게 보이고, 그라디언트가 부드럽게 보이는 한도 내에서 최대한으로 밝게 "
 "설정하십시오."
 
-#: ui/Main.qml:513
+#: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr ""
 
-#: ui/Main.qml:542
+#: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
 msgstr ""
 
-#: ui/Main.qml:557
+#: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr ""
 
-#: ui/Main.qml:568
+#: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
 
-#: ui/Main.qml:580
+#: ui/Main.qml:585
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "완료"
 
-#: ui/Main.qml:589
+#: ui/Main.qml:594
 #, fuzzy, kde-format
 #| msgctxt "@info accessible description of a push button"
 #| msgid "Cancels the calibration process"
@@ -130,7 +130,7 @@ msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "교정 작업을 취소함"
 
-#: ui/Main.qml:597
+#: ui/Main.qml:602
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
