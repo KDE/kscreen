@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-05 11:22+0100\n"
+"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"PO-Revision-Date: 2026-01-14 16:39+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2025"
+msgstr "Freek de Kruijf - 2025-2026"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -33,31 +33,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR-kalibratie"
 
-#: ui/Main.qml:190 ui/Main.qml:280 ui/Main.qml:453
+#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Volgende"
 
-#: ui/Main.qml:197 ui/Main.qml:286 ui/Main.qml:459
+#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Schakelt over naar de volgende pagina"
 
-#: ui/Main.qml:201 ui/Main.qml:290 ui/Main.qml:463 ui/Main.qml:573
+#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ui/Main.qml:204 ui/Main.qml:293 ui/Main.qml:466 ui/Main.qml:576
+#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Annuleert het kalibratieproces"
 
-#: ui/Main.qml:209
+#: ui/Main.qml:214
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -66,7 +66,7 @@ msgstr ""
 "Om de maximale helderheid van het scherm te bepalen, pas de schuifregelaar "
 "aan totdat het logo nauwelijks zichtbaar is"
 
-#: ui/Main.qml:298
+#: ui/Main.qml:303
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -75,7 +75,7 @@ msgstr ""
 "Om de maximale gemiddelde helderheid van het scherm te bepalen, pas de "
 "schuifregelaar aan totdat het logo nauwelijks zichtbaar is"
 
-#: ui/Main.qml:475
+#: ui/Main.qml:480
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -90,45 +90,48 @@ msgstr ""
 "Om helderheidsfluctuaties te vermijden, wordt het aanbevolen niet de "
 "maximale gemiddelde helderheid van %1cd/m² van het scherm te overschrijden."
 
-#: ui/Main.qml:513
+#: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Maximale lichtkracht: %1cd/m²"
 
-#: ui/Main.qml:542
+#: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Maximale lichtkracht van volledig scherm: %1cd/m²"
 
-#: ui/Main.qml:557
+#: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Referentie lichtkracht / papierwit: %1cd/m²"
 
-#: ui/Main.qml:568
+#: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Neem aan dat toepassingen voor Windows HDR gekalibreerd zijn voor dit scherm"
 
-#: ui/Main.qml:580
+#: ui/Main.qml:585
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Gereed"
 
-#: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#: ui/Main.qml:594
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Annuleert het kalibratieproces"
+msgstr "Beëindig het kalibratieproces"
 
-#: ui/Main.qml:597
+#: ui/Main.qml:602
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Veel toepassingen voor Windows komen met hun eigen instellingen voor "
+"kalibratie, waarmee deze configuratie systeembreed conflicteert. Als deze "
+"optie is geactiveerd, zullen hun kalibratie-instellingen werken zoals "
+"verwacht op dit specifieke scherm."

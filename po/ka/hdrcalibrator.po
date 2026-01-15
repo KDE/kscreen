@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:42+0000\n"
-"PO-Revision-Date: 2025-11-05 05:04+0100\n"
+"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"PO-Revision-Date: 2026-01-14 05:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -34,31 +34,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR-ის კალიბრაცია"
 
-#: ui/Main.qml:190 ui/Main.qml:280 ui/Main.qml:453
+#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "შემდეგი"
 
-#: ui/Main.qml:197 ui/Main.qml:286 ui/Main.qml:459
+#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "გადაერთვება შემდეგ გვერდზე"
 
-#: ui/Main.qml:201 ui/Main.qml:290 ui/Main.qml:463 ui/Main.qml:573
+#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: ui/Main.qml:204 ui/Main.qml:293 ui/Main.qml:466 ui/Main.qml:576
+#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "გააუქმებს კალიბრაციის პროცესს"
 
-#: ui/Main.qml:209
+#: ui/Main.qml:214
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -67,7 +67,7 @@ msgstr ""
 "იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური სიკაშკაშე, გადაწიეთ ჩოჩია "
 "მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
-#: ui/Main.qml:298
+#: ui/Main.qml:303
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -76,7 +76,7 @@ msgstr ""
 "იმისათვის, რომ დაადგინოთ ეკრანის მაქსიმალური საშუალო სიკაშკაშე, გადაწიეთ "
 "ჩოჩია მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
-#: ui/Main.qml:475
+#: ui/Main.qml:480
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -91,45 +91,48 @@ msgstr ""
 "იმისათვის, რომ თავიდან აიცილოთ სიკაშკაშის რყევა, რეკომენდებულია, რომ არ "
 "გადააცილოთ ეკრანის საშუალო მაქსიმალურ სიკაშკაშეს %1cd/m²"
 
-#: ui/Main.qml:513
+#: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "მაქს სინათლის ძალა: %1კდ/მ²"
 
-#: ui/Main.qml:542
+#: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "მაქს სრულეკრანიანი სინათლის ძალა: %1კდ/მ²"
 
-#: ui/Main.qml:557
+#: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "მიმართვის სინათლის ძალა / ფურცლისფერი თეთრი: %1კდ/მ²"
 
-#: ui/Main.qml:568
+#: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"ჩათვლა, რომ Windows-ის HDR აპლიკაციების კალიბრაცია უკვე მოხდა ამ ეკრანისთვის"
 
-#: ui/Main.qml:580
+#: ui/Main.qml:585
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "მზადაა"
 
-#: ui/Main.qml:589
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#: ui/Main.qml:594
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "გააუქმებს კალიბრაციის პროცესს"
+msgstr "კალიბრაციის პროცესის დასრულება"
 
-#: ui/Main.qml:597
+#: ui/Main.qml:602
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"ბევრ Windows-ის აპლიკაციას თავისი კალიბრაციის პარამეტრები მოჰყვება, "
+"რომელთანაც ეს მთელი სისტემისთვის განკუთვნილი კონფიგურაცია შესაბამისი არაა. "
+"თუ ეს პარამეტრი ჩართულია, მათი კალიბრაციის პარამეტრები ნორმალურად იმუშავებს "
+"ამ სპეციფიკურ ეკრანზე."
