@@ -44,9 +44,9 @@ Window {
             HdrCalibrator.peakBrightnessOverride = hdrCalibration.oldPeakBrightness;
         }
         if (hdrCalibration.oldMaxAverageBrightness != 0) {
-            hdrCalibration.maxAverageBrightnessOverride = hdrCalibration.oldMaxAverageBrightness;
+            HdrCalibrator.maxAverageBrightnessOverride = hdrCalibration.oldMaxAverageBrightness;
         } else {
-            hdrCalibration.maxAverageBrightnessOverride = hdrCalibration.peakBrightnessOverride;
+            HdrCalibrator.maxAverageBrightnessOverride = HdrCalibrator.peakBrightnessOverride;
         }
 
         for (var output of Qt.application.screens) {
