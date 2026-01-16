@@ -112,12 +112,10 @@ msgid "Done"
 msgstr "完成"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "取消校准过程"
+msgstr ""
 
 #: ui/Main.qml:602
 #, kde-format

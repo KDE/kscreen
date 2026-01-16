@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:44+0000\n"
-"PO-Revision-Date: 2026-01-05 13:47+0100\n"
+"PO-Revision-Date: 2026-01-14 08:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -91,23 +91,25 @@ msgstr ""
 #: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminance maximale : %1 cd / m²"
 
 #: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminance maximale en plein écran : %1cd / m²"
 
 #: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Luminance de référence / Papier blanc : %1cd / m²"
 
 #: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Suppose que les applications « HDR » sous Windows sont calibrées pour cet "
+"écran"
 
 #: ui/Main.qml:585
 #, kde-format
@@ -116,12 +118,10 @@ msgid "Done"
 msgstr "Terminé"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Annule le processus d'étalonnage"
+msgstr "Terminer le processus de calibration"
 
 #: ui/Main.qml:602
 #, kde-format
@@ -130,3 +130,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"De nombreuses applications Windows disposent de leurs propres paramètres de "
+"configuration, ce qui entre en conflit avec cette configuration à l'échelle "
+"du système. Si cette option est activée, leurs paramètres de calibration "
+"fonctionneront comme prévu sur cet écran spécifique."
