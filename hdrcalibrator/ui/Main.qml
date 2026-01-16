@@ -210,7 +210,11 @@ Window {
                     }
                 }
                 QQC2.Label {
-                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.Wrap
+
                     text: i18n("To determine the maximum brightness of the screen, adjust the slider until the logo is barely visible")
                     color: "white"
                 }
@@ -299,7 +303,11 @@ Window {
                     }
                 }
                 QQC2.Label {
-                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.Wrap
+
                     text: i18n("To determine the maximum average brightness of the screen, adjust the slider until the logo is barely visible")
                     color: "black"
                 }
@@ -475,7 +483,7 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.maximumWidth: parent.width - 2 * Kirigami.Units.smallSpacing
                     horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.WordWrap
+                    wrapMode: Text.Wrap
 
                     text: i18n("Configure how bright \"100\%\" on the normal brightness slider should be. Make it as bright as you'd ever use it, as long as the HDR image still looks good and the gradients are smooth.\nTo avoid brightness fluctuations, it's recommended to not exceed the display's maximum average brightness of %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
                     color: "white"
@@ -493,6 +501,7 @@ Window {
             ColumnLayout {
                 anchors.centerIn: parent
                 RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
                     WindowContainer {
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: hdrCalibration.tenPercentSize * 0.5
@@ -513,7 +522,13 @@ Window {
                                     flags: Qt.WA_TranslucentBackground
                                     color: "#00000000"
                                     QQC2.Label {
-                                        anchors.centerIn: parent
+                                        anchors.fill: parent
+                                        anchors.margins: Kirgami.largeSpacing
+
+                                        verticalAlignment: Text.AlignVCenter
+                                        horizontalAlignment: Text.AlignHCenter
+                                        wrapMode: Text.Wrap
+
                                         color: "black"
                                         text: i18n("Maximum luminance: %1cd/m²", HdrCalibrator.peakBrightnessOverride)
                                     }
@@ -542,7 +557,13 @@ Window {
                                     flags: Qt.WA_TranslucentBackground
                                     color: "#00000000"
                                     QQC2.Label {
-                                        anchors.centerIn: parent
+                                        anchors.fill: parent
+                                        anchors.margins: Kirgami.largeSpacing
+
+                                        verticalAlignment: Text.AlignVCenter
+                                        horizontalAlignment: Text.AlignHCenter
+                                        wrapMode: Text.Wrap
+
                                         color: "black"
                                         text: i18n("Maximum fullscreen luminance: %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
                                     }
@@ -557,7 +578,13 @@ Window {
                         Layout.preferredHeight: hdrCalibration.tenPercentSize * 0.5
                         color: "white"
                         QQC2.Label {
-                            anchors.centerIn: parent
+                            anchors.fill: parent
+                            anchors.margins: Kirgami.largeSpacing
+
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
+
                             color: "black"
                             text: i18n("Reference luminance / paper white: %1cd/m²", HdrCalibrator.sdrBrightness)
                         }
@@ -595,10 +622,11 @@ Window {
                     }
                 }
                 QQC2.Label {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.maximumWidth: windowsHdrRow.width
+                    Layout.fillWidth: true
+
                     horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.WordWrap
+                    wrapMode: Text.Wrap
+
                     text: i18n("Many Windows applications come with their own calibration settings, which this system wide configuration conflicts with. If this option is set, their calibration settings will work as expected on this specific display.")
                     color: "white"
                 }
