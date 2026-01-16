@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2026-01-14 18:49+0100\n"
+"PO-Revision-Date: 2026-01-14 20:11+0100\n"
 "Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -188,7 +188,7 @@ msgstr "Orientácia:"
 #: ui/Orientation.qml:27 ui/OutputPanel.qml:169 ui/OutputPanel.qml:214
 #, kde-format
 msgid "Automatic"
-msgstr "Automatická"
+msgstr "Automaticky"
 
 #: ui/Orientation.qml:42
 #, kde-format

@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kscreen/hdrcalibrator.pot\n"
-"X-Crowdin-File-ID: 57512\n"
+"X-Crowdin-File: /kf6-stable/messages/kscreen/hdrcalibrator.pot\n"
+"X-Crowdin-File-ID: 57542\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,12 +112,10 @@ msgid "Done"
 msgstr "完成"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "取消校准过程"
+msgstr ""
 
 #: ui/Main.qml:602
 #, kde-format

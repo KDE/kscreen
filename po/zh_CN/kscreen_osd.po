@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kscreen/kscreen_osd.pot\n"
-"X-Crowdin-File-ID: 59808\n"
+"X-Crowdin-File: /kf6-stable/messages/kscreen/kscreen_osd.pot\n"
+"X-Crowdin-File-ID: 59848\n"
 
 #: qml/OsdSelector.qml:108
 #, kde-format
