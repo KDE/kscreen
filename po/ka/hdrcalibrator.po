@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 03:00+0000\n"
-"PO-Revision-Date: 2025-11-05 05:04+0100\n"
+"PO-Revision-Date: 2026-01-17 03:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -94,23 +94,24 @@ msgstr ""
 #: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "მაქს სინათლის ძალა: %1კდ/მ²"
 
 #: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "მაქს სრულეკრანიანი სინათლის ძალა: %1კდ/მ²"
 
 #: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "მიმართვის სინათლის ძალა / ფურცლისფერი თეთრი: %1კდ/მ²"
 
 #: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"ჩათვლა, რომ Windows-ის HDR აპლიკაციების კალიბრაცია უკვე მოხდა ამ ეკრანისთვის"
 
 #: ui/Main.qml:585
 #, kde-format
@@ -119,12 +120,10 @@ msgid "Done"
 msgstr "მზადაა"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "გააუქმებს კალიბრაციის პროცესს"
+msgstr "კალიბრაციის პროცესის დასრულება"
 
 #: ui/Main.qml:602
 #, kde-format
@@ -133,3 +132,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"ბევრ Windows-ის აპლიკაციას თავისი კალიბრაციის პარამეტრები მოჰყვება, "
+"რომელთანაც ეს მთელი სისტემისთვის განკუთვნილი კონფიგურაცია შესაბამისი არაა. "
+"თუ ეს პარამეტრი ჩართულია, მათი კალიბრაციის პარამეტრები ნორმალურად იმუშავებს "
+"ამ სპეციფიკურ ეკრანზე."
