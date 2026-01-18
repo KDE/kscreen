@@ -87,23 +87,23 @@ msgstr ""
 #: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "最大亮度：%1cd/m²"
 
 #: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "最大全屏亮度：%1cd/m²"
 
 #: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "参考亮度 / 白纸亮度：%1cd/m²"
 
 #: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
+msgstr "假设 Windows HDR 应用程序按照此屏幕进行校准"
 
 #: ui/Main.qml:585
 #, kde-format
@@ -115,7 +115,7 @@ msgstr "完成"
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr ""
+msgstr "完成校准过程"
 
 #: ui/Main.qml:602
 #, kde-format
@@ -124,3 +124,5 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"许多 Windows 应用程序内建了自己的校准设置，它们与此系统全局配置冲突。如果设置"
+"了此选项，应用程序自身的校准设置将在这台特定显示器上按照预期工作。"
