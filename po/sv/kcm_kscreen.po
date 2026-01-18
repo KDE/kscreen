@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-12 07:11+0200\n"
+"PO-Revision-Date: 2026-01-17 16:46+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -609,7 +609,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Anpassa automatiskt till omgivningen"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -620,6 +620,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Justera skärmens ljusstyrka automatiskt baserat på omgivningens ljusnivå, "
+"som detekteras av apparatens omgivningsljussensor. Om du justerar "
+"ljusstyrkan manuellt kommer justeringarna att kommas ihåg och beaktas."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
