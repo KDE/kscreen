@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 03:00+0000\n"
-"PO-Revision-Date: 2025-12-24 16:54+0100\n"
+"PO-Revision-Date: 2026-01-18 15:16+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -94,23 +94,23 @@ msgstr ""
 #: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Najwyższa luminancja: %1cd/m²"
 
 #: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Najwyższa luminancja na całym ekranie: %1cd/m²"
 
 #: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Luminancja odniesienia / biała kartka papieru: %1cd/m²"
 
 #: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
+msgstr "Załóż, że aplikacje HDR z Windowsa są skalibrowane dla tego ekranu"
 
 #: ui/Main.qml:585
 #, kde-format
@@ -119,12 +119,10 @@ msgid "Done"
 msgstr "Gotowe"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Przerywa kalibrację"
+msgstr "Ukończ kalibrację"
 
 #: ui/Main.qml:602
 #, kde-format
@@ -133,3 +131,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Wiele aplikacji na Windowsie dostarcza własnych ustawień kalibracji, z "
+"którymi ustawienia systemowe się gryzą. Po zaznaczeniu tego pola, ich "
+"ustawienia kalibracji będą działać zgodnie z oczekiwaniami na tym "
+"wyświetlaczu."
