@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the kscreen package.
 #
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
-# SPDX-FileCopyrightText: 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-12-28 14:33+0000\n"
+"PO-Revision-Date: 2026-01-18 07:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -616,6 +616,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Aðlagaðu birtustig skjásins sjálfvirkt út frá birtu umhverfisins, eins og "
+"hún er skynjuð af tækinu. Ef þú breytir birtustiginu handvirkt, munu þær "
+"breytingar vera geymdar og teknar með í reikninginn."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
