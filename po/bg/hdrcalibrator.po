@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2025, 2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:44+0000\n"
-"PO-Revision-Date: 2025-11-07 23:02+0100\n"
+"PO-Revision-Date: 2026-01-19 19:56+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -93,23 +93,25 @@ msgstr ""
 #: ui/Main.qml:518
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Максимална яркост: %1cd/m²"
 
 #: ui/Main.qml:547
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Максимална яркост на цял екран: %1cd/m²"
 
 #: ui/Main.qml:562
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Референтна яркост /хартиено бяло: %1cd/m²"
 
 #: ui/Main.qml:573
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Предполага се, че приложенията за Windows с поддръжка на HDE са калибрирани "
+"за този екран."
 
 #: ui/Main.qml:585
 #, kde-format
@@ -118,12 +120,10 @@ msgid "Done"
 msgstr "Готово"
 
 #: ui/Main.qml:594
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Отменя процеса на калибриране"
+msgstr "Завършва процеса на калибриране"
 
 #: ui/Main.qml:602
 #, kde-format
@@ -132,3 +132,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Много приложения за Windows имат свои собствени настройки за калибриране, "
+"които влизат в конфликт с тази системна конфигурация. Ако тази опция е "
+"активирана, настройките за калибриране ще работят както се очаква на този "
+"конкретен дисплей."

@@ -1,6 +1,6 @@
 # KDE Finnish translation sprint participants:
 # SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015, 2016, 2022, 2023.
 # Tommi Nieminen <translator@legisign.org>, 2024.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-09-11 17:26+0300\n"
+"PO-Revision-Date: 2026-01-05 17:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -606,7 +606,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Sopeudu automaattisesti ympäristöön"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -617,6 +617,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Aseta näytön kirkkaus automaattisesti ympäristön valoisuuden mukaan sikäli "
+"kuin laitteen valoanturi sen havaitsee. Jos kirkkautta säätää käsin, säädöt "
+"muistetaan ja otetaan huomioon."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
