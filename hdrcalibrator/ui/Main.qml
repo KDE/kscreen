@@ -523,7 +523,7 @@ Window {
                                     color: "#00000000"
                                     QQC2.Label {
                                         anchors.fill: parent
-                                        anchors.margins: Kirgami.largeSpacing
+                                        anchors.margins: Kirigami.Units.largeSpacing
 
                                         verticalAlignment: Text.AlignVCenter
                                         horizontalAlignment: Text.AlignHCenter
@@ -558,7 +558,7 @@ Window {
                                     color: "#00000000"
                                     QQC2.Label {
                                         anchors.fill: parent
-                                        anchors.margins: Kirgami.largeSpacing
+                                        anchors.margins: Kirigami.Units.largeSpacing
 
                                         verticalAlignment: Text.AlignVCenter
                                         horizontalAlignment: Text.AlignHCenter
@@ -579,7 +579,7 @@ Window {
                         color: "white"
                         QQC2.Label {
                             anchors.fill: parent
-                            anchors.margins: Kirgami.largeSpacing
+                            anchors.margins: Kirigami.Units.largeSpacing
 
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
