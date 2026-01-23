@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hdrcalibrator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:00+0000\n"
+"POT-Creation-Date: 2026-01-23 02:42+0000\n"
 "PO-Revision-Date: 2026-01-14 12:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -35,31 +35,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Calibración HDR"
 
-#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
+#: ui/Main.qml:195 ui/Main.qml:289 ui/Main.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Siguiente"
 
-#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
+#: ui/Main.qml:202 ui/Main.qml:295 ui/Main.qml:472
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Cambia a la siguiente página"
 
-#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
+#: ui/Main.qml:206 ui/Main.qml:299 ui/Main.qml:476 ui/Main.qml:605
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
+#: ui/Main.qml:209 ui/Main.qml:302 ui/Main.qml:479 ui/Main.qml:608
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Cancela el proceso de calibración"
 
-#: ui/Main.qml:214
+#: ui/Main.qml:218
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -68,7 +68,7 @@ msgstr ""
 "Para determinar el brillo máximo de la pantalla, ajuste el control "
 "deslizante hasta que el logotipo sea apenas visible."
 
-#: ui/Main.qml:303
+#: ui/Main.qml:311
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -77,7 +77,7 @@ msgstr ""
 "Para determinar el brillo medio máximo de la pantalla, ajuste el control "
 "deslizante hasta que el logotipo sea apenas visible."
 
-#: ui/Main.qml:480
+#: ui/Main.qml:488
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -92,22 +92,22 @@ msgstr ""
 "Para evitar fluctuaciones de brillo, se recomienda no sobrepasar el brillo "
 "medio máximo de la pantalla de %1 cd/m²"
 
-#: ui/Main.qml:518
+#: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "Luminancia máxima: %1cd/m²"
 
-#: ui/Main.qml:547
+#: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
 msgstr "Luminancia máxima a pantalla completa: %1cd/m²"
 
-#: ui/Main.qml:562
+#: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "Luminancia de referencia/papel blanco: %1cd/m²"
 
-#: ui/Main.qml:573
+#: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
@@ -115,19 +115,19 @@ msgstr ""
 "Suponer que las aplicaciones HDR de Windows están calibradas para esta "
 "pantalla"
 
-#: ui/Main.qml:585
+#: ui/Main.qml:612
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Terminado"
 
-#: ui/Main.qml:594
+#: ui/Main.qml:621
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "Terminar el proceso de calibración"
 
-#: ui/Main.qml:602
+#: ui/Main.qml:630
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "

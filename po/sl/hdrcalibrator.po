@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:00+0000\n"
+"POT-Creation-Date: 2026-01-23 02:42+0000\n"
 "PO-Revision-Date: 2026-01-14 09:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -34,31 +34,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Kalibracija HDR"
 
-#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
+#: ui/Main.qml:195 ui/Main.qml:289 ui/Main.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Naslednji"
 
-#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
+#: ui/Main.qml:202 ui/Main.qml:295 ui/Main.qml:472
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Preklopi na naslednjo stran"
 
-#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
+#: ui/Main.qml:206 ui/Main.qml:299 ui/Main.qml:476 ui/Main.qml:605
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
+#: ui/Main.qml:209 ui/Main.qml:302 ui/Main.qml:479 ui/Main.qml:608
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Prekliče proces kalibracije"
 
-#: ui/Main.qml:214
+#: ui/Main.qml:218
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -67,7 +67,7 @@ msgstr ""
 "Če želite določiti največjo svetlost zaslona, ​​​​prilagodite drsnik, dokler "
 "logotip ni komaj viden"
 
-#: ui/Main.qml:303
+#: ui/Main.qml:311
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -76,7 +76,7 @@ msgstr ""
 "Če želite določiti največjo povprečno svetlost zaslona, ​​​​prilagodite drsnik, "
 "dokler logotip ni komaj viden"
 
-#: ui/Main.qml:480
+#: ui/Main.qml:488
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -91,40 +91,40 @@ msgstr ""
 "Da bi se izognili nihanjem svetlosti, je priporočljivo, da ne presežete "
 "največje povprečne svetlosti zaslona, ​​ki znaša %1cd/m²."
 
-#: ui/Main.qml:518
+#: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "Maksimalna svetlost: %1cd/m²"
 
-#: ui/Main.qml:547
+#: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
 msgstr "Maksimalna svetlost celotnega zaslona: %1cd/m²"
 
-#: ui/Main.qml:562
+#: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "Referenčna svetlost / papirnato bela: %1cd/m²"
 
-#: ui/Main.qml:573
+#: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr "Predpostavimo, da so aplikacije Windows HDR kalibrirane za ta zaslon"
 
-#: ui/Main.qml:585
+#: ui/Main.qml:612
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Narejeno"
 
-#: ui/Main.qml:594
+#: ui/Main.qml:621
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "Končaj proces kalibracije"
 
-#: ui/Main.qml:602
+#: ui/Main.qml:630
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "

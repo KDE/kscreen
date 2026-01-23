@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2020, 2023, 2025 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2017, 2020, 2023, 2025, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-09-02 17:32+0200\n"
+"PO-Revision-Date: 2026-01-22 17:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -30,12 +30,12 @@ msgstr "Usa solmente Schermo includite"
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr " Schermos a speculos"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Extende a sinistra del schermo incorporate"
 
 #: osdaction.cpp:32
 #, kde-format
