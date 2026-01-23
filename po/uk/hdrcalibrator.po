@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"POT-Creation-Date: 2026-01-23 00:45+0000\n"
 "PO-Revision-Date: 2026-01-14 02:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -34,31 +34,31 @@ msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "Калібрування HDR"
 
-#: ui/Main.qml:195 ui/Main.qml:285 ui/Main.qml:458
+#: ui/Main.qml:195 ui/Main.qml:289 ui/Main.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Далі"
 
-#: ui/Main.qml:202 ui/Main.qml:291 ui/Main.qml:464
+#: ui/Main.qml:202 ui/Main.qml:295 ui/Main.qml:472
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Перемикає на наступну сторінку"
 
-#: ui/Main.qml:206 ui/Main.qml:295 ui/Main.qml:468 ui/Main.qml:578
+#: ui/Main.qml:206 ui/Main.qml:299 ui/Main.qml:476 ui/Main.qml:605
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ui/Main.qml:209 ui/Main.qml:298 ui/Main.qml:471 ui/Main.qml:581
+#: ui/Main.qml:209 ui/Main.qml:302 ui/Main.qml:479 ui/Main.qml:608
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Скасовує процедуру калібрування"
 
-#: ui/Main.qml:214
+#: ui/Main.qml:218
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -67,7 +67,7 @@ msgstr ""
 "Для визначення максимальної яскравості екрана пересуньте повзунок так, щоб "
 "логотип став ледве видимим"
 
-#: ui/Main.qml:303
+#: ui/Main.qml:311
 #, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
@@ -76,7 +76,7 @@ msgstr ""
 "Для визначення максимальної середньої яскравості екрана пересуньте повзунок "
 "так, щоб логотип став ледве видимим"
 
-#: ui/Main.qml:480
+#: ui/Main.qml:488
 #, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
@@ -92,22 +92,22 @@ msgstr ""
 "Щоб уникнути коливань яскравості, рекомендуємо не перевищувати максимальної "
 "середньої яскравості дисплея у %1 кд/м²"
 
-#: ui/Main.qml:518
+#: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "Максимальна освітленість: %1кд/м²"
 
-#: ui/Main.qml:547
+#: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
 msgstr "Максимальна освітленість у повноекранному режимі: %1кд/м²"
 
-#: ui/Main.qml:562
+#: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "Еталонна освітленість / білий папір: %1кд/м²"
 
-#: ui/Main.qml:573
+#: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
@@ -115,19 +115,19 @@ msgstr ""
 "Припускати щодо програми високого динамічного діапазону для Windows на цьому "
 "екрані калібровано"
 
-#: ui/Main.qml:585
+#: ui/Main.qml:612
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Виконано"
 
-#: ui/Main.qml:594
+#: ui/Main.qml:621
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "Завершити процедуру калібрування"
 
-#: ui/Main.qml:602
+#: ui/Main.qml:630
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
