@@ -3,20 +3,21 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 02:42+0000\n"
-"PO-Revision-Date: 2025-12-25 12:25+0100\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-17 14:01+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -95,23 +96,24 @@ msgstr ""
 #: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Maximale Leuchtdichte: %1 cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Maximale Vollbild-Leuchtdichte: %1 cd/m²"
 
 #: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Referenzleuchtdichte / Papierweiß: %1 cd/m²"
 
 #: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Annehmen, dass Windows-HDR-Anwendungen für diesen Bildschirm kalibriert sind"
 
 #: ui/Main.qml:612
 #, kde-format
@@ -120,12 +122,10 @@ msgid "Done"
 msgstr "Fertig"
 
 #: ui/Main.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Bricht den Kablibrierungsprozess ab"
+msgstr "Den Kablibrierungsprozess abschließen"
 
 #: ui/Main.qml:630
 #, kde-format
@@ -134,3 +134,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Viele Windows-Anwendungen verwenden ihre eigenen Kalibrierungseinstellungen, "
+"die nicht mit diesen systemweiten Einstellungen vereinbar sind. Wenn diese "
+"Option aktiviert ist, werden die Einstellungen solcher Anwendungen auf "
+"diesem Bildschirm wie erwartet funktionieren."

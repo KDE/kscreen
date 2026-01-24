@@ -7,31 +7,33 @@
 # SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-12-25 12:28+0100\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-20 00:31+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
 msgid "Implementation error"
-msgstr "Implementierungs-Fehler"
+msgstr "Implementierungsfehler"
 
 #: kcm.cpp:198
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
-"Beim Versuch, die Einstellungen zu übernehmen, wurden die Ausgaben geändert"
+"Während des Versuchs, die Einstellungen zu übernehmen, wurden die Ausgaben "
+"geändert"
 
 #: output_model.cpp:101
 #, kde-format
@@ -42,13 +44,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr "%1 × %2"
+msgstr "%1 × %2"
 
 #: output_model.cpp:762
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1 × %2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:871
 #, kde-format
@@ -70,7 +72,7 @@ msgstr "Bildschirme identifizieren"
 #: ui/main.qml:56
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Anzeige-Einrichtung beibehalten?"
+msgstr "Anzeigeeinstellungen beibehalten?"
 
 #: ui/main.qml:65
 #, kde-format
@@ -109,14 +111,13 @@ msgstr ""
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Anzeigen-Einstellung kann nicht angewendet werden: %1"
+msgstr "Anzeigeeinstellungen können nicht angewendet werden: %1"
 
 #: ui/main.qml:131
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
-"Eine neue Ausgabe ist hinzugefügt worden. Die Einstellungen wurden neu "
-"geladen."
+"Eine neue Ausgabe wurde hinzugefügt. Die Einstellungen wurden neu geladen."
 
 #: ui/main.qml:133
 #, kde-format
@@ -133,14 +134,14 @@ msgstr ""
 #: ui/main.qml:196
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr "Ausgaben können wegen eines Fehlers nicht gespeichert werden"
+msgstr "Ausgaben können aufgrund eines Fehlers nicht gespeichert werden."
 
 #: ui/main.qml:205
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Änderungen an der globalen Skalierung werden erst nach einem Neustart "
+"Änderungen an der globalen Skalierung werden nach einem Neustart des Systems "
 "wirksam."
 
 #: ui/main.qml:211
@@ -151,7 +152,7 @@ msgstr "Neu starten"
 #: ui/main.qml:229
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Anzeige-Einrichtung zurückgesetzt."
+msgstr "Anzeigeeinstellungen zurückgesetzt."
 
 #: ui/main.qml:243
 #, kde-format
@@ -242,7 +243,7 @@ msgstr "Aktiviert"
 #: ui/OutputPanel.qml:41
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Anzeigenpriorität ändern …"
+msgstr "Anzeigenprioritäten ändern …"
 
 #: ui/OutputPanel.qml:54
 #, kde-kuit-format
@@ -416,13 +417,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Bitte geben Sie den Pfad zum ICC-Profil an …"
+msgstr "Bitte geben Sie den Pfad zum ICC-Profil an …"
 
 #: ui/OutputPanel.qml:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "ICC-Profil auswählen …"
+msgstr "ICC-Profil auswählen …"
 
 #: ui/OutputPanel.qml:312
 #, kde-format
@@ -466,7 +467,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr "HDR-Helligkeit kalibrieren …"
+msgstr "HDR-Helligkeit kalibrieren …"
 
 #: ui/OutputPanel.qml:385
 #, kde-format
@@ -543,6 +544,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Schränkt die Farbauflösung des Bildes ein, das an den Bildschirm gesendet "
+"wird. Bildschirmfotos und -aufnahmen sind davon nicht betroffen.<nl/><nl/>Da "
+"der Bildschirm aktuell über ein Dock verbunden ist, wurde die automatische "
+"Farbauflösung vorübergehend auf 8 Bit reduziert, um bekannte Fehler mit "
+"Docks zu vermeiden.<nl/><nl/>Aufgrund von Einschränkungen durch den "
+"Grafiktreiber kann die tatsächlich genutzte Auflösung nicht ermittelt werden."
 
 #: ui/OutputPanel.qml:477
 #, kde-kuit-format
@@ -554,6 +561,12 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Schränkt die Farbauflösung des Bildes ein, das an den Bildschirm gesendet "
+"wird. Bildschirmfotos und -aufnahmen sind davon nicht betroffen.<nl/><nl/"
+">Die Farbauflösung einzuschränken kann nützlich sein, um Anzeigefehler oder "
+"Probleme mit dem Grafiktreiber zu umgehen.<nl/><nl/>Aufgrund von "
+"Einschränkungen durch den Grafiktreiber kann die tatsächlich genutzte "
+"Auflösung nicht ermittelt werden."
 
 #: ui/OutputPanel.qml:492
 #, kde-format
@@ -609,7 +622,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Automatisch an Umgebung anpassen"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -620,6 +633,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Die Bildschirmhelligkeit automatisch an die Helligkeit der Umgebung "
+"anpassen. Dazu wird der Umgebungslichtsensor des Geräts verwendet. Wenn Sie "
+"die Helligkeit manuell anpassen, werden diese Anpassungen gespeichert und "
+"berücksichtigt."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
