@@ -26,7 +26,7 @@ msgstr "Präsentationsmodus ist aktiviert"
 #: package/contents/ui/main.qml:70
 #, kde-format
 msgid "Configure Display Settings…"
-msgstr "Anzeige einrichten ..."
+msgstr "Anzeige einrichten …"
 
 #: package/contents/ui/PresentationModeItem.qml:23
 #, kde-format

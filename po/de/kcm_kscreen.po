@@ -7,20 +7,21 @@
 # SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2025-04-06 20:57+0200\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2026-01-20 00:31+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: output_model.cpp:98
 #, kde-format
@@ -31,13 +32,13 @@ msgstr "%1 Hz"
 #, kde-format
 msgctxt "Width x height"
 msgid "%1x%2"
-msgstr "%1×%2"
+msgstr "%1 × %2"
 
 #: output_model.cpp:657
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1x%2 (%3:%4)"
-msgstr "%1×%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:738
 #, kde-format
@@ -52,7 +53,7 @@ msgstr "Von anderer Ausgabe kopiert"
 #: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Anzeige-Einrichtung beibehalten?"
+msgstr "Anzeigeeinstellungen beibehalten?"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
@@ -91,8 +92,7 @@ msgstr ""
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
-"Eine neue Ausgabe ist hinzugefügt worden. Die Einstellungen wurden neu "
-"geladen."
+"Eine neue Ausgabe wurde hinzugefügt. Die Einstellungen wurden neu geladen."
 
 #: package/contents/ui/main.qml:121 package/contents/ui/main.qml:304
 #, kde-format
@@ -109,14 +109,14 @@ msgstr ""
 #: package/contents/ui/main.qml:181
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr "Ausgaben können wegen eines Fehlers nicht gespeichert werden"
+msgstr "Ausgaben können aufgrund eines Fehlers nicht gespeichert werden."
 
 #: package/contents/ui/main.qml:191
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Änderungen an der globalen Skalierung werden erst nach einem Neustart "
+"Änderungen an der globalen Skalierung werden nach einem Neustart des Systems "
 "wirksam."
 
 #: package/contents/ui/main.qml:197
@@ -127,7 +127,7 @@ msgstr "Neu starten"
 #: package/contents/ui/main.qml:217
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Anzeige-Einrichtung zurückgesetzt."
+msgstr "Anzeigeeinstellungen zurückgesetzt."
 
 #: package/contents/ui/main.qml:225
 #, kde-format
@@ -185,7 +185,7 @@ msgstr "Aktiviert"
 #: package/contents/ui/OutputPanel.qml:35
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Anzeigenpriorität ändern …"
+msgstr "Anzeigenprioritäten ändern …"
 
 #: package/contents/ui/OutputPanel.qml:48
 #, kde-kuit-format
