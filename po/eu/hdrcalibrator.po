@@ -1,16 +1,16 @@
 # Translation for hdrcalibrator.po to Euskara/Basque (eu).
-# Copyright (C) 2025 This file is copyright:
+# Copyright (C) 2025-2026 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# SPDX-FileCopyrightText: 2025 Iñigo Salvador Azurmendi <xalba@ni.eus>.
+# SPDX-FileCopyrightText: Iñigo Salvador Azurmendi <xalba@ni.eus>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:45+0000\n"
-"PO-Revision-Date: 2025-12-06 11:22+0100\n"
+"PO-Revision-Date: 2026-01-24 19:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,23 +96,24 @@ msgstr ""
 #: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Gehienezko luminantzia: %1cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "Pantaila osoko gehienezko luminantzia: %1cd/m²"
 
 #: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Erreferentziazko luminantzia / paper zuriarena: %1cd/m²"
 
 #: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Demagun Windows HDR aplikazioak pantaila honetarako kalibratuta daudela"
 
 #: ui/Main.qml:612
 #, kde-format
@@ -121,12 +122,10 @@ msgid "Done"
 msgstr "Eginda"
 
 #: ui/Main.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Kalibratzeko prozesua bertan behera uzten du"
+msgstr "Kalibratzeko prozesua bukatu"
 
 #: ui/Main.qml:630
 #, kde-format
@@ -135,3 +134,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Windows aplikazio askok beren kalibrazio-ezarpen propioak dituzte, eta "
+"sistema osorako konfigurazio honek haiekin gatazka du. Aukera hau ezarrita, "
+"gailu jakin honetan, haien kalibrazio ezarpenak espero bezala ibiliko dira."
