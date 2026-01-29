@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2015, 2020, 2021, 2022, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2015, 2020, 2021, 2022, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2025-10-05 02:12+0100\n"
+"PO-Revision-Date: 2026-01-28 19:57+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -538,6 +538,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Limitează rezoluția culorilor imaginii trimise către afișaj. Aceasta nu "
+"afectează capturile sau înregistrările de ecran.<nl/><nl/>Deoarece afișajul "
+"e conectat printr-o stație de andocare, rezoluția automată a culorilor a "
+"fost redusă temporar la 8 biți pentru a evita probleme comune stațiilor de "
+"andocare.<nl/><nl/>Din cauza limitărilor driver-ului grafic, rezoluția "
+"folosită de fapt nu poate fi aflată."
 
 #: ui/OutputPanel.qml:477
 #, kde-kuit-format
@@ -549,6 +555,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Limitează rezoluția culorilor imaginii trimise către afișaj. Aceasta nu "
+"afectează capturile sau înregistrările de ecran.<nl/><nl/>Limitarea "
+"rezoluției culorilor poate fi utilă pentru a evita probleme cu afișajul sau "
+"driver-ul grafic.<nl/><nl/>Din cauza limitărilor driver-ului grafic, "
+"rezoluția folosită de fapt nu poate fi aflată."
 
 #: ui/OutputPanel.qml:492
 #, kde-format
@@ -601,7 +612,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:600
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Adaptează automat la mediu"
 
 #: ui/OutputPanel.qml:605
 #, kde-format
@@ -612,6 +623,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Ajustează automat luminozitatea ecranului în baza nivelului de lumină din "
+"împrejurime, după cum e detectat de către senzorul de lumină ambientală al "
+"dispozitivului. Dacă ajustați luminozitatea manual, acele ajustări vor fi "
+"memorizate și luate în calcul."
 
 #: ui/OutputPanel.qml:617
 #, kde-format
