@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# Kheyyam <xxmn77@gmail.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2026 Kheyyam <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-19 00:45+0000\n"
-"PO-Revision-Date: 2023-02-17 01:07+0400\n"
+"PO-Revision-Date: 2026-02-02 00:00+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Tətbiq edilmə xətası"
 
 #: kcm.cpp:198
 #, kde-format
@@ -39,12 +39,10 @@ msgid "%1 × %2"
 msgstr ""
 
 #: output_model.cpp:762
-#, fuzzy, kde-format
-#| msgctxt "Width x height (aspect ratio)"
-#| msgid "%1x%2 (%3:%4)"
+#, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1x%2 (%3:%4)"
+msgstr "%1 × %2 (%3:%4)"
 
 #: output_model.cpp:871
 #, kde-format
@@ -57,12 +55,11 @@ msgid "None"
 msgstr "Heç biri"
 
 #: ui/main.qml:43
-#, fuzzy, kde-format
-#| msgid "Identify"
+#, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Müəyyən edin"
+msgstr "Ekranı müəyyənləşdirmək"
 
 #: ui/main.qml:56
 #, kde-format
@@ -100,11 +97,10 @@ msgid ""
 msgstr ""
 
 #: ui/main.qml:122
-#, fuzzy, kde-format
-#| msgid "Keep display configuration?"
+#, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Ekran tənzimlənməsi saxlanılsın?"
+msgstr "Ekran ayarını tətbiq etmək mümkün olmadı: %1"
 
 #: ui/main.qml:131
 #, kde-format
@@ -128,14 +124,11 @@ msgid "Outputs could not be saved due to error."
 msgstr "Çıxışlar xəta olduğu müddətdə saxlanıla bilməz."
 
 #: ui/main.qml:205
-#, fuzzy, kde-format
-#| msgid ""
-#| "New global scale applied. Change will come into effect after restart."
+#, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
-"Yeni qlobal miqyas tətbiq edilib. Dəyişiklik, yenidən başladıqdan sonra "
-"qüvvəyə minəcək."
+"Miqyas dəyişiklikləri sistem yenidən başladıldıqdan sonra qüvvəyə minəcək."
 
 #: ui/main.qml:211
 #, kde-format
@@ -175,11 +168,10 @@ msgid "Collapse"
 msgstr ""
 
 #: ui/main.qml:401
-#, fuzzy, kde-format
-#| msgid "For any display arrangement"
+#, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "İstənilən ekran düzülüşü üçün"
+msgstr "Düzülüşü dəyişmək"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -224,8 +216,7 @@ msgid "Replicas"
 msgstr "Replikalar"
 
 #: ui/OutputPanel.qml:29
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Cihaz:"
