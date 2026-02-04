@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:45+0000\n"
-"PO-Revision-Date: 2025-07-20 01:44+0200\n"
+"PO-Revision-Date: 2026-02-03 23:56+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,23 +67,16 @@ msgstr ""
 "십시오"
 
 #: ui/Main.qml:311
-#, fuzzy, kde-format
-#| msgid ""
-#| "To determine the maximum brightness of the screen, adjust the slider "
-#| "until the logo is barely visible"
+#, kde-format
 msgid ""
 "To determine the maximum average brightness of the screen, adjust the slider "
 "until the logo is barely visible"
 msgstr ""
-"화면의 최대 밝기를 결정하려면 로고가 흐릿하게 표시될 때까지 슬라이더를 조정하"
-"십시오"
+"화면의 최대 평균 밝기를 결정하려면 로고가 흐릿하게 표시될 때까지 슬라이더를 "
+"조정하십시오"
 
 #: ui/Main.qml:488
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth."
+#, kde-format
 msgid ""
 "Configure how bright \"100%\" on the normal brightness slider should be. "
 "Make it as bright as you'd ever use it, as long as the HDR image still looks "
@@ -93,28 +86,30 @@ msgid ""
 msgstr ""
 "일반 밝기 슬라이더의 \"100%\" 밝기가 얼마나 밝을지를 설정합니다. HDR 이미지"
 "가 선명하게 보이고, 그라디언트가 부드럽게 보이는 한도 내에서 최대한으로 밝게 "
-"설정하십시오."
+"설정하십시오.\n"
+"밝기가 변하는 것을 방지하려면 이 디스플레이의 최대 평균 밝기인 %1cd/m²를 초과"
+"하지 마십시오."
 
 #: ui/Main.qml:533
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "최대 휘도: %1cd/m²"
 
 #: ui/Main.qml:568
 #, kde-format
 msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr ""
+msgstr "최대 전체 화면 휘도: %1cd/m²"
 
 #: ui/Main.qml:589
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "참조 휘도/종이 백색: %1cd/m²"
 
 #: ui/Main.qml:600
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
+msgstr "Windows HDR 앱이 이 화면으로 교정되었다고 간주"
 
 #: ui/Main.qml:612
 #, kde-format
@@ -123,12 +118,10 @@ msgid "Done"
 msgstr "완료"
 
 #: ui/Main.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "교정 작업을 취소함"
+msgstr "교정 작업 끝내기"
 
 #: ui/Main.qml:630
 #, kde-format
@@ -137,3 +130,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"많은 Windows 앱은 자체적인 교정 설정을 사용하며, 시스템 전역 설정과 충돌할 수"
+"도 있습니다. 이 옵션을 사용하면 해당 앱의 교정 설정을 이 디스플레이에서 예상"
+"한 대로 사용합니다."
