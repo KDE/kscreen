@@ -1,49 +1,47 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2015, 2020, 2022.
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+# SPDX-FileCopyrightText: 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2022-02-17 22:41+0000\n"
+"PO-Revision-Date: 2026-02-04 14:35+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Schimbă la ecranul extern"
+msgstr "Folosește doar ecranul extern"
 
 #: osdaction.cpp:29
 #, kde-format
 msgid "Only use built-in screen"
-msgstr ""
+msgstr "Folosește doar ecranul încorporat"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Oglindește ecranele"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Extinde la stânga ecranului încorporat"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Extinde la dreapta"
+msgstr "Extinde la dreapta ecranului încorporat"
 
 #: osdaction.cpp:33
 #, kde-format
@@ -53,7 +51,7 @@ msgstr "Lasă neschimbat"
 #: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Ecran încorporat"
 
 #~ msgid "Switch to laptop screen"
 #~ msgstr "Schimbă la ecranul laptopului"
