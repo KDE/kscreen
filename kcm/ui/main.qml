@@ -54,6 +54,8 @@ KCM.AbstractKCM {
     Kirigami.PromptDialog {
         id: confirmMsg
         title: i18n("Keep display configuration?")
+        // Force user interaction to accept; don't auto-close and accept on random clicks
+        closePolicy: QQC2.Popup.NoAutoClose
         onVisibleChanged: {
             if (visible) {
                 revertButton.forceActiveFocus()
