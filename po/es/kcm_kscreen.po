@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-06 03:01+0000\n"
 "PO-Revision-Date: 2025-12-19 10:46+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -68,30 +68,30 @@ msgstr "Identificar pantallas"
 msgid "Keep display configuration?"
 msgstr "¿Mantener la configuración de la pantalla?"
 
-#: ui/main.qml:65
+#: ui/main.qml:67
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Se volverá a la configuración anterior en %1 segundos."
 msgstr[1] "Se volverá a la configuración anterior en %1 segundo."
 
-#: ui/main.qml:82
+#: ui/main.qml:84
 #, kde-format
 msgid "&Keep"
 msgstr "&Mantener"
 
-#: ui/main.qml:95
+#: ui/main.qml:97
 #, kde-format
 msgid "&Revert"
 msgstr "&Revertir"
 
-#: ui/main.qml:115
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Todas las pantallas están desactivadas. Active al menos una."
 
-#: ui/main.qml:117
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -100,80 +100,80 @@ msgstr ""
 "No se permiten huecos entre las pantallas. Asegúrese de que todas las "
 "pantallas se tocan."
 
-#: ui/main.qml:122
+#: ui/main.qml:124
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "No se ha podido aplicar la configuración de la pantalla: %1"
 
-#: ui/main.qml:131
+#: ui/main.qml:133
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Se ha añadido una nueva salida. Las preferencias se han vuelto a cargar."
 
-#: ui/main.qml:133
+#: ui/main.qml:135
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Se ha eliminado una salida. Las preferencias se han vuelto a cargar."
 
-#: ui/main.qml:187
+#: ui/main.qml:189
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "No se ha encontrado ningún motor de KScreen. Por favor, compruebe la "
 "instalación de KScreen."
 
-#: ui/main.qml:196
+#: ui/main.qml:198
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "No se pueden guardar las salidas debido a un error."
 
-#: ui/main.qml:205
+#: ui/main.qml:207
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Los cambios del escalado global tendrán efecto tras reiniciar el sistema."
 
-#: ui/main.qml:211
+#: ui/main.qml:213
 #, kde-format
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ui/main.qml:229
+#: ui/main.qml:231
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Se ha revertido la configuración de la pantalla."
 
-#: ui/main.qml:243
+#: ui/main.qml:245
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Cambiar prioridades"
 
-#: ui/main.qml:273 ui/OutputPanel.qml:48
+#: ui/main.qml:275 ui/OutputPanel.qml:48
 #, kde-format
 msgid "Primary"
 msgstr "Primaria"
 
-#: ui/main.qml:278
+#: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
 msgstr "Elevar prioridad"
 
-#: ui/main.qml:288
+#: ui/main.qml:290
 #, kde-format
 msgid "Lower priority"
 msgstr "Bajar prioridad"
 
-#: ui/main.qml:400
+#: ui/main.qml:402
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Contraer"
 
-#: ui/main.qml:401
+#: ui/main.qml:403
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

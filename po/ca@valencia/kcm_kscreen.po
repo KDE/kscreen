@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-06 03:01+0000\n"
 "PO-Revision-Date: 2025-12-19 11:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -70,30 +70,30 @@ msgstr "Identifica les pantalles"
 msgid "Keep display configuration?"
 msgstr "Mantinc la configuració de la pantalla?"
 
-#: ui/main.qml:65
+#: ui/main.qml:67
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Es revertirà a la configuració anterior d'ací a %1 segon."
 msgstr[1] "Es revertirà a la configuració anterior d'ací a %1 segons."
 
-#: ui/main.qml:82
+#: ui/main.qml:84
 #, kde-format
 msgid "&Keep"
 msgstr "Man&tín"
 
-#: ui/main.qml:95
+#: ui/main.qml:97
 #, kde-format
 msgid "&Revert"
 msgstr "Re&vertix"
 
-#: ui/main.qml:115
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Totes les pantalles estan desactivades. Almenys activeu-ne una."
 
-#: ui/main.qml:117
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -102,77 +102,77 @@ msgstr ""
 "No es permeten separacions entre les pantalles. Assegureu-vos que totes les "
 "pantalles estan en contacte."
 
-#: ui/main.qml:122
+#: ui/main.qml:124
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "No s'ha pogut aplicar la configuració de la pantalla: %1"
 
-#: ui/main.qml:131
+#: ui/main.qml:133
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "S'ha afegit una eixida nova. S'ha tornat a carregar la configuració."
 
-#: ui/main.qml:133
+#: ui/main.qml:135
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "S'ha eliminat una eixida. S'ha tornat a carregar la configuració."
 
-#: ui/main.qml:187
+#: ui/main.qml:189
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "No s'ha trobat el dorsal de KScreen. Comproveu la instal·lació."
 
-#: ui/main.qml:196
+#: ui/main.qml:198
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "No s'han pogut guardar les eixides per un error."
 
-#: ui/main.qml:205
+#: ui/main.qml:207
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr ""
 "Els canvis de l'escala global s'efectuaran després de reiniciar el sistema."
 
-#: ui/main.qml:211
+#: ui/main.qml:213
 #, kde-format
 msgid "Restart"
 msgstr "Reinicia"
 
-#: ui/main.qml:229
+#: ui/main.qml:231
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "S'ha revertit la configuració de la pantalla."
 
-#: ui/main.qml:243
+#: ui/main.qml:245
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Canvi de prioritats"
 
-#: ui/main.qml:273 ui/OutputPanel.qml:48
+#: ui/main.qml:275 ui/OutputPanel.qml:48
 #, kde-format
 msgid "Primary"
 msgstr "Primària"
 
-#: ui/main.qml:278
+#: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
 msgstr "Eleva la prioritat"
 
-#: ui/main.qml:288
+#: ui/main.qml:290
 #, kde-format
 msgid "Lower priority"
 msgstr "Reduïx la prioritat"
 
-#: ui/main.qml:400
+#: ui/main.qml:402
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Reduïx"
 
-#: ui/main.qml:401
+#: ui/main.qml:403
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

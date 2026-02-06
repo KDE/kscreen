@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-06 03:01+0000\n"
 "PO-Revision-Date: 2024-01-03 14:34-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -69,107 +69,107 @@ msgstr "ਪਛਾਣੋ"
 msgid "Keep display configuration?"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਰੱਖਣੀ ਹੈ?"
 
-#: ui/main.qml:65
+#: ui/main.qml:67
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 ਸਕਿੰਟ ਵਿੱਚ ਪਿਛਲੀ ਸੰਰਚਨਾ ਨੂੰ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।"
 msgstr[1] "%1 ਸਕਿੰਟਾਂ ਵਿੱਚ ਪਿਛਲੀ ਸੰਰਚਨਾ ਨੂੰ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
-#: ui/main.qml:82
+#: ui/main.qml:84
 #, kde-format
 msgid "&Keep"
 msgstr "ਰੱਖੋ(&K)"
 
-#: ui/main.qml:95
+#: ui/main.qml:97
 #, kde-format
 msgid "&Revert"
 msgstr "ਵਾਪਸ ਲਵੋ(&R)"
 
-#: ui/main.qml:115
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "ਸਾਰੇ ਡਿਸਪਲੇਅ ਅਸਮਰੱਥ ਹਨ। ਘੱਟੋ-ਘੱਟ ਇੱਕ ਨੂੰ ਸਮਰੱਥ ਕਰੋ।"
 
-#: ui/main.qml:117
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "ਡਿਸਪਲੇਅ ਵਿਚਾਲੇ ਫ਼਼ਾਸਲੇ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਸਾਰੇ ਡਿਸਪਲੇਅ ਛੂਹ ਰਹੇ ਹਨ।"
 
-#: ui/main.qml:122
+#: ui/main.qml:124
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਰੱਖਣੀ ਹੈ?"
 
-#: ui/main.qml:131
+#: ui/main.qml:133
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ਨਵੀਂ ਆਉਟਪੁੱਟ ਨੂੰ ਜੋੜਿਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
 
-#: ui/main.qml:133
+#: ui/main.qml:135
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "ਆਉਟਪੁੱਟ ਨੂੰ ਹਟਾਇਆ ਗਿਆ। ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ-ਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ।"
 
-#: ui/main.qml:187
+#: ui/main.qml:189
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "ਕੋਈ KScreen ਬੈਕਐਂਡ ਨਹੀਂ ਮਿਲਿਆ। ਆਪਣੀ KScreen ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: ui/main.qml:196
+#: ui/main.qml:198
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "ਗ਼ਲਤੀ ਦੇ ਕਰਕੇ ਆਉਟਪੁੱਟ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
-#: ui/main.qml:205
+#: ui/main.qml:207
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "ਗਲੋਬਲ ਸਕੇਲ ਤਬਦੀਲੀਆਂ ਸਿਸਟਮ ਦੇ ਮੁੜ-ਚਾਲੂ ਹੋਣ ਬਾਅਦ ਹੀ ਲਾਗੂ ਹੋਣਗੀਆਂ।"
 
-#: ui/main.qml:211
+#: ui/main.qml:213
 #, kde-format
 msgid "Restart"
 msgstr "ਮੁੜ-ਚਾਲੂ ਕਰੋ"
 
-#: ui/main.qml:229
+#: ui/main.qml:231
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ ਵਾਪਸ ਲਈ ਗਈ ਹੈ।"
 
-#: ui/main.qml:243
+#: ui/main.qml:245
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "ਤਰਜੀਹਾਂ ਬਦਲੋ"
 
-#: ui/main.qml:273 ui/OutputPanel.qml:48
+#: ui/main.qml:275 ui/OutputPanel.qml:48
 #, kde-format
 msgid "Primary"
 msgstr "ਪ੍ਰਾਇਮਰੀ"
 
-#: ui/main.qml:278
+#: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
 msgstr "ਤਰਜੀਹ ਵਧਾਓ"
 
-#: ui/main.qml:288
+#: ui/main.qml:290
 #, kde-format
 msgid "Lower priority"
 msgstr "ਤਰਜੀਹ ਘਟਾਓ"
 
-#: ui/main.qml:400
+#: ui/main.qml:402
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:401
+#: ui/main.qml:403
 #, fuzzy, kde-format
 #| msgid "Advanced Settings"
 msgctxt "@action:button Edit the arrangement of display outputs"
