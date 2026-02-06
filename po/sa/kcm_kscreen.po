@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-06 00:46+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -70,30 +70,30 @@ msgstr "पटलान् चिनुत"
 msgid "Keep display configuration?"
 msgstr "प्रदर्शनविन्यासः स्थापयतु?"
 
-#: ui/main.qml:65
+#: ui/main.qml:67
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
 msgstr[1] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
 
-#: ui/main.qml:82
+#: ui/main.qml:84
 #, kde-format
 msgid "&Keep"
 msgstr "&स्थापय"
 
-#: ui/main.qml:95
+#: ui/main.qml:97
 #, kde-format
 msgid "&Revert"
 msgstr "&प्रत्यावर्तनम्"
 
-#: ui/main.qml:115
+#: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "सर्वाणि प्रदर्शनानि अक्षमानि सन्ति। न्यूनातिन्यूनम् एकं सक्षमं कुर्वन्तु।"
 
-#: ui/main.qml:117
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -102,7 +102,7 @@ msgstr ""
 "प्रदर्शनानां मध्ये अन्तरालः समर्थितः नास्ति । सर्वे प्रदर्शनाः स्पर्शप्रदाः सन्ति इति "
 "सुनिश्चितं कुर्वन्तु।"
 
-#: ui/main.qml:122
+#: ui/main.qml:124
 #, fuzzy, kde-format
 #| msgctxt "The argument contains the reason for the failure"
 #| msgid "Couldn't apply display configuration: %1"
@@ -110,70 +110,70 @@ msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "प्रदर्शनविन्यासं प्रयोक्तुं न शक्तम्: %1"
 
-#: ui/main.qml:131
+#: ui/main.qml:133
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "नूतनं आउटपुट् योजितम् अस्ति । सेटिङ्ग्स् पुनः लोड् कृताः सन्ति ।"
 
-#: ui/main.qml:133
+#: ui/main.qml:135
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "एकं आउटपुट् निष्कासितम् अस्ति। सेटिङ्ग्स् पुनः लोड् कृताः सन्ति ।"
 
-#: ui/main.qml:187
+#: ui/main.qml:189
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen पृष्ठभागः न प्राप्तः । कृपया स्वस्य KScreen संस्थापनं पश्यन्तु।"
 
-#: ui/main.qml:196
+#: ui/main.qml:198
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "त्रुटिकारणात् आउटपुट् रक्षितुं न शक्यते स्म ।"
 
-#: ui/main.qml:205
+#: ui/main.qml:207
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
 msgstr "प्रणालीं पुनः आरब्धस्य अनन्तरं वैश्विकपरिमाणपरिवर्तनं प्रभावे आगमिष्यति।"
 
-#: ui/main.qml:211
+#: ui/main.qml:213
 #, kde-format
 msgid "Restart"
 msgstr "पुनः आरभत"
 
-#: ui/main.qml:229
+#: ui/main.qml:231
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "प्रदर्शनविन्यासः प्रत्यागतः ।"
 
-#: ui/main.qml:243
+#: ui/main.qml:245
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "प्राथमिकता परिवर्तयन्तु"
 
-#: ui/main.qml:273 ui/OutputPanel.qml:48
+#: ui/main.qml:275 ui/OutputPanel.qml:48
 #, kde-format
 msgid "Primary"
 msgstr "प्राथमिक"
 
-#: ui/main.qml:278
+#: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
 msgstr "प्राथमिकताम् उत्थापयन्तु"
 
-#: ui/main.qml:288
+#: ui/main.qml:290
 #, kde-format
 msgid "Lower priority"
 msgstr "निम्न प्राथमिकता"
 
-#: ui/main.qml:400
+#: ui/main.qml:402
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:401
+#: ui/main.qml:403
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
