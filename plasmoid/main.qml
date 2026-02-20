@@ -22,14 +22,13 @@ PlasmoidItem {
     id: root
 
     // Only show if the user enabled presentation mode
-    Plasmoid.status: presentationModeEnabled ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.status: (presentationModeEnabled || Plasmoid.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
     readonly property bool kcmAllowed: KConfig.KAuthorized.authorizeControlModule("kcm_kscreen")
 
-    readonly property bool presentationModeEnabled: presentationModeCookie > 0
-    property int presentationModeCookie: -1
+    property bool presentationModeEnabled: false
 
     P5Support.DataSource {
         id: pmSource
@@ -88,6 +87,7 @@ PlasmoidItem {
             Layout.fillWidth: true
             Layout.topMargin: Kirigami.Units.smallSpacing * 2
             Layout.leftMargin: Kirigami.Units.smallSpacing
+            onCheckedChanged: root.presentationModeEnabled = checked
         }
 
         // compact the layout
