@@ -22,7 +22,7 @@ PlasmoidItem {
     id: root
 
     // Only show if the user enabled presentation mode
-    Plasmoid.status: (presentationModeEnabled || Plasmoid.connectedOutputCount > 1) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.status: presentationModeEnabled ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
