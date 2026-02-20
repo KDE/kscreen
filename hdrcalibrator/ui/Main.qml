@@ -22,7 +22,6 @@ Window {
     readonly property real tenPercentSize: Math.sqrt(hdrCalibration.width * hdrCalibration.height * 0.1);
     readonly property bool horizontal: hdrCalibration.width >= hdrCalibration.height
     property real oldPeakBrightness: 0
-    property real oldMaxAverageBrightness: 0
     property real oldSdrBrightness: 0
 
     Component.onCompleted: {
@@ -32,7 +31,6 @@ Window {
         // TODO add some sort of calibration protocol, to take care of this in a better way?
 
         hdrCalibration.oldPeakBrightness = HdrCalibrator.peakBrightnessOverride == 0 ? HdrCalibrator.peakBrightness : HdrCalibrator.peakBrightnessOverride;
-        hdrCalibration.oldMaxAverageBrightness = HdrCalibrator.maxAverageBrightnessOverride == 0 ? HdrCalibrator.maxAverageBrightness : HdrCalibrator.maxAverageBrightnessOverride;
         hdrCalibration.oldSdrBrightness = HdrCalibrator.sdrBrightness;
         // TODO what if the screen can go brighter than this?
         // Add a checkbox for extended range, or make the slider logarithmic or something?
@@ -42,11 +40,6 @@ Window {
         // restore the old value as a better starting point
         if (hdrCalibration.oldPeakBrightness != 0) {
             HdrCalibrator.peakBrightnessOverride = hdrCalibration.oldPeakBrightness;
-        }
-        if (hdrCalibration.oldMaxAverageBrightness != 0) {
-            HdrCalibrator.maxAverageBrightnessOverride = hdrCalibration.oldMaxAverageBrightness;
-        } else {
-            HdrCalibrator.maxAverageBrightnessOverride = HdrCalibrator.peakBrightnessOverride;
         }
 
         for (var output of Qt.application.screens) {
@@ -60,7 +53,6 @@ Window {
 
     function resetConfigAndQuit() {
         HdrCalibrator.peakBrightnessOverride = hdrCalibration.oldPeakBrightness;
-        HdrCalibrator.maxAverageBrightnessOverride = hdrCalibration.oldMaxAverageBrightness;
         HdrCalibrator.sdrBrightness = hdrCalibration.oldSdrBrightness;
         HdrCalibrator.applyConfig();
         hdrCalibration.close();
@@ -196,7 +188,7 @@ Window {
                         onClicked: {
                             HdrCalibrator.sdrBrightness = Math.min(HdrCalibrator.peakBrightnessOverride, HdrCalibrator.sdrBrightness);
                             HdrCalibrator.applyConfig();
-                            stack.push(maxFallLuminanceConfiguration);
+                            stack.push(sdrLuminanceConfiguration);
                         }
 
                         Accessible.description: i18nc("@info accessible description of a push button", "Switches to the next page")
@@ -217,99 +209,6 @@ Window {
 
                     text: i18n("To determine the maximum brightness of the screen, adjust the slider until the logo is barely visible")
                     color: "white"
-                }
-            }
-        }
-    }
-
-    Component {
-        id: maxFallLuminanceConfiguration
-        Rectangle {
-            color: "white"
-            ColumnLayout {
-                Layout.fillWidth: true
-                anchors.centerIn: parent
-
-                WindowContainer {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.preferredWidth: hdrCalibration.tenPercentSize
-                    Layout.preferredHeight: hdrCalibration.tenPercentSize
-                    window: Window {
-                        id: hdrIconWindow2
-                        visible: true
-                        onVisibleChanged: HdrHelper.setHdrParameters(hdrIconWindow2, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, 10000.0, HdrHelper.RenderIntent.RelativeColorimetricBPC)
-                        flags: Qt.WA_TranslucentBackground
-                        color: "#00000000"
-                        width: hdrCalibration.tenPercentSize
-                        height: hdrCalibration.tenPercentSize
-                        Kirigami.Icon {
-                            source: Qt.resolvedUrl("images/plasma-symbolic.svg")
-                            color: "white"
-                            width: hdrCalibration.tenPercentSize
-                            height: hdrCalibration.tenPercentSize
-                            anchors.centerIn: parent
-                        }
-                    }
-                }
-
-                RowLayout {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillWidth: true
-                    Layout.maximumWidth: hdrCalibration.tenPercentSize
-                    spacing: Kirigami.Units.smallSpacing
-
-                    QQC2.Slider {
-                        Layout.fillWidth: true
-                        from: 100
-                        to: HdrCalibrator.peakBrightnessOverride
-                        stepSize: 10
-                        live: true
-                        value: HdrCalibrator.sdrBrightness
-                        onMoved: {
-                            if (value != HdrCalibrator.sdrBrightness) {
-                                HdrCalibrator.sdrBrightness = value;
-                                HdrCalibrator.maxAverageBrightnessOverride = value;
-                                HdrCalibrator.applyConfig();
-                            }
-                        }
-                    }
-                    QQC2.SpinBox {
-                        from: 100
-                        to: HdrCalibrator.peakBrightnessOverride
-                        stepSize: 10
-                        value: HdrCalibrator.sdrBrightness
-                        onValueModified: {
-                            HdrCalibrator.sdrBrightness = value;
-                            HdrCalibrator.maxAverageBrightnessOverride = value;
-                            HdrCalibrator.applyConfig();
-                        }
-                    }
-                    QQC2.Button {
-                        icon.name: "go-next"
-                        text: i18nc("@action:button", "Next")
-                        onClicked: {
-                            HdrCalibrator.applyConfig();
-                            stack.push(sdrLuminanceConfiguration);
-                        }
-
-                        Accessible.description: i18nc("@info accessible description of a push button", "Switches to the next page")
-                    }
-                    QQC2.Button {
-                        icon.name: "dialog-cancel"
-                        text: i18nc("@action:button", "Cancel")
-                        onClicked: hdrCalibration.resetConfigAndQuit();
-
-                        Accessible.description: i18nc("@info accessible description of a push button", "Cancels the calibration process")
-                    }
-                }
-                QQC2.Label {
-                    Layout.fillWidth: true
-
-                    horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.Wrap
-
-                    text: i18n("To determine the maximum average brightness of the screen, adjust the slider until the logo is barely visible")
-                    color: "black"
                 }
             }
         }
@@ -485,7 +384,13 @@ Window {
                     horizontalAlignment: Text.AlignHCenter
                     wrapMode: Text.Wrap
 
-                    text: i18n("Configure how bright \"100\%\" on the normal brightness slider should be. Make it as bright as you'd ever use it, as long as the HDR image still looks good and the gradients are smooth.\nTo avoid brightness fluctuations, it's recommended to not exceed the display's maximum average brightness of %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
+                    text: {
+                        if (HdrCalibrator.maxAverageBrightness != 0 && HdrCalibrator.maxAverageBrightness < HdrCalibrator.peakBrightnessOverride) {
+                            return i18n("Configure how bright \"100\%\" on the normal brightness slider should be. Make it as bright as you'd ever use it, as long as the HDR image still looks good and the gradients are smooth.\nTo avoid brightness fluctuations, it's recommended to not exceed the display's maximum average brightness of %1cd/m²", HdrCalibrator.maxAverageBrightness)
+                        } else {
+                            return i18n("Configure how bright \"100\%\" on the normal brightness slider should be. Make it as bright as you'd ever use it, as long as the HDR image still looks good and the gradients are smooth.");
+                        }
+                    }
                     color: "white"
                 }
             }
@@ -531,41 +436,6 @@ Window {
 
                                         color: "black"
                                         text: i18n("Maximum luminance: %1cd/m²", HdrCalibrator.peakBrightnessOverride)
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    WindowContainer {
-                        Layout.alignment: Qt.AlignHCenter
-                        Layout.preferredWidth: hdrCalibration.tenPercentSize * 0.5
-                        Layout.preferredHeight: hdrCalibration.tenPercentSize * 0.5
-                        window: Window {
-                            visible: true
-                            onVisibleChanged: HdrHelper.setHdrParameters(this, HdrHelper.Colorspace.BT709Linear, HdrCalibrator.sdrBrightness, HdrCalibrator.maxAverageBrightnessOverride, HdrHelper.RenderIntent.RelativeColorimetricBPC)
-                            color: "white"
-                            width: hdrCalibration.tenPercentSize
-                            height: hdrCalibration.tenPercentSize
-                            // NOTE that the text requires a separate window, as it looks terrible with linear brightness values
-                            WindowContainer {
-                                anchors.fill: parent
-                                window: Window {
-                                    visible: true
-                                    width: hdrCalibration.tenPercentSize
-                                    height: hdrCalibration.tenPercentSize
-                                    flags: Qt.WA_TranslucentBackground
-                                    color: "#00000000"
-                                    QQC2.Label {
-                                        anchors.fill: parent
-                                        anchors.margins: Kirigami.Units.largeSpacing
-
-                                        verticalAlignment: Text.AlignVCenter
-                                        horizontalAlignment: Text.AlignHCenter
-                                        wrapMode: Text.Wrap
-
-                                        color: "black"
-                                        text: i18n("Maximum fullscreen luminance: %1cd/m²", HdrCalibrator.maxAverageBrightnessOverride)
                                     }
                                 }
                             }
