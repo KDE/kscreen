@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:46+0000\n"
+"POT-Creation-Date: 2026-02-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-18 07:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -444,36 +444,42 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR gerir samhæfum forritum kleift að sýna bjartari og líflegri liti."
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Kvarða HDR-birtustig..."
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Opnar glugga til að kvarða HDR-birtustig"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:394
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "HDR calibration can only be started if all settings are applied."
+msgstr ""
+
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Litanákvæmni:"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Skilvirkni í forgangi"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Litanákvæmni í forgangi"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:421
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -485,7 +491,7 @@ msgstr ""
 "litaaðgerða til skjárekilsins og eykur hámarkslitaupplausn.<nl/><nl/"
 ">Athugaðu að þessi stilling getur haft mikil áhrif á afköst."
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:428
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -497,31 +503,31 @@ msgstr ""
 "+shaper) sem bætir afköst á kostnað litanákvæmni.<nl/><nl/>Athugaðu að þessi "
 "stilling getur haft mikil áhrif á afköst."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Takmarka litaupplausn við:"
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Sjálfvirkt (%1 bitar á lit)"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 bitar á lit"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Sjálfvirkt (%1 bitar á lit)"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:482
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -538,7 +544,7 @@ msgstr ""
 "<nl/><nl/>Vegna takmarkana í skjáreklum er ómögulegt að vita raunverulega "
 "litupplausn sem verið er að nota."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:486
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -554,37 +560,37 @@ msgstr ""
 "takmarkana í skjáreklum er ómögulegt að vita raunverulega litupplausn sem "
 "verið er að nota."
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-litstyrkur:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:540
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Eykur styrk sRGB-efnis á skjánum."
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:549
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Birtustig:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:555
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Stjórna birtustigi vélbúnaðar með DDC/CI"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:561
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -596,18 +602,18 @@ msgstr ""
 "að stilla skjábirtustigið í gegnum skjáborðið, rétt eins og verið sé að nota "
 "hnappana og OSD-valmyndina á skjánum sjálfum."
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Aðlagast umhverfinu sjálfvirkt"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:614
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -620,25 +626,25 @@ msgstr ""
 "hún er skynjuð af tækinu. Ef þú breytir birtustiginu handvirkt, munu þær "
 "breytingar vera geymdar og teknar með í reikninginn."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Skerpa:"
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:655
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Aukið styrksvið (EDR):"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:660
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Virkja EDR"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -650,7 +656,7 @@ msgstr ""
 "baklýsinguna dýnamískt.<nl/><nl/>Athugaðu að þetta eykur álagið á rafhlöðuna "
 "á meðan HDR-efni er skoðað."
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:671
 #, kde-format
 msgid "Replica of:"
 msgstr "Eftirlíking af:"

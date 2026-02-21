@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:46+0000\n"
+"POT-Creation-Date: 2026-02-21 00:47+0000\n"
 "PO-Revision-Date: 2024-11-16 12:57+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -475,36 +475,42 @@ msgid ""
 msgstr ""
 "HDR allows compatible applications to show brighter and more vivid colours"
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr ""
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr ""
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:394
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "HDR calibration can only be started if all settings are applied."
+msgstr ""
+
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr ""
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr ""
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:421
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -513,7 +519,7 @@ msgid ""
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:428
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -522,31 +528,31 @@ msgid ""
 "setting can have a large impact on performance."
 msgstr ""
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr ""
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr ""
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr ""
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:482
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -557,7 +563,7 @@ msgid ""
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:486
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -568,7 +574,7 @@ msgid ""
 "cannot be known."
 msgstr ""
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:501
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "sRGB Color Intensity:"
@@ -576,13 +582,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB Colour Intensity:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:540
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Increases the intensity of sRGB content on the screen"
@@ -590,7 +596,7 @@ msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Increases the intensity of sRGB content on the screen"
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:549
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "SDR Brightness:"
@@ -598,13 +604,13 @@ msgctxt "@label"
 msgid "Brightness:"
 msgstr "SDR Brightness:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:555
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr ""
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:561
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -613,7 +619,7 @@ msgid ""
 "hardware buttons and OSD menu."
 msgstr ""
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:595
 #, fuzzy, kde-format
 #| msgctxt "Global scale factor expressed in percentage form"
 #| msgid "%1%"
@@ -621,12 +627,12 @@ msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr ""
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:614
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -636,13 +642,13 @@ msgid ""
 "taken into account."
 msgstr ""
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr ""
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:655
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "High Dynamic Range:"
@@ -650,7 +656,7 @@ msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "High Dynamic Range:"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:660
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable HDR"
@@ -658,7 +664,7 @@ msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Enable HDR"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -667,7 +673,7 @@ msgid ""
 "content."
 msgstr ""
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:671
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica of:"

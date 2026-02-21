@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:46+0000\n"
+"POT-Creation-Date: 2026-02-21 00:47+0000\n"
 "PO-Revision-Date: 2025-12-21 06:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -437,36 +437,42 @@ msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr "HDR 讓相容的應用程式可以顯示更亮、更鮮明的顏色。"
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "校準 HDR 亮度…"
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "開啟視窗來校準 HDR 亮度"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:394
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "HDR calibration can only be started if all settings are applied."
+msgstr ""
+
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "色彩準確度："
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "注重效能"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "注重色彩準確度"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:421
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -478,7 +484,7 @@ msgstr ""
 "示驅動，並且會提高最高的色彩深度。<nl/><nl/>請注意，這個設定可能會大幅影響效"
 "能。"
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:428
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -489,31 +495,31 @@ msgstr ""
 "「注重效能」會將 ICC 色彩描述檔簡化為矩陣 + 賦形器 (matrix+shaper)，提升效能"
 "但犧牲色彩準確度。<nl/><nl/>請注意，調整這個設定可能會大幅影響效能。"
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "限制色彩深度至："
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "自動（每個原色 %1 位元）"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "每個原色 %1 位元"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "自動（每個原色 %1 位元）"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:482
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -527,7 +533,7 @@ msgstr ""
 "由於顯示器目前透過基座連線，自動色彩深度已暫時降低到 8 位元以避免發生基座常有"
 "的問題。<nl/><nl/>由於圖形驅動程式的限制，無法得知實際使用的解析度。"
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:486
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -541,37 +547,37 @@ msgstr ""
 "限制色彩深度能避開一些顯示器或圖形驅動程式的問題。<nl/><nl/>由於圖形驅動程式"
 "的限制，無法得知實際使用的解析度。"
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩強度："
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:540
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "提高螢幕上 sRGB 內容的色彩強度。"
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:549
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:555
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "用 DDC/CI 來控制硬體亮度"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:561
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -582,18 +588,18 @@ msgstr ""
 "DDC/CI 是一個受許多螢幕支援的功能。Plasma 能夠透過它讓您從桌面來控制螢幕亮"
 "度，而不用使用螢幕自己的硬體按鈕和使用者介面。"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "自動適應環境"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:614
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -605,25 +611,25 @@ msgstr ""
 "自動依裝置環境光感測器所偵測的環境亮度來調整螢幕亮度。如果您手動調整了亮度，"
 "這些調整會被記住並加入自動亮度的考量。"
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "銳利度："
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:655
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "擴展動態範圍："
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:660
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "啟用 EDR"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -634,7 +640,7 @@ msgstr ""
 "EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這"
 "會增加顯示 HDR 內容時的電池使用量。"
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:671
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："

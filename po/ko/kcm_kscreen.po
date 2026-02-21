@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:46+0000\n"
+"POT-Creation-Date: 2026-02-21 00:47+0000\n"
 "PO-Revision-Date: 2026-02-03 23:57+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -439,36 +439,42 @@ msgid ""
 msgstr ""
 "HDR을 사용하면 호환되는 앱에서 더 밝고 화려한 색상을 표시할 수 있습니다."
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "HDR 밝기 교정…"
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "HDR 밝기를 교정하는 창 열기"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:394
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "HDR calibration can only be started if all settings are applied."
+msgstr ""
+
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "색 정밀도:"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "효율성 선호"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "색 정밀도 선호"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:421
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -480,7 +486,7 @@ msgstr ""
 "이버로 오프로드하는 것을 제한하며 최대 색 해상도를 향상시킵니다.<nl/><nl/>이 "
 "설정은 성능에 큰 영향을 줄 수 있습니다."
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:428
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -492,31 +498,31 @@ msgstr ""
 "희생하는 대신 성능을 향상시킵니다.<nl/><nl/>이 설정은 성능에 큰 영향을 줄 수 "
 "있습니다."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "다음으로 색 농도 제한:"
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "자동(색상당 %1비트)"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "색상당 %1비트"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "자동(색상당 %1비트)"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:482
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -532,7 +538,7 @@ msgstr ""
 "었습니다.<nl/><nl/>그래픽 드라이버 제한으로 인해서 실제 사용 중인 색 농도를 "
 "알 수 없습니다."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:486
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -547,37 +553,37 @@ msgstr ""
 "문제 해결에 도움이 될 수 있습니다.<nl/><nl/>그래픽 드라이버 제한으로 인해서 "
 "실제 사용 중인 색 농도를 알 수 없습니다."
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 색상 강도:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:540
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도를 증가시킵니다."
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:549
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "밝기:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:555
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "DDC/CI로 하드웨어 밝기 제어"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:561
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -589,18 +595,18 @@ msgstr ""
 "여 모니터의 하드웨어 버튼과 OSD 메뉴를 사용하는 것처럼 화면 밝기를 데스크톱 "
 "컨트롤로 제어할 수 있습니다."
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "자동으로 환경에 따라 조정"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:614
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -612,25 +618,25 @@ msgstr ""
 "장치의 주변광 센서에서 감지한 외부 환경의 조도에 따라서 화면의 밝기를 조정합"
 "니다. 수동으로 밝기를 조정하면 해당 조정 사항을 기억하여 밝기에 반영합니다."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "선명도:"
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:655
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "확장된 다이나믹 레인지:"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:660
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR 활성화"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -641,7 +647,7 @@ msgstr ""
 "EDR을 사용하면 HDR 콘텐츠를 SDR 디스플레이에 표시할 때 동적으로 백라이트를 조"
 "정합니다.<nl/><nl/>HDR 콘텐츠를 표시하는 동안 배터리 사용량을 증가시킵니다."
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:671
 #, kde-format
 msgid "Replica of:"
 msgstr "다음의 복제:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:46+0000\n"
+"POT-Creation-Date: 2026-02-21 00:47+0000\n"
 "PO-Revision-Date: 2025-12-19 13:32+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -455,36 +455,42 @@ msgstr ""
 "Розширений динамічний діапазон (HDR) надає змогу сумісним програмам "
 "показувати яскравіші та природніші кольори."
 
-#: ui/OutputPanel.qml:372
+#: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Калібрувати яскравість HDR…"
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Відкриває вікно для калібрування яскравості HDR"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:394
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "HDR calibration can only be started if all settings are applied."
+msgstr ""
+
+#: ui/OutputPanel.qml:401
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Точність кольорів:"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Перевага ефективності"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:411
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Перевага точності кольорів"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:421
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -497,7 +503,7 @@ msgstr ""
 "<nl/><nl/>Зауважте, що використання цього параметра може значно вплинути на "
 "швидкодію."
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:428
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -509,31 +515,31 @@ msgstr ""
 "збільшуючи швидкодію за рахунок точності кольорів.<nl/><nl/>Зауважте, що "
 "використання цього параметра може значно вплинути на швидкодію."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Обмежити роздільність кольорів до:"
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Автоматичної (%1 бітів на колір)"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 бітів на колір"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Автоматичної (%1 бітів на колір)"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:482
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -550,7 +556,7 @@ msgstr ""
 "станціями.<nl/><nl/>Через обмеження графічного драйвера фактично використану "
 "роздільну здатність неможливо визначити."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:486
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -566,37 +572,37 @@ msgstr ""
 "дисплеєм або графічним драйвером.<nl/><nl/>Через обмеження графічного "
 "драйвера фактично використану роздільну здатність неможливо визначити."
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:501
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Інтенсивність кольорів sRGB:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:540
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Збільшує інтенсивність зображень sRGB на екрані."
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:549
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яскравість:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:555
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Керування апаратною яскравістю за допомогою DDC/CI"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:561
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -609,18 +615,18 @@ msgstr ""
 "керування стільницею, так, наче використано апаратні кнопки і накладне меню "
 "самого монітора."
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:595
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Автоматично підлаштовуватися до середовища"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:614
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -634,25 +640,25 @@ msgstr ""
 "Якщо ви налаштуєте яскравість вручну, ці налаштування буде збережено і "
 "враховано."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Різкість:"
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:655
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Розширений динамічний діапазон:"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:660
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Увімкнути EDR"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -664,7 +670,7 @@ msgstr ""
 "коригування підсвічування.<nl/><nl/>Зауважте, що це збільшує витрату заряду "
 "батареї при перегляді зображень HDR."
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:671
 #, kde-format
 msgid "Replica of:"
 msgstr "Джерело репліки:"
