@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 03:01+0000\n"
+"POT-Creation-Date: 2026-02-21 02:46+0000\n"
 "PO-Revision-Date: 2025-12-19 11:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -454,30 +454,30 @@ msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "HDR Parlaklığı Kalibre Et…"
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "HDR parlaklığı kalibre etmek için bir pencere açar."
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:393
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Renk doğruluğu:"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:402
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Verimliliği yeğle"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:403
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Renk doğruluğunu yeğle"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:413
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -490,7 +490,7 @@ msgstr ""
 "çözünürlüğünü artırır.<nl/><nl/>Bu ayarın başarım üzerinde büyük bir etkisi "
 "olabileceğini unutmayın."
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -503,31 +503,31 @@ msgstr ""
 "<nl/><nl/>Bu ayarı değiştirmenin başarım üzerinde büyük bir etkisi "
 "olabileceğini unutmayın."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:428
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Renk çözünürlüğünü şuna sınırla:"
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:449
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Kendiliğinden (renk başına %1 bit)"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:451 ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "Renk başına %1 bit"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:462
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Kendiliğinden (renk başına %1 bit)"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:474
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -544,7 +544,7 @@ msgstr ""
 "bit’e indirgenmiştir.<nl/><nl/>Grafik sürücüsü sınırlamalarından dolayı, "
 "asıl kullanılan çözünürlük bilinemiyor."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:478
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -560,37 +560,37 @@ msgstr ""
 "yararlı olabilir.<nl/><nl/>Grafik sürücüsü sınırlamalarından dolayı, asıl "
 "kullanılan çözünürlük bilinemiyor."
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:493
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB renk yoğunluğu:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:524
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Ekrandaki sRGB içeriğin yoğunluğunu artırır."
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:541
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Parlaklık:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:547
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "DDC/CI ile donanım parlaklığını denetle"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:553
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -603,18 +603,18 @@ msgstr ""
 "menüsünü kullanırmışçasına ekran parlaklığını masaüstü yazılım "
 "denetimleriyle ayarlamak için kullanabilir."
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:587
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:601
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Ortama kendiliğinden ayak uydur"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:606
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -627,25 +627,25 @@ msgstr ""
 "göre ekran parlaklığını kendiliğinden ayarlar. Parlaklığı elle ayarlarsanız "
 "bu ayarlamalar kaydedilir ve dikkate alınır."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Keskinlik:"
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:647
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Genişletilmiş devingen erim:"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:652
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR’yi etkinleştir"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:658
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -657,7 +657,7 @@ msgstr ""
 "görüntülemeye olanak tanır.<nl/><nl/>Bunun HDR içeriği görüntülerken pil "
 "kullanımını artırdığını unutmayın."
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:663
 #, kde-format
 msgid "Replica of:"
 msgstr "Şunun yinelemesi:"

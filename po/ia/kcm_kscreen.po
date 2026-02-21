@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 03:01+0000\n"
-"PO-Revision-Date: 2026-02-05 18:19+0100\n"
+"POT-Creation-Date: 2026-02-21 02:46+0000\n"
+"PO-Revision-Date: 2026-02-20 18:30+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -456,30 +456,30 @@ msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Calibra Brillantia HDR..."
 
-#: ui/OutputPanel.qml:385
+#: ui/OutputPanel.qml:386
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Aperi un fenestra per calibrar brillantia HDR"
 
-#: ui/OutputPanel.qml:392
+#: ui/OutputPanel.qml:393
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Accuratessa de color:"
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:402
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Prefere efficacia"
 
-#: ui/OutputPanel.qml:402
+#: ui/OutputPanel.qml:403
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Prefere accuratessa de color"
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:413
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -492,7 +492,7 @@ msgstr ""
 "resolution maxime de color. <nl/><nl/>Nota que isto pote haber un grande "
 "impacto sur prestation."
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -504,31 +504,31 @@ msgstr ""
 "meliorante prestation al costo de accuratessa de color.<nl/><nl/>Nota que "
 "modificar iste preferentia pote haber un grande impacto sur prestation."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:428
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Limita resolution de color a:"
 
-#: ui/OutputPanel.qml:448
+#: ui/OutputPanel.qml:449
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Automatic  (%1 bits per color)"
 
-#: ui/OutputPanel.qml:450 ui/OutputPanel.qml:463
+#: ui/OutputPanel.qml:451 ui/OutputPanel.qml:464
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 bits per color"
 
-#: ui/OutputPanel.qml:461
+#: ui/OutputPanel.qml:462
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Automatic (%1 bits per color)"
 
-#: ui/OutputPanel.qml:473
+#: ui/OutputPanel.qml:474
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -538,8 +538,14 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Limita le resolution de color del imagine que es inviate al monstrator. Isto "
+"non influentia capturas de schermo o registrationes.<nl/><nl/>Pois que le "
+"monstrator es connectite per un dock, le resolution automatic de color ha "
+"essite temporaneemente reducite a 8 bits per evitar problemas commun de dock."
+"<nl/><nl/>Debite a limitationes de driver graphic, le real resolution usate "
+"non pote esser cognoscite."
 
-#: ui/OutputPanel.qml:477
+#: ui/OutputPanel.qml:478
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -549,38 +555,43 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Limita le resolution de color del imagine que es inviate al monstrator. Isto "
+"non influentia capturas de schermo e registrationes.<nl/><nl/>Limitar le "
+"resolution de color pote esser utile per circumferer problemas de monstrator "
+"o de driver graphic.<nl/><nl/>Debite a limitationes del driver graphic, le "
+"real resolution usate non pote esser cognoscite."
 
-#: ui/OutputPanel.qml:492
+#: ui/OutputPanel.qml:493
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Intensitate de color sRGB:"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:524
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:531
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Augmenta le intensitate de contento sRGB sur le schermo."
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:541
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Brillantia:"
 
-#: ui/OutputPanel.qml:546
+#: ui/OutputPanel.qml:547
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Controla brillantia de hardware con DDC/CI"
 
-#: ui/OutputPanel.qml:552
+#: ui/OutputPanel.qml:553
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -592,18 +603,18 @@ msgstr ""
 "lo per adaptar brillantia de schermo con controles de scriptorio, como si il "
 "usa le proprie buttones hardware del monitor e le menu OSD."
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:587
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:600
+#: ui/OutputPanel.qml:601
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Adapta automaticamente al ambiente"
 
-#: ui/OutputPanel.qml:605
+#: ui/OutputPanel.qml:606
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -612,26 +623,30 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Automaticamente adapta le brillantia del schermo basate sur le nivello de "
+"illumination del ambiente, como relevate per le sensor de lumine de ambiente "
+"del dispositivo. Si tu adapta le brillantia manualmente,ille adaptationes "
+"essera memorate e prendite in consideration."
 
-#: ui/OutputPanel.qml:617
+#: ui/OutputPanel.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Acutessa"
 
-#: ui/OutputPanel.qml:646
+#: ui/OutputPanel.qml:647
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Extended Dynamic Range (EDR-Extendite Extension Dynamic):"
 
-#: ui/OutputPanel.qml:651
+#: ui/OutputPanel.qml:652
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Habilita EDR"
 
-#: ui/OutputPanel.qml:657
+#: ui/OutputPanel.qml:658
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -643,7 +658,7 @@ msgstr ""
 "dynamicamente le retroilluminantia.<nl/><nl/>Nota que isto augmenta usage de "
 "batteria durante que on vide contento HDR."
 
-#: ui/OutputPanel.qml:662
+#: ui/OutputPanel.qml:663
 #, kde-format
 msgid "Replica of:"
 msgstr "Replica de:"
