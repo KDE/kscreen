@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 # SPDX-FileCopyrightText: 2025 pieter <pieterkristensen@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-21 00:47+0000\n"
-"PO-Revision-Date: 2025-12-19 11:45+0100\n"
+"PO-Revision-Date: 2026-02-21 19:31+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -465,6 +465,8 @@ msgstr "Opent een venster om HDR-helderheid te kalibreren"
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"HDR-kalibratie kan alleen gestart worden als alle instellingen zijn "
+"toegepast."
 
 #: ui/OutputPanel.qml:401
 #, kde-format

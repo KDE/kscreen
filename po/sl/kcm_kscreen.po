@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-21 00:47+0000\n"
-"PO-Revision-Date: 2025-12-19 06:38+0100\n"
+"PO-Revision-Date: 2026-02-21 07:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -468,7 +468,7 @@ msgstr "Odpre okno za kalibracijo svetlosti HDR"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
-msgstr ""
+msgstr "Kalibracijo HDR je mogoče začeti le, če so uporabljene vse nastavitve."
 
 #: ui/OutputPanel.qml:401
 #, kde-format
