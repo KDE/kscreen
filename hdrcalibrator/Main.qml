@@ -137,7 +137,7 @@ Window {
                                     height: hdrCalibration.tenPercentSize
                                     Kirigami.Icon {
                                         id: hdrIcon
-                                        source: Qt.resolvedUrl("images/plasma-symbolic.svg")
+                                        source: Qt.resolvedUrl("plasma-symbolic.svg")
                                         // TODO once QTBUG-135232 is fixed, switch back to color: "white"
                                         // and setting the color management parameters instead
                                         color: Qt.rgba(HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, HdrCalibrator.peakBrightnessOverride / 2550, 1.0)
@@ -261,7 +261,7 @@ Window {
                                     Image {
                                         width: parent.width
                                         height: parent.height
-                                        source: "images/graz.avif"
+                                        source: "graz.avif"
                                         fillMode: Image.PreserveAspectFit
                                     }
                                 }

@@ -6,10 +6,10 @@ ecm_add_qml_module(hdrcalibrator URI org.kde.hdrcalibrator GENERATE_PLUGIN_SOURC
 
 ecm_target_qml_sources(hdrcalibrator
     SOURCES
-        ui/Main.qml
+        Main.qml
     RESOURCES
-        ui/images/graz.avif
-        ui/images/plasma-symbolic.svg
+        graz.avif
+        plasma-symbolic.svg
 )
 
 qt6_generate_wayland_protocol_client_sources(hdrcalibrator
