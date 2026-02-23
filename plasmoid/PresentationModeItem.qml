@@ -17,6 +17,8 @@ import org.kde.plasma.extras as PlasmaExtras
 ColumnLayout {
     id: root
 
+    property alias checked: presentationModeSwitch.checked
+
     spacing: Kirigami.Units.smallSpacing
 
     PlasmaComponents3.Switch {
