@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2023-10-22 11:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -24,28 +24,28 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "מצב מצגת מופעל"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "הגדרת התצוגה…"
 
-#: PresentationModeItem.qml:27
+#: PresentationModeItem.qml:29
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "הפעלת מצב מצגת"
 
-#: PresentationModeItem.qml:37
+#: PresentationModeItem.qml:39
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "המשתמש הפעיל מצב מצגת"
 
-#: PresentationModeItem.qml:58
+#: PresentationModeItem.qml:60
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "בחירה במצב זה תמנע מהמסך ומהמחשב שלך להיכבות אוטומטית."
 
-#: PresentationModeItem.qml:72
+#: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -55,13 +55,13 @@ msgstr[1] "%2 ושני יישומים נוספים אוכפים מצב מצגת.
 msgstr[2] "%2 ו־%1 יישומים נוספים אוכפים מצב מצגת."
 msgstr[3] "%2 ו־%1 יישומים נוספים אוכפים מצב מצגת."
 
-#: PresentationModeItem.qml:78
+#: PresentationModeItem.qml:80
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 אוכף מצב מצגת."
 
-#: PresentationModeItem.qml:81
+#: PresentationModeItem.qml:83
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"

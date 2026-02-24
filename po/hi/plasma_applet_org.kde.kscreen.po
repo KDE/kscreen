@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -22,28 +22,28 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "प्रस्तुति मोड सक्षम है"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "प्रदर्शन सेटिंग्स कॉन्फ़िगर करें…"
 
-#: PresentationModeItem.qml:27
+#: PresentationModeItem.qml:29
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "प्रस्तुति मोड सक्षम करें"
 
-#: PresentationModeItem.qml:37
+#: PresentationModeItem.qml:39
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "उपयोगकर्ता सक्षम प्रस्तुति मोड"
 
-#: PresentationModeItem.qml:58
+#: PresentationModeItem.qml:60
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "इससे आपकी स्क्रीन और कंप्यूटर स्वचालित रूप से बंद होने से बच जाएंगे।"
 
-#: PresentationModeItem.qml:72
+#: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -51,13 +51,13 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "%2 और %1 अन्य अनुप्रयोग प्रस्तुति मोड लागू कर रहे हैं."
 msgstr[1] "%2 और %1 अन्य अनुप्रयोग प्रस्तुति मोड लागू कर रहे हैं."
 
-#: PresentationModeItem.qml:78
+#: PresentationModeItem.qml:80
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 प्रस्तुति मोड लागू कर रहा है."
 
-#: PresentationModeItem.qml:81
+#: PresentationModeItem.qml:83
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"

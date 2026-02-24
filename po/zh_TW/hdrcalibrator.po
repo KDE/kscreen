@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:45+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2026-01-15 01:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,56 +27,55 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: hdrcalibrator.cpp:149 ui/Main.qml:15
+#: hdrcalibrator.cpp:149 Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR 校準"
 
-#: ui/Main.qml:195 ui/Main.qml:289 ui/Main.qml:466
+#: Main.qml:187 Main.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "下一步"
 
-#: ui/Main.qml:202 ui/Main.qml:295 ui/Main.qml:472
+#: Main.qml:194 Main.qml:371
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "切換到下一頁"
 
-#: ui/Main.qml:206 ui/Main.qml:299 ui/Main.qml:476 ui/Main.qml:605
+#: Main.qml:198 Main.qml:375 Main.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "取消"
 
-#: ui/Main.qml:209 ui/Main.qml:302 ui/Main.qml:479 ui/Main.qml:608
+#: Main.qml:201 Main.qml:378 Main.qml:478
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "取消校準"
 
-#: ui/Main.qml:218
+#: Main.qml:210
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr "要辨別螢幕的最高亮度，請調整滑動條直到標誌幾乎看不到"
 
-#: ui/Main.qml:311
-#, kde-format
+#: Main.qml:389
+#, fuzzy, kde-format
+#| msgid ""
+#| "Configure how bright \"100%\" on the normal brightness slider should be. "
+#| "Make it as bright as you'd ever use it, as long as the HDR image still "
+#| "looks good and the gradients are smooth.\n"
+#| "To avoid brightness fluctuations, it's recommended to not exceed the "
+#| "display's maximum average brightness of %1cd/m²"
 msgid ""
-"To determine the maximum average brightness of the screen, adjust the slider "
-"until the logo is barely visible"
-msgstr "要辨別螢幕的最高平均亮度，請調整滑動條直到標誌幾乎看不到"
-
-#: ui/Main.qml:488
-#, kde-format
-msgid ""
-"Configure how bright \"100%\" on the normal brightness slider should be. "
-"Make it as bright as you'd ever use it, as long as the HDR image still looks "
-"good and the gradients are smooth.\n"
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth.\n"
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
@@ -84,40 +83,52 @@ msgstr ""
 "要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。\n"
 "為了防止亮度忽高忽低，建議亮度不要超過顯示器的最高平均亮度 %1cd/m²"
 
-#: ui/Main.qml:533
+#: Main.qml:391
+#, fuzzy, kde-format
+#| msgid ""
+#| "Configure how bright \"100%\" on the normal brightness slider should be. "
+#| "Make it as bright as you'd ever use it, as long as the HDR image still "
+#| "looks good and the gradients are smooth.\n"
+#| "To avoid brightness fluctuations, it's recommended to not exceed the "
+#| "display's maximum average brightness of %1cd/m²"
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth."
+msgstr ""
+"調整普通亮度滑動條的 \"100%\" 應該要多亮。請將它調整成您會使用的最大亮度，只"
+"要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。\n"
+"為了防止亮度忽高忽低，建議亮度不要超過顯示器的最高平均亮度 %1cd/m²"
+
+#: Main.qml:438
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "最大光度：%1cd/m²"
 
-#: ui/Main.qml:568
-#, kde-format
-msgid "Maximum fullscreen luminance: %1cd/m²"
-msgstr "最大全螢幕光度：%1cd/m²"
-
-#: ui/Main.qml:589
+#: Main.qml:459
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "參考光度 / 紙張白：%1cd/m²"
 
-#: ui/Main.qml:600
+#: Main.qml:470
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr "將 Windows HDR 應用程式視為已為此螢幕校準"
 
-#: ui/Main.qml:612
+#: Main.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "完成"
 
-#: ui/Main.qml:621
+#: Main.qml:491
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "完成校準程序"
 
-#: ui/Main.qml:630
+#: Main.qml:500
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
@@ -126,3 +137,11 @@ msgid ""
 msgstr ""
 "許多 Windows 應用程式有自己的校準設定，這些設定會跟全系統設定衝突。設定這個選"
 "項可以讓它們的校準設定在這個顯示器上如預期的運作。"
+
+#~ msgid ""
+#~ "To determine the maximum average brightness of the screen, adjust the "
+#~ "slider until the logo is barely visible"
+#~ msgstr "要辨別螢幕的最高平均亮度，請調整滑動條直到標誌幾乎看不到"
+
+#~ msgid "Maximum fullscreen luminance: %1cd/m²"
+#~ msgstr "最大全螢幕光度：%1cd/m²"

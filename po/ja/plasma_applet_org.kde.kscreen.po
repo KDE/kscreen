@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2023-01-30 21:16+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -21,28 +21,28 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "プレゼンテーションモードが有効です"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "ディスプレイを設定..."
 
-#: PresentationModeItem.qml:27
+#: PresentationModeItem.qml:29
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "プレゼンテーションモードを有効にする"
 
-#: PresentationModeItem.qml:37
+#: PresentationModeItem.qml:39
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "ユーザがプレゼンテーションモードを有効にしました"
 
-#: PresentationModeItem.qml:58
+#: PresentationModeItem.qml:60
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "スクリーンとコンピュータが自動的にオフになるのを防ぎます。"
 
-#: PresentationModeItem.qml:72
+#: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -51,13 +51,13 @@ msgstr[0] ""
 "%2 とその他の %1 つのアプリケーションがプレゼンテーションモードを有効にしてい"
 "ます。"
 
-#: PresentationModeItem.qml:78
+#: PresentationModeItem.qml:80
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 がプレゼンテーションモードを有効にしています。"
 
-#: PresentationModeItem.qml:81
+#: PresentationModeItem.qml:83
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"

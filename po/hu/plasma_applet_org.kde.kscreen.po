@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2024-01-17 22:31+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "Prezentáció mód bekapcsolva"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Kijelzőbeállítások módosítása…"
 
-#: PresentationModeItem.qml:27
+#: PresentationModeItem.qml:29
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "Prezentáció mód bekapcsolása"
 
-#: PresentationModeItem.qml:37
+#: PresentationModeItem.qml:39
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "A felhasználó bekapcsolta a prezentáció módot"
 
-#: PresentationModeItem.qml:58
+#: PresentationModeItem.qml:60
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr ""
 "Ez megakadályozza a képernyő és a számítógép automatikus kikapcsolását."
 
-#: PresentationModeItem.qml:72
+#: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -53,13 +53,13 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "A(z) %2 és %1 további alkalmazás kezdeményezi a prezentáció módot."
 msgstr[1] "A(z) %2 és %1 további alkalmazás kezdeményezi a prezentáció módot."
 
-#: PresentationModeItem.qml:78
+#: PresentationModeItem.qml:80
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "A(z) %1 kezdeményezi a prezentáció módot."
 
-#: PresentationModeItem.qml:81
+#: PresentationModeItem.qml:83
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"

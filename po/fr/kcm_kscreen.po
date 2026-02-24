@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-10 19:59+0100\n"
+"PO-Revision-Date: 2026-02-22 07:50+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 "X-Text-Markup: kde4\n"
 
 #: kcm.cpp:148 kcm.cpp:170
@@ -481,6 +481,8 @@ msgstr "Ouvre une fenêtre l'étalonnage de la luminosité « HDR »"
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"La calibration « HDR » ne peut être lancée que si tous les réglages sont "
+"appliqués."
 
 #: ui/OutputPanel.qml:401
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
 "PO-Revision-Date: 2024-05-13 22:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -22,28 +22,28 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "Режимът на презентация е активиран"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Настройки на екрана…"
 
-#: PresentationModeItem.qml:27
+#: PresentationModeItem.qml:29
 #, kde-format
 msgid "Enable Presentation Mode"
 msgstr "Активиране на режима на презентация"
 
-#: PresentationModeItem.qml:37
+#: PresentationModeItem.qml:39
 #, kde-format
 msgid "User enabled presentation mode"
 msgstr "Потребителски режим на презентация"
 
-#: PresentationModeItem.qml:58
+#: PresentationModeItem.qml:60
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
 msgstr "Това ще предотврати автоматичното изключване на екрана и компютъра."
 
-#: PresentationModeItem.qml:72
+#: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
@@ -51,13 +51,13 @@ msgid_plural "%2 and %1 other applications are enforcing presentation mode."
 msgstr[0] "%2 и %1 друго приложение налагат режим на презентация."
 msgstr[1] "%2 и %1 други приложения налагат режим на презентация."
 
-#: PresentationModeItem.qml:78
+#: PresentationModeItem.qml:80
 #, kde-format
 msgctxt "Some Application enforce presentation mode"
 msgid "%1 is enforcing presentation mode."
 msgstr "%1 налага режим на презентация."
 
-#: PresentationModeItem.qml:81
+#: PresentationModeItem.qml:83
 #, kde-format
 msgctxt ""
 "Some Application enforce presentation mode: Reason provided by the app"
