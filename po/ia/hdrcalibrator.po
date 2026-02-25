@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-22 13:44+0100\n"
+"PO-Revision-Date: 2026-02-24 12:03+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -67,13 +67,7 @@ msgstr ""
 "le logo es apena visibile  "
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -81,30 +75,22 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Configura como brillante \"100%\" deberea esser le glissator per brillantia "
+"Configura como brillante “100%” deberea esser le glissator per brillantia "
 "normal. Face lo tan brillante como tu jammais lo usa,  usque le imagine HDR "
 "ancora sembla bon e le gradientes es lisie.\n"
 "Per evitar fluctuactiones de brillantia, iles recommendate non exceder le "
 "maxime brillantia medie del monstrator de of %1cd/m²"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
-"Configura como brillante \"100%\" deberea esser le glissator per brillantia "
+"Configura como brillante “100%” deberea esser le glissator per brillantia "
 "normal. Face lo tan brillante como tu jammais lo usa,  usque le imagine HDR "
-"ancora sembla bon e le gradientes es lisie.\n"
-"Per evitar fluctuactiones de brillantia, iles recommendate non exceder le "
-"maxime brillantia medie del monstrator de of %1cd/m²"
+"ancora sembla bon e le gradientes es lisie."
 
 #: Main.qml:438
 #, kde-format

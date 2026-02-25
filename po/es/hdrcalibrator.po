@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hdrcalibrator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 12:23+0100\n"
+"PO-Revision-Date: 2026-02-24 12:17+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,13 +69,7 @@ msgstr ""
 "deslizante hasta que el logotipo sea apenas visible."
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -90,13 +84,7 @@ msgstr ""
 "medio máximo de la pantalla de %1 cd/m²"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -104,9 +92,7 @@ msgid ""
 msgstr ""
 "Configure cómo debería ser el brillo al «100 %» en el control deslizante de "
 "brillo normal. Haga que sea tan brillante como lo usa habitualmente, siempre "
-"que la imagen HDR se vea bien y los degradados sean suaves.\n"
-"Para evitar fluctuaciones de brillo, se recomienda no sobrepasar el brillo "
-"medio máximo de la pantalla de %1 cd/m²"
+"que la imagen HDR se vea bien y los degradados sean suaves."
 
 #: Main.qml:438
 #, kde-format
@@ -149,13 +135,3 @@ msgstr ""
 "calibración, con la que este ajuste general del sistema entra en conflicto. "
 "Si se activa esta opción, la configuración de calibración funcionará "
 "correctamente en esta pantalla específica."
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "Para determinar el brillo medio máximo de la pantalla, ajuste el control "
-#~ "deslizante hasta que el logotipo sea apenas visible."
-
-#~ msgid "Maximum fullscreen luminance: %1cd/m²"
-#~ msgstr "Luminancia máxima a pantalla completa: %1cd/m²"

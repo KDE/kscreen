@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 05:38+0100\n"
+"PO-Revision-Date: 2026-02-24 04:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -68,13 +68,7 @@ msgstr ""
 "მანამდე, სანამ ლოგო ძლივს არ გამოჩნდება"
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -86,16 +80,10 @@ msgstr ""
 "ისეთი კაშკაშაა, როგორიც ოდესმე მაინც მოგინდებათ, სანამ HDR გამოსახულება ჯერ "
 "კიდევ კარგად ჩანს და გრადიენტები გლუვია.\n"
 "იმისათვის, რომ თავიდან აიცილოთ სიკაშკაშის რყევა, რეკომენდებულია, რომ არ "
-"გადააცილოთ ეკრანის საშუალო მაქსიმალურ სიკაშკაშეს %1cd/m²"
+"გადააცილოთ ეკრანის საშუალო მაქსიმალურ სიკაშკაშეს %1კდ/მ²"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -103,9 +91,7 @@ msgid ""
 msgstr ""
 "მოირგეთ, რამდენად კაშკაშაა \"100%\" ეკრანის სიკაშკაშე. დარწმუნდით, რომ ის "
 "ისეთი კაშკაშაა, როგორიც ოდესმე მაინც მოგინდებათ, სანამ HDR გამოსახულება ჯერ "
-"კიდევ კარგად ჩანს და გრადიენტები გლუვია.\n"
-"იმისათვის, რომ თავიდან აიცილოთ სიკაშკაშის რყევა, რეკომენდებულია, რომ არ "
-"გადააცილოთ ეკრანის საშუალო მაქსიმალურ სიკაშკაშეს %1cd/m²"
+"კიდევ კარგად ჩანს და გრადიენტები გლუვია."
 
 #: Main.qml:438
 #, kde-format
