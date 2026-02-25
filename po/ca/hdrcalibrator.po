@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-01-13 12:54+0100\n"
+"PO-Revision-Date: 2026-02-24 09:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -69,13 +69,7 @@ msgstr ""
 "lliscant fins que el logotip sigui visible amb prou feines"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -90,13 +84,7 @@ msgstr ""
 "lluminositat mitjana màxima de la pantalla de %1cd/m²"
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -104,9 +92,7 @@ msgid ""
 msgstr ""
 "Configura com de lluminós hauria de ser el «100%» en el control lliscant la "
 "lluminositat normal. Feu-lo tan lluminós com ho faríeu servir, sempre que la "
-"imatge HDR encara es vegi bé i els degradats siguin suaus.\n"
-"Per evitar fluctuacions de la lluminositat, es recomana no excedir la "
-"lluminositat mitjana màxima de la pantalla de %1cd/m²"
+"imatge HDR encara es vegi bé i els degradats siguin suaus."
 
 #: ui/Main.qml:438
 #, kde-format

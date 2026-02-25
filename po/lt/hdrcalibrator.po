@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-01-19 15:37+0200\n"
+"PO-Revision-Date: 2026-02-25 00:01+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -69,13 +69,7 @@ msgstr ""
 "slinktuką tol, kol logotipas bus vos matomas"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -90,13 +84,7 @@ msgstr ""
 "didžiausio %1cd/m² ryškumo vidurkio"
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -104,9 +92,7 @@ msgid ""
 msgstr ""
 "Konfigūruokite, koks įprastame ryškumo slinktuke turėtų būti įprastas „100%“ "
 "ryškumas. Padarykite jį tokį, kokį tik kada nors naudosite, bet tuo pačiu "
-"žiūrėkite, kad HDR paveikslas atrodytų gerai, o gradientai būtų glotnūs.\n"
-"Norint išvengti ryškumo svyravimų yra rekomenduojama neviršyti ekrano "
-"didžiausio %1cd/m² ryškumo vidurkio"
+"žiūrėkite, kad HDR paveikslas atrodytų gerai, o gradientai būtų glotnūs."
 
 #: ui/Main.qml:438
 #, kde-format

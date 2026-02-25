@@ -1,15 +1,15 @@
 # Translation of hdrcalibrator.po to Catalan (Valencian)
-# Copyright (C) 2025 This_file_is_part_of_KDE
+# Copyright (C) 2025-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2025-11-05 09:39+0100\n"
+"PO-Revision-Date: 2026-02-24 09:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -69,13 +69,7 @@ msgstr ""
 "lliscant fins que el logotip siga visible amb prou faenes"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -90,13 +84,7 @@ msgstr ""
 "brillantor mitjana màxima de la pantalla de %1cd/m²"
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -104,25 +92,25 @@ msgid ""
 msgstr ""
 "Configura com de brillant hauria de ser el «100%» normal en el control "
 "lliscant de la brillantor. Feu-lo tan brillant com ho faríeu servir, sempre "
-"que la imatge HDR encara es veja bé i els degradats siguen suaus.\n"
-"Per a evitar fluctuacions de la brillantor, es recomana no excedir la "
-"brillantor mitjana màxima de la pantalla de %1cd/m²"
+"que la imatge HDR encara es veja bé i els degradats siguen suaus."
 
 #: ui/Main.qml:438
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Luminància màxima: %1 cd/m²"
 
 #: ui/Main.qml:459
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Luminància de referència / paper blanc: %1 cd/m²"
 
 #: ui/Main.qml:470
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Assumix que les aplicacions HDR de Windows estan calibrades per a esta "
+"pantalla"
 
 #: ui/Main.qml:482
 #, kde-format
@@ -131,12 +119,10 @@ msgid "Done"
 msgstr "Fet"
 
 #: ui/Main.qml:491
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Cancel·la el procés de calibratge"
+msgstr "Acaba el procés de calibratge"
 
 #: ui/Main.qml:500
 #, kde-format
@@ -145,10 +131,7 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "Per a determinar la brillantor mitjana màxima de la pantalla, ajusteu el "
-#~ "control lliscant fins que el logotip siga visible amb prou faenes"
+"Moltes aplicacions Windows venen amb la seua configuració pròpia de "
+"calibratge, amb la qual la configuració bàsica d'este sistema entra en "
+"conflicte. Si s'establix esta opció, la seua configuració de calibratge "
+"funcionarà com s'espera en esta pantalla específica."

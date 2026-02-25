@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-01-14 16:39+0100\n"
+"PO-Revision-Date: 2026-02-24 11:49+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,13 +67,7 @@ msgstr ""
 "aan totdat het logo nauwelijks zichtbaar is"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -81,30 +75,22 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Configureer hoe helder \"100%\" op de schuifregelaar voor normale helderheid "
+"Configureer hoe helder “100%” op de schuifregelaar voor normale helderheid "
 "zou moeten zijn. Maak het zo helder als u het ooit zou gebruiken, zolang de "
 "HDR-afbeelding er nog steeds goed uitziet en het kleurverloop gladjes is.\n"
 "Om helderheidsfluctuaties te vermijden, wordt het aanbevolen niet de "
 "maximale gemiddelde helderheid van %1cd/m² van het scherm te overschrijden."
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
-"Configureer hoe helder \"100%\" op de schuifregelaar voor normale helderheid "
+"Configureer hoe helder “100%” op de schuifregelaar voor normale helderheid "
 "zou moeten zijn. Maak het zo helder als u het ooit zou gebruiken, zolang de "
-"HDR-afbeelding er nog steeds goed uitziet en het kleurverloop gladjes is.\n"
-"Om helderheidsfluctuaties te vermijden, wordt het aanbevolen niet de "
-"maximale gemiddelde helderheid van %1cd/m² van het scherm te overschrijden."
+"HDR-afbeelding er nog steeds goed uitziet en het kleurverloop gladjes is."
 
 #: ui/Main.qml:438
 #, kde-format
