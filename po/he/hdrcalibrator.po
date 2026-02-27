@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-13 15:06+0200\n"
+"PO-Revision-Date: 2026-02-26 08:53+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -68,13 +68,7 @@ msgstr ""
 "הלוגו"
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -88,22 +82,14 @@ msgstr ""
 "על סך %1cd/m²"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
 "הגדרה כיצד „100%” בהירות אמורה להיות במחוון הרגיל. יש להפוך אותה להכי בהירה "
-"שאי פעם יהיה לך צורך, כל עוד תמונת ה־HDR עדיין נראית טוב והמדרגים חלקים.\n"
-"כדי להימנע מתנודות בבהירות, מומלץ לא לחרוג מהבהירות הממוצעת המרבית של התצוגה "
-"על סך %1cd/m²"
+"שאי פעם יהיה לך צורך, כל עוד תמונת ה־HDR עדיין נראית טוב והמדרגים חלקים."
 
 #: Main.qml:438
 #, kde-format
