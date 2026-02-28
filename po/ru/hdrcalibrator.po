@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the kscreen package.
 #
 # SPDX-FileCopyrightText: 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
-# SPDX-FileCopyrightText: 2025 Olesya Gerasimenko <goa@altlinux.ru>
+# SPDX-FileCopyrightText: 2025, 2026 Olesya Gerasimenko <goa@altlinux.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-01-28 17:53+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2026-02-27 13:48+0300\n"
+"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,13 +69,7 @@ msgstr ""
 "пор, пока логотип не станет едва видимым."
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -91,13 +85,7 @@ msgstr ""
 "среднюю яркость дисплея — %1 кд/м²"
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -106,9 +94,7 @@ msgstr ""
 "Настройте, насколько ярким должно быть значение «100%» на обычном ползунке "
 "яркости. Установите такую яркость, которую вы максимально используете в "
 "обычной работе, при условии, что HDR-изображение по-прежнему выглядит "
-"хорошо, а градиенты остаются плавными.\n"
-"Чтобы избежать колебаний яркости, рекомендуется не превышать максимальную "
-"среднюю яркость дисплея — %1 кд/м²"
+"хорошо, а градиенты остаются плавными."
 
 #: ui/Main.qml:438
 #, kde-format
