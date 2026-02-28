@@ -450,7 +450,7 @@ msgstr "打开 HDR 亮度校准窗口"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
-msgstr ""
+msgstr "HDR 校准必须在所有设置被应用后才能启动。"
 
 #: ui/OutputPanel.qml:401
 #, kde-format
