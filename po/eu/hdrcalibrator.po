@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-01-24 19:21+0100\n"
+"PO-Revision-Date: 2026-02-28 23:32+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -70,13 +70,7 @@ msgstr ""
 "ikus daitekeen arte"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -84,30 +78,22 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Konfiguratu distira arruntaren graduatzailean \"% 100\" distira zein izan "
+"everKonfiguratu distira arruntaren graduatzailean “% 100” distira zein izan "
 "behar duen. Egin ezazu erabiliko zenukeen bezain distiratsu, HDR irudia ondo "
 "ikusi eta gradienteak leunak diren bitartean.\n"
 "Distira fluktuazioak saihesteko, erakusleihoaren %1cd/m² gehienezko "
 "batezbesteko distira ez gainditzea gomendatzen da."
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
-"Konfiguratu distira arruntaren graduatzailean \"% 100\" distira zein izan "
+"Konfiguratu distira arruntaren graduatzailean “% 100” distira zein izan "
 "behar duen. Egin ezazu erabiliko zenukeen bezain distiratsu, HDR irudia ondo "
-"ikusi eta gradienteak leunak diren bitartean.\n"
-"Distira fluktuazioak saihesteko, erakusleihoaren %1cd/m² gehienezko "
-"batezbesteko distira ez gainditzea gomendatzen da."
+"ikusi eta gradienteak leunak diren bitartean."
 
 #: ui/Main.qml:438
 #, kde-format

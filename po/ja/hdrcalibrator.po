@@ -1,62 +1,60 @@
-# Copyright (C) 2026 This file is copyright:
-# This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2026 Sergiu Bivol <sergiu@cip.md>
-#
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-02-28 23:23+0000\n"
-"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
-"Language: ro\n"
+"PO-Revision-Date: 2026-02-21 14:41+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sergiu Bivol"
+msgstr "Mint"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sergiu@cip.md"
+msgstr "5602mint@gmail.com"
 
 #: hdrcalibrator.cpp:149 ui/Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "Calibrare HDR"
+msgstr "HDR キャリブレーション"
 
 #: ui/Main.qml:187 ui/Main.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "Următor"
+msgstr "次へ"
 
 #: ui/Main.qml:194 ui/Main.qml:371
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "Schimbă la pagina următoare"
+msgstr "次のページに進む"
 
 #: ui/Main.qml:198 ui/Main.qml:375 ui/Main.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Renunță"
+msgstr "キャンセル"
 
 #: ui/Main.qml:201 ui/Main.qml:378 ui/Main.qml:478
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "Renunță la procesul de calibrare"
+msgstr "キャリブレーションをキャンセルする"
 
 #: ui/Main.qml:210
 #, kde-format
@@ -64,8 +62,8 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
-"Pentru a determina luminozitatea maximă a ecranului, ajustați glisorul până "
-"când logotipul devine abia vizibil"
+"画面の最大輝度を検知するため、ロゴがわずかに見える程度になるまでスライダーを"
+"調整してください。"
 
 #: ui/Main.qml:389
 #, kde-format
@@ -76,11 +74,6 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"Configurează cât de luminos să fie „100%” pe glisorul normal de "
-"luminozitate. Faceți-l pe cât de luminos l-ați folosi vreodată, atâta timp "
-"cât imaginea HDR încă arată bine și gradienții sunt lini.\n"
-"Pentru a evita fluctuații ale luminozității, se recomandă să nu depășiți "
-"luminozitatea medie maximă de %1cd/m² a afișajului."
 
 #: ui/Main.qml:391
 #, kde-format
@@ -89,38 +82,34 @@ msgid ""
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
-"Configurează cât de luminos să fie „100%” pe glisorul normal de "
-"luminozitate. Faceți-l pe cât de luminos l-ați folosi vreodată, atâta timp "
-"cât imaginea HDR încă arată bine și gradienții sunt lini."
 
 #: ui/Main.qml:438
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr "Luminanță maximă: %1cd/m²"
+msgstr "最大輝度: %1cd/m²"
 
 #: ui/Main.qml:459
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr "Luminanță de referință / foaie albă: %1cd/m²"
+msgstr "参考輝度 ⋯ 白紙: %1cd/m²"
 
 #: ui/Main.qml:470
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
-"Presupune că aplicațiile HDR pentru Windows sunt calibrate pentru acest ecran"
+msgstr "Windows の HDR 対応アプリでこの画面をキャリブレーション済みとして扱う"
 
 #: ui/Main.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "Gata"
+msgstr "完了"
 
 #: ui/Main.qml:491
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Încheie procesul de calibrare"
+msgstr "キャリブレーションを終了する"
 
 #: ui/Main.qml:500
 #, kde-format
@@ -129,16 +118,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
-"Multe aplicații Windows vin cu propriile configurări de calibrare, ceea ce e "
-"în conflict cu configurația sistemului. Dacă e activată această opțiune, "
-"configurările de calibrare ale acestora vor lucra corect pe acest afișaj."
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "Pentru a determina luminozitatea medie maximă a ecranului, ajustați "
-#~ "glisorul până când logotipul devine abia vizibil"
-
-#~ msgid "Maximum fullscreen luminance: %1cd/m²"
-#~ msgstr "Luminanță maximă pe ecran complet: %1cd/m²"
+"多くの Windows アプリケーションは独自のキャリブレーション設定を保存しており、"
+"システム全体の設定と競合することがあります。この設定をオンにすると、アプリ側"
+"の設定がこのディスプレイで使用されるようになります。"
