@@ -1,64 +1,60 @@
-# Translation for hdrcalibrator.po to Euskara/Basque (eu).
-# Copyright (C) 2025-2026 This file is copyright:
-# This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
-#
-# Translators:
-# SPDX-FileCopyrightText: Iñigo Salvador Azurmendi <xalba@ni.eus>, 2025, 2026.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-28 23:32+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
-"Language: eu\n"
+"PO-Revision-Date: 2026-02-21 14:41+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Iñigo Salvador Azurmendi"
+msgstr "Mint"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "xalba@ni.eus"
+msgstr "5602mint@gmail.com"
 
 #: hdrcalibrator.cpp:149 Main.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr "HDR Kalibratzea"
+msgstr "HDR キャリブレーション"
 
 #: Main.qml:187 Main.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
-msgstr "Hurrengoa"
+msgstr "次へ"
 
 #: Main.qml:194 Main.qml:371
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr "Hurrengo orrira aldatzen du"
+msgstr "次のページに進む"
 
 #: Main.qml:198 Main.qml:375 Main.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Utzi"
+msgstr "キャンセル"
 
 #: Main.qml:201 Main.qml:378 Main.qml:478
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr "Kalibratzeko prozesua bertan behera uzten du"
+msgstr "キャリブレーションをキャンセルする"
 
 #: Main.qml:210
 #, kde-format
@@ -66,8 +62,8 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
-"Pantailaren distira maximoa zehazteko, egokitu graduatzailea logoa nekez "
-"ikus daitekeen arte"
+"画面の最大輝度を検知するため、ロゴがわずかに見える程度になるまでスライダーを"
+"調整してください。"
 
 #: Main.qml:389
 #, kde-format
@@ -78,11 +74,6 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
-"everKonfiguratu distira arruntaren graduatzailean “% 100” distira zein izan "
-"behar duen. Egin ezazu erabiliko zenukeen bezain distiratsu, HDR irudia ondo "
-"ikusi eta gradienteak leunak diren bitartean.\n"
-"Distira fluktuazioak saihesteko, erakusleihoaren %1cd/m² gehienezko "
-"batezbesteko distira ez gainditzea gomendatzen da."
 
 #: Main.qml:391
 #, kde-format
@@ -91,38 +82,34 @@ msgid ""
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
-"Konfiguratu distira arruntaren graduatzailean “% 100” distira zein izan "
-"behar duen. Egin ezazu erabiliko zenukeen bezain distiratsu, HDR irudia ondo "
-"ikusi eta gradienteak leunak diren bitartean."
 
 #: Main.qml:438
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr "Gehienezko luminantzia: %1cd/m²"
+msgstr "最大輝度: %1cd/m²"
 
 #: Main.qml:459
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr "Erreferentziazko luminantzia / paper zuriarena: %1cd/m²"
+msgstr "参考輝度 ⋯ 白紙: %1cd/m²"
 
 #: Main.qml:470
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
-"Demagun Windows HDR aplikazioak pantaila honetarako kalibratuta daudela"
+msgstr "Windows の HDR 対応アプリでこの画面をキャリブレーション済みとして扱う"
 
 #: Main.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
-msgstr "Eginda"
+msgstr "完了"
 
 #: Main.qml:491
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Kalibratzeko prozesua bukatu"
+msgstr "キャリブレーションを終了する"
 
 #: Main.qml:500
 #, kde-format
@@ -131,16 +118,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
-"Windows aplikazio askok beren kalibrazio-ezarpen propioak dituzte, eta "
-"sistema osorako konfigurazio honek haiekin gatazka du. Aukera hau ezarrita, "
-"gailu jakin honetan, haien kalibrazio ezarpenak espero bezala ibiliko dira."
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "Pantailaren gehienezko batezbesteko distira zehazteko, egokitu "
-#~ "graduatzailea logoa nekez ikus daitekeen arte"
-
-#~ msgid "Maximum fullscreen luminance: %1cd/m²"
-#~ msgstr "Pantaila osoko gehienezko luminantzia: %1cd/m²"
+"多くの Windows アプリケーションは独自のキャリブレーション設定を保存しており、"
+"システム全体の設定と競合することがあります。この設定をオンにすると、アプリ側"
+"の設定がこのディスプレイで使用されるようになります。"

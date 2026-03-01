@@ -1,14 +1,15 @@
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fuminobu TAKEYAMA <ftake@geeko.jp>, 2015.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-21 00:47+0000\n"
-"PO-Revision-Date: 2025-03-15 14:31+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-02-21 14:07+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -48,7 +49,7 @@ msgstr "%1 × %2 (%3:%4)"
 #: output_model.cpp:871
 #, kde-format
 msgid "Replicated by other output"
-msgstr "他の出力による複製"
+msgstr "他の出力に複製中です"
 
 #: output_model.cpp:875
 #, kde-format
@@ -169,13 +170,13 @@ msgstr "優先度を下げる"
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "折りたたむ"
 
 #: ui/main.qml:403
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr ""
+msgstr "配置を編集"
 
 #: ui/Orientation.qml:14
 #, kde-format
@@ -220,8 +221,7 @@ msgid "Replicas"
 msgstr "複製"
 
 #: ui/OutputPanel.qml:29
-#, fuzzy, kde-format
-#| msgid "Device:"
+#, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "デバイス:"
@@ -292,9 +292,7 @@ msgstr ""
 "す。"
 
 #: ui/OutputPanel.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "“%1” is the only refresh rate supported by this display."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
@@ -306,7 +304,7 @@ msgstr ""
 #: ui/OutputPanel.qml:165
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "アダプティブ同期:"
+msgstr "可変リフレッシュレート:"
 
 #: ui/OutputPanel.qml:168
 #, kde-format
@@ -337,6 +335,8 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
+"画面の端が切れてしまうのを防ぐために、出力映像に挿入する余白を設定します。"
+"<nl/><nl/>テレビを画面として利用する際に必要になることがあります。"
 
 #: ui/OutputPanel.qml:206
 #, kde-format
@@ -361,6 +361,8 @@ msgid ""
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
+"ディスプレイの色の範囲を制限するかどうかを設定します。画面の色が白っぽく見え"
+"る場合にのみこの設定を変更してください。"
 
 #: ui/OutputPanel.qml:233
 #, kde-format
@@ -394,6 +396,9 @@ msgid ""
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"利用可能な場合にディスプレイ内蔵のカラープロファイルを使用します。注意: 内蔵"
+"のカラープロファイルは間違っていたり、不正確な場合があります。正確な色彩が必"
+"要な場合は、色彩計によるキャリブレーションを行ってください。"
 
 #: ui/OutputPanel.qml:285
 #, kde-format
@@ -419,12 +424,10 @@ msgid "Select ICC Profile"
 msgstr "ICC プロファイルを選択"
 
 #: ui/OutputPanel.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "ICC profiles aren't compatible with HDR yet"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
-msgstr "ICC プロファイルはまだ HDR に対応していません"
+msgstr "ICC プロファイルはまだ HDR に対応していません。"
 
 #: ui/OutputPanel.qml:353
 #, kde-format
@@ -439,28 +442,24 @@ msgid "Enable &HDR"
 msgstr "HDR を有効化(&H)"
 
 #: ui/OutputPanel.qml:366
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HDR allows compatible applications to show brighter and more vivid "
-#| "colors. Note that this feature is still experimental"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
-"HDR を有効にすると、対応するアプリケーションがより明るく鮮やかな色を表示でき"
-"るようになります。この機能はまだ実験的なものであることに注意してください。"
+"HDR を有効にすると、対応するアプリケーションがより明るく鮮やかな色で表示され"
+"るようになります。"
 
 #: ui/OutputPanel.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "HDR 明度を調整..."
 
 #: ui/OutputPanel.qml:389
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "HDR 明度を調節するウィンドウを開きます"
 
 #: ui/OutputPanel.qml:394
 #, kde-kuit-format
@@ -494,6 +493,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"色の正確性を優先すると、ディスプレイドライバーによる不正確な色演算処理を抑え"
+"て、色解像度を最大化します。<nl/><nl/>なお、この設定はグラフィックスのパ"
+"フォーマンスに大きな悪影響を及ぼすことがあります。"
 
 #: ui/OutputPanel.qml:428
 #, kde-kuit-format
@@ -503,30 +505,33 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"効率性を優先すると、ICC プロファイルを「マトリックス＋シェイパー」形式に簡略"
+"化し、色の正確性の代わりにパフォーマンスを向上させます。<nl/><nl/>なお、この"
+"設定を変更するとパフォーマンスに大きな影響を与えることがあります。"
 
 #: ui/OutputPanel.qml:436
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "色の解像度を制限:"
 
 #: ui/OutputPanel.qml:457
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "自動  (1色あたり %1 ビット)"
 
 #: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "1色あたり %1 ビット"
 
 #: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "自動 (1色あたり %1 ビット)"
 
 #: ui/OutputPanel.qml:482
 #, kde-kuit-format
@@ -538,6 +543,11 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"ディスプレイに送信する映像の色解像度を制限します。スクリーンショットや画面録"
+"画には影響しません。<nl/><nl/>ディスプレイがドックを介して接続されているた"
+"め、問題を回避するために自動設定の色解像度は一時的に8ビットに制限されていま"
+"す。<nl/><nl/>グラフィックドライバーの制約により、実際に使用されている色解像"
+"度は検知できません。"
 
 #: ui/OutputPanel.qml:486
 #, kde-kuit-format
@@ -549,6 +559,10 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"ディスプレイに送信する映像の色解像度を制限します。スクリーンショットや画面録"
+"画には影響しません。<nl/><nl/>この設定により、一部のディスプレイやグラフィッ"
+"クドライバーの問題を回避することができます。<nl/><nl/>グラフィックドライバー"
+"の制約により、実際に使用されている色解像度は検知できません。"
 
 #: ui/OutputPanel.qml:501
 #, kde-format
@@ -563,12 +577,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:540
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Increases the intensity of non-HDR content on the screen"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "スクリーン上の非 HDR コンテンツの彩度を高めます"
+msgstr "スクリーン上の sRGB コンテンツの彩度を高めます"
 
 #: ui/OutputPanel.qml:549
 #, kde-format
@@ -580,7 +592,7 @@ msgstr "明るさ:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "DDC/CI でハードウェアの明るさを設定"
 
 #: ui/OutputPanel.qml:561
 #, kde-format
@@ -590,11 +602,11 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI は多くのモニターが対応している機能です。モニターの物理ボタンや OSD メ"
+"ニューから設定するのと同じ形式で、デスクトップから調整できるようになります。"
 
 #: ui/OutputPanel.qml:595
-#, fuzzy, kde-format
-#| msgctxt "Global scale factor expressed in percentage form"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
@@ -602,7 +614,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:609
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "周囲に合わせて自動調節"
 
 #: ui/OutputPanel.qml:614
 #, kde-format
@@ -613,28 +625,26 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"デバイスの明るさセンサーに基づき、自動で画面の明るさを調整します。手動で明る"
+"さを調節した場合はその設定が保存され、自動調節に反映されます。"
 
 #: ui/OutputPanel.qml:626
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "シャープネス:"
 
 #: ui/OutputPanel.qml:655
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "High Dynamic Range:"
+#, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "ハイダイナミックレンジ (HDR):"
+msgstr "ハイダイナミックレンジ:"
 
 #: ui/OutputPanel.qml:660
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable &HDR"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "HDR を有効化(&H)"
+msgstr "EDR を有効化"
 
 #: ui/OutputPanel.qml:666
 #, kde-kuit-format
@@ -644,6 +654,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR はバックライトを動的に制御することで、SDR ディスプレイでも HDR コンテンツ"
+"を視聴できるようにするものです。<nl/><nl/>HDR コンテンツ視聴中のバッテリー使"
+"用量が増加します。"
 
 #: ui/OutputPanel.qml:671
 #, kde-format
@@ -672,8 +685,8 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
-"スケーリングをサポートするレガシーアプリケーションは明瞭にスケールされます。"
-"しかし、サポートしないレガシーアプリケーションは全くスケールされません。"
+"スケーリングをサポートするレガシーアプリケーションは鮮明にスケールされます"
+"が、サポートしないレガシーアプリケーションは全くスケールされません。"
 
 #: ui/Panel.qml:138
 #, kde-format
@@ -710,9 +723,9 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
-"スクリーンテアリングを許可すると、ほとんどのディスプレイでレイテンシが低下し"
-"ます。すべてのグラフィックドライバがこの設定をサポートしているわけではないこ"
-"とに注意してください。"
+"スクリーンティアリングを許可すると、ほとんどのディスプレイでレイテンシが減少"
+"します。すべてのグラフィックドライバがこの設定をサポートしているわけではあり"
+"ません。"
 
 #: ui/Panel.qml:170
 #, kde-format
@@ -747,7 +760,3 @@ msgstr "回転なし"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "スクリーンをドラッグして再配置"
-
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "SDR 最大の明るさ:"
