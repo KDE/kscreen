@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-04 14:43+0000\n"
+"PO-Revision-Date: 2026-02-28 23:23+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,13 +68,7 @@ msgstr ""
 "când logotipul devine abia vizibil"
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -89,13 +83,7 @@ msgstr ""
 "luminozitatea medie maximă de %1cd/m² a afișajului."
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -103,9 +91,7 @@ msgid ""
 msgstr ""
 "Configurează cât de luminos să fie „100%” pe glisorul normal de "
 "luminozitate. Faceți-l pe cât de luminos l-ați folosi vreodată, atâta timp "
-"cât imaginea HDR încă arată bine și gradienții sunt lini.\n"
-"Pentru a evita fluctuații ale luminozității, se recomandă să nu depășiți "
-"luminozitatea medie maximă de %1cd/m² a afișajului."
+"cât imaginea HDR încă arată bine și gradienții sunt lini."
 
 #: Main.qml:438
 #, kde-format

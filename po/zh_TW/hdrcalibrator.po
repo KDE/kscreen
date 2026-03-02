@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-15 01:10+0900\n"
+"PO-Revision-Date: 2026-03-02 05:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,13 +65,7 @@ msgid ""
 msgstr "要辨別螢幕的最高亮度，請調整滑動條直到標誌幾乎看不到"
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -84,21 +78,14 @@ msgstr ""
 "為了防止亮度忽高忽低，建議亮度不要超過顯示器的最高平均亮度 %1cd/m²"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
 "調整普通亮度滑動條的 \"100%\" 應該要多亮。請將它調整成您會使用的最大亮度，只"
-"要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。\n"
-"為了防止亮度忽高忽低，建議亮度不要超過顯示器的最高平均亮度 %1cd/m²"
+"要 HDR 影像看起來還是沒問題而且漸層仍然是平滑的就好。"
 
 #: Main.qml:438
 #, kde-format

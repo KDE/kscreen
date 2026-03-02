@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-01 11:25+0100\n"
+"PO-Revision-Date: 2026-03-01 11:04+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,13 +67,7 @@ msgstr ""
 "a quando il logo sarà appena visibile"
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -88,13 +82,7 @@ msgstr ""
 "luminosità media massima dello schermo di %1cd/m²."
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -102,9 +90,7 @@ msgid ""
 msgstr ""
 "Configura quanto dovrebbe essere il \"100%\" del cursore della luminosità "
 "normale. Rendilo luminoso come non lo vorresti mai usare, a patto che "
-"l'immagine HDR abbia un bell'aspetto e che le sfumature siano uniformi.\n"
-"Per evitare fluttuazioni di luminosità, si consiglia di non superare la "
-"luminosità media massima dello schermo di %1cd/m²."
+"l'immagine HDR abbia un bell'aspetto e che le sfumature siano uniformi."
 
 #: Main.qml:438
 #, kde-format
