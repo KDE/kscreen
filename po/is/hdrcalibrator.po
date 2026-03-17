@@ -1,0 +1,130 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the kscreen package.
+#
+# SPDX-FileCopyrightText: 2026 Sveinn í Felli <sv1@fellsnet.is>
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-02-24 02:42+0000\n"
+"PO-Revision-Date: 2026-03-16 16:01+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sv1@fellsnet.is"
+
+#: hdrcalibrator.cpp:149 ui/Main.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "HDR-litkvörðun"
+
+#: ui/Main.qml:187 ui/Main.qml:365
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Næsta"
+
+#: ui/Main.qml:194 ui/Main.qml:371
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Skiptir yfir á næstu síðu"
+
+#: ui/Main.qml:198 ui/Main.qml:375 ui/Main.qml:475
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Hætta við"
+
+#: ui/Main.qml:201 ui/Main.qml:378 ui/Main.qml:478
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Hættir við litkvörðunarferlið"
+
+#: ui/Main.qml:210
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Til að ákvarða hámarksbirtustig skjásins skaltu aðlaga með sleðanum þangað "
+"til táknmerkið sést varla"
+
+#: ui/Main.qml:389
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth.\n"
+"To avoid brightness fluctuations, it's recommended to not exceed the "
+"display's maximum average brightness of %1cd/m²"
+msgstr ""
+"Stilltu hversu bjart \"“100%\" á sleðanum venjulegt birtustig ætti að vera. "
+"Hafðu það eins bjart og þú myndir nokkurn tíma nota það, svo fremi að HDR-"
+"myndin líti áfram vel út og að litstiglarnir séu mjúkir.\n"
+"Til að forðast flökt í birtustigi er mælt með að fara ekki yfir hámark á "
+"meðalbirtustigi skjás upp á %1cd/m²"
+
+#: ui/Main.qml:391
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth."
+msgstr ""
+"Stilltu hversu bjart \"100%\" á sleðanum venjulegt birtustig ætti að vera. "
+"Hafðu það eins bjart og þú myndir nokkurn tíma nota það, svo fremi að HDR-"
+"myndin líti áfram vel út og að litstiglarnir séu mjúkir."
+
+#: ui/Main.qml:438
+#, kde-format
+msgid "Maximum luminance: %1cd/m²"
+msgstr "Hámarksljómi: %1cd/m²"
+
+#: ui/Main.qml:459
+#, kde-format
+msgid "Reference luminance / paper white: %1cd/m²"
+msgstr "Viðmiðunarljómi / pappíshvíta: %1cd/m²"
+
+#: ui/Main.qml:470
+#, kde-format
+msgctxt "@action:checkbox"
+msgid "Assume Windows HDR applications are calibrated for this screen"
+msgstr ""
+"Ganga út frá að Windows HDR-forrit séu litkvörðuð miðað við þennan skjá"
+
+#: ui/Main.qml:482
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Lokið"
+
+#: ui/Main.qml:491
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Finish the calibration process"
+msgstr "Ljúka litkvörðunarferlinu"
+
+#: ui/Main.qml:500
+#, kde-format
+msgid ""
+"Many Windows applications come with their own calibration settings, which "
+"this system wide configuration conflicts with. If this option is set, their "
+"calibration settings will work as expected on this specific display."
+msgstr ""
