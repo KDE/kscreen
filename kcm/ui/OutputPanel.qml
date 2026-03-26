@@ -261,8 +261,7 @@ Kirigami.FormLayout {
             onActivated: element.colorProfileSource = currentValue;
             Component.onCompleted: currentIndex = indexOfValue(element.colorProfileSource);
 
-            delegate: QQC2.ItemDelegate {
-                width: colorProfileCombobox.width
+            delegate: QQC2.MenuItem {
                 text: modelData.text
                 enabled: modelData.available
                 highlighted: colorProfileCombobox.highlightedIndex == index
