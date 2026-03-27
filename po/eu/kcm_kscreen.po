@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:47+0000\n"
+"POT-Creation-Date: 2026-03-27 00:47+0000\n"
 "PO-Revision-Date: 2026-02-21 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -390,7 +390,7 @@ msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
 msgstr "Barneratua"
 
-#: ui/OutputPanel.qml:272
+#: ui/OutputPanel.qml:271
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -403,48 +403,48 @@ msgstr ""
 "ez direla zehatzak. Kolore fideltasun optimorako, kolorimetro bat erabiliz "
 "kalibratzea gomendatzen da."
 
-#: ui/OutputPanel.qml:285
+#: ui/OutputPanel.qml:284
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
 msgstr "Sartu ICC profilaren bide-izena…"
 
-#: ui/OutputPanel.qml:301
+#: ui/OutputPanel.qml:300
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
 msgstr "Aukeratu ICC profila…"
 
-#: ui/OutputPanel.qml:312
+#: ui/OutputPanel.qml:311
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
 msgstr "ICC profilerako fitxategi-hautatzaile bat irekitzen du"
 
-#: ui/OutputPanel.qml:321
+#: ui/OutputPanel.qml:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Aukeratu ICC profila"
 
-#: ui/OutputPanel.qml:346
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "ICC profiles aren’t compatible with HDR yet."
 msgstr "ICC profilak, oraindik, ez dira HDR-rekin bateragarriak."
 
-#: ui/OutputPanel.qml:353
+#: ui/OutputPanel.qml:352
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "Tarte dinamiko handia:"
 
-#: ui/OutputPanel.qml:360
+#: ui/OutputPanel.qml:359
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Gaitu &HDR"
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:365
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -453,42 +453,42 @@ msgstr ""
 "HDRk, bateragarriak diren aplikazioei kolore distiratsuagoak eta biziagoak "
 "erakusteko aukera ematen die."
 
-#: ui/OutputPanel.qml:375
+#: ui/OutputPanel.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Kalibratu HDR distira…"
 
-#: ui/OutputPanel.qml:389
+#: ui/OutputPanel.qml:388
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "HDR distira kalibratzeko leiho bat irekitzen du"
 
-#: ui/OutputPanel.qml:394
+#: ui/OutputPanel.qml:393
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr "HDR kalibrazioa ezingo da hasi ezarpen guztiak aplikatu arte."
 
-#: ui/OutputPanel.qml:401
+#: ui/OutputPanel.qml:400
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Kolore-zehaztasuna:"
 
-#: ui/OutputPanel.qml:410
+#: ui/OutputPanel.qml:409
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Eraginkortasuna hobetsi"
 
-#: ui/OutputPanel.qml:411
+#: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Kolore-zehaztasuna hobetsi"
 
-#: ui/OutputPanel.qml:421
+#: ui/OutputPanel.qml:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -501,7 +501,7 @@ msgstr ""
 "handiagotzen da.<nl/><nl/>Kontuan izan ezarpen honek errendimenduan eragin "
 "handia izan dezakeela."
 
-#: ui/OutputPanel.qml:428
+#: ui/OutputPanel.qml:427
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -513,31 +513,31 @@ msgstr ""
 "kolore-doitasuna errendimenduaren kaltean hobetuz.<nl/><nl/>Kontuan izan "
 "ezarpen hau aldatzeak errendimenduan eragin handia izan dezakeela."
 
-#: ui/OutputPanel.qml:436
+#: ui/OutputPanel.qml:435
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Kolorearen bereizmena honetara mugatu:"
 
-#: ui/OutputPanel.qml:457
+#: ui/OutputPanel.qml:456
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Automatikoa  (%1 bit koloreko)"
 
-#: ui/OutputPanel.qml:459 ui/OutputPanel.qml:472
+#: ui/OutputPanel.qml:458 ui/OutputPanel.qml:471
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 bit koloreko"
 
-#: ui/OutputPanel.qml:470
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Automatikoa (%1 bit koloreko)"
 
-#: ui/OutputPanel.qml:482
+#: ui/OutputPanel.qml:481
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -554,7 +554,7 @@ msgstr ""
 "atrakatze-estazioen ohiko arazoak saihesteko.<nl/><nl/> Grafikoen gidariaren "
 "mugak direla eta, ezin da erabilitako benetako bereizmena jakin."
 
-#: ui/OutputPanel.qml:486
+#: ui/OutputPanel.qml:485
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -570,37 +570,37 @@ msgstr ""
 "konpontzeko erabilgarria izan daiteke.<nl/><nl/>Grafikoen gidariaren mugak "
 "direla eta, ezin da erabilitako benetako bereizmena jakin."
 
-#: ui/OutputPanel.qml:501
+#: ui/OutputPanel.qml:500
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB kolorearen intentsitatea:"
 
-#: ui/OutputPanel.qml:532
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:540
+#: ui/OutputPanel.qml:539
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Pantailan, sRGB edukiaren intentsitatea handiagotzen du."
 
-#: ui/OutputPanel.qml:549
+#: ui/OutputPanel.qml:548
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Distira:"
 
-#: ui/OutputPanel.qml:555
+#: ui/OutputPanel.qml:554
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Kontrolatu hardwarearen distira DDC/CI bidez"
 
-#: ui/OutputPanel.qml:561
+#: ui/OutputPanel.qml:560
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -612,18 +612,18 @@ msgstr ""
 "dezake mahaigaineko aginteen bidez pantailaren distira doitzeko, "
 "monitorearen hardware botoiak eta OSD menua erabiliko balitu bezala."
 
-#: ui/OutputPanel.qml:595
+#: ui/OutputPanel.qml:594
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%%1"
 
-#: ui/OutputPanel.qml:609
+#: ui/OutputPanel.qml:608
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Ingurunera automatikoki egokitu"
 
-#: ui/OutputPanel.qml:614
+#: ui/OutputPanel.qml:613
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -636,25 +636,25 @@ msgstr ""
 "argiztapen sentsoreak antzeman bezala, automatikoki egokitu. Distira eskuz "
 "doitzen baduzu, doikuntza horiek gogoratu eta kontuan hartuko dira."
 
-#: ui/OutputPanel.qml:626
+#: ui/OutputPanel.qml:625
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Araztasuna:"
 
-#: ui/OutputPanel.qml:655
+#: ui/OutputPanel.qml:654
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Bitarte dinamiko hedatua:"
 
-#: ui/OutputPanel.qml:660
+#: ui/OutputPanel.qml:659
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Gaitu EDR"
 
-#: ui/OutputPanel.qml:666
+#: ui/OutputPanel.qml:665
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -666,7 +666,7 @@ msgstr ""
 "ematen du.<nl/><nl/>Kontuan izan, horrek, HDR edukia ikusi bitartean bateria "
 "erabilera handitzen duela."
 
-#: ui/OutputPanel.qml:671
+#: ui/OutputPanel.qml:670
 #, kde-format
 msgid "Replica of:"
 msgstr "Honen erreplika:"
