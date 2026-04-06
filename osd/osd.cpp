@@ -14,14 +14,15 @@
 #include <KWindowSystem>
 #include <KX11Extras>
 
+#include <Plasma/Plasma>
+
 #include <QCursor>
 #include <QGuiApplication>
 #include <QQuickItem>
+#include <QQuickView>
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
-
-#include <QQuickView>
 
 using namespace KScreen;
 
@@ -31,7 +32,7 @@ Osd::Osd(const KScreen::OutputPtr &output, QObject *parent)
 {
     connect(output.data(), &KScreen::Output::isConnectedChanged, this, &Osd::onOutputAvailabilityChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged, this, &Osd::onOutputAvailabilityChanged);
-    m_engine.setProperty("_kirigamiTheme", QStringLiteral("KirigamiPlasmaStyle"));
+    Plasma::setupPlasmaStyle(&m_engine);
 }
 
 Osd::~Osd()
