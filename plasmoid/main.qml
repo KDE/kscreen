@@ -23,6 +23,7 @@ PlasmoidItem {
 
     // Only show if the user enabled presentation mode
     Plasmoid.status: presentationModeEnabled ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.icon: "preferences-desktop-display-randr-symbolic"
     toolTipSubText: presentationModeEnabled ? i18n("Presentation mode is enabled") : ""
 
     readonly property string kcmName: "kcm_kscreen"
