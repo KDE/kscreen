@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-27 00:47+0000\n"
-"PO-Revision-Date: 2026-04-04 19:18+0200\n"
+"PO-Revision-Date: 2026-04-11 09:24+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -480,13 +480,13 @@ msgstr "Dokładność kolorów:"
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr "Skłaniaj się ku wydajności"
+msgstr "Dąż do większej wydajności"
 
 #: ui/OutputPanel.qml:410
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr "Skłaniaj się ku dokładności kolorów"
+msgstr "Dąż do większej dokładności kolorów"
 
 #: ui/OutputPanel.qml:420
 #, kde-kuit-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"POT-Creation-Date: 2026-04-12 00:45+0000\n"
 "PO-Revision-Date: 2023-12-02 21:22+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: main.qml:26
+#: main.qml:27
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Kynningarsnið er virkt"
 
-#: main.qml:66
+#: main.qml:67
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Setja upp skjástillingar..."
