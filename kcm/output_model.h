@@ -63,6 +63,8 @@ public:
         BitsPerColorOptionsPreferAccuracyRole,
         SharpnessRole,
         AutoBrightnessRole,
+        HdrIccProfileRole,
+        HdrColorProfileSourceRole,
     };
     Q_ENUM(OutputRoles)
 

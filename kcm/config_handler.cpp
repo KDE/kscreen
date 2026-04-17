@@ -175,7 +175,9 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->maxBitsPerColor() != config->maxBitsPerColor()
                     || (isSaveCheck && output->edrPolicy() != config->edrPolicy())
                     || output->sharpness() != config->sharpness()
-                    || (isSaveCheck && output->automaticBrightness() != config->automaticBrightness())) {
+                    || (isSaveCheck && output->automaticBrightness() != config->automaticBrightness())
+                    || output->hdrColorProfileSource() != config->hdrColorProfileSource()
+                    || output->hdrIccProfilePath() != config->hdrIccProfilePath()) {
                         return true;
                     }
             }

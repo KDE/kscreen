@@ -18,6 +18,7 @@ RowLayout {
     required property var colorProfileSource
     signal sourceChanged();
 
+    required property bool supportsNoProfile
     required property bool supportsIccProfile
     required property bool supportsBuiltInProfile
     required property var comboboxWidth
@@ -35,7 +36,7 @@ RowLayout {
             {
                 text: i18nc("@item:inlistbox color profile", "None"),
                 value: KScreen.Output.ColorProfileSource.sRGB,
-                available: true
+                available: supportsNoProfile
             },
             {
                 text: i18nc("@item:inlistbox color profile", "ICC profile"),
