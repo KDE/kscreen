@@ -23,6 +23,7 @@ Kirigami.FormLayout {
     readonly property int maxSpinboxWidth: Kirigami.Units.gridUnit * 7
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
     readonly property bool hdrActive: hdrAvailable && element.hdr
+    readonly property var colorProfileSource: hdrActive ? element.hdrColorProfileSource : element.colorProfileSource
 
     signal reorder()
 
@@ -229,10 +230,12 @@ Kirigami.FormLayout {
         }
     }
 
+    // for SDR
     ColorProfileSelector {
         colorProfileSource: element.colorProfileSource
         onSourceChanged: element.colorProfileSource = colorProfileSource
 
+        supportsNoProfile: true
         supportsIccProfile: (element.capabilities & KScreen.Output.Capability.IccProfile)
         supportsBuiltInProfile: (element.capabilities & KScreen.Output.Capability.BuiltInColorProfile)
         comboboxWidth: root.comboboxWidth
@@ -247,6 +250,28 @@ Kirigami.FormLayout {
         visible: (element.capabilities & KScreen.Output.Capability.IccProfile)
               && (element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC)
               && !root.hdrActive
+    }
+
+    // for HDR
+    ColorProfileSelector {
+        colorProfileSource: element.hdrColorProfileSource
+        onSourceChanged: element.hdrColorProfileSource = colorProfileSource
+
+        supportsNoProfile: false
+        supportsIccProfile: (element.capabilities & KScreen.Output.Capability.HdrIccProfile)
+        supportsBuiltInProfile: (element.capabilities & KScreen.Output.Capability.BuiltInColorProfile)
+        comboboxWidth: root.comboboxWidth
+
+        visible: (supportsIccProfile || supportsBuiltInProfile) && root.hdrActive
+    }
+
+    IccSelector {
+        iccProfilePath: element.hdrIccProfilePath
+        onPathChanged: element.hdrIccProfilePath = iccProfilePath
+
+        visible: (element.capabilities & KScreen.Output.Capability.HdrIccProfile)
+              && (element.hdrColorProfileSource == KScreen.Output.ColorProfileSource.ICC)
+              && root.hdrActive
     }
 
     RowLayout {
@@ -280,7 +305,7 @@ Kirigami.FormLayout {
 
             // Set the same limit as the device ComboBox
             Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-            visible: root.hdrActive
+            visible: root.hdrActive && element.colorProfileSource != KScreen.Output.ColorProfileSource.ICC
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -325,8 +350,7 @@ Note that this setting can have a large impact on performance.")
         }
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency
-                  && element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC
-                  && !root.hdrActive
+                  && root.colorProfileSource == KScreen.Output.ColorProfileSource.ICC
             toolTipText: xi18nc("@info:tooltip", "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving performance at the cost of color accuracy.<nl/><nl/>\
 Note that changing this setting can have a large impact on performance.")
         }
