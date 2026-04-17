@@ -164,6 +164,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->sharpness();
     case AutoBrightnessRole:
         return output->automaticBrightness();
+    case HdrIccProfileRole:
+        return output->hdrIccProfilePath();
     }
     return QVariant();
 }
@@ -358,6 +360,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setAutomaticBrightness(value.toBool());
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case HdrIccProfileRole:
+        output.ptr->setHdrIccProfilePath(value.toString());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -407,6 +413,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[BitsPerColorOptionsPreferAccuracyRole] = "bitsPerColorOptionsPreferAccuracy";
     roles[SharpnessRole] = "sharpness";
     roles[AutoBrightnessRole] = "automaticBrightness";
+    roles[HdrIccProfileRole] = "hdrIccProfilePath";
     return roles;
 }
 

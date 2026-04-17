@@ -232,7 +232,8 @@ Kirigami.FormLayout {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.label: i18nc("@label:listbox", "Color profile:")
         Kirigami.FormData.buddyFor: colorProfileCombobox
-        visible: (element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)) && !(element.hdr && root.hdrAvailable)
+        visible: (element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile))
+            && !(element.hdr && root.hdrAvailable && !(element.capabilities & KScreen.Output.Capability.HdrIccProfile))
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.ComboBox {
@@ -279,10 +280,22 @@ Kirigami.FormLayout {
 
         Kirigami.ActionTextField {
             id: iccProfileField
-            onTextChanged: element.iccProfilePath = text
-            onTextEdited: element.iccProfilePath = text
+            onTextChanged: {
+                if (root.hdrAvailable && element.hdr) {
+                    element.hdrIccProfilePath = text;
+                } else {
+                    element.iccProfilePath = text;
+                }
+            }
+            onTextEdited: {
+                if (root.hdrAvailable && element.hdr) {
+                    element.hdrIccProfilePath = text;
+                } else {
+                    element.iccProfilePath = text;
+                }
+            }
             placeholderText: i18nc("@info:placeholder", "Enter ICC profile path…")
-            enabled: !root.hdrAvailable || !element.hdr
+            enabled: !root.hdrAvailable || !element.hdr || (element.capabilities & KScreen.Output.Capability.HdrIccProfile)
 
             rightActions: Kirigami.Action {
                 icon.name: "edit-clear-symbolic"
@@ -292,7 +305,13 @@ Kirigami.FormLayout {
                 }
             }
 
-            Component.onCompleted: text = element.iccProfilePath;
+            Component.onCompleted: {
+                if (root.hdrAvailable && element.hdr) {
+                    text = element.hdrIccProfilePath;
+                } else {
+                    text = element.iccProfilePath;
+                }
+            }
         }
 
         QQC2.Button {
@@ -300,7 +319,7 @@ Kirigami.FormLayout {
             text: i18nc("@action:button", "Select ICC profile…")
             display: QQC2.AbstractButton.IconOnly
             onClicked: fileDialogComponent.incubateObject(root);
-            enabled: !root.hdrAvailable || !element.hdr
+            enabled: !root.hdrAvailable || !element.hdr || (element.capabilities & KScreen.Output.Capability.HdrIccProfile)
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -339,11 +358,6 @@ Kirigami.FormLayout {
                 }
             }
         }
-
-        Kirigami.ContextualHelpButton {
-            visible: root.hdrAvailable && element.hdr
-            toolTipText: i18nc("@info:tooltip", "ICC profiles aren’t compatible with HDR yet.")
-        }
     }
 
     RowLayout {
@@ -377,7 +391,7 @@ Kirigami.FormLayout {
 
             // Set the same limit as the device ComboBox
             Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-            visible: root.hdrAvailable && element.hdr
+            visible: root.hdrAvailable && element.hdr && element.colorProfileSource != KScreen.Output.ColorProfileSource.ICC
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -423,7 +437,6 @@ Note that this setting can have a large impact on performance.")
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency
                   && element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC
-                  && !(root.hdrAvailable && element.hdr)
             toolTipText: xi18nc("@info:tooltip", "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving performance at the cost of color accuracy.<nl/><nl/>\
 Note that changing this setting can have a large impact on performance.")
         }
