@@ -35,6 +35,7 @@ public:
         Clone,
         ExtendLeft,
         ExtendRight,
+        UseAll,
     };
     Q_ENUM(Action)
 
@@ -42,7 +43,7 @@ public:
     QString label;
     QString iconName;
 
-    static QList<OsdAction> availableActions();
+    static QList<OsdAction> availableActions(const QSharedPointer<KScreen::Config> &config);
     static KScreen::SetConfigOperation *applyAction(const QSharedPointer<KScreen::Config> &config, Action action);
 };
 

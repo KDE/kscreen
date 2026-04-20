@@ -111,7 +111,7 @@ void OsdManager::showActionSelector()
             });
         }
 
-        osd->showActionSelector();
+        osd->showActionSelector(op->config());
         m_cleanupTimer->start();
     });
 }
