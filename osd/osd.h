@@ -32,7 +32,7 @@ public:
     explicit Osd(const OutputPtr &output, QObject *parent = nullptr);
     ~Osd() override;
 
-    void showActionSelector();
+    void showActionSelector(const QSharedPointer<KScreen::Config> &config);
     void hideOsd();
 
 Q_SIGNALS:

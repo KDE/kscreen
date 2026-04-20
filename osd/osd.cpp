@@ -39,11 +39,11 @@ Osd::~Osd()
 {
 }
 
-void Osd::showActionSelector()
+void Osd::showActionSelector(const QSharedPointer<KScreen::Config> &config)
 {
     if (!m_osdActionSelector) {
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
-        m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}});
+        m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions(config))}});
         m_osdActionSelector->loadFromModule("org.kde.kscreen.osd", "OsdSelector");
         m_osdActionSelector->setColor(Qt::transparent);
         m_osdActionSelector->setFlag(Qt::FramelessWindowHint);

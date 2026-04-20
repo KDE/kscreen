@@ -33,7 +33,7 @@ public:
 
     Q_INVOKABLE void applyLayoutPreset(KScreen::OsdAction::Action action);
 
-    static QVariant availableActions();
+    QVariant availableActions();
 
 Q_SIGNALS:
     void connectedOutputCountChanged();

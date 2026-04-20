@@ -22,23 +22,49 @@
 
 using namespace KScreen;
 
-QList<OsdAction> OsdAction::availableActions()
+static QList<OsdAction::Action> moreThanTwoMonitorsAllowedActions = {
+    OsdAction::UseAll,
+    OsdAction::SwitchToExternal,
+    OsdAction::SwitchToInternal,
+    OsdAction::NoAction,
+};
+
+QList<OsdAction> OsdAction::availableActions(const QSharedPointer<KScreen::Config> &config)
 {
-    return {
-        {SwitchToExternal, i18nd("kscreen_common", "Only use external screen"), QStringLiteral("osd-shutd-laptop")},
+    QList<OsdAction> actions = {
+        {UseAll, i18nd("kscreen_common", "Use all screens"), QStringLiteral("osd-use-all")},
+        {SwitchToExternal,
+         i18ndp("kscreen_common", "Only use external screen", "Only use external screens", config->connectedOutputs().size() - 1),
+         QStringLiteral("osd-shutd-laptop")},
         {SwitchToInternal, i18nd("kscreen_common", "Only use built-in screen"), QStringLiteral("osd-shutd-screen")},
         {Clone, i18nd("kscreen_common", "Mirror screens"), QStringLiteral("osd-duplicate")},
         {ExtendLeft, i18nd("kscreen_common", "Extend to left of built-in screen"), QStringLiteral("osd-sbs-left")},
         {ExtendRight, i18nd("kscreen_common", "Extend to right of built-in screen"), QStringLiteral("osd-sbs-sright")},
         {NoAction, i18nd("kscreen_common", "Leave unchanged"), QStringLiteral("dialog-cancel")},
     };
+
+    if (config->connectedOutputs().size() > 2) {
+        actions.removeIf([](const auto &action) {
+            return !moreThanTwoMonitorsAllowedActions.contains(action.action);
+        });
+    } else {
+        actions.removeIf([](const auto &action) {
+            return action.action == OsdAction::UseAll;
+        });
+    }
+
+    return actions;
 }
 
 KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen::Config> &config, Action action)
 {
     const ConfigPtr copy = config->clone();
     const OutputList outputs = copy->connectedOutputs();
-    if (outputs.size() != 2) {
+    if (outputs.size() < 2) {
+        return nullptr;
+    }
+
+    if (outputs.size() > 2 && !moreThanTwoMonitorsAllowedActions.contains(action)) {
         return nullptr;
     }
 
@@ -49,19 +75,25 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         internalIt = outputs.begin();
     }
     const OutputPtr &internal = *internalIt;
-    const OutputPtr &external = *std::find_if(outputs.cbegin(), outputs.cend(), [&internal](const auto &output) {
-        return output != internal;
+
+    auto externalOutputs = outputs.values();
+    externalOutputs.removeIf([internal](const auto &output) {
+        return output == internal;
     });
 
     if (config->supportedFeatures() & Config::Feature::PerOutputScaling) {
-        external->setReplicationSource(0);
+        for (const auto &external : externalOutputs) {
+            external->setReplicationSource(0);
+        }
         internal->setReplicationSource(0);
     } else {
         if (!internal->isEnabled()) {
             internal->setRotation(::Output::readGlobal(internal).rotation.value_or(Output::Rotation::None));
         }
-        if (!external->isEnabled()) {
-            external->setRotation(::Output::readGlobal(external).rotation.value_or(Output::Rotation::None));
+        for (const auto &external : externalOutputs) {
+            if (!external->isEnabled()) {
+                external->setRotation(::Output::readGlobal(external).rotation.value_or(Output::Rotation::None));
+            }
         }
     }
 
@@ -70,15 +102,20 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         return nullptr;
     case KScreen::OsdAction::Action::SwitchToExternal:
         internal->setEnabled(false);
-        external->setEnabled(true);
-        external->setPos(QPoint());
+        for (const auto &external : externalOutputs) {
+            external->setEnabled(true);
+        }
         break;
     case KScreen::OsdAction::Action::SwitchToInternal:
         internal->setEnabled(true);
         internal->setPos(QPoint());
-        external->setEnabled(false);
+        for (const auto &external : externalOutputs) {
+            external->setEnabled(false);
+        }
         break;
     case KScreen::OsdAction::Action::Clone: {
+        // If we're here, we know there's exactly one external output
+        const auto &external = externalOutputs[0];
         internal->setEnabled(true);
         external->setEnabled(true);
         if (config->supportedFeatures() & Config::Feature::PerOutputScaling) {
@@ -131,6 +168,8 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         break;
     }
     case KScreen::OsdAction::Action::ExtendRight: {
+        // If we're here, we know there's exactly one external output
+        const auto &external = externalOutputs[0];
         internal->setEnabled(true);
         external->setEnabled(true);
         internal->setPos(QPoint());
@@ -151,6 +190,8 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
         break;
     }
     case KScreen::OsdAction::Action::ExtendLeft: {
+        // If we're here, we know there's exactly one external output
+        const auto &external = externalOutputs[0];
         internal->setEnabled(true);
         external->setEnabled(true);
         external->setPos(QPoint());
@@ -168,6 +209,12 @@ KScreen::SetConfigOperation *OsdAction::applyAction(const QSharedPointer<KScreen
             external->setCurrentModeId(currentMode->id());
         }
         internal->setPos({copy->logicalSizeForOutputInt(*external).width(), 0});
+        break;
+    }
+    case KScreen::OsdAction::UseAll: {
+        for (const auto &output : outputs) {
+            output->setEnabled(true);
+        }
         break;
     }
     }

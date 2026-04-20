@@ -79,7 +79,7 @@ void KScreenApplet::checkOutputs()
 
 QVariant KScreenApplet::availableActions()
 {
-    auto actions = KScreen::OsdAction::availableActions();
+    auto actions = KScreen::OsdAction::availableActions(m_screenConfiguration);
     QList<KScreen::OsdAction> ret;
     ret.reserve(actions.size() - 1);
     for (const auto &action : actions) {
