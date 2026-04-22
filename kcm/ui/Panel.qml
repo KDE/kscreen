@@ -61,6 +61,7 @@ ColumnLayout {
 
                 Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
 
+                Kirigami.StyleHints.tickMarkStepSize: stepSize
                 Layout.fillWidth: true
                 from: 100
                 to: 300

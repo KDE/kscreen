@@ -95,6 +95,7 @@ Kirigami.FormLayout {
 
             Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
 
+            Kirigami.StyleHints.tickMarkStepSize: stepSize
             Layout.fillWidth: true
             Layout.minimumWidth: root.sliderWidth
             from: 50
@@ -502,6 +503,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
 
         QQC2.Slider {
             id: sdrGamutSlider
+            Kirigami.StyleHints.tickMarkStepSize: stepSize
             Layout.fillWidth: true
             Layout.minimumWidth: root.sliderWidth
             from: 0
@@ -574,6 +576,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
 
         QQC2.Slider {
             id: brightnessSlider
+            Kirigami.StyleHints.tickMarkStepSize: stepSize
             Layout.fillWidth: true
             Layout.minimumWidth: root.sliderWidth
             from: 0
@@ -627,6 +630,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
 
         QQC2.Slider {
             id: sharpnessSlider
+            Kirigami.StyleHints.tickMarkStepSize: stepSize
             Layout.fillWidth: true
             Layout.minimumWidth: root.sliderWidth
             from: 0
