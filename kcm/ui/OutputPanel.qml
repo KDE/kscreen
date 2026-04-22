@@ -548,7 +548,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         Kirigami.FormData.buddyFor: ddcCiAllowedCheckbox
         Kirigami.FormData.label: i18nc("@label", "Brightness:")
-        visible: element.capabilities & KScreen.Output.Capability.DdcCi
+        visible: (element.capabilities & KScreen.Output.Capability.DdcCi) && !(root.hdrAvailable && element.hdr)
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.CheckBox {
