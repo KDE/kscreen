@@ -1,11 +1,11 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2019-2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2020-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
-# SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2023-2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-21 02:46+0000\n"
-"PO-Revision-Date: 2026-01-20 00:31+0100\n"
+"PO-Revision-Date: 2026-04-22 19:54+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -500,6 +500,10 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"Beim Bevorzugen der Farbgenauigkeit wird die potenziell ungenaue Auslagerung "
+"von Farboperationen an den Grafiktreiber eingeschränkt und die maximale "
+"Farbauflösung erhöht.<nl/><nl/>Bitte beachten Sie, dass diese Einstellung "
+"erhebliche Auswirkungen auf die Leistung haben kann."
 
 #: ui/OutputPanel.qml:420
 #, kde-kuit-format
@@ -509,6 +513,10 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"Beim Bevorzugen von Effizienz wird das ICC-Profil auf „matrix+shaper“ "
+"vereinfacht, was die Leistung auf Kosten der Farbgenauigkeit verbessert.<nl/"
+"><nl/>Bitte beachten Sie, dass eine Änderung dieser Einstellung erhebliche "
+"Auswirkungen auf die Leistung haben kann."
 
 #: ui/OutputPanel.qml:428
 #, kde-format
