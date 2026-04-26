@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-01-17 14:01+0100\n"
+"PO-Revision-Date: 2026-04-21 21:20+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,13 +69,7 @@ msgstr ""
 "den Schieberegler bis das Logo kaum noch sichtbar ist."
 
 #: Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -91,13 +85,7 @@ msgstr ""
 "wird"
 
 #: Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -105,10 +93,7 @@ msgid ""
 msgstr ""
 "Helligkeit für „100 %“ am Schieberegler für normale Helligkeit einstellen. "
 "Stellen Sie sie so hell ein, wie Sie sie jemals nutzen werden, solange das "
-"HDR-Bild gut aussieht und die Verläufe weich sind.\n"
-"Um Helligkeitsschwankungen zu vermeiden wird es empfohlen, dass die maximale "
-"durchschnittliche Helligkeit der Anzeige von %1 cd/m² nicht überschritten "
-"wird"
+"HDR-Bild gut aussieht und die Verläufe weich sind."
 
 #: Main.qml:438
 #, kde-format
