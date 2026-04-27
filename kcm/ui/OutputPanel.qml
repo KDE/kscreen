@@ -228,123 +228,25 @@ Kirigami.FormLayout {
         }
     }
 
-    RowLayout {
-        // Set the same limit as the device ComboBox
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-        Kirigami.FormData.label: i18nc("@label:listbox", "Color profile:")
-        Kirigami.FormData.buddyFor: colorProfileCombobox
-        visible: (element.capabilities & (KScreen.Output.Capability.IccProfile | KScreen.Output.Capability.BuiltInColorProfile)) && !(element.hdr && root.hdrAvailable)
-        spacing: Kirigami.Units.smallSpacing
+    ColorProfileSelector {
+        colorProfileSource: element.colorProfileSource
+        onSourceChanged: element.colorProfileSource = colorProfileSource
 
-        QQC2.ComboBox {
-            id: colorProfileCombobox
-            Layout.minimumWidth: root.comboboxWidth
-            model: [
-                {
-                    text: i18nc("@item:inlistbox color profile", "None"),
-                    value: KScreen.Output.ColorProfileSource.sRGB,
-                    available: true
-                },
-                {
-                    text: i18nc("@item:inlistbox color profile", "ICC profile"),
-                    value: KScreen.Output.ColorProfileSource.ICC,
-                    available: element.capabilities & KScreen.Output.Capability.IccProfile
-                },
-                {
-                    text: i18nc("@item:inlistbox color profile", "Built-in"),
-                    value: KScreen.Output.ColorProfileSource.EDID,
-                    available: element.capabilities & KScreen.Output.Capability.BuiltInColorProfile
-                }
-            ]
-            textRole: "text"
-            valueRole: "value"
+        supportsIccProfile: (element.capabilities & KScreen.Output.Capability.IccProfile)
+        supportsBuiltInProfile: (element.capabilities & KScreen.Output.Capability.BuiltInColorProfile)
+        comboboxWidth: root.comboboxWidth
 
-            onActivated: element.colorProfileSource = currentValue;
-            Component.onCompleted: currentIndex = indexOfValue(element.colorProfileSource);
-
-            delegate: QQC2.MenuItem {
-                text: modelData.text
-                enabled: modelData.available
-                highlighted: colorProfileCombobox.highlightedIndex == index
-            }
-        }
-        Kirigami.ContextualHelpButton {
-            toolTipText: i18nc("@info:tooltip", "Use the color profile built into the screen itself, if present. Note that built-in color profiles are sometimes wrong, and often inaccurate. For optimal color fidelity, calibration using a colorimeter is recommended.")
-            visible: (!element.hdr || !root.hdrAvailable) && element.colorProfileSource == KScreen.Output.ColorProfileSource.EDID
-        }
+        visible: (supportsIccProfile || supportsBuiltInProfile)
+              && (!element.hdr || !root.hdrAvailable)
     }
 
-    RowLayout {
-        visible: (element.capabilities & KScreen.Output.Capability.IccProfile) && (element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC)
-        spacing: Kirigami.Units.smallSpacing
+    IccSelector {
+        iccProfilePath: element.iccProfilePath
+        onPathChanged: element.iccProfilePath = iccProfilePath
 
-        Kirigami.ActionTextField {
-            id: iccProfileField
-            onTextChanged: element.iccProfilePath = text
-            onTextEdited: element.iccProfilePath = text
-            placeholderText: i18nc("@info:placeholder", "Enter ICC profile path…")
-            enabled: !root.hdrAvailable || !element.hdr
-
-            rightActions: Kirigami.Action {
-                icon.name: "edit-clear-symbolic"
-                visible: iccProfileField.text !== ""
-                onTriggered: {
-                    iccProfileField.text = ""
-                }
-            }
-
-            Component.onCompleted: text = element.iccProfilePath;
-        }
-
-        QQC2.Button {
-            icon.name: "document-open-symbolic"
-            text: i18nc("@action:button", "Select ICC profile…")
-            display: QQC2.AbstractButton.IconOnly
-            onClicked: fileDialogComponent.incubateObject(root);
-            enabled: !root.hdrAvailable || !element.hdr
-
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-            Accessible.role: Accessible.Button
-            Accessible.name: text
-            Accessible.description: i18n("Opens a file picker for the ICC profile")
-            Accessible.onPressAction: onClicked();
-        }
-
-        Component {
-            id: fileDialogComponent
-
-            FileDialog {
-                id: fileDialog
-                title: i18nc("@title:window", "Select ICC Profile")
-                currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-                nameFilters: ["ICC profiles (*.icc *.icm)"]
-
-                onAccepted: {
-                    iccProfileField.text = urlToProfilePath(selectedFile);
-                    destroy();
-                }
-                onRejected: destroy();
-                Component.onCompleted: open();
-
-                function urlToProfilePath(qmlUrl) {
-                    const url = new URL(qmlUrl);
-                    let path = decodeURIComponent(url.pathname);
-                    // Remove the leading slash from the url
-                    if (url.protocol === "file:" && path.charAt(1) === ':') {
-                        path = path.substring(1);
-                    }
-                    return path;
-                }
-            }
-        }
-
-        Kirigami.ContextualHelpButton {
-            visible: root.hdrAvailable && element.hdr
-            toolTipText: i18nc("@info:tooltip", "ICC profiles aren’t compatible with HDR yet.")
-        }
+        visible: (element.capabilities & KScreen.Output.Capability.IccProfile)
+              && (element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC)
+              && (!element.hdr || !root.hdrAvailable)
     }
 
     RowLayout {
