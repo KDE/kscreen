@@ -929,10 +929,6 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
     // TODO once X11 support is dropped, change this to use output
     // UUIDs instead of more error prone indices
-    if (outputIndex <= sourceIndex) {
-        // the output itself isn't in the list of the model
-        sourceIndex++;
-    }
     if (sourceIndex >= m_outputs.count()) {
         return false;
     }
