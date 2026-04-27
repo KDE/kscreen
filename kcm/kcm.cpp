@@ -378,7 +378,10 @@ void KCMKScreen::checkConfig()
 
     const auto outputs = m_configHandler->config()->outputs();
     std::vector<OutputPtr> enabledOutputs;
-    std::copy_if(outputs.cbegin(), outputs.cend(), std::back_inserter(enabledOutputs), std::mem_fn(&Output::isEnabled));
+    std::copy_if(outputs.cbegin(), outputs.cend(), std::back_inserter(enabledOutputs), [](const OutputPtr &output) {
+        return output->isEnabled() && output->replicationSource() == 0;
+    });
+
     if (enabledOutputs.empty()) {
         Q_EMIT invalidConfig(NoEnabledOutputs);
         m_configNeedsSave = false;
