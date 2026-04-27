@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 02:42+0000\n"
-"PO-Revision-Date: 2026-02-03 23:56+0100\n"
+"PO-Revision-Date: 2026-04-26 21:32+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -67,13 +67,7 @@ msgstr ""
 "십시오"
 
 #: ui/Main.qml:389
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -88,13 +82,7 @@ msgstr ""
 "하지 마십시오."
 
 #: ui/Main.qml:391
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -102,9 +90,7 @@ msgid ""
 msgstr ""
 "일반 밝기 슬라이더의 \"100%\" 밝기가 얼마나 밝을지를 설정합니다. HDR 이미지"
 "가 선명하게 보이고, 그라디언트가 부드럽게 보이는 한도 내에서 최대한으로 밝게 "
-"설정하십시오.\n"
-"밝기가 변하는 것을 방지하려면 이 디스플레이의 최대 평균 밝기인 %1cd/m²를 초과"
-"하지 마십시오."
+"설정하십시오."
 
 #: ui/Main.qml:438
 #, kde-format
