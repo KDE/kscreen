@@ -22,6 +22,7 @@ Kirigami.FormLayout {
     readonly property int sliderWidth: Kirigami.Units.gridUnit * 12
     readonly property int maxSpinboxWidth: Kirigami.Units.gridUnit * 7
     readonly property bool hdrAvailable: (element.capabilities & KScreen.Output.Capability.HighDynamicRange) && (element.capabilities & KScreen.Output.Capability.WideColorGamut)
+    readonly property bool hdrActive: hdrAvailable && element.hdr
 
     signal reorder()
 
@@ -236,8 +237,7 @@ Kirigami.FormLayout {
         supportsBuiltInProfile: (element.capabilities & KScreen.Output.Capability.BuiltInColorProfile)
         comboboxWidth: root.comboboxWidth
 
-        visible: (supportsIccProfile || supportsBuiltInProfile)
-              && (!element.hdr || !root.hdrAvailable)
+        visible: (supportsIccProfile || supportsBuiltInProfile) && !root.hdrActive
     }
 
     IccSelector {
@@ -246,7 +246,7 @@ Kirigami.FormLayout {
 
         visible: (element.capabilities & KScreen.Output.Capability.IccProfile)
               && (element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC)
-              && (!element.hdr || !root.hdrAvailable)
+              && !root.hdrActive
     }
 
     RowLayout {
@@ -280,7 +280,7 @@ Kirigami.FormLayout {
 
             // Set the same limit as the device ComboBox
             Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-            visible: root.hdrAvailable && element.hdr
+            visible: root.hdrActive
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -326,7 +326,7 @@ Note that this setting can have a large impact on performance.")
         Kirigami.ContextualHelpButton {
             visible: element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency
                   && element.colorProfileSource == KScreen.Output.ColorProfileSource.ICC
-                  && !(root.hdrAvailable && element.hdr)
+                  && !root.hdrActive
             toolTipText: xi18nc("@info:tooltip", "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving performance at the cost of color accuracy.<nl/><nl/>\
 Note that changing this setting can have a large impact on performance.")
         }
@@ -399,7 +399,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
-        visible: (root.hdrAvailable && element.hdr) || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
+        visible: root.hdrActive || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
         Kirigami.FormData.label: i18nc("@label", "sRGB color intensity:")
         Kirigami.FormData.buddyFor: sdrGamutSlider
 
@@ -472,7 +472,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         spacing: Kirigami.Units.smallSpacing
 
-        visible: (root.hdrAvailable && element.hdr) || (element.capabilities & KScreen.Output.Capability.BrightnessControl)
+        visible: root.hdrActive || (element.capabilities & KScreen.Output.Capability.BrightnessControl)
         Kirigami.FormData.label: ddcCiAllowedContainer.visible ? "" : ddcCiAllowedContainer.Kirigami.FormData.label
         Kirigami.FormData.buddyFor: brightnessSlider
 
