@@ -28,7 +28,7 @@ ColumnLayout {
         Repeater {
             model: kcm.outputModel
             OutputPanel {
-                twinFormLayouts: globalSettingsLayout
+               // twinFormLayouts: globalSettingsLayout
                 enabledOutputs: root.enabledOutputs
                 onReorder: root.reorder()
             }
