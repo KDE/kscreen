@@ -671,7 +671,7 @@ Kirigami.Form {
 
         Kirigami.FormEntry {
             title: i18n("Replica of:")
-            visible: kcm.outputReplicationSupported && count > 0
+            visible: kcm.outputReplicationSupported && contentItem.count > 0
             contentItem: QQC2.ComboBox {
                 Layout.minimumWidth: root.comboboxWidth
                 Layout.maximumWidth: Kirigami.Units.gridUnit * 14
