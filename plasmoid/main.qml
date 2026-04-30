@@ -80,7 +80,7 @@ PlasmoidItem {
         ScreenLayoutSelection {
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            screenLayouts: Plasmoid.availableActions
+            screenLayouts: Plasmoid.availableActions // qmllint disable missing-property
         }
 
         PresentationModeItem {

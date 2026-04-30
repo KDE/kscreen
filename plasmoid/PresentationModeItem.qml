@@ -32,7 +32,7 @@ ColumnLayout {
             // disable Switch while job is running
             enabled = false;
 
-            const service = pmSource.serviceForSource("PowerDevil");
+            const service = pmSource.serviceForSource("PowerDevil"); // qmllint disable unqualified
 
             if (checked) {
                 const op = service.operationDescription("beginSuppressingScreenPowerManagement");
@@ -65,9 +65,9 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.leftMargin: presentationModeSwitch.indicator.width + presentationModeSwitch.spacing
 
-        iconSource: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : ""
+        iconSource: pmSource.inhibitions.length > 0 ? pmSource.inhibitions[0].Icon || "" : "" // qmllint disable unqualified
         text: {
-            const inhibitions = pmSource.inhibitions;
+            const inhibitions = pmSource.inhibitions; // qmllint disable unqualified
             const inhibition = inhibitions[0];
             if (inhibitions.length > 1) {
                 return i18ncp("Some Application and n others enforce presentation mode",

@@ -33,7 +33,7 @@ ColumnLayout {
     states: [
         State {
             // only makes sense to offer screen layout setup if there's more than one screen connected
-            when: Plasmoid.connectedOutputCount < 2
+            when: Plasmoid.connectedOutputCount < 2 // qmllint disable missing-property
 
             PropertyChanges {
                 screenLayoutRow.enabled: false
@@ -75,7 +75,7 @@ ColumnLayout {
                 icon.height: availableHeight
                 text: modelData.label
 
-                onClicked: Plasmoid.applyLayoutPreset(modelData.action)
+                onClicked: Plasmoid.applyLayoutPreset(modelData.action) // qmllint disable missing-property
 
                 Accessible.name: text
                 PlasmaComponents3.ToolTip { text: screenLayoutDelegate.text }
