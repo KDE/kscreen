@@ -36,12 +36,10 @@ ColumnLayout {
             when: Plasmoid.connectedOutputCount < 2
 
             PropertyChanges {
-                target: screenLayoutRow
-                enabled: false
+                screenLayoutRow.enabled: false
             }
             PropertyChanges {
-                target: noScreenLabel
-                visible: true
+                noScreenLabel.visible: true
             }
         }
     ]
