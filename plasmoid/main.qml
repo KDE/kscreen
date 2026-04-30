@@ -48,7 +48,7 @@ PlasmoidItem {
 
             var data = pmSource.data.Inhibitions;
             if (data) {
-                for (var key in data) {
+                for (const key in data) {
                     if (key === "plasmashell" || key === "plasmoidviewer") { // ignore our own inhibition
                         continue;
                     }
