@@ -3,7 +3,8 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-import QtCore
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
