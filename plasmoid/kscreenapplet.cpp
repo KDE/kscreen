@@ -24,12 +24,6 @@ K_PLUGIN_CLASS_WITH_JSON(KScreenApplet, "metadata.json")
 KScreenApplet::KScreenApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : Plasma::Applet(parent, data, args)
 {
-    qmlRegisterUncreatableMetaObject(KScreen::OsdAction::staticMetaObject,
-                                     "org.kde.private.kscreen",
-                                     1,
-                                     0,
-                                     "OsdAction",
-                                     QStringLiteral("Can't create OsdAction"));
 }
 
 KScreenApplet::~KScreenApplet() = default;

@@ -13,6 +13,15 @@
 
 #include "common/osdaction.h"
 
+#include <QQmlEngine>
+
+struct OsdActionForeign : public QObject {
+    Q_OBJECT
+    QML_NAMED_ELEMENT(OsdAction)
+    QML_UNCREATABLE("Only for enums")
+    QML_EXTENDED_NAMESPACE(KScreen::OsdAction)
+};
+
 class KScreenApplet : public Plasma::Applet
 {
     Q_OBJECT
