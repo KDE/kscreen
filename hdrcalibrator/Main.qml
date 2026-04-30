@@ -43,7 +43,7 @@ Window {
             HdrCalibrator.peakBrightnessOverride = hdrCalibration.oldPeakBrightness;
         }
 
-        for (var output of Qt.application.screens) {
+        for (var output of Application.screens) {
             if (output.name === HdrCalibrator.outputName) {
                 hdrCalibration.screen = output;
                 break;
