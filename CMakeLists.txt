@@ -30,6 +30,7 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
+include(ECMFindQmlModule)
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
@@ -87,6 +88,8 @@ if(WITH_X11)
     find_package(X11_XCB REQUIRED)
     find_package(XCB REQUIRED COMPONENTS XCB ATOM)
 endif()
+
+ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
 
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 
