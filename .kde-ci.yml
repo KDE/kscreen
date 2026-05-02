@@ -32,5 +32,6 @@ RuntimeDependencies:
     'frameworks/kimageformats': '@latest-kf6'
 
 Options:
+ require-passing-tests-on: ['@all']
  json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
  run-qmllint: true

@@ -2,9 +2,8 @@
     SPDX-FileCopyrightText: 2025 David Edmundson <davidedmundson@kde.org>
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "../../common/globals.h"
-#include "../../common/osdaction.h"
-#include "../../kded/config.h"
+#include "../common/globals.h"
+#include "../common/osdaction.h"
 
 #include <QObject>
 #include <QStandardPaths>
