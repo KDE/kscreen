@@ -90,6 +90,7 @@ if(WITH_X11)
 endif()
 
 ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
+ecm_find_qmlmodule(org.kde.plasma.plasma5support REQUIRED)
 
 configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 

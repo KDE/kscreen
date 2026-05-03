@@ -24,6 +24,7 @@ Dependencies:
     'plasma/libplasma': '@same'
     'plasma/libkscreen': '@same'
     'plasma/layer-shell-qt': '@same'
+    'plasma/plasma5support': '@same'
 
 RuntimeDependencies:
  - 'on': ['@all']
