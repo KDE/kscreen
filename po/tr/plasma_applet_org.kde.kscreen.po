@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-12 00:45+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2023-12-09 22:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.01.80\n"
 
-#: main.qml:27
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Sunum kipi etkinleştirildi"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Görüntü Ayarlarını Yapılandır…"
@@ -64,12 +64,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1, sunum kipini zorluyor: %2"
 
-#: ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:50
 #, kde-format
 msgid "Screen Layout"
 msgstr "Ekran Yerleşimi"
 
-#: ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:91
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

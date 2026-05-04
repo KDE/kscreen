@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2026-03-17 15:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -27,37 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sv1@fellsnet.is"
 
-#: hdrcalibrator.cpp:149 Main.qml:15
+#: hdrcalibrator.cpp:149 Main.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "HDR-litkvörðun"
 
-#: Main.qml:187 Main.qml:365
+#: Main.qml:188 Main.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "Næsta"
 
-#: Main.qml:194 Main.qml:371
+#: Main.qml:195 Main.qml:372
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "Skiptir yfir á næstu síðu"
 
-#: Main.qml:198 Main.qml:375 Main.qml:475
+#: Main.qml:199 Main.qml:376 Main.qml:476
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: Main.qml:201 Main.qml:378 Main.qml:478
+#: Main.qml:202 Main.qml:379 Main.qml:479
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "Hættir við litkvörðunarferlið"
 
-#: Main.qml:210
+#: Main.qml:211
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -66,7 +66,7 @@ msgstr ""
 "Til að ákvarða hámarksbirtustig skjásins skaltu aðlaga með sleðanum þangað "
 "til táknmerkið sést varla"
 
-#: Main.qml:389
+#: Main.qml:390
 #, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
@@ -81,7 +81,7 @@ msgstr ""
 "Til að forðast flökt í birtustigi er mælt með að fara ekki yfir hámark á "
 "meðalbirtustigi skjás upp á %1cd/m²"
 
-#: Main.qml:391
+#: Main.qml:392
 #, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
@@ -92,36 +92,36 @@ msgstr ""
 "Hafðu það eins bjart og þú myndir nokkurn tíma nota það, svo fremi að HDR-"
 "myndin líti áfram vel út og að litstiglarnir séu mjúkir."
 
-#: Main.qml:438
+#: Main.qml:439
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "Hámarksljómi: %1cd/m²"
 
-#: Main.qml:459
+#: Main.qml:460
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "Viðmiðunarljómi / pappíshvíta: %1cd/m²"
 
-#: Main.qml:470
+#: Main.qml:471
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
 "Ganga út frá að Windows HDR-forrit séu litkvörðuð miðað við þennan skjá"
 
-#: Main.qml:482
+#: Main.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "Lokið"
 
-#: Main.qml:491
+#: Main.qml:492
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "Ljúka litkvörðunarferlinu"
 
-#: Main.qml:500
+#: Main.qml:501
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-12 00:45+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2021-11-11 14:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: main.qml:27
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Le mode « Présentation » est activé"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Configurer les paramètres d'affichage..."
@@ -68,12 +68,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 utilise le mode « Présentation » : %2"
 
-#: ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:50
 #, kde-format
 msgid "Screen Layout"
 msgstr "Disposition d'écran"
 
-#: ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:91
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

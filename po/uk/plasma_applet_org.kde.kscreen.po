@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-12 00:45+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2021-11-10 09:20+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: main.qml:27
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "Увімкнено режим презентації"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "Налаштувати параметри дисплея…"
@@ -69,12 +69,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 примусово встановлює режим презентації: %2"
 
-#: ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:50
 #, kde-format
 msgid "Screen Layout"
 msgstr "Компонування екрана"
 
-#: ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:91
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

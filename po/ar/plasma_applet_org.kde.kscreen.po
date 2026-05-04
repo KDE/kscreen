@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-12 00:45+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2021-12-18 23:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-#: main.qml:27
+#: main.qml:26
 #, kde-format
 msgid "Presentation mode is enabled"
 msgstr "نمط العرض ممكن"
 
-#: main.qml:67
+#: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
 msgstr "اضبط إعدادات العرض…"
@@ -68,12 +68,12 @@ msgctxt ""
 msgid "%1 is enforcing presentation mode: %2"
 msgstr "%1 يفرض وضع العرض: %2"
 
-#: ScreenLayoutSelection.qml:52
+#: ScreenLayoutSelection.qml:50
 #, kde-format
 msgid "Screen Layout"
 msgstr "تخطيط الشاشة"
 
-#: ScreenLayoutSelection.qml:93
+#: ScreenLayoutSelection.qml:91
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

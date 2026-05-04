@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"POT-Creation-Date: 2026-05-04 00:45+0000\n"
 "PO-Revision-Date: 2026-02-25 19:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: hdrcalibrator.cpp:149 Main.qml:15
+#: hdrcalibrator.cpp:149 Main.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
 msgstr "معايرة HDR"
 
-#: Main.qml:187 Main.qml:365
+#: Main.qml:188 Main.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Next"
 msgstr "التالي"
 
-#: Main.qml:194 Main.qml:371
+#: Main.qml:195 Main.qml:372
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
 msgstr "يبدّل إلى الصفحة التالية"
 
-#: Main.qml:198 Main.qml:375 Main.qml:475
+#: Main.qml:199 Main.qml:376 Main.qml:476
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: Main.qml:201 Main.qml:378 Main.qml:478
+#: Main.qml:202 Main.qml:379 Main.qml:479
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
 msgstr "يُلغي عملية المعايرة"
 
-#: Main.qml:210
+#: Main.qml:211
 #, kde-format
 msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
@@ -67,7 +67,7 @@ msgstr ""
 "لتحديد الحد الأقصى لسطوع الشاشة، اضبط شريط التمرير حتى يصبح الشعار بالكاد "
 "مرئيًا"
 
-#: Main.qml:389
+#: Main.qml:390
 #, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
@@ -81,7 +81,7 @@ msgstr ""
 "لتجنب تقلبات السطوع، يوصى بعدم تجاوز متوسط السطوع الأقصى للشاشة والبالغ %1 "
 "شمعة/م²"
 
-#: Main.qml:391
+#: Main.qml:392
 #, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
@@ -91,36 +91,36 @@ msgstr ""
 "اضبط مدى سطوع ”100٪“ على شريط تمرير السطوع العادي. اجعله ساطعًا بقدر ما "
 "تستخدمه، طالما أن صورة HDR لا تزال تبدو جيدة والتدرجات سلسة."
 
-#: Main.qml:438
+#: Main.qml:439
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
 msgstr "السطوع الأقصى: %1 شمعة/م²"
 
-#: Main.qml:459
+#: Main.qml:460
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
 msgstr "سطوع المرجع / بياض الورقة: %1 شمعة/م²"
 
-#: Main.qml:470
+#: Main.qml:471
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
 "افترض أن تطبيقات ويندوز ذات النطاق الديناميكي العالي (HDR) مضبوطة لهذه الشاشة"
 
-#: Main.qml:482
+#: Main.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Done"
 msgstr "تمّ"
 
-#: Main.qml:491
+#: Main.qml:492
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
 msgstr "أنهِ عملية المعايرة"
 
-#: Main.qml:500
+#: Main.qml:501
 #, kde-format
 msgid ""
 "Many Windows applications come with their own calibration settings, which "
