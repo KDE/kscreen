@@ -42,7 +42,6 @@ void HdrCalibrator::applyConfigForWindowsApps()
     auto config = KSharedConfig::openConfig("kwinrc");
     auto group = config->group("Windows_HDR");
     group.writeEntry("Reference", sdrBrightness());
-    group.writeEntry("MaxFrameAverage", maxAverageBrightnessOverride());
     group.writeEntry("MaxLuminance", peakBrightnessOverride());
     config->sync();
     QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.kde.KWin", "reloadConfig");
@@ -93,16 +92,6 @@ void HdrCalibrator::setPeakBrightnessOverride(qreal override)
     m_output->setMaxPeakBrightnessOverride(override);
 }
 
-qreal HdrCalibrator::maxAverageBrightnessOverride() const
-{
-    return m_output->maxAverageBrightnessOverride().value_or(0);
-}
-
-void HdrCalibrator::setMaxAverageBrightnessOverride(qreal override)
-{
-    m_output->setMaxAverageBrightnessOverride(override);
-}
-
 qreal HdrCalibrator::brightness() const
 {
     return m_output->brightness();
@@ -129,7 +118,6 @@ void HdrCalibrator::setOutput(const KScreen::ConfigPtr &config, const KScreen::O
     m_output = output;
     connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::maxPeakBrightnessOverrideChanged, this, &HdrCalibrator::peakBrightnessOverrideChanged);
-    connect(output.get(), &KScreen::Output::maxAverageBrightnessOverrideChanged, this, &HdrCalibrator::maxAverageBrightnessOverrideChanged);
     connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::sdrBrightnessChanged, this, &HdrCalibrator::sdrBrightnessChanged);
 }
