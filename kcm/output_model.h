@@ -65,6 +65,7 @@ public:
         AutoBrightnessRole,
         HdrIccProfileRole,
         HdrColorProfileSourceRole,
+        AbmLevelRole,
     };
     Q_ENUM(OutputRoles)
 

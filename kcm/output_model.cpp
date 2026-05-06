@@ -168,6 +168,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return output->hdrIccProfilePath();
     case HdrColorProfileSourceRole:
         return uint32_t(output->hdrColorProfileSource());
+    case AbmLevelRole:
+        return output->abmLevel();
     }
     return QVariant();
 }
@@ -370,6 +372,10 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
         output.ptr->setHdrColorProfileSource(KScreen::Output::ColorProfileSource(value.toUInt()));
         Q_EMIT dataChanged(index, index, {role});
         return true;
+    case AbmLevelRole:
+        output.ptr->setAbmLevel(value.toUInt());
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
     }
     return false;
 }
@@ -421,6 +427,7 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[AutoBrightnessRole] = "automaticBrightness";
     roles[HdrIccProfileRole] = "hdrIccProfilePath";
     roles[HdrColorProfileSourceRole] = "hdrColorProfileSource";
+    roles[AbmLevelRole] = "abmLevel";
     return roles;
 }
 

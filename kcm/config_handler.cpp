@@ -177,7 +177,8 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
                     || output->sharpness() != config->sharpness()
                     || (isSaveCheck && output->automaticBrightness() != config->automaticBrightness())
                     || output->hdrColorProfileSource() != config->hdrColorProfileSource()
-                    || output->hdrIccProfilePath() != config->hdrIccProfilePath()) {
+                    || output->hdrIccProfilePath() != config->hdrIccProfilePath()
+                    || output->abmLevel() != config->abmLevel()) {
                         return true;
                     }
             }

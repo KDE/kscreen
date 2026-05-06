@@ -469,6 +469,41 @@ Due to graphics driver limitations, the actually used resolution cannot be known
     }
 
     RowLayout {
+        Layout.fillWidth: true
+        // Set the same limit as the device ComboBox
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 14
+        spacing: Kirigami.Units.smallSpacing
+
+        visible: (element.capabilities & KScreen.Output.Capability.AbmLevel)
+              && element.colorPowerPreference == KScreen.Output.ColorPowerTradeoff.PreferEfficiency
+        Kirigami.FormData.label: i18nc("@label", "Adaptive Backlight Modulation:")
+        Kirigami.FormData.buddyFor: abmLevelSlider
+
+        QQC2.Slider {
+            id: abmLevelSlider
+            Kirigami.StyleHints.tickMarkStepSize: stepSize
+            Layout.fillWidth: true
+            Layout.minimumWidth: root.sliderWidth
+            from: 0
+            to: 4
+            stepSize: 1
+            live: true
+            value: element.abmLevel
+            onMoved: element.abmLevel = value
+        }
+        QQC2.SpinBox {
+            from: 0
+            to: 4
+            stepSize: 1
+            value: element.abmLevel
+            onValueModified: element.abmLevel = value
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18nc("@info:tooltip", "Adaptive backlight modulation reduces power use at the cost of color accuracy")
+        }
+    }
+
+    RowLayout {
         id: ddcCiAllowedContainer
         // Set the same limit as the device ComboBox
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
