@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:45+0000\n"
+"POT-Creation-Date: 2026-05-07 00:46+0000\n"
 "PO-Revision-Date: 2025-05-15 19:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tds00@qq.com"
 
-#: hdrcalibrator.cpp:149 Main.qml:16
+#: hdrcalibrator.cpp:137 Main.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:45+0000\n"
+"POT-Creation-Date: 2026-05-07 00:46+0000\n"
 "PO-Revision-Date: 2026-03-17 15:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sv1@fellsnet.is"
 
-#: hdrcalibrator.cpp:149 Main.qml:16
+#: hdrcalibrator.cpp:137 Main.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
