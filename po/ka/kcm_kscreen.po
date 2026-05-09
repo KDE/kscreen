@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-02-21 03:43+0100\n"
+"PO-Revision-Date: 2026-05-08 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -584,7 +584,7 @@ msgstr "ზრდის sRGB შემცველობის ინტენ�
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "ადაპტური განათების მოდულაცია:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -592,6 +592,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"ადაპტური განათების მოდულაცია ამცირებს ენერგიის მოხმარებას ფერის სიზუსტის "
+"ფასად"
 
 #: ui/OutputPanel.qml:511
 #, kde-format

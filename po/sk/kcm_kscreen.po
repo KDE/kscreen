@@ -582,7 +582,7 @@ msgstr "Zvyšuje intenzitu obsahu na obrazovke, ktorý je v sRGB."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptívna modulácia podsvietenia:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -590,6 +590,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Adaptívna modulácia podsvietenia znižuje spotrebu energie na úkor presnosti "
+"farieb"
 
 #: ui/OutputPanel.qml:511
 #, kde-format

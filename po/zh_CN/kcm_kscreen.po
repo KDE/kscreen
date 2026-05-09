@@ -743,7 +743,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖动屏幕以重新排列它们"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "ICC profiles aren’t compatible with HDR yet."
-#~ msgstr "ICC 特性文件目前尚未兼容 HDR。"

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the kscreen package.
 # Automatically generated, 2015.
 #
-# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2015-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-02-22 00:29+0100\n"
+"PO-Revision-Date: 2026-05-08 16:13+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -591,7 +591,7 @@ msgstr "Aumenta la intensidad del contenido sRGB de la pantalla."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Modulación adaptativa de la retroiluminación:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -599,6 +599,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"La modulación adaptativa de la retroiluminación reduce el consumo de energía "
+"a costa de la precisión del color."
 
 #: ui/OutputPanel.qml:511
 #, kde-format
@@ -676,7 +678,7 @@ msgid ""
 "content."
 msgstr ""
 "EDR permite ver contenido HDR en pantallas SDR ajustando dinámicamente la "
-"luz de fondo.<nl/><nl/>Tenga en cuenta que esto aumenta el consumo de "
+"retroiluminación.<nl/><nl/>Tenga en cuenta que esto aumenta el consumo de "
 "batería cuando se visualiza contenido HDR."
 
 #: ui/OutputPanel.qml:635
@@ -781,7 +783,3 @@ msgstr "Sin rotación"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrastre las pantallas para modificar su distribución"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "ICC profiles aren’t compatible with HDR yet."
-#~ msgstr "Los perfiles ICC todavía no son compatibles con HDR."

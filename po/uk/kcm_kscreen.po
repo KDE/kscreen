@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-02-21 11:54+0200\n"
+"PO-Revision-Date: 2026-05-08 07:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -588,7 +588,7 @@ msgstr "Збільшує інтенсивність зображень sRGB на
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Адаптивна модуляція підсвічування:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -596,6 +596,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Адаптивна модуляція підсвічування зменшує споживання енергії за рахунок "
+"точності відтворення кольорів"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
