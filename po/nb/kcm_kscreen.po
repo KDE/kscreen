@@ -743,7 +743,3 @@ msgstr "Ingen rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermene for å bytte skjermplassering"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "ICC profiles aren’t compatible with HDR yet."
-#~ msgstr "ICC-profiler er ikke kompatible med HDR enda"
