@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022-2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-01-04 15:28+0530\n"
+"PO-Revision-Date: 2026-05-10 15:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -450,7 +450,7 @@ msgstr "HDR பிரகாசத்தை அளதிருத்த உதவ
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
-msgstr ""
+msgstr "அனைத்து மாற்றங்களையும் செயல்படுத்திய பின்னரே HDR சீரமைப்பைத் துவக்க முடியும்."
 
 #: ui/OutputPanel.qml:328
 #, kde-format
@@ -571,14 +571,14 @@ msgstr "திரையில் காட்டப்படும் sRGB ப�
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "நிறமறி பின்விளக்கு:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
-msgstr ""
+msgstr "ஆற்றல் பயன்பாட்டையும் நிறங்களின் துல்லியத்தையும் இது குறைக்கும்"
 
 #: ui/OutputPanel.qml:511
 #, kde-format

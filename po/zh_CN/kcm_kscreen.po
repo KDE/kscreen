@@ -560,14 +560,14 @@ msgstr "提高屏幕在显示 sRGB 内容时的色彩鲜艳度。"
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "自适应背光调节："
 
 #: ui/OutputPanel.qml:502
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
-msgstr ""
+msgstr "自适应背光调节 (ABM) 能够降低能耗，但会影响色彩准确性"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
