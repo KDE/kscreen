@@ -4,7 +4,6 @@
 # SPDX-FileCopyrightText: 2020-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
 # SPDX-FileCopyrightText: 2023-2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
@@ -13,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-04-22 19:54+0200\n"
+"PO-Revision-Date: 2026-05-11 21:43+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -602,7 +601,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptive Hintergrundbeleuchtungsmodulation:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -610,6 +609,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Die adaptive Hintergrundbeleuchtungsmodulation senkt den Stromverbrauch auf "
+"Kosten der Farbgenauigkeit"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
