@@ -1,0 +1,124 @@
+# Translation of hdrcalibrator to Norwegian Nynorsk
+#
+# SPDX-FileCopyrightText: 2026 Karl Ove Hufthammer <karl@huftis.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-05-07 00:46+0000\n"
+"PO-Revision-Date: 2026-05-15 23:07+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 26.04.1\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Karl Ove Hufthammer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karl@huftis.org"
+
+#: hdrcalibrator.cpp:137 Main.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "HDR-kalibrering"
+
+#: Main.qml:188 Main.qml:366
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Neste"
+
+#: Main.qml:195 Main.qml:372
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Går til neste side"
+
+#: Main.qml:199 Main.qml:376 Main.qml:476
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: Main.qml:202 Main.qml:379 Main.qml:479
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Avbryt kalibreringa"
+
+#: Main.qml:211
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"For å fastsetja maks lysstyrke til skjermen dreg du glidebrytaren til logoen "
+"så vidt er synleg"
+
+#: Main.qml:390
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth.\n"
+"To avoid brightness fluctuations, it's recommended to not exceed the "
+"display's maximum average brightness of %1cd/m²"
+msgstr ""
+
+#: Main.qml:392
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth."
+msgstr ""
+
+#: Main.qml:439
+#, kde-format
+msgid "Maximum luminance: %1cd/m²"
+msgstr "Høgaste lysstyrke: %1 cd/m²"
+
+#: Main.qml:460
+#, kde-format
+msgid "Reference luminance / paper white: %1cd/m²"
+msgstr "Referanse-lysstyrke (papirkvitt): %1 cd/m²"
+
+#: Main.qml:471
+#, kde-format
+msgctxt "@action:checkbox"
+msgid "Assume Windows HDR applications are calibrated for this screen"
+msgstr "Anta at Windows-HDR-program er kalibrerte for skjermen"
+
+#: Main.qml:483
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Ferdig"
+
+#: Main.qml:492
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Finish the calibration process"
+msgstr "Fullfør kalibreringa"
+
+#: Main.qml:501
+#, kde-format
+msgid ""
+"Many Windows applications come with their own calibration settings, which "
+"this system wide configuration conflicts with. If this option is set, their "
+"calibration settings will work as expected on this specific display."
+msgstr ""

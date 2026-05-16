@@ -1,13 +1,12 @@
 # Translation of kscreen_common to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2023.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2023-02-09 21:42+0100\n"
+"PO-Revision-Date: 2026-05-15 23:08+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,38 +14,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 #: osdaction.cpp:28
-#, fuzzy, kde-format
-#| msgid "Switch to external screen"
+#, kde-format
 msgid "Only use external screen"
-msgstr "Byt til ekstern skjerm"
+msgstr "Bruk berre ekstern skjerm"
 
 #: osdaction.cpp:29
-#, fuzzy, kde-format
-#| msgid "Built-in Screen"
+#, kde-format
 msgid "Only use built-in screen"
-msgstr "Innebygd skjerm"
+msgstr "Bruk berre innebygd skjerm"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Spegla skjermane"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Utvid til venstre for innebygd skjerm"
 
 #: osdaction.cpp:32
-#, fuzzy, kde-format
-#| msgid "Extend to right"
+#, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Utvid mot høgre"
+msgstr "Utvid til høgre for innebygd skjerm"
 
 #: osdaction.cpp:33
 #, kde-format
