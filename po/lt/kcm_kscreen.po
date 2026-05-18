@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-05-15 19:40+0300\n"
+"PO-Revision-Date: 2026-05-17 23:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -585,7 +585,7 @@ msgstr "Padidina sRGB turinio ekrane intensyvumą."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Prisitaikantis foninio apšvietimo moduliavimas:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -593,6 +593,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Prisitaikantis foninio apšvietimo moduliavimas sumažina elektros energijos "
+"sąnaudas spalvų tikslumo sąskaita"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
