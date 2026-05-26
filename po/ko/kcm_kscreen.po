@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-04-26 21:32+0200\n"
+"PO-Revision-Date: 2026-05-25 21:37+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
@@ -569,7 +569,7 @@ msgstr "화면에 sRGB 콘텐츠를 표시할 때 색상 강도를 증가시킵�
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "적응형 백라이트 변조:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -577,6 +577,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"적응형 백라이트 변조를 사용하면 색 정확성을 희생하면서 전력 소모를 줄입니다"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
