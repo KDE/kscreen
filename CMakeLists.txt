@@ -11,7 +11,7 @@ set(QT_MIN_VERSION "6.10.0")
 set(KF6_MIN_VERSION "6.24.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
@@ -107,6 +107,7 @@ add_subdirectory(plasmoid)
 add_subdirectory(tests)
 add_subdirectory(console)
 add_subdirectory(hdrcalibrator)
+add_subdirectory(kscreenctl)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)

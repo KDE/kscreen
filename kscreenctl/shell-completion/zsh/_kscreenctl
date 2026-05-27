@@ -1,0 +1,109 @@
+#compdef kscreenctl
+
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+_kscreenctl-connected-outputs() {
+    echo active-output
+    echo primary-output
+    kscreenctl list-outputs --names
+}
+
+_kscreenctl-enabled-outputs() {
+    local -a values=("${(@f)$(kscreenctl list-outputs --names --enabled)}")
+    values+=(active-output primary-output)
+    _describe -t outputs 'output' values
+}
+
+_kscreenctl-output-modes() {
+    local -a values=("${(@f)$(kscreenctl $1 list-modes)}")
+    _describe -t modes 'mode' values
+}
+
+_kscreenctl-list-outputs() {
+  _arguments \
+    '--disabled[Only list disabled outputs]' \
+    '--enabled[Only list enabled outputs]' \
+    '--names[Only display connector names]' \
+    '--json[Show output information as JSON]'
+}
+
+_kscreenctl-output() {
+  local curcontext="$curcontext" state line
+  local output="$1"
+
+  _arguments -C \
+    '1:command:(get-name set-scale set-position left-of right-of above below set-enabled toggle-enabled set-rotation set-dimming set-brightness set-sdr-brightness set-sdr-gamut add-custom-mode remove-custom-mode list-custom-modes set-hdr toggle-hdr set-wcg toggle-wcg set-hdr-and-wcg toggle-hdr-and-wcg set-auto-brightness toggle-auto-brightness set-replica-of set-icc-profile set-hdr-icc-profile set-color-profile-source set-hdr-color-profile-source set-color-power-tradeoff set-sharpness set-overscan set-priority set-primary set-vrr-policy set-rgb-range set-edr-policy set-auto-rotate set-min-brightness-override set-max-peak-brightness-override set-max-average-brightness-override set-ddc-ci-allowed set-maxbpc set-abm list-modes set-mode calibrate-hdr)' \
+    '*::arg:->args'
+
+  case $line[1] in
+  get-name) ;;
+  set-scale) _alternative 'scale::(100% 125% 150% 175% 200% 225% 250% 275% 300%)' ;;
+  set-position) _arguments '1:x:_numbers' '2:y:_numbers' ;;
+  left-of) _kscreenctl-enabled-outputs ;;
+  right-of) _kscreenctl-enabled-outputs ;;
+  above) _kscreenctl-enabled-outputs ;;
+  below) _kscreenctl-enabled-outputs ;;
+  set-enabled) _alternative 'enabled::(on off)' ;;
+  toggle-enabled) ;;
+  set-rotation) _alternative 'rotation::(none normal left right inverted flipped 0 90 180 270 flipped90 flipped180 flipped270)' ;;
+  set-dimming) _numbers -t 'dimming' -u percents -l 0 -m 100 ;;
+  set-brightness) _numbers -t 'brightness' -u percents -l 0 -m 100 ;;
+  set-sdr-brightness) _numbers -t 'sdr-brightness' -u nits -l 100 -m 10000 ;;
+  set-sdr-gamut) _numbers -t 'wideness' -u percents -l 0 -m 100 ;;
+  add-custom-mode) _arguments '--reduced-blanking[Add a custom mode with reduced blanking]' ;;
+  remove-custom-mode) ;;
+  list-custom-modes) ;;
+  set-hdr) _alternative 'hdr::(on off)' ;;
+  toggle-hdr) ;;
+  set-wcg) _alternative 'wcg::(on off)' ;;
+  toggle-wcg) ;;
+  set-hdr-and-wcg) _alternative 'hdr-and-wcg::(on off)' ;;
+  toggle-hdr-and-wcg) ;;
+  set-auto-brightness) _alternative 'auto-brightness::(on off)' ;;
+  toggle-auto-brightness) ;;
+  set-replica-of) _kscreenctl-enabled-outputs ;;
+  set-icc-profile) _files ;;
+  set-hdr-icc-profile) _files ;;
+  set-color-profile-source) _alternative 'source::(sRGB ICC EDID)' ;;
+  set-hdr-color-profile-source) _alternative 'source::(ICC EDID)' ;;
+  set-color-power-tradeoff) _alternative 'tradeoff::(prefer-efficiency prefer-accuracy)' ;;
+  set-sharpness) _numbers -t 'sharpness' -l 0 -m 100 ;;
+  set-overscan) _numbers -t 'overscan' -l 0 -m 100 ;;
+  set-priority) _numbers -t 'priority' -l 0 -m 100 ;;
+  set-primary) ;;
+  set-vrr-policy) _alternative 'vrr-policy::(never always automatic)' ;;
+  set-rgb-range) _alternative 'rgb-range::(limited full automatic)' ;;
+  set-edr-policy) _alternative 'edr-policy::(never always)' ;;
+  set-auto-rotate) _alternative 'auto-rotate::(never in-tablet-mode always)' ;;
+  set-min-brightness-override) ;;
+  set-max-peak-brightness-override) ;;
+  set-max-average-brightness-override) ;;
+  set-ddc-ci-allowed) _alternative 'allowed::(true false)' ;;
+  set-maxbpc) _alternative 'bpc::(automatic 6 8 10 12 14 16)' ;;
+  set-abm) _numbers -t 'abm' -l 0 -m 4 ;;
+  list-modes) ;;
+  set-mode) _kscreenctl-output-modes "$output" ;;
+  calibrate-hdr) ;;
+  esac
+}
+
+_kscreenctl() {
+  local curcontext="$curcontext" state line
+
+  _arguments -C \
+    '1:command:(identify list-outputs on off $(_kscreenctl-connected-outputs))' \
+    '*::arg:->args'
+
+  if [[ -n $line[1] ]]; then
+    case $line[1] in
+    identify) ;;
+    list-outputs) _kscreenctl-list-outputs ;;
+    on) ;;
+    off) ;;
+    *) _kscreenctl-output "$line[1]" ;;
+    esac
+  fi
+}
+
+_kscreenctl "$@"
