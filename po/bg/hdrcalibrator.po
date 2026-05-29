@@ -133,13 +133,3 @@ msgstr ""
 "които влизат в конфликт с тази системна конфигурация. Ако тази опция е "
 "активирана, настройките за калибриране ще работят както се очаква на този "
 "конкретен дисплей."
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "За да определите максималната средна яркост на екрана, регулирайте "
-#~ "плъзгача, докато логото стане едва видимо"
-
-#~ msgid "Maximum fullscreen luminance: %1cd/m²"
-#~ msgstr "Максимална яркост на цял екран: %1cd/m²"
