@@ -35,3 +35,4 @@ Options:
  require-passing-tests-on: ['@all']
  json-validate-ignore: ['tests/kded/serializerdata/corruptConfig.json']
  run-qmllint: true
+ enable-lsan: true
