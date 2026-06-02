@@ -1,37 +1,37 @@
-# Copyright (C) 2023 This file is copyright:
+# Uyghur translation for kcm_kscreen.
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kscreen package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-06-01 12:40+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
-"Language: is\n"
+"PO-Revision-Date: 2026-05-31 19:40-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
 msgid "Implementation error"
-msgstr "Innleiðingarvilla"
+msgstr ""
 
 #: kcm.cpp:198
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr "Úttök breyttust á meðan reynt var að virkja stillingar"
+msgstr ""
 
 #: output_model.cpp:101
 #, kde-format
 msgid "%1 Hz"
-msgstr "%1 Hz"
+msgstr ""
 
 #: output_model.cpp:764
 #, kde-format
@@ -43,41 +43,41 @@ msgstr "%1 × %2"
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
-msgstr "%1 × %2 (%3:%4)"
+msgstr ""
 
 #: output_model.cpp:892
 #, kde-format
 msgid "Replicated by other output"
-msgstr "Eftirlíking gerð eftir öðru úttaki"
+msgstr ""
 
 #: output_model.cpp:896
 #, kde-format
 msgid "None"
-msgstr "Ekkert"
+msgstr "يوق"
 
 #: ui/ColorProfileSelector.qml:28
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color profile:"
-msgstr "Litasnið:"
+msgstr ""
 
 #: ui/ColorProfileSelector.qml:37
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "None"
-msgstr "Ekkert"
+msgstr "يوق"
 
 #: ui/ColorProfileSelector.qml:42
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "ICC profile"
-msgstr "ICC-litasnið"
+msgstr ""
 
 #: ui/ColorProfileSelector.qml:47
 #, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr "Innbyggt"
+msgstr "ئىچكى"
 
 #: ui/ColorProfileSelector.qml:68
 #, kde-format
@@ -87,67 +87,63 @@ msgid ""
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"Nota litasniðið sem er innbyggt í skjáinn sjálfan, ef það er til staðar. "
-"Athugaðu að stundum innbyggð litasnið röng og mjög oft ónákvæm. Fyrir "
-"nákvæmni við birtingu lita er mælt með litkvörðun með litamæli (colorimeter)."
 
 #: ui/IccSelector.qml:33
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Settu inn slóð fyrir ICC-litasnið..."
+msgstr ""
 
 #: ui/IccSelector.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Veldu ICC-litasnið..."
+msgstr ""
 
 #: ui/IccSelector.qml:58
 #, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr "Opnar skráavalglugga fyrir ICC-litasniðið"
+msgstr ""
 
 #: ui/IccSelector.qml:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr "Velja ICC-litasnið"
+msgstr ""
 
 #: ui/main.qml:43
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
-msgstr "Auðkenna skjái"
+msgstr ""
 
 #: ui/main.qml:56
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Halda þessari skjáuppsetningu?"
+msgstr ""
 
 #: ui/main.qml:67
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] "Snýr aftur í fyrri uppsetningu eftir %1 sekúndu."
-msgstr[1] "Snýr aftur í fyrri uppsetningu eftir %1 sekúndur."
+msgstr[0] ""
 
 #: ui/main.qml:84
 #, kde-format
 msgid "&Keep"
-msgstr "&Halda"
+msgstr ""
 
 #: ui/main.qml:97
 #, kde-format
 msgid "&Revert"
-msgstr "Aftu&rkalla"
+msgstr "ئەسلىگە قايتۇر(&R)"
 
 #: ui/main.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr "Allir skjáir eru óvirkir. Gerðu a.m.k. einn virkan."
+msgstr ""
 
 #: ui/main.qml:119
 #, kde-format
@@ -155,141 +151,139 @@ msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
-"Ekki er stuðningur við bil á milli skjáa. Gakktu úr skugga um að skjáirnir "
-"snertist. "
 
 #: ui/main.qml:124
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Gat ekki virkjað skjáuppsetningu: %1"
+msgstr ""
 
 #: ui/main.qml:133
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
-msgstr "Nýju úttaki var bætt við. Stillingarnar hafa verið endurhlaðnar."
+msgstr ""
 
 #: ui/main.qml:135
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
-msgstr "Úttak var fjarlægt. Stillingar hafa verið endurhlaðnar."
+msgstr ""
 
 #: ui/main.qml:189
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
-msgstr "Enginn KScreen-bakendi fannst. Athugaðu uppsetningu þína á KScreen."
+msgstr ""
 
 #: ui/main.qml:198
 #, kde-format
 msgid "Outputs could not be saved due to error."
-msgstr "Ekki var hægt að vista úttök vegna villu."
+msgstr ""
 
 #: ui/main.qml:207
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr "Altækar breytingar á skjástærð verða virkar þegar tölvan er endurræst."
+msgstr ""
 
 #: ui/main.qml:213
 #, kde-format
 msgid "Restart"
-msgstr "Endurræsa"
+msgstr "قايتا قوزغات"
 
 #: ui/main.qml:231
 #, kde-format
 msgid "Display configuration reverted."
-msgstr "Skjáuppsetning afturkölluð."
+msgstr ""
 
 #: ui/main.qml:245
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr "Breyta forgangi"
+msgstr ""
 
 #: ui/main.qml:275 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
-msgstr "Aðal"
+msgstr ""
 
 #: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
-msgstr "Hækka forgang"
+msgstr ""
 
 #: ui/main.qml:290
 #, kde-format
 msgid "Lower priority"
-msgstr "Lækka forgang"
+msgstr ""
 
 #: ui/main.qml:402
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr "Fella saman"
+msgstr "يىغ"
 
 #: ui/main.qml:403
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
-msgstr "Breyta uppstillingu"
+msgstr ""
 
 #: ui/Orientation.qml:14
 #, kde-format
 msgid "Orientation:"
-msgstr "Stefna:"
+msgstr "يۆنىلىش:"
 
 #: ui/Orientation.qml:27 ui/OutputPanel.qml:172 ui/OutputPanel.qml:217
 #, kde-format
 msgid "Automatic"
-msgstr "Sjálfvirkt"
+msgstr "ئاپتوماتىك"
 
 #: ui/Orientation.qml:42
 #, kde-format
 msgid "Only when in tablet mode"
-msgstr "Aðeins í teikniborðssniði"
+msgstr ""
 
 #: ui/Orientation.qml:58
 #, kde-format
 msgid "Manual"
-msgstr "Handvirkt"
+msgstr "قولدا"
 
 #: ui/Output.qml:21
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr "(%1 × %2, %3%)"
+msgstr ""
 
 #: ui/Output.qml:23
 #, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr "(%1 × %2)"
+msgstr ""
 
 #: ui/Output.qml:226
 #, kde-format
 msgid "%1, %2"
-msgstr "%1, %2"
+msgstr "%1، %2"
 
 #: ui/Output.qml:252
 #, kde-format
 msgid "Replicas"
-msgstr "Eftirlíkingar"
+msgstr ""
 
 #: ui/OutputPanel.qml:31
 #, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
-msgstr "Tæki:"
+msgstr "ئۈسكۈنە:"
 
 #: ui/OutputPanel.qml:32
 #, kde-format
 msgid "Enabled"
-msgstr "Virkt"
+msgstr "قوزغىتىلغان"
 
 #: ui/OutputPanel.qml:43
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Breyta skjáforgangi..."
+msgstr ""
 
 #: ui/OutputPanel.qml:56
 #, kde-kuit-format
@@ -300,32 +294,28 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
-"Þetta sker úr um það á hvaða skjá aðalskjáborðið þitt birtist ásamt Plasma-"
-"skjáborðsstikum sem tilheyra því. Sumir eldri leikir nota þessa stillingu "
-"líka til að ákvarða á hvaða skjá þeir birtast.<nl/><nl/>Þetta hefur engin "
-"áhrif á það á hvaða skjá tilkynningar eða aðrir gluggar birtast."
 
 #: ui/OutputPanel.qml:61
 #, kde-format
 msgid "Resolution:"
-msgstr "Upplausn:"
+msgstr "ئېنىقلىق دەرىجىسى:"
 
 #: ui/OutputPanel.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
-msgstr "“%1” er eina upplausnin sem þessi skjár styður."
+msgstr ""
 
 #: ui/OutputPanel.qml:92
 #, kde-format
 msgid "Scale:"
-msgstr "Kvarði:"
+msgstr "نىسبىتى:"
 
 #: ui/OutputPanel.qml:98 ui/Panel.qml:62
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr "sem prósenta af venjulegum kvarða"
+msgstr ""
 
 #: ui/OutputPanel.qml:129 ui/Panel.qml:94
 #, kde-format
@@ -336,13 +326,13 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:141
 #, kde-format
 msgid "Refresh rate:"
-msgstr "Endurnýjunartíðni:"
+msgstr ""
 
 #: ui/OutputPanel.qml:162
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
-msgstr "“%1” er eina endurnýjunartíðnin sem þessi skjár styður."
+msgstr ""
 
 #: ui/OutputPanel.qml:163
 #, kde-format
@@ -351,28 +341,26 @@ msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
 msgstr ""
-"“%1” er eina endurnýjunartíðnin sem þessi skjár styður með núverandi "
-"upplausn."
 
 #: ui/OutputPanel.qml:168
 #, kde-format
 msgid "Adaptive sync:"
-msgstr "Samstillingaraðlögun:"
+msgstr ""
 
 #: ui/OutputPanel.qml:171
 #, kde-format
 msgid "Never"
-msgstr "Aldrei"
+msgstr "ھەرگىز"
 
 #: ui/OutputPanel.qml:173
 #, kde-format
 msgid "Always"
-msgstr "Alltaf"
+msgstr "ھەمىشە"
 
 #: ui/OutputPanel.qml:184
 #, kde-format
 msgid "Overscan:"
-msgstr "Yfirskönnun:"
+msgstr ""
 
 #: ui/OutputPanel.qml:198
 #, kde-format
@@ -388,24 +376,21 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
-"Skilgreinir hversu mikil fylling er umhverfis myndina sem send er á skjáinn "
-"til að vinna upp á móti þeim hluta efnisins sem skorinn er af við brúnirnar."
-"<nl/><nl/>Þetta er stundum nauðsynlegt þegar sjónvarp er notað sem skjár"
 
 #: ui/OutputPanel.qml:209
 #, kde-format
 msgid "RGB range:"
-msgstr "RGB-svið:"
+msgstr ""
 
 #: ui/OutputPanel.qml:218
 #, kde-format
 msgid "Full"
-msgstr "Fullt"
+msgstr "تامامەن"
 
 #: ui/OutputPanel.qml:219
 #, kde-format
 msgid "Limited"
-msgstr "Takmarkað"
+msgstr ""
 
 #: ui/OutputPanel.qml:229
 #, kde-kuit-format
@@ -415,65 +400,60 @@ msgid ""
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
-"Skilgreinir hvort takmarka þurfi svið mögulegra litagilda fyrir skjáinn eða "
-"ekki. Þessu ætti einungis að breyta ef litirnir á skjánum virðast daufir og "
-"ógreinilegir."
 
 #: ui/OutputPanel.qml:280
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr "Mikið styrksvið (HDR):"
+msgstr ""
 
 #: ui/OutputPanel.qml:287
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Virkja &HDR"
+msgstr ""
 
 #: ui/OutputPanel.qml:293
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
-msgstr "HDR gerir samhæfum forritum kleift að sýna bjartari og líflegri liti."
+msgstr ""
 
 #: ui/OutputPanel.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr "Kvarða HDR-birtustig..."
+msgstr ""
 
 #: ui/OutputPanel.qml:316
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr "Opnar glugga til að kvarða HDR-birtustig"
+msgstr ""
 
 #: ui/OutputPanel.qml:321
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
-"HDR-litkvörðun er aðeins hægt að ræsa ef allar stillingar hafa verið "
-"virkjaðar."
 
 #: ui/OutputPanel.qml:328
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr "Litanákvæmni:"
+msgstr ""
 
 #: ui/OutputPanel.qml:337
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr "Skilvirkni í forgangi"
+msgstr ""
 
 #: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr "Litanákvæmni í forgangi"
+msgstr ""
 
 #: ui/OutputPanel.qml:348
 #, kde-kuit-format
@@ -483,9 +463,6 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
-"Ef litanákvæmni er í forgangi takmarkar það mögula ónákvæma sendingu "
-"litaaðgerða til skjárekilsins og eykur hámarkslitaupplausn.<nl/><nl/"
-">Athugaðu að þessi stilling getur haft mikil áhrif á afköst."
 
 #: ui/OutputPanel.qml:354
 #, kde-kuit-format
@@ -495,33 +472,30 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
-"Ef skilvirkni er í forgangi er ICC-sniðið einfaldað í fylki+mótari (matrix"
-"+shaper) sem bætir afköst á kostnað litanákvæmni.<nl/><nl/>Athugaðu að þessi "
-"stilling getur haft mikil áhrif á afköst."
 
 #: ui/OutputPanel.qml:362
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr "Takmarka litaupplausn við:"
+msgstr ""
 
 #: ui/OutputPanel.qml:383
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr "Sjálfvirkt (%1 bitar á lit)"
+msgstr ""
 
 #: ui/OutputPanel.qml:385 ui/OutputPanel.qml:398
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr "%1 bitar á lit"
+msgstr ""
 
 #: ui/OutputPanel.qml:396
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr "Sjálfvirkt (%1 bitar á lit)"
+msgstr ""
 
 #: ui/OutputPanel.qml:408
 #, kde-kuit-format
@@ -533,12 +507,6 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
-"Takmarkar litupplausnina sem send er til skjásins. Þetta hefur ekki áhrif á "
-"skjámyndatöku eða skjáupptokur.<nl/><nl/>Þar sem skjárinn er núna tengdur í "
-"gegnum dokku eða tengikví hefur sjálfvirk litupplausn verit tímabundið "
-"stillt á 8 bita til að komast framhjá algengum vandamálum varðandi dokkur."
-"<nl/><nl/>Vegna takmarkana í skjáreklum er ómögulegt að vita raunverulega "
-"litupplausn sem verið er að nota."
 
 #: ui/OutputPanel.qml:412
 #, kde-kuit-format
@@ -550,17 +518,12 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
-"Takmarkar litupplausnina sem send er til skjásins. Þetta hefur ekki áhrif á "
-"skjámyndatöku eða skjáupptokur.<nl/><nl/>Takmörkun á litupplausn getur nýst "
-"til að komast framhjá vandamálum varðandi skjá eða skjárekla.<nl/><nl/>Vegna "
-"takmarkana í skjáreklum er ómögulegt að vita raunverulega litupplausn sem "
-"verið er að nota."
 
 #: ui/OutputPanel.qml:427
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr "sRGB-litstyrkur:"
+msgstr ""
 
 #: ui/OutputPanel.qml:459
 #, kde-format
@@ -572,13 +535,13 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Eykur styrk sRGB-efnis á skjánum."
+msgstr ""
 
 #: ui/OutputPanel.qml:479
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr "Mótun aðlaganlegrar baklýsingar:"
+msgstr ""
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -586,19 +549,18 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
-"Mótun aðlaganlegrar baklýsingar minnkar orkunotkun á kostnað nákvæmni lita"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr "Birtustig:"
+msgstr "يورۇقلۇق:"
 
 #: ui/OutputPanel.qml:517
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr "Stjórna birtustigi vélbúnaðar með DDC/CI"
+msgstr ""
 
 #: ui/OutputPanel.qml:523
 #, kde-format
@@ -608,9 +570,6 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
-"DDC/CI er eiginleiki sem margir skjáir styðja. Plasma getur notað hann til "
-"að stilla skjábirtustigið í gegnum skjáborðið, rétt eins og verið sé að nota "
-"hnappana og OSD-valmyndina á skjánum sjálfum."
 
 #: ui/OutputPanel.qml:558
 #, kde-format
@@ -621,7 +580,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:572
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr "Aðlagast umhverfinu sjálfvirkt"
+msgstr ""
 
 #: ui/OutputPanel.qml:577
 #, kde-format
@@ -632,27 +591,24 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
-"Aðlagaðu birtustig skjásins sjálfvirkt út frá birtu umhverfisins, eins og "
-"hún er skynjuð af tækinu. Ef þú breytir birtustiginu handvirkt, munu þær "
-"breytingar vera geymdar og teknar með í reikninginn."
 
 #: ui/OutputPanel.qml:589
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr "Skerpa:"
+msgstr "ئۆتكۈرلۈك:"
 
 #: ui/OutputPanel.qml:619
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr "Aukið styrksvið (EDR):"
+msgstr ""
 
 #: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
-msgstr "Virkja EDR"
+msgstr ""
 
 #: ui/OutputPanel.qml:630
 #, kde-kuit-format
@@ -662,30 +618,27 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
-"EDR gerir kleift að horfa á HDR-efni á SDR-skjám með því að stilla "
-"baklýsinguna dýnamískt.<nl/><nl/>Athugaðu að þetta eykur álagið á rafhlöðuna "
-"á meðan HDR-efni er skoðað."
 
 #: ui/OutputPanel.qml:635
 #, kde-format
 msgid "Replica of:"
-msgstr "Eftirlíking af:"
+msgstr ""
 
 #: ui/Panel.qml:55
 #, kde-format
 msgid "Global scale:"
-msgstr "Almenn kvörðun:"
+msgstr ""
 
 #: ui/Panel.qml:118 ui/Panel.qml:138
 #, kde-format
 msgid "Legacy applications (X11):"
-msgstr "Eldri forrit (X11):"
+msgstr ""
 
 #: ui/Panel.qml:123
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Stilla sjálf kvörðun"
+msgstr ""
 
 #: ui/Panel.qml:128
 #, kde-format
@@ -693,14 +646,12 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
-"Eldri forrit sem styðja kvörðun nota hana og eru skörp á skjánum, en þau sem "
-"gera það ekki verða ekki kvörðuð á neinn hátt."
 
 #: ui/Panel.qml:139
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Kvörðuð af stýrikerfinu"
+msgstr ""
 
 #: ui/Panel.qml:144
 #, kde-format
@@ -708,21 +659,19 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
-"Öll eldri forrit verða kvörðuð af stýrikerfinu í rétta stærð, hins vegar "
-"gætu þau verið svolítið óskýr í útliti."
 
 #: ui/Panel.qml:149
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
-msgstr "Rifgallar:"
+msgstr ""
 
 #: ui/Panel.qml:152
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr "Leyfa í gluggum sem fylla skjáinn"
+msgstr ""
 
 #: ui/Panel.qml:157
 #, kde-format
@@ -731,8 +680,6 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
-"Rifgallar draga úr biðtíma (latency) á flestum skjám. Athugaðu að ekki öll "
-"skjákort styðja þessa stillingu."
 
 #: ui/Panel.qml:171
 #, kde-format
@@ -740,65 +687,28 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
-"Almenna kvörðunin takmarkast við margfeldi af 6.25% til að lágmarka "
-"sýnilegar truflanir í forritum sem nota X11-gluggakerfið."
 
 #: ui/RotationButton.qml:54
 #, kde-format
 msgid "90° Clockwise"
-msgstr "90° réttsælis"
+msgstr ""
 
 #: ui/RotationButton.qml:58
 #, kde-format
 msgid "Upside Down"
-msgstr "Á hvolfi"
+msgstr ""
 
 #: ui/RotationButton.qml:62
 #, kde-format
 msgid "90° Counterclockwise"
-msgstr "90° rangsælis"
+msgstr ""
 
 #: ui/RotationButton.qml:67
 #, kde-format
 msgid "No Rotation"
-msgstr "Enginn snúningur"
+msgstr ""
 
 #: ui/ScreenView.qml:53
 #, kde-format
 msgid "Drag screens to re-arrange them"
-msgstr "Dragðu til skjái til að raða þeim upp á nýtt"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "ICC profiles aren’t compatible with HDR yet."
-#~ msgstr "ICC-litasnið eru ekki enn samhæf við HDR."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Limits the color resolution of the image that is sent to the display. "
-#~ "This does not affect screenshots or recordings.<nl/><nl/>"
-#~ msgstr ""
-#~ "Takmarkar litaupplausnina á myndinni sem send á skjáinn. Þetta hefur ekki "
-#~ "áhrif á skjámyndir eða upptökur.<nl/><nl/>"
-
-#, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid "The built-in color profile is always used with HDR."
-#~ msgctxt "@info:tooltip"
-#~ msgid "The screen's built-in color profile is always used with HDR."
-#~ msgstr "Innbyggða litasniðið er alltaf notað með HDR."
-
-#, fuzzy
-#~| msgctxt "@label"
-#~| msgid "SDR Brightness:"
-#~ msgctxt "@label"
-#~ msgid "Maximum SDR brightness:"
-#~ msgstr "SDR-birtustig:"
-
-#~ msgctxt "Width x height"
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Sets the brightness of non-HDR content on the screen, in nits"
-#~ msgstr ""
-#~ "Stillir birtustig fyrir efni á skjánum sem er ekki í HDR, í nit-einingum"
+msgstr ""
