@@ -76,24 +76,8 @@ set_package_properties(WaylandProtocols PROPERTIES
     URL "https://gitlab.freedesktop.org/wayland/wayland-protocols/"
 )
 
-option(WITH_X11 "Enable X11 support" ON)
-
-if(WITH_X11)
-    find_package(X11)
-    set_package_properties(X11 PROPERTIES
-        DESCRIPTION "X11 libraries"
-        URL "https://www.x.org"
-        PURPOSE "Required for touchscreen XInput mapping to internal display"
-        TYPE REQUIRED
-    )
-    find_package(X11_XCB REQUIRED)
-    find_package(XCB REQUIRED COMPONENTS XCB ATOM)
-endif()
-
 ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
 ecm_find_qmlmodule(org.kde.plasma.plasma5support REQUIRED)
-
-configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 
 ecm_set_disabled_deprecation_versions(QT 6.8.0
     KF 6.12.0
