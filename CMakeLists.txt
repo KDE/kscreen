@@ -101,7 +101,6 @@ ecm_set_disabled_deprecation_versions(QT 6.8.0
 
 add_subdirectory(common)
 add_subdirectory(kcm)
-add_subdirectory(kded)
 add_subdirectory(osd)
 add_subdirectory(plasmoid)
 add_subdirectory(tests)
