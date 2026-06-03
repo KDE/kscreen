@@ -12,7 +12,6 @@
 #include <LayerShellQt/Window>
 
 #include <KWindowSystem>
-#include <KX11Extras>
 
 #include <Plasma/Plasma>
 
@@ -67,25 +66,13 @@ void Osd::showActionSelector()
         QMetaObject::invokeMethod(m_osdActionSelector->rootObject(), "moveRight");
     }
 
-    if (KWindowSystem::isPlatformWayland()) {
-        auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
-        layerWindow->setScope(QStringLiteral("on-screen-display"));
-        layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
-        layerWindow->setAnchors({});
-        layerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
-        m_osdActionSelector->setScreen(screen);
-        m_osdActionSelector->setVisible(true);
-    } else {
-        auto newGeometry = m_osdActionSelector->geometry();
-        newGeometry.moveCenter(screen->geometry().center());
-        KX11Extras::setState(m_osdActionSelector->winId(), NET::SkipPager | NET::SkipSwitcher | NET::SkipTaskbar);
-        KX11Extras::setType(m_osdActionSelector->winId(), NET::OnScreenDisplay);
-        m_osdActionSelector->setVisible(true);
-        // Workaround wrong geometry by setting geometry after it is visible, not before.
-        // Because KWin replace OSD at lower area of the screen.
-        m_osdActionSelector->setGeometry(newGeometry);
-        m_osdActionSelector->requestActivate();
-    }
+    auto layerWindow = LayerShellQt::Window::get(m_osdActionSelector.get());
+    layerWindow->setScope(QStringLiteral("on-screen-display"));
+    layerWindow->setLayer(LayerShellQt::Window::LayerOverlay);
+    layerWindow->setAnchors({});
+    layerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
+    m_osdActionSelector->setScreen(screen);
+    m_osdActionSelector->setVisible(true);
 }
 
 void Osd::onOsdActionSelected(int action)
