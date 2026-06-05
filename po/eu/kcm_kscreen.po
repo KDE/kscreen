@@ -1,7 +1,7 @@
 # Translation for kcm_kscreen.po to Euskara/Basque (eu).
 # Copyright (C) 2019-2026 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023-2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-02-21 23:24+0100\n"
+"PO-Revision-Date: 2026-06-04 21:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: kcm.cpp:148 kcm.cpp:170
 #, kde-format
 msgid "Implementation error"
-msgstr "Inplementazio errorea"
+msgstr "Inplementazio-errorea"
 
 #: kcm.cpp:198
 #, kde-format
@@ -586,7 +586,7 @@ msgstr "Pantailan, sRGB edukiaren intentsitatea handiagotzen du."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Atzeko argiztapenaren modulazio moldakorra:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -594,6 +594,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Atzeko argiztapenaren modulazio moldakorrak energia-kontsumoa murrizten du, "
+"koloreen zehaztasunaren kaltetan."
 
 #: ui/OutputPanel.qml:511
 #, kde-format
