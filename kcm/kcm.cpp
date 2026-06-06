@@ -5,6 +5,7 @@
 */
 #include "kcm.h"
 
+#include <qqml.h>
 
 #include "common/control.h"
 #include "config_handler.h"
