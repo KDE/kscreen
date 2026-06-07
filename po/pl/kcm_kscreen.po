@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-07 00:46+0000\n"
 "PO-Revision-Date: 2026-05-16 13:09+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -19,12 +19,12 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: kcm.cpp:148 kcm.cpp:170
+#: kcm.cpp:149 kcm.cpp:171
 #, kde-format
 msgid "Implementation error"
 msgstr "Błąd implementacji"
 
-#: kcm.cpp:198
+#: kcm.cpp:199
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Wyjścia zmieniły się podczas próby zastosowania ustawień"
