@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-07 02:48+0000\n"
 "PO-Revision-Date: 2026-05-08 15:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: kcm.cpp:148 kcm.cpp:170
+#: kcm.cpp:149 kcm.cpp:171
 #, kde-format
 msgid "Implementation error"
 msgstr "Implementatiefout"
 
-#: kcm.cpp:198
+#: kcm.cpp:199
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Uitvoer is gewijzigd bij proberen instellingen toe te passen"
