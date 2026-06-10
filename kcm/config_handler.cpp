@@ -107,9 +107,6 @@ void ConfigHandler::checkNeedsSave()
 
 bool ConfigHandler::checkPrioritiesNeedSave()
 {
-    if (!(m_config->supportedFeatures() & KScreen::Config::Feature::PrimaryDisplay)) {
-        return false;
-    }
     // first item of pair is initial config, second is current
     QMap<QString, std::pair<std::optional<uint32_t>, std::optional<uint32_t>>> map;
 

@@ -29,10 +29,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(QAbstractItemModel *outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
-    Q_PROPERTY(bool xwaylandClientsScaleSupported READ xwaylandClientsScaleSupported NOTIFY xwaylandClientsScaleSupportedChanged)
-    Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
-    Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
-    Q_PROPERTY(bool tearingSupported READ tearingSupported NOTIFY tearingSupportedChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
@@ -62,16 +58,11 @@ public:
     Q_INVOKABLE QSize normalizeScreen() const;
     bool screenNormalized() const;
 
-    bool primaryOutputSupported() const;
-    bool outputReplicationSupported() const;
-
     bool xwaylandClientsScale() const;
     void setXwaylandClientsScale(bool scale);
-    bool xwaylandClientsScaleSupported() const;
 
     void setAllowTearing(bool allow);
     bool allowTearing() const;
-    bool tearingSupported() const;
 
     bool tabletModeAvailable() const;
 
@@ -90,8 +81,6 @@ Q_SIGNALS:
     void backendError();
     void changed();
     void screenNormalizedChanged();
-    void primaryOutputSupportedChanged();
-    void outputReplicationSupportedChanged();
     void autoRotationSupportedChanged();
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
@@ -101,8 +90,6 @@ Q_SIGNALS:
     void settingsReverted();
     void showRevertWarning();
     void xwaylandClientsScaleChanged();
-    void xwaylandClientsScaleSupportedChanged();
-    void tearingSupportedChanged();
     void tearingAllowedChanged();
     void multipleScreensAvailableChanged();
 
