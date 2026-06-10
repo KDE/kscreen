@@ -29,7 +29,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(QAbstractItemModel *outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
-    Q_PROPERTY(bool perOutputScaling READ perOutputScaling NOTIFY perOutputScalingChanged)
     Q_PROPERTY(bool xwaylandClientsScaleSupported READ xwaylandClientsScaleSupported NOTIFY xwaylandClientsScaleSupportedChanged)
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
@@ -63,7 +62,6 @@ public:
     Q_INVOKABLE QSize normalizeScreen() const;
     bool screenNormalized() const;
 
-    bool perOutputScaling() const;
     bool primaryOutputSupported() const;
     bool outputReplicationSupported() const;
 
@@ -92,7 +90,6 @@ Q_SIGNALS:
     void backendError();
     void changed();
     void screenNormalizedChanged();
-    void perOutputScalingChanged();
     void primaryOutputSupportedChanged();
     void outputReplicationSupportedChanged();
     void autoRotationSupportedChanged();

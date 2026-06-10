@@ -88,7 +88,6 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     setBackendReady(true);
     checkConfig();
-    Q_EMIT perOutputScalingChanged();
     Q_EMIT xwaylandClientsScaleSupportedChanged();
     Q_EMIT tearingSupportedChanged();
     Q_EMIT primaryOutputSupportedChanged();
@@ -252,14 +251,6 @@ bool KCMKScreen::screenNormalized() const
     return m_screenNormalized;
 }
 
-bool KCMKScreen::perOutputScaling() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::PerOutputScaling);
-}
-
 bool KCMKScreen::primaryOutputSupported() const
 {
     if (!m_configHandler || !m_configHandler->config()) {
@@ -325,7 +316,6 @@ void KCMKScreen::load()
     m_configHandler.reset(new ConfigHandler(this));
     m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
 
-    Q_EMIT perOutputScalingChanged();
     Q_EMIT xwaylandClientsScaleSupportedChanged();
     Q_EMIT tearingSupportedChanged();
     Q_EMIT tearingAllowedChanged();
