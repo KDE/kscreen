@@ -847,17 +847,12 @@ QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
     return hits;
 }
 
-int OutputModel::replicationSourceId(const Output &output) const
-{
-    return output.ptr->replicationSource();
-}
-
 std::optional<QList<KScreen::OutputPtr>> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
 {
     QList<KScreen::OutputPtr> ret;
     for (const auto &out : m_outputs) {
         if (out.ptr->id() != output->id()) {
-            const int outSourceId = replicationSourceId(out);
+            const int outSourceId = out.ptr->replicationSource();
             if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
                 return std::nullopt;
@@ -892,50 +887,6 @@ QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output
     return ret;
 }
 
-static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
-{
-    auto calculateAspectRatio = [](const auto &output, const auto &mode) {
-        const qreal ratio = mode->size().width() / qreal(mode->size().height());
-        const qreal ratioTransposed = mode->size().height() / qreal(mode->size().width());
-        switch (output->rotation()) {
-        case KScreen::Output::Left:
-        case KScreen::Output::Right:
-            return ratioTransposed;
-        default:
-            return ratio;
-        }
-    };
-    const qreal sourceRatio = calculateAspectRatio(source, source->currentMode());
-    // 1.1: Find modes with the same aspect ratio as the source output; if none, don't change the mode
-    std::vector<KScreen::ModePtr> availableModes(output->modes().cbegin(), output->modes().cend());
-    std::erase_if(availableModes, [&calculateAspectRatio, &output, sourceRatio](const auto &mode) {
-        return !qFuzzyCompare(calculateAspectRatio(output, mode), sourceRatio);
-    });
-    if (availableModes.empty()) {
-        return output->currentMode();
-    }
-
-    // 1.2: Use the smallest mode at least as large as the source output; if none, use the largest mode
-    std::sort(availableModes.begin(), availableModes.end(), [&output](const auto &a, const auto &b) {
-        return a->size().width() < b->size().width();
-    });
-    auto getRotatedSize = [](const auto &output, const auto &mode) {
-        if (output->rotation() == KScreen::Output::Left || output->rotation() == KScreen::Output::Right) {
-            return mode->size().transposed();
-        }
-        return mode->size();
-    };
-    const auto sourceSize = getRotatedSize(source, source->currentMode());
-    const auto it = std::ranges::find_if(availableModes, [sourceSize](const auto &mode) {
-        return mode->size().width() >= sourceSize.width();
-    });
-    if (it != availableModes.end()) {
-        return *it;
-    } else {
-        return availableModes.back();
-    }
-}
-
 bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
     // TODO once X11 support is dropped, change this to use output
@@ -945,7 +896,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     }
 
     Output &output = m_outputs[outputIndex];
-    const int oldSourceId = replicationSourceId(output);
+    const int oldSourceId = output.ptr->replicationSource();
 
     const auto optSources = possibleReplicationSources(output.ptr);
     if (!optSources.has_value() || sourceIndex >= optSources->size()) {
@@ -989,7 +940,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 
 int OutputModel::replicationSourceIndex(int outputIndex) const
 {
-    const int sourceId = replicationSourceId(m_outputs[outputIndex]);
+    const int sourceId = m_outputs[outputIndex].ptr->replicationSource();
     if (!sourceId) {
         return 0;
     }
@@ -1008,7 +959,7 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
     for (int i = 0; i < m_outputs.size(); i++) {
         const Output &out = m_outputs[i];
         if (out.ptr->id() != output->id()) {
-            if (replicationSourceId(out) == output->id()) {
+            if (out.ptr->replicationSource() == output->id()) {
                 ret << i;
             }
         }
