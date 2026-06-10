@@ -125,7 +125,9 @@ void Console::printConfig()
 
 void Console::printJSONConfig()
 {
-    QJsonDocument doc(KScreen::ConfigSerializer::serializeConfig(m_config));
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QLatin1String("/kwinoutputconfig.json"));
+    file.open(QFile::ReadOnly);
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     cout << doc.toJson(QJsonDocument::Indented);
 }
 
