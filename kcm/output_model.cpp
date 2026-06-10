@@ -849,17 +849,7 @@ QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
 
 int OutputModel::replicationSourceId(const Output &output) const
 {
-    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-        // on Wayland, just return the output's replication source...
-        return output.ptr->replicationSource();
-    } else {
-        // keep the old behavior for X11
-        const KScreen::OutputPtr source = m_config->replicationSource(output.ptr);
-        if (!source) {
-            return 0;
-        }
-        return source->id();
-    }
+    return output.ptr->replicationSource();
 }
 
 std::optional<QList<KScreen::OutputPtr>> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
@@ -962,58 +952,10 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         return false;
     }
     const auto &sources = *optSources;
-    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-        // on Wayland, we just set the replication source, and that's all
-        if (sourceIndex >= 0) {
-            output.ptr->setReplicationSource(sources[sourceIndex]->id());
-        } else {
-            output.ptr->setReplicationSource(0);
-        }
+    if (sourceIndex >= 0) {
+        output.ptr->setReplicationSource(sources[sourceIndex]->id());
     } else {
-        // keep the old behavior for X11, to avoid breaking it
-        if (sourceIndex < 0) {
-            if (oldSourceId == 0) {
-                // no change
-                return false;
-            }
-            m_config->setReplicationSource(output.ptr, nullptr);
-            output.ptr->setExplicitLogicalSize(QSizeF());
-            resetPosition(output);
-        } else {
-            const auto &source = sources[sourceIndex];
-            if (oldSourceId == source->id()) {
-                // no change
-                return false;
-            }
-
-            // In replicating outputs, we don't change the source
-            // Step 1: set the destination mode, if possible
-            const auto bestMode = getBestMode(output.ptr, source);
-            if (!bestMode) {
-                return false;
-            }
-            // Step 2: reposition and scale destination output to be centered inside the source output
-            auto sourceSize = source->currentMode()->size();
-            auto destinationSize = bestMode->size();
-            if (source->rotation() == KScreen::Output::Left || source->rotation() == KScreen::Output::Right) {
-                sourceSize = sourceSize.transposed();
-            }
-            if (output.ptr->rotation() == KScreen::Output::Left || output.ptr->rotation() == KScreen::Output::Right) {
-                destinationSize = destinationSize.transposed();
-            }
-            qreal scale =
-                source->scale() * std::max(destinationSize.width() / qreal(sourceSize.width()), destinationSize.height() / qreal(sourceSize.height()));
-            // round up to integer multiples of 1/120 to avoid issues with triggering hidden panels from the edge
-            scale = std::ceil(scale * 120.0) / 120.0;
-            const QPoint relPos((sourceSize.width() / source->scale() - destinationSize.width() / scale) / 2,
-                                (sourceSize.height() / source->scale() - destinationSize.height() / scale) / 2);
-
-            output.ptr->setCurrentModeId(bestMode->id());
-            output.ptr->setScale(scale);
-            m_config->setReplicationSource(output.ptr, source);
-            output.posReset = std::optional(output.ptr->pos());
-            output.ptr->setPos(source->pos() + relPos);
-        }
+        output.ptr->setReplicationSource(0);
     }
 
     reposition();
@@ -1121,12 +1063,8 @@ bool OutputModel::positionable(const Output &output) const
 {
     // KScreen::Output::isPositionable reports false if the screen
     // is mirrored, which is not the case on Wayland, so override
-    // it here. TODO delete the other code path once X11 support is dropped
-    if (m_config->config()->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-        return output.ptr->isEnabled();
-    } else {
-        return output.ptr->isPositionable();
-    }
+    // it here.
+    return output.ptr->isEnabled();
 }
 
 bool OutputModel::isMoving() const
