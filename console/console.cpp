@@ -133,33 +133,9 @@ void Console::printJSONConfig()
 
 void Console::printSerializations()
 {
-    if (KWindowSystem::isPlatformWayland()) {
-        QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QLatin1String("/kwinoutputconfig.json"));
-        file.open(QFile::ReadOnly);
-        qDebug().noquote() << file.readAll();
-    } else {
-        QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kscreen/");
-        qDebug() << "Configs in: " << path;
-
-        QDir dir(path);
-        const QStringList files = dir.entryList(QDir::Files);
-        qDebug() << "Number of files: " << files.count() << Qt::endl;
-
-        QJsonDocument parser;
-        for (const QString &fileName : files) {
-            QJsonParseError error;
-            qDebug() << fileName;
-            QFile file(path + QLatin1Char('/') + fileName);
-            file.open(QFile::ReadOnly);
-            QJsonDocument parser = QJsonDocument::fromJson(file.readAll(), &error);
-            if (error.error != QJsonParseError::NoError) {
-                qDebug() << "    can't parse file:";
-                qDebug() << "    " << error.errorString();
-            } else {
-                qDebug().noquote() << parser.toJson(QJsonDocument::Indented);
-            }
-        }
-    }
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QLatin1String("/kwinoutputconfig.json"));
+    file.open(QFile::ReadOnly);
+    qDebug().noquote() << file.readAll();
 }
 
 void Console::monitor()
