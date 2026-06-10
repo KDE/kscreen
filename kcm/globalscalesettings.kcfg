@@ -5,9 +5,6 @@
                           https://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="kdeglobals"/>
   <group name="KScreen">
-    <entry name="scaleFactor" key="ScaleFactor" type="Double">
-      <default>1.0</default>
-    </entry>
     <entry name="xwaylandClientsScale" key="XwaylandClientsScale" type="Bool">
       <default>true</default>
     </entry>

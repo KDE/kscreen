@@ -34,7 +34,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool primaryOutputSupported READ primaryOutputSupported NOTIFY primaryOutputSupportedChanged)
     Q_PROPERTY(bool outputReplicationSupported READ outputReplicationSupported NOTIFY outputReplicationSupportedChanged)
     Q_PROPERTY(bool tearingSupported READ tearingSupported NOTIFY tearingSupportedChanged)
-    Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
@@ -68,9 +67,6 @@ public:
     bool primaryOutputSupported() const;
     bool outputReplicationSupported() const;
 
-    qreal globalScale() const;
-    void setGlobalScale(qreal scale);
-
     bool xwaylandClientsScale() const;
     void setXwaylandClientsScale(bool scale);
     bool xwaylandClientsScaleSupported() const;
@@ -85,7 +81,6 @@ public:
 
     void doSave();
     Q_INVOKABLE void revertSettings();
-    Q_INVOKABLE void requestReboot();
 
     Q_INVOKABLE void setStopUpdatesFromBackend(bool value);
     Q_INVOKABLE void updateFromBackend();
@@ -100,13 +95,11 @@ Q_SIGNALS:
     void perOutputScalingChanged();
     void primaryOutputSupportedChanged();
     void outputReplicationSupportedChanged();
-    void globalScaleChanged();
     void autoRotationSupportedChanged();
     void orientationSensorAvailableChanged();
     void tabletModeAvailableChanged();
     void invalidConfig(InvalidConfigReason reason);
     void errorOnSave(const QString &errorReason);
-    void globalScaleWritten();
     void outputConnect(bool connected);
     void settingsReverted();
     void showRevertWarning();
@@ -119,8 +112,6 @@ Q_SIGNALS:
 private:
     void setBackendReady(bool error);
     void setScreenNormalized(bool normalized);
-
-    void exportGlobalScale();
 
     void configReady(KScreen::ConfigOperation *op);
     void continueNeedsSaveCheck(bool needs);

@@ -50,63 +50,6 @@ ColumnLayout {
             Kirigami.FormData.isSection: true
         }
 
-        RowLayout {
-            Layout.fillWidth: true
-            Kirigami.FormData.label: i18n("Global scale:")
-
-            visible: !kcm.perOutputScaling
-
-            QQC2.Slider {
-                id: globalScaleSlider
-
-                Accessible.description: i18nc("@info accessible description of slider value", "in percent of regular scale")
-
-                Kirigami.StyleHints.tickMarkStepSize: stepSize
-                Layout.fillWidth: true
-                from: 100
-                to: 300
-                stepSize: 25
-                live: true
-                value: kcm.globalScale * 100
-                onMoved: kcm.globalScale = value / 100;
-            }
-            QQC2.SpinBox {
-                id: spinbox
-                Layout.maximumWidth: Kirigami.Units.gridUnit * 7
-
-                // Because QQC2 SpinBox doesn't natively support decimal step
-                // sizes: https://bugreports.qt.io/browse/QTBUG-67349
-                readonly property real factor: 16.0
-                readonly property real realValue: value / factor
-
-                from: 1.0 * factor
-                to: 3.0 * factor
-                // On X11 We set the increment to this weird value to compensate
-                // for inherent difficulties with floating-point math and this
-                // Qt bug: https://bugreports.qt.io/browse/QTBUG-66036
-                stepSize: 1
-                value: kcm.globalScale * factor
-                validator: DoubleValidator {
-                    bottom: Math.min(spinbox.from, spinbox.to) * spinbox.factor
-                    top:  Math.max(spinbox.from, spinbox.to) * spinbox.factor
-                }
-                textFromValue: (value, locale) =>
-                    i18nc("Global scale factor expressed in percentage form", "%1%",
-                        parseFloat(value * 1.0 / factor * 100.0))
-                valueFromText: (text, locale) =>
-                    Number.fromLocaleString(locale, text.replace("%", "")) * factor / 100.0
-
-                onValueModified: {
-                    kcm.globalScale = realValue;
-                    if (kcm.globalScale % 0.25) {
-                        weirdScaleFactorMsg.visible = true;
-                    } else {
-                        weirdScaleFactorMsg.visible = false;
-                    }
-                }
-            }
-        }
-
         QQC2.ButtonGroup {
             id: x11AppsScaling
             onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)
@@ -161,16 +104,6 @@ ColumnLayout {
         Item {
             Kirigami.FormData.isSection: false
             visible: kcm.xwaylandClientsScaleSupported
-        }
-
-        Kirigami.InlineMessage {
-            id: weirdScaleFactorMsg
-            Kirigami.FormData.isSection: true
-            Layout.fillWidth: true
-            type: Kirigami.MessageType.Information
-            text: i18n("The global scale factor is limited to multiples of 6.25% to minimize visual glitches in applications using the X11 windowing system.")
-            visible: false
-            showCloseButton: true
         }
     }
 }

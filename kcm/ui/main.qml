@@ -124,9 +124,6 @@ KCM.AbstractKCM {
             errSaveMsg.text = i18nc("The argument contains the reason for the failure", "Couldn’t apply display configuration: %1", reason)
             errSaveMsg.visible = true;
         }
-        function onGlobalScaleWritten() {
-            scaleMsg.visible = true;
-        }
         function onOutputConnect(connected) {
             root.selectedOutput = Qt.binding(firstEnabledDisplayIndex);
             if (connected) {
@@ -151,7 +148,6 @@ KCM.AbstractKCM {
         function onChanged() {
             invalidConfigMsg.visible = false;
             errSaveMsg.visible = false;
-            scaleMsg.visible = false;
             revertMsg.visible = false;
         }
     }
@@ -198,22 +194,6 @@ KCM.AbstractKCM {
             text: i18n("Outputs could not be saved due to error.")
             visible: false
             showCloseButton: true
-        }
-        Kirigami.InlineMessage {
-            id: scaleMsg
-            Layout.fillWidth: true
-            position: Kirigami.InlineMessage.Position.Header
-            type: Kirigami.MessageType.Information
-            text: i18n("Global scale changes will come into effect after the system is restarted.")
-            visible: false
-            showCloseButton: true
-            actions: [
-                Kirigami.Action {
-                    icon.name: "system-reboot"
-                    text: i18n("Restart")
-                    onTriggered: kcm.requestReboot();
-                }
-            ]
         }
         Kirigami.InlineMessage {
             id: connectMsg
