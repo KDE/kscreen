@@ -149,13 +149,9 @@ bool ConfigHandler::checkSaveandTestCommon(bool isSaveCheck)
 
             // clang-format off
             if (output->isEnabled()) {
-                bool scaleChanged = false;
-                if (isSaveCheck || m_config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
-                     scaleChanged = output->scale() != config->scale();
-                }
                 if ( output->currentModeId() != config->currentModeId()
                     || output->pos() != config->pos()
-                    || scaleChanged
+                    || output->scale() != config->scale()
                     || output->rotation() != config->rotation()
                     || output->replicationSource() != config->replicationSource()
                     || output->overscan() != config->overscan()

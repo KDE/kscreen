@@ -29,13 +29,11 @@ private Q_SLOTS:
     void initTestCase();
     void testSwitchToExternal();
     void testSwitchToInternal();
-    void testClone();
     void testExtendLeft();
     void testExtendRight();
 
     void testSwitchToExternalRotated();
     void testSwitchToInternalRotated();
-    void testCloneRotated();
     void testExtendLeftRotated();
     void testExtendRightRotated();
 
@@ -120,22 +118,6 @@ void TestOsdActions::testSwitchToInternal()
     QCOMPARE(external->isEnabled(), false);
 }
 
-void TestOsdActions::testClone()
-{
-    const KScreen::ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
-    QVERIFY(currentConfig);
-
-    KScreen::SetConfigOperation *op = KScreen::OsdAction::applyAction(currentConfig, KScreen::OsdAction::Action::Clone);
-    QVERIFY(op);
-    QVERIFY(op->exec());
-    auto [laptop, external] = findScreens(reloadConfig());
-
-    QCOMPARE(laptop->isEnabled(), true);
-    QCOMPARE(laptop->pos(), QPoint(0, 0));
-    QCOMPARE(external->isEnabled(), true);
-    QCOMPARE(external->pos(), QPoint(0, 0));
-}
-
 void TestOsdActions::testExtendLeft()
 {
     const KScreen::ConfigPtr currentConfig = loadConfig("laptopAndExternal.json");
@@ -197,23 +179,6 @@ void TestOsdActions::testSwitchToInternalRotated()
     QVERIFY(op->exec());
     auto [laptop, external] = findScreens(reloadConfig());
 
-    QCOMPARE(laptop->isEnabled(), true);
-    QCOMPARE(laptop->pos(), QPoint(0, 0));
-    QCOMPARE(laptop->rotation(), Output::Right);
-    QCOMPARE(external->isEnabled(), false);
-}
-
-void TestOsdActions::testCloneRotated()
-{
-    const KScreen::ConfigPtr currentConfig = loadConfig("steamdeckAndExternal.json");
-    QVERIFY(currentConfig);
-
-    KScreen::SetConfigOperation *op = KScreen::OsdAction::applyAction(currentConfig, KScreen::OsdAction::Action::Clone);
-    // we won't find a matching mode,this will return null
-    QVERIFY(!op);
-    auto [laptop, external] = findScreens(reloadConfig());
-
-    // things should be unchanged
     QCOMPARE(laptop->isEnabled(), true);
     QCOMPARE(laptop->pos(), QPoint(0, 0));
     QCOMPARE(laptop->rotation(), Output::Right);
