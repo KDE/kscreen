@@ -36,7 +36,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        visible: kcm.primaryOutputSupported && root.enabledOutputs.count >= 2
+        visible: root.enabledOutputs.count >= 2
 
         QQC2.Button {
             visible: root.enabledOutputs.count >= 3
@@ -636,7 +636,7 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Layout.minimumWidth: root.comboboxWidth
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
         model: element.replicationSourceModel
-        visible: kcm.outputReplicationSupported && count > 0
+        visible: count > 0
 
         onModelChanged: enabled = (count > 1);
         onCountChanged: enabled = (count > 1);

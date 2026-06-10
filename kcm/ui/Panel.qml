@@ -56,8 +56,6 @@ ColumnLayout {
         }
 
         RowLayout {
-            visible: kcm.xwaylandClientsScaleSupported
-
             Kirigami.FormData.label: i18n("Legacy applications (X11):")
             spacing: Kirigami.Units.smallSpacing
 
@@ -73,8 +71,6 @@ ColumnLayout {
         }
 
         RowLayout {
-            visible: kcm.xwaylandClientsScaleSupported
-
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.RadioButton {
@@ -90,7 +86,6 @@ ColumnLayout {
 
         RowLayout {
             Kirigami.FormData.label: i18nc("@label", "Screen tearing:")
-            visible: kcm.tearingSupported
             QQC2.CheckBox {
                 text: i18nc("@option:check The thing being allowed in fullscreen windows is screen tearing", "Allow in fullscreen windows")
                 checked: kcm.tearingAllowed
@@ -103,7 +98,6 @@ ColumnLayout {
 
         Item {
             Kirigami.FormData.isSection: false
-            visible: kcm.xwaylandClientsScaleSupported
         }
     }
 }

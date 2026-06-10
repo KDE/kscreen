@@ -88,10 +88,6 @@ void KCMKScreen::configReady(ConfigOperation *op)
 
     setBackendReady(true);
     checkConfig();
-    Q_EMIT xwaylandClientsScaleSupportedChanged();
-    Q_EMIT tearingSupportedChanged();
-    Q_EMIT primaryOutputSupportedChanged();
-    Q_EMIT outputReplicationSupportedChanged();
     Q_EMIT tabletModeAvailableChanged();
     Q_EMIT autoRotationSupportedChanged();
 }
@@ -251,22 +247,6 @@ bool KCMKScreen::screenNormalized() const
     return m_screenNormalized;
 }
 
-bool KCMKScreen::primaryOutputSupported() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::PrimaryDisplay);
-}
-
-bool KCMKScreen::outputReplicationSupported() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::OutputReplication);
-}
-
 bool KCMKScreen::tabletModeAvailable() const
 {
     if (!m_configHandler || !m_configHandler->config()) {
@@ -316,8 +296,6 @@ void KCMKScreen::load()
     m_configHandler.reset(new ConfigHandler(this));
     m_outputProxyModel->setSourceModel(m_configHandler->outputModel());
 
-    Q_EMIT xwaylandClientsScaleSupportedChanged();
-    Q_EMIT tearingSupportedChanged();
     Q_EMIT tearingAllowedChanged();
 
     connect(m_configHandler.get(), &ConfigHandler::outputModelChanged, this, [this]() {
@@ -401,14 +379,6 @@ void KCMKScreen::setXwaylandClientsScale(bool scale)
     Q_EMIT changed();
 }
 
-bool KCMKScreen::xwaylandClientsScaleSupported() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
-}
-
 void KCMKScreen::setAllowTearing(bool allow)
 {
     if (KWinCompositingSetting::self()->allowTearing() == allow) {
@@ -422,15 +392,6 @@ void KCMKScreen::setAllowTearing(bool allow)
 bool KCMKScreen::allowTearing() const
 {
     return KWinCompositingSetting::self()->allowTearing();
-}
-
-bool KCMKScreen::tearingSupported() const
-{
-    if (!m_configHandler || !m_configHandler->config()) {
-        return false;
-    }
-    // == is Wayland
-    return m_configHandler->config()->supportedFeatures().testFlag(Config::Feature::XwaylandScales);
 }
 
 bool KCMKScreen::multipleScreensAvailable() const
