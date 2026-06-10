@@ -853,17 +853,12 @@ QList<float> OutputModel::refreshRates(const KScreen::OutputPtr &output) const
     return hits;
 }
 
-int OutputModel::replicationSourceId(const Output &output) const
-{
-    return output.ptr->replicationSource();
-}
-
 std::optional<QList<KScreen::OutputPtr>> OutputModel::possibleReplicationSources(const KScreen::OutputPtr &output) const
 {
     QList<KScreen::OutputPtr> ret;
     for (const auto &out : m_outputs) {
         if (out.ptr->id() != output->id()) {
-            const int outSourceId = replicationSourceId(out);
+            const int outSourceId = out.ptr->replicationSource();
             if (outSourceId == output->id()) {
                 // 'output' is already source for replication, can't be replica itself
                 return std::nullopt;
@@ -926,7 +921,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
     }
 
     Output &output = m_outputs[outputIndex];
-    const int oldSourceId = replicationSourceId(output);
+    const int oldSourceId = output.ptr->replicationSource();
 
     const auto optSources = possibleReplicationSources(output.ptr);
     if (!optSources.has_value() || sourceIndex >= optSources->size()) {
@@ -970,7 +965,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 
 int OutputModel::replicationSourceIndex(int outputIndex) const
 {
-    const int sourceId = replicationSourceId(m_outputs[outputIndex]);
+    const int sourceId = m_outputs[outputIndex].ptr->replicationSource();
     if (!sourceId) {
         return 0;
     }
@@ -989,7 +984,7 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
     for (int i = 0; i < m_outputs.size(); i++) {
         const Output &out = m_outputs[i];
         if (out.ptr->id() != output->id()) {
-            if (replicationSourceId(out) == output->id()) {
+            if (out.ptr->replicationSource() == output->id()) {
                 ret << i;
             }
         }
