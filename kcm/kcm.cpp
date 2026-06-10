@@ -16,7 +16,6 @@
 #include <kscreen/config.h>
 #include <kscreen/configmonitor.h>
 #include <kscreen/getconfigoperation.h>
-#include <kscreen/log.h>
 #include <kscreen/mode.h>
 #include <kscreen/output.h>
 #include <kscreen/setconfigoperation.h>
@@ -52,7 +51,6 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
     qmlRegisterType<KScreen::Output>("org.kde.private.kcm.kscreen", 1, 0, "Output");
     qmlRegisterUncreatableType<KCMKScreen>("org.kde.private.kcm.kscreen", 1, 0, "KCMKScreen", QStringLiteral("For InvalidConfig enum"));
-    Log::instance();
 
     setButtons(Apply);
     setSupportsInstantApply(false);
