@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:46+0000\n"
+"POT-Creation-Date: 2026-06-11 00:46+0000\n"
 "PO-Revision-Date: 2026-05-08 15:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: kcm.cpp:149 kcm.cpp:171
+#: kcm.cpp:137 kcm.cpp:159
 #, kde-format
 msgid "Implementation error"
 msgstr "Implementatiefout"
 
-#: kcm.cpp:199
+#: kcm.cpp:181
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Uitvoer is gewijzigd bij proberen instellingen toe te passen"
@@ -164,73 +164,60 @@ msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Kon schermconfiguratie niet toepassen: %1"
 
-#: ui/main.qml:133
+#: ui/main.qml:130
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Een nieuwe uitvoer is toegevoegd.  Instellingen zijn opnieuw geladen."
 
-#: ui/main.qml:135
+#: ui/main.qml:132
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Een uitvoer is verwijderd. Instellingen zijn opnieuw geladen."
 
-#: ui/main.qml:189
+#: ui/main.qml:185
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Geen backend van KScreen gevonden. Controleer of KScreen geïnstalleerd is."
 
-#: ui/main.qml:198
+#: ui/main.qml:194
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Uitvoer kon niet opgeslagen worden vanwege een fout."
 
-#: ui/main.qml:207
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"Wijzigingen in globale schaal zullen pas effect hebben na een herstart van "
-"het systeem."
-
-#: ui/main.qml:213
-#, kde-format
-msgid "Restart"
-msgstr "Herstarten"
-
-#: ui/main.qml:231
+#: ui/main.qml:211
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Configuratie van het scherm teruggedraaid."
 
-#: ui/main.qml:245
+#: ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioriteiten wijzigen"
 
-#: ui/main.qml:275 ui/OutputPanel.qml:50
+#: ui/main.qml:255 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "Primair"
 
-#: ui/main.qml:280
+#: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
 msgstr "Prioriteit verhogen"
 
-#: ui/main.qml:290
+#: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
 msgstr "Prioriteit verlagen"
 
-#: ui/main.qml:402
+#: ui/main.qml:382
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Invouwen"
 
-#: ui/main.qml:403
+#: ui/main.qml:383
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -324,13 +311,13 @@ msgstr "\"%1\" is de enige resolutie die door dit scherm wordt ondersteund."
 msgid "Scale:"
 msgstr "Schaal:"
 
-#: ui/OutputPanel.qml:98 ui/Panel.qml:62
+#: ui/OutputPanel.qml:98
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "In procenten van de reguliere schaal"
 
-#: ui/OutputPanel.qml:129 ui/Panel.qml:94
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -679,23 +666,18 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Kopie van:"
 
-#: ui/Panel.qml:55
-#, kde-format
-msgid "Global scale:"
-msgstr "Globale schaal:"
-
-#: ui/Panel.qml:118 ui/Panel.qml:138
+#: ui/Panel.qml:61 ui/Panel.qml:81
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Oudere toepassingen (X11):"
 
-#: ui/Panel.qml:123
+#: ui/Panel.qml:66
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Zelf het schalen toepassen"
 
-#: ui/Panel.qml:128
+#: ui/Panel.qml:71
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -705,13 +687,13 @@ msgstr ""
 "uitzien, toepassingen die schalen niet ondersteunen zullen  helemaal niet "
 "geschaald worden."
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:82
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Geschaald door het systeem"
 
-#: ui/Panel.qml:144
+#: ui/Panel.qml:87
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -720,20 +702,20 @@ msgstr ""
 "Alle oudere toepassingen zullen geschaald worden door het systeem tot de "
 "juiste grootte, ze zullen er altijd iets wazig uitzien."
 
-#: ui/Panel.qml:149
+#: ui/Panel.qml:92
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Screen tearing:"
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:95
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Toestaan in vensters in volledig scherm"
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -742,16 +724,6 @@ msgid ""
 msgstr ""
 "Screen tearing vermindert vertraging op de meeste schermen. Niet niet alle "
 "grafische stuurprogramma's ondersteunen deze instelling."
-
-#: ui/Panel.qml:171
-#, kde-format
-msgid ""
-"The global scale factor is limited to multiples of 6.25% to minimize visual "
-"glitches in applications using the X11 windowing system."
-msgstr ""
-"De globale schaalfactor is beperkt tot meervouden van 6.25% om visuele "
-"afwijkingen in toepassingen bij gebruik van het X11-venstersysteem te "
-"minimaliseren."
 
 #: ui/RotationButton.qml:54
 #, kde-format
@@ -777,6 +749,26 @@ msgstr "Geen rotatie"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Schermen slepen om ze opnieuw te schikken"
+
+#~ msgid ""
+#~ "Global scale changes will come into effect after the system is restarted."
+#~ msgstr ""
+#~ "Wijzigingen in globale schaal zullen pas effect hebben na een herstart "
+#~ "van het systeem."
+
+#~ msgid "Restart"
+#~ msgstr "Herstarten"
+
+#~ msgid "Global scale:"
+#~ msgstr "Globale schaal:"
+
+#~ msgid ""
+#~ "The global scale factor is limited to multiples of 6.25% to minimize "
+#~ "visual glitches in applications using the X11 windowing system."
+#~ msgstr ""
+#~ "De globale schaalfactor is beperkt tot meervouden van 6.25% om visuele "
+#~ "afwijkingen in toepassingen bij gebruik van het X11-venstersysteem te "
+#~ "minimaliseren."
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "ICC profiles aren’t compatible with HDR yet."

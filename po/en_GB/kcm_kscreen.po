@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:46+0000\n"
+"POT-Creation-Date: 2026-06-11 00:46+0000\n"
 "PO-Revision-Date: 2024-11-16 12:57+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: kcm.cpp:149 kcm.cpp:171
+#: kcm.cpp:137 kcm.cpp:159
 #, kde-format
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:199
+#: kcm.cpp:181
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -172,71 +172,59 @@ msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Keep display configuration?"
 
-#: ui/main.qml:133
+#: ui/main.qml:130
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "A new output has been added. Settings have been reloaded."
 
-#: ui/main.qml:135
+#: ui/main.qml:132
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "An output has been removed. Settings have been reloaded."
 
-#: ui/main.qml:189
+#: ui/main.qml:185
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "No KScreen backend found. Please check your KScreen installation."
 
-#: ui/main.qml:198
+#: ui/main.qml:194
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Outputs could not be saved due to error."
 
-#: ui/main.qml:207
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"Global scale changes will come into effect after the system is restarted."
-
-#: ui/main.qml:213
-#, kde-format
-msgid "Restart"
-msgstr "Restart"
-
-#: ui/main.qml:231
+#: ui/main.qml:211
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Display configuration reverted."
 
-#: ui/main.qml:245
+#: ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Change Priorities"
 
-#: ui/main.qml:275 ui/OutputPanel.qml:50
+#: ui/main.qml:255 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "Primary"
 
-#: ui/main.qml:280
+#: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
 msgstr "Raise priority"
 
-#: ui/main.qml:290
+#: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
 msgstr "Lower priority"
 
-#: ui/main.qml:402
+#: ui/main.qml:382
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:403
+#: ui/main.qml:383
 #, fuzzy, kde-format
 #| msgid "Advanced Settings"
 msgctxt "@action:button Edit the arrangement of display outputs"
@@ -334,13 +322,13 @@ msgstr "&quot;%1&quot; is the only resolution supported by this display."
 msgid "Scale:"
 msgstr "Scale:"
 
-#: ui/OutputPanel.qml:98 ui/Panel.qml:62
+#: ui/OutputPanel.qml:98
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "in percent of regular scale"
 
-#: ui/OutputPanel.qml:129 ui/Panel.qml:94
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -683,23 +671,18 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Replica of:"
 
-#: ui/Panel.qml:55
-#, kde-format
-msgid "Global scale:"
-msgstr "Global scale:"
-
-#: ui/Panel.qml:118 ui/Panel.qml:138
+#: ui/Panel.qml:61 ui/Panel.qml:81
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Legacy applications (X11):"
 
-#: ui/Panel.qml:123
+#: ui/Panel.qml:66
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Apply scaling themselves"
 
-#: ui/Panel.qml:128
+#: ui/Panel.qml:71
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -711,13 +694,13 @@ msgstr ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don't will not be scaled at all."
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:82
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Scaled by the system"
 
-#: ui/Panel.qml:144
+#: ui/Panel.qml:87
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -726,20 +709,20 @@ msgstr ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 
-#: ui/Panel.qml:149
+#: ui/Panel.qml:92
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Screen tearing:"
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:95
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Allow in fullscreen windows"
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -748,15 +731,6 @@ msgid ""
 msgstr ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
-
-#: ui/Panel.qml:171
-#, kde-format
-msgid ""
-"The global scale factor is limited to multiples of 6.25% to minimize visual "
-"glitches in applications using the X11 windowing system."
-msgstr ""
-"The global scale factor is limited to multiples of 6.25% to minimise visual "
-"glitches in applications using the X11 windowing system."
 
 #: ui/RotationButton.qml:54
 #, kde-format
@@ -782,6 +756,24 @@ msgstr "No Rotation"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Drag screens to re-arrange them"
+
+#~ msgid ""
+#~ "Global scale changes will come into effect after the system is restarted."
+#~ msgstr ""
+#~ "Global scale changes will come into effect after the system is restarted."
+
+#~ msgid "Restart"
+#~ msgstr "Restart"
+
+#~ msgid "Global scale:"
+#~ msgstr "Global scale:"
+
+#~ msgid ""
+#~ "The global scale factor is limited to multiples of 6.25% to minimize "
+#~ "visual glitches in applications using the X11 windowing system."
+#~ msgstr ""
+#~ "The global scale factor is limited to multiples of 6.25% to minimise "
+#~ "visual glitches in applications using the X11 windowing system."
 
 #, fuzzy
 #~| msgctxt "@info:tooltip"

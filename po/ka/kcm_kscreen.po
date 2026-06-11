@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:46+0000\n"
+"POT-Creation-Date: 2026-06-11 00:46+0000\n"
 "PO-Revision-Date: 2026-05-08 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.9\n"
 
-#: kcm.cpp:149 kcm.cpp:171
+#: kcm.cpp:137 kcm.cpp:159
 #, kde-format
 msgid "Implementation error"
 msgstr "განხორციელების შეცდომა"
 
-#: kcm.cpp:199
+#: kcm.cpp:181
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "პარამეტრების გადატარების მცდელობისას გამოტანა შეიცვალა"
@@ -163,72 +163,59 @@ msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "ვერ გადავატარე ეკრანის კონფიგურაცია: %1"
 
-#: ui/main.qml:133
+#: ui/main.qml:130
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "ახალი გამოტანა დამატებულია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:135
+#: ui/main.qml:132
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "გამოტანილი წაშლილია. პარამეტრები თავიდან ჩაიტვირთა."
 
-#: ui/main.qml:189
+#: ui/main.qml:185
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen-ის უკანაბოლოები ვერ ვიპოვე. შეამოწმეთ KScreen-ს ფაილები."
 
-#: ui/main.qml:198
+#: ui/main.qml:194
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "გამოტანის შენახვა შეუძლებელია შეცდომის გამო."
 
-#: ui/main.qml:207
-#, kde-format
-msgid ""
-"Global scale changes will come into effect after the system is restarted."
-msgstr ""
-"გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში მხოლოდ "
-"სისტემის გადატვირთვის შემდეგ შევა."
-
-#: ui/main.qml:213
-#, kde-format
-msgid "Restart"
-msgstr "რესტარტ"
-
-#: ui/main.qml:231
+#: ui/main.qml:211
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ეკრანის კონფიგურაცია დაბრუნებულია."
 
-#: ui/main.qml:245
+#: ui/main.qml:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "პრიორიტეტების შეცვლა"
 
-#: ui/main.qml:275 ui/OutputPanel.qml:50
+#: ui/main.qml:255 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "ძირითადი"
 
-#: ui/main.qml:280
+#: ui/main.qml:260
 #, kde-format
 msgid "Raise priority"
 msgstr "პრიორიტეტის გაზრდა"
 
-#: ui/main.qml:290
+#: ui/main.qml:270
 #, kde-format
 msgid "Lower priority"
 msgstr "პრიორიტეტის შემცირება"
 
-#: ui/main.qml:402
+#: ui/main.qml:382
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "ჩამოშლა"
 
-#: ui/main.qml:403
+#: ui/main.qml:383
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -322,13 +309,13 @@ msgstr "\"%1\" ამ ეკრანის მიერ მხარდაჭ�
 msgid "Scale:"
 msgstr "გაფართოება:"
 
-#: ui/OutputPanel.qml:98 ui/Panel.qml:62
+#: ui/OutputPanel.qml:98
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "ჩვეულებრივი შკალის პროცენტებში"
 
-#: ui/OutputPanel.qml:129 ui/Panel.qml:94
+#: ui/OutputPanel.qml:129
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
@@ -678,23 +665,18 @@ msgstr ""
 msgid "Replica of:"
 msgstr "რისი რეპლიკა:"
 
-#: ui/Panel.qml:55
-#, kde-format
-msgid "Global scale:"
-msgstr "გლობალურის მასშტაბი:"
-
-#: ui/Panel.qml:118 ui/Panel.qml:138
+#: ui/Panel.qml:61 ui/Panel.qml:81
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "მოძველებული აპლიკაციები (X11):"
 
-#: ui/Panel.qml:123
+#: ui/Panel.qml:66
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "მასშტაბირების მათზევე გადატარება"
 
-#: ui/Panel.qml:128
+#: ui/Panel.qml:71
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -704,13 +686,13 @@ msgstr ""
 "გამოიყენებს მას. მაგრამ გაითვალისწინეთ, აპლიკაციები, რომლებსაც ამისი "
 "მხარდაჭერა არ გააჩნია, საერთოდ არ იქნებიან მასშტაბირებული."
 
-#: ui/Panel.qml:139
+#: ui/Panel.qml:82
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "მასშტაბირებულია სისტემის მიერ"
 
-#: ui/Panel.qml:144
+#: ui/Panel.qml:87
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -719,20 +701,20 @@ msgstr ""
 "ყველა მოძველებული აპლიკაცია გადიდდება სისტემის მიერ სწორ ზომამდე. მაგრამ "
 "ისინი ყოველთვის ბუნდოვნების იქნებიან."
 
-#: ui/Panel.qml:149
+#: ui/Panel.qml:92
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "ეკრანის დაჭრა:"
 
-#: ui/Panel.qml:152
+#: ui/Panel.qml:95
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "სრულ ეკრანზე გაშლილი ფანჯრების დაშვება"
 
-#: ui/Panel.qml:157
+#: ui/Panel.qml:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -741,15 +723,6 @@ msgid ""
 msgstr ""
 "ეკრანის დაჭრა ამცირებს დაყოვნებას უმეტესი ეკრანებისთვის. დაიმახსოვრეთ, რომ "
 "ამ პარამეტრის მხარდაჭერა, ბევრ დრაივერს არ გააჩნია."
-
-#: ui/Panel.qml:171
-#, kde-format
-msgid ""
-"The global scale factor is limited to multiples of 6.25% to minimize visual "
-"glitches in applications using the X11 windowing system."
-msgstr ""
-"გლობალური მასშტაბის ფაქტორი შეზღუდულია 6.25%-ის ნამრავლებზე, რომ ვიზუალური "
-"შეცდომები მინიმუმამდე გავიდეს პროგრამებში, რომლებიც X11 სისტემას იყენებენ."
 
 #: ui/RotationButton.qml:54
 #, kde-format
@@ -775,6 +748,26 @@ msgstr "შეტრიალების გარეშე"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "ეკრანების გადასალაგებლად გადაათრიეთ ისინი"
+
+#~ msgid ""
+#~ "Global scale changes will come into effect after the system is restarted."
+#~ msgstr ""
+#~ "გადატარებულია ახალი გლობალური მასშტაბირება. ზოგიერთი ცვლილება ძალაში "
+#~ "მხოლოდ სისტემის გადატვირთვის შემდეგ შევა."
+
+#~ msgid "Restart"
+#~ msgstr "რესტარტ"
+
+#~ msgid "Global scale:"
+#~ msgstr "გლობალურის მასშტაბი:"
+
+#~ msgid ""
+#~ "The global scale factor is limited to multiples of 6.25% to minimize "
+#~ "visual glitches in applications using the X11 windowing system."
+#~ msgstr ""
+#~ "გლობალური მასშტაბის ფაქტორი შეზღუდულია 6.25%-ის ნამრავლებზე, რომ "
+#~ "ვიზუალური შეცდომები მინიმუმამდე გავიდეს პროგრამებში, რომლებიც X11 "
+#~ "სისტემას იყენებენ."
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "ICC profiles aren’t compatible with HDR yet."
