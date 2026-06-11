@@ -191,13 +191,7 @@ void KCMKScreen::doSave()
         }
     };
 
-    if (m_configHandler->config()->supportedFeatures() & (KScreen::Config::Feature::SynchronousOutputChanges)) {
-        updateInitialData();
-    } else {
-        // The 1000ms is a legacy value tested to work for randr having
-        // enough time to change configuration.
-        QTimer::singleShot(1000, this, updateInitialData);
-    }
+    updateInitialData();
 
     if (m_needsKwinConfigReload) {
         m_needsKwinConfigReload = false;
