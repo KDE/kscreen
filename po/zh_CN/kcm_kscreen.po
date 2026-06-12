@@ -718,20 +718,3 @@ msgstr "不旋转"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "拖动屏幕以重新排列它们"
-
-#~ msgid ""
-#~ "Global scale changes will come into effect after the system is restarted."
-#~ msgstr "全局缩放的更改将在系统重新启动后生效。"
-
-#~ msgid "Restart"
-#~ msgstr "重新启动"
-
-#~ msgid "Global scale:"
-#~ msgstr "全局缩放率："
-
-#~ msgid ""
-#~ "The global scale factor is limited to multiples of 6.25% to minimize "
-#~ "visual glitches in applications using the X11 windowing system."
-#~ msgstr ""
-#~ "全局缩放系数被限定为 6.25% 的倍数，以减少应用程序在 X11 窗口系统中出现的视"
-#~ "觉毛刺。"
