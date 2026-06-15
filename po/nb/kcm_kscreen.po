@@ -718,20 +718,3 @@ msgstr "Ingen rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermene for å bytte skjermplassering"
-
-#~ msgid ""
-#~ "Global scale changes will come into effect after the system is restarted."
-#~ msgstr "Endringer i global skalering får virkning etter omstart."
-
-#~ msgid "Restart"
-#~ msgstr "Start på nytt"
-
-#~ msgid "Global scale:"
-#~ msgstr "Global skalering:"
-
-#~ msgid ""
-#~ "The global scale factor is limited to multiples of 6.25% to minimize "
-#~ "visual glitches in applications using the X11 windowing system."
-#~ msgstr ""
-#~ "Global skalering er avgrenset til multiplum av 6,25 %. Det er for å unngå "
-#~ "visningsproblem i program under vindussystemet X11."
