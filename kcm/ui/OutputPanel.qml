@@ -635,7 +635,8 @@ Due to graphics driver limitations, the actually used resolution cannot be known
         Kirigami.FormData.label: i18n("Replica of:")
         Layout.minimumWidth: root.comboboxWidth
         Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-        model: element.replicationSourceModel
+        model: element.replicationSourceModelWithNumbers
+        textRole: "display"
         visible: kcm.outputReplicationSupported && count > 0
 
         onModelChanged: enabled = (count > 1);
@@ -643,5 +644,22 @@ Due to graphics driver limitations, the actually used resolution cannot be known
 
         Component.onCompleted: currentIndex = element.replicationSourceIndex;
         onActivated: element.replicationSourceIndex = currentIndex;
+
+        delegate: QQC2.ItemDelegate {
+            width: parent.width
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                OutputNumberBadge {
+                    number: modelData.number
+                }
+
+                QQC2.Label {
+                    text: modelData.display
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                }
+            }
+            highlighted: index === parent.currentIndex
+        }
     }
 }

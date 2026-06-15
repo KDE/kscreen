@@ -77,6 +77,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return refreshRateIndex(output);
     case ReplicationSourceModelRole:
         return replicationSourceModel(output);
+    case ReplicationSourceModelWithNumbersRole:
+        return replicationSourceModelWithNumbers(output);
     case ReplicationSourceIndexRole:
         return replicationSourceIndex(index.row());
     case ReplicasModelRole:
@@ -170,6 +172,8 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
         return uint32_t(output->hdrColorProfileSource());
     case AbmLevelRole:
         return output->abmLevel();
+    case NumberByConnectorRole:
+        return numberByConnector(output);
     }
     return QVariant();
 }
@@ -428,6 +432,8 @@ QHash<int, QByteArray> OutputModel::roleNames() const
     roles[HdrIccProfileRole] = "hdrIccProfilePath";
     roles[HdrColorProfileSourceRole] = "hdrColorProfileSource";
     roles[AbmLevelRole] = "abmLevel";
+    roles[NumberByConnectorRole] = "numberByConnector";
+    roles[ReplicationSourceModelWithNumbersRole] = "replicationSourceModelWithNumbers";
     return roles;
 }
 
@@ -471,7 +477,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
         QModelIndex index = createIndex(j, 0);
         // Calling this directly ignores possible optimization when the
         // refresh rate hasn't changed in fact. But that's ok.
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceIndexRole});
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, ReplicationSourceIndexRole});
     }
 }
 
@@ -582,7 +588,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
     for (int outputIndex : std::views::iota(0, m_outputs.size())) {
         const QModelIndex index = createIndex(outputIndex, 0);
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole});
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole});
     }
     return true;
 }
@@ -902,6 +908,25 @@ QStringList OutputModel::replicationSourceModel(const KScreen::OutputPtr &output
     return ret;
 }
 
+QVariantList OutputModel::replicationSourceModelWithNumbers(const KScreen::OutputPtr &output) const
+{
+    const auto sources = possibleReplicationSources(output);
+    if (!sources.has_value()) {
+        return {QVariantMap{{QStringLiteral("display"), i18n("Replicated by other output")}, {QStringLiteral("number"), -1}}};
+    } else if (sources->isEmpty()) {
+        return {};
+    }
+    QVariantList ret;
+    ret.append(QVariantMap{{QStringLiteral("display"), i18n("None")}, {QStringLiteral("number"), -1}});
+    for (const auto &other : *sources) {
+        const bool showSerialNumber = shouldShowSerialNumber(other);
+        const bool showConnector = showSerialNumber && shouldShowConnector(other);
+        ret.append(QVariantMap{{QStringLiteral("display"), Utils::outputName(other, showSerialNumber, showConnector)},
+                               {QStringLiteral("number"), numberByConnector(other)}});
+    }
+    return ret;
+}
+
 static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
 {
     auto calculateAspectRatio = [](const auto &output, const auto &mode) {
@@ -1030,7 +1055,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         });
         if (it != m_outputs.end()) {
             QModelIndex index = createIndex(it - m_outputs.begin(), 0);
-            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, ReplicasModelRole});
         }
     }
     if (sourceIndex >= 0) {
@@ -1039,7 +1064,7 @@ bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
         });
         if (it != m_outputs.end()) {
             QModelIndex index = createIndex(std::distance(m_outputs.begin(), it), 0);
-            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicasModelRole});
+            Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, ReplicasModelRole});
         }
     }
     return true;
@@ -1072,6 +1097,18 @@ QVariantList OutputModel::replicasModel(const KScreen::OutputPtr &output) const
         }
     }
     return ret;
+}
+
+int OutputModel::numberByConnector(const KScreen::OutputPtr &output) const
+{
+    if (!output)
+        return 0;
+    auto sorted = m_outputs;
+    std::sort(sorted.begin(), sorted.end(), [](const Output &a, const Output &b){
+        return QString::compare(a.ptr->name(), b.ptr->name(), Qt::CaseInsensitive) < 0;
+    });
+    auto it = std::find_if(sorted.begin(), sorted.end(), [&](const Output &o) { return o.ptr == output; });
+    return (it != sorted.end()) ? std::distance(sorted.begin(), it) + 1 : -1;
 }
 
 bool OutputModel::shouldShowSerialNumber(const KScreen::OutputPtr &output) const

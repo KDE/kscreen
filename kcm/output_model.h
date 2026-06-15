@@ -66,6 +66,8 @@ public:
         HdrIccProfileRole,
         HdrColorProfileSourceRole,
         AbmLevelRole,
+        NumberByConnectorRole,
+        ReplicationSourceModelWithNumbersRole,
     };
     Q_ENUM(OutputRoles)
 
@@ -168,11 +170,14 @@ private:
 
     std::optional<QList<KScreen::OutputPtr>> possibleReplicationSources(const KScreen::OutputPtr &output) const;
     QStringList replicationSourceModel(const KScreen::OutputPtr &output) const;
+    QVariantList replicationSourceModelWithNumbers(const KScreen::OutputPtr &output) const;
     bool setReplicationSourceIndex(int outputIndex, int sourceIndex);
     int replicationSourceIndex(int outputIndex) const;
     int replicationSourceId(const Output &output) const;
 
     QVariantList replicasModel(const KScreen::OutputPtr &output) const;
+
+    int numberByConnector(const KScreen::OutputPtr &output) const;
 
     bool shouldShowSerialNumber(const KScreen::OutputPtr &output) const;
     bool shouldShowConnector(const KScreen::OutputPtr &output) const;

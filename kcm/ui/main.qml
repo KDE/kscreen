@@ -250,9 +250,16 @@ KCM.AbstractKCM {
                     width: ListView.view.width
 
                     background: null
-                    contentItem: KD.TitleSubtitle {
-                        title: delegate.output.display
-                        subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                    contentItem: RowLayout {
+                        spacing: Kirigami.Units.largeSpacing
+                        OutputNumberBadge {
+                            number: delegate.output.numberByConnector
+                        }
+                        Kirigami.TitleSubtitle {
+                            title: delegate.output.display
+                            subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                            Layout.fillWidth: true
+                        }
                     }
                     actions: [
                         Kirigami.Action {
@@ -312,8 +319,24 @@ KCM.AbstractKCM {
                             Layout.maximumWidth: Kirigami.Units.gridUnit * 12
                             Layout.fillWidth: true
 
-                            text: model.display
-                            icon.name: "monitor-symbolic"
+                            contentItem: ColumnLayout {
+                                spacing: Kirigami.Units.smallSpacing
+
+                                OutputNumberBadge {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    Layout.topMargin: Kirigami.Units.smallSpacing / 2
+                                    number: model.numberByConnector
+                                }
+
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    horizontalAlignment: Text.AlignHCenter
+                                    text: model.display
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.Wrap
+                                    maximumLineCount: 2
+                                }
+                            }
 
                             Binding {
                                 target: contentItem

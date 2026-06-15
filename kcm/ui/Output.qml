@@ -106,20 +106,29 @@ Item {
             fill: parent
             margins: outline.border.width
         }
+        clip: true
 
         // so the text is drawn above orientationPanelContainer
         z: 1
+
         ColumnLayout {
-            anchors.centerIn: parent
+            anchors.fill: parent
             spacing: 0
-            width: parent.width
+
+            OutputNumberBadge {
+                id: numberBadge
+                Layout.alignment: Qt.AlignLeft
+                Layout.topMargin: Kirigami.Units.smallSpacing
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                number: model.numberByConnector
+                visible: labelContainer.height >= implicitHeight + Kirigami.Units.smallSpacing * 2
+            }
 
             QQC2.Label {
                 id: nameLabel
                 Layout.fillWidth: true
-
-                // Don't exceed our bounds
-                Layout.maximumHeight: labelContainer.height
+                Layout.fillHeight: true
 
                 text: model.display
                 wrapMode: Text.Wrap
@@ -133,7 +142,7 @@ Item {
                 Layout.fillWidth: true
 
                 // Only show if we have room for both
-                visible: labelContainer.height >= implicitHeight + nameLabel.implicitHeight
+                visible: labelContainer.height >= implicitHeight + nameLabel.implicitHeight + (numberBadge.visible ? numberBadge.height : 0)
 
                 text: model.scale !== 1 ? textWithScale : textWithoutScale
                 wrapMode: Text.Wrap
