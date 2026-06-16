@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 00:46+0000\n"
+"POT-Creation-Date: 2026-06-16 00:46+0000\n"
 "PO-Revision-Date: 2025-11-10 21:56+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -29,29 +29,29 @@ msgstr "Implementációs hiba"
 msgid "Outputs changed while trying to apply settings"
 msgstr "A kimenet megváltozott a beállítások alkalmazására tett kísérlet során"
 
-#: output_model.cpp:101
+#: output_model.cpp:103
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:764
+#: output_model.cpp:770
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:783
+#: output_model.cpp:789
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:892
+#: output_model.cpp:898 output_model.cpp:915
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Replikálva másik kimeneten"
 
-#: output_model.cpp:896
+#: output_model.cpp:902 output_model.cpp:920
 #, kde-format
 msgid "None"
 msgstr "Nincs"
@@ -198,28 +198,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioritások módosítása"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "Prioritás emelése"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "Prioritás csökkentése"
 
-#: ui/main.qml:382
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Összecsukás"
 
-#: ui/main.qml:383
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -257,12 +257,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:226
+#: ui/Output.qml:235
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: ui/Output.qml:252
+#: ui/Output.qml:261
 #, kde-format
 msgid "Replicas"
 msgstr "Replikák"

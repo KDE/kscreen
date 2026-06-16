@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 00:46+0000\n"
+"POT-Creation-Date: 2026-06-16 00:46+0000\n"
 "PO-Revision-Date: 2026-02-21 14:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -29,29 +29,29 @@ msgstr "実装エラー"
 msgid "Outputs changed while trying to apply settings"
 msgstr "設定の適用中に出力が変更されました"
 
-#: output_model.cpp:101
+#: output_model.cpp:103
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:764
+#: output_model.cpp:770
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:783
+#: output_model.cpp:789
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:892
+#: output_model.cpp:898 output_model.cpp:915
 #, kde-format
 msgid "Replicated by other output"
 msgstr "他の出力に複製中です"
 
-#: output_model.cpp:896
+#: output_model.cpp:902 output_model.cpp:920
 #, kde-format
 msgid "None"
 msgstr "なし"
@@ -199,28 +199,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "優先度を変更"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "プライマリ"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "優先度を上げる"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "優先度を下げる"
 
-#: ui/main.qml:382
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "折りたたむ"
 
-#: ui/main.qml:383
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -258,12 +258,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:226
+#: ui/Output.qml:235
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: ui/Output.qml:252
+#: ui/Output.qml:261
 #, kde-format
 msgid "Replicas"
 msgstr "複製"

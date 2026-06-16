@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 00:46+0000\n"
+"POT-Creation-Date: 2026-06-16 00:46+0000\n"
 "PO-Revision-Date: 2026-05-10 15:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -27,29 +27,29 @@ msgstr "நிரலக சிக்கல்"
 msgid "Outputs changed while trying to apply settings"
 msgstr "அமைப்புகளை செயல்படுத்தும்போது திரைகள் மாறின"
 
-#: output_model.cpp:101
+#: output_model.cpp:103
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:764
+#: output_model.cpp:770
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:783
+#: output_model.cpp:789
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:892
+#: output_model.cpp:898 output_model.cpp:915
 #, kde-format
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
 
-#: output_model.cpp:896
+#: output_model.cpp:902 output_model.cpp:920
 #, kde-format
 msgid "None"
 msgstr "ஏதுமில்லை"
@@ -195,28 +195,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "முன்னிலையை மாற்று"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "முதன்மையானதாக்கு"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "முன்னிலையை கூட்டு"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "முன்னிலையை குறை"
 
-#: ui/main.qml:382
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "சுருக்கு"
 
-#: ui/main.qml:383
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -254,12 +254,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:226
+#: ui/Output.qml:235
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: ui/Output.qml:252
+#: ui/Output.qml:261
 #, kde-format
 msgid "Replicas"
 msgstr "நகலிகள்"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 00:46+0000\n"
+"POT-Creation-Date: 2026-06-16 00:46+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,18 +29,18 @@ msgstr "कार्यान्वयनदोषः"
 msgid "Outputs changed while trying to apply settings"
 msgstr "सेटिङ्ग्स् प्रयोक्तुं प्रयतमाने आउटपुट् परिवर्तिताः"
 
-#: output_model.cpp:101
+#: output_model.cpp:103
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 हर्ट्ज"
 
-#: output_model.cpp:764
+#: output_model.cpp:770
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr ""
 
-#: output_model.cpp:783
+#: output_model.cpp:789
 #, fuzzy, kde-format
 #| msgctxt "Width x height (aspect ratio)"
 #| msgid "%1x%2 (%3:%4)"
@@ -48,12 +48,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:892
+#: output_model.cpp:898 output_model.cpp:915
 #, kde-format
 msgid "Replicated by other output"
 msgstr "अन्येन निर्गमेन प्रतिकृतम्"
 
-#: output_model.cpp:896
+#: output_model.cpp:902 output_model.cpp:920
 #, kde-format
 msgid "None"
 msgstr "न कश्चित्"
@@ -206,28 +206,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "प्राथमिकता परिवर्तयन्तु"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "प्राथमिक"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "प्राथमिकताम् उत्थापयन्तु"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "निम्न प्राथमिकता"
 
-#: ui/main.qml:382
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:383
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -265,12 +265,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr ""
 
-#: ui/Output.qml:226
+#: ui/Output.qml:235
 #, kde-format
 msgid "%1, %2"
 msgstr ""
 
-#: ui/Output.qml:252
+#: ui/Output.qml:261
 #, kde-format
 msgid "Replicas"
 msgstr "प्रतिकृतयः"

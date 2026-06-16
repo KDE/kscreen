@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 00:46+0000\n"
+"POT-Creation-Date: 2026-06-16 00:46+0000\n"
 "PO-Revision-Date: 2026-02-10 22:59+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,29 +27,29 @@ msgstr "Tətbiq edilmə xətası"
 msgid "Outputs changed while trying to apply settings"
 msgstr "Parametrləri tətbiq etməyə cəhd edərkən çıxış dəyişdirildi"
 
-#: output_model.cpp:101
+#: output_model.cpp:103
 #, kde-format
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:764
+#: output_model.cpp:770
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:783
+#: output_model.cpp:789
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:892
+#: output_model.cpp:898 output_model.cpp:915
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Başqa çıxışlar ilə əvəzlənib"
 
-#: output_model.cpp:896
+#: output_model.cpp:902 output_model.cpp:920
 #, kde-format
 msgid "None"
 msgstr "Heç biri"
@@ -190,28 +190,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Üstünlükləri dəyişin"
 
-#: ui/main.qml:255 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:50
 #, kde-format
 msgid "Primary"
 msgstr "Əsas"
 
-#: ui/main.qml:260
+#: ui/main.qml:267
 #, kde-format
 msgid "Raise priority"
 msgstr "Üstünlüyü artırın"
 
-#: ui/main.qml:270
+#: ui/main.qml:277
 #, kde-format
 msgid "Lower priority"
 msgstr "Üstünlüyü azaldın"
 
-#: ui/main.qml:382
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Yığmaq"
 
-#: ui/main.qml:383
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -249,12 +249,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:226
+#: ui/Output.qml:235
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: ui/Output.qml:252
+#: ui/Output.qml:261
 #, kde-format
 msgid "Replicas"
 msgstr "Replikalar"
