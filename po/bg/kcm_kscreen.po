@@ -753,25 +753,3 @@ msgstr "Без завъртане"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Завлечете екраните, за да ги пренаредите"
-
-#~ msgid ""
-#~ "Global scale changes will come into effect after the system is restarted."
-#~ msgstr "Промените в глобалния мащаб ще влязат в сила след рестартиране."
-
-#~ msgid "Restart"
-#~ msgstr "Рестартиране"
-
-#~ msgid "Global scale:"
-#~ msgstr "Глобален мащаб:"
-
-#~ msgid ""
-#~ "The global scale factor is limited to multiples of 6.25% to minimize "
-#~ "visual glitches in applications using the X11 windowing system."
-#~ msgstr ""
-#~ "Глобалният мащабен фактор е ограничен до кратни на 6,25%, за да се сведат "
-#~ "до минимум визуалните артефакти в приложения, използващи X11 графична "
-#~ "система."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "ICC profiles aren’t compatible with HDR yet."
-#~ msgstr "Профилите ICC все още не са съвместими с HDR"
