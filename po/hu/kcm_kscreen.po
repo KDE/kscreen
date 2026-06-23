@@ -3,13 +3,13 @@
 #
 # Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2018.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020.
-# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024-2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:46+0000\n"
-"PO-Revision-Date: 2025-11-10 21:56+0100\n"
+"PO-Revision-Date: 2026-06-22 22:04+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: kcm.cpp:137 kcm.cpp:159
 #, kde-format
@@ -448,6 +448,7 @@ msgstr "Megnyit egy ablakot a HDR-fényerő kalibrálásához"
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"A HDR kalibráció csak az összes beállítás alkalmazása után indítható el."
 
 #: ui/OutputPanel.qml:328
 #, kde-format
@@ -571,7 +572,7 @@ msgstr "Növeli a képernyőn megjelenő sRGB tartalom intenzitását."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptív háttérvilágítás-szabályozás:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -579,6 +580,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Az adaptív háttérvilágítás-szabályozás csökkenti az energiafogyasztást a "
+"színpontosság rovására"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
@@ -613,7 +616,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:572
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Automatikus alkalmazkodás a környezethez"
 
 #: ui/OutputPanel.qml:577
 #, kde-format
@@ -624,6 +627,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"A képernyő fényerejét automatikusan a környezeti fényerősséghez igazítja, "
+"amelyet a készülék környezeti fényérzékelője érzékel. Ha a fényerőt saját "
+"kezűleg állítja be, a rendszer megjegyzi ezeket a beállításokat, és "
+"figyelembe veszi azokat."
 
 #: ui/OutputPanel.qml:589
 #, kde-format
