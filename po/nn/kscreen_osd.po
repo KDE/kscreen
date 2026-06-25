@@ -1,6 +1,5 @@
 # Translation of kscreen_osd to Norwegian Nynorsk
 #
-# SPDX-FileCopyrightText: 2026 Karl Ove Hufthammer <karl@huftis.org>
 #
 msgid ""
 msgstr ""
