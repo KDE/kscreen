@@ -917,50 +917,6 @@ QVariantList OutputModel::replicationSourceModelWithNumbers(const KScreen::Outpu
     return ret;
 }
 
-static KScreen::ModePtr getBestMode(const KScreen::OutputPtr &output, const KScreen::OutputPtr &source)
-{
-    auto calculateAspectRatio = [](const auto &output, const auto &mode) {
-        const qreal ratio = mode->size().width() / qreal(mode->size().height());
-        const qreal ratioTransposed = mode->size().height() / qreal(mode->size().width());
-        switch (output->rotation()) {
-        case KScreen::Output::Left:
-        case KScreen::Output::Right:
-            return ratioTransposed;
-        default:
-            return ratio;
-        }
-    };
-    const qreal sourceRatio = calculateAspectRatio(source, source->currentMode());
-    // 1.1: Find modes with the same aspect ratio as the source output; if none, don't change the mode
-    std::vector<KScreen::ModePtr> availableModes(output->modes().cbegin(), output->modes().cend());
-    std::erase_if(availableModes, [&calculateAspectRatio, &output, sourceRatio](const auto &mode) {
-        return !qFuzzyCompare(calculateAspectRatio(output, mode), sourceRatio);
-    });
-    if (availableModes.empty()) {
-        return output->currentMode();
-    }
-
-    // 1.2: Use the smallest mode at least as large as the source output; if none, use the largest mode
-    std::sort(availableModes.begin(), availableModes.end(), [&output](const auto &a, const auto &b) {
-        return a->size().width() < b->size().width();
-    });
-    auto getRotatedSize = [](const auto &output, const auto &mode) {
-        if (output->rotation() == KScreen::Output::Left || output->rotation() == KScreen::Output::Right) {
-            return mode->size().transposed();
-        }
-        return mode->size();
-    };
-    const auto sourceSize = getRotatedSize(source, source->currentMode());
-    const auto it = std::ranges::find_if(availableModes, [sourceSize](const auto &mode) {
-        return mode->size().width() >= sourceSize.width();
-    });
-    if (it != availableModes.end()) {
-        return *it;
-    } else {
-        return availableModes.back();
-    }
-}
-
 bool OutputModel::setReplicationSourceIndex(int outputIndex, int sourceIndex)
 {
     // TODO once X11 support is dropped, change this to use output

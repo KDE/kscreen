@@ -158,8 +158,6 @@ void KCMKScreen::doSave()
 
     m_configHandler->prepareForSave();
 
-    m_configHandler->writeControl();
-
     // Store the current config, apply settings. Block until operation is
     // completed, otherwise ConfigModule might terminate before we get to
     // execute the Operation.

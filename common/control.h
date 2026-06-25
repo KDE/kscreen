@@ -12,8 +12,6 @@
 #include <QObject>
 #include <QVariantMap>
 
-class KDirWatch;
-
 class Control : public QObject
 {
     Q_OBJECT
@@ -22,25 +20,12 @@ public:
 
     ~Control() override = default;
 
-    virtual bool writeFile();
-    virtual void activateWatcher();
-
-Q_SIGNALS:
-    void changed();
-
 protected:
-    virtual QString dirPath() const;
-    virtual QString filePath() const = 0;
-    QString filePathFromHash(const QString &hash) const;
-    void readFile();
     QVariantMap &info();
     const QVariantMap &constInfo() const;
-    KDirWatch *watcher() const;
 
 private:
-    static QString s_dirName;
     QVariantMap m_info;
-    KDirWatch *m_watcher = nullptr;
 };
 
 class ControlOutput;
@@ -62,12 +47,6 @@ public:
 
     KScreen::Output::RgbRange getRgbRange(const KScreen::OutputPtr &output) const;
     void setRgbRange(const KScreen::OutputPtr &output, const KScreen::Output::RgbRange value);
-
-    QString dirPath() const override;
-    QString filePath() const override;
-
-    bool writeFile() override;
-    void activateWatcher() override;
 
 private:
     QVariantList getOutputs() const;
@@ -104,9 +83,6 @@ public:
 
     KScreen::Output::RgbRange rgbRange() const;
     void setRgbRange(KScreen::Output::RgbRange value);
-
-    QString dirPath() const override;
-    QString filePath() const override;
 
 private:
     KScreen::OutputPtr m_output;

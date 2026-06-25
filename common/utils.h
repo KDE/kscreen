@@ -16,7 +16,4 @@ namespace Utils
 {
 QString outputName(const KScreen::Output *output, bool shouldShowSerialNumber = false, bool shouldShowConnector = false);
 QString outputName(const KScreen::OutputPtr &output, bool shouldShowSerialNumber = false, bool shouldShowConnector = false);
-
-QString sizeToString(const QSize &size);
-KScreen::ModePtr biggestMode(const KScreen::ModeList &modes);
 }

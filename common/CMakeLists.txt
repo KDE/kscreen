@@ -1,4 +1,4 @@
-add_library(kscreen_common OBJECT control.cpp globals.cpp osdaction.cpp  output.cpp  utils.cpp)
+add_library(kscreen_common OBJECT control.cpp osdaction.cpp utils.cpp)
 qt_extract_metatypes(kscreen_common)
 ecm_qt_declare_logging_category(kscreen_common HEADER kscreen_daemon_debug.h IDENTIFIER KSCREEN_KDED CATEGORY_NAME kscreen.kded DESCRIPTION "kscreen kded (kscreen)" EXPORT KSCREEN)
 set_property(TARGET kscreen_common PROPERTY POSITION_INDEPENDENT_CODE ON)

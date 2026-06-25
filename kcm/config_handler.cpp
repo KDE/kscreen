@@ -293,12 +293,4 @@ void ConfigHandler::setRgbRange(const KScreen::OutputPtr &output, KScreen::Outpu
     m_control->setRgbRange(output, value);
 }
 
-void ConfigHandler::writeControl()
-{
-    if (!m_control) {
-        return;
-    }
-    m_control->writeFile();
-}
-
 #include "moc_config_handler.cpp"

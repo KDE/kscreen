@@ -57,8 +57,6 @@ public:
     KScreen::Output::RgbRange rgbRange(const KScreen::OutputPtr &output) const;
     void setRgbRange(const KScreen::OutputPtr &output, KScreen::Output::RgbRange value);
 
-    void writeControl();
-
     void checkNeedsSave();
     void prepareForSave();
     bool shouldTestNewSettings();

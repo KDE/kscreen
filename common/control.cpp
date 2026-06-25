@@ -5,13 +5,6 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "control.h"
-#include "globals.h"
-
-#include <KDirWatch>
-#include <QDir>
-#include <QFile>
-#include <QJsonDocument>
-#include <QStringBuilder>
 
 #include <kscreen/config.h>
 
@@ -30,77 +23,9 @@
 #define outputsString                   QStringLiteral("outputs")
 // clang-format on
 
-QString Control::s_dirName = QStringLiteral("control/");
-
 Control::Control(QObject *parent)
     : QObject(parent)
 {
-}
-
-void Control::activateWatcher()
-{
-    if (m_watcher) {
-        return;
-    }
-    m_watcher = new KDirWatch(this);
-    m_watcher->addFile(filePath());
-    connect(m_watcher, &KDirWatch::dirty, this, [this]() {
-        readFile();
-        Q_EMIT changed();
-    });
-}
-
-KDirWatch *Control::watcher() const
-{
-    return m_watcher;
-}
-
-bool Control::writeFile()
-{
-    const QString path = filePath();
-    const auto infoMap = constInfo();
-
-    if (infoMap.isEmpty()) {
-        // Nothing to write. Default control. Remove file if it exists.
-        QFile::remove(path);
-        return true;
-    }
-    if (!QDir().mkpath(dirPath())) {
-        // TODO: error message
-        return false;
-    }
-
-    // write updated data to file
-    QFile file(path);
-    if (!file.open(QIODevice::WriteOnly)) {
-        // TODO: logging category?
-        //        qCWarning(KSCREEN_COMMON) << "Failed to open config control file for writing! " << file.errorString();
-        return false;
-    }
-    file.write(QJsonDocument::fromVariant(infoMap).toJson());
-    //    qCDebug(KSCREEN_COMMON) << "Control saved on: " << file.fileName();
-    return true;
-}
-
-QString Control::dirPath() const
-{
-    return Globals::dirPath() % s_dirName;
-}
-
-void Control::readFile()
-{
-    QFile file(filePath());
-    if (file.open(QIODevice::ReadOnly)) {
-        // This might not be reached, bus this is ok. The control file will
-        // eventually be created on first write later on.
-        QJsonDocument parser;
-        m_info = parser.fromJson(file.readAll()).toVariant().toMap();
-    }
-}
-
-QString Control::filePathFromHash(const QString &hash) const
-{
-    return dirPath() % hash;
 }
 
 QVariantMap &Control::info()
@@ -117,12 +42,6 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
     : Control(parent)
     , m_config(config)
 {
-    //    qDebug() << "Looking for control file:" << config->connectedOutputsHash();
-    readFile();
-
-    // TODO: use a file watcher in case of changes to the control file while
-    //       object exists?
-
     // As global outputs are indexed by a hash of their edid, which is not unique,
     // to be able to tell apart multiple identical outputs, these need special treatment
     QStringList allIds;
@@ -144,40 +63,6 @@ ControlConfig::ControlConfig(KScreen::ConfigPtr config, QObject *parent)
 
     // TODO: connect to outputs added/removed signals and reevaluate duplicate ids
     //       in case of such a change while object exists?
-}
-
-void ControlConfig::activateWatcher()
-{
-    if (watcher()) {
-        // Watcher was already activated.
-        return;
-    }
-    for (auto *output : std::as_const(m_outputsControls)) {
-        output->activateWatcher();
-        connect(output, &ControlOutput::changed, this, &ControlConfig::changed);
-    }
-}
-
-QString ControlConfig::dirPath() const
-{
-    return Control::dirPath() % QStringLiteral("configs/");
-}
-
-QString ControlConfig::filePath() const
-{
-    if (!m_config) {
-        return QString();
-    }
-    return filePathFromHash(m_config->connectedOutputsHash());
-}
-
-bool ControlConfig::writeFile()
-{
-    bool success = true;
-    for (auto *outputControl : std::as_const(m_outputsControls)) {
-        success &= outputControl->writeFile();
-    }
-    return success && Control::writeFile();
 }
 
 bool ControlConfig::infoIsOutput(const QVariantMap &info, const QString &outputId, const QString &outputName) const
@@ -373,7 +258,6 @@ ControlOutput::ControlOutput(KScreen::OutputPtr output, QObject *parent)
     : Control(parent)
     , m_output(output)
 {
-    readFile();
 }
 
 QString ControlOutput::id() const
@@ -384,19 +268,6 @@ QString ControlOutput::id() const
 QString ControlOutput::name() const
 {
     return m_output->name();
-}
-
-QString ControlOutput::dirPath() const
-{
-    return Control::dirPath() % QStringLiteral("outputs/");
-}
-
-QString ControlOutput::filePath() const
-{
-    if (!m_output) {
-        return QString();
-    }
-    return filePathFromHash(m_output->hashMd5());
 }
 
 uint32_t ControlOutput::overscan() const

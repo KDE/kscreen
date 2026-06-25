@@ -44,34 +44,3 @@ QString Utils::outputName(const KScreen::Output *output, bool shouldShowSerialNu
     }
     return output->name();
 }
-
-QString Utils::sizeToString(const QSize &size)
-{
-    return QStringLiteral("%1x%2").arg(size.width()).arg(size.height());
-}
-
-KScreen::ModePtr Utils::biggestMode(const KScreen::ModeList &modes)
-{
-    Q_ASSERT(!modes.isEmpty());
-
-    int modeArea, biggestArea = 0;
-    KScreen::ModePtr biggestMode;
-    for (const KScreen::ModePtr &mode : modes) {
-        modeArea = mode->size().width() * mode->size().height();
-        if (modeArea < biggestArea) {
-            continue;
-        }
-        if (modeArea == biggestArea && mode->refreshRate() < biggestMode->refreshRate()) {
-            continue;
-        }
-        if (modeArea == biggestArea && mode->refreshRate() > biggestMode->refreshRate()) {
-            biggestMode = mode;
-            continue;
-        }
-
-        biggestArea = modeArea;
-        biggestMode = mode;
-    }
-
-    return biggestMode;
-}

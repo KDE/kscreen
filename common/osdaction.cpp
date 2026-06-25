@@ -11,7 +11,6 @@
 */
 
 #include "osdaction.h"
-#include "output.h"
 
 #include <KLocalizedString>
 #include <KScreen/Config>
