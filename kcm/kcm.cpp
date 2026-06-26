@@ -156,6 +156,7 @@ void KCMKScreen::doSave()
         return;
     }
 
+    KQuickManagedConfigModule::save();
     m_configHandler->prepareForSave();
 
     // Store the current config, apply settings. Block until operation is
