@@ -52,7 +52,7 @@ ColumnLayout {
 
         QQC2.ButtonGroup {
             id: x11AppsScaling
-            onClicked: kcm.xwaylandClientsScale = (button === x11ScalingApps)
+            onClicked: kcm.xwaylandClientsScale = (checkedButton === x11ScalingApps)
         }
 
         RowLayout {
