@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 00:47+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2026-05-25 21:37+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr "구현 오류"
 
-#: kcm.cpp:176
+#: kcm.cpp:175
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "설정을 적용하는 중 출력이 변경됨"
@@ -44,12 +44,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2(%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:883 output_model.cpp:900
 #, kde-format
 msgid "Replicated by other output"
 msgstr "다른 출력으로 대체됨"
 
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:887 output_model.cpp:905
 #, kde-format
 msgid "None"
 msgstr "없음"

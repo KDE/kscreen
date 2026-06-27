@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2025-06-14 06:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -20,32 +20,32 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.6\n"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
 msgstr "Uporabljaj samo zunanji zaslon"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Uporabljaj samo vgrajeni zaslon"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
 msgstr "Zrcali zaslone"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Razširi levo od vgrajenega zaslona"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Razširi desno od vgrajenega zaslona"
 
-#: osdaction.cpp:33
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Pusti nespremenjeno"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2023-11-11 15:55+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -16,32 +16,32 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
 msgstr "Používať iba externý displej"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Používať iba zabudovanú obrazovku"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
 msgstr "Zrkadliť obrazovky"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Rozšíriť naľavo od vstavanej obrazovky"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Rozšíriť napravo od vstavanej obrazovky"
 
-#: osdaction.cpp:33
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Ponechať nezmenené"

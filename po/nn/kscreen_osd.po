@@ -1,6 +1,5 @@
 # Translation of kscreen_osd to Norwegian Nynorsk
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"

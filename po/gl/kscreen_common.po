@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2025-06-19 10:09+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
 msgstr "Usar só a pantalla externa"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Usar só a pantalla propia"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
 msgstr "Reflectir as pantallas"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Estender á esquerda da pantalla propia"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Estender á dereita da pantalla propia"
 
-#: osdaction.cpp:33
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Deixar sen cambiar"

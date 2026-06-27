@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2025-07-20 01:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.12.3\n"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
 msgstr "외부 화면만 사용"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "내장 화면만 사용"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
 msgstr "화면 미러링"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "내장 화면 왼쪽으로 확장"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "내장 화면 오른쪽으로 확장"
 
-#: osdaction.cpp:33
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "변경하지 않기"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2025-06-16 11:32+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -23,32 +23,32 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
 msgstr "N'utiliser que l'écran externe"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "N'utiliser que l'écran intégré"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
 msgstr "Recopier les écrans"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Étendre l'écran intégré vers la gauche"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Étendre l'écran intégré vers la droite"
 
-#: osdaction.cpp:33
+#: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Laisser inchangé"

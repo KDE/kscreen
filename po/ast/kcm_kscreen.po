@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 00:47+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2024-03-14 23:20+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:176
+#: kcm.cpp:175
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -46,12 +46,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1x%2 (%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:883 output_model.cpp:900
 #, kde-format
 msgid "Replicated by other output"
 msgstr ""
 
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:887 output_model.cpp:905
 #, kde-format
 msgid "None"
 msgstr ""

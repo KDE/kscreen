@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 00:47+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2025-12-19 09:55+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr "Chyba implementace"
 
-#: kcm.cpp:176
+#: kcm.cpp:175
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Při pokusu o použití změn došlo ke změně výstupů"
@@ -46,13 +46,13 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:883 output_model.cpp:900
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Kopírováno druhým výstupem"
 
 # žádné parametry funkce v inspektoru funkcí
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:887 output_model.cpp:905
 #, kde-format
 msgid "None"
 msgstr "Nic"

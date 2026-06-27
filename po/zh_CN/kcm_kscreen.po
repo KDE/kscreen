@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 00:47+0000\n"
+"POT-Creation-Date: 2026-06-27 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Implementation error"
 msgstr "执行错误"
 
-#: kcm.cpp:176
+#: kcm.cpp:175
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "输出在尝试应用设置时发生更改"
@@ -44,12 +44,12 @@ msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:883 output_model.cpp:900
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
 
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:887 output_model.cpp:905
 #, kde-format
 msgid "None"
 msgstr "无"
