@@ -98,7 +98,7 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
                     return diff >= 0.001;
                 }
             });
-            ret << i18n("%1 Hz", QString::number(rate, 'f', showMore ? 3 : 2));
+            ret << ki18n("%1 Hz").subs(rate, 0, 'f', showMore ? 3 : 2).toString();
         }
         return ret;
     }
