@@ -19,6 +19,10 @@ ColumnLayout {
 
     signal reorder()
 
+    Kirigami.FormAlignmentGroup {
+        id: alignmentGroup
+    }
+
     StackLayout {
         id: panelView
         currentIndex: root.selectedOutput
@@ -26,9 +30,10 @@ ColumnLayout {
         Layout.fillWidth: true
 
         Repeater {
+            id: panelsRepeater
             model: kcm.outputModel
             OutputPanel {
-                twinFormLayouts: globalSettingsLayout
+                Kirigami.FormAlignmentGroup.group: alignmentGroup
                 enabledOutputs: root.enabledOutputs
                 onReorder: root.reorder()
             }
@@ -41,63 +46,62 @@ ColumnLayout {
         }
     }
 
-    Kirigami.FormLayout {
-        id: globalSettingsLayout
-        Layout.fillWidth: true
+    Kirigami.Separator {
+        Layout.alignment: Qt.AlignCenter
+        implicitWidth: globalSettingsGroup.width
+    }
 
-        Kirigami.Separator {
-            Layout.fillWidth: true
-            Kirigami.FormData.isSection: true
-        }
+    Kirigami.Form {
+        id: globalSettingsForm
+        Kirigami.FormAlignmentGroup.group: alignmentGroup
+        Layout.fillWidth: true
+        visible: panelsRepeater.count > 0
 
         QQC2.ButtonGroup {
             id: x11AppsScaling
             onClicked: kcm.xwaylandClientsScale = (checkedButton === x11ScalingApps)
         }
 
-        RowLayout {
-            Kirigami.FormData.label: i18n("Legacy applications (X11):")
-            spacing: Kirigami.Units.smallSpacing
+        Kirigami.FormGroup {
+            id: globalSettingsGroup
 
-            QQC2.RadioButton {
-                id: x11ScalingApps
-                text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
-                checked: kcm.xwaylandClientsScale
-                QQC2.ButtonGroup.group: x11AppsScaling
+            Kirigami.FormEntry {
+                title: i18n("Legacy applications (X11):")
+                contentItem: QQC2.RadioButton {
+                    id: x11ScalingApps
+                    text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
+                    checked: kcm.xwaylandClientsScale
+                    QQC2.ButtonGroup.group: x11AppsScaling
+                }
+                trailingItems: Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don’t will not be scaled at all.")
+                }
             }
-            Kirigami.ContextualHelpButton {
-                toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don’t will not be scaled at all.")
-            }
-        }
 
-        RowLayout {
-            spacing: Kirigami.Units.smallSpacing
+            Kirigami.FormEntry {
+                contentItem: QQC2.RadioButton {
+                    text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
+                    checked: !kcm.xwaylandClientsScale
+                    QQC2.ButtonGroup.group: x11AppsScaling
+                }
+                trailingItems: Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
+                }
+            }
 
-            QQC2.RadioButton {
-                Kirigami.FormData.label: i18n("Legacy applications (X11):")
-                text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
-                checked: !kcm.xwaylandClientsScale
-                QQC2.ButtonGroup.group: x11AppsScaling
+            Kirigami.FormEntry {
+                title: i18nc("@label", "Screen tearing:")
+                contentItem: QQC2.CheckBox {
+                    text: i18nc("@option:check The thing being allowed in fullscreen windows is screen tearing", "Allow in fullscreen windows")
+                    checked: kcm.tearingAllowed
+                    onToggled: kcm.tearingAllowed = checked
+                }
+                trailingItems: Kirigami.ContextualHelpButton {
+                    toolTipText: i18nc("@info:tooltip", "Screen tearing reduces latency with most displays. Note that not all graphics drivers support this setting.")
+                }
             }
-            Kirigami.ContextualHelpButton {
-                toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
-            }
-        }
 
-        RowLayout {
-            Kirigami.FormData.label: i18nc("@label", "Screen tearing:")
-            QQC2.CheckBox {
-                text: i18nc("@option:check The thing being allowed in fullscreen windows is screen tearing", "Allow in fullscreen windows")
-                checked: kcm.tearingAllowed
-                onToggled: kcm.tearingAllowed = checked
-            }
-            Kirigami.ContextualHelpButton {
-                toolTipText: i18nc("@info:tooltip", "Screen tearing reduces latency with most displays. Note that not all graphics drivers support this setting.")
-            }
-        }
-
-        Item {
-            Kirigami.FormData.isSection: false
+            Item {}
         }
     }
 }

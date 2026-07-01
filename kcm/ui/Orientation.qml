@@ -13,7 +13,7 @@ import org.kde.private.kcm.kscreen as KScreen
 ColumnLayout {
     Kirigami.FormData.label: i18n("Orientation:")
     Kirigami.FormData.labelAlignment: autoRotateColumn.visible ? Qt.AlignTop : Qt.AlignVCenter
-    Kirigami.FormData.buddyFor: autoRotateColumn.visible ? autoRotateColumn : orientation
+    Kirigami.FormData.buddyFor: autoRotateColumn.visible ? autoRotateRadio : orientation
     spacing: Kirigami.Units.smallSpacing
 
     ColumnLayout {
