@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-07-02 00:46+0000\n"
 "PO-Revision-Date: 2026-06-22 22:04+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -198,7 +198,7 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioritások módosítása"
 
-#: ui/main.qml:260 ui/OutputPanel.qml:50
+#: ui/main.qml:260 ui/OutputPanel.qml:53
 #, kde-format
 msgid "Primary"
 msgstr "Elsődleges"
@@ -230,7 +230,7 @@ msgstr "Elrendezés szerkesztése"
 msgid "Orientation:"
 msgstr "Tájolás:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:172 ui/OutputPanel.qml:217
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:187 ui/OutputPanel.qml:228
 #, kde-format
 msgid "Automatic"
 msgstr "Automatikus"
@@ -267,23 +267,23 @@ msgstr "%1, %2"
 msgid "Replicas"
 msgstr "Replikák"
 
-#: ui/OutputPanel.qml:31
+#: ui/OutputPanel.qml:32
 #, kde-format
 msgctxt "@label for a checkbox that says 'Enabled'"
 msgid "Device:"
 msgstr "Eszköz:"
 
-#: ui/OutputPanel.qml:32
+#: ui/OutputPanel.qml:35
 #, kde-format
 msgid "Enabled"
 msgstr "Engedélyezve"
 
-#: ui/OutputPanel.qml:43
+#: ui/OutputPanel.qml:46
 #, kde-format
 msgid "Change Screen Priorities…"
 msgstr "Kijelzőprioritás módosítása…"
 
-#: ui/OutputPanel.qml:56
+#: ui/OutputPanel.qml:59
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -297,46 +297,46 @@ msgstr ""
 "eldöntésére, melyik képernyőn jelenjen meg.<nl/><nl/>Ez nincs hatással arra, "
 "hogy az értesítések vagy más ablakok melyik képernyőn jelennek meg."
 
-#: ui/OutputPanel.qml:61
+#: ui/OutputPanel.qml:65
 #, kde-format
 msgid "Resolution:"
 msgstr "Felbontás:"
 
-#: ui/OutputPanel.qml:82
+#: ui/OutputPanel.qml:87
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "A(z) „%1” a kijelző által támogatott egyetlen felbontás."
 
-#: ui/OutputPanel.qml:92
+#: ui/OutputPanel.qml:93
 #, kde-format
 msgid "Scale:"
 msgstr "Skálázás:"
 
-#: ui/OutputPanel.qml:98
+#: ui/OutputPanel.qml:105
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "a normál skála százalékában"
 
-#: ui/OutputPanel.qml:129
+#: ui/OutputPanel.qml:136
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:141
+#: ui/OutputPanel.qml:151
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Frissítési gyakoriság:"
 
-#: ui/OutputPanel.qml:162
+#: ui/OutputPanel.qml:175
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "„%1” a kijelző által támogatott egyetlen frissítési frekvencia."
 
-#: ui/OutputPanel.qml:163
+#: ui/OutputPanel.qml:176
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -346,33 +346,33 @@ msgstr ""
 "„%1” a kijelző által támogatott egyetlen frissítési frekvencia a jelenlegi "
 "felbontáson."
 
-#: ui/OutputPanel.qml:168
+#: ui/OutputPanel.qml:181
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Adaptív szinkron:"
 
-#: ui/OutputPanel.qml:171
+#: ui/OutputPanel.qml:186
 #, kde-format
 msgid "Never"
 msgstr "Soha"
 
-#: ui/OutputPanel.qml:173
+#: ui/OutputPanel.qml:188
 #, kde-format
 msgid "Always"
 msgstr "Mindig"
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:199
 #, kde-format
 msgid "Overscan:"
 msgstr "Túlpásztázás"
 
-#: ui/OutputPanel.qml:198
+#: ui/OutputPanel.qml:211
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:204
+#: ui/OutputPanel.qml:217
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -384,22 +384,22 @@ msgstr ""
 "hogy kompenzálja a tartalom egy részének a széleken történő levágását.<nl/"
 "><nl/>Ez néha szükséges, ha a TV-t képernyőként használják."
 
-#: ui/OutputPanel.qml:209
+#: ui/OutputPanel.qml:222
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB tartomány:"
 
-#: ui/OutputPanel.qml:218
+#: ui/OutputPanel.qml:229
 #, kde-format
 msgid "Full"
 msgstr "Teljes"
 
-#: ui/OutputPanel.qml:219
+#: ui/OutputPanel.qml:230
 #, kde-format
 msgid "Limited"
 msgstr "Korlátozott"
 
-#: ui/OutputPanel.qml:229
+#: ui/OutputPanel.qml:240
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -411,19 +411,19 @@ msgstr ""
 "megjelenítéshez. Ezt csak akkor kell megváltoztatni, ha a színek a képernyőn "
 "elmosódottnak tűnnek."
 
-#: ui/OutputPanel.qml:280
+#: ui/OutputPanel.qml:293
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR:"
 
-#: ui/OutputPanel.qml:287
+#: ui/OutputPanel.qml:299
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "&HDR bekapcsolása"
 
-#: ui/OutputPanel.qml:293
+#: ui/OutputPanel.qml:305
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -432,43 +432,43 @@ msgstr ""
 "A HDR lehetővé teszi a kompatibilis alkalmazásoknak fényesebb és élénkebb "
 "színek megjelenítését."
 
-#: ui/OutputPanel.qml:302
+#: ui/OutputPanel.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "HDR-fényerő kalibrálása…"
 
-#: ui/OutputPanel.qml:316
+#: ui/OutputPanel.qml:326
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Megnyit egy ablakot a HDR-fényerő kalibrálásához"
 
-#: ui/OutputPanel.qml:321
+#: ui/OutputPanel.qml:331
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
 "A HDR kalibráció csak az összes beállítás alkalmazása után indítható el."
 
-#: ui/OutputPanel.qml:328
+#: ui/OutputPanel.qml:336
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Színhűség:"
 
-#: ui/OutputPanel.qml:337
+#: ui/OutputPanel.qml:344
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Hatékonyság preferálása"
 
-#: ui/OutputPanel.qml:338
+#: ui/OutputPanel.qml:345
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Színhűség preferálása"
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:357
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -481,7 +481,7 @@ msgstr ""
 "és növeli a maximális színfelbontást.<nl/><nl/>Ne feledje, hogy ez a "
 "beállítás jelentősen befolyásolhatja a teljesítményt."
 
-#: ui/OutputPanel.qml:354
+#: ui/OutputPanel.qml:363
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -493,31 +493,31 @@ msgstr ""
 "+formázóra, javítva a teljesítményt a színhelyesség rovására.<nl/><nl/>Ne "
 "feledje, hogy ez a beállítás jelentősen befolyásolhatja a teljesítményt."
 
-#: ui/OutputPanel.qml:362
+#: ui/OutputPanel.qml:370
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Színfelbontás korlátozása:"
 
-#: ui/OutputPanel.qml:383
+#: ui/OutputPanel.qml:390
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Automatikus (%1 bit/szín)"
 
-#: ui/OutputPanel.qml:385 ui/OutputPanel.qml:398
+#: ui/OutputPanel.qml:392 ui/OutputPanel.qml:405
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 bit/szín"
 
-#: ui/OutputPanel.qml:396
+#: ui/OutputPanel.qml:403
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Automatikus (%1 bit/szín)"
 
-#: ui/OutputPanel.qml:408
+#: ui/OutputPanel.qml:416
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -534,7 +534,7 @@ msgstr ""
 ">A grafikus illesztőprogram korlátai miatt a ténylegesen használt felbontás "
 "nem ismert."
 
-#: ui/OutputPanel.qml:412
+#: ui/OutputPanel.qml:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -550,31 +550,31 @@ msgstr ""
 "megkerülésére.<nl/><nl/>A grafikus illesztőprogram korlátai miatt a "
 "ténylegesen használt felbontás nem ismert."
 
-#: ui/OutputPanel.qml:427
+#: ui/OutputPanel.qml:429
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB színintenzitás:"
 
-#: ui/OutputPanel.qml:459
+#: ui/OutputPanel.qml:468
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:467
+#: ui/OutputPanel.qml:477
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Növeli a képernyőn megjelenő sRGB tartalom intenzitását."
 
-#: ui/OutputPanel.qml:479
+#: ui/OutputPanel.qml:482
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr "Adaptív háttérvilágítás-szabályozás:"
 
-#: ui/OutputPanel.qml:502
+#: ui/OutputPanel.qml:512
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -583,19 +583,19 @@ msgstr ""
 "Az adaptív háttérvilágítás-szabályozás csökkenti az energiafogyasztást a "
 "színpontosság rovására"
 
-#: ui/OutputPanel.qml:511
+#: ui/OutputPanel.qml:518
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Fényerő:"
 
-#: ui/OutputPanel.qml:517
+#: ui/OutputPanel.qml:524
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Hardveres fényerő-szabályozás DDC/CI-vel"
 
-#: ui/OutputPanel.qml:523
+#: ui/OutputPanel.qml:530
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -607,18 +607,18 @@ msgstr ""
 "használni a képernyő fényerejének asztali vezérlőkkel történő beállítására, "
 "mintha a monitor saját hardvergombjait és képernyőmenüjét használná."
 
-#: ui/OutputPanel.qml:558
+#: ui/OutputPanel.qml:567
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:572
+#: ui/OutputPanel.qml:578
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Automatikus alkalmazkodás a környezethez"
 
-#: ui/OutputPanel.qml:577
+#: ui/OutputPanel.qml:583
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -638,19 +638,19 @@ msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Élesség:"
 
-#: ui/OutputPanel.qml:619
+#: ui/OutputPanel.qml:622
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Kiterjesztett dinamikatartomány:"
 
-#: ui/OutputPanel.qml:624
+#: ui/OutputPanel.qml:628
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR bekapcsolása"
 
-#: ui/OutputPanel.qml:630
+#: ui/OutputPanel.qml:634
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -662,23 +662,23 @@ msgstr ""
 "háttérvilágítás dinamikus beállításával.<nl/><nl/>Vegye figyelembe, hogy ez "
 "növeli az akkumulátor-használatot HDR tartalmak megtekintése közben."
 
-#: ui/OutputPanel.qml:635
+#: ui/OutputPanel.qml:639
 #, kde-format
 msgid "Replica of:"
 msgstr "Replikája ennek:"
 
-#: ui/Panel.qml:59 ui/Panel.qml:77
+#: ui/Panel.qml:69
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Örökölt alkalmazások (X11):"
 
-#: ui/Panel.qml:64
+#: ui/Panel.qml:72
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Méretezzék saját magukat"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:77
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -687,13 +687,13 @@ msgstr ""
 "A méretezést támogató örökölt alkalmazások használni fogják azt, és élesnek "
 "látszódnak, azonban az azt nem támogatók egyáltalán nem méreteződnek."
 
-#: ui/Panel.qml:78
+#: ui/Panel.qml:83
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Méretezés a rendszer által"
 
-#: ui/Panel.qml:83
+#: ui/Panel.qml:88
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -702,20 +702,20 @@ msgstr ""
 "Az összes örökölt alkalmazást a rendszer méretezi a megfelelő méretre, habár "
 "ekkor mindig kissé homályosnak fognak tűnni."
 
-#: ui/Panel.qml:88
+#: ui/Panel.qml:93
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Képtörés:"
 
-#: ui/Panel.qml:90
+#: ui/Panel.qml:95
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Engedélyezés teljes képernyős ablakokban"
 
-#: ui/Panel.qml:95
+#: ui/Panel.qml:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
