@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 02:48+0000\n"
-"PO-Revision-Date: 2026-03-01 20:05+0100\n"
+"PO-Revision-Date: 2026-07-01 20:54+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -88,7 +88,7 @@ msgid ""
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
 "Bruk eventuell farge­profil innebygd i sjølve skjermen. Merk at innebygde "
-"fargar­profilar ofte er upresise og av og til direkte feil. For best mogleg "
+"farge­profilar ofte er upresise og av og til direkte feil. For best mogleg "
 "farge­attgjeving bør du kalibrera skjermen med eit kolorimeter."
 
 #: ui/IccSelector.qml:33
@@ -483,6 +483,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"Viss du vel å føretrekkja farge­nøyaktigheit, vert potensielt unøyaktige farge­"
+"operasjonar ikkje sende til skjermkort­drivaren, noko som aukar den maksimale "
+"farge­oppløysinga.<nl/><nl/>Men merk at det kan påverka ytinga svært negativt."
 
 #: ui/OutputPanel.qml:354
 #, kde-kuit-format
@@ -492,6 +495,10 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"Viss du vel å føretrekkja effektivitet, vert ICC-profilen forenkla til "
+"«matrix+shaper», noko som fører til høgare yting, men dårlegare farge­"
+"nøyaktigheit.<nl/><nl/>Merk at om du endrar denne innstillinga, kan det "
+"påverka ytinga svært mykje."
 
 #: ui/OutputPanel.qml:362
 #, kde-format
@@ -503,7 +510,7 @@ msgstr "Avgrens fargeoppløysinga til:"
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr "Automatisk (%1 bits per farge)"
+msgstr "Automatisk (%1 bit per farge)"
 
 #: ui/OutputPanel.qml:385 ui/OutputPanel.qml:398
 #, kde-format
@@ -673,7 +680,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Skalert av systemet"
+msgstr "Vert skalerte av systemet"
 
 #: ui/Panel.qml:144
 #, kde-format
@@ -704,7 +711,7 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
-"Skjermriving reduserer forseinking av biletoppdatering for dei fleste "
+"Skjermriving reduserer forseinking av bilet­oppdatering for dei fleste "
 "skjemar. Merk at ikkje alle skjermkort­drivarar støttar dette."
 
 #: ui/Panel.qml:171
@@ -716,10 +723,11 @@ msgstr ""
 "Global skalering er avgrensa til multiplum av 6,25 %. Det er for å unngå "
 "visingsproblem i program under vindaugssystemet X11."
 
+# Vart veldig teknisk å snakka om vinklar her (samtidig som eit anna alternativ var «opp ned» i staden for «180 gradar»). Meiner «Dreidd til høgre» er mykje lettare å forstå.
 #: ui/RotationButton.qml:54
 #, kde-format
 msgid "90° Clockwise"
-msgstr "90° med klokka"
+msgstr "Dreidd til høgre"
 
 #: ui/RotationButton.qml:58
 #, kde-format
@@ -729,7 +737,7 @@ msgstr "Opp ned"
 #: ui/RotationButton.qml:62
 #, kde-format
 msgid "90° Counterclockwise"
-msgstr "90° mot klokka"
+msgstr "Dreidd til venstre"
 
 #: ui/RotationButton.qml:67
 #, kde-format
