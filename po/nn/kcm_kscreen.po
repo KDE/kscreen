@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2023-03-04 17:01+0100\n"
+"PO-Revision-Date: 2026-07-01 20:54+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -302,7 +302,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Skalert av systemet"
+msgstr "Vert skalerte av systemet"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
@@ -337,10 +337,11 @@ msgstr "For alle skjermutformingar"
 msgid "For only this specific display arrangement"
 msgstr "Berre for denne skjermutforminga"
 
+# Vart veldig teknisk å snakka om vinklar her (samtidig som eit anna alternativ var «opp ned» i staden for «180 gradar»). Meiner «Dreidd til høgre» er mykje lettare å forstå.
 #: package/contents/ui/RotationButton.qml:50
 #, kde-format
 msgid "90° Clockwise"
-msgstr "90° med klokka"
+msgstr "Dreidd til høgre"
 
 #: package/contents/ui/RotationButton.qml:54
 #, kde-format
@@ -350,7 +351,7 @@ msgstr "Opp ned"
 #: package/contents/ui/RotationButton.qml:58
 #, kde-format
 msgid "90° Counterclockwise"
-msgstr "90° mot klokka"
+msgstr "Dreidd til venstre"
 
 #: package/contents/ui/RotationButton.qml:63
 #, kde-format
