@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 02:48+0000\n"
-"PO-Revision-Date: 2026-07-01 20:54+0200\n"
+"PO-Revision-Date: 2026-07-02 20:48+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -534,6 +534,13 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Avgrensar fargeoppløysinga til biletet som vert sendt til skjermen. Dette "
+"påverkar ikkje lagring av skjermbilete eller skjermopptak.<nl/><nl/>Sidan "
+"skjermen no er tilkopla via ein dokking­stasjon, er automatisk farge­"
+"oppløysing mellombels redusert til 8 bit. Dette er gjort for å unngå eit "
+"vanleg problem med dokking­stasjonar.<nl/><nl/>På grunn ei avgrensing i "
+"skjermkort­drivaren er det ikkje mogleg å finna ut kva oppløysing som faktisk "
+"er brukt."
 
 #: ui/OutputPanel.qml:412
 #, kde-kuit-format
@@ -545,6 +552,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Avgrensar fargeoppløysinga til biletet som vert sendt til skjermen. Dette "
+"påverkar ikkje lagring av skjermbilete eller skjermopptak.<nl/><nl/>Å "
+"avgrensa fargeoppløysinga kan vera nyttig for å omgå problem med visse "
+"skjermar og skjermkort­drivarar.<nl/><nl/>På grunn ei avgrensing i skjermkort­"
+"drivaren er det ikkje mogleg å finna ut kva oppløysing som faktisk er brukt."
 
 #: ui/OutputPanel.qml:427
 #, kde-format
@@ -568,7 +580,7 @@ msgstr "Aukar intensiteten til sRGB-innhald vist på skjermen."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptiv bakgrunnslysmodulering:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -576,6 +588,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Adaptiv bakgrunnlysmodulering reduserer straum­forbruket, men gjev dårlegare "
+"fargenøyaktigheit."
 
 #: ui/OutputPanel.qml:511
 #, kde-format
@@ -587,7 +601,7 @@ msgstr "Lysstyrke:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Styr maskinvare-lysstyrke med DDC/CI"
 
 #: ui/OutputPanel.qml:523
 #, kde-format
@@ -597,6 +611,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI er ein funksjon støtta av mange PC-skjermar. Plasma kan bruka han til "
+"å justera lysstyrken på skjermen. Det fungerer i praksis på same måte som "
+"ved bruk av dei fysiske knappane på skjermen."
 
 #: ui/OutputPanel.qml:558
 #, kde-format
@@ -607,7 +624,7 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:572
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Tilpass automatisk til omgjevnadane"
 
 #: ui/OutputPanel.qml:577
 #, kde-format
@@ -618,6 +635,10 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Juster automatisk lysstyrken til skjermen basert på kor lyse dei fysiske "
+"omgjevnadane er. Dette brukar data frå ein lyssensor på skjermen. Viss du i "
+"tillegg justerer lysstyrken manuelt, vert denne justeringa hugsa og teken "
+"omsyn til seinare."
 
 #: ui/OutputPanel.qml:589
 #, kde-format
@@ -645,6 +666,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"EDR gjer det mogleg å visa HDR-innhald på SDR-skjermar via dynamisk "
+"justering av bakgrunnslyset.<nl/><nl/>Merk at dette medfører høgare straum­"
+"forbruk når du ser på HDR-innhald."
 
 #: ui/OutputPanel.qml:635
 #, kde-format

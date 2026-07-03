@@ -135,13 +135,3 @@ msgstr ""
 "calibratge, amb la qual la configuració bàsica d'aquest sistema entra en "
 "conflicte. Si s'estableix aquesta opció, la seva configuració de calibratge "
 "funcionarà com s'espera en aquesta pantalla específica."
-
-#~ msgid ""
-#~ "To determine the maximum average brightness of the screen, adjust the "
-#~ "slider until the logo is barely visible"
-#~ msgstr ""
-#~ "Per a determinar la lluminositat mitjana màxima de la pantalla, ajusteu "
-#~ "el control lliscant fins que el logotip sigui visible amb prou feines"
-
-#~ msgid "Maximum fullscreen luminance: %1cd/m²"
-#~ msgstr "Luminància màxima a pantalla completa: %1 cd/m²"

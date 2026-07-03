@@ -53,12 +53,3 @@ msgstr "Deixa sense canviar"
 #, kde-format
 msgid "Built-in Screen"
 msgstr "Pantalla integrada"
-
-#~ msgid "Switch to laptop screen"
-#~ msgstr "Canvia a la pantalla del portàtil"
-
-#~ msgid "Unify outputs"
-#~ msgstr "Unifica les sortides"
-
-#~ msgid "Extend to left"
-#~ msgstr "Estén a l'esquerra"
