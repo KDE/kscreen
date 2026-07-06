@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2013-2022, 2024-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-02 00:46+0000\n"
-"PO-Revision-Date: 2026-01-23 21:00+0100\n"
+"PO-Revision-Date: 2026-07-05 17:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: kcm.cpp:132 kcm.cpp:154
 #, kde-format
@@ -446,6 +446,8 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"Kalibrering av ljusstyrka för stort dynamiskt omfång kan bara påbörjas om "
+"alla inställningar har verkställts."
 
 #: ui/OutputPanel.qml:336
 #, kde-format
@@ -569,7 +571,7 @@ msgstr "Ökar intensiteten för sRGB-innehåll på skärmen."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptiv anpassning av bakgrundsljus"
 
 #: ui/OutputPanel.qml:512
 #, kde-format
@@ -577,6 +579,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Adaptiv anpassning av bakgrundsljus reducerar effekt på bekostnad av "
+"färgnoggrannhet"
 
 #: ui/OutputPanel.qml:518
 #, kde-format
