@@ -25,7 +25,7 @@ OutputModel::OutputModel(ConfigHandler *configHandler)
 {
     connect(m_config->config().data(), &KScreen::Config::prioritiesChanged, this, [this]() {
         if (rowCount() > 0) {
-            Q_EMIT dataChanged(createIndex(0, 0), createIndex(rowCount() - 1, 0), {PriorityRole});
+            Q_EMIT dataChanged(createIndex(0, 0), createIndex(rowCount() - 1, 0), {PriorityRole, NumberByConnectorRole, ReplicationSourceModelWithNumbersRole});
         }
     });
 }
@@ -477,7 +477,7 @@ void OutputModel::add(const KScreen::OutputPtr &output)
         QModelIndex index = createIndex(j, 0);
         // Calling this directly ignores possible optimization when the
         // refresh rate hasn't changed in fact. But that's ok.
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, ReplicationSourceIndexRole});
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, ReplicationSourceIndexRole, NumberByConnectorRole});
     }
 }
 
@@ -491,6 +491,11 @@ void OutputModel::remove(int outputId)
         beginRemoveRows(QModelIndex(), index, index);
         m_outputs.erase(it);
         endRemoveRows();
+
+        for (int outputIndex : std::views::iota(0, m_outputs.size())) {
+            const QModelIndex modelIndex = createIndex(outputIndex, 0);
+            Q_EMIT dataChanged(modelIndex, modelIndex, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, NumberByConnectorRole});
+        }
     }
 }
 
@@ -588,7 +593,7 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
 
     for (int outputIndex : std::views::iota(0, m_outputs.size())) {
         const QModelIndex index = createIndex(outputIndex, 0);
-        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole});
+        Q_EMIT dataChanged(index, index, {ReplicationSourceModelRole, ReplicationSourceModelWithNumbersRole, NumberByConnectorRole});
     }
     return true;
 }
@@ -997,7 +1002,11 @@ int OutputModel::numberByConnector(const KScreen::OutputPtr &output) const
     if (!output)
         return 0;
     auto sorted = m_outputs;
-    std::sort(sorted.begin(), sorted.end(), [](const Output &a, const Output &b){
+    std::sort(sorted.begin(), sorted.end(), [](const Output &a, const Output &b) {
+        if (a.ptr->isEnabled() != b.ptr->isEnabled())
+            return a.ptr->isEnabled();
+        if (a.ptr->isEnabled())
+            return a.ptr->priority() < b.ptr->priority();
         return QString::compare(a.ptr->name(), b.ptr->name(), Qt::CaseInsensitive) < 0;
     });
     auto it = std::find_if(sorted.begin(), sorted.end(), [&](const Output &o) { return o.ptr == output; });

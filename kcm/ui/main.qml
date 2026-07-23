@@ -227,62 +227,130 @@ KCM.AbstractKCM {
             standardButtons: Kirigami.Dialog.Ok
             padding: 0
 
-            contentItem: ListView {
+            contentItem: Item {
                 id: reorderView
 
                 implicitWidth: Math.min(root.width * 0.75, Kirigami.Units.gridUnit * 32)
-                implicitHeight: contentHeight
+                implicitHeight: rowHeight * enabledOutputsModel.count
 
-                reuseItems: true
-                model: KSortFilterProxyModel {
+                readonly property real rowHeight: rowMetrics.implicitHeight
+                readonly property real numberColumnWidth: badgeMetrics.implicitWidth + Kirigami.Units.largeSpacing * 2
+
+                KSortFilterProxyModel {
                     id: enabledOutputsModel
                     sourceModel: kcm.outputModel
                     filterRoleName: "enabled"
                     filterString: "true"
-                    sortRoleName: "priority"
-                    sortOrder: Qt.AscendingOrder
                 }
-                delegate: Kirigami.SwipeListItem {
-                    id: delegate
 
-                    property var output: model
-
-                    width: ListView.view.width
-
-                    background: null
+                OutputNumberBadge {
+                    id: badgeMetrics
+                    visible: false
+                    number: 1
+                }
+                QQC2.ItemDelegate {
+                    id: rowMetrics
+                    visible: false
                     contentItem: RowLayout {
                         spacing: Kirigami.Units.largeSpacing
-                        OutputNumberBadge {
-                            number: delegate.output.numberByConnector
-                        }
                         Kirigami.TitleSubtitle {
-                            title: delegate.output.display
-                            subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                            title: "Metrics"
+                            subtitle: "Primary"
+                            reserveSpaceForSubtitle: true
                             Layout.fillWidth: true
                         }
-                    }
-                    actions: [
-                        Kirigami.Action {
+                        QQC2.ToolButton {
                             icon.name: "arrow-up"
                             text: i18n("Raise priority")
-                            enabled: delegate.output.priority > 1
-                            onTriggered: {
-                                if (enabled) {
-                                    delegate.output.priority -= 1;
-                                }
-                            }
-                        },
-                        Kirigami.Action {
+                            display: QQC2.AbstractButton.IconOnly
+
+                            QQC2.ToolTip.visible: hovered || activeFocus
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        }
+                        QQC2.ToolButton {
                             icon.name: "arrow-down"
                             text: i18n("Lower priority")
-                            enabled: delegate.output.priority < reorderView.count
-                            onTriggered: {
-                                if (enabled) {
-                                    delegate.output.priority += 1;
-                                }
+                            display: QQC2.AbstractButton.IconOnly
+
+                            QQC2.ToolTip.visible: hovered || activeFocus
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        }
+                    }
+                }
+
+                Repeater {
+                    model: enabledOutputsModel.count
+                    delegate: QQC2.ItemDelegate {
+                        x: 0
+                        y: index * reorderView.rowHeight
+                        width: reorderView.numberColumnWidth
+                        height: reorderView.rowHeight
+                        hoverEnabled: false
+
+                        contentItem: Item {
+                            OutputNumberBadge {
+                                anchors.centerIn: parent
+                                number: index + 1
                             }
                         }
-                    ]
+                    }
+                }
+
+                Repeater {
+                    model: enabledOutputsModel
+
+                    delegate: QQC2.ItemDelegate {
+                        id: delegate
+
+                        property var output: model
+
+                        x: reorderView.numberColumnWidth
+                        width: reorderView.width - reorderView.numberColumnWidth
+                        height: reorderView.rowHeight
+                        hoverEnabled: true
+
+                        y: (output.priority - 1) * reorderView.rowHeight
+                        Behavior on y {
+                            NumberAnimation {
+                                duration: Kirigami.Units.longDuration
+                                easing.type: Easing.InOutQuad
+                            }
+                        }
+
+                        contentItem: RowLayout {
+                            spacing: Kirigami.Units.largeSpacing
+                            Kirigami.TitleSubtitle {
+                                title: delegate.output.display
+                                subtitle: (delegate.output.priority === 1) ? i18n("Primary") : ""
+                                reserveSpaceForSubtitle: true
+                                Layout.fillWidth: true
+                            }
+                            QQC2.ToolButton {
+                                icon.name: "arrow-up"
+                                text: i18n("Raise priority")
+                                display: QQC2.AbstractButton.IconOnly
+                                enabled: delegate.output.priority > 1
+                                onClicked: delegate.output.priority -= 1
+
+                                QQC2.ToolTip.visible: hovered || activeFocus
+                                QQC2.ToolTip.text: text
+                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            }
+                            QQC2.ToolButton {
+                                icon.name: "arrow-down"
+                                text: i18n("Lower priority")
+                                display: QQC2.AbstractButton.IconOnly
+                                enabled: delegate.output.priority < enabledOutputsModel.count
+                                onClicked: delegate.output.priority += 1
+
+                                QQC2.ToolTip.visible: hovered || activeFocus
+                                QQC2.ToolTip.text: text
+                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            }
+                        }
+                    }
                 }
             }
         }
