@@ -133,7 +133,10 @@ void Console::printSerializations()
 {
     if (KWindowSystem::isPlatformWayland()) {
         QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QLatin1String("/kwinoutputconfig.json"));
-        file.open(QFile::ReadOnly);
+        if (!file.open(QFile::ReadOnly)) {
+            qWarning() << "Failed to open" << file.fileName() << file.errorString();
+            return;
+        }
         qDebug().noquote() << file.readAll();
     } else {
         QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kscreen/");
@@ -147,7 +150,10 @@ void Console::printSerializations()
             QJsonParseError error;
             qDebug() << fileName;
             QFile file(path + QLatin1Char('/') + fileName);
-            file.open(QFile::ReadOnly);
+            if (!file.open(QFile::ReadOnly)) {
+                qWarning() << "Failed to open" << file.fileName() << file.errorString();
+                continue;
+            }
             QJsonDocument parser = QJsonDocument::fromJson(file.readAll(), &error);
             if (error.error != QJsonParseError::NoError) {
                 qDebug() << "    can't parse file:";
