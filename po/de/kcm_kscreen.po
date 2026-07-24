@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-02 00:46+0000\n"
+"POT-Creation-Date: 2026-07-24 00:46+0000\n"
 "PO-Revision-Date: 2026-05-11 21:43+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -39,24 +39,24 @@ msgstr ""
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:770
+#: output_model.cpp:775
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:789
+#: output_model.cpp:794
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:883 output_model.cpp:900
+#: output_model.cpp:888 output_model.cpp:905
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Von anderer Ausgabe kopiert"
 
-#: output_model.cpp:887 output_model.cpp:905
+#: output_model.cpp:892 output_model.cpp:910
 #, kde-format
 msgid "None"
 msgstr "Kein"
@@ -206,28 +206,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioritäten verändern"
 
-#: ui/main.qml:260 ui/OutputPanel.qml:53
-#, kde-format
-msgid "Primary"
-msgstr "Primär"
-
-#: ui/main.qml:267
+#: ui/main.qml:264 ui/main.qml:332
 #, kde-format
 msgid "Raise priority"
 msgstr "Priorität erhöhen"
 
-#: ui/main.qml:277
+#: ui/main.qml:273 ui/main.qml:343
 #, kde-format
 msgid "Lower priority"
 msgstr "Priorität reduzieren"
 
-#: ui/main.qml:405
+#: ui/main.qml:326 ui/OutputPanel.qml:53
+#, kde-format
+msgid "Primary"
+msgstr "Primär"
+
+#: ui/main.qml:473
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Einklappen"
 
-#: ui/main.qml:406
+#: ui/main.qml:474
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

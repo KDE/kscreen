@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-02 00:46+0000\n"
+"POT-Creation-Date: 2026-07-24 00:46+0000\n"
 "PO-Revision-Date: 2026-06-01 12:40+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -33,24 +33,24 @@ msgstr "Úttök breyttust á meðan reynt var að virkja stillingar"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:770
+#: output_model.cpp:775
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:789
+#: output_model.cpp:794
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:883 output_model.cpp:900
+#: output_model.cpp:888 output_model.cpp:905
 #, kde-format
 msgid "Replicated by other output"
 msgstr "Eftirlíking gerð eftir öðru úttaki"
 
-#: output_model.cpp:887 output_model.cpp:905
+#: output_model.cpp:892 output_model.cpp:910
 #, kde-format
 msgid "None"
 msgstr "Ekkert"
@@ -195,28 +195,28 @@ msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Breyta forgangi"
 
-#: ui/main.qml:260 ui/OutputPanel.qml:53
-#, kde-format
-msgid "Primary"
-msgstr "Aðal"
-
-#: ui/main.qml:267
+#: ui/main.qml:264 ui/main.qml:332
 #, kde-format
 msgid "Raise priority"
 msgstr "Hækka forgang"
 
-#: ui/main.qml:277
+#: ui/main.qml:273 ui/main.qml:343
 #, kde-format
 msgid "Lower priority"
 msgstr "Lækka forgang"
 
-#: ui/main.qml:405
+#: ui/main.qml:326 ui/OutputPanel.qml:53
+#, kde-format
+msgid "Primary"
+msgstr "Aðal"
+
+#: ui/main.qml:473
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Fella saman"
 
-#: ui/main.qml:406
+#: ui/main.qml:474
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
