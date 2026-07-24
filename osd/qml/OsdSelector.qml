@@ -140,7 +140,11 @@ Control {
             switch (event.key) {
                 case Qt.Key_Return:
                 case Qt.Key_Enter:
-                    root.clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId) // qmllint disable missing-property
+                    if (actionRepeater.currentIndex === actionRepeater.count) {
+                        configureButton.animateClick();
+                    } else {
+                        root.clicked(actionRepeater.itemAt(actionRepeater.currentIndex).actionId) // qmllint disable missing-property
+                    }
                     break
                 case Qt.Key_Right:
                 case Qt.Key_Left:
