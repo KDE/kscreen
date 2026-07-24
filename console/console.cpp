@@ -143,7 +143,6 @@ void Console::printSerializations()
         const QStringList files = dir.entryList(QDir::Files);
         qDebug() << "Number of files: " << files.count() << Qt::endl;
 
-        QJsonDocument parser;
         for (const QString &fileName : files) {
             QJsonParseError error;
             qDebug() << fileName;
