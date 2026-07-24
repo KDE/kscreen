@@ -118,7 +118,6 @@ void HdrCalibrator::setOutput(const KScreen::ConfigPtr &config, const KScreen::O
     m_output = output;
     connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::maxPeakBrightnessOverrideChanged, this, &HdrCalibrator::peakBrightnessOverrideChanged);
-    connect(output.get(), &KScreen::Output::brightnessChanged, this, &HdrCalibrator::brightnessChanged);
     connect(output.get(), &KScreen::Output::sdrBrightnessChanged, this, &HdrCalibrator::sdrBrightnessChanged);
 }
 
