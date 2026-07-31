@@ -93,6 +93,7 @@ public:
     bool positionsNormalized() const;
 
     bool isMoving() const;
+    Q_INVOKABLE bool setPosition(int outputIndex, const QPoint &valToPoint, bool snapEnabled = true);
 
 Q_SIGNALS:
     void positionChanged();

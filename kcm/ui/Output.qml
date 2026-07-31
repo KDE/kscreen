@@ -22,6 +22,7 @@ Item {
                                          model.resolution.width.toString(), model.resolution.height.toString(), Math.round(model.scale * 100.0))
     property string textWithoutScale: i18nc("Width, height; separated with no-break space", "(%1 × %2)",
                                             model.resolution.width.toString(), model.resolution.height.toString())
+    property bool arrowKeyHeld: false
 
     onIsSelectedChanged: {
         if (isSelected) {
@@ -122,7 +123,7 @@ Item {
                 Layout.leftMargin: Kirigami.Units.smallSpacing
                 Layout.bottomMargin: Kirigami.Units.smallSpacing
                 number: model.numberByConnector
-                visible: labelContainer.height >= implicitHeight + Kirigami.Units.smallSpacing * 2
+                visible: labelContainer.height >= implicitHeight + Kirigami.Units.smallSpacing * 2 && !(tapHandler.isLongPressed || dragHandler.active || output.arrowKeyHeld)
             }
 
             QQC2.Label {
@@ -221,7 +222,7 @@ Item {
         radius: Kirigami.Units.cornerRadius
 
         opacity: model.enabled &&
-                 (tapHandler.isLongPressed || dragHandler.active) ? 0.9 : 0.0
+                 (tapHandler.isLongPressed || dragHandler.active || output.arrowKeyHeld) ? 0.9 : 0.0
 
 
         color: Kirigami.Theme.disabledTextColor
@@ -282,6 +283,7 @@ Item {
         onPressedChanged: {
             if (pressed) {
                 root.selectedOutput = model.index;
+                output.forceActiveFocus()
                 dragStartPosition = Qt.point(output.x, output.y)
             } else {
                 isLongPressed = false;
@@ -308,6 +310,48 @@ Item {
                 screen.resetTotalSize();
             }
         }
+    }
+
+    Timer {
+        id: uiLinger
+        interval: 600
+        onTriggered: {
+            arrowKeyHeld = false
+        }
+    }
+
+    Keys.onPressed: (event) => {
+        if (!output.interactive) {
+            return
+        }
+
+        uiLinger.stop()
+        const delta = Qt.point(0, 0);
+        if (event.key === Qt.Key_Left) {
+            delta.x = -1
+            arrowKeyHeld = true
+            model.interactiveMove = true;
+        } else if (event.key === Qt.Key_Right) {
+            delta.x = 1
+            arrowKeyHeld = true
+            model.interactiveMove = true;
+        } else if (event.key === Qt.Key_Up) {
+            delta.y = -1
+            arrowKeyHeld = true
+            model.interactiveMove = true;
+        } else if (event.key === Qt.Key_Down) {
+            delta.y = 1
+            arrowKeyHeld = true
+            model.interactiveMove = true;
+        }
+        kcm.outputModel.sourceModel.setPosition(model.index, Qt.point(model.position.x + delta.x, model.position.y + delta.y), false)
+    }
+    Keys.onReleased: (event) => {
+        if (event.isAutoRepeat) {
+            return
+        }
+        model.interactiveMove = false
+        uiLinger.start()
     }
 }
 

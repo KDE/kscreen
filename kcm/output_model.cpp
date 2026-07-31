@@ -178,6 +178,32 @@ QVariant OutputModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+bool OutputModel::setPosition(int outputIndex, const QPoint &valToPoint, bool snapEnabled)
+{
+    if (outputIndex < 0 || outputIndex >= m_outputs.count()) {
+        return false;
+    }
+
+    Output &output = m_outputs[outputIndex];
+    QPoint val = valToPoint;
+
+    if (output.pos == val) {
+        return false;
+    }
+
+    if (snapEnabled) {
+        snap(output, val);
+    }
+
+    output.pos = val;
+    updatePositions();
+
+    Q_EMIT positionChanged();
+    const QModelIndex index = createIndex(outputIndex, 0);
+    Q_EMIT dataChanged(index, index, {PositionRole});
+    return true;
+}
+
 bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (index.row() < 0 || index.row() >= m_outputs.count()) {
@@ -188,16 +214,7 @@ bool OutputModel::setData(const QModelIndex &index, const QVariant &value, int r
     switch (role) {
     case PositionRole:
         if (value.canConvert<QPoint>()) {
-            QPoint val = value.toPoint();
-            if (output.pos == val) {
-                return false;
-            }
-            snap(output, val);
-            m_outputs[index.row()].pos = val;
-            updatePositions();
-            Q_EMIT positionChanged();
-            Q_EMIT dataChanged(index, index, {role});
-            return true;
+            return setPosition(index.row(), value.toPoint());
         }
         break;
     case EnabledRole:
