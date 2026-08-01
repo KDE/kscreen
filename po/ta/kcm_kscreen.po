@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:46+0000\n"
+"POT-Creation-Date: 2026-08-01 00:50+0000\n"
 "PO-Revision-Date: 2026-05-10 15:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -32,24 +32,24 @@ msgstr "அமைப்புகளை செயல்படுத்தும�
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:775
+#: output_model.cpp:792
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:794
+#: output_model.cpp:811
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:905 output_model.cpp:922
 #, kde-format
 msgid "Replicated by other output"
 msgstr "இன்னொரு திரையால் பிரதிபலிக்கப்படுகிறது"
 
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:909 output_model.cpp:927
 #, kde-format
 msgid "None"
 msgstr "ஏதுமில்லை"
@@ -254,12 +254,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:235
+#: ui/Output.qml:236
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: ui/Output.qml:261
+#: ui/Output.qml:262
 #, kde-format
 msgid "Replicas"
 msgstr "நகலிகள்"

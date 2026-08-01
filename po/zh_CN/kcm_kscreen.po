@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:46+0000\n"
+"POT-Creation-Date: 2026-08-01 00:50+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,24 +32,24 @@ msgstr "输出在尝试应用设置时发生更改"
 msgid "%1 Hz"
 msgstr "%1 Hz"
 
-#: output_model.cpp:775
+#: output_model.cpp:792
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: output_model.cpp:794
+#: output_model.cpp:811
 #, kde-format
 msgctxt "Width x height (aspect ratio)"
 msgid "%1 × %2 (%3:%4)"
 msgstr "%1 × %2 (%3:%4)"
 
-#: output_model.cpp:888 output_model.cpp:905
+#: output_model.cpp:905 output_model.cpp:922
 #, kde-format
 msgid "Replicated by other output"
 msgstr "复制自其他输出"
 
-#: output_model.cpp:892 output_model.cpp:910
+#: output_model.cpp:909 output_model.cpp:927
 #, kde-format
 msgid "None"
 msgstr "无"
@@ -250,12 +250,12 @@ msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
 msgstr "(%1 × %2)"
 
-#: ui/Output.qml:235
+#: ui/Output.qml:236
 #, kde-format
 msgid "%1, %2"
 msgstr "%1，%2"
 
-#: ui/Output.qml:261
+#: ui/Output.qml:262
 #, kde-format
 msgid "Replicas"
 msgstr "复制"
