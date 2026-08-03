@@ -1,21 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 # Vit Pelcak <vit@pelcak.org>, 2018, 2021.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-04 00:45+0000\n"
-"PO-Revision-Date: 2021-11-11 10:54+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-02 11:17+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #: main.qml:26
 #, kde-format
@@ -25,7 +26,7 @@ msgstr "Režim prezentace je zapnut"
 #: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
-msgstr "Nastavit možnosti obrazovky..."
+msgstr "Nastavit možnosti obrazovky…"
 
 #: PresentationModeItem.qml:29
 #, kde-format
@@ -41,15 +42,16 @@ msgstr "Uživatel zapnul prezentační režim"
 #, kde-format
 msgid ""
 "This will prevent your screen and computer from turning off automatically."
-msgstr ""
+msgstr "Tím zabráníte automatickému vypnutí obrazovky a počítače."
 
 #: PresentationModeItem.qml:74
 #, kde-format
 msgctxt "Some Application and n others enforce presentation mode"
 msgid "%2 and %1 other application are enforcing presentation mode."
 msgid_plural "%2 and %1 other applications are enforcing presentation mode."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aplikace %2 a %1 další vynucují režim prezentace."
+msgstr[1] "Aplikace %2 a %1 další vynucují režim prezentace."
+msgstr[2] "Aplikace %2 a %1 dalších vynucují režim prezentace."
 
 #: PresentationModeItem.qml:80
 #, kde-format
@@ -75,3 +77,5 @@ msgid ""
 "You can only apply a different screen layout when there is more than one "
 "display device plugged in."
 msgstr ""
+"Jiné rozvržení obrazovky lze použít pouze v případě, že je připojeno více "
+"než jedno zobrazovací zařízení."
