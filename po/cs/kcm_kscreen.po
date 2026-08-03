@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 02:48+0000\n"
-"PO-Revision-Date: 2025-12-19 09:55+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-02 11:17+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Poedit 3.9\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -90,18 +91,22 @@ msgid ""
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Pokud je k dispozici, použít barevný profil zabudovaný přímo v displeji. "
+"Mějte na paměti, že zabudované barevné profily jsou někdy nesprávné a často "
+"nepřesné. Pro dosažení optimální věrnosti barev se doporučuje kalibrace "
+"pomocí kolorimetru."
 
 #: ui/IccSelector.qml:33
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr "Zadejte cestu k profilu ICC..."
+msgstr "Zadejte cestu k profilu ICC…"
 
 #: ui/IccSelector.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr "Vyberte profil ICC..."
+msgstr "Vyberte profil ICC…"
 
 #: ui/IccSelector.qml:58
 #, kde-format
@@ -190,7 +195,7 @@ msgstr "Výstupy nelze kvůli chybě uložit."
 #, kde-format
 msgid ""
 "Global scale changes will come into effect after the system is restarted."
-msgstr ""
+msgstr "Změny globálního rozsahu vstoupí v platnost po restartu systému."
 
 #: ui/main.qml:213
 #, kde-format
@@ -216,7 +221,7 @@ msgstr "Primární"
 #: ui/main.qml:280
 #, kde-format
 msgid "Raise priority"
-msgstr "Zvýšit prioritu:"
+msgstr "Zvýšit prioritu"
 
 #: ui/main.qml:290
 #, kde-format
@@ -291,7 +296,7 @@ msgstr "Povoleno"
 #: ui/OutputPanel.qml:43
 #, kde-format
 msgid "Change Screen Priorities…"
-msgstr "Změnit priority obrazovky..."
+msgstr "Změnit priority obrazovky…"
 
 #: ui/OutputPanel.qml:56
 #, kde-kuit-format
@@ -302,6 +307,11 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
+"Toto nastavení určuje, na kterém monitoru se zobrazí vaše hlavní pracovní "
+"plocha spolu s případnými panely Plasma. Některé starší hry také využívají "
+"toto nastavení k určení, na kterém monitoru se mají zobrazit.<nl/><nl/>Nemá "
+"to žádný vliv na to, na kterém monitoru se zobrazují upozornění nebo jiná "
+"okna."
 
 #: ui/OutputPanel.qml:61
 #, kde-format
@@ -386,6 +396,9 @@ msgid ""
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
+"Určuje, jak široké okraje se přidají kolem obrázku odeslaného na displej, "
+"aby se kompenzovalo oříznutí části obsahu na okrajích.<nl/><nl/>To je někdy "
+"nutné při použití televizoru jako obrazovky."
 
 #: ui/OutputPanel.qml:209
 #, kde-format
@@ -410,6 +423,9 @@ msgid ""
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
+"Určuje, zda je třeba omezit rozsah možných barevných hodnot pro zobrazení. "
+"Tuto hodnotu by se mělo měnit pouze v případě, že barvy na obrazovce "
+"vypadají vybledle."
 
 #: ui/OutputPanel.qml:280
 #, kde-format
@@ -435,7 +451,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr "Kalibrovat jas HDR..."
+msgstr "Kalibrovat jas HDR…"
 
 #: ui/OutputPanel.qml:316
 #, kde-format
@@ -447,6 +463,7 @@ msgstr "Otevře okno pro kalibraci jasu HDR"
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"Kalibraci HDR lze spustit pouze v případě, že jsou všechna nastavení uložena."
 
 #: ui/OutputPanel.qml:328
 #, kde-format
@@ -474,6 +491,9 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"Upřednostnění přesnosti barev omezuje potenciálně nepřesné přenesení operací "
+"s barvami na ovladač grafické karty a zvyšuje maximální barevné rozlišení."
+"<nl/><nl/>Upozorňujeme, že toto nastavení může mít velký vliv na výkon."
 
 #: ui/OutputPanel.qml:354
 #, kde-kuit-format
@@ -483,6 +503,9 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"Volba priority výkonu zjednoduší profil ICC na kombinaci matice a tvarovače, "
+"čímž se zvýší výkon na úkor přesnosti barev.<nl/><nl/>Upozorňujeme, že změna "
+"tohoto nastavení může mít výrazný vliv na výkon."
 
 #: ui/OutputPanel.qml:362
 #, kde-format
@@ -518,6 +541,12 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Omezuje barevné rozlišení obrazu odesílaného na obrazovku. Na snímky "
+"obrazovky ani nahrávky to nemá vliv.<nl/><nl/>Vzhledem k tomu, že je "
+"obrazovka v současné době připojena přes dokovací stanici, bylo automatické "
+"barevné rozlišení dočasně sníženo na 8 bitů, aby se předešlo běžným "
+"problémům s dokovací stanicí.<nl/><nl/>Vzhledem k omezením grafického "
+"ovladače nelze zjistit skutečně použité rozlišení."
 
 #: ui/OutputPanel.qml:412
 #, kde-kuit-format
@@ -529,6 +558,11 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Omezuje barevné rozlišení obrázku odesílaného na obrazovku. Na snímky "
+"obrazovky ani nahrávky to nemá vliv.<nl/><nl/>Omezení barevného rozlišení "
+"může být užitečné při řešení problémů s obrazovkou nebo grafickým ovladačem."
+"<nl/><nl/>Vzhledem k omezením grafického ovladače nelze zjistit skutečně "
+"použité rozlišení."
 
 #: ui/OutputPanel.qml:427
 #, kde-format
@@ -546,13 +580,13 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr ""
+msgstr "Zvyšuje sytost barev v barevném prostoru sRGB na obrazovce."
 
 #: ui/OutputPanel.qml:479
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Adaptivní regulace podsvícení:"
 
 #: ui/OutputPanel.qml:502
 #, kde-format
@@ -560,6 +594,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Adaptivní regulace podsvícení snižuje spotřebu energie na úkor přesnosti "
+"barev"
 
 #: ui/OutputPanel.qml:511
 #, kde-format
@@ -571,7 +607,7 @@ msgstr "Jas:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Ovládání jasu hardwaru pomocí DDC/CI"
 
 #: ui/OutputPanel.qml:523
 #, kde-format
@@ -581,6 +617,9 @@ msgid ""
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"DDC/CI je funkce podporovaná mnoha monitory. Plasma ji může využít k "
+"nastavení jasu obrazovky pomocí ovládacích prvků na ploše, jako by se "
+"používala vlastní hardwarová tlačítka monitoru a nabídka OSD."
 
 #: ui/OutputPanel.qml:558
 #, kde-format
@@ -591,7 +630,7 @@ msgstr "%1%"
 #: ui/OutputPanel.qml:572
 #, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Automaticky se přizpůsobit prostředí"
 
 #: ui/OutputPanel.qml:577
 #, kde-format
@@ -602,6 +641,9 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Jas obrazovky se automaticky přizpůsobí podle úrovně osvětlení okolí, kterou "
+"zaznamená snímač okolního světla v zařízení. Pokud jas nastavíte ručně, "
+"budou tyto úpravy uloženy a zohledněny."
 
 #: ui/OutputPanel.qml:589
 #, kde-format
@@ -629,6 +671,9 @@ msgid ""
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"Technologie EDR umožňuje sledování obsahu HDR na displejích SDR díky "
+"dynamickému přizpůsobování podsvícení.<nl/><nl/>Upozorňujeme, že při "
+"sledování obsahu HDR dochází k vyšší spotřebě baterie."
 
 #: ui/OutputPanel.qml:635
 #, kde-format
@@ -649,7 +694,7 @@ msgstr "Starší aplikace (X11):"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Provést škálování ručně"
 
 #: ui/Panel.qml:128
 #, kde-format
@@ -657,12 +702,14 @@ msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
+"Starší aplikace, které podporují škálování, tuto funkci využijí a budou "
+"vypadat ostře, zatímco ty, které ji nepodporují, nebudou škálovány vůbec."
 
 #: ui/Panel.qml:139
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Škálovat systémem"
 
 #: ui/Panel.qml:144
 #, kde-format
@@ -670,6 +717,8 @@ msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Systém všechny starší aplikace přizpůsobí na správnou velikost, budou však "
+"vždy vypadat mírně rozmazaně."
 
 #: ui/Panel.qml:149
 #, kde-format
@@ -691,6 +740,8 @@ msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Trhání obrazovky snižuje latenci u většiny displejů. Upozorňujeme, že ne "
+"všechny grafické ovladače toto nastavení podporují."
 
 #: ui/Panel.qml:171
 #, kde-format
@@ -698,6 +749,8 @@ msgid ""
 "The global scale factor is limited to multiples of 6.25% to minimize visual "
 "glitches in applications using the X11 windowing system."
 msgstr ""
+"Globální měřítko je omezeno na násobky 6,25 %, aby se minimalizovaly "
+"vizuální poruchy v aplikacích využívajících okenní systém X11."
 
 #: ui/RotationButton.qml:54
 #, kde-format

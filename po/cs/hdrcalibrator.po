@@ -1,37 +1,38 @@
 # Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
 # SPDX-FileCopyrightText: 2026 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-07 00:46+0000\n"
-"PO-Revision-Date: 2026-03-17 08:54+0100\n"
-"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-02 11:16+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #: hdrcalibrator.cpp:137 Main.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "HDR Calibration"
-msgstr ""
+msgstr "Kalibrace HDR"
 
 #: Main.qml:188 Main.qml:366
 #, kde-format
@@ -43,7 +44,7 @@ msgstr "Další"
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Switches to the next page"
-msgstr ""
+msgstr "Přejde na další stránku"
 
 #: Main.qml:199 Main.qml:376 Main.qml:476
 #, kde-format
@@ -55,7 +56,7 @@ msgstr "Zrušit"
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Cancels the calibration process"
-msgstr ""
+msgstr "Zruší proces kalibrace"
 
 #: Main.qml:211
 #, kde-format
@@ -63,6 +64,8 @@ msgid ""
 "To determine the maximum brightness of the screen, adjust the slider until "
 "the logo is barely visible"
 msgstr ""
+"Chcete-li nastavit maximální jas obrazovky, posuňte posuvník tak, aby bylo "
+"logo sotva viditelné"
 
 #: Main.qml:390
 #, kde-format
@@ -73,6 +76,11 @@ msgid ""
 "To avoid brightness fluctuations, it's recommended to not exceed the "
 "display's maximum average brightness of %1cd/m²"
 msgstr ""
+"Nastavte, jak jasná má být hodnota \"100 %\" na posuvníku normálního jasu. "
+"Nastavte ji na nejvyšší hodnotu, kterou byste kdy použili, pokud při tom HDR "
+"obraz stále vypadá dobře a přechody jsou plynulé.\n"
+"Aby se zabránilo kolísání jasu, doporučuje se nepřekračovat maximální "
+"průměrný jas displeje, který činí %1cd/m²"
 
 #: Main.qml:392
 #, kde-format
@@ -81,22 +89,26 @@ msgid ""
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
 "and the gradients are smooth."
 msgstr ""
+"Nastavte, jak jasná má být hodnota \"100 %\" na posuvníku normálního jasu. "
+"Nastavte ji na nejvyšší hodnotu, kterou byste kdy použili, pokud při tom HDR "
+"obrázek stále vypadá dobře a přechody jsou plynulé."
 
 #: Main.qml:439
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Maximální jas: %1 cd/m²"
 
 #: Main.qml:460
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Referenční jas / bílá barva papíru: %1 cd/m²"
 
 #: Main.qml:471
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
 msgstr ""
+"Předpokládejme, že aplikace Windows HDR jsou pro tento displej kalibrovány"
 
 #: Main.qml:483
 #, kde-format
@@ -108,7 +120,7 @@ msgstr "Hotovo"
 #, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr ""
+msgstr "Dokončit proces kalibrace"
 
 #: Main.qml:501
 #, kde-format
@@ -117,3 +129,6 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Mnoho aplikací pro Windows má vlastní nastavení kalibrace, s nimiž je toto "
+"systémové nastavení v rozporu. Je-li tato možnost zapnutá, budou jejich "
+"nastavení kalibrace na tomto konkrétním displeji fungovat podle očekávání."
