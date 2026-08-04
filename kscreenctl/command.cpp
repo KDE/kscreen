@@ -63,6 +63,42 @@ std::vector<const CommandOption *> CommandOption::all(const Command *command)
     return options;
 }
 
+struct PositionArgumentOverload
+{
+    uint32_t minCount;
+    std::optional<uint32_t> maxCount;
+
+    static QList<PositionArgumentOverload> from(const char *text)
+    {
+        QList<PositionArgumentOverload> ret;
+
+        const QByteArrayList overloads = QByteArray(text).split(';');
+        for (const QByteArray &overload : overloads) {
+            uint32_t minCount = 0;
+            std::optional<uint32_t> maxCount = 0;
+
+            const QByteArrayList parts = overload.split(' ');
+            for (const QByteArray &part : parts) {
+                if (part.back() == '*') {
+                    maxCount.reset();
+                } else {
+                    minCount++;
+                    maxCount = maxCount.transform([](uint32_t value) {
+                        return value + 1;
+                    });
+                }
+            }
+
+            ret.append(PositionArgumentOverload {
+                .minCount = minCount,
+                .maxCount = maxCount,
+            });
+        }
+
+        return ret;
+    }
+};
+
 bool CommandOption::process(const Command *command, const QStringList &arguments)
 {
     const auto options = CommandOption::all(command);
@@ -135,14 +171,26 @@ bool CommandOption::process(const Command *command, const QStringList &arguments
     }
 
     if (positionalOption) {
-        const QByteArrayList parts = QByteArray(positionalOption->format).split(' ');
-        if (parts.size() != positionalArguments.size()) {
-            if (positionalArguments.size() < parts.size()) {
-                std::println(std::cerr, "Too few positional arguments. Expected: {}.", positionalOption->format);
-            } else {
-                std::println(std::cerr, "Too many positional arguments. Expected: {}.", positionalOption->format);
+        const auto overloads = PositionArgumentOverload::from(positionalOption->format);
+        if (!positionalArguments.isEmpty() || !overloads.isEmpty()) {
+            bool matched = false;
+
+            for (const PositionArgumentOverload &overload : overloads) {
+                if (positionalArguments.size() < overload.minCount) {
+                    continue;
+                }
+                if (overload.maxCount && positionalArguments.size() > overload.maxCount) {
+                    continue;
+                }
+
+                matched = true;
+                break;
             }
-            return false;
+
+            if (!matched) {
+                std::println(std::cerr, "Invalid arguments: {}", positionalArguments.join(' ').toStdString());
+                return false;
+            }
         }
 
         QStringList *context = static_cast<QStringList *>(positionalOption->variable);

@@ -327,12 +327,22 @@ static void showHelp()
 
             help.setMinLeft(indent);
             help.setMaxRight(0);
-            std::print(help, "{}", command->name);
             if (positional) {
-                const QByteArrayList parts = QByteArray::fromRawData(positional->format, strlen(positional->format)).split(' ');
-                for (const QByteArray &part : parts) {
-                    std::print(help, " {}…", part.data());
+                const QByteArrayList overloads = QByteArray::fromRawData(positional->format, strlen(positional->format)).split(';');
+                for (const QByteArray &overload : overloads) {
+                    std::print(help, "{}", command->name);
+
+                    const QByteArrayList parts = overload.split(' ');
+                    for (const QByteArray &part : parts) {
+                        std::print(help, " {}…", part.data());
+                    }
+
+                    if (overloads.size() > 1) {
+                        std::println(help);
+                    }
                 }
+            } else {
+                std::print(help, "{}", command->name);
             }
 
             help.setMinLeft(indent + padding);
