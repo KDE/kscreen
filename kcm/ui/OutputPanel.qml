@@ -64,7 +64,8 @@ Kirigami.Form {
         Kirigami.FormEntry {
             title: i18n("Resolution:")
             contentItem: RowLayout {
-                Kirigami.FormData.buddyFor: resolutionCombobox
+                Layout.fillWidth: false
+                Kirigami.FormData.buddyFor: resolutionCombobox.visible ? resolutionCombobox : singleResolutionLabel
 
                 QQC2.ComboBox {
                     id: resolutionCombobox
@@ -79,13 +80,15 @@ Kirigami.Form {
                 // using a label instead
                 QQC2.Label {
                     id: singleResolutionLabel
+
                     visible: resolutionCombobox.count <= 1
                     text: element.resolutions[0] || ""
                 }
-                Kirigami.ContextualHelpButton {
-                    visible: resolutionCombobox.count <= 1
-                    toolTipText: i18nc("@info", "“%1” is the only resolution supported by this display.", singleResolutionLabel.text)
-                }
+            }
+            trailingItems: Kirigami.ContextualHelpButton {
+                visible: resolutionCombobox.count <= 1
+                visible: true
+                toolTipText: i18nc("@info", "“%1” is the only resolution supported by this display.", singleResolutionLabel.text)
             }
         }
 
