@@ -20,6 +20,11 @@ static int run(KScreen::OutputPtr output, KScreen::ConfigPtr config)
         return 1;
     }
 
+    if (!*enabled && !(output->capabilities() & KScreen::Output::Capability::Disable)) {
+        std::println(std::cerr, "Disabling this output is not supported");
+        return 1;
+    }
+
     output->setEnabled(*enabled);
     return applyConfig(config);
 }

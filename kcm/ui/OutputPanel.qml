@@ -34,6 +34,7 @@ Kirigami.Form {
             contentItem: QQC2.CheckBox {
                 text: i18n("Enabled")
                 checked: element.enabled
+                enabled: !checked || (element.capabilities & KScreen.Output.Capability.Disable)
                 onToggled: element.enabled = checked
             }
         }
