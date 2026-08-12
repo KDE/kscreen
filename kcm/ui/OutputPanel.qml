@@ -87,7 +87,6 @@ Kirigami.Form {
             }
             trailingItems: Kirigami.ContextualHelpButton {
                 visible: resolutionCombobox.count <= 1
-                visible: true
                 toolTipText: i18nc("@info", "“%1” is the only resolution supported by this display.", singleResolutionLabel.text)
             }
         }
