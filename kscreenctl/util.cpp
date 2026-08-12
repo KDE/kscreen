@@ -690,6 +690,13 @@ void showOutputAsText(const KScreen::OutputPtr &output)
         cout << cr << "incapable" << Qt::endl;
     }
 
+    cout << yellow << "\tDisabling: ";
+    if (output->capabilities() & KScreen::Output::Capability::Disable) {
+        cout << cr << "supported" << Qt::endl;
+    } else {
+        cout << cr << "unsupported" << Qt::endl;
+    }
+
     cout << yellow << "\tAdaptive backlight modulation: ";
     if (output->capabilities() & KScreen::Output::Capability::AbmLevel) {
         cout << cr << "supported, set to " << output->abmLevel() << Qt::endl;
@@ -788,23 +795,24 @@ QJsonObject outputAsJson(const KScreen::OutputPtr &output)
                     KScreen::Output::Capability capability;
                     QString name;
                 } mappings[] = {
-                    { KScreen::Output::Capability::Overscan, u"overscan"_s },
-                    { KScreen::Output::Capability::Vrr, u"vrr"_s },
-                    { KScreen::Output::Capability::RgbRange, u"rgb-range"_s },
-                    { KScreen::Output::Capability::HighDynamicRange, u"hdr"_s },
-                    { KScreen::Output::Capability::WideColorGamut, u"wcg"_s },
-                    { KScreen::Output::Capability::AutoRotation, u"auto-rotate"_s },
-                    { KScreen::Output::Capability::IccProfile, u"icc"_s },
-                    { KScreen::Output::Capability::BrightnessControl, u"brightness"_s },
-                    { KScreen::Output::Capability::BuiltInColorProfile, u"builtin-color-profile"_s },
-                    { KScreen::Output::Capability::DdcCi, u"ddc-ci"_s },
-                    { KScreen::Output::Capability::MaxBitsPerColor, u"maxbpc"_s },
-                    { KScreen::Output::Capability::ExtendedDynamicRange, u"edr"_s },
-                    { KScreen::Output::Capability::SharpnessControl, u"sharpness"_s },
-                    { KScreen::Output::Capability::CustomModes, u"custom-modes"_s },
-                    { KScreen::Output::Capability::AutomaticBrightness, u"auto-brightness"_s },
-                    { KScreen::Output::Capability::HdrIccProfile, u"hdr-icc"_s },
-                    { KScreen::Output::Capability::AbmLevel, u"abm"_s },
+                    {KScreen::Output::Capability::Overscan, u"overscan"_s},
+                    {KScreen::Output::Capability::Vrr, u"vrr"_s},
+                    {KScreen::Output::Capability::RgbRange, u"rgb-range"_s},
+                    {KScreen::Output::Capability::HighDynamicRange, u"hdr"_s},
+                    {KScreen::Output::Capability::WideColorGamut, u"wcg"_s},
+                    {KScreen::Output::Capability::AutoRotation, u"auto-rotate"_s},
+                    {KScreen::Output::Capability::IccProfile, u"icc"_s},
+                    {KScreen::Output::Capability::BrightnessControl, u"brightness"_s},
+                    {KScreen::Output::Capability::BuiltInColorProfile, u"builtin-color-profile"_s},
+                    {KScreen::Output::Capability::DdcCi, u"ddc-ci"_s},
+                    {KScreen::Output::Capability::MaxBitsPerColor, u"maxbpc"_s},
+                    {KScreen::Output::Capability::ExtendedDynamicRange, u"edr"_s},
+                    {KScreen::Output::Capability::SharpnessControl, u"sharpness"_s},
+                    {KScreen::Output::Capability::CustomModes, u"custom-modes"_s},
+                    {KScreen::Output::Capability::AutomaticBrightness, u"auto-brightness"_s},
+                    {KScreen::Output::Capability::HdrIccProfile, u"hdr-icc"_s},
+                    {KScreen::Output::Capability::Disable, u"disable"_s},
+                    {KScreen::Output::Capability::AbmLevel, u"abm"_s},
                 };
 
                 const auto capabilities = output->capabilities();

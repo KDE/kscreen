@@ -582,6 +582,10 @@ bool OutputModel::setEnabled(int outputIndex, bool enable)
         return false;
     }
 
+    if (!enable && !(output.ptr->capabilities() & KScreen::Output::Capability::Disable)) {
+        return false;
+    }
+
     output.ptr->setEnabled(enable);
 
     if (enable) {
