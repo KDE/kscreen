@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"POT-Creation-Date: 2026-08-13 00:52+0000\n"
 "PO-Revision-Date: 2026-01-05 17:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -227,7 +227,7 @@ msgstr "Muokkaa asettelua"
 msgid "Orientation:"
 msgstr "Suunta:"
 
-#: ui/Orientation.qml:27 ui/OutputPanel.qml:190 ui/OutputPanel.qml:231
+#: ui/Orientation.qml:27 ui/OutputPanel.qml:189 ui/OutputPanel.qml:230
 #, kde-format
 msgid "Automatic"
 msgstr "Automaattinen"
@@ -299,41 +299,41 @@ msgstr ""
 msgid "Resolution:"
 msgstr "Tarkkuus:"
 
-#: ui/OutputPanel.qml:91
+#: ui/OutputPanel.qml:90
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only resolution supported by this display."
 msgstr "”%1” on ainoa tämän näytön tukema tarkkuus."
 
-#: ui/OutputPanel.qml:96
+#: ui/OutputPanel.qml:95
 #, kde-format
 msgid "Scale:"
 msgstr "Mittakaava:"
 
-#: ui/OutputPanel.qml:108
+#: ui/OutputPanel.qml:107
 #, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
 msgstr "osuutena vakiomittakaavasta"
 
-#: ui/OutputPanel.qml:139
+#: ui/OutputPanel.qml:138
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:154
+#: ui/OutputPanel.qml:153
 #, kde-format
 msgid "Refresh rate:"
 msgstr "Virkistystaajuus:"
 
-#: ui/OutputPanel.qml:178
+#: ui/OutputPanel.qml:177
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr "”%1” on ainoa tämän näytön tukema virkistystaajuus."
 
-#: ui/OutputPanel.qml:179
+#: ui/OutputPanel.qml:178
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -342,33 +342,33 @@ msgid ""
 msgstr ""
 "”%1” on ainoa tämän näytön nykyisellä tarkkuudella tukema virkistystaajuus."
 
-#: ui/OutputPanel.qml:184
+#: ui/OutputPanel.qml:183
 #, kde-format
 msgid "Adaptive sync:"
 msgstr "Mukautuva synkronointi:"
 
-#: ui/OutputPanel.qml:189
+#: ui/OutputPanel.qml:188
 #, kde-format
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: ui/OutputPanel.qml:191
+#: ui/OutputPanel.qml:190
 #, kde-format
 msgid "Always"
 msgstr "Aina"
 
-#: ui/OutputPanel.qml:202
+#: ui/OutputPanel.qml:201
 #, kde-format
 msgid "Overscan:"
 msgstr "Yliskannaus:"
 
-#: ui/OutputPanel.qml:214
+#: ui/OutputPanel.qml:213
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:220
+#: ui/OutputPanel.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -380,22 +380,22 @@ msgstr ""
 "että osa sisällöstä leikkautuisi reunoilta.<nl/><nl/>Tätä tarvitaan joskus, "
 "kun näyttönä on televisio."
 
-#: ui/OutputPanel.qml:225
+#: ui/OutputPanel.qml:224
 #, kde-format
 msgid "RGB range:"
 msgstr "RGB-alue:"
 
-#: ui/OutputPanel.qml:232
+#: ui/OutputPanel.qml:231
 #, kde-format
 msgid "Full"
 msgstr "Täysi"
 
-#: ui/OutputPanel.qml:233
+#: ui/OutputPanel.qml:232
 #, kde-format
 msgid "Limited"
 msgstr "Rajoitettu"
 
-#: ui/OutputPanel.qml:243
+#: ui/OutputPanel.qml:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -406,19 +406,19 @@ msgstr ""
 "Määrittää, tarvitseeko näytön mahdollista värialuetta rajoittaa. Tätä tulisi "
 "muuttaa vain, jos näyttövärit näyttävät haalistuneilta."
 
-#: ui/OutputPanel.qml:296
+#: ui/OutputPanel.qml:295
 #, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
 msgstr "HDR (suuri dynaaminen alue):"
 
-#: ui/OutputPanel.qml:302
+#: ui/OutputPanel.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
 msgstr "Käytä H&DR:ää"
 
-#: ui/OutputPanel.qml:308
+#: ui/OutputPanel.qml:307
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -427,42 +427,42 @@ msgstr ""
 "Yhteensopivissa sovelluksissa HDR mahdollistaa kirkkaammat ja eloisammat "
 "värit."
 
-#: ui/OutputPanel.qml:316
+#: ui/OutputPanel.qml:315
 #, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
 msgstr "Kalibroi HDR-enimmäiskirkkaus…"
 
-#: ui/OutputPanel.qml:329
+#: ui/OutputPanel.qml:328
 #, kde-format
 msgid "Opens a window to calibrate HDR brightness"
 msgstr "Avaa ikkunan HDR-kirkkauden kalibroimiseksi"
 
-#: ui/OutputPanel.qml:334
+#: ui/OutputPanel.qml:333
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
 
-#: ui/OutputPanel.qml:339
+#: ui/OutputPanel.qml:338
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
 msgstr "Väritarkkuus:"
 
-#: ui/OutputPanel.qml:347
+#: ui/OutputPanel.qml:346
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
 msgstr "Suosi suorituskykyä"
 
-#: ui/OutputPanel.qml:348
+#: ui/OutputPanel.qml:347
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
 msgstr "Suosi väritarkkuutta"
 
-#: ui/OutputPanel.qml:360
+#: ui/OutputPanel.qml:359
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -474,7 +474,7 @@ msgstr ""
 "siirtoa näyttöajurille ja parantaa enimmäisväritarkkuutta.<nl/><nl/>Huomaa, "
 "että asetuksen muuttamisella voi olla suuri vaikutus suorituskykyyn."
 
-#: ui/OutputPanel.qml:366
+#: ui/OutputPanel.qml:365
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -486,31 +486,31 @@ msgstr ""
 "mikä parantaa suorituskykyä väritarkkuuden kustannuksella.<nl/><nl/>Huomaa, "
 "että asetuksen muuttamisella voi olla suuri vaikutus suorituskykyyn."
 
-#: ui/OutputPanel.qml:373
+#: ui/OutputPanel.qml:372
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
 msgstr "Rajoita väritarkkuutta:"
 
-#: ui/OutputPanel.qml:393
+#: ui/OutputPanel.qml:392
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
 msgstr "Automaattinen (%1 bittiä/väri)"
 
-#: ui/OutputPanel.qml:395 ui/OutputPanel.qml:408
+#: ui/OutputPanel.qml:394 ui/OutputPanel.qml:407
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
 msgstr "%1 bittiä/väri"
 
-#: ui/OutputPanel.qml:406
+#: ui/OutputPanel.qml:405
 #, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
 msgstr "Automaattinen (%1 bittiä/väri)"
 
-#: ui/OutputPanel.qml:419
+#: ui/OutputPanel.qml:418
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -526,7 +526,7 @@ msgstr ""
 "vähennetty 8 bittiin yleisten telakkaongelmien välttämiseksi.<nl/><nl/"
 ">Näyttöajurin rajoitusten takia todella käytettävää tarkkuutta ei voi tietää."
 
-#: ui/OutputPanel.qml:423
+#: ui/OutputPanel.qml:422
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -542,50 +542,50 @@ msgstr ""
 "kiertämisessä.<nl/><nl/>Näyttöajurin rajoitusten takia todella käytettävää "
 "tarkkuutta ei voi tietää."
 
-#: ui/OutputPanel.qml:432
+#: ui/OutputPanel.qml:431
 #, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-väri-intensiteetti:"
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:470
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:479
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä."
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:484
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr ""
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:514
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:520
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Kirkkaus:"
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:526
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Säädä laitekirkkautta DDC/CI:llä"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:532
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -597,18 +597,18 @@ msgstr ""
 "näytön kirkkautta työpöytäsäätimillä ikään kuin käytettäisiin näytön omia "
 "laitepainikkeita tai näyttövalikkoa."
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:569
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:580
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Sopeudu automaattisesti ympäristöön"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:585
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -621,25 +621,25 @@ msgstr ""
 "kuin laitteen valoanturi sen havaitsee. Jos kirkkautta säätää käsin, säädöt "
 "muistetaan ja otetaan huomioon."
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:591
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Terävyys:"
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:624
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "EDR (laajennettu dynaaminen alue):"
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:630
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Käytä EDR:ää"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:636
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -651,7 +651,7 @@ msgstr ""
 "taustavaloa.<nl/><nl/>Huomaa, että tämä lisää akkukäyttöä HDR-sisältöä "
 "katseltaessa."
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:641
 #, kde-format
 msgid "Replica of:"
 msgstr "Monistaa näytön:"
