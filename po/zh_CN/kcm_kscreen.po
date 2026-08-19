@@ -472,8 +472,8 @@ msgid ""
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
-"色彩准确性优先会限制可能导致失真的将色彩操作交给显示驱动程序行为，并提升颜色"
-"分辨率。<nl/><nl/>请注意：此设置可能会对性能产生较大影响。"
+"色彩准确性优先时，系统将限制可能不精确的色彩操作任务卸载至显示驱动程序，并提"
+"升色彩处理的最大深度。<nl/><nl/>请注意：此设置可能会对性能产生较大影响。"
 
 #: ui/OutputPanel.qml:354
 #, kde-kuit-format
@@ -490,7 +490,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr "限制颜色分辨率为："
+msgstr "限制色彩分辨率为："
 
 #: ui/OutputPanel.qml:383
 #, kde-format
@@ -522,7 +522,7 @@ msgid ""
 msgstr ""
 "限制发送到显示器的图像的色彩分辨率。这不会影响截图或录屏。<nl/><nl/>由于当前"
 "显示器通过扩展坞连接到主机，为了避免常见的扩展坞问题，自动色彩分辨率已暂时降"
-"低到 8 位。<nl/><nl/>由于显卡驱动的限制，系统无法确定实际使用的分辨率。"
+"低到 8 位。<nl/><nl/>由于显卡驱动程序的限制，系统无法确定实际使用的分辨率。"
 
 #: ui/OutputPanel.qml:412
 #, kde-kuit-format
@@ -535,8 +535,8 @@ msgid ""
 "cannot be known."
 msgstr ""
 "限制发送到显示器的图像的色彩分辨率。这不会影响截图或录屏。<nl/><nl/>限制色彩"
-"分辨率可能有助于解决显示器或显卡驱动问题。<nl/><nl/>由于显卡驱动的限制，系统"
-"无法确定实际使用的分辨率。"
+"分辨率可能有助于解决显示器或显卡驱动程序问题。<nl/><nl/>由于显卡驱动程序的限"
+"制，系统无法确定实际使用的分辨率。"
 
 #: ui/OutputPanel.qml:427
 #, kde-format
