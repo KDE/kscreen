@@ -570,7 +570,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr "Aumenta l'intensità dei contenuti non sRGB sullo schermo."
+msgstr "Aumenta l'intensità dei contenuti sRGB sullo schermo."
 
 #: ui/OutputPanel.qml:484
 #, kde-format
