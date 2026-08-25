@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 02:48+0000\n"
-"PO-Revision-Date: 2026-01-05 17:31+0200\n"
+"PO-Revision-Date: 2026-02-24 19:40+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -429,7 +429,7 @@ msgstr "HDR (suuri dynaaminen alue):"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Käytä H&DR:ää"
+msgstr "käytä H&DR:ää"
 
 #: ui/OutputPanel.qml:293
 #, kde-format
@@ -683,7 +683,7 @@ msgstr "Vanhat sovellukset (X11):"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Sovellukset skaalaavat itse"
+msgstr "sovellukset skaalaavat itse"
 
 #: ui/Panel.qml:128
 #, kde-format
@@ -698,7 +698,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Järjestelmä skaalaa"
+msgstr "järjestelmä skaalaa"
 
 #: ui/Panel.qml:144
 #, kde-format
@@ -720,7 +720,7 @@ msgstr "Näytön pirstoutuminen:"
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr "Salli koko näytön ikkunoille"
+msgstr "salli koko näytön ikkunoille"
 
 #: ui/Panel.qml:157
 #, kde-format

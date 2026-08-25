@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kscreen package.
-# SPDX-FileCopyrightText: 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-07 00:46+0000\n"
-"PO-Revision-Date: 2025-11-30 15:41+0200\n"
+"PO-Revision-Date: 2026-02-25 16:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -109,18 +109,18 @@ msgstr ""
 #: Main.qml:439
 #, kde-format
 msgid "Maximum luminance: %1cd/m²"
-msgstr ""
+msgstr "Enimmäisluminanssi: %1 cd/m²"
 
 #: Main.qml:460
 #, kde-format
 msgid "Reference luminance / paper white: %1cd/m²"
-msgstr ""
+msgstr "Viiteluminanssi / paperinvalkoinen: %1 cd/m²"
 
 #: Main.qml:471
 #, kde-format
 msgctxt "@action:checkbox"
 msgid "Assume Windows HDR applications are calibrated for this screen"
-msgstr ""
+msgstr "Otaksu Windowsin HDR-sovellukset kalibroiduiksi tälle näytölle"
 
 #: Main.qml:483
 #, kde-format
@@ -129,12 +129,10 @@ msgid "Done"
 msgstr "Valmis"
 
 #: Main.qml:492
-#, fuzzy, kde-format
-#| msgctxt "@info accessible description of a push button"
-#| msgid "Cancels the calibration process"
+#, kde-format
 msgctxt "@info accessible description of a push button"
 msgid "Finish the calibration process"
-msgstr "Peruu kalibrointitoimenpiteen"
+msgstr "Viimeistele kalibrointitoimenpide"
 
 #: Main.qml:501
 #, kde-format
@@ -143,6 +141,10 @@ msgid ""
 "this system wide configuration conflicts with. If this option is set, their "
 "calibration settings will work as expected on this specific display."
 msgstr ""
+"Monissa Windows-sovelluksissa on omat kalibrointiasetukset, joiden kanssa "
+"järjestelmänlaajuiset ovat ristiriidassa. Jos tämä valinta on asetettu, "
+"sovellusten kalibrointiasetukset toimivat odotetusti tällä nimenomaisella "
+"näytöllä."
 
 #~ msgid ""
 #~ "To determine the maximum average brightness of the screen, adjust the "
