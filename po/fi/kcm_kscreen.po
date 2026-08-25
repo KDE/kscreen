@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2025-04-08 08:13+0300\n"
+"PO-Revision-Date: 2026-02-24 19:40+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -289,7 +289,7 @@ msgstr "Vanhat sovellukset (X11):"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Sovellukset skaalaavat itse"
+msgstr "sovellukset skaalaavat itse"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
@@ -304,7 +304,7 @@ msgstr ""
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr "Järjestelmä skaalaa"
+msgstr "järjestelmä skaalaa"
 
 #: package/contents/ui/Panel.qml:157
 #, kde-format
