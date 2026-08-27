@@ -305,7 +305,7 @@ Kirigami.FormLayout {
 
             // Set the same limit as the device ComboBox
             Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-            visible: root.hdrActive && element.colorProfileSource != KScreen.Output.ColorProfileSource.ICC
+            visible: root.hdrActive && element.hdrColorProfileSource != KScreen.Output.ColorProfileSource.ICC
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
