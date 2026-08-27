@@ -309,7 +309,7 @@ Kirigami.Form {
         }
 
         Kirigami.FormEntry {
-            visible: root.hdrActive && element.colorProfileSource != KScreen.Output.ColorProfileSource.ICC
+            visible: root.hdrActive && element.hdrColorProfileSource != KScreen.Output.ColorProfileSource.ICC
             contentItem: QQC2.Button {
                 id: hdrCalibrationButton
                 text: i18nc("@action:button", "Calibrate HDR Brightness…")
