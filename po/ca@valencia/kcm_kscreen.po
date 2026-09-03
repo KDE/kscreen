@@ -3,8 +3,8 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2014-2015, 2018-2022 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2014-2020 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
@@ -51,7 +51,7 @@ msgstr "Replicat per una altra eixida"
 #: package/contents/ui/main.qml:40
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Mantinc la configuració de la pantalla?"
+msgstr "Voleu mantindre la configuració de la pantalla?"
 
 #: package/contents/ui/main.qml:55
 #, kde-format
