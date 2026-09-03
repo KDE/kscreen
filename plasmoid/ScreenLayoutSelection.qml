@@ -51,11 +51,21 @@ ColumnLayout {
     }
 
     // Screen layout selector section
-    Row {
+    RowLayout {
         id: screenLayoutRow
-        readonly property int buttonSize: Math.floor((width - spacing * (screenLayoutRepeater.count - 1)) / screenLayoutRepeater.count)
+
+        // The buttons are square, so this doubles as their height. Rounding keeps
+        // it an integer; uniformCellSizes takes care of the sub-pixel remainder of
+        // the widths so that the row always ends flush with its right edge.
+        readonly property int buttonSize: screenLayoutRepeater.count > 0
+            ? Math.round((width - spacing * (screenLayoutRepeater.count - 1)) / screenLayoutRepeater.count)
+            : 0
+
         Layout.fillWidth: true
         spacing: Kirigami.Units.smallSpacing
+        // Give every button the same width instead of letting the last one keep
+        // whatever the division left over
+        uniformCellSizes: true
 
         Repeater {
             id: screenLayoutRepeater
@@ -66,8 +76,10 @@ ColumnLayout {
 
                 required property /*KScreen.OsdAction*/var modelData
 
-                width: screenLayoutRow.buttonSize
-                height: screenLayoutRow.buttonSize
+                Layout.fillWidth: true
+                // Natural size of a button; the row stretches them from here
+                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                Layout.preferredHeight: screenLayoutRow.buttonSize
 
                 display: T.Button.IconOnly
                 icon.name: modelData.iconName
