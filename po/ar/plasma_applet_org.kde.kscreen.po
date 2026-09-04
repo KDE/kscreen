@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:45+0000\n"
+"POT-Creation-Date: 2026-09-04 00:46+0000\n"
 "PO-Revision-Date: 2021-12-18 23:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -73,7 +73,7 @@ msgstr "%1 يفرض وضع العرض: %2"
 msgid "Screen Layout"
 msgstr "تخطيط الشاشة"
 
-#: ScreenLayoutSelection.qml:91
+#: ScreenLayoutSelection.qml:103
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

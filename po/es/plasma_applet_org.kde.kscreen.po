@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:45+0000\n"
+"POT-Creation-Date: 2026-09-04 00:46+0000\n"
 "PO-Revision-Date: 2025-05-18 14:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -72,7 +72,7 @@ msgstr "%1 está forzando el modo de presentación: %2"
 msgid "Screen Layout"
 msgstr "Distribución de pantallas"
 
-#: ScreenLayoutSelection.qml:91
+#: ScreenLayoutSelection.qml:103
 #, kde-format
 msgid ""
 "You can only apply a different screen layout when there is more than one "

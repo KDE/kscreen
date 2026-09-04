@@ -129,7 +129,7 @@ msgstr "保留显示器配置吗？"
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] "将在 %1 秒后还原到之前的配置。"
+msgstr[0] "将在 %1 秒后恢复为之前的配置。"
 
 #: ui/main.qml:84
 #, kde-format
