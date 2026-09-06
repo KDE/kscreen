@@ -3,8 +3,8 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2014-2015, 2018-2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2014-2020 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
@@ -128,7 +128,7 @@ msgstr "Identifica les pantalles"
 #: ui/main.qml:56
 #, kde-format
 msgid "Keep display configuration?"
-msgstr "Mantinc la configuració de la pantalla?"
+msgstr "Voleu mantindre la configuració de la pantalla?"
 
 #: ui/main.qml:67
 #, kde-format
@@ -754,23 +754,3 @@ msgstr "Sense gir"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Arrossega les pantalles per a reordenar-les"
-
-#~ msgid ""
-#~ "Global scale changes will come into effect after the system is restarted."
-#~ msgstr ""
-#~ "Els canvis de l'escala global s'efectuaran després de reiniciar el "
-#~ "sistema."
-
-#~ msgid "Restart"
-#~ msgstr "Reinicia"
-
-#~ msgid "Global scale:"
-#~ msgstr "Escala global:"
-
-#~ msgid ""
-#~ "The global scale factor is limited to multiples of 6.25% to minimize "
-#~ "visual glitches in applications using the X11 windowing system."
-#~ msgstr ""
-#~ "El factor d'escala global està limitat a múltiples de 6,25% per a "
-#~ "minimitzar els errors visuals en les aplicacions utilitzant el sistema de "
-#~ "finestres X11."
