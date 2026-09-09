@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2025-08-13 09:10+0200\n"
+"PO-Revision-Date: 2026-05-09 17:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -236,13 +236,13 @@ msgstr "%1 %"
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
 msgid "Refresh rate:"
-msgstr "Taux de rafraîchissement :"
+msgstr "Taux de rafraichissement :"
 
 #: package/contents/ui/OutputPanel.qml:144
 #, kde-format
 msgid "\"%1\" is the only refresh rate supported by this display."
 msgstr ""
-"« %1 » est le seul taux de rafraîchissement pris en charge par cet écran."
+"« %1 » est le seul taux de rafraichissement pris en charge par cet écran."
 
 #: package/contents/ui/OutputPanel.qml:149
 #, kde-format
@@ -303,7 +303,7 @@ msgstr "Anciennes applications (X11) :"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Appliquer la mise à l'échelle par elles même"
+msgstr "Appliquer la mise à l'échelle par elles-mêmes"
 
 #: package/contents/ui/Panel.qml:141
 #, kde-format
