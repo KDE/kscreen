@@ -339,14 +339,14 @@ msgstr "%1 %"
 #: ui/OutputPanel.qml:154
 #, kde-format
 msgid "Refresh rate:"
-msgstr "Taux de rafraîchissement :"
+msgstr "Taux de rafraichissement :"
 
 #: ui/OutputPanel.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "“%1” is the only refresh rate supported by this display."
 msgstr ""
-"« %1 » est le seul taux de rafraîchissement pris en charge par cet écran."
+"« %1 » est le seul taux de rafraichissement pris en charge par cet écran."
 
 #: ui/OutputPanel.qml:179
 #, kde-format
@@ -355,7 +355,7 @@ msgid ""
 "“%1” is the only refresh rate supported by this display at the current "
 "resolution."
 msgstr ""
-"« %1 » est le seul taux de rafraîchissement pris en charge par cet écran à "
+"« %1 » est le seul taux de rafraichissement pris en charge par cet écran à "
 "la résolution courante."
 
 #: ui/OutputPanel.qml:184
@@ -474,13 +474,13 @@ msgstr "Précision des couleurs :"
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr "Préférez l'efficacité"
+msgstr "Préférer l'efficacité"
 
 #: ui/OutputPanel.qml:348
 #, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr "Préférez la précision des couleurs"
+msgstr "Préférer la précision des couleurs"
 
 #: ui/OutputPanel.qml:360
 #, kde-kuit-format
@@ -697,7 +697,7 @@ msgstr "Anciennes applications (X11) :"
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr "Appliquer la mise à l'échelle par elles même"
+msgstr "Appliquer la mise à l'échelle par elles-mêmes"
 
 #: ui/Panel.qml:77
 #, kde-format
