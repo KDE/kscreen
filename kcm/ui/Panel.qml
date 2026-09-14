@@ -26,6 +26,7 @@ ColumnLayout {
     StackLayout {
         id: panelView
         currentIndex: root.selectedOutput
+        Layout.preferredHeight: children[currentIndex].implicitHeight
 
         Layout.fillWidth: true
 
