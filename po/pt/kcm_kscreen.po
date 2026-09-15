@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 00:46+0000\n"
 "PO-Revision-Date: 2022-12-18 12:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -641,19 +641,19 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Réplica de:"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:70
 #, fuzzy, kde-format
 #| msgid "Legacy Applications (X11):"
 msgid "Legacy applications (X11):"
 msgstr "Aplicações Antigas (X11):"
 
-#: ui/Panel.qml:72
+#: ui/Panel.qml:73
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Aplicar a própria escala"
 
-#: ui/Panel.qml:77
+#: ui/Panel.qml:78
 #, fuzzy, kde-format
 #| msgid ""
 #| "Legacy applications that support scaling will use it and look crisp, "
@@ -665,13 +665,13 @@ msgstr ""
 "As aplicações antigas que suportem a mudança de escala usá-la-ão e ficarão "
 "nítidas, enquanto as que não suportam não serão ajustadas de todo."
 
-#: ui/Panel.qml:83
+#: ui/Panel.qml:84
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Escala definida pelo sistema"
 
-#: ui/Panel.qml:88
+#: ui/Panel.qml:89
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -681,20 +681,20 @@ msgstr ""
 "pelo sistema para o tamanho correcto; contudo, irão sempre parecer "
 "ligeiramente borradas."
 
-#: ui/Panel.qml:93
+#: ui/Panel.qml:94
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr ""
 
-#: ui/Panel.qml:95
+#: ui/Panel.qml:96
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr ""
 
-#: ui/Panel.qml:100
+#: ui/Panel.qml:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
