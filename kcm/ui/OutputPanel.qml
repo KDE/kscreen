@@ -433,8 +433,6 @@ Due to graphics driver limitations, the actually used resolution cannot be known
             visible: root.hdrActive || (element.colorProfileSource != KScreen.Output.ColorProfileSource.sRGB)
             contentItem: RowLayout {
                 Layout.fillWidth: true
-                // Set the same limit as the device ComboBox
-                Layout.maximumWidth: Kirigami.Units.gridUnit * 14
                 spacing: Kirigami.Units.smallSpacing
 
                 Kirigami.FormData.buddyFor: sdrGamutSlider
