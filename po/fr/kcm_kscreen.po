@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 02:47+0000\n"
 "PO-Revision-Date: 2026-05-09 17:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -688,18 +688,18 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Réplique de :"
 
-#: ui/Panel.qml:69
+#: ui/Panel.qml:70
 #, kde-format
 msgid "Legacy applications (X11):"
 msgstr "Anciennes applications (X11) :"
 
-#: ui/Panel.qml:72
+#: ui/Panel.qml:73
 #, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
 msgstr "Appliquer la mise à l'échelle par elles-mêmes"
 
-#: ui/Panel.qml:77
+#: ui/Panel.qml:78
 #, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
@@ -709,13 +709,13 @@ msgstr ""
 "l'utiliseront et présenteront un aspect net. Cependant, celles non prises en "
 "charge ne seront pas mises à l'échelle du tout."
 
-#: ui/Panel.qml:83
+#: ui/Panel.qml:84
 #, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
 msgstr "Mise à l'échelle par le système"
 
-#: ui/Panel.qml:88
+#: ui/Panel.qml:89
 #, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
@@ -724,20 +724,20 @@ msgstr ""
 "Toutes les applications anciennes seront mises à l'échelle par le système à "
 "la taille correcte. Cependant, elles auront toujours l'air légèrement floues."
 
-#: ui/Panel.qml:93
+#: ui/Panel.qml:94
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Cisaillement d'image :"
 
-#: ui/Panel.qml:95
+#: ui/Panel.qml:96
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Autoriser dans les fenêtres en plein écran"
 
-#: ui/Panel.qml:100
+#: ui/Panel.qml:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
