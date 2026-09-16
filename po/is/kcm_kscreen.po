@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 02:47+0000\n"
+"POT-Creation-Date: 2026-09-16 02:44+0000\n"
 "PO-Revision-Date: 2026-06-01 12:40+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -551,25 +551,25 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-litstyrkur:"
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:478
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Eykur styrk sRGB-efnis á skjánum."
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:483
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr "Mótun aðlaganlegrar baklýsingar:"
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:513
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -577,19 +577,19 @@ msgid ""
 msgstr ""
 "Mótun aðlaganlegrar baklýsingar minnkar orkunotkun á kostnað nákvæmni lita"
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Birtustig:"
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:525
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Stjórna birtustigi vélbúnaðar með DDC/CI"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -601,18 +601,18 @@ msgstr ""
 "að stilla skjábirtustigið í gegnum skjáborðið, rétt eins og verið sé að nota "
 "hnappana og OSD-valmyndina á skjánum sjálfum."
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Aðlagast umhverfinu sjálfvirkt"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -625,25 +625,25 @@ msgstr ""
 "hún er skynjuð af tækinu. Ef þú breytir birtustiginu handvirkt, munu þær "
 "breytingar vera geymdar og teknar með í reikninginn."
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Skerpa:"
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:623
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Aukið styrksvið (EDR):"
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Virkja EDR"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -655,7 +655,7 @@ msgstr ""
 "baklýsinguna dýnamískt.<nl/><nl/>Athugaðu að þetta eykur álagið á rafhlöðuna "
 "á meðan HDR-efni er skoðað."
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "Eftirlíking af:"

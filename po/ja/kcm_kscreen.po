@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 02:47+0000\n"
+"POT-Creation-Date: 2026-09-16 02:44+0000\n"
 "PO-Revision-Date: 2026-02-21 14:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -553,44 +553,44 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 彩度:"
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:478
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "スクリーン上の sRGB コンテンツの彩度を高めます"
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:483
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr ""
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:513
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "明るさ:"
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:525
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "DDC/CI でハードウェアの明るさを設定"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -601,18 +601,18 @@ msgstr ""
 "DDC/CI は多くのモニターが対応している機能です。モニターの物理ボタンや OSD メ"
 "ニューから設定するのと同じ形式で、デスクトップから調整できるようになります。"
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "周囲に合わせて自動調節"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -624,25 +624,25 @@ msgstr ""
 "デバイスの明るさセンサーに基づき、自動で画面の明るさを調整します。手動で明る"
 "さを調節した場合はその設定が保存され、自動調節に反映されます。"
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "シャープネス:"
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:623
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "ハイダイナミックレンジ:"
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR を有効化"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -654,7 +654,7 @@ msgstr ""
 "を視聴できるようにするものです。<nl/><nl/>HDR コンテンツ視聴中のバッテリー使"
 "用量が増加します。"
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "複製するディスプレイ:"

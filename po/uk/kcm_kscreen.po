@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 02:47+0000\n"
+"POT-Creation-Date: 2026-09-16 02:44+0000\n"
 "PO-Revision-Date: 2026-05-08 07:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -560,25 +560,25 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "Інтенсивність кольорів sRGB:"
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:478
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "Збільшує інтенсивність зображень sRGB на екрані."
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:483
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr "Адаптивна модуляція підсвічування:"
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:513
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -587,19 +587,19 @@ msgstr ""
 "Адаптивна модуляція підсвічування зменшує споживання енергії за рахунок "
 "точності відтворення кольорів"
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Яскравість:"
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:525
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Керування апаратною яскравістю за допомогою DDC/CI"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -612,18 +612,18 @@ msgstr ""
 "керування стільницею, так, наче використано апаратні кнопки і накладне меню "
 "самого монітора."
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Автоматично підлаштовуватися до середовища"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -637,25 +637,25 @@ msgstr ""
 "Якщо ви налаштуєте яскравість вручну, ці налаштування буде збережено і "
 "враховано."
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Різкість:"
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:623
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Розширений динамічний діапазон:"
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "Увімкнути EDR"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -667,7 +667,7 @@ msgstr ""
 "коригування підсвічування.<nl/><nl/>Зауважте, що це збільшує витрату заряду "
 "батареї при перегляді зображень HDR."
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "Джерело репліки:"

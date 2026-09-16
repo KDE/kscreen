@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 02:47+0000\n"
+"POT-Creation-Date: 2026-09-16 02:44+0000\n"
 "PO-Revision-Date: 2026-05-12 03:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -536,44 +536,44 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB 色彩強度："
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:478
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
 msgstr "提高螢幕上 sRGB 內容的色彩強度。"
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:483
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr "適應性背光亮度調整："
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:513
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr "適應性背光亮度調整功能可以降低用電量，但會降低色彩準確度"
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "亮度："
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:525
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "用 DDC/CI 來控制硬體亮度"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -584,18 +584,18 @@ msgstr ""
 "DDC/CI 是一個受許多螢幕支援的功能。Plasma 能夠透過它讓您從桌面來控制螢幕亮"
 "度，而不用使用螢幕自己的硬體按鈕和使用者介面。"
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "自動適應環境"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -607,25 +607,25 @@ msgstr ""
 "自動依裝置環境光感測器所偵測的環境亮度來調整螢幕亮度。如果您手動調整了亮度，"
 "這些調整會被記住並加入自動亮度的考量。"
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "銳利度："
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:623
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "擴展動態範圍："
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "啟用 EDR"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -636,7 +636,7 @@ msgstr ""
 "EDR 藉由動態調整背光亮度來在 SDR 顯示器上顯示 HDR 內容。<nl/><nl/>請注意，這"
 "會增加顯示 HDR 內容時的電池使用量。"
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "複本來源："

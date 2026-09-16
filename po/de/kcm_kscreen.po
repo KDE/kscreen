@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 02:47+0000\n"
+"POT-Creation-Date: 2026-09-16 02:44+0000\n"
 "PO-Revision-Date: 2026-05-11 21:43+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -570,13 +570,13 @@ msgctxt "@label"
 msgid "sRGB color intensity:"
 msgstr "sRGB-Farbintensität:"
 
-#: ui/OutputPanel.qml:471
+#: ui/OutputPanel.qml:469
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:480
+#: ui/OutputPanel.qml:478
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
@@ -584,13 +584,13 @@ msgstr ""
 "Mit dieser Einstellung wird die Intensität von sRGB-Inhalten auf dem "
 "Bildschirm erhöht"
 
-#: ui/OutputPanel.qml:485
+#: ui/OutputPanel.qml:483
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
 msgstr "Adaptive Hintergrundbeleuchtungsmodulation:"
 
-#: ui/OutputPanel.qml:515
+#: ui/OutputPanel.qml:513
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -599,19 +599,19 @@ msgstr ""
 "Die adaptive Hintergrundbeleuchtungsmodulation senkt den Stromverbrauch auf "
 "Kosten der Farbgenauigkeit"
 
-#: ui/OutputPanel.qml:521
+#: ui/OutputPanel.qml:519
 #, kde-format
 msgctxt "@label"
 msgid "Brightness:"
 msgstr "Helligkeit:"
 
-#: ui/OutputPanel.qml:527
+#: ui/OutputPanel.qml:525
 #, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
 msgstr "Die Gerätehelligkeit mittels DDC/CI steuern"
 
-#: ui/OutputPanel.qml:533
+#: ui/OutputPanel.qml:531
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -624,18 +624,18 @@ msgstr ""
 "einzustellen, als ob die eingebauten Knöpfe und die Menüs am Monitor "
 "verwendet werden."
 
-#: ui/OutputPanel.qml:570
+#: ui/OutputPanel.qml:568
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
 msgstr "%1 %"
 
-#: ui/OutputPanel.qml:581
+#: ui/OutputPanel.qml:579
 #, kde-format
 msgid "Automatically adapt to environment"
 msgstr "Automatisch an Umgebung anpassen"
 
-#: ui/OutputPanel.qml:586
+#: ui/OutputPanel.qml:584
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -649,25 +649,25 @@ msgstr ""
 "die Helligkeit manuell anpassen, werden diese Anpassungen gespeichert und "
 "berücksichtigt."
 
-#: ui/OutputPanel.qml:592
+#: ui/OutputPanel.qml:590
 #, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
 msgstr "Schärfe:"
 
-#: ui/OutputPanel.qml:625
+#: ui/OutputPanel.qml:623
 #, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
 msgstr "Erweiterter Dynamikumfang (EDR):"
 
-#: ui/OutputPanel.qml:631
+#: ui/OutputPanel.qml:629
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable EDR"
 msgstr "EDR aktivieren"
 
-#: ui/OutputPanel.qml:637
+#: ui/OutputPanel.qml:635
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -680,7 +680,7 @@ msgstr ""
 "dass es beim Anzeigen von HDR-Inhalten zu einem erhöhten Stromverbrauch "
 "kommt."
 
-#: ui/OutputPanel.qml:642
+#: ui/OutputPanel.qml:640
 #, kde-format
 msgid "Replica of:"
 msgstr "Kopie von:"
