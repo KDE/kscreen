@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:47+0000\n"
-"PO-Revision-Date: 2026-05-31 19:40-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -37,7 +37,7 @@ msgstr ""
 #, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr "%1 × %2"
+msgstr ""
 
 #: output_model.cpp:815
 #, kde-format
@@ -310,7 +310,7 @@ msgstr ""
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -355,7 +355,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: ui/OutputPanel.qml:220
 #, kde-kuit-format
@@ -518,7 +518,7 @@ msgstr ""
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: ui/OutputPanel.qml:478
 #, kde-format
@@ -564,7 +564,7 @@ msgstr ""
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: ui/OutputPanel.qml:579
 #, kde-format
