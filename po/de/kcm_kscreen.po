@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:47+0000\n"
-"PO-Revision-Date: 2026-05-11 21:43+0200\n"
+"PO-Revision-Date: 2026-09-19 20:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: kcm.cpp:132 kcm.cpp:154
 #, kde-format
@@ -137,9 +137,10 @@ msgstr "Anzeigeeinstellungen beibehalten?"
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
-msgstr[0] "In %1 Sekunde werden wieder die vorherigen Einstellungen verwendet."
+msgstr[0] ""
+"In %1 Sekunde werden die vorherigen Einstellungen wiederhergestellt."
 msgstr[1] ""
-"In %1 Sekunden werden wieder die vorherigen Einstellungen verwendet."
+"In %1 Sekunden werden die vorherigen Einstellungen wiederhergestellt."
 
 #: ui/main.qml:84
 #, kde-format
