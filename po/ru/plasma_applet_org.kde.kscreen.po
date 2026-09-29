@@ -24,7 +24,6 @@ msgstr ""
 msgid "Presentation mode is enabled"
 msgstr "Включён режим презентации"
 
-# BUGME: please add ellipsis --aspotashev
 #: main.qml:66
 #, kde-format
 msgid "Configure Display Settings…"
