@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-25 00:46+0000\n"
-"PO-Revision-Date: 2026-02-25 16:12+0200\n"
+"PO-Revision-Date: 2026-08-25 16:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -67,13 +67,7 @@ msgstr ""
 "vain vaivoin."
 
 #: Main.qml:390
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -88,13 +82,7 @@ msgstr ""
 "enimmäiskeskikirkautta %1 cd/m²."
 
 #: Main.qml:392
-#, fuzzy, kde-format
-#| msgid ""
-#| "Configure how bright \"100%\" on the normal brightness slider should be. "
-#| "Make it as bright as you'd ever use it, as long as the HDR image still "
-#| "looks good and the gradients are smooth.\n"
-#| "To avoid brightness fluctuations, it's recommended to not exceed the "
-#| "display's maximum average brightness of %1cd/m²"
+#, kde-format
 msgid ""
 "Configure how bright “100%” on the normal brightness slider should be. Make "
 "it as bright as you'd ever use it, as long as the HDR image still looks good "
@@ -102,9 +90,7 @@ msgid ""
 msgstr ""
 "Aseta, kuinka kirkas ”100 prosentin” tulisi kirkkaussäätimessä olla. Aseta "
 "se mahdollisimman kirkkaaksi niin, että HDR-kuva yhä näyttää hyvältä ja "
-"väriliu’ut tasaisilta.\n"
-"Kirkkausvaihtelun välttämiseksi on suositeltavaa, ettei ylitetä näytön "
-"enimmäiskeskikirkautta %1 cd/m²."
+"väriliu’ut tasaisilta."
 
 #: Main.qml:439
 #, kde-format

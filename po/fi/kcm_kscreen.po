@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 02:44+0000\n"
-"PO-Revision-Date: 2026-02-24 19:40+0200\n"
+"PO-Revision-Date: 2026-08-25 16:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -443,6 +443,8 @@ msgstr "Avaa ikkunan HDR-kirkkauden kalibroimiseksi"
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"HDR-kalibroinnin voi käynnistää vasta, kun kaikki asetukset on otettu "
+"käyttöön."
 
 #: ui/OutputPanel.qml:339
 #, kde-format
@@ -564,7 +566,7 @@ msgstr "Parantaa sRGB-sisällön intensiteettiä näytöllä."
 #, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Mukautuva taustavalomodulaatio:"
 
 #: ui/OutputPanel.qml:513
 #, kde-format
@@ -572,6 +574,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Mukautuva taustavalomodulaatio vähentää virrankulutusta väritarkkuuden "
+"kustannuksella"
 
 #: ui/OutputPanel.qml:519
 #, kde-format
