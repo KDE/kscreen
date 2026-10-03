@@ -1,12 +1,13 @@
 # Translation of kscreen.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2015, 2016.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-27 00:46+0000\n"
-"PO-Revision-Date: 2016-11-23 19:27+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-02 11:27+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -21,37 +22,34 @@ msgstr ""
 #: osdaction.cpp:27
 #, kde-format
 msgid "Only use external screen"
-msgstr ""
+msgstr "Koristi samo spoljašnji ekran"
 
 #: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
-msgstr ""
+msgstr "Koristi samo ugrađeni ekran"
 
 #: osdaction.cpp:29
 #, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Preslikaj ekrane"
 
 #: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Proširi levo od ugrađenog ekrana"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
-msgstr ""
+msgstr "Proširi desno od ugrađenog ekrana"
 
 #: osdaction.cpp:32
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "ne diraj"
 
 #: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
-msgstr ""
-
-#~ msgid "Switch Display"
-#~ msgstr "Promeni ekran"
+msgstr "Ugrađeni ekran"
