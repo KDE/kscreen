@@ -41,12 +41,12 @@ msgstr "Синхронизировать экраны"
 #: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr "Продлить влево относительно встроенного экрана"
+msgstr "Расширить влево от встроенного экрана"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "Продлить вправо относительно встроенного экрана"
+msgstr "Расширить вправо от встроенного экрана"
 
 #: osdaction.cpp:32
 #, kde-format
