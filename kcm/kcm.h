@@ -33,6 +33,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
     Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
+    Q_PROPERTY(QString defaultSelectedOutputName READ defaultSelectedOutputName NOTIFY defaultSelectedOutputNameChanged)
 
 public:
     enum InvalidConfigReason {
@@ -41,7 +42,7 @@ public:
     };
     Q_ENUM(InvalidConfigReason)
 
-    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
+    explicit KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
 
     void load() override;
     void save() override;
@@ -67,6 +68,9 @@ public:
     bool tabletModeAvailable() const;
 
     bool multipleScreensAvailable() const;
+
+    QString defaultSelectedOutputName() const;
+    Q_SIGNAL void defaultSelectedOutputNameChanged(const QString &name);
 
     void doSave();
     Q_INVOKABLE void revertSettings();
@@ -96,10 +100,12 @@ Q_SIGNALS:
 private:
     void setBackendReady(bool error);
     void setScreenNormalized(bool normalized);
+    void setDefaultSelectedOutputName(const QString &name);
 
     void configReady(KScreen::ConfigOperation *op);
     void continueNeedsSaveCheck(bool needs);
     void checkConfig();
+    void processArguments(const QVariantList &args);
 
     std::unique_ptr<ConfigHandler> m_configHandler;
     bool m_backendReady = false;
@@ -108,6 +114,7 @@ private:
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
     bool m_needsKwinConfigReload = false;
+    QString m_defaultSelectedOutputName;
 
     QSortFilterProxyModel *m_outputProxyModel;
 

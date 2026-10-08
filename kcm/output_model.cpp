@@ -1072,6 +1072,17 @@ QModelIndex OutputModel::indexForOutputId(int outputId) const
     return QModelIndex();
 }
 
+QModelIndex OutputModel::indexForOutputName(const QString &name) const
+{
+    for (int i = 0; i < m_outputs.size(); i++) {
+        const Output &output = m_outputs.at(i);
+        if (output.ptr->name() == name) {
+            return createIndex(i, 0);
+        }
+    }
+    return QModelIndex();
+}
+
 QModelIndex OutputModel::indexForOutput(const KScreen::OutputPtr &output) const
 {
     return indexForOutputId(output->id());
