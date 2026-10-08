@@ -1,0 +1,132 @@
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: kscreen\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-07-25 00:46+0000\n"
+"PO-Revision-Date: 2026-10-06 10:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Немања Хиршл"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "nemhirsl@gmail.com"
+
+#: hdrcalibrator.cpp:136 Main.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "HDR Calibration"
+msgstr "ХДР калибрација"
+
+#: Main.qml:188 Main.qml:366
+#, kde-format
+msgctxt "@action:button"
+msgid "Next"
+msgstr "Следеће"
+
+#: Main.qml:195 Main.qml:372
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Switches to the next page"
+msgstr "Прелази на следећу страницу"
+
+#: Main.qml:199 Main.qml:376 Main.qml:476
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Одустани"
+
+#: Main.qml:202 Main.qml:379 Main.qml:479
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Cancels the calibration process"
+msgstr "Прекида поступак калибрације"
+
+#: Main.qml:211
+#, kde-format
+msgid ""
+"To determine the maximum brightness of the screen, adjust the slider until "
+"the logo is barely visible"
+msgstr ""
+"Да бисте одредили највећи осветљај екрана, померајте клизач док лого не "
+"постане једва видљив"
+
+#: Main.qml:390
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth.\n"
+"To avoid brightness fluctuations, it's recommended to not exceed the "
+"display's maximum average brightness of %1cd/m²"
+msgstr ""
+"Подесите колико светло треба да буде „100%“ на обичном клизачу осветљаја. "
+"Подесите га на највећи осветљај који бисте икада користили, док год ХДР "
+"слика и даље изгледа добро, а преливи су глатки.\n"
+"Да бисте избегли колебања осветљаја, препоручује се да не прелазите највећи "
+"просечни осветљај екрана од %1cd/m²"
+
+#: Main.qml:392
+#, kde-format
+msgid ""
+"Configure how bright “100%” on the normal brightness slider should be. Make "
+"it as bright as you'd ever use it, as long as the HDR image still looks good "
+"and the gradients are smooth."
+msgstr ""
+"Подесите колико светло треба да буде „100%“ на обичном клизачу осветљаја. "
+"Подесите га на највећи осветљај који бисте икада користили, док год ХДР "
+"слика и даље изгледа добро, а преливи су глатки."
+
+#: Main.qml:439
+#, kde-format
+msgid "Maximum luminance: %1cd/m²"
+msgstr "Највећа луминанса: %1cd/m²"
+
+#: Main.qml:460
+#, kde-format
+msgid "Reference luminance / paper white: %1cd/m²"
+msgstr "Референтна луминанса / белина папира: %1cd/m²"
+
+#: Main.qml:471
+#, kde-format
+msgctxt "@action:checkbox"
+msgid "Assume Windows HDR applications are calibrated for this screen"
+msgstr "Претпостави да су виндоуз ХДР програми калибрисани за овај екран"
+
+#: Main.qml:483
+#, kde-format
+msgctxt "@action:button"
+msgid "Done"
+msgstr "Готово"
+
+#: Main.qml:492
+#, kde-format
+msgctxt "@info accessible description of a push button"
+msgid "Finish the calibration process"
+msgstr "Заврши поступак калибрације"
+
+#: Main.qml:501
+#, kde-format
+msgid ""
+"Many Windows applications come with their own calibration settings, which "
+"this system wide configuration conflicts with. If this option is set, their "
+"calibration settings will work as expected on this specific display."
+msgstr ""
+"Многи програми за Виндоуз имају сопствене поставке калибрације, са којима се "
+"ова системска постава сукобљава. Ако је ова опција укључена, њихове поставке "
+"калибрације радиће како се очекује на овом екрану."
