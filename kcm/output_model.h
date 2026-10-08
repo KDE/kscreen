@@ -82,6 +82,7 @@ public:
     void remove(int outputId);
 
     QModelIndex indexForOutput(const KScreen::OutputPtr &output) const;
+    Q_INVOKABLE QModelIndex indexForOutputName(const QString &name) const;
 
     /**
      * Resets the origin for calculation of positions to the most northwest display corner

@@ -25,12 +25,16 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingReply>
 #include <QProcess>
 #include <QSortFilterProxyModel>
 #include <QTimer>
+
+#include <algorithm>
 
 K_PLUGIN_CLASS_WITH_JSON(KCMKScreen, "kcm_kscreen.json")
 
@@ -43,9 +47,18 @@ public:
         : QSortFilterProxyModel(parent)
     {
     }
+
+    Q_INVOKABLE QModelIndex indexForOutputName(const QString &name) const
+    {
+        auto *sourceOutputModel = static_cast<OutputModel *>(sourceModel());
+        if (!sourceOutputModel) {
+            return QModelIndex();
+        }
+        return mapFromSource(sourceOutputModel->indexForOutputName(name));
+    }
 };
 
-KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
+KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickManagedConfigModule(parent, data)
 {
     qmlRegisterUncreatableType<OutputModel>("org.kde.private.kcm.kscreen", 1, 0, "OutputModel", QStringLiteral("For enums"));
@@ -68,6 +81,29 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
 
     registerSettings(KWinCompositingSetting::self());
     connect(KWinCompositingSetting::self(), &KWinCompositingSetting::allowTearingChanged, this, &KCMKScreen::tearingAllowedChanged);
+
+    connect(this, &KCMKScreen::activationRequested, this, &KCMKScreen::processArguments);
+    processArguments(args);
+}
+
+void KCMKScreen::processArguments(const QVariantList &args)
+{
+    QCommandLineParser parser;
+    QCommandLineOption outputOption{QStringLiteral("output"), QString(), QStringLiteral("name")};
+    parser.addOption(outputOption);
+
+    QStringList argsStringList;
+    argsStringList.reserve(args.size() + 1);
+    argsStringList.append(QStringLiteral("systemsettings"));
+    std::transform(args.begin(), args.end(), std::back_inserter(argsStringList), [](const QVariant &variant) {
+        return variant.toString();
+    });
+
+    if (!parser.parse(argsStringList)) {
+        return;
+    }
+
+    setDefaultSelectedOutputName(parser.value(outputOption));
 }
 
 void KCMKScreen::configReady(ConfigOperation *op)
@@ -390,6 +426,19 @@ bool KCMKScreen::allowTearing() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
+}
+
+QString KCMKScreen::defaultSelectedOutputName() const
+{
+    return m_defaultSelectedOutputName;
+}
+
+void KCMKScreen::setDefaultSelectedOutputName(const QString &name)
+{
+    if (m_defaultSelectedOutputName != name) {
+        m_defaultSelectedOutputName = name;
+        Q_EMIT defaultSelectedOutputNameChanged(name);
+    }
 }
 
 void KCMKScreen::startHdrCalibrator(const QString &outputName)

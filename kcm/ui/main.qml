@@ -24,6 +24,13 @@ KCM.AbstractKCM {
     function firstEnabledDisplayIndex() {
         if (!(kcm.outputModel && kcm.backendReady)) return -1; // Wait for model
 
+        if (kcm.defaultSelectedOutputName) {
+            const defaultIndex = kcm.outputModel.indexForOutputName(kcm.defaultSelectedOutputName);
+            if (defaultIndex.valid) {
+                return defaultIndex.row;
+            }
+        }
+
         for (let i = 0; i < kcm.outputModel.rowCount(); ++i) {
             // Return index of first enabled display
             if (kcm.outputModel.data(kcm.outputModel.index(i, 0), KScreen.OutputModel.EnabledRole)) {
@@ -132,6 +139,11 @@ KCM.AbstractKCM {
                 connectMsg.text = i18n("An output has been removed. Settings have been reloaded.");
             }
             connectMsg.visible = true;
+        }
+        function onDefaultSelectedOutputChanged(name) {
+            if (name) {
+                root.selectedOutput = Qt.binding(firstEnabledDisplayIndex);
+            }
         }
         function onBackendError() {
             errBackendMsg.visible = true;
