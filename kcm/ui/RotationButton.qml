@@ -31,7 +31,7 @@ QQC2.ToolButton {
     }
 
     contentItem: Kirigami.Icon {
-        source: "tv"
+        source: Kirigami.Settings.isMobile && element.internal ? "smartphone-symbolic" : "tv"
         rotation: root.value
     }
 
