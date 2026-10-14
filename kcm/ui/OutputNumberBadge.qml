@@ -8,9 +8,9 @@ Kirigami.Badge {
 
     required property int number
 
-    visible: number >= 0
+    visible: number > 0
     text: number
-    customColor: badgeColor(number)
+    customColor: number > 0 ? badgeColor(number) : "transparent"
 
     function badgeColor(number) {
         const colors = [
