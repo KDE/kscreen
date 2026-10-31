@@ -324,7 +324,7 @@ msgstr "en percentatge de l'escala normal"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -371,7 +371,7 @@ msgstr "Sobreexploració:"
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:220
 #, kde-kuit-format
@@ -563,7 +563,7 @@ msgstr "Intensitat de color de l'sRGB:"
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:478
 #, kde-format
@@ -615,7 +615,7 @@ msgstr ""
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:579
 #, kde-format
