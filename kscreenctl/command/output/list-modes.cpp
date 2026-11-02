@@ -6,9 +6,19 @@
 
 #include "command/output/cmd.h"
 
+#include <QCollator>
+
 static int run(KScreen::OutputPtr output)
 {
-    for (const auto modes = output->modes(); const auto &mode : modes) {
+    QCollator collator;
+    collator.setNumericMode(true);
+
+    const auto modes = output->modes();
+    auto modeKeys = modes.keys();
+    std::sort(modeKeys.begin(), modeKeys.end(), collator);
+
+    for (const auto &key : modeKeys) {
+        const auto mode = *modes.find(key);
         std::println(std::cout, "{}", printableMode(output, mode).toStdString());
     }
 
