@@ -63,11 +63,10 @@ KCM.AbstractKCM {
         title: i18n("Keep display configuration?")
         // Force user interaction to accept; don't auto-close and accept on random clicks
         closePolicy: QQC2.Popup.NoAutoClose
+        visible: kcm.pendingRevert
         onVisibleChanged: {
             if (visible) {
                 revertButton.forceActiveFocus()
-            } else {
-                revertTimer.stop();
             }
         }
         showCloseButton: false
@@ -107,10 +106,9 @@ KCM.AbstractKCM {
                 }
             }
             onAccepted: {
-                confirmMsg.close();
+                kcm.pendingRevert = false
             }
             onRejected: {
-                revertTimer.stop();
                 kcm.setStopUpdatesFromBackend(false);
                 kcm.revertSettings();
             }
@@ -152,11 +150,6 @@ KCM.AbstractKCM {
             confirmMsg.close();
             revertMsg.visible = true;
         }
-        function onShowRevertWarning() {
-            revertCountdown = 15;
-            confirmMsg.open();
-            revertTimer.restart();
-        }
         function onChanged() {
             invalidConfigMsg.visible = false;
             errSaveMsg.visible = false;
@@ -167,9 +160,14 @@ KCM.AbstractKCM {
     Timer {
         id: revertTimer
         interval: 1000
-        running: false
+        running: kcm.pendingRevert
         repeat: true
 
+        onRunningChanged: {
+            if (running) {
+                root.revertCountdown = 15;
+            }
+        }
         onTriggered: {
             revertCountdown -= 1;
             if (revertCountdown < 1) {
