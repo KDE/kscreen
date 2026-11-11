@@ -70,6 +70,16 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data)
     connect(KWinCompositingSetting::self(), &KWinCompositingSetting::allowTearingChanged, this, &KCMKScreen::tearingAllowedChanged);
 }
 
+KCMKScreen::~KCMKScreen()
+{
+    m_shuttingDown = true;
+
+    if (m_pendingRevert) {
+        m_configHandler->revertConfig();
+        doSave();
+    }
+}
+
 void KCMKScreen::configReady(ConfigOperation *op)
 {
     qCDebug(KSCREEN_KCM) << "Reading in config now.";
@@ -103,6 +113,7 @@ void KCMKScreen::revertSettings()
         return;
     }
     if (!m_settingsReverted) {
+        setPendingRevert(false);
         m_configHandler->revertConfig();
         m_settingsReverted = true;
         doSave();
@@ -152,7 +163,9 @@ void KCMKScreen::doSave()
 
     if (!Config::canBeApplied(config)) {
         Q_EMIT errorOnSave(i18n("Implementation error"));
-        m_configHandler->checkNeedsSave();
+        if (!m_shuttingDown) {
+            m_configHandler->checkNeedsSave();
+        }
         return;
     }
 
@@ -183,14 +196,18 @@ void KCMKScreen::doSave()
         m_configHandler->updateInitialData();
 
         if (!m_settingsReverted && m_configHandler->shouldTestNewSettings()) {
-            Q_EMIT showRevertWarning();
+            // This is queued so we don't revert when you hit OK in kcmshell which calls
+            // apply and then closes the dialog, destroying us.
+            QMetaObject::invokeMethod(this, &KCMKScreen::setPendingRevert, Qt::QueuedConnection, true);
         } else {
             m_settingsReverted = false;
             m_stopUpdatesFromBackend = false;
         }
     };
 
-    updateInitialData();
+    if (!m_shuttingDown) {
+        updateInitialData();
+    }
 
     if (m_needsKwinConfigReload) {
         m_needsKwinConfigReload = false;
@@ -390,6 +407,19 @@ bool KCMKScreen::allowTearing() const
 bool KCMKScreen::multipleScreensAvailable() const
 {
     return m_outputProxyModel->rowCount() > 1;
+}
+
+bool KCMKScreen::pendingRevert() const
+{
+    return m_pendingRevert;
+}
+
+void KCMKScreen::setPendingRevert(bool revert)
+{
+    if (m_pendingRevert != revert) {
+        m_pendingRevert = revert;
+        Q_EMIT pendingRevertChanged();
+    }
 }
 
 void KCMKScreen::startHdrCalibrator(const QString &outputName)

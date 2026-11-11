@@ -33,6 +33,7 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
     Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
+    Q_PROPERTY(bool pendingRevert READ pendingRevert WRITE setPendingRevert NOTIFY pendingRevertChanged)
 
 public:
     enum InvalidConfigReason {
@@ -42,6 +43,7 @@ public:
     Q_ENUM(InvalidConfigReason)
 
     explicit KCMKScreen(QObject *parent, const KPluginMetaData &data);
+    ~KCMKScreen() override;
 
     void load() override;
     void save() override;
@@ -68,6 +70,9 @@ public:
 
     bool multipleScreensAvailable() const;
 
+    bool pendingRevert() const;
+    void setPendingRevert(bool pending);
+
     void doSave();
     Q_INVOKABLE void revertSettings();
 
@@ -88,10 +93,10 @@ Q_SIGNALS:
     void errorOnSave(const QString &errorReason);
     void outputConnect(bool connected);
     void settingsReverted();
-    void showRevertWarning();
     void xwaylandClientsScaleChanged();
     void tearingAllowedChanged();
     void multipleScreensAvailableChanged();
+    void pendingRevertChanged();
 
 private:
     void setBackendReady(bool error);
@@ -105,9 +110,12 @@ private:
     bool m_backendReady = false;
     bool m_screenNormalized = true;
     bool m_settingsReverted = false;
+    bool m_pendingRevert = false;
     bool m_stopUpdatesFromBackend = false;
     bool m_configNeedsSave = false;
     bool m_needsKwinConfigReload = false;
+
+    bool m_shuttingDown = false;
 
     QSortFilterProxyModel *m_outputProxyModel;
 
