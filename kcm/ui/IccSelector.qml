@@ -49,7 +49,7 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         onClicked: fileDialogComponent.incubateObject(root);
 
-        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.visible: hovered || visualFocus
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

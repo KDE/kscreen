@@ -320,7 +320,7 @@ Kirigami.Form {
                 // Set the same limit as the device ComboBox
                 Layout.maximumWidth: Kirigami.Units.gridUnit * 14
 
-                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.visible: hovered || visualFocus
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

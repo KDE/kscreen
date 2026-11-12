@@ -264,7 +264,7 @@ KCM.AbstractKCM {
                             text: i18n("Raise priority")
                             display: QQC2.AbstractButton.IconOnly
 
-                            QQC2.ToolTip.visible: hovered || activeFocus
+                            QQC2.ToolTip.visible: hovered || visualFocus
                             QQC2.ToolTip.text: text
                             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
@@ -273,7 +273,7 @@ KCM.AbstractKCM {
                             text: i18n("Lower priority")
                             display: QQC2.AbstractButton.IconOnly
 
-                            QQC2.ToolTip.visible: hovered || activeFocus
+                            QQC2.ToolTip.visible: hovered || visualFocus
                             QQC2.ToolTip.text: text
                             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
@@ -334,7 +334,7 @@ KCM.AbstractKCM {
                                 enabled: delegate.output.priority > 1
                                 onClicked: delegate.output.priority -= 1
 
-                                QQC2.ToolTip.visible: hovered || activeFocus
+                                QQC2.ToolTip.visible: hovered || visualFocus
                                 QQC2.ToolTip.text: text
                                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                             }
@@ -345,7 +345,7 @@ KCM.AbstractKCM {
                                 enabled: delegate.output.priority < enabledOutputsModel.count
                                 onClicked: delegate.output.priority += 1
 
-                                QQC2.ToolTip.visible: hovered || activeFocus
+                                QQC2.ToolTip.visible: hovered || visualFocus
                                 QQC2.ToolTip.text: text
                                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                             }
