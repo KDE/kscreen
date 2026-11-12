@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:47+0000\n"
-"PO-Revision-Date: 2026-06-18 18:17+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 23:00+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -251,7 +251,7 @@ msgstr "Вручную"
 #, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr "(%1 × %2, %3%)"
+msgstr "(%1 × %2, %3 %)"
 
 #: ui/Output.qml:23
 #, kde-format
@@ -325,7 +325,7 @@ msgstr "в процентах от обычного масштаба"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -371,7 +371,7 @@ msgstr "Отступ от краёв:"
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:220
 #, kde-kuit-format
@@ -562,7 +562,7 @@ msgstr "Цветовая насыщенность sRGB:"
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:478
 #, kde-format
@@ -614,7 +614,7 @@ msgstr ""
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:579
 #, kde-format

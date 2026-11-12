@@ -25,19 +25,19 @@ msgid "Only use external screen"
 msgstr "Εναλλαγή σε εξωτερική οθόνη"
 
 #: osdaction.cpp:28
-#, kde-format
+#, fuzzy, kde-format
 msgid "Only use built-in screen"
-msgstr ""
+msgstr "Μόνο ενσωματωμένη οθόνη"
 
 #: osdaction.cpp:29
-#, kde-format
+#, fuzzy, kde-format
 msgid "Mirror screens"
-msgstr ""
+msgstr "Κατοπτρισμός οθονών"
 
 #: osdaction.cpp:30
-#, kde-format
+#, fuzzy, kde-format
 msgid "Extend to left of built-in screen"
-msgstr ""
+msgstr "Επέκταση αριστερά της ενσωματωμένης οθόνης"
 
 #: osdaction.cpp:31
 #, fuzzy, kde-format
@@ -51,9 +51,9 @@ msgid "Leave unchanged"
 msgstr "Να μείνει απαράλλακτο"
 
 #: utils.cpp:22
-#, kde-format
+#, fuzzy, kde-format
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Ενσωματωμένη οθόνη"
 
 #~ msgid "Switch to laptop screen"
 #~ msgstr "Εναλλαγή σε οθόνη φορητού υπολογιστή"

@@ -19,14 +19,14 @@ msgstr ""
 "X-Generator: Lokalize 20.04.2\n"
 
 #: kcm.cpp:132 kcm.cpp:154
-#, kde-format
+#, fuzzy, kde-format
 msgid "Implementation error"
-msgstr ""
+msgstr "Σφάλμα υλοποίησης"
 
 #: kcm.cpp:175
-#, kde-format
+#, fuzzy, kde-format
 msgid "Outputs changed while trying to apply settings"
-msgstr ""
+msgstr "Οι οθόνες άλλαξαν κατά την εφαρμογή των ρυθμίσεων"
 
 #: output_model.cpp:103
 #, kde-format
@@ -34,10 +34,10 @@ msgid "%1 Hz"
 msgstr "%1 Hz"
 
 #: output_model.cpp:796
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Width x height"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: output_model.cpp:815
 #, fuzzy, kde-format
@@ -78,42 +78,45 @@ msgid "ICC profile"
 msgstr "Ενεργό προφίλ"
 
 #: ui/ColorProfileSelector.qml:47
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox color profile"
 msgid "Built-in"
-msgstr ""
+msgstr "Ενσωματωμένο"
 
 #: ui/ColorProfileSelector.qml:68
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Use the color profile built into the screen itself, if present. Note that "
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
+"Χρήση του προφίλ χρώματος που είναι ενσωματωμένο στην οθόνη, αν υπάρχει. Τα "
+"ενσωματωμένα προφίλ είναι μερικές φορές λάθος και συχνά ανακριβή. Για "
+"βέλτιστη πιστότητα χρωμάτων συνιστάται βαθμονόμηση με χρωματόμετρο."
 
 #: ui/IccSelector.qml:33
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter ICC profile path…"
-msgstr ""
+msgstr "Εισαγωγή διαδρομής προφίλ ICC…"
 
 #: ui/IccSelector.qml:48
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Select ICC profile…"
-msgstr ""
+msgstr "Επιλογή προφίλ ICC…"
 
 #: ui/IccSelector.qml:58
-#, kde-format
+#, fuzzy, kde-format
 msgid "Opens a file picker for the ICC profile"
-msgstr ""
+msgstr "Ανοίγει επιλογέα αρχείου για το προφίλ ICC"
 
 #: ui/IccSelector.qml:67
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Select ICC Profile"
-msgstr ""
+msgstr "Επιλογή προφίλ ICC"
 
 #: ui/main.qml:43
 #, fuzzy, kde-format
@@ -146,24 +149,26 @@ msgid "&Revert"
 msgstr "Επαναφο&ρά"
 
 #: ui/main.qml:117
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
-msgstr ""
+msgstr "Όλες οι οθόνες είναι απενεργοποιημένες. Ενεργοποιήστε τουλάχιστον μία."
 
 #: ui/main.qml:119
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
+"Τα κενά μεταξύ οθονών δεν υποστηρίζονται. Βεβαιωθείτε ότι όλες οι οθόνες "
+"εφάπτονται."
 
 #: ui/main.qml:124
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
-msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
+msgstr "Αδυναμία εφαρμογής ρυθμίσεων οθόνης: %1"
 
 #: ui/main.qml:130
 #, kde-format
@@ -193,20 +198,20 @@ msgid "Display configuration reverted."
 msgstr "Έγινε επαναφορά στη διαμόρφωση οθόνης."
 
 #: ui/main.qml:225
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
-msgstr ""
+msgstr "Αλλαγή προτεραιοτήτων"
 
 #: ui/main.qml:264 ui/main.qml:332
-#, kde-format
+#, fuzzy, kde-format
 msgid "Raise priority"
-msgstr ""
+msgstr "Αύξηση προτεραιότητας"
 
 #: ui/main.qml:273 ui/main.qml:343
-#, kde-format
+#, fuzzy, kde-format
 msgid "Lower priority"
-msgstr ""
+msgstr "Μείωση προτεραιότητας"
 
 #: ui/main.qml:326 ui/OutputPanel.qml:54
 #, kde-format
@@ -214,10 +219,10 @@ msgid "Primary"
 msgstr "Κύρια"
 
 #: ui/main.qml:473
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
-msgstr ""
+msgstr "Σύμπτυξη"
 
 #: ui/main.qml:474
 #, fuzzy, kde-format
@@ -247,21 +252,21 @@ msgid "Manual"
 msgstr "Χειροκίνητα"
 
 #: ui/Output.qml:21
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Width, height, scale; separated with no-break space"
 msgid "(%1 × %2, %3%)"
-msgstr ""
+msgstr "(%1 × %2, %3%)"
 
 #: ui/Output.qml:23
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Width, height; separated with no-break space"
 msgid "(%1 × %2)"
-msgstr ""
+msgstr "(%1 × %2)"
 
 #: ui/Output.qml:236
-#, kde-format
+#, fuzzy, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: ui/Output.qml:262
 #, kde-format
@@ -281,12 +286,12 @@ msgid "Enabled"
 msgstr "Ενεργοποιημένη"
 
 #: ui/OutputPanel.qml:47
-#, kde-format
+#, fuzzy, kde-format
 msgid "Change Screen Priorities…"
-msgstr ""
+msgstr "Αλλαγή προτεραιοτήτων οθονών…"
 
 #: ui/OutputPanel.qml:60
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "This determines which screen your main desktop appears on, along with any "
@@ -294,6 +299,10 @@ msgid ""
 "screen to appear on.<nl/><nl/>It has no effect on what screen notifications "
 "or other windows appear on."
 msgstr ""
+"Καθορίζει σε ποια οθόνη εμφανίζεται η κύρια επιφάνεια εργασίας σας, μαζί με "
+"τους πίνακες Plasma της. Ορισμένα παλαιότερα παιχνίδια χρησιμοποιούν επίσης "
+"αυτή τη ρύθμιση για να επιλέξουν σε ποια οθόνη θα εμφανιστούν.<nl/><nl/>Δεν "
+"επηρεάζει σε ποια οθόνη εμφανίζονται οι ειδοποιήσεις ή τα άλλα παράθυρα."
 
 #: ui/OutputPanel.qml:66
 #, kde-format
@@ -313,10 +322,10 @@ msgid "Scale:"
 msgstr "Κλίμακα:"
 
 #: ui/OutputPanel.qml:108
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info accessible description of slider value"
 msgid "in percent of regular scale"
-msgstr ""
+msgstr "σε ποσοστό της κανονικής κλίμακας"
 
 #: ui/OutputPanel.qml:139
 #, kde-format
@@ -372,13 +381,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:220
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines how much padding is put around the image sent to the display to "
 "compensate for part of the content being cut off around the edges.<nl/><nl/"
 ">This is sometimes needed when using a TV as a screen."
 msgstr ""
+"Καθορίζει πόσο περιθώριο προστίθεται γύρω από την εικόνα που στέλνεται στην "
+"οθόνη, για να αντισταθμιστεί η αποκοπή περιεχομένου στις άκρες.<nl/><nl/"
+">Αυτό χρειάζεται μερικές φορές όταν χρησιμοποιείτε τηλεόραση ως οθόνη."
 
 #: ui/OutputPanel.qml:225
 #, kde-format
@@ -396,113 +408,126 @@ msgid "Limited"
 msgstr "Περιορισμένο"
 
 #: ui/OutputPanel.qml:243
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Determines whether the range of possible color values needs to be limited "
 "for the display. This should only be changed if the colors on the screen "
 "look washed out."
 msgstr ""
+"Καθορίζει αν πρέπει να περιοριστεί το εύρος των τιμών χρώματος για την "
+"οθόνη. Αλλάξτε το μόνο αν τα χρώματα στην οθόνη φαίνονται ξεθωριασμένα."
 
 #: ui/OutputPanel.qml:296
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "High Dynamic Range:"
-msgstr ""
+msgstr "Υψηλό δυναμικό εύρος:"
 
 #: ui/OutputPanel.qml:302
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
 msgid "Enable &HDR"
-msgstr "Ενεργοποιημένη"
+msgstr "Ενεργοποίηση &HDR"
 
 #: ui/OutputPanel.qml:308
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HDR allows compatible applications to show brighter and more vivid colors."
 msgstr ""
+"Το HDR επιτρέπει στις συμβατές εφαρμογές να εμφανίζουν πιο φωτεινά και "
+"ζωντανά χρώματα."
 
 #: ui/OutputPanel.qml:316
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Calibrate HDR Brightness…"
-msgstr ""
+msgstr "Βαθμονόμηση φωτεινότητας HDR…"
 
 #: ui/OutputPanel.qml:329
-#, kde-format
+#, fuzzy, kde-format
 msgid "Opens a window to calibrate HDR brightness"
-msgstr ""
+msgstr "Ανοίγει παράθυρο για βαθμονόμηση της φωτεινότητας HDR"
 
 #: ui/OutputPanel.qml:334
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "HDR calibration can only be started if all settings are applied."
 msgstr ""
+"Η βαθμονόμηση HDR μπορεί να ξεκινήσει μόνο αν έχουν εφαρμοστεί όλες οι "
+"ρυθμίσεις."
 
 #: ui/OutputPanel.qml:339
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:listbox"
 msgid "Color accuracy:"
-msgstr ""
+msgstr "Ακρίβεια χρωμάτων:"
 
 #: ui/OutputPanel.qml:347
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer efficiency"
-msgstr ""
+msgstr "Προτίμηση αποδοτικότητας"
 
 #: ui/OutputPanel.qml:348
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox tradeoff between efficiency and color accuracy"
 msgid "Prefer color accuracy"
-msgstr ""
+msgstr "Προτίμηση ακρίβειας χρωμάτων"
 
 #: ui/OutputPanel.qml:360
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring color accuracy limits potentially inaccurate offloading of color "
 "operations to the display driver and increases the maximum color resolution."
 "<nl/><nl/>Note that this setting can have a large impact on performance."
 msgstr ""
+"Η προτίμηση ακρίβειας χρωμάτων περιορίζει τη μεταφορά χρωματικών λειτουργιών "
+"στον οδηγό οθόνης, που μπορεί να είναι ανακριβής, και αυξάνει τη μέγιστη "
+"χρωματική ανάλυση.<nl/><nl/>Αυτή η ρύθμιση μπορεί να επηρεάσει σημαντικά την "
+"απόδοση."
 
 #: ui/OutputPanel.qml:366
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Preferring efficiency simplifies the ICC profile to matrix+shaper, improving "
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
+"Η προτίμηση αποδοτικότητας απλοποιεί το προφίλ ICC σε matrix+shaper, "
+"βελτιώνοντας την απόδοση εις βάρος της ακρίβειας χρωμάτων.<nl/><nl/>Η αλλαγή "
+"αυτής της ρύθμισης μπορεί να επηρεάσει σημαντικά την απόδοση."
 
 #: ui/OutputPanel.qml:373
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:listbox"
 msgid "Limit color resolution to:"
-msgstr ""
+msgstr "Περιορισμός χρωματικής ανάλυσης σε:"
 
 #: ui/OutputPanel.qml:393
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic  (%1 bits per color)"
-msgstr ""
+msgstr "Αυτόματο  (%1 bit ανά χρώμα)"
 
 #: ui/OutputPanel.qml:395 ui/OutputPanel.qml:408
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "%1 bits per color"
-msgstr ""
+msgstr "%1 bit ανά χρώμα"
 
 #: ui/OutputPanel.qml:406
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox color resolution"
 msgid "Automatic (%1 bits per color)"
-msgstr ""
+msgstr "Αυτόματο (%1 bit ανά χρώμα)"
 
 #: ui/OutputPanel.qml:419
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
@@ -511,9 +536,15 @@ msgid ""
 "temporarily reduced to 8 bits to avoid common dock issues.<nl/><nl/>Due to "
 "graphics driver limitations, the actually used resolution cannot be known."
 msgstr ""
+"Περιορίζει τη χρωματική ανάλυση της εικόνας που στέλνεται στην οθόνη. Δεν "
+"επηρεάζει στιγμιότυπα ή εγγραφές οθόνης.<nl/><nl/>Επειδή η οθόνη είναι "
+"συνδεδεμένη μέσω σταθμού σύνδεσης (dock), η αυτόματη χρωματική ανάλυση "
+"μειώθηκε προσωρινά στα 8 bit για αποφυγή συνηθισμένων προβλημάτων.<nl/><nl/"
+">Λόγω περιορισμών του οδηγού γραφικών, η πραγματική ανάλυση που "
+"χρησιμοποιείται δεν μπορεί να είναι γνωστή."
 
 #: ui/OutputPanel.qml:423
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Limits the color resolution of the image that is sent to the display. This "
@@ -522,12 +553,17 @@ msgid ""
 "<nl/><nl/>Due to graphics driver limitations, the actually used resolution "
 "cannot be known."
 msgstr ""
+"Περιορίζει τη χρωματική ανάλυση της εικόνας που στέλνεται στην οθόνη. Δεν "
+"επηρεάζει στιγμιότυπα ή εγγραφές οθόνης.<nl/><nl/>Ο περιορισμός της "
+"χρωματικής ανάλυσης μπορεί να βοηθήσει σε προβλήματα οθόνης ή οδηγού "
+"γραφικών.<nl/><nl/>Λόγω περιορισμών του οδηγού γραφικών, η πραγματική "
+"ανάλυση που χρησιμοποιείται δεν μπορεί να είναι γνωστή."
 
 #: ui/OutputPanel.qml:432
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "sRGB color intensity:"
-msgstr ""
+msgstr "Ένταση χρωμάτων sRGB:"
 
 #: ui/OutputPanel.qml:469
 #, kde-format
@@ -536,44 +572,49 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:478
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Increases the intensity of sRGB content on the screen."
-msgstr ""
+msgstr "Αυξάνει την ένταση του περιεχομένου sRGB στην οθόνη."
 
 #: ui/OutputPanel.qml:483
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Adaptive Backlight Modulation:"
-msgstr ""
+msgstr "Προσαρμοστική διαμόρφωση οπίσθιου φωτισμού:"
 
 #: ui/OutputPanel.qml:513
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Adaptive backlight modulation reduces power use at the cost of color accuracy"
 msgstr ""
+"Η προσαρμοστική διαμόρφωση οπίσθιου φωτισμού μειώνει την κατανάλωση "
+"ενέργειας εις βάρος της ακρίβειας χρωμάτων"
 
 #: ui/OutputPanel.qml:519
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Brightness:"
-msgstr ""
+msgstr "Φωτεινότητα:"
 
 #: ui/OutputPanel.qml:525
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Control hardware brightness with DDC/CI"
-msgstr ""
+msgstr "Έλεγχος φωτεινότητας υλικού μέσω DDC/CI"
 
 #: ui/OutputPanel.qml:531
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "DDC/CI is a feature supported by many monitors. Plasma can use it to adjust "
 "screen brightness with desktop controls, as if using the monitor's own "
 "hardware buttons and OSD menu."
 msgstr ""
+"Το DDC/CI υποστηρίζεται από πολλές οθόνες. Το Plasma μπορεί να το "
+"χρησιμοποιεί για να ρυθμίζει τη φωτεινότητα από την επιφάνεια εργασίας, σαν "
+"να χρησιμοποιούσατε τα κουμπιά και το μενού της ίδιας της οθόνης."
 
 #: ui/OutputPanel.qml:568
 #, fuzzy, kde-format
@@ -584,12 +625,12 @@ msgid "%1%"
 msgstr "%1%"
 
 #: ui/OutputPanel.qml:579
-#, kde-format
+#, fuzzy, kde-format
 msgid "Automatically adapt to environment"
-msgstr ""
+msgstr "Αυτόματη προσαρμογή στο περιβάλλον"
 
 #: ui/OutputPanel.qml:584
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Automatically adjust the screen’s brightness based on the lighting level of "
@@ -597,18 +638,22 @@ msgid ""
 "adjust the brightness manually, those adjustments will be remembered and "
 "taken into account."
 msgstr ""
+"Αυτόματη ρύθμιση της φωτεινότητας της οθόνης ανάλογα με τον φωτισμό του "
+"περιβάλλοντος, όπως τον ανιχνεύει ο αισθητήρας φωτός της συσκευής. Αν "
+"ρυθμίσετε τη φωτεινότητα χειροκίνητα, οι αλλαγές σας θα απομνημονευτούν και "
+"θα λαμβάνονται υπόψη."
 
 #: ui/OutputPanel.qml:590
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Sharpness:"
-msgstr ""
+msgstr "Οξύτητα:"
 
 #: ui/OutputPanel.qml:623
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Extended Dynamic Range:"
-msgstr ""
+msgstr "Εκτεταμένο δυναμικό εύρος:"
 
 #: ui/OutputPanel.qml:629
 #, fuzzy, kde-format
@@ -618,13 +663,16 @@ msgid "Enable EDR"
 msgstr "Ενεργοποιημένη"
 
 #: ui/OutputPanel.qml:635
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "EDR allows viewing HDR content on SDR displays by dynamically adjusting the "
 "backlight.<nl/><nl/>Note that this increases battery usage while viewing HDR "
 "content."
 msgstr ""
+"Το EDR επιτρέπει την προβολή περιεχομένου HDR σε οθόνες SDR, ρυθμίζοντας "
+"δυναμικά τον οπίσθιο φωτισμό.<nl/><nl/>Αυξάνει την κατανάλωση μπαταρίας κατά "
+"την προβολή περιεχομένου HDR."
 
 #: ui/OutputPanel.qml:640
 #, kde-format
@@ -632,35 +680,40 @@ msgid "Replica of:"
 msgstr "Αντίγραφο της:"
 
 #: ui/Panel.qml:70
-#, kde-format
+#, fuzzy, kde-format
 msgid "Legacy applications (X11):"
-msgstr ""
+msgstr "Παλαιές εφαρμογές (X11):"
 
 #: ui/Panel.qml:73
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The apps themselves should scale to fit the displays"
 msgid "Apply scaling themselves"
-msgstr ""
+msgstr "Εφαρμόζουν μόνες τους την κλιμάκωση"
 
 #: ui/Panel.qml:78
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Legacy applications that support scaling will use it and look crisp, however "
 "those that don’t will not be scaled at all."
 msgstr ""
+"Οι παλαιές εφαρμογές που υποστηρίζουν κλιμάκωση θα τη χρησιμοποιούν και θα "
+"φαίνονται καθαρές, ενώ όσες δεν την υποστηρίζουν δεν θα κλιμακώνονται "
+"καθόλου."
 
 #: ui/Panel.qml:84
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The system will perform the x11 apps scaling"
 msgid "Scaled by the system"
-msgstr ""
+msgstr "Κλιμάκωση από το σύστημα"
 
 #: ui/Panel.qml:89
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "All legacy applications will be scaled by the system to the correct size, "
 "however they will always look slightly blurry."
 msgstr ""
+"Όλες οι παλαιές εφαρμογές θα κλιμακώνονται από το σύστημα στο σωστό μέγεθος, "
+"αλλά θα φαίνονται πάντα ελαφρώς θολές."
 
 #: ui/Panel.qml:94
 #, fuzzy, kde-format
@@ -670,19 +723,21 @@ msgid "Screen tearing:"
 msgstr "Κλιμάκωση οθόνης"
 
 #: ui/Panel.qml:96
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
-msgstr ""
+msgstr "Να επιτρέπεται σε παράθυρα πλήρους οθόνης"
 
 #: ui/Panel.qml:101
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Screen tearing reduces latency with most displays. Note that not all "
 "graphics drivers support this setting."
 msgstr ""
+"Το σκίσιμο εικόνας μειώνει την καθυστέρηση στις περισσότερες οθόνες. Δεν "
+"υποστηρίζουν όλοι οι οδηγοί γραφικών αυτή τη ρύθμιση."
 
 #: ui/RotationButton.qml:54
 #, kde-format
