@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2022-12-18 10:38+0300\n"
+"PO-Revision-Date: 2026-11-11 22:56+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -222,7 +222,7 @@ msgstr "Масштаб:"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/OutputPanel.qml:124
 #, kde-format
@@ -329,7 +329,7 @@ msgid ""
 msgstr ""
 "Для уменьшения количества визуальных артефактов в приложениях, использующих "
 "графическую подсистему X11, значение глобального масштаба должно быть кратно "
-"6.25%."
+"6.25 %."
 
 #: package/contents/ui/Panel.qml:183
 #, kde-format
