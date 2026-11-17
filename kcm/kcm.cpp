@@ -366,7 +366,7 @@ void KCMKScreen::load()
 
     connect(m_configHandler.get(), &ConfigHandler::changed, this, &KCMKScreen::changed);
 
-    connect(new GetConfigOperation(), &GetConfigOperation::finished, this, &KCMKScreen::configReady);
+    connect(new GetConfigOperation(GetConfigOperation::NoOptions, this), &GetConfigOperation::finished, this, &KCMKScreen::configReady);
 
     Q_EMIT changed();
 }
