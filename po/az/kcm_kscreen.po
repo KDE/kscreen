@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2026-02-10 22:59+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, kde-format
 msgid "Implementation error"
 msgstr "Tətbiq edilmə xətası"
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Parametrləri tətbiq etməyə cəhd edərkən çıxış dəyişdirildi"
@@ -110,108 +110,108 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Ekranı müəyyənləşdirmək"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Ekran tənzimlənməsi saxlanılsın?"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 saniyəyə əvvəlki tənzimləmələrə qaytarılacaq."
 msgstr[1] "%1 saniyəyə əvvəlki tənzimləməyə qaytarılacaq."
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr "&Saxlayın"
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr "&Geri qaytarın"
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Bütün ekranlar söndürülüb. Ən az birini aktiv edin."
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "Bütün ekranların boşluq olmadan biri birinə toxunduğuna əmin olun."
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Ekran ayarını tətbiq etmək mümkün olmadı: %1"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Yeni çıxış kanalı əlavə olundu. Ayarlar yeniləndi."
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Çıxış kanalı silindi. Ayarlar yeniləndi."
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Heç bir KScreen modulu tapılmadı. Lütfən KScreen quraşdırıldığını yoxlayın."
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Çıxışlar xəta olduğu müddətdə saxlanıla bilməz."
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Ekran tənizmlənməsi geri qaytarıldı."
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Üstünlükləri dəyişin"
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, kde-format
 msgid "Raise priority"
 msgstr "Üstünlüyü artırın"
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, kde-format
 msgid "Lower priority"
 msgstr "Üstünlüyü azaldın"
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Əsas"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Yığmaq"
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

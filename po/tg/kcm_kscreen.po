@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2019-09-27 23:39+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.04.3\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, kde-format
 msgid "Implementation error"
 msgstr ""
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -111,7 +111,7 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr ""
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, fuzzy, kde-format
 #| msgid "Identify"
 msgctxt ""
@@ -119,105 +119,105 @@ msgctxt ""
 msgid "Identify Screens"
 msgstr "Муайянкунӣ"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Keep display configuration?"
 msgstr "Танзимоти экран"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr ""
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr ""
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr ""
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr ""
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Танзимоти экран"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Барориш нав илова карда шуд. Танзимот аз нав бор карда шуд."
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Барориш тоза карда шуд. Танзимот аз нав бор карда шуд."
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Ягон коркардкунандаи KScreen ёфт нашуд. Лутфан, насби KScreen-ро тафтиш "
 "кунед."
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Ба сабаби хато, бароришҳо нигоҳ дошта намешаванд."
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, fuzzy, kde-format
 #| msgid "Display Configuration"
 msgid "Display configuration reverted."
 msgstr "Танзимоти экран"
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr ""
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, kde-format
 msgid "Raise priority"
 msgstr ""
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, kde-format
 msgid "Lower priority"
 msgstr ""
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Асосӣ"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, fuzzy, kde-format
 #| msgid "For any display arrangement"
 msgctxt "@action:button Edit the arrangement of display outputs"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2026-09-19 20:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -22,12 +22,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 26.08.1\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, kde-format
 msgid "Implementation error"
 msgstr "Implementierungsfehler"
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr ""
@@ -121,19 +121,19 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC-Profil auswählen"
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Bildschirme identifizieren"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Anzeigeeinstellungen beibehalten?"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -142,23 +142,23 @@ msgstr[0] ""
 msgstr[1] ""
 "In %1 Sekunden werden die vorherigen Einstellungen wiederhergestellt."
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr "&Beibehalten"
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr "&Zurücksetzen"
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Alle Anzeigen sind deaktiviert. Aktivieren Sie mindestens eine."
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -167,68 +167,68 @@ msgstr ""
 "Lücken zwischen Anzeigen werden nicht unterstützt. Stellen Sie sicher, dass "
 "alle Anzeigen sich berühren."
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Anzeigeeinstellungen können nicht angewendet werden: %1"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr ""
 "Eine neue Ausgabe wurde hinzugefügt. Die Einstellungen wurden neu geladen."
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Eine Ausgabe wurde entfernt. Die Einstellungen wurden neu geladen."
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Es wurde kein KScreen-Backend gefunden. Bitte überprüfen Sie Ihre KScreen-"
 "Installation."
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Ausgaben können aufgrund eines Fehlers nicht gespeichert werden."
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Anzeigeeinstellungen zurückgesetzt."
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Prioritäten verändern"
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, kde-format
 msgid "Raise priority"
 msgstr "Priorität erhöhen"
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, kde-format
 msgid "Lower priority"
 msgstr "Priorität reduzieren"
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Primär"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Einklappen"
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

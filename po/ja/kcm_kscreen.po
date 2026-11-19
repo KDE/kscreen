@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_displayconfiguration\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2026-02-21 14:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, kde-format
 msgid "Implementation error"
 msgstr "実装エラー"
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "設定の適用中に出力が変更されました"
@@ -115,35 +115,35 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "ICC プロファイルを選択"
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "スクリーンを特定する"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "ディスプレイの設定を保持しますか？"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 秒後に元の設定に戻ります。"
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr "保持(&K)"
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr "元に戻す(&R)"
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
@@ -151,7 +151,7 @@ msgstr ""
 "すべてのディスプレイが無効化されています。少なくとも一つのディスプレイを有効"
 "化してください。"
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -160,67 +160,67 @@ msgstr ""
 "ディスプレイ間の間隔はサポートされていません。すべてのディスプレイを接触させ"
 "てください。"
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "ディスプレイの設定を適用できませんでした: %1"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "新しい出力が追加されました。設定が再読み込みされました。"
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "出力が削除されました。設定が再読み込みされました。"
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "KScreen バックエンドが見つかりません。KScreen がインストールされていることを"
 "確認してください。"
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "エラーが発生したため、出力を保存できませんでした。"
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "ディスプレイの設定が元に戻されました。"
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "優先度を変更"
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, kde-format
 msgid "Raise priority"
 msgstr "優先度を上げる"
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, kde-format
 msgid "Lower priority"
 msgstr "優先度を下げる"
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "プライマリ"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "折りたたむ"
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"

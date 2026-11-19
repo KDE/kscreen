@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, fuzzy, kde-format
 msgid "Implementation error"
 msgstr "Σφάλμα υλοποίησης"
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, fuzzy, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Οι οθόνες άλλαξαν κατά την εφαρμογή των ρυθμίσεων"
@@ -118,7 +118,7 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Επιλογή προφίλ ICC"
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, fuzzy, kde-format
 #| msgid "Identify"
 msgctxt ""
@@ -126,35 +126,35 @@ msgctxt ""
 msgid "Identify Screens"
 msgstr "Αναγνώριση"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτο."
 msgstr[1] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτα."
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr "&Διατήρηση"
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr "Επαναφο&ρά"
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Όλες οι οθόνες είναι απενεργοποιημένες. Ενεργοποιήστε τουλάχιστον μία."
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
@@ -163,68 +163,68 @@ msgstr ""
 "Τα κενά μεταξύ οθονών δεν υποστηρίζονται. Βεβαιωθείτε ότι όλες οι οθόνες "
 "εφάπτονται."
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Αδυναμία εφαρμογής ρυθμίσεων οθόνης: %1"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Έχει προστεθεί νέα έξοδος. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Μια έξοδος έχει διαγραφεί. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Δε βρέθηκε σύστημα υποστήριξης για το KScreen. Ελέγξτε την εγκατάσταση του "
 "KScreen."
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Αδυναμία αποθήκευσης των εξόδων εξαιτίας σφάλματος."
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Έγινε επαναφορά στη διαμόρφωση οθόνης."
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Αλλαγή προτεραιοτήτων"
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, fuzzy, kde-format
 msgid "Raise priority"
 msgstr "Αύξηση προτεραιότητας"
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, fuzzy, kde-format
 msgid "Lower priority"
 msgstr "Μείωση προτεραιότητας"
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Κύρια"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, fuzzy, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Σύμπτυξη"
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, fuzzy, kde-format
 #| msgid "Advanced Settings"
 msgctxt "@action:button Edit the arrangement of display outputs"

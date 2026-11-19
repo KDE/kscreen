@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:47+0000\n"
+"POT-Creation-Date: 2026-11-18 10:43+0000\n"
 "PO-Revision-Date: 2026-11-11 23:00+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 26.04.2\n"
 
-#: kcm.cpp:132 kcm.cpp:154
+#: kcm.cpp:168 kcm.cpp:190
 #, kde-format
 msgid "Implementation error"
 msgstr "Ошибка реализации"
 
-#: kcm.cpp:175
+#: kcm.cpp:211
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Конфигурация выходов изменилась при применении параметров"
@@ -117,19 +117,19 @@ msgctxt "@title:window"
 msgid "Select ICC Profile"
 msgstr "Выбор цветового профиля ICC"
 
-#: ui/main.qml:43
+#: ui/main.qml:50
 #, kde-format
 msgctxt ""
 "@action:button Briefly show the display name in a popup label on each screen"
 msgid "Identify Screens"
 msgstr "Определить экраны"
 
-#: ui/main.qml:56
+#: ui/main.qml:63
 #, kde-format
 msgid "Keep display configuration?"
 msgstr "Сохранить параметры экрана?"
 
-#: ui/main.qml:67
+#: ui/main.qml:74
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
@@ -138,90 +138,90 @@ msgstr[1] "Возврат к предыдущей конфигурации бу�
 msgstr[2] "Возврат к предыдущей конфигурации будет выполнен через %1 секунд."
 msgstr[3] "Возврат к предыдущей конфигурации будет выполнен через секунду."
 
-#: ui/main.qml:84
+#: ui/main.qml:91
 #, kde-format
 msgid "&Keep"
 msgstr "&Сохранить"
 
-#: ui/main.qml:97
+#: ui/main.qml:104
 #, kde-format
 msgid "&Revert"
 msgstr "&Отменить"
 
-#: ui/main.qml:117
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Необходимо включить хотя бы один экран."
 
-#: ui/main.qml:119
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Gaps between displays are not supported. Make sure all displays are touching."
 msgstr "Экраны должны соприкасаться друг с другом без промежутков."
 
-#: ui/main.qml:124
+#: ui/main.qml:131
 #, kde-format
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Не удалось применить параметры экрана: %1"
 
-#: ui/main.qml:130
+#: ui/main.qml:137
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Параметры перечитаны после добавления нового устройства."
 
-#: ui/main.qml:132
+#: ui/main.qml:139
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Параметры перечитаны после удаления устройства."
 
-#: ui/main.qml:185
+#: ui/main.qml:197
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Не найдено ни одного модуля поддержки KScreen. Проверьте правильность "
 "установки KScreen."
 
-#: ui/main.qml:194
+#: ui/main.qml:206
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Ошибка сохранения параметров видеовыходов."
 
-#: ui/main.qml:211
+#: ui/main.qml:223
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Параметры экрана восстановлены."
 
-#: ui/main.qml:225
+#: ui/main.qml:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Изменение приоритета"
 
-#: ui/main.qml:264 ui/main.qml:332
+#: ui/main.qml:276 ui/main.qml:344
 #, kde-format
 msgid "Raise priority"
 msgstr "Увеличить приоритет"
 
-#: ui/main.qml:273 ui/main.qml:343
+#: ui/main.qml:285 ui/main.qml:355
 #, kde-format
 msgid "Lower priority"
 msgstr "Уменьшить приоритет"
 
-#: ui/main.qml:326 ui/OutputPanel.qml:54
+#: ui/main.qml:338 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Главный"
 
-#: ui/main.qml:473
+#: ui/main.qml:485
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Свернуть"
 
-#: ui/main.qml:474
+#: ui/main.qml:486
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
