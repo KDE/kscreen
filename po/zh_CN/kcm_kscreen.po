@@ -86,7 +86,7 @@ msgid ""
 "built-in color profiles are sometimes wrong, and often inaccurate. For "
 "optimal color fidelity, calibration using a colorimeter is recommended."
 msgstr ""
-"使用屏幕内建的色彩特性文件 (如果存在)。请注意：屏幕内建的色彩特性文件很可能并"
+"使用屏幕自带的色彩特性文件 (如果存在)。请注意：屏幕自带的色彩特性文件很可能并"
 "不精确，甚至有时会包含错误的数值。为了保证显示色彩的准确性，建议使用校色仪进"
 "行色彩校准。"
 

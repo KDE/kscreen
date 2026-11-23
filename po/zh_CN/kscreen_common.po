@@ -25,7 +25,7 @@ msgstr "仅使用外接屏幕"
 #: osdaction.cpp:28
 #, kde-format
 msgid "Only use built-in screen"
-msgstr "仅使用内建屏幕"
+msgstr "仅使用自带屏幕"
 
 #: osdaction.cpp:29
 #, kde-format
@@ -35,12 +35,12 @@ msgstr "镜像屏幕"
 #: osdaction.cpp:30
 #, kde-format
 msgid "Extend to left of built-in screen"
-msgstr "扩展到内建屏幕左侧"
+msgstr "扩展到自带屏幕左侧"
 
 #: osdaction.cpp:31
 #, kde-format
 msgid "Extend to right of built-in screen"
-msgstr "扩展到内建屏幕右侧"
+msgstr "扩展到自带屏幕右侧"
 
 #: osdaction.cpp:32
 #, kde-format
@@ -50,4 +50,4 @@ msgstr "保持不变"
 #: utils.cpp:22
 #, kde-format
 msgid "Built-in Screen"
-msgstr "内置屏幕"
+msgstr "自带屏幕"
