@@ -18,7 +18,6 @@ ecm_qt_declare_logging_category(kcm_kscreen
      DESCRIPTION "kscreen kcm (kscreen)" EXPORT KSCREEN
 )
 
-kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC globalscalesettings.kcfgc)
 kconfig_add_kcfg_files(kcm_kscreen GENERATE_MOC kwincompositing_setting.kcfgc)
 target_link_libraries(kcm_kscreen PRIVATE
     kscreen_common

@@ -30,7 +30,6 @@ class KCMKScreen : public KQuickManagedConfigModule
     Q_PROPERTY(bool backendReady READ backendReady NOTIFY backendReadyChanged)
     Q_PROPERTY(bool screenNormalized READ screenNormalized NOTIFY screenNormalizedChanged)
     Q_PROPERTY(bool tabletModeAvailable READ tabletModeAvailable NOTIFY tabletModeAvailableChanged)
-    Q_PROPERTY(bool xwaylandClientsScale READ xwaylandClientsScale WRITE setXwaylandClientsScale NOTIFY xwaylandClientsScaleChanged)
     Q_PROPERTY(bool tearingAllowed READ allowTearing WRITE setAllowTearing NOTIFY tearingAllowedChanged)
     Q_PROPERTY(bool multipleScreensAvailable READ multipleScreensAvailable NOTIFY multipleScreensAvailableChanged)
     Q_PROPERTY(QString defaultSelectedOutputName READ defaultSelectedOutputName NOTIFY defaultSelectedOutputNameChanged)
@@ -60,9 +59,6 @@ public:
 
     Q_INVOKABLE QSize normalizeScreen() const;
     bool screenNormalized() const;
-
-    bool xwaylandClientsScale() const;
-    void setXwaylandClientsScale(bool scale);
 
     void setAllowTearing(bool allow);
     bool allowTearing() const;
@@ -98,9 +94,9 @@ Q_SIGNALS:
     void errorOnSave(const QString &errorReason);
     void outputConnect(bool connected);
     void settingsReverted();
-    void xwaylandClientsScaleChanged();
     void tearingAllowedChanged();
     void multipleScreensAvailableChanged();
+    void xwaylandClientsScaleChanged();
 
 private:
     void setBackendReady(bool error);

@@ -58,37 +58,8 @@ ColumnLayout {
         Layout.fillWidth: true
         visible: panelsRepeater.count > 0
 
-        QQC2.ButtonGroup {
-            id: x11AppsScaling
-            onClicked: kcm.xwaylandClientsScale = (checkedButton === x11ScalingApps)
-        }
-
         Kirigami.FormGroup {
             id: globalSettingsGroup
-
-            Kirigami.FormEntry {
-                title: i18n("Legacy applications (X11):")
-                contentItem: QQC2.RadioButton {
-                    id: x11ScalingApps
-                    text: i18nc("The apps themselves should scale to fit the displays", "Apply scaling themselves")
-                    checked: kcm.xwaylandClientsScale
-                    QQC2.ButtonGroup.group: x11AppsScaling
-                }
-                trailingItems: Kirigami.ContextualHelpButton {
-                    toolTipText: i18n("Legacy applications that support scaling will use it and look crisp, however those that don’t will not be scaled at all.")
-                }
-            }
-
-            Kirigami.FormEntry {
-                contentItem: QQC2.RadioButton {
-                    text: i18nc("The system will perform the x11 apps scaling", "Scaled by the system")
-                    checked: !kcm.xwaylandClientsScale
-                    QQC2.ButtonGroup.group: x11AppsScaling
-                }
-                trailingItems: Kirigami.ContextualHelpButton {
-                    toolTipText: i18n("All legacy applications will be scaled by the system to the correct size, however they will always look slightly blurry.")
-                }
-            }
 
             Kirigami.FormEntry {
                 title: i18nc("@label", "Screen tearing:")

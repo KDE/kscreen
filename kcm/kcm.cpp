@@ -9,7 +9,6 @@
 
 #include "common/control.h"
 #include "config_handler.h"
-#include "globalscalesettings.h"
 #include "kcm_screen_debug.h"
 #include "kwincompositing_setting.h"
 
@@ -76,8 +75,6 @@ KCMKScreen::KCMKScreen(QObject *parent, const KPluginMetaData &data, const QVari
     connect(m_loadCompressor, &QTimer::timeout, this, &KCMKScreen::load);
 
     connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &KCMKScreen::updateFromBackend);
-
-    registerSettings(GlobalScaleSettings::self());
 
     registerSettings(KWinCompositingSetting::self());
     connect(KWinCompositingSetting::self(), &KWinCompositingSetting::allowTearingChanged, this, &KCMKScreen::tearingAllowedChanged);
@@ -412,17 +409,6 @@ void KCMKScreen::continueNeedsSaveCheck(bool needs)
 bool KCMKScreen::isSaveNeeded() const
 {
     return m_configNeedsSave;
-}
-
-bool KCMKScreen::xwaylandClientsScale() const
-{
-    return GlobalScaleSettings::self()->xwaylandClientsScale();
-}
-
-void KCMKScreen::setXwaylandClientsScale(bool scale)
-{
-    GlobalScaleSettings::self()->setXwaylandClientsScale(scale);
-    Q_EMIT changed();
 }
 
 void KCMKScreen::setAllowTearing(bool allow)
