@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-18 10:43+0000\n"
-"PO-Revision-Date: 2026-05-08 12:27+0200\n"
+"PO-Revision-Date: 2026-11-20 18:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -324,7 +324,7 @@ msgstr "en percentatge de l'escala normal"
 #, kde-format
 msgctxt "Global scale factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:154
 #, kde-format
@@ -371,7 +371,7 @@ msgstr "Sobreexploració:"
 #, kde-format
 msgctxt "Overscan expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:220
 #, kde-kuit-format
@@ -491,8 +491,8 @@ msgid ""
 "performance at the cost of color accuracy.<nl/><nl/>Note that changing this "
 "setting can have a large impact on performance."
 msgstr ""
-"Preferir l'eficiència simplifica el perfil ICC a matrix+shaper, millorant el "
-"rendiment a costa de la precisió del color.<nl/><nl/>Cal tindre en compte "
+"Preferir l'eficiència simplifica el perfil ICC a «matrix+shaper», millorant "
+"el rendiment a costa de la precisió del color.<nl/><nl/>Cal tindre en compte "
 "que canviar este paràmetre pot tindre un impacte gran en el rendiment."
 
 #: ui/OutputPanel.qml:373
@@ -563,7 +563,7 @@ msgstr "Intensitat de color de l'sRGB:"
 #, kde-format
 msgctxt "Color intensity factor expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:478
 #, kde-format
@@ -615,7 +615,7 @@ msgstr ""
 #, kde-format
 msgctxt "Brightness expressed in percentage form"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/OutputPanel.qml:579
 #, kde-format
