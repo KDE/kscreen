@@ -140,7 +140,7 @@ KCM.AbstractKCM {
             }
             connectMsg.visible = true;
         }
-        function onDefaultSelectedOutputChanged(name) {
+        function onDefaultSelectedOutputNameChanged(name) {
             if (name) {
                 root.selectedOutput = Qt.binding(firstEnabledDisplayIndex);
             }
