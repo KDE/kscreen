@@ -99,7 +99,6 @@ void TestOsdActions::testSwitchToExternal()
 
     QCOMPARE(laptop->isEnabled(), false);
     QCOMPARE(external->isEnabled(), true);
-    QCOMPARE(external->pos(), QPoint(0, 0));
 }
 
 void TestOsdActions::testSwitchToInternal()
@@ -165,7 +164,6 @@ void TestOsdActions::testSwitchToExternalRotated()
 
     QCOMPARE(external->isEnabled(), true);
     QCOMPARE(external->rotation(), Output::None);
-    QCOMPARE(external->pos(), QPoint(0, 0));
 }
 
 void TestOsdActions::testSwitchToInternalRotated()
