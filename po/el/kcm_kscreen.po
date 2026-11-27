@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 10:43+0000\n"
+"POT-Creation-Date: 2026-11-26 11:24+0000\n"
 "PO-Revision-Date: 2021-11-06 11:19+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: kcm.cpp:168 kcm.cpp:190
+#: kcm.cpp:176 kcm.cpp:198
 #, fuzzy, kde-format
 msgid "Implementation error"
 msgstr "Σφάλμα υλοποίησης"
 
-#: kcm.cpp:211
+#: kcm.cpp:221
 #, fuzzy, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "Οι οθόνες άλλαξαν κατά την εφαρμογή των ρυθμίσεων"
@@ -131,30 +131,30 @@ msgstr "Αναγνώριση"
 msgid "Keep display configuration?"
 msgstr "Να διατηρηθεί η διαμόρφωση οθόνης;"
 
-#: ui/main.qml:74
+#: ui/main.qml:73
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτο."
 msgstr[1] "Θα γίνει επαναφορά σε προηγούμενη διαμόρφωση σε %1 δευτερόλεπτα."
 
-#: ui/main.qml:91
+#: ui/main.qml:90
 #, kde-format
 msgid "&Keep"
 msgstr "&Διατήρηση"
 
-#: ui/main.qml:104
+#: ui/main.qml:103
 #, kde-format
 msgid "&Revert"
 msgstr "Επαναφο&ρά"
 
-#: ui/main.qml:124
+#: ui/main.qml:122
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "Όλες οι οθόνες είναι απενεργοποιημένες. Ενεργοποιήστε τουλάχιστον μία."
 
-#: ui/main.qml:126
+#: ui/main.qml:124
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
@@ -163,68 +163,68 @@ msgstr ""
 "Τα κενά μεταξύ οθονών δεν υποστηρίζονται. Βεβαιωθείτε ότι όλες οι οθόνες "
 "εφάπτονται."
 
-#: ui/main.qml:131
+#: ui/main.qml:129
 #, fuzzy, kde-format
 #| msgid "Keep display configuration?"
 msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "Αδυναμία εφαρμογής ρυθμίσεων οθόνης: %1"
 
-#: ui/main.qml:137
+#: ui/main.qml:135
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "Έχει προστεθεί νέα έξοδος. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: ui/main.qml:139
+#: ui/main.qml:137
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "Μια έξοδος έχει διαγραφεί. Οι ρυθμίσεις έχουν ανανεωθεί."
 
-#: ui/main.qml:197
+#: ui/main.qml:195
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr ""
 "Δε βρέθηκε σύστημα υποστήριξης για το KScreen. Ελέγξτε την εγκατάσταση του "
 "KScreen."
 
-#: ui/main.qml:206
+#: ui/main.qml:204
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "Αδυναμία αποθήκευσης των εξόδων εξαιτίας σφάλματος."
 
-#: ui/main.qml:223
+#: ui/main.qml:221
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "Έγινε επαναφορά στη διαμόρφωση οθόνης."
 
-#: ui/main.qml:237
+#: ui/main.qml:235
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "Αλλαγή προτεραιοτήτων"
 
-#: ui/main.qml:276 ui/main.qml:344
+#: ui/main.qml:274 ui/main.qml:342
 #, fuzzy, kde-format
 msgid "Raise priority"
 msgstr "Αύξηση προτεραιότητας"
 
-#: ui/main.qml:285 ui/main.qml:355
+#: ui/main.qml:283 ui/main.qml:353
 #, fuzzy, kde-format
 msgid "Lower priority"
 msgstr "Μείωση προτεραιότητας"
 
-#: ui/main.qml:338 ui/OutputPanel.qml:54
+#: ui/main.qml:336 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "Κύρια"
 
-#: ui/main.qml:485
+#: ui/main.qml:483
 #, fuzzy, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr "Σύμπτυξη"
 
-#: ui/main.qml:486
+#: ui/main.qml:484
 #, fuzzy, kde-format
 #| msgid "Advanced Settings"
 msgctxt "@action:button Edit the arrangement of display outputs"
@@ -679,57 +679,21 @@ msgstr ""
 msgid "Replica of:"
 msgstr "Αντίγραφο της:"
 
-#: ui/Panel.qml:70
-#, fuzzy, kde-format
-msgid "Legacy applications (X11):"
-msgstr "Παλαιές εφαρμογές (X11):"
-
-#: ui/Panel.qml:73
-#, fuzzy, kde-format
-msgctxt "The apps themselves should scale to fit the displays"
-msgid "Apply scaling themselves"
-msgstr "Εφαρμόζουν μόνες τους την κλιμάκωση"
-
-#: ui/Panel.qml:78
-#, fuzzy, kde-format
-msgid ""
-"Legacy applications that support scaling will use it and look crisp, however "
-"those that don’t will not be scaled at all."
-msgstr ""
-"Οι παλαιές εφαρμογές που υποστηρίζουν κλιμάκωση θα τη χρησιμοποιούν και θα "
-"φαίνονται καθαρές, ενώ όσες δεν την υποστηρίζουν δεν θα κλιμακώνονται "
-"καθόλου."
-
-#: ui/Panel.qml:84
-#, fuzzy, kde-format
-msgctxt "The system will perform the x11 apps scaling"
-msgid "Scaled by the system"
-msgstr "Κλιμάκωση από το σύστημα"
-
-#: ui/Panel.qml:89
-#, fuzzy, kde-format
-msgid ""
-"All legacy applications will be scaled by the system to the correct size, "
-"however they will always look slightly blurry."
-msgstr ""
-"Όλες οι παλαιές εφαρμογές θα κλιμακώνονται από το σύστημα στο σωστό μέγεθος, "
-"αλλά θα φαίνονται πάντα ελαφρώς θολές."
-
-#: ui/Panel.qml:94
+#: ui/Panel.qml:65
 #, fuzzy, kde-format
 #| msgid "Screen Scaling"
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "Κλιμάκωση οθόνης"
 
-#: ui/Panel.qml:96
+#: ui/Panel.qml:67
 #, fuzzy, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "Να επιτρέπεται σε παράθυρα πλήρους οθόνης"
 
-#: ui/Panel.qml:101
+#: ui/Panel.qml:72
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -763,6 +727,37 @@ msgstr "Χωρίς περιστροφή"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Με έλξη των οθονών γίνεται ανα-διευθέτηση"
+
+#, fuzzy
+#~ msgid "Legacy applications (X11):"
+#~ msgstr "Παλαιές εφαρμογές (X11):"
+
+#, fuzzy
+#~ msgctxt "The apps themselves should scale to fit the displays"
+#~ msgid "Apply scaling themselves"
+#~ msgstr "Εφαρμόζουν μόνες τους την κλιμάκωση"
+
+#, fuzzy
+#~ msgid ""
+#~ "Legacy applications that support scaling will use it and look crisp, "
+#~ "however those that don’t will not be scaled at all."
+#~ msgstr ""
+#~ "Οι παλαιές εφαρμογές που υποστηρίζουν κλιμάκωση θα τη χρησιμοποιούν και "
+#~ "θα φαίνονται καθαρές, ενώ όσες δεν την υποστηρίζουν δεν θα κλιμακώνονται "
+#~ "καθόλου."
+
+#, fuzzy
+#~ msgctxt "The system will perform the x11 apps scaling"
+#~ msgid "Scaled by the system"
+#~ msgstr "Κλιμάκωση από το σύστημα"
+
+#, fuzzy
+#~ msgid ""
+#~ "All legacy applications will be scaled by the system to the correct size, "
+#~ "however they will always look slightly blurry."
+#~ msgstr ""
+#~ "Όλες οι παλαιές εφαρμογές θα κλιμακώνονται από το σύστημα στο σωστό "
+#~ "μέγεθος, αλλά θα φαίνονται πάντα ελαφρώς θολές."
 
 #, fuzzy
 #~| msgid ""

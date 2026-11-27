@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 10:43+0000\n"
+"POT-Creation-Date: 2026-11-26 11:24+0000\n"
 "PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: kcm.cpp:168 kcm.cpp:190
+#: kcm.cpp:176 kcm.cpp:198
 #, kde-format
 msgid "Implementation error"
 msgstr "कार्यान्वयनदोषः"
 
-#: kcm.cpp:211
+#: kcm.cpp:221
 #, kde-format
 msgid "Outputs changed while trying to apply settings"
 msgstr "सेटिङ्ग्स् प्रयोक्तुं प्रयतमाने आउटपुट् परिवर्तिताः"
@@ -135,30 +135,30 @@ msgstr "पटलान् चिनुत"
 msgid "Keep display configuration?"
 msgstr "प्रदर्शनविन्यासः स्थापयतु?"
 
-#: ui/main.qml:74
+#: ui/main.qml:73
 #, kde-format
 msgid "Will revert to previous configuration in %1 second."
 msgid_plural "Will revert to previous configuration in %1 seconds."
 msgstr[0] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
 msgstr[1] "%1 सेकण्ड् मध्ये पूर्वविन्यासं प्रति प्रत्यागमिष्यति ।"
 
-#: ui/main.qml:91
+#: ui/main.qml:90
 #, kde-format
 msgid "&Keep"
 msgstr "&स्थापय"
 
-#: ui/main.qml:104
+#: ui/main.qml:103
 #, kde-format
 msgid "&Revert"
 msgstr "&प्रत्यावर्तनम्"
 
-#: ui/main.qml:124
+#: ui/main.qml:122
 #, kde-format
 msgctxt "@info"
 msgid "All displays are disabled. Enable at least one."
 msgstr "सर्वाणि प्रदर्शनानि अक्षमानि सन्ति। न्यूनातिन्यूनम् एकं सक्षमं कुर्वन्तु।"
 
-#: ui/main.qml:126
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -167,7 +167,7 @@ msgstr ""
 "प्रदर्शनानां मध्ये अन्तरालः समर्थितः नास्ति । सर्वे प्रदर्शनाः स्पर्शप्रदाः सन्ति इति "
 "सुनिश्चितं कुर्वन्तु।"
 
-#: ui/main.qml:131
+#: ui/main.qml:129
 #, fuzzy, kde-format
 #| msgctxt "The argument contains the reason for the failure"
 #| msgid "Couldn't apply display configuration: %1"
@@ -175,59 +175,59 @@ msgctxt "The argument contains the reason for the failure"
 msgid "Couldn’t apply display configuration: %1"
 msgstr "प्रदर्शनविन्यासं प्रयोक्तुं न शक्तम्: %1"
 
-#: ui/main.qml:137
+#: ui/main.qml:135
 #, kde-format
 msgid "A new output has been added. Settings have been reloaded."
 msgstr "नूतनं आउटपुट् योजितम् अस्ति । सेटिङ्ग्स् पुनः लोड् कृताः सन्ति ।"
 
-#: ui/main.qml:139
+#: ui/main.qml:137
 #, kde-format
 msgid "An output has been removed. Settings have been reloaded."
 msgstr "एकं आउटपुट् निष्कासितम् अस्ति। सेटिङ्ग्स् पुनः लोड् कृताः सन्ति ।"
 
-#: ui/main.qml:197
+#: ui/main.qml:195
 #, kde-format
 msgid "No KScreen backend found. Please check your KScreen installation."
 msgstr "KScreen पृष्ठभागः न प्राप्तः । कृपया स्वस्य KScreen संस्थापनं पश्यन्तु।"
 
-#: ui/main.qml:206
+#: ui/main.qml:204
 #, kde-format
 msgid "Outputs could not be saved due to error."
 msgstr "त्रुटिकारणात् आउटपुट् रक्षितुं न शक्यते स्म ।"
 
-#: ui/main.qml:223
+#: ui/main.qml:221
 #, kde-format
 msgid "Display configuration reverted."
 msgstr "प्रदर्शनविन्यासः प्रत्यागतः ।"
 
-#: ui/main.qml:237
+#: ui/main.qml:235
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Priorities"
 msgstr "प्राथमिकता परिवर्तयन्तु"
 
-#: ui/main.qml:276 ui/main.qml:344
+#: ui/main.qml:274 ui/main.qml:342
 #, kde-format
 msgid "Raise priority"
 msgstr "प्राथमिकताम् उत्थापयन्तु"
 
-#: ui/main.qml:285 ui/main.qml:355
+#: ui/main.qml:283 ui/main.qml:353
 #, kde-format
 msgid "Lower priority"
 msgstr "निम्न प्राथमिकता"
 
-#: ui/main.qml:338 ui/OutputPanel.qml:54
+#: ui/main.qml:336 ui/OutputPanel.qml:54
 #, kde-format
 msgid "Primary"
 msgstr "प्राथमिक"
 
-#: ui/main.qml:485
+#: ui/main.qml:483
 #, kde-format
 msgctxt "@action:button Shrink the height of a view"
 msgid "Collapse"
 msgstr ""
 
-#: ui/main.qml:486
+#: ui/main.qml:484
 #, kde-format
 msgctxt "@action:button Edit the arrangement of display outputs"
 msgid "Edit Arrangement"
@@ -669,58 +669,20 @@ msgstr ""
 msgid "Replica of:"
 msgstr "प्रतिकृतिः :"
 
-#: ui/Panel.qml:70
-#, kde-format
-msgid "Legacy applications (X11):"
-msgstr "विरासत अनुप्रयोग (X11): 1.1."
-
-#: ui/Panel.qml:73
-#, kde-format
-msgctxt "The apps themselves should scale to fit the displays"
-msgid "Apply scaling themselves"
-msgstr "स्वयं स्केलिंग् प्रयोजयन्तु"
-
-#: ui/Panel.qml:78
-#, fuzzy, kde-format
-#| msgid ""
-#| "Legacy applications that support scaling will use it and look crisp, "
-#| "however those that don't will not be scaled at all."
-msgid ""
-"Legacy applications that support scaling will use it and look crisp, however "
-"those that don’t will not be scaled at all."
-msgstr ""
-"स्केलिंग् समर्थयन्ति ये विरासतः अनुप्रयोगाः तस्य उपयोगं करिष्यन्ति तथा च कुरकुराणि दृश्यन्ते "
-"तथापि ये न कुर्वन्ति ते सर्वथा स्केल न भविष्यन्ति ।"
-
-#: ui/Panel.qml:84
-#, kde-format
-msgctxt "The system will perform the x11 apps scaling"
-msgid "Scaled by the system"
-msgstr "प्रणाल्याः स्केलः कृतः"
-
-#: ui/Panel.qml:89
-#, kde-format
-msgid ""
-"All legacy applications will be scaled by the system to the correct size, "
-"however they will always look slightly blurry."
-msgstr ""
-"सर्वे विरासतः अनुप्रयोगाः प्रणाल्याः समीचीनप्रमाणेन स्केल भविष्यन्ति, तथापि ते सर्वदा "
-"किञ्चित् धुन्धलाः दृश्यन्ते ।"
-
-#: ui/Panel.qml:94
+#: ui/Panel.qml:65
 #, kde-format
 msgctxt "@label"
 msgid "Screen tearing:"
 msgstr "पटलस्य विदारनम् :"
 
-#: ui/Panel.qml:96
+#: ui/Panel.qml:67
 #, kde-format
 msgctxt ""
 "@option:check The thing being allowed in fullscreen windows is screen tearing"
 msgid "Allow in fullscreen windows"
 msgstr "पूर्णपर्दे विण्डोषु अनुमतिं ददातु"
 
-#: ui/Panel.qml:101
+#: ui/Panel.qml:72
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -754,6 +716,35 @@ msgstr "न परिभ्रमणम्"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "पुनः व्यवस्थापयितुं पटलान् कर्षयन्तु"
+
+#~ msgid "Legacy applications (X11):"
+#~ msgstr "विरासत अनुप्रयोग (X11): 1.1."
+
+#~ msgctxt "The apps themselves should scale to fit the displays"
+#~ msgid "Apply scaling themselves"
+#~ msgstr "स्वयं स्केलिंग् प्रयोजयन्तु"
+
+#, fuzzy
+#~| msgid ""
+#~| "Legacy applications that support scaling will use it and look crisp, "
+#~| "however those that don't will not be scaled at all."
+#~ msgid ""
+#~ "Legacy applications that support scaling will use it and look crisp, "
+#~ "however those that don’t will not be scaled at all."
+#~ msgstr ""
+#~ "स्केलिंग् समर्थयन्ति ये विरासतः अनुप्रयोगाः तस्य उपयोगं करिष्यन्ति तथा च कुरकुराणि दृश्यन्ते "
+#~ "तथापि ये न कुर्वन्ति ते सर्वथा स्केल न भविष्यन्ति ।"
+
+#~ msgctxt "The system will perform the x11 apps scaling"
+#~ msgid "Scaled by the system"
+#~ msgstr "प्रणाल्याः स्केलः कृतः"
+
+#~ msgid ""
+#~ "All legacy applications will be scaled by the system to the correct size, "
+#~ "however they will always look slightly blurry."
+#~ msgstr ""
+#~ "सर्वे विरासतः अनुप्रयोगाः प्रणाल्याः समीचीनप्रमाणेन स्केल भविष्यन्ति, तथापि ते सर्वदा "
+#~ "किञ्चित् धुन्धलाः दृश्यन्ते ।"
 
 #~ msgid ""
 #~ "Global scale changes will come into effect after the system is restarted."
