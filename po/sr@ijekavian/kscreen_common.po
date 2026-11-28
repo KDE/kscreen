@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2026-10-02 11:27+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -19,32 +19,43 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: osdaction.cpp:27
-#, kde-format
-msgid "Only use external screen"
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Use all screens"
 msgstr "Користи само спољашњи екран"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:36
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Only use external screen"
+msgid_plural "Only use external screens"
+msgstr[0] "Користи само спољашњи екран"
+msgstr[1] "Користи само спољашњи екран"
+msgstr[2] "Користи само спољашњи екран"
+msgstr[3] "Користи само спољашњи екран"
+
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Користи само уграђени екран"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr "Пресликај екране"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Прошири лијево од уграђеног екрана"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Прошири десно од уграђеног екрана"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "не дирај"

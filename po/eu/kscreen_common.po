@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2026-07-21 21:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,32 +20,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 26.04.3\n"
 
-#: osdaction.cpp:27
-#, kde-format
-msgid "Only use external screen"
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Use all screens"
 msgstr "Kanpoko pantaila bakarrik erabili"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:36
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Only use external screen"
+msgid_plural "Only use external screens"
+msgstr[0] "Kanpoko pantaila bakarrik erabili"
+msgstr[1] "Kanpoko pantaila bakarrik erabili"
+
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Barneratutako pantaila bakarrik erabili"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr "Islatu pantailak"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Hedatu barneratutako pantailaren ezkerrera"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Hedatu barneratutako pantailaren eskuinera"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Utzi aldatzeke"

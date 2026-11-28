@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,32 +17,40 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kscreen/kscreen_common.pot\n"
 "X-Crowdin-File-ID: 42699\n"
 
-#: osdaction.cpp:27
-#, kde-format
-msgid "Only use external screen"
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Use all screens"
 msgstr "仅使用外接屏幕"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:36
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Only use external screen"
+msgid_plural "Only use external screens"
+msgstr[0] "仅使用外接屏幕"
+
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "仅使用自带屏幕"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr "镜像屏幕"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "扩展到自带屏幕左侧"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "扩展到自带屏幕右侧"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "保持不变"

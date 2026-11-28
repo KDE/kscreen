@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2025-08-03 12:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,32 +18,45 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: osdaction.cpp:27
-#, kde-format
-msgid "Only use external screen"
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Use all screens"
 msgstr "استخدم شاشة خارجية فقط"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:36
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Only use external screen"
+msgid_plural "Only use external screens"
+msgstr[0] "استخدم شاشة خارجية فقط"
+msgstr[1] "استخدم شاشة خارجية فقط"
+msgstr[2] "استخدم شاشة خارجية فقط"
+msgstr[3] "استخدم شاشة خارجية فقط"
+msgstr[4] "استخدم شاشة خارجية فقط"
+msgstr[5] "استخدم شاشة خارجية فقط"
+
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "استخدم الشاشة المُدْمَجة فقط"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr "اعكس الشاشات"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "يمدد إلى يسار الشاشة المدمجة"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "يمدد إلى يمين الشاشة المدمجة"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "اتركه دون تغيير"

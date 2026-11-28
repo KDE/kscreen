@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2022-07-06 17:38+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,34 +17,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.2\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Use all screens"
+msgstr "Xarici ekrana keçin"
+
+#: osdaction.cpp:36
 #, fuzzy, kde-format
 #| msgid "Switch to external screen"
 msgid "Only use external screen"
-msgstr "Xarici ekrana keçin"
+msgid_plural "Only use external screens"
+msgstr[0] "Xarici ekrana keçin"
+msgstr[1] "Xarici ekrana keçin"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr ""
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr ""
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr ""
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, fuzzy, kde-format
 #| msgid "Extend to right"
 msgid "Extend to right of built-in screen"
 msgstr "Sağa genişləndiirn"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Dəyişdirmədən çıxın"

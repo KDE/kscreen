@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2025-10-23 15:02+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -18,32 +18,41 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: osdaction.cpp:27
-#, kde-format
-msgid "Only use external screen"
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Use all screens"
 msgstr "Aðeins nota ytri skjáinn"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:36
+#, fuzzy, kde-format
+#| msgid "Only use external screen"
+msgid "Only use external screen"
+msgid_plural "Only use external screens"
+msgstr[0] "Aðeins nota ytri skjáinn"
+msgstr[1] "Aðeins nota ytri skjáinn"
+
+#: osdaction.cpp:38
 #, kde-format
 msgid "Only use built-in screen"
 msgstr "Aðeins nota innbyggða skjáinn"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr "Spegla skjám"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Framlengja til vinstri við innbyggða skjáinn"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, kde-format
 msgid "Extend to right of built-in screen"
 msgstr "Framlengja til hægri við innbyggða skjáinn"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Halda óbreyttu"

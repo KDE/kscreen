@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2021-06-28 15:19+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,34 +18,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Use all screens"
+msgstr "Εναλλαγή σε εξωτερική οθόνη"
+
+#: osdaction.cpp:36
 #, fuzzy, kde-format
 #| msgid "Switch to external screen"
 msgid "Only use external screen"
-msgstr "Εναλλαγή σε εξωτερική οθόνη"
+msgid_plural "Only use external screens"
+msgstr[0] "Εναλλαγή σε εξωτερική οθόνη"
+msgstr[1] "Εναλλαγή σε εξωτερική οθόνη"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:38
 #, fuzzy, kde-format
 msgid "Only use built-in screen"
 msgstr "Μόνο ενσωματωμένη οθόνη"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, fuzzy, kde-format
 msgid "Mirror screens"
 msgstr "Κατοπτρισμός οθονών"
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, fuzzy, kde-format
 msgid "Extend to left of built-in screen"
 msgstr "Επέκταση αριστερά της ενσωματωμένης οθόνης"
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, fuzzy, kde-format
 #| msgid "Extend to right"
 msgid "Extend to right of built-in screen"
 msgstr "Επέκταση στα δεξιά"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Να μείνει απαράλλακτο"

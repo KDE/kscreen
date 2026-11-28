@@ -684,28 +684,3 @@ msgstr "Ingen rotering"
 #, kde-format
 msgid "Drag screens to re-arrange them"
 msgstr "Dra skjermene for å bytte skjermplassering"
-
-#~ msgid "Legacy applications (X11):"
-#~ msgstr "Eldre programmer (X11):"
-
-#~ msgctxt "The apps themselves should scale to fit the displays"
-#~ msgid "Apply scaling themselves"
-#~ msgstr "Skalerer seg selv"
-
-#~ msgid ""
-#~ "Legacy applications that support scaling will use it and look crisp, "
-#~ "however those that don’t will not be scaled at all."
-#~ msgstr ""
-#~ "Eldre program som støtter skalering, vil bruke det og se klare ut, men de "
-#~ "som ikke støtter det, skaleres ikke i det hele tatt."
-
-#~ msgctxt "The system will perform the x11 apps scaling"
-#~ msgid "Scaled by the system"
-#~ msgstr "Skalert av systemet"
-
-#~ msgid ""
-#~ "All legacy applications will be scaled by the system to the correct size, "
-#~ "however they will always look slightly blurry."
-#~ msgstr ""
-#~ "Alle eldre program skaleres av systemet til rett størrelse, men de kan da "
-#~ "ses litt uklare ut."

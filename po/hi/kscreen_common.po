@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscreen\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-27 00:46+0000\n"
+"POT-Creation-Date: 2026-11-27 14:28+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -17,35 +17,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: osdaction.cpp:27
+#: osdaction.cpp:34
+#, fuzzy, kde-format
+#| msgid "Switch to external screen"
+msgid "Use all screens"
+msgstr "बाहरी स्क्रीन पर स्विच करें"
+
+#: osdaction.cpp:36
 #, fuzzy, kde-format
 #| msgid "Switch to external screen"
 msgid "Only use external screen"
-msgstr "बाहरी स्क्रीन पर स्विच करें"
+msgid_plural "Only use external screens"
+msgstr[0] "बाहरी स्क्रीन पर स्विच करें"
+msgstr[1] "बाहरी स्क्रीन पर स्विच करें"
 
-#: osdaction.cpp:28
+#: osdaction.cpp:38
 #, fuzzy, kde-format
 #| msgid "Built-in Screen"
 msgid "Only use built-in screen"
 msgstr "अंतर्निर्मित स्क्रीन"
 
-#: osdaction.cpp:29
+#: osdaction.cpp:39
 #, kde-format
 msgid "Mirror screens"
 msgstr ""
 
-#: osdaction.cpp:30
+#: osdaction.cpp:40
 #, kde-format
 msgid "Extend to left of built-in screen"
 msgstr ""
 
-#: osdaction.cpp:31
+#: osdaction.cpp:41
 #, fuzzy, kde-format
 #| msgid "Extend to right"
 msgid "Extend to right of built-in screen"
 msgstr "दाईं ओर बढ़ाएँ"
 
-#: osdaction.cpp:32
+#: osdaction.cpp:42
 #, kde-format
 msgid "Leave unchanged"
 msgstr "अपरिवर्तित छोड़ें"
